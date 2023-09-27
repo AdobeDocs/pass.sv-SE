@@ -2,9 +2,9 @@
 title: Android-programregistrering
 description: Android-programregistrering
 exl-id: 6238bd87-ac97-4a5c-9d92-3631f7b2d46a
-source-git-commit: 59672b44074c472094ed27a23d6bfbcd7654c901
+source-git-commit: 1b8371a314488335c68c82882c930b7c19aa64ad
 workflow-type: tm+mt
-source-wordcount: '598'
+source-wordcount: '585'
 ht-degree: 0%
 
 ---
@@ -17,41 +17,55 @@ ht-degree: 0%
 
 ## Introduktion {#intro}
 
-Från och med version 3.0 av Android AccessEnabler SDK ändrar vi autentiseringsmekanismen med Adobe-servrar. I stället för att använda en offentlig nyckel och ett hemligt system för att signera beställar-ID introducerar vi konceptet med en programsatssträng som kan användas för att få en åtkomsttoken som senare används för alla anrop som SDK gör till våra servrar. Förutom en programsats måste du också skapa en länk till programmet.
+Från och med version 3.0 av Android AccessEnabler SDK ändrar vi autentiseringsmekanismen med Adobe-servrar. I stället för att använda en offentlig nyckel och ett hemligt system för att signera begärande-ID introducerar vi begreppet programsatssträng som kan användas för att få en åtkomsttoken som senare används för alla anrop som SDK gör till våra servrar. Förutom en programsats måste du också skapa en djup länk till programmet.
 
 Mer information finns i [Dynamisk klientregistrering](/help/authentication/dynamic-client-registration.md)
 
 ## Vad är en programsats? {#what}
 
-En programsats är en JWT-token som innehåller information om programmet. Alla program ska ha en unik programsats som används av våra servrar för att identifiera programmet i Adobe system. Programsatsen måste skickas när du initierar AccessEnabler SDK och den används för att registrera programmet hos Adobe. Vid registreringen får SDK ett klient-ID och en klienthemlighet som används för att hämta en åtkomsttoken. Alla anrop som SDK gör till våra servrar kräver en giltig åtkomsttoken. SDK:n ansvarar för att registrera programmet, hämta och uppdatera åtkomsttoken.
+En programsats är en JWT-token som innehåller information om programmet. Alla program ska ha en unik programvarusats som används av våra servrar för att identifiera programmet i Adobe-systemet.
+
+Programsatsen måste skickas när du initierar `AccessEnabler` SDK. Den används för att registrera programmet hos Adobe. Vid registrering får SDK ett klient-ID och en klienthemlighet, som används för att hämta en åtkomsttoken. Alla anrop som SDK gör till Adobe-servrar kräver en giltig åtkomsttoken. SDK:n ansvarar för att registrera programmet, hämta och uppdatera åtkomsttoken.
 
 >[!NOTE]
 >
 >Programsatser är programspecifika och en enskild programsats kan inte användas för mer än en applikation. Observera att programsatser på programmeringsnivå har samma begränsning. De kan bara användas för enstaka program, vare sig det är en kanal eller en flerkanal.
 
-## Hur skaffar man en programvaruöversikt? {#how-to-get-ss}
+## Så här får du en programvarubeskrivning {#how-to-get-ss}
 
-### Om du har tillgång till Adobe TVE Dashboard:
+Här beskrivs hur du kan få en programsats.
 
-* Öppna webbläsaren och navigera till [Adobe Pass TVE Dashboard](https://console.auth.adobe.com).
-* Navigera till `Channels` och välj kanal.
-* Navigera till `Registered Applications` Tabb.
-* Klicka på `Add new application`.
-* Ange ett namn och en version för programmet och välj de plattformar som det ska vara tillgängligt på. Android, i vårt fall.
-* Ange ett domännamn genom att välja i en lista över domäner som redan har konfigurerats för din programmerare.
-* Skicka ändringarna till servern och gå sedan tillbaka till fliken Registrerade program i Kanalen.
-* Du bör se en lista med alla registrerade program. Välj **Ladda ned** på programmet som du just har skapat. Du kan behöva vänta några minuter innan programsatsen är klar för nedladdning.
-* En textfil hämtas. Använd innehållet som programsats.
+### Om du har tillgång till Adobe TVE Dashboard
+
+1. Öppna webbläsaren och navigera till [Adobe Pass TVE Dashboard](https://console.auth.adobe.com).
+
+1. Navigera till **[!UICONTROL Channels]** väljer du kanal.
+
+1. Navigera till **[!UICONTROL Registered Applications]** -fliken.
+
+1. Klicka **[!UICONTROL Add new application]**.
+
+1. Ge programmet ett namn och ange en version.
+
+1. Välj de plattformar som programmet ska vara tillgängligt på (Android i det här fallet).
+
+1. Ange en **[!UICONTROL Domain Name]** genom att välja i en lista över domäner som redan har konfigurerats för din programmerare.
+
+1. Skicka ändringarna till servern och gå sedan tillbaka till kanalens **[!UICONTROL Registered Applications]** -fliken.
+
+   Du bör se en lista med alla registrerade program. Välj **[!UICONTROL Download]** i programmet som du skapade. Du kan behöva vänta några minuter innan programsatsen är klar för nedladdning.
+
+   En textfil hämtas. Använd innehållet som programsats.
 
 Mer information finns i [Dynamisk hantering av klientregistrering](/help/authentication/dynamic-client-registration-management.md)
 
-### Om du inte har tillgång till Adobe TV Dashboard:
+### Om du inte har tillgång till Adobe TV Dashboard
 
-Skicka en biljett till `tve-support@adobe.com`. Inkludera all nödvändig information, t.ex. kanal, programnamn, version och plattformar, så skapar någon i vårt supportteam en programvarubeskrivning åt dig.
+Skicka en biljett till `tve-support@adobe.com`. Inkludera nödvändig information som kanal, programnamn, version och plattformar. Någon från vårt supportteam kommer att skapa en programsats åt dig.
 
-## Hur använder man programsatsen? {#how-to-use-ss}
+## Så här använder du programsatsen {#how-to-use-ss}
 
-När du har fått programsatsen måste du skicka den som en parameter i konstruktorn Access Enabler. Vi rekommenderar att programvarusatsen finns på en fjärrplats. På så sätt kan du enkelt återkalla och ändra programsatsen utan att behöva släppa en ny version av programmet.
+När du har fått programsatsen måste du skicka den som en parameter i konstruktorn Access Enabler. Vi rekommenderar att programvarusatsen finns på en fjärrplats. På så sätt kan du enkelt återkalla och ändra programsatsen utan att släppa en ny version av programmet.
 
 ## Skapa och använd en länk för programmet {#create}
 

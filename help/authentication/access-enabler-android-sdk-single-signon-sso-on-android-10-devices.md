@@ -2,9 +2,9 @@
 title: Åtkomstaktivera Android SDK enkel inloggning (SSO) i Android 10-program
 description: Åtkomstaktivera Android SDK enkel inloggning (SSO) i Android 10-program
 exl-id: dedade15-c451-4757-b684-d3728e11dd87
-source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
+source-git-commit: 1b8371a314488335c68c82882c930b7c19aa64ad
 workflow-type: tm+mt
-source-wordcount: '377'
+source-wordcount: '374'
 ht-degree: 0%
 
 ---
@@ -27,7 +27,7 @@ Se [Roku SSO-översikt](/help/authentication/roku-sso-overview.md).
 
 ## Beteende
 
-Beroende på appens **mål-SDK-nivå** eller användningen av **android:requestLegacyExternalStorage** manifest-attributet för enkel inloggning (SSO) som erbjuds av Access Enabler Android version 3.2.1 SDK (senaste) och tidigare versioner fungerar för närvarande enligt följande:
+Beroende på appens **[!UICONTROL target SDK level]** eller användningen av **android:requestLegacyExternalStorage** manifest-attributet för enkel inloggning (SSO) som erbjuds av Access Enabler Android version 3.2.1 SDK (senaste) och tidigare versioner fungerar för närvarande enligt följande:
 
 - Dina appmål **Android 9 (API-nivå 28)** eller lägre **-\>** enkel inloggning (SSO) **kommer att arbeta**
 - Dina appmål **Android 10** **(API-nivå 29)** och gör **set** värdet av **requestLegacyExternalStorage till true** i appens manifestfil **-\>** enkel inloggning (SSO) **kommer att arbeta**

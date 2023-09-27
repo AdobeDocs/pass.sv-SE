@@ -2,9 +2,9 @@
 title: Amazon FireOS Integration Cookbook
 description: Amazon FireOS Integration Cookbook
 exl-id: 1982c485-f0ed-4df3-9a20-9c6a928500c2
-source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
+source-git-commit: 1b8371a314488335c68c82882c930b7c19aa64ad
 workflow-type: tm+mt
-source-wordcount: '1432'
+source-wordcount: '1416'
 ht-degree: 0%
 
 ---
@@ -20,27 +20,27 @@ ht-degree: 0%
 
 ## Introduktion {#intro}
 
-I det här dokumentet beskrivs de tillståndsarbetsflöden som kan implementeras av en programmerares program på den översta nivån via de API:er som exponeras av Amazon FireOS AccessEnabler-biblioteket.
+I det här dokumentet beskrivs de tillståndsarbetsflöden som kan implementeras av en programmerares program på den översta nivån via de API:er som exponeras av Amazon FireOS `AccessEnabler` bibliotek.
 
 Adobe Pass Authentication-berättigandelösningen för Amazon FireOS är uppdelad i två domäner:
 
-- Användargränssnittets domän - det här är det övre programlagret som implementerar användargränssnittet och använder tjänsterna som tillhandahålls av AccessEnabler-biblioteket för att ge åtkomst till begränsat innehåll.
-- Domänen AccessEnabler - det är här som berättigandearbetsflödena implementeras i form av:
+- Användargränssnittets domän - det här är det övre programlagret som implementerar användargränssnittet och använder tjänsterna som tillhandahålls av `AccessEnabler` bibliotek för att ge åtkomst till begränsat innehåll.
+- The `AccessEnabler` domain - this is where the entitlement workflows are implementation in the form of:
    - Nätverksanrop gjorda till Adobe serverdel
    - Affärslogik för arbetsflödena för autentisering och auktorisering
    - Hantering av olika resurser och bearbetning av arbetsflödestillstånd (t.ex. tokencache)
 
-Målet med AccessEnabler-domänen är att dölja alla komplexa berättigandearbetsflöden och ge programmet i det övre lagret (via AccessEnabler-biblioteket) en uppsättning enkla berättigandeprinciper som du använder för berättigandearbetsflöden:
+Målsättningen med `AccessEnabler` domänen är att dölja alla komplexa tillståndsarbetsflöden och att tillhandahålla till programmet i det övre lagret (via `AccessEnabler` bibliotek) en uppsättning enkla berättigandemallar. Med den här processen kan du implementera tillståndsarbetsflöden:
 
-1. Ange identitet för begärande
-1. Kontrollera och hämta autentisering mot en viss identitetsleverantör
-1. Kontrollera och få behörighet för en viss resurs
-1. Utloggning
+1. Ange identiteten för begärande.
+1. Kontrollera och hämta autentisering mot en viss identitetsleverantör.
+1. Kontrollera och få behörighet för en viss resurs.
+1. Logga ut.
 
-Nätverksaktiviteten för AccessEnabler sker i en annan tråd så att gränssnittstråden aldrig blockeras. Det innebär att den tvåvägskommunikationskanal som finns mellan de två programdomänerna måste följa ett fullständigt asynkront mönster:
+The `AccessEnabler`Nätverksaktiviteten äger rum i en annan tråd så gränssnittstråden blockeras aldrig. Det innebär att den tvåvägskommunikationskanal som finns mellan de två programdomänerna måste följa ett fullständigt asynkront mönster:
 
-- Gränssnittets programlager skickar meddelanden till AccessEnabler-domänen via API-anropen som visas av AccessEnabler-biblioteket.
-- AccessEnabler svarar på UI-lagret via callback-metoderna i protokollet AccessEnabler som UI-lagret registreras med AccessEnabler-biblioteket.
+- Användargränssnittets programlager skickar meddelanden till `AccessEnabler` via API-anrop som visas av `AccessEnabler` bibliotek.
+- The `AccessEnabler` svarar på UI-lagret via återkopplingsmetoderna i `AccessEnabler` som UI-lagret registrerar med `AccessEnabler` bibliotek.
 
 ## Tillståndsflöden {#entitlement}
 
@@ -50,8 +50,6 @@ Nätverksaktiviteten för AccessEnabler sker i en annan tråd så att gränssnit
 1. [Auktoriseringsflöde](#authz_flow)
 1. [Visa medieflöde](#media_flow)
 1. [Utloggningsflöde](#logout_flow)
-
-
 
 ### A. Förutsättningar {#prereqs}
 
@@ -113,9 +111,9 @@ The `event` parametern anger vilken berättigandehändelse som har inträffat; `
 1. Starta programmet på den översta nivån.
 1. Initiera Adobe Pass-autentisering.
 
-   1. Utlysning [`getInstance`](#$getInstance) för att skapa en instans av Adobe Pass Authentication AccessEnabler.
+   1. Utlysning [`getInstance`](#$getInstance) för att skapa en enda instans av Adobe Pass-autentiseringen `AccessEnabler`.
 
-      - **Beroende:** Adobe Pass Authentication Native Amazon FireOS Library (AccessEnabler)
+      - **Beroende:** Adobe Pass Authentication Native Amazon FireOS Library (`AccessEnabler`)
 
    1. Utlysning` setRequestor()` fastställa programmerarens identitet, skicka in programmerarens `requestorID` och (valfritt) en array med slutpunkter för Adobe Pass-autentisering.
 
@@ -127,8 +125,8 @@ The `event` parametern anger vilken berättigandehändelse som har inträffat; `
 
    Du har två implementeringsalternativ: När begärarens identifieringsinformation skickas till backend-servern kan gränssnittets programlager välja en av följande två metoder:</p>
 
-   1. Vänta på att utlösaren för `setRequestorComplete()` callback (ingår i AccessEnabler-delegaten).  Det här alternativet ger den största säkerheten för att `setRequestor()` slutförd, så det rekommenderas för de flesta implementeringar.
-   1. Fortsätt utan att vänta på att utlösaren för `setRequestorComplete()` återanrop och börja utfärda tillståndsansökningar. Dessa anrop (checkAuthentication, checkAuthorization, getAuthentication, getAuthorization, checkPreauthorizedResource, getMetadata, logout) köas av AccessEnabler-biblioteket, som gör att de faktiska nätverksanropen görs efter `setRequestor()`. Det här alternativet kan ibland avbrytas om nätverksanslutningen till exempel är instabil.
+   1. Vänta på att utlösaren för `setRequestorComplete()` callback (del av `AccessEnabler` delegat).  Det här alternativet ger den största säkerheten för att `setRequestor()` slutförd, så det rekommenderas för de flesta implementeringar.
+   1. Fortsätt utan att vänta på att utlösaren för `setRequestorComplete()` återanrop och börja utfärda tillståndsansökningar. Dessa anrop (checkAuthentication, checkAuthorization, getAuthentication, getAuthorization, checkPreauthorizedResource, getMetadata, logout) köas av `AccessEnabler` biblioteket, vilket gör att de faktiska nätverksanropen görs efter `setRequestor()`. Det här alternativet kan ibland avbrytas om nätverksanslutningen till exempel är instabil.
 
 1. Utlysning [checkAuthentication()](#$checkAuthN) för att kontrollera om det finns en befintlig autentisering utan att initiera det fullständiga autentiseringsflödet.  Om samtalet lyckas kan du gå direkt till auktoriseringsflödet.  Om inte, fortsätter du till autentiseringsflödet.
 
@@ -150,10 +148,10 @@ The `event` parametern anger vilken berättigandehändelse som har inträffat; `
 
    >[!NOTE]
    >
-   >Nu har användaren möjlighet att avbryta autentiseringsflödet. Om detta inträffar rensar AccessEnabler det interna tillståndet och återställer autentiseringsflödet.
+   >Nu har användaren möjlighet att avbryta autentiseringsflödet. Om detta inträffar visas `AccessEnabler` rensar det interna tillståndet och återställer autentiseringsflödet.
 
 1. När användaren har loggat in stängs WebView.
-1. ring `getAuthenticationToken(),` som instruerar AccessEnabler att hämta autentiseringstoken från backend-servern.
+1. ring `getAuthenticationToken(),` som instruerar `AccessEnabler` för att hämta autentiseringstoken från backend-servern.
 1. [Valfritt] Utlysning [`checkPreauthorizedResources(resources)`](#$checkPreauth) för att kontrollera vilka resurser användaren har behörighet att visa. The `resources` parametern är en array med skyddade resurser som är associerad med användarens autentiseringstoken.
 
    **Utlösare:** `preAuthorizedResources()` callback\
@@ -196,6 +194,6 @@ The `event` parametern anger vilken berättigandehändelse som har inträffat; `
 
 ### F. Utloggningsflöde {#logout_flow}
 
-1. Utlysning [`logout()`](#$logout) för att logga ut användaren. AccessEnabler tar bort alla cachelagrade värden och token som användaren fått för det aktuella MVPD-värdet för alla begärare som delar inloggningen via enkel inloggning. När cacheminnet har rensats gör AccessEnabler ett serveranrop för att rensa sessionerna på serversidan.  Observera, att eftersom serveranropet kan resultera i en SAML-omdirigering till IdP (detta tillåter sessionsrensning på IdP-sidan), måste det här anropet följa alla omdirigeringar. Därför hanteras det här anropet inuti en WebView-kontroll, som inte är synlig för användaren.
+1. Utlysning [`logout()`](#$logout) för att logga ut användaren. The `AccessEnabler` tar bort alla cachelagrade värden och token som användaren fått för det aktuella MVPD-värdet för alla begärare som delar inloggningen via enkel inloggning. När cacheminnet har rensats `AccessEnabler` gör ett serveranrop för att rensa sessionerna på serversidan.  Observera, att eftersom serveranropet kan resultera i en SAML-omdirigering till IdP (detta tillåter sessionsrensning på IdP-sidan), måste det här anropet följa alla omdirigeringar. Därför hanteras det här anropet inuti en WebView-kontroll, som inte är synlig för användaren.
 
    **Obs!** Utloggningsflödet skiljer sig från autentiseringsflödet på så sätt att användaren inte behöver interagera med WebView på något sätt. Det är därför möjligt (och rekommenderas) att göra WebView-kontrollen osynlig (dvs. dold) under utloggningsprocessen.

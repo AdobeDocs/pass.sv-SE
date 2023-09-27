@@ -2,9 +2,9 @@
 title: Amazon FireOS - programregistrering
 description: Amazon FireOS - programregistrering
 exl-id: 650fd4a2-dfc3-4c74-9b5b-6bea832a28ca
-source-git-commit: 19ed211c65deaa1fe97ae462065feac9f77afa64
+source-git-commit: 1b8371a314488335c68c82882c930b7c19aa64ad
 workflow-type: tm+mt
-source-wordcount: '524'
+source-wordcount: '513'
 ht-degree: 0%
 
 ---
@@ -33,25 +33,37 @@ En programsats är en JWT-token som innehåller information om programmet. Alla 
 
 ### Om du har tillgång till Adobe TVE Dashboard:
 
-- Öppna webbläsaren och navigera till <https://console.auth.adobe.com>
-- Navigera till `Channels` och välj kanal.
-- Navigera till `Registered Applications` Tabb.
-- Klicka på `Add new application`.
-- Ange ett namn och en version för programmet och välj de plattformar som det ska vara tillgängligt på (t.ex. Android).
-- Ange ett domännamn genom att välja i en lista över domäner som redan har konfigurerats för din programmerare.
-- Skicka ändringarna till servern och gå sedan tillbaka till fliken Registrerade program i Kanalen.
-- Du bör se en lista med alla registrerade program. Klicka på `Download` på programmet som du just har skapat. Obs! Du kan behöva vänta några minuter innan programsatsen är klar för nedladdning.
-- En textfil hämtas. Använd innehållet som programsats.
+1. Öppna webbläsaren och navigera till `https://console.auth.adobe.com`.
+
+1. Navigera till **[!UICONTROL Channels]** väljer du kanal.
+
+1. Navigera till **[!UICONTROL Registered Applications]** -fliken.
+
+1. Klicka **[!UICONTROL Add new application]**.
+
+1. Ange ett namn och en version för programmet och välj de plattformar som det ska vara tillgängligt på (till exempel Android).
+
+1. Ange en **[!UICONTROL Domain Name]** genom att välja i en lista över domäner som redan har konfigurerats för din programmerare.
+
+1. Flytta ändringarna till servern och gå sedan tillbaka till kanalens **[!UICONTROL Registered Applications]** -fliken.
+
+   Du bör se en lista med alla registrerade program.
+
+1. Klicka **[!UICONTROL Download]** i programmet som du just har skapat.
+
+   Du kan behöva vänta några minuter innan programsatsen är klar för nedladdning.
+
+   En textfil hämtas. Använd innehållet som programsats.
 
 Mer information finns i [Registreringshantering för dynamisk klient](/help/authentication/dynamic-client-registration-management.md)
 
 ### Om du inte har tillgång till Adobe TV Dashboard:
 
-Skicka en biljett till <tve-support@adobe.com>. Inkludera all nödvändig information, inklusive kanal, programnamn, version och plattformar, och någon i vårt supportteam skapar en programsats åt dig.
+Skicka en biljett till [tve-support@adobe.com](mailto:tve-support@adobe.com). Inkludera all nödvändig information, inklusive kanal, programnamn, version och plattformar, och någon i vårt supportteam skapar en programsats åt dig.
 
-## Hur använder man programsatsen? {#use}
+## Så här använder du programsatsen {#use}
 
-När du har fått programsatsen måste du skicka den som en parameter i konstruktorn Access Enabler. Vi rekommenderar att programvarusatsen finns på en fjärrplats. På så sätt kan du enkelt återkalla och ändra programsatsen utan att släppa en ny version av programmet.
+När du har fått programsatsen måste du skicka den som en parameter i konstruktorn Access Enabler. Adobe rekommenderar att programvarusatsen finns på en fjärrplats. På så sätt kan du enkelt återkalla och ändra programsatsen utan att släppa en ny version av programmet.
 
 ## Så här använder du programsatsen {#use-both}
 

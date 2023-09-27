@@ -2,7 +2,7 @@
 title: Android SDK - översikt
 description: Android SDK - översikt
 exl-id: a1d98325-32a1-4881-8635-9a3c38169422
-source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
+source-git-commit: 1b8371a314488335c68c82882c930b7c19aa64ad
 workflow-type: tm+mt
 source-wordcount: '2720'
 ht-degree: 0%
@@ -14,9 +14,6 @@ ht-degree: 0%
 >[!NOTE]
 >
 >Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
-
-</br>
-
 
 ## Introduktion {#intro}
 
@@ -34,8 +31,6 @@ Inbyggda klientarbetsflöden är vanligtvis desamma som, eller mycket lika, för
 - [Allmänt inledande autentiseringsarbetsflöde](#generic)
 - [Utloggningsarbetsflöde](#logout)
 
-
-
 ### Arbetsflöde efter initiering {#post-init}
 
 Alla tillståndsarbetsflöden som stöds av AccessEnabler förutsätter att du tidigare har anropat [`setRequestor()`](#setRequestor) för att fastställa din identitet. Du gör det här anropet för att bara ange ditt begärande-ID en gång, vanligtvis under programmets initierings-/installationsfas.
@@ -50,8 +45,6 @@ Med de inbyggda klienterna (t.ex. Android) efter ditt första anrop till [`setRe
 - Eller gör båda.
 
 Det är upp till er att vänta på att ni ska meddela om det lyckades [`setRequestor()`](#setRequestor) eller för att förlita dig på AccessEnablers anropskömekanism. Eftersom alla efterföljande autentiserings- och autentiseringsbegäranden behöver begärande-ID och associerad konfigurationsinformation kan [`setRequestor()`](#setRequestor) metoden blockerar effektivt alla API-anrop för autentisering och auktorisering tills initieringen är slutförd.
-
-
 
 ### Allmänt inledande autentiseringsarbetsflöde {#generic}
 

@@ -2,7 +2,7 @@
 title: Apple SSO Cookbook (REST API)
 description: Apple SSO Cookbook (REST API)
 exl-id: cb27c4b7-bdb4-44a3-8f84-c522a953426f
-source-git-commit: 59672b44074c472094ed27a23d6bfbcd7654c901
+source-git-commit: 1b8371a314488335c68c82882c930b7c19aa64ad
 workflow-type: tm+mt
 source-wordcount: '1435'
 ht-degree: 0%
@@ -21,13 +21,9 @@ Adobe Pass Authentication REST API har stöd för plattformsautentisering med en
 
 Observera att det här dokumentet fungerar som ett tillägg till den befintliga REST API-dokumentationen, som du hittar [här](/help/authentication/rest-api-reference.md).
 
-</br>
-
 ## Cookbooks {#Cookbooks}
 
 För att dra nytta av Apple SSO-användarupplevelse måste ett program integrera [Video Subscriber Account](https://developer.apple.com/documentation/videosubscriberaccount) när det gäller kommunikationen med Adobe Pass Authentication REST API, som utvecklats av Apple, måste programmet följa den tipssekvens som presenteras nedan.
-
-</br>
 
 ### Autentisering {#Authentication}
 
@@ -44,10 +40,8 @@ För att dra nytta av Apple SSO-användarupplevelse måste ett program integrera
 - [Fortsätt med auktoriseringsflöden](#Proceed_with_authorization_flows)
 
 
-
 ![](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/images/qu/platform-sso.jpeg)
 
-</br>
 
 #### Steg: &quot;Finns det en giltig token för autentisering i Adobe?&quot; {#Is_there_a_valid_Adobe_authentication_token}
 
@@ -55,7 +49,6 @@ För att dra nytta av Apple SSO-användarupplevelse måste ett program integrera
 >
 > **<u>Tips:</u>** Implementera detta via [Adobe Pass-autentisering](/help/authentication/check-authentication-token.md) service.
 
-</br>
 
 #### Steg:&quot;Är användaren inloggad via plattformens SSO?&quot; {#Is_the_user_logged_in_via_Platform_SSO}
 
@@ -127,8 +120,6 @@ videoSubscriberAccountManager.checkAccessStatus(options: [VSCheckAccessOption.pr
 ...  
 ```
 
-</br>
-
 #### Steg: &quot;Hämta Adobe-konfiguration&quot; {#Fetch_Adobe_configuration}
 
 >[!TIP]
@@ -139,8 +130,6 @@ videoSubscriberAccountManager.checkAccessStatus(options: [VSCheckAccessOption.pr
 >[!TIP]
 >
 > **<u>Pro Tip:</u>** Observera egenskaperna för MVPD: *`enablePlatformServices`*, *`boardingStatus`*, *`displayInPlatformPicker`*, *`platformMappingId`*, *`requiredMetadataFields`* och lägg märke till kommentarerna i kodfragment från andra steg.
-
-</br>
 
 #### Steg&quot;Initiera SSO-arbetsflöde för plattformen med Adobe config&quot; {#Initiate_Platform_SSO_workflow_with_Adobe_config}
 
@@ -263,8 +252,6 @@ videoSubscriberAccountManager.checkAccessStatus(options: [VSCheckAccessOption.pr
 >
 > **<u>Pro Tip:</u>** Observera kodfragmentet i [&quot;Starta arbetsflödet för enkel inloggning på plattformen med Adobe config&quot;](#Initiate_Platform_SSO_workflow_with_Adobe_config) steg. Användarinloggningen lyckas om *`vsaMetadata!.accountProviderIdentifier`* innehåller ett giltigt värde och det aktuella datumet har inte passerat *`vsaMetadata!.authenticationExpirationDate`* värde.
 
-</br>
-
 #### Steg&quot;Hämta en profilförfrågan från Adobe för det valda MVPD&quot; {#Obtain_a_profile_request_from_Adobe_for_the_selected_MVPD}
 
 >[!TIP]
@@ -274,8 +261,6 @@ videoSubscriberAccountManager.checkAccessStatus(options: [VSCheckAccessOption.pr
 >[!TIP]
 >
 > **<u>Pro Tip:</u>** Observera att den leverantörsidentifierare som hämtas från Video Subscriber Account-ramverket representerar *`platformMappingId`* när det gäller konfigurationen av Adobe Pass-autentisering. Därför måste programmet fastställa egenskapsvärdet för MVPD ID med hjälp av *`platformMappingId`* genom Adobe Pass-autentisering [Ange MVPD-lista](/help/authentication/provide-mvpd-list.md) service.
-
-</br>
 
 #### Steg:&quot;Vidarebefordra Adobe-begäran till plattformens SSO för att hämta profilen&quot; {#Forward_the_Adobe_request_to_Platform_SSO_to_obtain_the_profile}
 

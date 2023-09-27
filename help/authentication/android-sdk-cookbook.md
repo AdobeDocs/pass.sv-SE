@@ -2,7 +2,7 @@
 title: Android SDK Cookbook
 description: Android SDK Cookbook
 exl-id: 7f66ab92-f52c-4dae-8016-c93464dd5254
-source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
+source-git-commit: 1b8371a314488335c68c82882c930b7c19aa64ad
 workflow-type: tm+mt
 source-wordcount: '1685'
 ht-degree: 0%
@@ -32,10 +32,13 @@ Adobe Pass Authentication-berättigandelösningen för Android är uppdelad i tv
 
 Målet med AccessEnabler-domänen är att dölja alla komplexa berättigandearbetsflöden och ge programmet i det övre lagret (via AccessEnabler-biblioteket) en uppsättning enkla berättigandeprinciper som du använder för berättigandearbetsflöden:
 
-1. Ange identitet för begärande
-1. Kontrollera och hämta autentisering mot en viss identitetsleverantör
-1. Kontrollera och få behörighet för en viss resurs
-1. Utloggning
+1. Ange identiteten för begärande.
+
+1. Kontrollera och hämta autentisering mot en viss identitetsleverantör.
+
+1. Kontrollera och få behörighet för en viss resurs.
+
+1. Logga ut.
 
 Nätverksaktiviteten för AccessEnabler sker i en annan tråd så att gränssnittstråden aldrig blockeras. Det innebär att den tvåvägskommunikationskanal som finns mellan de två programdomänerna måste följa ett fullständigt asynkront mönster:
 
@@ -50,8 +53,6 @@ Nätverksaktiviteten för AccessEnabler sker i en annan tråd så att gränssnit
 1. [Auktoriseringsflöde](#authz_flow)
 1. [Visa medieflöde](#media_flow)
 1. [Utloggningsflöde](#logout_flow)
-
-
 
 ### A. Förutsättningar {#prereqs}
 
@@ -137,8 +138,6 @@ Nätverksaktiviteten för AccessEnabler sker i en annan tråd så att gränssnit
 
    - **Utlösare:** setAuthenticationStatus(), återanrop
 
-
-
 ### C. Autentiseringsflöde {#authn_flow}
 
 1. Utlysning [`getAuthentication()`](#$getAuthN) för att initiera autentiseringsflödet eller för att få en bekräftelse på att användaren redan är autentiserad.\
@@ -151,7 +150,6 @@ Nätverksaktiviteten för AccessEnabler sker i en annan tråd så att gränssnit
 1. När användaren har valt en leverantör hämtar du URL:en för användarens MVPD från `navigateToUrl()` återanrop.  Öppna en WebView och dirigera WebView-kontrollen till URL:en.
 
 1. Via den WebView-vy som skapades i föregående steg, loggar användaren in på MVPD:s inloggningssida och inloggningsuppgifter. Flera omdirigeringsåtgärder utförs i WebView.
-
 
    **Obs!** Nu har användaren möjlighet att avbryta autentiseringsflödet. Om detta inträffar ansvarar ditt UI-lager för att informera AccessEnabler om händelsen genom att anropa `setSelectedProvider()` med `null` som en parameter. Detta gör att AccessEnabler kan rensa upp dess interna tillstånd och återställa autentiseringsflödet.
 
