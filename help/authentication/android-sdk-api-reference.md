@@ -2,9 +2,9 @@
 title: Android SDK API-referens
 description: Android SDK API-referens
 exl-id: f932e9a1-2dbe-4e35-bd60-a4737407942d
-source-git-commit: 2ccfa8e018b854a359881eab193c1414103eb903
+source-git-commit: 854698397d9d14c1bfddcc10eecc61c7e3c32b71
 workflow-type: tm+mt
-source-wordcount: '4518'
+source-wordcount: '4526'
 ht-degree: 0%
 
 ---
@@ -165,7 +165,7 @@ Värdena skickas till servern oberoende av det aktuella flödet (autentisering/a
 
 ### checkAuthentication {#checkAuthN}
 
-**Beskrivning:** Kontrollerar autentiseringsstatusen. Det gör du genom att söka efter en giltig autentiseringstoken i det lokala tokenlagringsutrymmet. Om du anropar den här metoden utförs inga nätverksanrop. Den används av programmet för att fråga om användarens autentiseringsstatus och uppdatera användargränssnittet i enlighet med detta (d.v.s. uppdatera användargränssnittet för inloggning/utloggning). Autentiseringsstatusen meddelas programmet via [*setAuthenticationStatus()*](#setAuthNStatus) återanrop.
+**Beskrivning:** Kontrollerar autentiseringsstatusen. Det gör du genom att söka efter en giltig autentiseringstoken i det lokala tokenlagringsutrymmet. Den här metoden utför inga nätverksanrop och vi rekommenderar att du anropar den på huvudtråden. Den används av programmet för att fråga om användarens autentiseringsstatus och uppdatera användargränssnittet i enlighet med detta (d.v.s. uppdatera användargränssnittet för inloggning/utloggning). Autentiseringsstatusen meddelas programmet via [*setAuthenticationStatus()*](#setAuthNStatus) återanrop.
 
 Om ett MVPD-dokument har stöd för funktionen &quot;Authentication per Requestor&quot; kan flera autentiseringstoken lagras på en enhet.  Mer information om den här funktionen finns i [Riktlinjer för cachelagring](#$caching) i Androids tekniska översikt.
 
@@ -624,7 +624,7 @@ Programmerarna har två typer av metadata:
    - *simpleResult*: en sträng som representerar metadatavärdet när begäran gjordes för Authentication TTL, Authorization TTL eller Device ID. Det här värdet är null om begäran gjordes för användarmetadata.
 
    - *userMetadataResult*: Ett objekt som innehåller Java-representationen av en nyttolast för JSON-användarmetadata.\
-     Till exempel:
+     Exempel:
 
 ```json
           '{

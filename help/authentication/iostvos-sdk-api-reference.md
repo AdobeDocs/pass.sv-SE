@@ -2,9 +2,9 @@
 title: API-referens för iOS/tvOS
 description: API-referens för iOS/tvOS
 exl-id: 017a55a8-0855-4c52-aad0-d3d597996fcb
-source-git-commit: 2ccfa8e018b854a359881eab193c1414103eb903
+source-git-commit: 854698397d9d14c1bfddcc10eecc61c7e3c32b71
 workflow-type: tm+mt
-source-wordcount: '7010'
+source-wordcount: '7018'
 ht-degree: 0%
 
 ---
@@ -365,7 +365,8 @@ Om anropas utan `serviceProviders` parametern hämtar biblioteket konfiguratione
 **Fil:** AccessEnabler/headers/AccessEnabler.h
 
 **Beskrivning:** Kontrollerar autentiseringsstatusen för den aktuella användaren.
-Det gör du genom att söka efter en giltig autentiseringstoken i det lokala tokenlagringsutrymmet. Om du anropar den här metoden utförs inga nätverksanrop. Den används av programmet för att fråga om användarens autentiseringsstatus och uppdatera användargränssnittet i enlighet med detta (d.v.s. uppdatera användargränssnittet för inloggning/inloggning). Autentiseringsstatusen meddelas programmet via [`setAuthenticationStatus:errorCode:`](#setAuthNStatus) återanrop.
+Det gör du genom att söka efter en giltig autentiseringstoken i det lokala tokenlagringsutrymmet. Den här metoden utför inga nätverksanrop och vi rekommenderar att du anropar den på huvudtråden.
+Den används av programmet för att fråga om användarens autentiseringsstatus och uppdatera användargränssnittet i enlighet med detta (d.v.s. uppdatera användargränssnittet för inloggning/inloggning). Autentiseringsstatusen meddelas programmet via [`setAuthenticationStatus:errorCode:`](#setAuthNStatus) återanrop.
 
 
 <table class="pass_api_table">
