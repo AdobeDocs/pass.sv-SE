@@ -2,17 +2,17 @@
 product: adobe primetime
 feature: Concurrency Monitoring
 audience: end-user
-user-guide-title: Adobe Pass Concurrency Monitoring
+user-guide-title: Övervakning av samtidig användning i Adobe Pass
 user-guide-description: Lär dig att definiera och tillämpa begränsningar för samtidig användning i flera program.
 source-git-commit: 59672b44074c472094ed27a23d6bfbcd7654c901
 workflow-type: tm+mt
 source-wordcount: '141'
-ht-degree: 0%
+ht-degree: 17%
 
 ---
 
 
-# Adobe Pass Concurrency Monitoring - hjälp {#cm}
+# Övervakning av samtidig användning i Adobe Pass help {#cm}
 
 + [Introduktion till övervakning av samtidig användning](cm-home.md)
 + [Ordlista för övervakning av samtidig användning](cm-glossary.md)
