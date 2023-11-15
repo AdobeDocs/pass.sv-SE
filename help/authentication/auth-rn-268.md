@@ -1,9 +1,9 @@
 ---
 title: Versionsinformation om Adobe Pass Authentication 2.68
 description: Versionsinformation om Adobe Pass Authentication 2.68
-source-git-commit: 68e572797a39327682ea7f491ef2109374fadc2e
+source-git-commit: 47e663b9bc2044a182abede390aa15c5bf7d2e87
 workflow-type: tm+mt
-source-wordcount: '131'
+source-wordcount: '137'
 ht-degree: 0%
 
 ---
@@ -30,13 +30,9 @@ Utgivningsdatum: **11/21/2023 - 11/23/2023**
 
 ### Nya funktioner {#new-features-268}
 
-* Fortsatte interna uppdateringar för det nya REST API:t.
+* Uppdateringar för våra nya REST API:er.  De nya slutpunkterna är ännu inte tillgängliga, men vi håller på att uppdatera dokumentation som beskriver hur dessa nya API:er används.
 * Fortsatt förbättring av arkitekturen.
 * Biblioteket för enhetskartan har uppdaterats för att förbättra enhetsidentifieringen.
-
-### MVPD-uppdateringar {#mvpd-updates-268}
-
-* En ny MVPD har lagts till: **MAX**. Kontakta din Adobe TAM om du vill ha mer information.
 
 #### Felkorrigeringar {#bug-fixes-268}
 
