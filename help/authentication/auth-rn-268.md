@@ -1,9 +1,9 @@
 ---
 title: Versionsinformation om Adobe Pass Authentication 2.68
 description: Versionsinformation om Adobe Pass Authentication 2.68
-source-git-commit: 3271a0c31670ba086d1b0d464f4f255d1d311808
+source-git-commit: dc9572912371fb23586eafa93d06c3f3a5c546bc
 workflow-type: tm+mt
-source-wordcount: '135'
+source-wordcount: '142'
 ht-degree: 0%
 
 ---
@@ -29,9 +29,9 @@ Utgivningsdatum: **11/21/2023 - 11/23/2023**
 
 ### Nya funktioner {#new-features-268}
 
-* Uppdateringar för våra nya REST API:er.  De nya slutpunkterna är ännu inte tillgängliga, men vi håller på att uppdatera dokumentation som beskriver hur dessa nya API:er används.
+* Fortsatt utveckling till nya REST API:er. De nya slutpunkterna och flödena som planeras bli tillgängliga i en kommande dedikerad version. Dokumentationen för användning av dessa nya APIS håller på att uppdateras.
 * Fortsatt förbättring av arkitekturen.
-* Biblioteket för enhetskartan har uppdaterats för att förbättra enhetsidentifieringen.
+* Biblioteket för enhetskartan uppdaterades till den senaste versionen för att förbättra enhetsidentifieringen.
 
 #### Felkorrigeringar {#bug-fixes-268}
 
