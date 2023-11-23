@@ -4,10 +4,10 @@ audience: end-user
 feature: Authentication
 user-guide-title: Adobe Pass-autentisering
 user-guide-description: Adobe Pass-autentisering är en berättigandelösning för TV Everywhere, som tillhandahåller ett modulärt ramverk för att avgöra om någon som begär åtkomst till en resurs är berättigad till den.
-source-git-commit: 68e572797a39327682ea7f491ef2109374fadc2e
+source-git-commit: 4ae0b17eff2dfcf0aaa5d11129dfd60743f6b467
 workflow-type: tm+mt
-source-wordcount: '790'
-ht-degree: 4%
+source-wordcount: '0'
+ht-degree: 0%
 
 ---
 
@@ -124,6 +124,7 @@ ht-degree: 4%
    + Tillfälligt pass {#temp-pass}
       + [Tillfälligt pass](temp-pass.md)
       + [Kampanjtillfälligt pass](promotional-temp-pass.md)
+      + [Återställ tillfälligt pass](reset-temp-pass.md)
    + Enkel inloggning {#sso}
       + [Stöd för enkel inloggning](sso-support.md)
       + [Enkel inloggning via passiv autentisering](sso-passive-authn.md)
