@@ -1,72 +1,83 @@
 ---
-title: Prenumerationssegment och tidsintervall
+title: Prenumerationssegment och tidsram
 description: Definiera kohorter eller välj abonnentsegment för att mäta möjligheterna och mönstren för kontodelning för era kanaltittare så att de kan använda grafiska verktyg och rapporter i konto-IQ.
 exl-id: c38cde37-70d9-486d-b8d0-7c1cbd2baf2e
-source-git-commit: 6b790728f3d6a8eed5dfc0f8b3d0dad283af6418
+source-git-commit: 567f674e14cd0fea672c99b51baf641d0092560e
 workflow-type: tm+mt
-source-wordcount: '346'
+source-wordcount: '295'
 ht-degree: 0%
 
 ---
 
 
-# Prenumerationssegment och tidsintervall {#cohorts-segments}
+# Prenumerationssegment och tidsram {#cohorts-segments}
 
+När du loggar in på konto-IQ finns det en panel längst upp där du kan definiera prenumeranten [segment](/help/accountiq/product-concepts.md#segment-segmet-def) om du vill filtrera resultaten för att visa rapporter för abonnenternas delningsbeteende och mönster.
 
-När du loggar in på konto-IQ kan du med segmentstartspanelen längst upp ange prenumeranten [segment](/help/accountiq/product-concepts.md#segment-segmet-def). Detta hjälper till att filtrera resultat när du visar rapporter om delningsbeteende och -mönster för prenumeranter. Ett standardsegment med namnet Alla konton i dina egenskaper är redan markerat och följande alternativ visas i segmentstartaren:
+<!--![](assets/segment-timeframe-panel.png)-->
 
-![](assets/new-segment-selector-collapsed.png){width="800" align="left"}
++++Segmentmarkeringspanel för programmerare
 
-*Bild: Segmentstart med komprimerad segmentsammanfattning*
+![](assets/segment-panel-programmer.png)
 
-**A** Markerat segmentnamn<br/>
-**B** Tidsintervall och granularitetsväljare<br/>
-**C** Segmentsammanfattning komprimerad<br/>
-**D** Alternativ för att expandera segmentsammanfattning<br/>
-**E** Segmentdata (i antal abonnentkonton i segmentet under en tidsperiod)<br/>
-**F** Öppna segmentlistalternativ<br/>
-**G** Redigera segment, alternativ<br/>
-**H** Skapa nytt segmentalternativ<br/>
+<!--![](assets/filter-panel.png)-->
 
-## Segmentmarkering {#segment-selection}
+Följande listrutealternativ används för att definiera segment:
 
-För programmerare- eller MVPD-användare går du till **Öppna segment** alternativ. Välj ett segment i listan och markera **Öppna segment** om du vill visa rapporter om kontodelning.
+**[!UICONTROL MVPDs in segment]**
 
-Använd **Ögon** om du vill visa en detaljerad segmentsammanfattning, med information om antalet prenumerantkonton och uppspelningsförfrågningar från dem inom det valda tidsintervallet.
+The **[!UICONTROL MVPDs in segment]** väljer du [MVPD](/help/accountiq/product-concepts.md#mvpd-def) (individer eller grupper) vars prenumerant du vill visa rapporterna om kontodelning för.
 
-+++Segmentmarkeringspanel för programmerare/videoprogrammerare
+I den här väljaren kan du förutom att markera de enskilda programmeringsversionerna även välja följande grupper:
 
-![](assets/segment-panel-programmers-mvpds.png) {width="800" align="left"}
+* [Top 10 MVPDs by sharing score](/help/accountiq/product-concepts.md#top-mvpds-def)
 
-*Bild: Segmentpanel för programmerare/videoprogrammerare*
+* [De 10 viktigaste videobandspelare per användning](/help/accountiq/product-concepts.md#top-mvpds-def)
 
-+++
+* [De 10 viktigaste versionerna per konto](/help/accountiq/product-concepts.md#top-mvpds-def)
 
-Segmentsammanfattningen används för att definiera följande parametrar:
-
-**[!UICONTROL Programmers in segment]**
+* [Isoleringsläge](/help/accountiq/isolation-mode.md)
 
 **[!UICONTROL Channels in segment]**
 
-**[!UICONTROL MVPD in segment]**
+När du är inloggad som programmerare kan du välja dina kanaler för att visa deras kontodelningsanalys. Använd **[!UICONTROL Channels in segment]** i listrutan för att välja enskilda eller flera kanaler i organisationen.
 
-**[!UICONTROL Metrics in segment]**
++++
 
-<!-- The definitions of these parameters will be defined in the glossary article-->
++++Segmentmarkeringspanel för sidoskydd
 
-## [!UICONTROL Granularity and time interval] {#granularity-timeinterval}
+![](assets/segment-panel-mvpd.png)
 
-The **[!UICONTROL Granularity and time interval]** Med väljaren kan du ange sammanställda datum och tidslängd varje vecka/månad för att observera hur abonnentkonton delas. Standardinställningen för tidsintervallet är den aktuella veckan, men du kan ändra längden med alternativen som visas i bilden.
+Följande listrutealternativ används för att definiera segment:
 
-![[!UICONTROL Granularity and timeinterval]](assets/granularity-timeinterval-weekwise.png){width="350" align="left"}
+**[!UICONTROL Channels in segment]**
 
-*Bild: Dialogrutan Kornighet och tidsintervall*
+The **[!UICONTROL Channels in segment]** Med väljaren kan du begränsa filtret ytterligare för att markera kanaler som motsvarar de valda programmeringsgränssnitten.
 
-**A** Välj ett datum från datumväljaren<br/>
-**B** Markera vänsterpilen om du vill gå bakåt<br/>
-**C** Markera högerpilen för att gå framåt<br/>
-**D** Välj granularitet per vecka/månad<br/>
-**E** Markerat tidsintervall<br/>
+* [De 10 viktigaste programmerarna genom att dela poäng](/help/accountiq/product-concepts.md#top-mvpds-def)
 
-Genom att använda dessa kontroller kan du definiera din problemprogramsats som&quot;prenumeranter på MVPD A som tittade på kanalerna X, Y och Z i oktober&quot;.
+* [De 10 viktigaste programmerarna efter användning](/help/accountiq/product-concepts.md#top-mvpds-def)
+
+* [De 10 viktigaste programmerarna per konto](/help/accountiq/product-concepts.md#top-mvpds-def)
+
+**MVPD i segment**
+
+När du är inloggad som en MVPD-användare visas ditt namn i fältet för **[!UICONTROL MVPDs in segment]**.
+
++++
+
+
+
+
+<!--For example, you can define your segment as the "subscribers of the MVPD A that watched the channels X, Y, and Z".-->
+
+
+
+## [!UICONTROL Granularity and time frame] {#granularity-timeframe}
+
+The **[!UICONTROL Granularity and time frame]** Med väljaren kan du ange datum och varaktighet, eller tidsstorlek som du vill visa delningsbeteendet för prenumeranter.
+
+![[!UICONTROL Granularity and timeframe]](assets/granularity-timeframe-weekwise.png)
+
+Med de här kontrollerna kan du definiera din problemlösning som&quot;prenumeranter på MVPD A som tittade på kanalerna X, Y och Z i maj-månaden&quot;.
 
