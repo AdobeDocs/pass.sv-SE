@@ -4,15 +4,15 @@ feature: Concurrency Monitoring
 audience: end-user
 user-guide-title: Övervakning av samtidig användning i Adobe Pass
 user-guide-description: Lär dig att definiera och tillämpa begränsningar för samtidig användning i flera program.
-source-git-commit: 59672b44074c472094ed27a23d6bfbcd7654c901
+source-git-commit: d39836cfb81a81271f526e6aa52fcc2d6558678f
 workflow-type: tm+mt
-source-wordcount: '141'
-ht-degree: 17%
+source-wordcount: '161'
+ht-degree: 9%
 
 ---
 
 
-# Övervakning av samtidig användning i Adobe Pass help {#cm}
+# Adobe Pass Concurrency Monitoring - hjälp {#cm}
 
 + [Introduktion till övervakning av samtidig användning](cm-home.md)
 + [Ordlista för övervakning av samtidig användning](cm-glossary.md)
@@ -21,6 +21,7 @@ ht-degree: 17%
 + [API-översikt för övervakning av samtidig användning](cm-api-overview.md)
 + [Standardmetadataattribut](standard-metadata-attributes.md)
 + [Datalagringspolicy](data-retention-policy.md)
++ [Begränsningsmekanism](throttling-mechanism.md)
 + [Eskaleringsprocedurer](cm-escalation-procedures.md)
 + Användning av övervakning av samtidig användning {#cmu}
    + [Användningsrapporter för övervakning av samtidig användning](cm-usage-reports.md)
