@@ -4,9 +4,9 @@ audience: end-user
 feature: Authentication
 user-guide-title: Adobe Pass-autentisering
 user-guide-description: Adobe Pass-autentisering är en berättigandelösning för TV Everywhere, som tillhandahåller ett modulärt ramverk för att avgöra om någon som begär åtkomst till en resurs är berättigad till den.
-source-git-commit: 2dbb45aebb1a00863a9344114963f6df95763dfc
+source-git-commit: 579ce868b6ee94e1854bbc51145fc7840268db26
 workflow-type: tm+mt
-source-wordcount: '915'
+source-wordcount: '919'
 ht-degree: 3%
 
 ---
@@ -186,7 +186,8 @@ ht-degree: 3%
    + Adobe Pass Authentication SDKs {#primetime-authentication-sdks}
       + [Frågor och svar om certifikat](certificates-qa.md)
       + JavaScript SDK {#javascript}
-         + [JS SDK-begränsningar för Safari-webbläsare](js-sdk-limitations-for-safari-browser.md)
+         + [Utvärdering av förebyggande av spårning - Apple Safari](tracking-prevention-assessment-apple-safari.md)
+         + [Utvärdering av förebyggande av spårning - Google Chrome](tracking-prevention-assessment-google-chrome.md)
          + [Cookies Updates - SameSite and Secure flags](cookies-updates-samesite-and-secure-flags.md)
       + Android SDK {#android}
          + [Åtkomstaktivera Android SDK enkel inloggning (SSO) i Android 10-program](access-enabler-android-sdk-single-signon-sso-on-android-10-devices.md)
