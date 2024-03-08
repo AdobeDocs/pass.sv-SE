@@ -2,9 +2,9 @@
 title: enkel inloggning på iOS när Adobe Pass Authentication Access Enabler används
 description: enkel inloggning på iOS när Adobe Pass Authentication Access Enabler används
 exl-id: 882f0abb-2e6e-461d-a375-3ab410991935
-source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
+source-git-commit: 929d1cc2e0466155b29d1f905f2979c942c9ab8c
 workflow-type: tm+mt
-source-wordcount: '1164'
+source-wordcount: '1121'
 ht-degree: 0%
 
 ---
@@ -38,7 +38,7 @@ SSO-beteendet är följande:
    - **Viktigt:** Observera att iOS SDK 1.9.4 har [har ökat iOS lägsta driftsättningsmål till iOS 7.](https://tve.zendesk.com/hc/en-us/articles/204963209-iOS-Native-AccessEnabler-Library)
 - **iOS 7 och senare**: SSO fungerar under följande förhållanden:
 
-1. Program publiceras med samma Apple-distributionsprofil, eller profiler som tillhör samma team. Detta är det enda sättet för appar att dela anpassade monteringsbord på iOS 7 och senare. I alla andra scenarier är monteringsbordet i sandlåda per program. Från [*https://developer.apple.com/library/IOs/releasenotes/General/RN-iOSSDK-7.0/index.html*](https://developer.apple.com/library/ios/releasenotes/General/RN-iOSSDK-7.0/index.html): \+\[UIPasteboard pasteboardWithName:create:\] och +\[UIPasteboard pasteboardWithUniqueName\] är nu unika med det angivna namnet så att endast de appar i samma programgrupp kan komma åt monteringsbordet. Om utvecklaren försöker skapa ett monteringsbord med ett namn som redan finns och som inte ingår i samma programsvit får han eller hon ett eget unikt och privat monteringsbord. Observera att detta inte påverkar systemets monteringsbord, allmänt och sök efter.
+1. Program publiceras med samma Apple-distributionsprofil, eller profiler som tillhör samma team. Detta är det enda sättet för appar att dela anpassade monteringsbord på iOS 7 och senare. I alla andra scenarier är monteringsbordet i sandlåda per program. Från [*https://developer.apple.com/library/IOs/releasenotes/General/RN-iOSSDK-7.0/index.html*](https://developer.apple.com/library/ios/releasenotes/General/RN-iOSSDK-7.0/index.html): \+\[`UIPasteboard pasteboardWithName:create:\`] och +\[`UIPasteboard pasteboardWithUniqueName`\] är nu unikt med det angivna namnet så att bara de appar som finns i samma programgrupp kan komma åt monteringsbordet. Om utvecklaren försöker skapa ett monteringsbord med ett namn som redan finns och som inte ingår i samma programsvit får han eller hon ett eget unikt och privat monteringsbord. Observera att detta inte påverkar systemets monteringsbord, allmänt och sök efter.
 
 1. Appar har samma paket-ID-prefix (alla komponenter utom den sista). Endast program som delar samma paket-ID-prefix kommer att beräkna samma IDFV. Från [*https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIDevice\_Class/index.html\#//apple\_ref/occ/instp/UIDevice/identifierForVendor*](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIDevice_Class/index.html#//apple_ref/occ/instp/UIDevice/identifierForVendor): På IOS 7 används alla komponenter i paketet utom den sista komponenten för att generera leverantörs-ID. Om paket-ID:t bara har en enda komponent används hela paket-ID:t.
 

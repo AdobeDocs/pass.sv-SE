@@ -2,9 +2,9 @@
 title: API-referens för iOS/tvOS
 description: API-referens för iOS/tvOS
 exl-id: 017a55a8-0855-4c52-aad0-d3d597996fcb
-source-git-commit: 854698397d9d14c1bfddcc10eecc61c7e3c32b71
+source-git-commit: 929d1cc2e0466155b29d1f905f2979c942c9ab8c
 workflow-type: tm+mt
-source-wordcount: '7018'
+source-wordcount: '6933'
 ht-degree: 0%
 
 ---
@@ -41,67 +41,67 @@ Associerad dokumentation:
 
 * **[INAKTUELL]** [init](#init) - Instansierar AccessEnabler-objektet.
 
-* [setOptions:options:](#setOptions) - Konfigurerar globala SDK-alternativ som profile eller visitorID.
+* [`setOptions:options:`](#setOptions) - Konfigurerar globala SDK-alternativ som profile eller visitorID.
 
-* [setRequestor:](#setReqV3)[requestID](#setReqV3),[setRequestor:requestorID:serviceProviders:](#setReqV3) - Fastställer programmerarens identitet.
+* [`setRequestor:`](#setReqV3)[`requestorID`](#setReqV3),[`setRequestor:requestorID:serviceProviders:`](#setReqV3) - Fastställer programmerarens identitet.
 
-* **[INAKTUELL]** [setRequestor:signedRequestorId:](#setReq),[setRequestor:signedRequestorId:serviceProviders:](#setReq) - Fastställer programmerarens identitet.
+* **[INAKTUELL]** [`setRequestor:signedRequestorId:`](#setReq),[`setRequestor:signedRequestorId:serviceProviders:`](#setReq) - Fastställer programmerarens identitet.
 
-* **[INAKTUELL]** [setRequestor:signedRequestorId:hemlighet:publicKey](#setReq_tvos), [setRequestor:signedRequestorId:serviceProviders:secret:publicKey](#setReq_tvos)-Anger programmerarens identitet.
+* **[INAKTUELL]** [`setRequestor:signedRequestorId:secret:publicKey`](#setReq_tvos), [`setRequestor:signedRequestorId:serviceProviders:secret:publicKey`](#setReq_tvos)-Anger programmerarens identitet.
 
-* [setRequestorComplete:](#setReqComplete) - Informerar programmet om att konfigurationsfasen är slutförd.
+* [`setRequestorComplete:`](#setReqComplete) - Informerar programmet om att konfigurationsfasen är slutförd.
 
-* [checkAuthentication](#checkAuthN) - Kontrollerar den aktuella användarens autentiseringsstatus.
+* [`checkAuthentication`](#checkAuthN) - Kontrollerar den aktuella användarens autentiseringsstatus.
 
-* [getAuthentication](#getAuthN), [getAuthentication:withData:](#getAuthN) - Startar hela autentiseringsarbetsflödet.
+* [`getAuthentication`](#getAuthN), [`getAuthentication:withData:`](#getAuthN) - Startar hela autentiseringsarbetsflödet.
 
-* [getAuthentication:filter](#getAuthN_filter),[getAuthentication:withData:](#getAuthN)[andFilter](#getAuthN_filter) - Startar hela autentiseringsarbetsflödet.
+* [`getAuthentication:filter`](#getAuthN_filter),[`getAuthentication:withData:`](#getAuthN)[andFilter](#getAuthN_filter) - Startar hela autentiseringsarbetsflödet.
 
-* [displayProviderDialog:](#dispProvDialog) - Informerar programmet att skapa lämpliga gränssnittselement så att användaren kan välja ett MVPD.
+* [`displayProviderDialog:`](#dispProvDialog) - Informerar programmet att skapa lämpliga gränssnittselement så att användaren kan välja ett MVPD.
 
-* [setSelectedProvider:](#setSelProv) - Informerar AccessEnabler om användarens MVPD-val.
+* [`setSelectedProvider:`](#setSelProv) - Informerar AccessEnabler om användarens MVPD-val.
 
-* [navigateToUrl:](#nav2url) - Informerar ditt program om att användaren måste få tillgång till inloggningssidan för MVPD.
+* [`navigateToUrl:`](#nav2url) - Informerar ditt program om att användaren måste få tillgång till inloggningssidan för MVPD.
 
-* [navigateToUrl:useSVC:](#nav2urlSVC) - Informerar ditt program om att användaren behöver få tillgång till inloggningssidan för MVPD via SFSafariViewController
+* [`navigateToUrl:useSVC:`](#nav2urlSVC) - Informerar ditt program om att användaren behöver få tillgång till inloggningssidan för MVPD via SFSafariViewController
 
-* [handleExternalURL:url](#handleExternalURL) - Slutför autentiserings-/utloggningsflödet.
+* [`handleExternalURL:url`](#handleExternalURL) - Slutför autentiserings-/utloggningsflödet.
 
-* **[INAKTUELL]** [getAuthenticationToken](#getAuthNToken) - Begär en autentiseringstoken från backend-servern.
+* **[INAKTUELL]** [`getAuthenticationToken`](#getAuthNToken) - Begär en autentiseringstoken från backend-servern.
 
-* [setAuthenticationStatus:errorCode:](#setAuthNStatus) - Informerar programmet om autentiseringsflödets status.
+* [`setAuthenticationStatus:errorCode:`](#setAuthNStatus) - Informerar programmet om autentiseringsflödets status.
 
-* [checkPreauthorizedResources:](#checkPreauth) - Anger om användaren redan har behörighet att visa specifika skyddade resurser.
+* [`checkPreauthorizedResources:`](#checkPreauth) - Anger om användaren redan har behörighet att visa specifika skyddade resurser.
 
-* [checkPreauthorizedResources:cache:](#checkPreauthCache) - Anger om användaren redan har behörighet att visa specifika skyddade resurser.
+* [`checkPreauthorizedResources:cache:`](#checkPreauthCache) - Anger om användaren redan har behörighet att visa specifika skyddade resurser.
 
-* [preauthorizedResources:](#preauthResources) - Visar en lista över resurser som användaren redan har behörighet att visa.
+* [`preauthorizedResources:`](#preauthResources) - Visar en lista över resurser som användaren redan har behörighet att visa.
 
-* [checkAuthorization:](#checkAuthZ), [checkAuthorization:withData:](#checkAuthZ) - Kontrollerar den aktuella användarens auktoriseringsstatus.
+* [`checkAuthorization:`](#checkAuthZ), [`checkAuthorization:withData:`](#checkAuthZ) - Kontrollerar den aktuella användarens auktoriseringsstatus.
 
-* [getAuthorization:](#getAuthZ), [getAuthorization:withData:](#getAuthZ) - Initierar auktoriseringsflödet.
+* [`getAuthorization:`](#getAuthZ), [`getAuthorization:withData:`](#getAuthZ) - Initierar auktoriseringsflödet.
 
-* [setToken:forResource:](#setToken) - Informerar programmet om att auktoriseringsflödet har slutförts.
+* [`setToken:forResource:`](#setToken) - Informerar programmet om att auktoriseringsflödet har slutförts.
 
-* [tokenRequestFailed:errorCode:errorDescription:](#tokenReqFailed) - Informerar programmet om att auktoriseringsflödet misslyckades.
+* [`tokenRequestFailed:errorCode:errorDescription:`](#tokenReqFailed) - Informerar programmet om att auktoriseringsflödet misslyckades.
 
-* [utloggning](#logout) - Initierar utloggningsflödet.
+* [`logout`](#logout) - Initierar utloggningsflödet.
 
-* [getSelectedProvider](#getSelProv) - Bestämmer den markerade providern.
+* [`getSelectedProvider`](#getSelProv) - Bestämmer den markerade providern.
 
-* [selectedProvider:](#selProv) - Ger information om det MVPD som är valt till ditt program.
+* [`selectedProvider:`](#selProv) - Ger information om det MVPD som är valt till ditt program.
 
-* [getMetadata:](#getMeta) - Hämtar information som exponeras som metadata av AccessEnabler-biblioteket.
+* [`getMetadata:`](#getMeta) - Hämtar information som exponeras som metadata av AccessEnabler-biblioteket.
 
-* [presentTvProviderDialog:](#presentTvDialog) - Informerar programmet att visa Apple SSO-dialogrutan.
+* [`presentTvProviderDialog:`](#presentTvDialog) - Informerar programmet att visa Apple SSO-dialogrutan.
 
-* [dismissTvProviderDialog:](#dismissTvDialog) - Informerar programmet att dölja Apple SSO-dialogrutan.
+* [`dismissTvProviderDialog:`](#dismissTvDialog) - Informerar programmet att dölja Apple SSO-dialogrutan.
 
-* [setMetadataStatus:encrypted:forKey:andArguments:](#setMetaStatus) - Levererar metadata som begärts av en [getMetadata:](#getMeta) ring.
+* [`setMetadataStatus:encrypted:forKey:andArguments:`](#setMetaStatus) - Levererar metadata som begärts av en [`getMetadata:`](#getMeta) ring.
 
-* [sendTrackingData:forEventType:](#sendTracking) - Levererar information om spårningsdata.
+* [`sendTrackingData:forEventType:`](#sendTracking) - Levererar information om spårningsdata.
 
-* [MVPD](#mvpd) - klassen MVPD. [Innehåller information om MVPD]
+* [`MVPD`](#mvpd) - klassen MVPD. [Innehåller information om MVPD]
 
 ### init:softwareStatement {#initWithSoftwareStatement}
 
@@ -170,7 +170,7 @@ Associerad dokumentation:
 [Till början...](#apis)
 
 
-### setRequestor:requestID, setRequestor:requestorID:serviceProviders: {#setReqV3}
+### `setRequestor:requestorID`, `setRequestor:requestorID:serviceProviders:` {#setReqV3}
 
 **Fil:** AccessEnabler/headers/AccessEnabler.h
 
@@ -212,7 +212,7 @@ Om ett värde anges för `urls` parametern, aktiverar det resulterande nätverks
 
 </br>
 
-### setRequestor:setSignedRequestorId:, setRequestor:setSignedRequestorId:serviceProviders: - [INAKTUELL] {#setReq}
+### `setRequestor:setSignedRequestorId:`, `setRequestor:setSignedRequestorId:serviceProviders:` - [INAKTUELL] {#setReq}
 
 **Fil:** AccessEnabler/headers/AccessEnabler.h
 
@@ -249,7 +249,7 @@ Om ett värde anges för `urls` parametern, aktiverar det resulterande nätverks
 
 [Till början...](#apis)
 
-### setRequestor:setSignedRequestorId:hemlighet:publicKey, setRequestor:setSignedRequestorId:serviceProviders:secret:publicKey - [INAKTUELL] {#setReq_tvos}
+### `setRequestor:setSignedRequestorId:secret:publicKey`, `setRequestor:setSignedRequestorId:serviceProviders:secret:publicKey` - [INAKTUELL] {#setReq_tvos}
 
 **Fil:** AccessEnabler/headers/AccessEnabler.h
 
@@ -354,6 +354,7 @@ Om anropas utan `serviceProviders` parametern hämtar biblioteket konfiguratione
    * `ACCESS_ENABLER_STATUS_ERROR` - konfigurationsfasen misslyckades
 
 **Utlöses av:**
+
 `setRequestor:setSignedRequestorId:, `[`setRequestor:setSignedRequestorId:serviceProviders:`](#setReq)
 
 [Till början...](#apis)
@@ -396,7 +397,7 @@ Den används av programmet för att fråga om användarens autentiseringsstatus 
 
 </br>
 
-### getAuthentication, getAuthentication:withData: {#getAuthN}
+### `getAuthentication`, `getAuthentication:withData:` {#getAuthN}
 
 **Fil:** AccessEnabler/headers/AccessEnabler.h
 
@@ -407,7 +408,7 @@ Den används av programmet för att fråga om användarens autentiseringsstatus 
 
 När inloggningsuppgifterna för användaren verifieras på MVPD-inloggningssidan måste programmet övervaka de omdirigeringsåtgärder som utförs medan användaren autentiserar sig på MVPD-inloggningssidan. När rätt inloggningsuppgifter anges omdirigeras WebView-kontrollen till en anpassad URL som definieras av `ADOBEPASS_REDIRECT_URL` konstant. Denna URL är inte avsedd att läsas in av WebView. Programmet måste tolka denna URL och tolka händelsen som en signal om att inloggningsfasen är slutförd. Den bör sedan lämna över kontrollen till AccessEnabler för att slutföra autentiseringsflödet (genom att anropa [handleExternalURL](#handleExternalURL) metod).
 
-Slutligen meddelas autentiseringsstatusen till programmet via [setAuthenticationStatus:errorCode:](#setAuthNStatus) återanrop.
+Slutligen meddelas autentiseringsstatusen till programmet via [`setAuthenticationStatus:errorCode:`](#setAuthNStatus) återanrop.
 
 <table class="pass_api_table">
 <colgroup>
@@ -456,23 +457,23 @@ Slutligen meddelas autentiseringsstatusen till programmet via [setAuthentication
 * *forceAuthn*: En flagga som anger om autentiseringsflödet ska startas, oavsett om användaren redan är autentiserad eller inte.
 * *data*: En ordlista som består av nyckelvärdepar som ska skickas till Pay-TV-pass-tjänsten. Adobe kan använda dessa data för att aktivera framtida funktioner utan att ändra SDK.
 
-**Återanrop utlösta:** ` setAuthenticationStatus:errorCode:, `[`displayProviderDialog:`](#dispProvDialog)`,`` sendTrackingData:forEventType:`
+**Återanrop utlösta:** `setAuthenticationStatus:errorCode:`, [`displayProviderDialog:`](#dispProvDialog), `sendTrackingData:forEventType:`
 
 
 [Till början...](#apis)
 
 </br>
 
-### getAuthentication:filter, getAuthentication:withData:andFilter {#getAuthN_filter}
+### `getAuthentication:filter`, `getAuthentication:withData:andFilter` {#getAuthN_filter}
 
 **Fil:** AccessEnabler/headers/AccessEnabler.h
 
 **Beskrivning:** Startar hela autentiseringsarbetsflödet. Det börjar med att kontrollera autentiseringsstatusen. Om autentiseringen inte redan har autentiserats startas tillståndsdatorn för autentiseringsflödet:
 
 * [presentTvProviderDialog()](#presentTvDialog) anropas om den aktuella begäraren har minst ett MVPD som stöder enkel inloggning. Om inget MVPD har stöd för enkel inloggning, kommer det klassiska autentiseringsflödet att börja och filterparametern ignoreras.
-* När användaren har slutfört Apple SSO-flödet [dismissTvProviderDialog()](#dismissTvDialog) aktiveras och autentiseringsprocessen slutförs.
+* När användaren har slutfört Apple SSO-flödet [`dismissTvProviderDialog()`](#dismissTvDialog) aktiveras och autentiseringsprocessen slutförs.
 
-Slutligen meddelas autentiseringsstatusen till programmet via [setAuthenticationStatus:errorCode:](#setAuthNStatus) återanrop.
+Slutligen meddelas autentiseringsstatusen till programmet via [`setAuthenticationStatus:errorCode:`](#setAuthNStatus) återanrop.
 
 **Tillgänglighet:** v2.4+
 
@@ -509,8 +510,7 @@ Slutligen meddelas autentiseringsstatusen till programmet via [setAuthentication
                   withData:(NSDictionary* )data
                  andFilter:(NSDictionary *)filter;</code></pre>
 <div>
-
-</div></td>
+ </div></td>
 </tr>
 </tbody>
 </table>
@@ -615,7 +615,7 @@ När användaren har valt önskat MVPD måste programmet i det övre lagret åte
 
 * *mvpds*: lista över MVPD-objekt som innehåller MVPD-relaterad information som programmet kan använda för att skapa gränssnittselement för MVPD-val.
 
-**Utlöses av:** ` getAuthentication, `[getAuthentication:withData:](#getAuthN),` getAuthorization:, `[getAuthorization:withData:](#getAuthZ)
+**Utlöses av:** `getAuthentication`, [`getAuthentication:withData:`](#getAuthN),`getAuthorization:`, [`getAuthorization:withData:`](#getAuthZ)
 
 
 [Till början...](#apis)
@@ -632,7 +632,7 @@ Om det valda MVPD-programmet är ett TempPass MVPD autentiseras det automatiskt 
 
 Observera att detta inte är möjligt för kampanjtillfälligt pass där extra parametrar anges för getAuthentication()-metoden.
 
-Vid sändning *null* Som parameter antar Access Enabler att användaren har avbrutit autentiseringsflödet (dvs. tryckt på knappen &quot;Bakåt&quot;) och svarar genom att återställa autentiseringstillståndsdatorn och genom att anropa [setAuthenticationStatus:errorCode:](#setAuthNStatus) callback med `AccessEnabler.PROVIDER_NOT_SELECTED_ERROR` felkod.
+Vid sändning *null* Som parameter antar Access Enabler att användaren har avbrutit autentiseringsflödet (dvs. tryckt på knappen &quot;Bakåt&quot;) och svarar genom att återställa autentiseringstillståndsdatorn och genom att anropa [`setAuthenticationStatus:errorCode:`](#setAuthNStatus) callback med `AccessEnabler.PROVIDER_NOT_SELECTED_ERROR` felkod.
 
 <table class="pass_api_table">
 <colgroup>
@@ -654,7 +654,7 @@ Vid sändning *null* Som parameter antar Access Enabler att användaren har avbr
 
 **Parametrar:** Ingen
 
-**Återanrop utlösta:** ` setAuthenticationStatus:errorCode:,sendTrackingData:forEventType:,  `[`navigateToUrl:`](#nav2url)
+**Återanrop utlösta:** `setAuthenticationStatus:errorCode:`,`sendTrackingData:forEventType:`,  [`navigateToUrl:`](#nav2url)
 
 [Till början...](#apis)
 
@@ -700,7 +700,7 @@ Som UIWebView/WKWebView` `styrenheten går igenom flera omdirigeringar, programm
 
 </br>
 
-#### navigateToUrl:useSVC: {#nav2urlSVC}
+#### `navigateToUrl:useSVC:` {#nav2urlSVC}
 
 **Fil:** AccessEnabler/headers/EntitlementDelegate.h
 
@@ -812,7 +812,7 @@ Om autentiseringsflödet är aktiverat slutför AccessEnabler flödet genom att 
 
 &lt;/br
 
-#### setAuthenticationStatus:errorCode: {#setAuthNStatus}
+#### `setAuthenticationStatus:errorCode:` {#setAuthNStatus}
 
 **Fil:** AccessEnabler/headers/EntitlementDelegate.h
 
@@ -848,7 +848,7 @@ Om autentiseringsflödet är aktiverat slutför AccessEnabler flödet genom att 
    * `PROVIDER_NOT_SELECTED_ERROR` - AccessEnabler har återställt autentiseringstillståndsdatorn efter att programmet i det övre lagret har godkänts *null* till [`setSelectedProvider:`](#setSelProv) för att avbryta autentiseringsflödet.  Förmodligen har användaren avbrutit autentiseringsflödet (d.v.s. tryckt på knappen &quot;Bakåt&quot;).
    * `GENERIC_AUTHENTICATION_ERROR` - Autentiseringsflödet misslyckades på grund av exempelvis att nätverket inte är tillgängligt eller att användaren uttryckligen avbröt autentiseringsflödet.
 
-**Utlöses av:** ` checkAuthentication, getAuthentication, `[getAuthentication:withData:](#getAuthN),` checkAuthorization:, `[checkAuthorization:withData:](#checkAuthZ)
+**Utlöses av:** `checkAuthentication`, `getAuthentication`, [`getAuthentication:withData:`](#getAuthN), `checkAuthorization:`, [`checkAuthorization:withData:`](#checkAuthZ)
 
 [Till början...](#apis)
 
@@ -889,7 +889,7 @@ Om autentiseringsflödet är aktiverat slutför AccessEnabler flödet genom att 
 
 </br>
 
-### checkPreauthorizedResources:cache: {#checkPreauthCache}
+### `checkPreauthorizedResources:cache:` {#checkPreauthCache}
 
 **Fil:** AccessEnabler/headers/AccessEnabler.h
 
@@ -964,11 +964,11 @@ Om autentiseringsflödet är aktiverat slutför AccessEnabler flödet genom att 
 
 </br>
 
-### checkAuthorization:, checkAuthorization:withData: {#checkAuthZ}
+### `checkAuthorization:`, `checkAuthorization:withData:` {#checkAuthZ}
 
 **Fil:** AccessEnabler/headers/AccessEnabler.h
 
-**Beskrivning:** Den här metoden används av programmet för att kontrollera auktoriseringsstatusen. Det börjar med att kontrollera autentiseringsstatusen först. Om den inte är autentiserad [tokenRequestFailed:errorCode:errorDescription:](#tokenReqFailed) återanrop aktiveras och metoden avslutas. Om användaren är autentiserad utlöses även auktoriseringsflödet. Se mer om [`getAuthorization:`](#getAuthZ) -metod.
+**Beskrivning:** Den här metoden används av programmet för att kontrollera auktoriseringsstatusen. Det börjar med att kontrollera autentiseringsstatusen först. Om den inte är autentiserad [`tokenRequestFailed:errorCode:errorDescription:`](#tokenReqFailed) återanrop aktiveras och metoden avslutas. Om användaren är autentiserad utlöses även auktoriseringsflödet. Se mer om [`getAuthorization:`](#getAuthZ) -metod.
 
 
 <table class="pass_api_table">
@@ -1014,17 +1014,18 @@ Om autentiseringsflödet är aktiverat slutför AccessEnabler flödet genom att 
 * *data*: En ordlista som består av nyckelvärdepar som ska skickas till Pay-TV-pass-tjänsten. Adobe kan använda dessa data för att aktivera framtida funktioner utan att ändra SDK.
 
 **Återanrop utlösta:**
-[tokenRequestFailed:errorCode:errorDescription:](#tokenReqFailed)`,setToken:forResource:, sendTrackingData:forEventType:, setAuthenticationStatus:errorCode:`
+
+[`tokenRequestFailed:errorCode:errorDescription:`](#tokenReqFailed),`setToken:forResource:`, `sendTrackingData:forEventType:`, `setAuthenticationStatus:errorCode:`
 
 [Till början...](#apis)
 
 </br>
 
-### getAuthorization:, getAuthorization:withData: {#getAuthZ}
+### `getAuthorization:`, `getAuthorization:withData:` {#getAuthZ}
 
 **Fil:** AccessEnabler/headers/AccessEnabler.h
 
-**Beskrivning:** Den här metoden används av programmet för att initiera auktoriseringsflödet. Om användaren inte redan är autentiserad initieras även autentiseringsflödet. Om användaren autentiseras fortsätter AccessEnabler att utfärda begäranden för auktoriseringstoken (om det inte finns någon giltig auktoriseringstoken i det lokala token-cachen) och för den kortlivade medietoken. När den korta medietoken har hämtats anses auktoriseringsflödet vara slutfört. The [setToken:forResource:](#setToken) återanrop aktiveras och kort medietoken levereras som en parameter till programmet. Om auktoriseringen av någon anledning misslyckas, [tokenRequestFailed:forEventType:](#tokenReqFailed) callback-funktionen aktiveras och felkoden/informationen anges.
+**Beskrivning:** Den här metoden används av programmet för att initiera auktoriseringsflödet. Om användaren inte redan är autentiserad initieras även autentiseringsflödet. Om användaren autentiseras fortsätter AccessEnabler att utfärda begäranden för auktoriseringstoken (om det inte finns någon giltig auktoriseringstoken i det lokala token-cachen) och för den kortlivade medietoken. När den korta medietoken har hämtats anses auktoriseringsflödet vara slutfört. The [`setToken:forResource:`](#setToken) återanrop aktiveras och kort medietoken levereras som en parameter till programmet. Om auktoriseringen av någon anledning misslyckas, [`tokenRequestFailed:forEventType:`](#tokenReqFailed) callback-funktionen aktiveras och felkoden/informationen anges.
 
 <table class="pass_api_table">
 <colgroup>
@@ -1075,13 +1076,15 @@ Om autentiseringsflödet är aktiverat slutför AccessEnabler flödet genom att 
 **Ytterligare återanrop har utlösts:**\
 Den här metoden kan även utlösa följande återanrop (om autentiseringsflödet också initieras): `setAuthenticationStatus:errorCode:`, `displayProviderDialog:`
 
-**Obs! Använd checkAuthorization: / checkAuthorization:withData: i stället för getAuthorization: / getAuthorization:withData: om möjligt. getAuthorization: / getAuthorization:withData: kommer att starta ett fullständigt autentiseringsflöde (om användaren inte är autentiserad) vilket kan leda till en komplicerad implementering från programmerarens sida.**
+>[!NOTE]
+>
+>Använd `checkAuthorization:` / `checkAuthorization:withData:` i stället för `getAuthorization:` / `getAuthorization:withData:` om möjligt. The `getAuthorization:` / `getAuthorization:withData:` kommer att starta ett fullständigt autentiseringsflöde (om användaren inte är autentiserad) vilket kan leda till en komplicerad implementering från programmerarens sida.
 
 [Till början...](#apis)
 
 </br>
 
-### setToken:forResource: {#setToken}
+### `setToken:forResource:` {#setToken}
 
 **Fil:** AccessEnabler/headers/EntitlementDelegate.h
 
@@ -1112,13 +1115,13 @@ Den här metoden kan även utlösa följande återanrop (om autentiseringsflöde
 * *token*: kortlivad medietoken
 * *resurs*: den resurs för vilken auktoriseringen erhållits
 
-**Utlöses av:** [checkAuthorization:](#checkAuthZ)` , `[checkAuthorization:withData:](#checkAuthZ),` `[getAuthorization:](#getAuthZ), [getAuthorization:withData:](#getAuthZ)
+**Utlöses av:** [`checkAuthorization:`](#checkAuthZ) , [`checkAuthorization:withData:`](#checkAuthZ), [`getAuthorization:`](#getAuthZ), [`getAuthorization:withData:`](#getAuthZ)
 
 [Till början...](#apis)
 
 </br>
 
-### tokenRequestFailed:errorCode:errorDescription: {#tokenReqFailed}
+### `tokenRequestFailed:errorCode:errorDescription:` {#tokenReqFailed}
 
 **Fil:** AccessEnabler/headers/EntitlementDelegate.h
 
@@ -1152,7 +1155,7 @@ Den här metoden kan även utlösa följande återanrop (om autentiseringsflöde
 * *description*: Ytterligare information om felscenariot. Om den här beskrivande strängen av någon anledning inte är tillgänglig skickar Adobe Pass Authentication en tom sträng **(&quot;&quot;)**.\
   Strängen kan användas av ett MVPD-program för att skicka anpassade felmeddelanden eller försäljningsrelaterade meddelanden. Om en prenumerant nekas behörighet för en resurs kan MVPD skicka ett meddelande som:&quot;Du har för närvarande inte åtkomst till den här kanalen i ditt paket. Om du vill uppgradera paketet klickar du **här**.&quot; Meddelandet skickas av Adobe Pass Authentication via det här återanropet till programmeraren, som har möjlighet att visa eller ignorera det. Adobe Pass Authentication kan också använda den här parametern för att ge ett meddelande om det tillstånd som kan ha orsakat ett fel. Exempel:&quot;Ett nätverksfel uppstod vid kommunikation med leverantörens auktoriseringstjänst&quot;.
 
-**Utlöses av:** ` checkAuthorization:, `[checkAuthorization:withData:](#checkAuthZ), `getAuthorization:, `[getAuthorization:withData:](#getAuthZ)
+**Utlöses av:** `checkAuthorization:`, [`checkAuthorization:withData:`](#checkAuthZ), `getAuthorization:`, [`getAuthorization:withData:`](#getAuthZ)
 
 [Till början...](#apis)
 
@@ -1195,7 +1198,7 @@ I slutet av anropas [`setAuthenticationStatus()`](#setAuthNStatus) återanrop me
 
 **Parametrar:** Ingen
 
-**Återanrop utlösta:** `navigateToUrl:, `[`setAuthenticationStatus:errorCode:`](#setAuthNStatus)
+**Återanrop utlösta:** `navigateToUrl:`, [`setAuthenticationStatus:errorCode:`](#setAuthNStatus)
 
 
 
@@ -1396,7 +1399,7 @@ Programmerarna har två typer av metadata:
 
 </br>
 
-### setMetadataStatus:encrypted:forKey:andArguments: {#setMetaStatus}
+### `setMetadataStatus:encrypted:forKey:andArguments:` {#setMetaStatus}
 
 **Fil:** AccessEnabler/headers/EntitlementDelegate.h
 
@@ -1525,7 +1528,7 @@ AccessEnabler utlöser en extra återanrop som inte nödvändigtvis är relatera
    * **mvpdSelection:** när användaren väljer ett PDF-dokument i MVPD-urvalsformuläret (händelsen är `TRACKING_GET_SELECTED_PROVIDER`)
 * *data*: ytterligare data som är associerade med den rapporterade händelsen. Dessa data presenteras i form av en lista med värden.
 
-**Utlöses av:** `checkAuthentication, getAuthentication, `[getAuthentication:withData:](#getAuthN), `checkAuthorization:, `[checkAuthorization:withData:](#checkAuthZ), `getAuthorization:, `[getAuthorization:withData:](#getAuthZ), `setSelectedProvider:`
+**Utlöses av:** `checkAuthentication`, `getAuthentication`, [`getAuthentication:withData:`](#getAuthN), `checkAuthorization:`, [`checkAuthorization:withData:`](#checkAuthZ), `getAuthorization:`, [`getAuthorization:withData:`](#getAuthZ), `setSelectedProvider:`
 
 Instruktioner för att tolka värdena i *data* array:
 
