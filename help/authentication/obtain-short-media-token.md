@@ -2,7 +2,7 @@
 title: Hämta kort medietoken
 description: hämta kort medietoken
 exl-id: 667eaaba-423e-4d54-9dbe-084b3c049e1f
-source-git-commit: 19ed211c65deaa1fe97ae462065feac9f77afa64
+source-git-commit: ea064031c3a1fee3298d85cf442c40bd4bb56281
 workflow-type: tm+mt
 source-wordcount: '370'
 ht-degree: 0%
@@ -14,6 +14,10 @@ ht-degree: 0%
 >[!NOTE]
 >
 >Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
+
+>[!NOTE]
+>
+> REST API-implementering begränsas av [Begränsningsmekanism](/help/authentication/throttling-mechanism.md)
 
 ## REST API-slutpunkter {#clientless-endpoints}
 

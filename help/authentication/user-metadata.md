@@ -2,9 +2,9 @@
 title: Användarmetadata
 description: Användarmetadata
 exl-id: 3d7b6429-972f-4ccb-80fd-a99870a02f65
-source-git-commit: 19ed211c65deaa1fe97ae462065feac9f77afa64
+source-git-commit: ea064031c3a1fee3298d85cf442c40bd4bb56281
 workflow-type: tm+mt
-source-wordcount: '485'
+source-wordcount: '495'
 ht-degree: 0%
 
 ---
@@ -14,6 +14,10 @@ ht-degree: 0%
 >[!NOTE]
 >
 >Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
+
+>[!NOTE]
+>
+> REST API-implementering begränsas av [Begränsningsmekanism](/help/authentication/throttling-mechanism.md)
 
 ## REST API-slutpunkter {#clientless-endpoints}
 

@@ -2,10 +2,10 @@
 title: Returregistreringspost
 description: Returregistreringspost
 exl-id: 7b9e63a2-59b6-4123-a19b-ee1f021219ea
-source-git-commit: 19ed211c65deaa1fe97ae462065feac9f77afa64
+source-git-commit: ea064031c3a1fee3298d85cf442c40bd4bb56281
 workflow-type: tm+mt
-source-wordcount: '243'
-ht-degree: 0%
+source-wordcount: '252'
+ht-degree: 1%
 
 ---
 
@@ -15,6 +15,9 @@ ht-degree: 0%
 >
 >Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
 
+>[!NOTE]
+>
+> REST API-implementering begränsas av [Begränsningsmekanism](/help/authentication/throttling-mechanism.md)
 
 ## REST API-slutpunkter {#clientless-endpoints}
 
@@ -42,7 +45,7 @@ Returnerar registreringskodposten som innehåller registreringskoden UUID, regis
 
 | Slutpunkt | Anropat  </br>Av | Indata   </br>Parametrar | HTTP  </br>Metod | Svar | HTTP  </br>Svar |
 | --- | --- | --- | --- | --- | --- |
-| `<REGGIE_FQDN>`;/reggie/v1/`{requestorId}`/regcode/`{registrationCode}`<p>Till exempel:<p>`<REGGIE_FQDN>`/reggie/v1/sampleRequestId/regcode/TJJCFK?format=xml | Strömmande app</br></br>eller</br></br>Programmerartjänst | 1. begärande  </br>    (Bankomponent)</br>2.  registreringskod  </br>    (Bankomponent) | GET | XML eller JSON som innehåller en registreringskod och information. Se schema och exempel nedan. | 200 |
+| `<REGGIE_FQDN>`;/reggie/v1/`{requestorId}`/regcode/`{registrationCode}`<p>Exempel:<p>`<REGGIE_FQDN>`/reggie/v1/sampleRequestId/regcode/TJJCFK?format=xml | Strömmande app</br></br>eller</br></br>Programmerartjänst | 1. begärande  </br>    (Bankomponent)</br>2.  registreringskod  </br>    (Bankomponent) | GET | XML eller JSON som innehåller en registreringskod och information. Se schema och exempel nedan. | 200 |
 
 {style="table-layout:auto"}
 

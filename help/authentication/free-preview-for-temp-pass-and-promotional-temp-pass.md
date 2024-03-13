@@ -2,10 +2,10 @@
 title: Kostnadsfri förhandsgranskning för tillfälligt pass och tillfälligt kampanjpass
 description: Kostnadsfri förhandsgranskning för tillfälligt pass och tillfälligt kampanjpass
 exl-id: c584bf0c-15c4-4a4d-b6a2-8d15ee786fe3
-source-git-commit: 19ed211c65deaa1fe97ae462065feac9f77afa64
+source-git-commit: ea064031c3a1fee3298d85cf442c40bd4bb56281
 workflow-type: tm+mt
-source-wordcount: '406'
-ht-degree: 1%
+source-wordcount: '399'
+ht-degree: 0%
 
 ---
 
@@ -14,6 +14,10 @@ ht-degree: 1%
 >[!NOTE]
 >
 >Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
+
+>[!NOTE]
+>
+> REST API-implementering begränsas av [Begränsningsmekanism](/help/authentication/throttling-mechanism.md)
 
 ## REST API-slutpunkter {#clientless-endpoints}
 

@@ -2,9 +2,9 @@
 title: Kontrollera autentiseringstoken
 description: Kontrollera autentiseringstoken
 exl-id: 9020f261-44d8-4bd5-b85b-a8667679f563
-source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
+source-git-commit: ea064031c3a1fee3298d85cf442c40bd4bb56281
 workflow-type: tm+mt
-source-wordcount: '265'
+source-wordcount: '269'
 ht-degree: 0%
 
 ---
@@ -14,6 +14,10 @@ ht-degree: 0%
 >[!NOTE]
 >
 >Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
+
+>[!NOTE]
+>
+> REST API-implementering begränsas av [Begränsningsmekanism](/help/authentication/throttling-mechanism.md)
 
 ## REST API-slutpunkter {#clientless-endpoints}
 

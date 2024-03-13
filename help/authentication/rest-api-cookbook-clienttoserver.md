@@ -2,9 +2,9 @@
 title: REST API Cookbook (klient-till-server)
 description: Återställ API-cookbook-klienten till servern.
 exl-id: f54a1eda-47d5-4f02-b343-8cdbc99a73c0
-source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
+source-git-commit: ea064031c3a1fee3298d85cf442c40bd4bb56281
 workflow-type: tm+mt
-source-wordcount: '855'
+source-wordcount: '870'
 ht-degree: 0%
 
 ---
@@ -22,6 +22,10 @@ Det här dokumentet innehåller stegvisa instruktioner för programmerarens tekn
 
 
 Strategin kräver två komponenter (direktuppspelningsapp och AuthN-app) för att slutföra de nödvändiga flödena: start-, registrerings-, auktoriserings- och vymedieflöden i direktuppspelningsappen och autentiseringsflödet i din AuthN-app.
+
+### Begränsningsmekanism
+
+Adobe Pass Authentication REST API styrs av en [Begränsningsmekanism](/help/authentication/throttling-mechanism.md).
 
 ## Komponenter {#components}
 
