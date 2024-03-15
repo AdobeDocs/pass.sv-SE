@@ -1,7 +1,7 @@
 ---
 title: Begränsningsmekanism
 description: Ta reda på vilken begränsningsmekanism som används vid Adobe Pass-autentisering. Utforska en översikt över den här funktionen på den här sidan.
-source-git-commit: 036fe2be0981e21e5b82022348cba03dca0b33d3
+source-git-commit: 4f81f39427d87e4274c27d8f1b4bd1eb366d9abb
 workflow-type: tm+mt
 source-wordcount: '987'
 ht-degree: 0%
@@ -34,8 +34,7 @@ Lösenautentisering baseras på användaridentifiering och en algoritm för begr
 
 ### Enhetsidentifieringsmekanism
 
-Den föreslagna begränsningsmekanismen använder de identifierade enheterna separat, med hjälp av rubriken&quot;X-Forwarded-For&quot;.
-Gränserna tillämpas på samma sätt för varje enhet.
+Den föreslagna begränsningsmekanismen använder de identifierade enheterna separat, med hjälp av rubriken&quot;X-Forwarded-For&quot;. Gränserna tillämpas på samma sätt för varje enhet.
 
 ### Nödvändiga uppdateringar
 
@@ -45,8 +44,7 @@ Mer information om hur du skickar rubriken X-Forwarded-For finns [här](rest-api
 
 ### Faktiska gränser och slutpunkter
 
-För närvarande tillåter standardgränsen högst 1 begäran per sekund, med en inledande sekvens på 3 begäranden (engångsavdrag vid den första interaktionen med den identifierade klienten, som bör tillåta initieringen att slutföras).
-Detta bör inte påverka alla vanliga affärstillfällen för alla våra kunder.
+För närvarande tillåter standardgränsen högst 1 begäran per sekund, med en inledande sekvens på 3 begäranden (engångsavdrag vid den första interaktionen med den identifierade klienten, som bör tillåta initieringen att slutföras). Detta bör inte påverka alla vanliga affärstillfällen för alla våra kunder.
 
 Begränsningsmekanismen aktiveras för följande slutpunkter:
 
