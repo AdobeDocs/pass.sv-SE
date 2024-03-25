@@ -1,7 +1,7 @@
 ---
 title: API-åtkomst för CMU
 description: API-åtkomst för CMU
-source-git-commit: 30631ac006b7944cb2eb8996c2c165343b6be5fe
+source-git-commit: 598eb878168f6e352a8eae369cbc8cb833033328
 workflow-type: tm+mt
 source-wordcount: '407'
 ht-degree: 0%
@@ -16,8 +16,7 @@ ht-degree: 0%
 
 ## Översikt över åtkomstproceduren {#api-access-procedure-overview}
 
-Vi har uppdaterat åtkomsten till CMU-rapporter så att de är kompatibla med OAuth 2.0 Dynamic Client Registration Protocol.
-En anpassad OAuth 2.0-auktoriseringsserver distribueras för att tillgodose behoven i programmet för övervakning av samtidig användning. \
+Vi har uppdaterat åtkomsten till CMU-rapporter så att de är kompatibla med OAuth 2.0 Dynamic Client Registration Protocol. En anpassad OAuth 2.0-auktoriseringsserver distribueras för att tillgodose behoven i programmet för övervakning av samtidig användning. \
 För att klientprogrammen ska kunna utnyttja OAuth 2.0-auktoriseringen måste servern registrera sig dynamiskt för att få specifik information (klientautentiseringsuppgifter) för att kunna interagera med den. Som en del av registreringsprocessen måste klienten presentera en uppsättning inbyggda metadata för klientregistreringens slutpunkt.
 Dessa metadata kommuniceras som en programsats, som innehåller ett &quot;software_id&quot; som gör att vår autentiseringsserver kan korrelera olika instanser av ett program med samma programsats.
 En programsats är en JSON Web Token (JWT) som bekräftar metadatavärden om klientprogramvaran som ett paket. När programsatsen skickas till auktoriseringsservern som en del av en klientregistreringsbegäran måste den signeras digitalt eller MACed med JSON Web Signature (JWS). \
@@ -28,7 +27,7 @@ Följ stegen nedan för att få åtkomst.
 
 1. Ha ett registrerat program i Adobe Pass DCR-servern. Kontakta [Supportteam](mailto:tve-support@adobe.com).
 2. Hämta programsatsen
-   1. Gå till TVE Dashboard <a href="https://console-preprod.auth.adobe.com/#!/" target="_blank"> Förproduktion </a> eller <a href="https://console.auth.adobe.com/" target="_blank">PROD</a>
+   1. Gå till TVE Dashboard <a href="https://console-preprod.auth.adobe.com/#!/" target="_blank"> Förproduktion </a>  eller <a href="https://console.auth.adobe.com/" target="_blank">PROD</a>
    2. Välj programmerare
    3. Gå till fliken Program
    4. Välj program
