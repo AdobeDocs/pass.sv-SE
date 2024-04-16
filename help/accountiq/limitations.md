@@ -1,42 +1,35 @@
 ---
-title: Begränsningar och kända fel
-description: Kända fel i produkten.
+title: Begränsningar
+description: Lär dig mer om begränsningar och isoleringsläge för programmerare i konto-IQ.
 exl-id: 08d65716-8b6a-4300-acda-fec63e1e6815
-source-git-commit: 2ced89dc1f77d2c090b599c40e778f3054f1a8dd
+source-git-commit: 791d661e1495bdb6fe4eb25efbefeecd813f0f3a
 workflow-type: tm+mt
-source-wordcount: '415'
+source-wordcount: '273'
 ht-degree: 0%
 
 ---
 
-# Kända fel och begränsningar {#known-issues}
+# Begränsningar {#limitations}
 
-Adobe strävar efter att erbjuda robust funktionalitet och smidiga användarupplevelser genom sina erbjudanden. Den aktuella versionen (version 1.0) av konto-IQ ger användnings- och prenumerationsdelningsanalyser till direktuppspelningsleverantörer med hög grad av förtroende. Följande begränsningar kommer dock att åtgärdas i kommande versioner.
+D2C- och TV Everywhere-versionerna av konto-IQ ger analyser av användning och prenumerationsdelning till strömningsleverantörer. Den nuvarande versionen 1.3 har dock vissa begränsningar som kommer att åtgärdas i framtida versioner.
 
-* När du definierar kohorter på kontrollpanelen eller rapportsidorna finns det för närvarande inget alternativ för att lägga till mått som **antal enheter** för att förfina segmentet. Den här funktionen kommer att finnas tillgänglig i en framtida version.
+* The [Total delning](/help/accountiq/data-panels.md#overall-sharing-score) innehåller [Delningsnivå](/help/accountiq/data-panels.md#sharing-level) och [Användning från delade konton](/help/accountiq/data-panels.md#usage-from-shared-accounts). Framtida releaser kommer att innehålla fler mätvärden.
 
-* Vid beräkning av poängdelning för enskilda konton har konto-IQ en konservativ metod som gör att företag kan agera på delning med stor tillförlitlighet. Detta tillvägagångssätt tenderar dock att underskatta det totala beloppet för delning när det slås samman över många konton.
+* När du definierar segment på kontrollpanelen eller användningsmönster visas [Videokategorier i segment](/help/accountiq/data-panels.md#video-categories-segment), [Dela poäng via kanaler och videoprogrammeringsfönster](/help/accountiq/data-panels.md#sharin-score-by-channels-and-mvpds)och [Distribution av användningsmönster för videokategorier](/help/accountiq/usage-patterns.md#usage-pattern-dis-video-categories) kan bara visa data för upp till 20 [videokategorier](product-concepts.md#video-category-def). Segment som innehåller fler än 20 videokategorier visar inte data i dessa rapporter.
 
-* The [Generell delningspoäng](/help/accountiq/dashboard.md#overall-sharing-score) för närvarande bara faktorer i [Delningsnivå](/help/accountiq/dashboard.md#sharing-level) och [Användning från delade konton](/help/accountiq/dashboard.md#usage-from-shared-accounts). Framtida versioner kommer att ta hänsyn till ytterligare mätvärden.
+* För närvarande är alternativet att exportera kontostatistik begränsat till att exportera 1 000 konton.
 
-* När du definierar kohorter på kontrollpanelen eller rapportsidorna saknar väljarna för programmeringsdokumentskydd och kanaler sökmekanismen redan nu.
+* När du definierar åtgärder kan du välja [segmenttyp](/help/accountiq/operations.md#segment) är begränsad till **Fast antal konton**. The **Variabelt antal konton** i framtida versioner.
 
-* När du definierar kohorter på kontrollpanelen eller på rapportsidorna finns det en begränsning för att välja upp till 10 programmerare och programmerare (eller enskilda kanaler).
+* The **Benchmarking**, **Identifieringsmodeller**, **Åtgärder** och **Inställningar** -avsnitt i den vänstra navigeringen är för närvarande inaktiverade och kommer att vara tillgängliga i en framtida version.
 
-* Alternativet att exportera kontostatistik är begränsat till att exportera 1 000 konton från och med nu.
+* När du skapar åtgärder kan du bara använda två sorters [funktionsmakron](/help/accountiq/operations.md#action) — Övervakningsregler för samtidig användning och externa åtgärder.
 
-* Alternativet som ska väljas [Segmenttyp](#segment-type) när åtgärder definieras begränsas till **Fast antal konton**. The **Variabelt antal konton** i en senare version.
+* För närvarande kan du bara [skapa](/help/accountiq/operations.md#create-new-operation) och [schema](/help/accountiq/operations.md#schedule) Operationer. I framtida versioner kan du pausa, återuppta och hantera dem helt.
 
-* Avsnitten Benchmarking, Detection Models, Segments, Snapshots och Rules i den vänstra navigeringen är för närvarande inaktiverade och kommer att vara tillgängliga i en kommande version.
+* Du kan bara analysera data för en enstaka vecka eller månad i taget när du väljer Kornighet och Tidsintervall.
 
-* När du skapar [Operationer](/help/accountiq/operation-affecting-user-segment.md)kan du bara identifiera två typer av [Åtgärder](/help/accountiq/operation-affecting-user-segment.md) från och med nu - regler för övervakning av samtidig användning och externa åtgärder.
+* Det går inte att lägga till flerlägesobjekt för isoleringsläge i segmentdefinitionen med andra flerlägesobjektsvideofiler. Vissa programmerings-programmerings-programmerare identifierar inte abonnenter unikt över flera programmeringskanaler. Därför behandlas dessa programmerare separat för programmerare som arbetar med TV Everywhere.
 
-* För närvarande kan åtgärder bara skapas och [schemalagd](/help/accountiq/operation-affecting-user-segment.md#action). I framtida versioner kan du pausa, återuppta och hantera dem helt.
 
-* På grund av den mer begränsade uppsättning data som används återspeglar isoleringsläget inte riktigt mängden delning. Därför går det inte att jämföra MVPD i isoleringsläge med något annat MVPD-värde. <!--do we need to separate out this limitation, which is from a different persona i.e. only for Programmer persona?-->
 
-* När du definierar ett nytt [segment](/help/accountiq/segments-timeframe.md) för en åtgärd kan du lägga till mätvärden. Men om du markerar ett sparat segment kan du inte lägga till fler mått för att förfina segmentet.
-
-* Grund- och tidsbildruteväljaren är begränsad till en vecka eller en månad, vilket innebär att data kan utvärderas endast för en vecka eller en månad.
-
-* Fördefinierade intervall är för närvarande inaktiverade i granularitets- och tidsbildruteväljare och kommer att vara tillgängliga i en framtida version.

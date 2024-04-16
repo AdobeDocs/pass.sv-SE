@@ -2,9 +2,9 @@
 title: Användarhandbok för Primetime TVE Dashboard
 description: Användarhandbok för Primetime TVE Dashboard
 exl-id: 6f7f7901-db3a-4c68-ac6a-27082db9240a
-source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
+source-git-commit: c6afb9b080ffe36344d7a3d658450e9be767be61
 workflow-type: tm+mt
-source-wordcount: '4386'
+source-wordcount: '4377'
 ht-degree: 0%
 
 ---
@@ -60,6 +60,7 @@ För att växla mellan miljöer kan användaren klicka på den miljö som posten
 *Bild 2: Listrutan Adobe Pass TVE Dashboard-miljöer*
 
 >[!IMPORTANT]
+>
 >Observera att när du gör administrativa ändringar i din konfiguration för Adobe Pass-autentisering via TVE Dashboard rekommenderar vi att du följer sekvensen nedan för att säkerställa att den fungerar som den ska.
 
 Så här gör du administrativa ändringar i din konfiguration för Adobe Pass-autentisering via TVE-instrumentpanelen:
@@ -69,6 +70,7 @@ Så här gör du administrativa ändringar i din konfiguration för Adobe Pass-a
 * Utför ändringarna i [Frigör produktion och validera dem](http://sp.auth-staging.adobe.com/apitest/api.html).
 
 >[!IMPORTANT]
+>
 >För att de administrativa ändringarna ska börja gälla måste användarna navigera till avsnittet Granska och push-ändra genom att markera knappen, som visas längst ned till vänster i sidofältet, för att granska ändringar, lägga till en beskrivning för de nyligen skapade ändringarna och bekräfta konfigurationsuppdateringen genom att välja Push Configuration (Push-konfiguration).
 
 ![Granska ett push-meddelande på instrumentpanelen](assets/tve-review-push-notifications.png)

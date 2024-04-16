@@ -2,9 +2,9 @@
 title: Kampanjtillfälligt pass
 description: Kampanjtillfälligt pass
 exl-id: 705c1ba9-0430-4e3b-add1-d9e4da3f82d1
-source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
+source-git-commit: c88fba76b1805dd88fccb68b13bde11b1b8ea181
 workflow-type: tm+mt
-source-wordcount: '1529'
+source-wordcount: '1510'
 ht-degree: 0%
 
 ---
@@ -62,7 +62,7 @@ Baserat på enhets-ID och den information som användaren angett och enligt logi
 
 * Användardefinierad informationsnyckel (t.ex. e-post)
 * Antal resurser som användaren har rätt att använda
-* TTL - tidsramen som användaren har rätt att använda det konfigurerade antalet resurser
+* TTL - tidsintervallet som användaren har rätt att använda det konfigurerade antalet resurser
 
 ### Användarmetadata {#user-metadata}
 
@@ -74,7 +74,7 @@ För att underlätta genomförandet av Programmerarens tillämpning ska följand
 
 ### Hur ser visningstiden ut? {#compute-viewing-time}
 
-Den tid som ett tillfälligt pass är giltigt motsvarar inte den tid en användare tillbringar med att visa innehåll i programmerarens program. Efter den första användarbegäran om auktorisering via tillfälligt kampanjpass beräknas en förfallotid genom att den inledande aktuella begärandetiden läggs till i TTL-värdet (tidsram för varaktighet) som anges av programmeraren.
+Den tid som ett tillfälligt pass är giltigt motsvarar inte den tid en användare tillbringar med att visa innehåll i programmerarens program. Efter den första användarbegäran om auktorisering via tillfälligt kampanjpass beräknas en förfallotid genom att den inledande aktuella begärandetiden läggs till i TTL-värdet (tidsintervall för varaktighet) som anges av programmeraren.
 
 ### Autentisering och auktorisering {#authn-authz}
 

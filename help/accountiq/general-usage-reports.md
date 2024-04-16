@@ -1,97 +1,71 @@
 ---
 title: Allmänna användningsrapporter
-description: Allmänna användningsrapporter
+description: Läs mer om allmänna användningsrapporter
 exl-id: 1272073a-61fe-47ec-aced-2e8055b6b11e
-source-git-commit: d543bbe972944ad83f4cb28c8a17ea6e10f66975
+source-git-commit: 4a8a73d6c67508e88ba3ffbb9033b7e339f4fe8f
 workflow-type: tm+mt
-source-wordcount: '1275'
+source-wordcount: '1055'
 ht-degree: 0%
 
 ---
 
-# [!UICONTROL General Usage] rapporter {#general-usage-reports}
+# [!UICONTROL General usage] rapporter {#general-usage-reports}
 
-[!UICONTROL Account IQ] rapporter är grundläggande analysverktyg och rapporter som gör att du kan gå in i data för att isolera dem [kohorter](/help/accountiq/product-concepts.md#segmet-def), identifiera avvikelser och bygga upp en förståelse för dina kontoegenskaper.
+[!UICONTROL Account IQ] rapporter är grundläggande analysverktyg som gör att du kan gå in i data för att isolera [kohorter](/help/accountiq/product-concepts.md#segmet-def), identifiera avvikelser och bygga upp en förståelse för dina kontoegenskaper.
 
-[!UICONTROL General Usage] rapportsidan innehåller verktyg för att ta bort undergruppsmått baserat på antalet kontoenheter som används, IP-adresser som har identifierats och respektive postnummer.
+[!UICONTROL General usage] rapportsidan innehåller verktyg för att ta bort undergruppsmått baserat på antalet kontoenheter som används, IP-adresser som identifieras och deras respektive postnummer.
 
-<!--Divide the content in cohorts.
+Alla rapporter baseras på det aktuella segment som valts i [Segment och tidsintervall](/help/accountiq/segments-timeinterval.md) -panelen. Du kan finjustera markeringen och ytterligare begränsa den genom att ange tröskelvärden (antal enheter, antal IP-adresser och antal postkoder) i dialogrutan [Översikt över ögonblicksbild - konton över tröskelvärden](#snapshot-overview) -panelen.
 
-Content filters
-device filters
+## Spela upp förfrågningar och unika prenumeranter {#playreq-uniquesubs}
 
-segment and definition replicate to cohorts. Number of people and number of account that ......
-content consumption.....-->
+I linjediagrammen här visas hur värdena ändras över tid, t.ex. uppspelningsbegäranden och unika prenumeranter i ett valt tidsintervall för det definierade segmentet.
 
-Alla rapporter baseras på det aktuella segment som valts med [Segment och tidsram](/help/accountiq/howto-select-segment-timeframe.md) -panelen. Du kan finjustera markeringen och begränsa den ytterligare genom att ange tröskelvärden (antal enheter, antal IP-adresser och antal postkoder) i [Översikt över ögonblicksbild - konton över tröskelvärden](#snapshot-overview) -panelen.
++++ D2C-tjänster: uppspelningsförfrågningar/unika prenumeranter
 
-<!--To view General Usage Reports:
+![](assets/d2c-line-graph-gu.png)
 
-1. Select the desired MVPDs from the **MVPDs in Segment** option.
 
-2. Select the desired programmer channels from the **Channels in Segment** Option.
+*Spela upp förfrågningar/unika prenumeranter för D2C-tjänster*
 
-3. Select an appropriate time frame from the **Granularity and time frame** option.
++++
 
-   Using the above options you have defined segments for your analysis. Based on your segment selection, following graphs and reports are displayed.
-
-4. You can fine tune your selection and further narrow it down by specifying (number of devices, number of IPs, and number of zip codes) thresholds in [Snapshot Overview - Accounts above thresholds](#snapshot-overview) widget/panel.-->
-
-## AuthN OK/AuthZ OK/Uppspelningsbegäranden/unika prenumeranter {#authn-authz-playreq-uniquesubs}
-
-I linjediagrammen här visas hur värdena för AuthN OK, AuthZ OK, Play-begäranden och Unika prenumeranter ändras över tiden i en vald tidsram för det definierade segmentet.
-
-+++Programmer- **AuthN OK/AuthZ OK/Uppspelningsbegäranden/unika prenumeranter**
++++Programmerare: Spela upp begäranden/unika prenumeranter
 
 ![](assets/progr-line-graph-gu.png)
 
 
-*Bild: AuthN OK / AuthZ OK / Uppspelningsbegäranden / Unika prenumeranter för programmeraren*
-
+*Spela upp begäranden/unika prenumeranter för programmerare*
 
 +++
 
-
-+++MVPD- **AuthN OK / AuthZ OK / Unika prenumeranter**
++++MVPD: Unika prenumeranter
 
 ![](assets/mvpd-line-graph-gu.png)
 
-
-*Bild: AuthN OK / AuthZ OK / Unika prenumeranter för MVPD-användare*
-
+*Unika prenumeranter för distributörer av videoprogrammeringstjänster*
 
 +++
 
-X-axeln visar enheterna inom den aktuella tidsramen och y-axeln representerar grundläggande aktivitetsmått för prenumeranten under den perioden. Med linjediagrammen kan du jämföra följande värden för de som prenumererar på videofilmsprogram och kanaler som du har valt på segmentmarkeringspanelen:
+<br/>
 
-* **AuthN OK**
+X-axeln representerar tiden baserat på det aktuella intervallet och y-axeln representerar grundläggande aktivitetsmått för prenumeranten under den perioden. Med linjediagrammen kan du visualisera och jämföra aktiviteten för prenumeranterna i det aktuella segmentet. Beroende på vilken version av konto-IQ det är:
 
-  AuthN OK är antalet lyckade autentiseringar. Mer information och definitioner finns i [Produktbegrepp: AuthN OK](/help/accountiq/product-concepts.md#authn-ok-def).
+* **AuthN OK**: Antal lyckade autentisering. Läs mer om [AuthN OK](/help/accountiq/product-concepts.md#authn-ok-def).
 
-* **AuthZ OK**
+* **AuthZ OK**: Antal lyckade auktoriseringar. Läs mer om [AuthZ OK](/help/accountiq/product-concepts.md#authz-ok-def).
 
-  AuthZ OK är antalet lyckade auktoriseringar. Mer information och definitioner finns i [Produktbegrepp: AuthZ OK](/help/accountiq/product-concepts.md#authz-ok-def).
+* **Spela upp begäranden**: Antal uppspelningsbegäranden. Läs mer om [Spela upp begäranden](/help/accountiq/product-concepts.md#play-requests-def).
 
-* **Spela upp begäranden**
+* **Unika prenumeranter**: Antal slutförda unika prenumeranter. Läs mer om [Unika prenumeranter](/help/accountiq/product-concepts.md#unique-subscriber-def).
 
-  Uppspelningsbegäranden är antalet uppspelningsbegäranden. Mer information och definitioner finns i [Produktbegrepp: uppspelningsbegäranden](/help/accountiq/product-concepts.md#play-requests-def)
+>[!NOTE]
+>
+>Vilka mätvärden som är tillgängliga varierar beroende på vilken version av konto-IQ som används.
 
-  >[!NOTE]
-  >
-  >Linjediagrammet för uppspelningsförfrågningar är inte tillgängligt för MVPD-användare.
+## Översikt över ögonblicksbilder - konton över tröskelvärden {#snapshot-overview}
 
-
-* **Unika prenumeranter**
-
-  Unika prenumeranter är antalet godkända unika prenumeranter. Mer information och definitioner finns i [Produktbegrepp: Unika prenumeranter](/help/accountiq/product-concepts.md#unique-subscriber-def)
-
-  >[!NOTE]
-  >
-  >Det totala antalet unika prenumeranter omfattar även antalet unika enheter om en programmerare använder Adobe TempPass (som är en kostnadsfri förhandsversion) som en del av segmentet.
-
-## Översikt över ögonblicksbild - konton över tröskelvärden {#snapshot-overview}
-
-Finjustera analyser och rapporter med hjälp av det här extra filtret för att ange olika användningströsklar. När du har definierat segmentet (eller kohorten) för analys genom att välja önskat(a) MVPD(s) och önskade kanaler, kan du även använda följande filter för att analysera prenumeranternas beteende:
+Finjustera analyser och rapporter med hjälp av det här extra filtret för att ange olika användningströsklar. När du har valt ett segment kan du även använda följande filter för att analysera prenumerantbeteendet ytterligare:
 
 * Tröskelvärde för antal enheter
 
@@ -99,7 +73,7 @@ Finjustera analyser och rapporter med hjälp av det här extra filtret för att 
 
 * Antal postkoder, tröskel
 
-När du uppdaterar tröskelvärden i [Kontosegment - baserat på valda tröskelvärden](#account-segments-basedon-segments) kan du visa effekten i:
+När du uppdaterar tröskelvärden i [Kontona segment baserat på valda tröskelvärden](#account-segments-basedon-segments) visas effekten i:
 
 * [Enheter per vecka (eller månad) per konto](#devices-week-account)
 
@@ -111,31 +85,29 @@ När du uppdaterar tröskelvärden i [Kontosegment - baserat på valda tröskelv
 
 >[!NOTE]
 >
->Standardvärdet för var och en av tröskelvärdena är 4. På sidan General Usage (Allmän användning) visas en analys för distributörer av videoprogrammeringstjänster med abonnenter som använder fyra (och fler än fyra) enheter, som förbrukar innehåll från fyra (och fler) olika geografiska platser och fyra (och fler) olika postnummer.
+>Varje tröskelvärde sätts till standardvärdet 4. På sidan General Usage (Allmän användning) visas en analys för abonnenter som använder mer än fyra enheter, som använder innehåll från mer än fyra olika IP-adresser. *och* fler än fyra olika postnummer.
 
-### Kontosegment - baserat på valda tröskelvärden {#account-segments-basedon-segments}
+### Kontonegment baserat på valda tröskelvärden {#account-segments-basedon-segments}
 
-The **Kontosegment - baserat på valda tröskelvärden** I finns alternativ för att ange tröskelvärden (mellan 1 och 10) för antal enheter, antal IP-adresser och antal postkoder.
+The **Kontona segment baserat på valda tröskelvärden** I finns alternativ för att ange tröskelvärden (mellan 1 och 10) för antal enheter, antal IP-adresser och antal postkoder.
 
 I diagrammet visas följande:
 
-* absolut antal abonnentkonton, och
+* Absolut antal abonnentkonton.
 
-* Procentandel av det totala abonnentkontot i det segmentet.
-
-  som använder X-antal enheter, Y-nummer för IP-adresser och Z-nummer för Zip-koder för att förbruka innehåll från din kanal för (definierat segment av) MVPD-program under en tidsram.
+* Procentandel av det totala antalet abonnentkonton i segmentet som använder antalet enheter, från antalet IP-adresser, i antalet postkoder som anges av tröskelvärdena.
 
 ![](assets/select-thresholds.png)
 
 ## Enheter per vecka (eller månad) per konto {#devices-week-account}
 
-The **stolpdiagram** ger insikter om hur abonnenterna använder sina enheter för att komma åt innehåll.
+I det här stapeldiagrammet visas hur abonnenterna använder sina enheter för att komma åt innehåll.
 
-X-axeln visar Antal konton och y-axeln visar Antal enheter. Baserat på det tröskelvärde som du anger för antal enheter per konto markeras det absoluta antalet prenumerantkonton som förbrukar innehåll från ett visst antal enheter under en veckas tid.
+X-axeln visar Antal konton och y-axeln visar Antal enheter. Baserat på det tröskelvärde som du anger för antal enheter per konto anger det absoluta antalet prenumerantkonton som förbrukar innehåll från ett visst antal enheter under en veckas tid.
 
 ![](assets/bar-gr-devices-w-acc.png)
 
-När du hovrar över ett streck (specifikt för antalet enheter) visas en etikett som ger information om antalet prenumerantkonton (och procentandelen av det totala antalet prenumerantkonton i segmentet) som direktuppspelar kanalinnehåll med dessa många enheter under en vecka.
+När du hovrar över ett fält (specifikt för antalet enheter) visas en etikett som ger information om antalet prenumerantkonton (och procentandelen av det totala antalet prenumerantkonton i segmentet) som direktuppspelar kanalinnehåll med dessa många enheter under en vecka.
 
 I diagrammet markeras även följande:
 
@@ -143,23 +115,17 @@ I diagrammet markeras även följande:
 
 * En grön linje som anger medelvärdet för antalet olika enheter som används av ett prenumerantkonto per vecka (eller månad).
 
-Du kan jämföra tröskelnivån med det genomsnittliga antalet olika enheter som används av ett konto per vecka för att bedöma delningsnivån.
-
-Diagrammet ger också en glimt av procentandelen prenumerantkonton som använder fler enheter än det angivna tröskelvärdet.
-
-Med donationsdiagrammet kan du snabbt bedöma storleken på prenumerantkonton som förbrukar kanalinnehåll med enheter som överskrider det angivna tröskelvärdet (inom en tidsram).
+Nöden ger en alternativ vy över de enheter som används av konton i det aktuella segmentet över det angivna tröskelvärdet.
 
 ![](assets/donut-devices-w-acc.png)
 
 ## Platser per vecka (eller månad) per konto {#locations-week-account}
 
-Gilla [Enheter per vecka (eller månad) per konto](#devices-week-account)kan du använda måtten Platser per vecka (eller månad) per konto för att analysera hur abonnentkontot används från olika platser, för att mer noggrant identifiera lösenordsdelning. X-axeln visar Antal konton och y-axeln visar Antal platser.
-
-Resultat från det här måttet kombinerat med antal [Enheter per vecka (eller månad) per konto](#devices-week-account) och antal [IP-adresser per vecka (eller månad) per konto](#ip-week-account) hjälper dig att bedöma instanserna för lösenordsdelning mer korrekt, så att autentiska användare inte räknas in.
+Liknar måttet för [Enheter per vecka (eller månad) per konto](#devices-week-account)kan du med hjälp av placeringsvärdena per vecka (eller månad) per konto analysera hur abonnentkontot används från olika platser. X-axeln visar Antal konton och y-axeln visar Antal platser.
 
 ![](assets/graph-loc-week-acc.png)
 
-När du har definierat ett segment och angett tröskelvärdet för antal platser, kan du identifiera från diagrammet:
+När du har angett ett tröskelvärde för antalet platser kan du använda diagrammet för att identifiera följande:
 
 * Antal (och procentandel) prenumeranter som konsumerar innehåll från (ett visst) x antal platser under en vecka.
 
@@ -167,40 +133,36 @@ När du har definierat ett segment och angett tröskelvärdet för antal platser
 
 * Jämför veckomedelvärdet (antal olika platser för ett konto) med tröskelvärdet.
 
-## IP-adresser per vecka (eller månad) per konto {#ip-week-account}
+## Ips per vecka (eller månad) per konto {#ip-week-account}
 
-Liknar [Enheter per vecka (eller månad) per konto](#devices-week-account) och [Platser per vecka (eller månad) per konto](#locations-week-account), **Antal IP-adresser per vecka per konto** Med mätvärden kan du analysera lösenordsdelning mer exakt och med större noggrannhet.
+Liknar måttet för **Antal platser per vecka per konto**, **Antal IP-adresser per vecka per konto** Med hjälp av mätvärden kan du utvärdera mängden förändring vid källan för direktuppspelning för det aktuella segmentet.
 
 X-axeln visar Antal konton och y-axeln visar Antal IP.
 
 ![](assets/graph-ip-week-acc.png)
 
-När du har definierat ett segment (genom att markera MVPD-program och kanaler) och angett ett tröskelvärde för antalet IP-adresser, kan du identifiera det i diagrammet:
+När du har definierat ett segment och angett ett tröskelvärde för antalet IP-adresser kan du använda diagrammet för att identifiera följande:
 
-* Antal (och procentandel) prenumeranter som konsumerar innehåll från (ett specifikt) x antal IP-adresser per vecka.
+* Antal (och procentandel) prenumeranter som konsumerar innehåll från ett visst antal IP-adresser per vecka.
 
 * Procentandel av det totala antalet prenumerantkonton som visar innehåll från fler IP-adresser än tröskelvärdet.
 
 * Jämför veckomedelvärdet (antal olika IP-adresser för ett konto) med tröskelvärdet.
 
-## Kontosegment - historikvy {#account-segment-historical-view}
+## Konton, segmenthistorikvy {#account-segment-historical-view}
 
-I diagrammet med historikvyn kan du jämföra användningsstatistik för olika tidsramar. Dessutom ritas de olika användningsmåtten tillsammans, som [Enheter per vecka (eller månad) per konto](#devices-week-account), [Platser per vecka (eller månad) per konto](#locations-week-account)och [IP-adresser per vecka (eller månad) per konto](#ip-week-account).
+I diagrammet med historikvyfältet kan du jämföra användningsstatistik över olika tidsintervall. Dessutom ritas de olika användningsmåtten tillsammans, som [Enheter per vecka (eller månad) per konto](#devices-week-account), [Platser per vecka (eller månad) per konto](#locations-week-account)och [IP-adresser per vecka (eller månad) per konto](#ip-week-account).
 
-* X-axeln ritar upp tidsramen och y-axeln visar antalet prenumerantkonton, enheter, platser och IP-adresser.
+* X-axeln ritar upp tidsintervallet och y-axeln visar antalet abonnentkonton, enheter, platser och IP-adresser.
 
-* De orangefärgade strecken betecknar segment i olika tidsramar.
+* De orangefärgade strecken betecknar segment i olika tidsintervall.
 
-* Linjediagrammet ritar upp ändringarna i [Enheter per vecka (eller månad) per konto](#devices-week-account), [Platser per vecka (eller månad) per konto](#locations-week-account)och [IP-adresser per vecka (eller månad) per konto](#ip-week-account) värden för hela tidsramen baserat på tröskelvärdet.
+* Linjediagrammet ritar upp ändringarna i [Enheter per vecka (eller månad) per konto](#devices-week-account), [Platser per vecka (eller månad) per konto](#locations-week-account)och [IP-adresser per vecka (eller månad) per konto](#ip-week-account) värden över tidsintervallet baserat på tröskelvärdet.
 
 ![](assets/historical-view.png)
 
-* De blå staplarna anger det totala antalet aktiva prenumeranter i branschen under en tidsram.
+* De blå staplarna anger det totala antalet aktiva prenumeranter i branschen under ett tidsintervall.
 
 * Du kan markera specifika teckenförklaringar och de hjälper dig att skala diagrammet.
 
 ![](assets/historical-view-total.png)
-
->[!MORELIKETHIS]
->
->* Lär dig hur du exporterar rapporter för de 1000 mest populära prenumeranterna i det valda segmentet med hjälp av filter i den allmänna användningsrapporten med hjälp av [Exportera de 1 000 populäraste kontona](/help/accountiq/export-acc-information.md) alternativ.

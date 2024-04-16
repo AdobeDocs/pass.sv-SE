@@ -1,51 +1,66 @@
 ---
-title: Visa rapporter i isoleringsläge
-description: Visa rapporter i isoleringsläge för Xfinity.
-exl-id: e7cf24c5-9bfa-48f6-b5c8-20443a976891
-source-git-commit: d543bbe972944ad83f4cb28c8a17ea6e10f66975
+title: Isoleringsläge MVPD
+description: Lär dig mer om programmerare som arbetar med isoleringsläge för videoprogrammerare för TV Everywhere
+source-git-commit: 5639319ce8915f0c33d927ca9554c405b3b2e87d
 workflow-type: tm+mt
-source-wordcount: '459'
+source-wordcount: '502'
 ht-degree: 0%
 
 ---
 
-# Visa delningsrapporter i isoleringsläge {#report-isolation-mode}
 
-I isoleringsläge identifierar programmeringsfönster (t.ex. Xfinity) konsekvent abonnenter på olika enheter, men identifierar deras abonnenter på olika sätt utifrån de programmerare de interagerar med. I standardläget identifierar programmeringsdokumentets prenumeranter på olika enheter, oberoende av programmerare.
+# programmerare för Isoleringsläge för videoprogrammerare för TV Everywhere {#isolation-mode-tve}
 
-I följande bild kopplas olika identifierare till de två olika åtkomstförsöken om en prenumerant B på ett MVPD-program för Isoleringsläge (till exempel Xfinity) öppnar det innehåll som erbjuds av två olika programmerare med samma enhet. För de programmerare (L och M i figuren) och Account IQ verkar det som om det finns två olika prenumeranter som får åtkomst till innehållet. Om prenumerant B däremot, för Standard MVPD, öppnar innehåll som erbjuds av två olika programmerare kommer MVPD att koppla en enda åtkomstidentifierare för båda åtkomstförsöken. MVPD-filer (t.ex. Xfinity) i isoleringsläge identifierar inte en prenumerant konsekvent även om prenumeranten använder samma enhet för olika programmerare.
+>[!IMPORTANT]
+>
+> Begränsning av MVPD-värden för isoleringsläge gäller endast för programmerare för TV Everywhere.
+
+I Isoleringsläge identifierar programmerings- och videoprogrammerare (till exempel Xfinity) konsekvent abonnenter på olika enheter baserat på deras interaktioner med specifika programmerare. I standardläget identifierar programmeringsprogrammeringsgränssnitten konsekvent abonnenter på olika enheter oavsett vilka programmerare som är inblandade.
+
+Här är ett exempel:
 
 ![](assets/isolation-diff-new.png)
 
-*Bild: Isoleringsläge MVPD identifierar fyra olika prenumeranter i stället för två*
+*Isoleringsläge MVPD identifierar fyra olika abonnenter i stället för två*
 
-För att hantera förvrängning av data (på grund av att samma abonnent identifieras som en annan baserat på åtkomst till olika programmerare) begränsar Isoleringsläget aktiviteten som rapporteras om en programmerare till aktiviteten endast i programmerarens program. För isoleringsläget i bilden ovan ser programmeraren L data som bara baseras på aktiviteten för Identiteter W och Y, och ignorerar Identiteter X och Z.
+* Om en prenumerant B i ett Isolation Mode MVPD (t.ex. Xfinity) får åtkomst till det innehåll som erbjuds av två olika programmerare med samma enhet kopplas olika identifierare till de två olika åtkomstförsöken. Det verkar som om det finns två olika prenumeranter som får åtkomst till programmerarnas innehåll (L och M i figuren).
+
+* Om prenumerant B får åtkomst till innehåll som erbjuds av två olika programmerare för standardprogrammeringsdokument, associerar MVPD en enda åtkomstidentifierare för båda åtkomstförsöken.
+
+* MVPD-filer (t.ex. Xfinity) i isoleringsläge identifierar inte konsekvent en prenumerant, även om prenumeranten använder samma enhet för olika programmerare.
+
+För att förhindra förvrängning av data som orsakas av att en prenumerant räknas som flera prenumeranter på grund av åtkomst till olika programmerare, begränsar Isoleringsläge den rapporterade aktiviteten om en programmerare till enbart deras program.
+
+Programmer L kan till exempel bara visa data baserat på aktiviteten för Identiteter W och Y, och ignorerar Identiteter X och Z i den föregående bilden.
 
 >[!IMPORTANT]
 >
 > Nackdelen är att programmeraren L inte längre kan dela information som samlats in om prenumeranter A och B på grund av aktivitet med någon annan programmerare än L.
 
-I isoleringsläge görs alla beräkningar som gjorts för att hämta delningspoängen och alla tillhörande mått endast med hjälp av aktiviteten hos de enheter som direktuppspelas från program som tillhör den valda programmeraren och de valda kanalerna.
-Delningspoängen och sannolikheterna beräknas endast med den ström som börjar från de valda kanalerna.
+I isoleringsläge beräknas delningspoäng och tillhörande mätvärden enbart utifrån aktiviteten hos enheter som direktuppspelas från den valda programmerarens och kanalens applikationer. Delningspoängen och sannolikheterna beräknas från dataströmmen startar på de valda kanalerna.
 
-Så här visar du mått i isoleringsläge:
+Systemet arbetar automatiskt i isoleringsläge när det valda segmentet innehåller ett MVPD-värde för isoleringsläge som identifierar enskilda prenumeranter som flera prenumeranter vid direktuppspelning från olika programmerare. Alla diagram och diagram för dessa segment återspeglar resultatet av detta ändrade beteende.
 
-1. Välj **[!UICONTROL isolation mode]** från **[!UICONTROL MVPDs in segment]** nedrullningsbart alternativ och välj **[!UICONTROL Apply Selection]**.
+>[!IMPORTANT]
+>
+> Beteendet i isoleringsläge är inte kompatibelt med standardläget. Isoleringsläge MVPD kan inte blandas med andra MVPD och vice versa.
 
-   ![](assets/xfinity-in-segment.gif)
+Om du vill skapa ett segment som analyseras i isoleringsläge drar du Isoleringsläget MVPD, till exempel **Xfinity**, till segmentdefinitionens MVPD-avsnitt.
 
-   *Bild: MVPD-val i isoleringsläge*
+>[!NOTE]
+>
+> Eftersom det inte går att blanda flerkanalsläge (MVPD) med andra flerkanalsläge (MVPD), kommer segmentdefinitionens MVPD-avsnitt inte att tillåta att ytterligare ett flerkanalsläge dras dit.
 
-1. Välj önskade kanaler på menyn **[!UICONTROL Channels in segment]** nedrullningsbart alternativ och välj **[!UICONTROL Apply Selection]**.
+![](assets/xfinity-in-segment.png)
 
-   Välj även en [tidsram](/help/accountiq/product-concepts.md#granularity-def).
+*Xfinity-markering i isoleringsläge*
 
-   >[!IMPORTANT]
-   >
-   >Eftersom kontodelning är mer relevant när den mäts för direktuppspelning i alla programmerarens program, kommer du att se lägre delningspoäng och vissa variationer i mätvärdena i isoleringsläge.
+>[!IMPORTANT]
+>
+> Kontodelning är mer relevant när den mäts för direktuppspelning i alla programmerarens program. Förvänta dig lägre **Dela bakgrundsmusik** och vissa variationer i mätvärdena i isoleringsläge.
 
-   ![](assets/aggregate-sharing-isolation.png)
+![](assets/aggregate-sharing-isolation.png)
 
-   *Bild: Dela sannolikhetsmätare i isoleringsläge*
+*Dela sannolikhetsmätare i isoleringsläge*
 
-   Observera att ovanstående mätare visar att endast 6 % av alla konton delas och att endast 8 % av innehållet förbrukas av dessa 8 %. Kanalerna kan alltså jämföra sina bakgrundsmusik i isoleringsläge med andra videofilmsprogram. Därför bör den information som erhålls med Isoleringsläge tolkas annorlunda än de övriga uppgifterna.
+I ovanstående mått visas endast 9 % av alla konton som delas, och bland dessa används endast 11 % av innehållet. På grund av de naturligt lägre poängen bör resultaten i isoleringsläge tolkas annorlunda än resultaten i standardläge.

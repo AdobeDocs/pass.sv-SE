@@ -2,9 +2,9 @@
 title: Kom igång med [!UICONTROL Account IQ]
 description: Läs mer om introduktion, förutsättningar och hur du kommer igång med [!UICONTROL Account IQ].
 exl-id: 840ab081-0073-492f-86b2-ba174ae93256
-source-git-commit: 3e5bcee38151c88d3538cdbdbf2d07010be929cd
+source-git-commit: a7a37ffea0169a302890ee50b2e2202ddf58d021
 workflow-type: tm+mt
-source-wordcount: '214'
+source-wordcount: '209'
 ht-degree: 0%
 
 ---
@@ -27,7 +27,7 @@ ht-degree: 0%
 
 1. Tilldela organisationsanvändare till **[!UICONTROL TVE Dashboard Read-Write]** eller **[!UICONTROL TVE Dashboard Read Only]** profiler i [Adobe Admin Console](https://adminconsole.adobe.com/).
 
-   Administratörsanvändare i organisationen kan skapa användare och ge dem åtkomst till [!UICONTROL Account IQ Dashboard and Reports]. Ge organisationsanvändare åtkomst till [!UICONTROL Account I]Fråga: Organisationsadministratörer måste:
+   Administratörsanvändare i organisationen kan skapa användare och ge dem åtkomst till [!UICONTROL Account IQ Dashboard and Reports]. Ge organisationsanvändare åtkomst till [!UICONTROL Account IQ]måste företagsadministratörer:
 
    1. Logga in på [Adobe Admin Console](https://adminconsole.adobe.com/).
 

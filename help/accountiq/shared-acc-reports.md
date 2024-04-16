@@ -2,20 +2,20 @@
 title: Rapporter om delade konton
 description: Rapporter om delade konton
 exl-id: 16c5ded1-2a95-4373-8b90-b445131f333a
-source-git-commit: d543bbe972944ad83f4cb28c8a17ea6e10f66975
+source-git-commit: 85316a40ba5f6564c84a5aecf689c077e936a91a
 workflow-type: tm+mt
-source-wordcount: '452'
+source-wordcount: '492'
 ht-degree: 0%
 
 ---
 
 # Rapporter om delade konton {#shared-accounts-reports}
 
-Rapporterna om delade konton delar upp mätvärden som antal enheter och enhetstyper efter det valda intervallet med sannolikhet för delning, till exempel **[!UICONTROL Over Moderate Probability]** och **[!UICONTROL Over Low Probability]** för aktuellt segment.
+Rapporterna om delade konton innehåller en annan grupp diagram som återspeglar delningsbeteende och -förbrukning för det aktuella segmentet. Till exempel: **[!UICONTROL Over Moderate Probability]** och **[!UICONTROL Over Low Probability]** för aktuellt segment.
 
-Intervallen kan sedan fungera som användardefinierade tröskelvärden och diagrammen uppdateras utifrån de valda tröskelvärdena.
+## Sannolikhet för kontodelning {#accounts-sharing-probability}
 
-Med konto-IQ klassificeras alla abonnentkonton för det definierade segmentet i kontona med följande fem kategorier baserat på deras delningssannolikhet:
+I det här dons- och streckdiagrammet visas procentsatserna (och absoluta tal) för de prenumerantkonton som faller inom specifika intervall för delningssannolikhet. Intervallen definieras som:
 
 * Mycket hög (80-100 %)
 * Hög (60-80 %)
@@ -23,25 +23,23 @@ Med konto-IQ klassificeras alla abonnentkonton för det definierade segmentet i 
 * Låg (20-40 %)
 * Mycket låg (0 %-20 %)
 
-## Sannolikhet för kontodelning {#accounts-sharing-probability}
-
-I donutdiagrammet här kategoriseras och visas procentsatserna (och absoluta tal) för abonnentkonton från olika sannolikhetskategorier.
-
-Den röda raden markerar det tröskelvärde som valts av användare i [Konton över tröskelvärdet i aktuellt segment](#threshold-selector) -panelen.
+Den röda linjen markerar det tröskelvärde som är markerat i [Konton över tröskelvärdet i aktuellt segment](#threshold-selector) och det ljusröda området innehåller summan av alla konton över det tröskelvärdet.
 
 ![](assets/accounts-sharing-probability-pie.png)
 
-I stapeldiagrammet visas antalet konton på y-axeln för olika kategorier av delningssannolikheter (ritade på x-axeln).
+I stapeldiagrammet visas antalet konton som faller inom varje intervall på y-axeln för varje intervall (ritas på x-axeln).
 
 ![](assets/accounts-sharing-probability-bar.png)
 
-Den röda linjen anger tröskelvärdet och kan justeras i stapeldiagrammet. Tröskelvärdet som justeras i stapeldiagrammet återspeglar tröskelvärdet i donutdiagrammet.
+Här markeras det aktuella tröskelvärdet och det ljusröda området innehåller summan av alla konton som ligger över det tröskelvärdet.
 
-<!--![](assets/shared-accounts-rep.gif)-->
+>[!NOTE]
+>
+> Y-axeln i stapeldiagrammet är logaritmisk.
 
 ### Konton över tröskelvärdet i aktuellt segment{#threshold-selector}
 
-På den här panelen kan du välja ett intervall från följande som tröskelvärde för prenumerantkonton (baserat på deras delningssannolikhet):
+På den här panelen kan du välja ett tröskelvärde för diagrammen för munstycket och stolpdiagrammen ovan. De fyra alternativen är:
 
 * Konton **över mycket låg** delning **sannolikhet**
 
@@ -55,44 +53,43 @@ På den här panelen kan du välja ett intervall från följande som tröskelvä
 
 När du har valt tröskelvärdet visas procentandelen (och antalet) konton av alla prenumerantkonton i det valda segmentet.
 
-## Segment - Spela upp begäranden av totalt {#play-request-out-total}
+## Antal uppspelningsbegäranden av totalt {#play-request-out-total}
 
-Miniatyrdiagrammet visar hur många (och hur många) uppspelningsbegäranden som gjorts av prenumeranter i segmentet och du kan jämföra uppspelningsbegäranden som gjorts av prenumeranter som inte finns i det definierade segmentet.
+I dondiagrammet visas procentandelen (och antalet) av uppspelningsbegäranden som görs av prenumeranter i segmentet, vilket gör att du kan jämföra uppspelningsbegäranden som görs av prenumeranter som inte finns i det definierade segmentet.
 
 ![](assets/play-req-outof-total.png)
 
-När du flyttar markören i donatdiagrammet visas även procenttal och siffror för prenumeranter från olika sannolikhetsintervall.
+När du flyttar markören över donatdiagrammet visas även procenttal och siffror för prenumeranter från olika sannolikhetsintervall.
 
 <!--![](assets/play-request-total.gif)-->
 
-## Segment - genomsnittligt antal enheter per konto{#avg-devices-account}
+## Genomsnittligt antal enheter per konto{#avg-devices-account}
 
-I stapeldiagrammet visas det genomsnittliga antalet enheter av varje enhetstyp som används av prenumeranter i det aktuella segmentet och prenumeranter som inte finns i det aktuella segmentet.
+I stapeldiagrammet visas det genomsnittliga antalet enheter av varje typ som för närvarande används av prenumeranter i det aktuella segmentet och av enheter som inte finns i det aktuella segmentet.
 
 ![](assets/avg-devices-per-acc.png)
 
-## Segment - postnummer per period per konto {#zip-codes-period-account}
+## Segmentpostkoder per period per konto {#zip-codes-period-account}
 
-I det här diagrammet visas hur många abonnenter som konsumerar innehåll från olika platser i en tidsram.
+I det här diagrammet visas hur många abonnenter i det aktuella segmentet som konsumerar innehåll från olika platser (mätt med postnummer) för det angivna tidsintervallet.
 
 ![](assets/zip-period-account.png)
 
-Du kan zooma in om du vill begränsa och visa detaljer för ett fält i diagrammet som ritar ett intervall med platser.
+>[!NOTE]
+>
+>Du kan zooma in de fält som representerar mer än en uppsättning postnummer, som representeras av en **+** (plus) genom att dubbelklicka på dem.
 
-<!--![](assets/zip-code-period.gif)-->
 
-## Segment - geografiskt område/period/konto {#geo-span-period-account}
+## Segmentgeografisk spännvidd per period per konto {#geo-span-period-account}
 
-I detta stapeldiagram visas antalet abonnentkonton i förhållande till olika geografiska intervall i engelska mil. Intervallet baseras på det maximala avståndet mellan de platser där en prenumerant har direktuppspelat under tidsramen.
-
-<!--Total number of users ...
-
-How many accounts are within 99 miles of each other.....and how many are apart. 
-
-Based on points on the map.-->
+I det här stapeldiagrammet visas antalet abonnentkonton som förbrukar innehåll från platser som faller inom olika geografiska områden i engelska mil. Intervallet baseras på det maximala avståndet mellan de platser från vilka en prenumerant har direktuppspelat under tidsintervallet.
 
 ![](assets/geogr-span-account.png)
 
-När du markerar en stapel som representerar ett intervall av geografiskt avstånd, utökas intervallet så att du får mer information.
+>[!NOTE]
+>
+> Du kan zooma in de fält som representerar mer än en uppsättning geografiska avstånd, som representeras av en **+** (plus) (t.ex. 1000+) genom att dubbelklicka på dem.
 
-<!--![](assets/geo-span-period-acc.gif)-->
+>[!MORELIKETHIS]
+>
+>* Lär dig hur du exporterar rapporter för de 1 000 populäraste prenumeranterna i det valda segmentet med hjälp av filter i Delade kontorapporter med [Exportera de 1 000 populäraste kontona](/help/accountiq/export-acc-information.md) alternativ.
