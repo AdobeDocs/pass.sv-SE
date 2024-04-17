@@ -2,9 +2,9 @@
 title: Översikt över API-nedgradering
 description: Översikt över API-nedgradering
 exl-id: c7d6685b-a235-42eb-9c9c-0ffa1747f614
-source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
+source-git-commit: f918d7f9f7b2af5b4364421f6703211e413eafb4
 workflow-type: tm+mt
-source-wordcount: '367'
+source-wordcount: '431'
 ht-degree: 0%
 
 ---
@@ -14,6 +14,17 @@ ht-degree: 0%
 >[!NOTE]
 >
 >Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
+>För att kunna använda API:t för degradering måste du:
+>- be supportteamet om en programsats för ditt registrerade program
+>- hämta en åtkomsttoken baserad på [Dynamisk klientregistrering](dynamic-client-registration.md)
+> 
+
+>[!NOTE]
+>
+>För att kunna använda API:t för degradering måste du:
+>- be supportteamet om en programsats för ditt registrerade program
+>- hämta en åtkomsttoken baserad på [Dynamisk klientregistrering](dynamic-client-registration.md)
+> 
 
 ## Allmän information {#general_info}
 
@@ -29,9 +40,9 @@ En försämringsregel tillämpas bara under en fast tidsperiod. Även om de prim
 
 Försämringsinformation:
 
-* Den här funktionen är avsedd att användas tillsammans med API:t för användningsövervakning, som ger realtidsinformation om antalet autentiseringar och auktoriseringar per MVPD, genomsnittlig auktoriseringsfördröjning och andra mått som behövs för en fullständig serviceöversikt.
-* Den här funktionen tillåter inte att autentiseringstjänsten Adobe Primetime kringgås. Om Adobe Pass Authentication finns nere finns det ingen mekanism i tjänsten som kan användas för att tillåta användare att se innehåll. Webbplatserna eller apparna kan dock själva dirigera runt Adobe Pass Authentication.
-* Adobe kommer för närvarande inte att utlösa någon direkt försämring - beslutet måste alltid fattas med en särskild programmerare som har godkänt sådana villkor med sidoskyddsprogram. I framtiden kan Adobe Pass Authentication vara proaktivt när det gäller att utlösa försämringsregler om avtal (SLA-skydd) kan nås med MVPD.
+- Den här funktionen är avsedd att användas tillsammans med API:t för användningsövervakning, som ger realtidsinformation om antalet autentiseringar och auktoriseringar per MVPD, genomsnittlig auktoriseringsfördröjning och andra mått som behövs för en fullständig serviceöversikt.
+- Den här funktionen tillåter inte att autentiseringstjänsten Adobe Primetime kringgås. Om Adobe Pass Authentication finns nere finns det ingen mekanism i tjänsten som kan användas för att tillåta användare att se innehåll. Webbplatserna eller apparna kan dock själva dirigera runt Adobe Pass Authentication.
+- Adobe kommer för närvarande inte att utlösa någon direkt försämring - beslutet måste alltid fattas med en särskild programmerare som har samtyckt till sådana villkor med sidoskyddsprogram. I framtiden kan Adobe Pass Authentication vara proaktivt när det gäller att utlösa försämringsregler om avtal (SLA-skydd) kan nås med MVPD.
 
 <!--
 ## Related Information {#related}
