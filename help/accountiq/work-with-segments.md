@@ -1,7 +1,8 @@
 ---
 title: Arbeta med segment
 description: Förstå och använda segment. Lär dig hur du skapar och hanterar ett segment.
-source-git-commit: cfcaa00ab05c99a64bcb0edfe5af60845a6769a9
+exl-id: 01431437-55f5-464d-8ee4-7a79ec553e4f
+source-git-commit: 38402b411dd4fad3490115cff1854faa7f3cb293
 workflow-type: tm+mt
 source-wordcount: '1970'
 ht-degree: 0%
@@ -40,7 +41,7 @@ Processen att skapa ett nytt segment liknar den för D2C-tjänster och TV Everyw
 
 Om du vill skapa ett segment och analysera prenumerantens delningsbeteende väljer du **[!UICONTROL Create new segment]** uppe till höger.
 
-![Välj Skapa nytt segment](assets/d2c-create-new-segment.png)
+![Välj Skapa nytt segment](assets/create-new-segment-d2c.png)
 
 *Välj Skapa nytt segment*
 
@@ -220,7 +221,7 @@ Du kan markera ett segment i segmentlistan och sedan utföra följande åtgärde
 
 *Markera ett segment som du vill redigera, duplicera eller ta bort*
 
-**S.** [Videokategorier](product-concepts.md#video-category-def) **B.** [Standardsegment](#work-with-segments)
+**S.** [Standardsegment](#work-with-segments) **B.** [Videokategorier](product-concepts.md#video-category-def)
 
 >[!NOTE]
 >
@@ -278,5 +279,3 @@ En kopia av det valda segmentet genereras och placeras i slutet av segmentlistan
    >[!NOTE]
    >
    >Segmentet tas bort permanent från systemet och du kan inte ångra den här åtgärden.
-
-
