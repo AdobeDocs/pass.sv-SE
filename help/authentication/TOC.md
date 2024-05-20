@@ -4,9 +4,9 @@ audience: end-user
 feature: Authentication
 user-guide-title: Adobe Pass-autentisering
 user-guide-description: Adobe Pass-autentisering är en berättigandelösning för TV Everywhere, som tillhandahåller ett modulärt ramverk för att avgöra om någon som begär åtkomst till en resurs är berättigad till den.
-source-git-commit: 30e2507c0622b882744cf8291525c388575df32f
+source-git-commit: 26236fbd4b2d5703bcf99fc0cc5e0460e75ed185
 workflow-type: tm+mt
-source-wordcount: '936'
+source-wordcount: '957'
 ht-degree: 3%
 
 ---
@@ -221,4 +221,16 @@ ht-degree: 3%
    + Concepts {#concepts}
       + [Förstå användar-ID:n](understanding-user-ids.md)
 + [Användarhandbok för TVE Dashboard](tve-dashboard-user-guide.md)
++ Ny användarhandbok för TVE Dashboard {#user-guide}
+   + [Översikt över TVE Dashboard](/help/authentication/tve-dashboard-overview.md)
+   + [Miljö](/help/authentication/tve-dashboard-environments.md)
+   + [Granska och skicka ändringar](/help/authentication/tve-dashboard-review-push-changes.md)
+   + [Kontrollpanel](/help/authentication/tve-dashboard-home.md)
+   + [Kanaler](/help/authentication/tve-dashboard-channels.md)
+   + [Programmerare](/help/authentication/tve-dashboard-programmers.md)
+   + [MVPD](/help/authentication/tve-dashboard-mvpds.md)
+   + [Integreringar](/help/authentication/tve-dashboard-integrations.md)
+   + [Rapporter](/help/authentication/tve-dashboard-reports.md)
+   + [Ändringslogg](/help/authentication/tve-dashboard-changes-log.md)
 + [Ordlista](glossary.md)
+
