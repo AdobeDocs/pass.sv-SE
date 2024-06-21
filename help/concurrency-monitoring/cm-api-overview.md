@@ -1,13 +1,13 @@
 ---
 title: API-översikt
 description: API-översikt över övervakning av samtidig användning
-source-git-commit: 59672b44074c472094ed27a23d6bfbcd7654c901
+exl-id: eb232926-9c68-4874-b76d-4c458d059f0d
+source-git-commit: dd370b231acc08ea0544c0dedaa1bdb0683e378f
 workflow-type: tm+mt
-source-wordcount: '1425'
+source-wordcount: '1556'
 ht-degree: 0%
 
 ---
-
 
 # API-översikt {#api-overview}
 
@@ -101,6 +101,24 @@ Använd samma parametrar för anropet som för sessionens pulsslag. HTTP-svarsko
 * 202 ACCEPTERAT för ett lyckat svar
 * 410 GONE om sessionen redan hade stoppats.
 
+#### Hämta alla strömmar som körs {#get-all-running-streams}
+
+Den här slutpunkten innehåller alla sessioner som för närvarande körs för en specifik klient i alla dess program. Använd **ämne** och **idp** parametrar för anropet:
+
+![](assets/get-all-running-streams-parameters.png)
+
+När du ringer får du följande svar:
+
+![](assets/get-all-running-streams-success.png)
+
+Observera **Upphör** header. Det är den tidpunkt då den första sessionen ska förfalla om inte ett pulsslag skickas. OtherStreams har värdet 0 eftersom det inte finns några andra strömmar som körs för den här användaren i andra klientprogram.
+Metadatafältet fylls i med alla metadata som skickades när sessionen startades. Vi filtrerar inte den, du får allt som du har skickat.
+Om det inte finns några sessioner som körs för en viss användare när du ringer får du det här svaret:
+
+![](assets/get-all-running-streams-empty.png)
+
+Observera även att i detta fall **Upphör** sidhuvudet finns inte.
+
 #### Bryter principen {#breaking-policy-app-first}
 
 
@@ -157,4 +175,3 @@ För att bryta regeln som vi har i den policy som tilldelats det här programmet
 Om vi använder olika värden för kanalmetadata varje gång vi skapar en ny session lyckas alla anrop eftersom tröskelvärdet 2 omfattar varje värde för sig.
 
 Som i det första exemplet kan vi använda avslutningskoden för att fjärrstoppa strömmar som är i konflikt eller vänta på att en av strömmarna ska förfalla, förutsatt att ingen pulsslag kommer att användas på dem.
-
