@@ -2,9 +2,9 @@
 title: API för tillståndsövervaknings-API
 description: API för tillståndsövervaknings-API
 exl-id: a9572372-14a6-4caa-9ab6-4a6baababaa1
-source-git-commit: 19ed211c65deaa1fe97ae462065feac9f77afa64
+source-git-commit: 1ad2a4e75cd64755ccbde8f3b208148b7d990d82
 workflow-type: tm+mt
-source-wordcount: '2026'
+source-wordcount: '2010'
 ht-degree: 0%
 
 ---
@@ -17,34 +17,44 @@ ht-degree: 0%
 
 ## API-översikt {#api-overview}
 
-ESM (Entitlement Service Monitoring) implementeras som en WOLAP (webbaserad [Analytisk onlinebearbetning](https://en.wikipedia.org/wiki/Online_analytical_processing){target=_blank}). ESM är ett generiskt webb-API för affärsrapportering som backas upp av ett datalager. Det fungerar som ett HTTP-frågespråk som gör att vanliga OLAP-åtgärder kan utföras RESTfully.
+ESM (Entitlement Service Monitoring) implementeras som ett WOLAP-projekt (webbaserad [Online Analytical Processing](https://en.wikipedia.org/wiki/Online_analytical_processing){target=_blank}). ESM är ett generiskt webb-API för affärsrapportering som backas upp av ett datalager. Det fungerar som ett HTTP-frågespråk som gör att vanliga OLAP-åtgärder kan utföras RESTfully.
 
 >[!NOTE]
 >
 >ESM API är inte allmänt tillgängligt. Kontakta din Adobe-representant om du har frågor om tillgänglighet.
 
-ESM-API:t ger en hierarkisk vy över de underliggande OLAP-kubarna. Varje resurs ([dimension](#esm_dimensions) i dimensionshierarkin, mappad som ett URL-sökvägssegment) genererar rapporter med (aggregerad) [mått](#esm_metrics) för den aktuella markeringen. Varje resurs pekar på sin överordnade resurs (för sammanslagning) och dess underresurser (för fördjupning). Segmentering och segmentering uppnås med frågesträngsparametrar som fäster dimensioner till specifika värden eller intervall.
+ESM-API:t ger en hierarkisk vy över de underliggande OLAP-kubarna. Varje resurs ([dimension](#esm_dimensions) i dimensionshierarkin, mappad som ett URL-sökvägssegment) genererar rapporter med (aggregerade) [mått](#esm_metrics) för den aktuella markeringen. Varje resurs pekar på sin överordnade resurs (för sammanslagning) och dess underresurser (för fördjupning). Segmentering och segmentering uppnås med frågesträngsparametrar som fäster dimensioner till specifika värden eller intervall.
 
 REST API tillhandahåller tillgängliga data inom ett tidsintervall som anges i begäran (som faller tillbaka till standardvärdena om inget anges), enligt dimensionssökvägen, tillhandahållna filter och valda mätvärden. Tidsintervallet används inte för rapporter som inte innehåller tidsdimensioner (år, månad, dag, timme, minut, sekund).
 
-Slutpunkts-URL-rotsökvägen returnerar sammanställda mått inom en enda post, tillsammans med länkarna till de tillgängliga detaljalternativen. API-versionen mappas som det avslutande segmentet i URI-sökvägen för slutpunkten. Till exempel: `https://mgmt.auth.adobe.com/*v2*` innebär att klienterna kommer åt WOLAP version 2.
+Slutpunkts-URL-rotsökvägen returnerar sammanställda mått inom en enda post, tillsammans med länkarna till de tillgängliga detaljalternativen. API-versionen mappas som det avslutande segmentet i URI-sökvägen för slutpunkten. `https://mgmt.auth.adobe.com/*v2*` betyder till exempel att klienterna kommer åt WOLAP version 2.
 
-De tillgängliga URL-sökvägarna kan identifieras via länkar i svaret. Giltiga URL-sökvägar hålls för att mappa en sökväg i det underliggande fördjupningsträdet som innehåller (pre-) aggregerade mått. En bana i formuläret `/dimension1/dimension2/dimension3` återspeglar en föraggning av dessa tre dimensioner (motsvarigheten till en SQL `clause GROUP` AV `dimension1`, `dimension2`, `dimension3`). Om det inte finns någon sådan föraggning och systemet inte kan beräkna den direkt, returnerar API:t ett 404-svar som inte hittades.
+De tillgängliga URL-sökvägarna kan identifieras via länkar i svaret. Giltiga URL-sökvägar hålls för att mappa en sökväg i det underliggande fördjupningsträdet som innehåller (pre-) aggregerade mått. En sökväg i formatet `/dimension1/dimension2/dimension3` reflekterar en föraggning av dessa tre dimensioner (motsvarigheten till en SQL `clause GROUP` BY `dimension1`, `dimension2`, `dimension3`). Om det inte finns någon sådan föraggning och systemet inte kan beräkna den direkt, returnerar API:t ett 404-svar som inte hittades.
 
 ## Detaljträd {#drill-down-tree}
 
-Följande nedåtriktade träd visar dimensionerna (resurserna) som finns i ESM 2.0 för [Programmerare] (#esm_dimensions) och [MVPD](#esm_dimensions_mvpd).
+Följande detaljerade träd visar de dimensioner (resurser) som finns i ESM 2.0 för [Programmerare](#progr-dimensions) och [MVPD](#mvpd-dimensions).
 
 
 ### Dimensioner för programmerare {#progr-dimensions}
 
-![](assets/esm-progr-dimensions.png)
+#### Dag
+
+![](assets/esm-progr-dimensions-day.png)
+
+#### Timme
+
+![](assets/esm-progr-dimensions-hour.png)
+
+#### Minut
+
+![](assets/esm-progr-dimensions-minute.png)
 
 ### Dimensioner tillgängliga för distributörer av videoprogrammeringstjänster {#mvpd-dimensions}
 
 ![](assets/esm-mvpd-dimensions.png)
 
-En GET till `https://mgmt.auth.adobe.com/v2` API-slutpunkten returnerar en representation som innehåller:
+En GET till API-slutpunkten `https://mgmt.auth.adobe.com/v2` returnerar en representation som innehåller:
 
 * Länkar till tillgängliga rotsökvägar:
 
@@ -52,15 +62,17 @@ En GET till `https://mgmt.auth.adobe.com/v2` API-slutpunkten returnerar en repre
 
    * `<link rel="drill-down" href="/v2/dimensionB"/>`
 
-* En sammanfattning (aggregerade värden) för alla mått (i standardintervallet, eftersom inga frågesträngsparametrar anges, se nedan).
+* En sammanfattning (aggregerade värden) för alla värden (i standardvärdet)
+intervall, eftersom inga frågesträngsparametrar anges, se nedan).
 
 
 Så här visar du en detaljerad sökväg (steg för steg):
-`/dimensionA/year/month/day/dimensionX` hämtar följande svar:
+`/dimensionA/year/month/day/dimensionX` hämtar följande
+svar:
 
-* Länkar till`dimensionY`och &quot;`dimensionZ`&quot; detaljeringsalternativ
+* Länkar till detaljnivåalternativen `dimensionY` och `dimensionZ`
 
-* En rapport som innehåller dagliga aggregat för varje värde av `dimensionX`
+* En rapport som innehåller dagliga aggregat för varje värde på `dimensionX`
 
 
 ### Filter
@@ -69,13 +81,13 @@ Förutom datum-/tidsdimensionerna kan alla dimensioner som är tillgängliga fö
 
 Följande filtreringsalternativ är tillgängliga:
 
-* **Lika med** filter anges genom att dimensionsnamnet ställs in på ett visst värde i frågesträngen.
+* **Lika med** filter anges genom att dimensionsnamnet anges till ett visst värde i frågesträngen.
 
-* **IN** filter kan anges genom att lägga till samma dimension-name-parameter flera gånger med olika värden: dimension=värde1\&amp;dimension=värde2
+* **IN**-filter kan anges genom att lägga till samma dimension-name-parameter flera gånger med olika värden: dimension=värde1\&amp;dimension=värde2
 
-* **Inte lika med** filter måste använda &#39;\!&#39; symbolen efter dimensionsnamnet som resulterar i tecknet &#39;\!=&#39; &quot;operator&quot;: dimension\!=värde
+* **Inte lika med**-filter måste använda \! symbolen efter dimensionsnamnet som resulterar i tecknet &#39;\!=&#39; &quot;operator&quot;: dimension\!=värde
 
-* **INTE IN** -filter kräver \!=&#39; operatorn ska användas flera gånger, en gång för varje värde i uppsättningen: dimension\!=värde1\&amp;dimension\!=värde2&amp;...
+* **INTE IN**-filter kräver \!=&#39; operatorn ska användas flera gånger, en gång för varje värde i uppsättningen: dimension\!=värde1\&amp;dimension\!=värde2&amp;...
 
 Det finns också en särskild användning för dimensionsnamnen i frågesträngen: Om dimensionsnamnet används som en frågesträngsparameter utan värde instruerar detta API att returnera en projektion som innehåller den dimensionen i rapporten.
 
@@ -84,14 +96,14 @@ Det finns också en särskild användning för dimensionsnamnen i frågestränge
 | *URL* | *SQL-motsvarighet* |
 |---|---|
 | /dimension1/dimension2/dimension3?dimension1=värde1 | SELECT * from projection WHERE dimension1 = &#39;value1&#39; </br> GROUP BY dimension1, dimension2, dimension3 |
-| /dimension1/dimension2/dimension3?dimension1=värde1&amp;dimension1=värde2 | SELECT * from projection WHERE dimension1 IN (&#39;value1&#39;, &#39;value2&#39;) </br> GROUP BY dimension1, dimension2, dimension3 |
-| /dimension1/dimension2/dimension3?dimension1!=value1 | SELECT * from projection WHERE dimension1 &lt;> &#39;value1&#39; | </br> GROUP BY dimension1, dimension2, dimension3 |
-| /dimension1/dimension2/dimension3?dimension1!=värde1&amp;dimension2!=value2 | SELECT * from projection WHERE dimension1 NOT IN (&#39;value1&#39;, &#39;value2&#39;) | </br> GROUP BY dimension1, dimension2, dimension3 |
+| /dimension1/dimension2/dimension3?dimension1=värde1&amp;dimension1=värde2 | SELECT * från projektion DÄR dimension1 IN (&#39;värde1&#39;, &#39;värde2&#39;) </br> GRUPP BY dimension1, dimension2, dimension3 |
+| /dimension1/dimension2/dimension3?dimension1!=värde1 | SELECT * from projection WHERE dimension1 &lt;> &#39;value1&#39; | </br> GRUPP BY dimension1, dimension2, dimension3 |
+| /dimension1/dimension2/dimension3?dimension1!=värde1&amp;dimension2!=värde2 | SELECT * from projection WHERE dimension1 NOT IN (&#39;value1&#39;, &#39;value2&#39;) | </br> GRUPP BY dimension1, dimension2, dimension3 |
 | Anta att det inte finns någon direkt sökväg: /dimension1/dimension3 </br> men det finns en sökväg: /dimension1/dimension2/dimension3 </br> </br> /dimension1?dimension3 | SELECT * from projection GROUP BY dimension1, dimension3 |
 
 >[!NOTE]
 >
->Ingen av dessa filtreringstekniker fungerar för `date/time` dimensioner. Det enda sättet att filtrera `date/time` dimensionerna är för att ange `start` och `end` frågesträngsparametrar (beskrivs nedan) till de värden som krävs.
+>Ingen av dessa filtreringstekniker fungerar för `date/time` dimensioner. Det enda sättet att filtrera `date/time` dimensioner är att ange parametrarna för frågesträngen `start` och `end` (beskrivs nedan) till de värden som krävs.
 
 Följande frågesträngsparametrar har reserverade betydelser för API (och kan därför inte användas som dimensionsnamn, annars går det inte att filtrera en sådan dimension).
 
@@ -105,16 +117,17 @@ Följande frågesträngsparametrar har reserverade betydelser för API (och kan 
 | format | Ja | Används för innehållsförhandling (med samma effekt men lägre prioritet än sökvägen &quot;extension&quot; - se nedan). | Ingen: innehållsförhandlingen provar andra strategier | format=json |
 | limit | Ja | Maximalt antal rader som ska returneras | Standardvärde som rapporteras av servern i självlänken om ingen gräns anges i begäran | limit=1500 |
 | mått | Ja | Kommaavgränsad lista med metriska namn som ska returneras. Den ska användas både för att filtrera en delmängd av tillgängliga mätvärden (för att minska nyttolaststorleken) och för att tvinga API att returnera en projektion som innehåller de begärda mätvärdena (i stället för standardprojektionen). | Alla mätvärden som är tillgängliga för den aktuella projektionen returneras om den här parametern inte anges. | metrics=m1,m2 |
-| start | Ja | Starttid för rapporten som ISO8601. Servern fyller i den återstående delen om bara ett prefix anges: t.ex. kommer start=2012 att resultera i start=2012-01-01:00:00:00 | Rapporteras av servern i självlänken. Servern försöker att tillhandahålla rimliga standardinställningar baserat på den valda tidsperioden | start=2012-07-15 |
+| start | Ja | Starttid för rapporten som ISO8601. Servern fyller i den återstående delen om bara ett prefix anges: Exempel: start=2012 ger start=2012-01-01:00:00:00 | Rapporteras av servern i självlänken. Servern försöker att tillhandahålla rimliga standardinställningar baserat på den valda tidsperioden | start=2012-07-15 |
 
-Den enda tillgängliga HTTP-metoden är GET. Stöd för OPTIONS/HEAD kan ges i framtida versioner.
+Den enda tillgängliga HTTP-metoden är GET. Stöd för OPTIONS /
+Metoder för HEAD kan tillhandahållas i framtida versioner.
 
 ## ESM API-statuskoder {#esm-api-status-codes}
 
 | Statuskod | Orsaksfras | Beskrivning |
 |---|---|---|
 | 200 | OK | Svaret kommer att innehålla länkarna &quot;roll-up&quot; och &quot;drill-down&quot; (om tillämpligt). Rapporten återges som ett attribut för resursen: ett kapslat element/egenskap för rapport. |
-| 400 | Felaktig begäran | Svarstexten innehåller ett textmeddelande som förklarar vad som är fel med begäran. </br> </br> Statusen 400 Dålig begäran åtföljs av en förklarande text i svarstexten (normal/textmedietyp) som ger användbar information om klientfelet. Förutom de triviala scenarierna, till exempel ogiltiga datumformat eller filter som tillämpas på icke-befintliga dimensioner, kommer systemet också att neka att svara på frågor som kräver att en stor mängd data returneras eller slås samman i farten. |
+| 400 | Felaktig begäran | Svarstexten innehåller ett textmeddelande som förklarar vad som är fel med begäran. </br> </br> En 400-status för felaktig begäran åtföljs av en förklarande text i svarstexten (normal/textmedietyp) som ger användbar information om klientfelet. Förutom de triviala scenarierna, till exempel ogiltiga datumformat eller filter som tillämpas på icke-befintliga dimensioner, kommer systemet också att neka att svara på frågor som kräver att en stor mängd data returneras eller slås samman i farten. |
 | 401 | Obehörig | Orsakas av en begäran som inte innehåller rätt OAuth-huvuden för att autentisera användaren |
 | 403 | Förbjuden | Anger att begäran inte tillåts i den aktuella säkerhetskontexten. Detta inträffar när användaren är autentiserad men inte har åtkomst till den begärda informationen |
 | 404 | Hittades inte | Inträffar om en ogiltig URL-sökväg anges med begäran. Detta bör aldrig inträffa om klienten följer länkarna &quot;drill-down&quot;/&quot;roll-up&quot; i 200 svar |
@@ -134,9 +147,9 @@ Data finns i följande format:
 
 Följande strategier för innehållsförhandling kan användas av klienter (prioriteten ges av positionen i listan - första saker först):
 
-1. Ett &quot;filtillägg&quot; som läggs till i det sista segmentet i URL-sökvägen: t.ex. `/esm/v2/media-company/year/month/day.xml`. Om URL:en innehåller en frågesträng måste tillägget komma före frågetecknet: `/esm/v2/media-company/year/month/day.csv?mvpd= SomeMVPD`
+1. Ett &quot;filtillägg&quot; har lagts till i det sista segmentet i URL-sökvägen: t.ex. `/esm/v2/media-company/year/month/day.xml`. Om URL:en innehåller en frågesträng måste tillägget komma före frågetecknet: `/esm/v2/media-company/year/month/day.csv?mvpd= SomeMVPD`
 1. En formatfrågesträngsparameter: t.ex. `/esm/report?format=json`
-1. Standardrubriken för HTTP-godkännande: `Accept: application/xml`
+1. Standardhuvudet för HTTP-godkännande: t.ex. `Accept: application/xml`
 
 Både &quot;extension&quot; och frågeparametern stöder följande värden:
 
@@ -149,7 +162,7 @@ Om ingen medietyp har angetts i någon av strategierna skapar API-gränssnittet 
 
 ## Hypertext Application Language {#hypertext-application-language}
 
-För JSON och XML kommer nyttolasten att kodas som HAL, vilket beskrivs här:  <http://stateless.co/hal_specification.html>.
+För JSON och XML kodas nyttolasten som HAL, vilket beskrivs här: <http://stateless.co/hal_specification.html>.
 
 Den faktiska rapporten (en kapslad tagg/egenskap som kallas&quot;rapport&quot;) består av den faktiska listan med poster som innehåller alla valda/tillämpliga mått och mått med deras värden, kodade enligt följande:
 
@@ -179,9 +192,9 @@ Den faktiska rapporten (en kapslad tagg/egenskap som kallas&quot;rapport&quot;) 
 
 För XML- och JSON-format är fältordningen (mått och mått) i en post ospecificerad - men konsekvent (ordningen är densamma i alla poster). Klienter bör dock inte förlita sig på någon särskild ordning för fälten i en post.
 
-Resurslänken (self-rel i JSON och href-resursattributet i XML) innehåller den aktuella sökvägen och frågesträngen som används för den infogade rapporten. Frågesträngen visar alla implicita och explicita parametrar så att nyttolasten uttryckligen anger vilket tidsintervall som används, eventuella implicita filter och så vidare. Resten av länkarna i resursen innehåller alla tillgängliga segment som kan följas för att detaljgranska aktuella data. En länk för sammanslagning kommer också att anges och den kommer att peka på den överordnade sökvägen (om sådan finns). The `href` värdet för länkarna för detaljnivå/rollup innehåller bara URL-sökvägen (den innehåller inte frågesträngen, så klienten måste lägga till den om det behövs). Observera att inte alla frågesträngsparametrar som används (eller är underförstådda) av den aktuella resursen kan användas för länkar av typen &quot;roll-up&quot; eller &quot;drill-down&quot; (filtren kan till exempel inte gälla för underresurser eller superresurser).
+Resurslänken (self-rel i JSON och href-resursattributet i XML) innehåller den aktuella sökvägen och frågesträngen som används för den infogade rapporten. Frågesträngen visar alla implicita och explicita parametrar så att nyttolasten uttryckligen anger vilket tidsintervall som används, eventuella implicita filter och så vidare. Resten av länkarna i resursen innehåller alla tillgängliga segment som kan följas för att detaljgranska aktuella data. En länk för sammanslagning kommer också att anges och den kommer att peka på den överordnade sökvägen (om sådan finns). Värdet `href` för länkarna för detaljnivå/rollup innehåller bara URL-sökvägen (den innehåller inte frågesträngen, så klienten måste lägga till den om det behövs). Observera att inte alla frågesträngsparametrar som används (eller är underförstådda) av den aktuella resursen kan användas för länkar av typen &quot;roll-up&quot; eller &quot;drill-down&quot; (filtren kan till exempel inte gälla för underresurser eller superresurser).
 
-Exempel (förutsatt att vi har ett enda mått som kallas `clients` och det finns en föraggning för `year/month/day/...`):
+Exempel (förutsatt att vi har ett enskilt mått med namnet `clients` och att det finns en föraggning för `year/month/day/...`):
 
 * https://mgmt.auth.adobe.com/esm/v2/year/month.xml
 
@@ -233,12 +246,12 @@ I CSV-dataformatet kommer inga länkar eller andra metadata (förutom rubrikrade
     esm__<start-date>_<end-date>_<filter-values,...>.csv
 ```
 
-CSV-filen innehåller en rubrikrad och sedan rapportdata som efterföljande rader. Rubrikraden innehåller alla mått följt av alla mått. Sorteringsordningen för rapportdata återspeglas i dimensionernas ordning. Om data därför sorteras efter `D1` och sedan `D2`ser CSV-rubriken ut så här: `D1, D2, ...metrics...`.
+CSV-filen innehåller en rubrikrad och sedan rapportdata som efterföljande rader. Rubrikraden innehåller alla mått följt av alla mått. Sorteringsordningen för rapportdata återspeglas i dimensionernas ordning. Om data sorteras av `D1` och sedan av `D2` ser CSV-huvudet därför ut så här: `D1, D2, ...metrics...`.
 
 Ordningen på fälten i rubrikraden återspeglar sorteringsordningen för tabelldata.
 
 
-Exempel: https://mgmt.auth.adobe.com/v2/year/month.csv skapar en fil med namnet `report__2012-07-20_2012-08-20_1000.csv` med följande:
+Exempel: https://mgmt.auth.adobe.com/v2/year/month.csv skapar en fil med namnet `report__2012-07-20_2012-08-20_1000.csv` med följande innehåll:
 
 
 | År | Månad | Klienter |
@@ -248,7 +261,7 @@ Exempel: https://mgmt.auth.adobe.com/v2/year/month.csv skapar en fil med namnet 
 
 ## Datahastighet {#data-freshness}
 
-De lyckade HTTP-svaren innehåller en `Last-Modified` rubrik som anger tidpunkten då rapporten i brödtexten senast uppdaterades. Avsaknaden av en senast ändrad rubrik anger att rapportdata beräknas i realtid.
+De lyckade HTTP-svaren innehåller ett `Last-Modified`-huvud som anger när rapporten i brödtexten senast uppdaterades. Avsaknaden av en senast ändrad rubrik anger att rapportdata beräknas i realtid.
 
 Oftast uppdateras grova grå data mindre ofta än finkorniga data (t.ex. minutvärden eller timvärden kan vara mer aktuella än de dagliga värdena, särskilt för mätvärden som inte kan beräknas utifrån mindre granularitet, t.ex. unika tal).
 
@@ -258,7 +271,7 @@ Framtida versioner av ESM kan göra det möjligt för klienter att utföra villk
 
 Adobe rekommenderar starkt att du aktiverar GZIP-stöd i klienter som hämtar ESM-rapporter. Om du gör det minskar svarsstorleken avsevärt, vilket i sin tur minskar svarstiden. (Komprimeringsförhållandet för ESM-data ligger i intervallet 20-30.)
 
-Om du vill aktivera gzip-komprimering i klienten anger du `Accept-Encoding:` sidhuvud enligt följande:
+Om du vill aktivera gzip-komprimering i klienten anger du rubriken `Accept-Encoding:` enligt följande:
 
 * Accept-Encoding: gzip, deflate
 

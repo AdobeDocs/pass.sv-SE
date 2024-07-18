@@ -2,9 +2,9 @@
 title: Initiera auktorisering
 description: Initiera auktorisering
 exl-id: 2f8a5499-e94f-40dd-9fb0-aac8e080de66
-source-git-commit: ea064031c3a1fee3298d85cf442c40bd4bb56281
+source-git-commit: 1ad2a4e75cd64755ccbde8f3b208148b7d990d82
 workflow-type: tm+mt
-source-wordcount: '413'
+source-wordcount: '423'
 ht-degree: 0%
 
 ---
@@ -17,16 +17,16 @@ ht-degree: 0%
 
 >[!NOTE]
 >
-> REST API-implementering begränsas av [Begränsningsmekanism](/help/authentication/throttling-mechanism.md)
+> REST API-implementeringen begränsas av [Begränsningsmekanismen](/help/authentication/throttling-mechanism.md)
 
 ## REST API-slutpunkter {#clientless-endpoints}
 
-&lt;reggie_fqdn>:
+&lt;REGGIE_FQDN>:
 
 * Produktion - [api.auth.adobe.com](http://api.auth.adobe.com/)
 * Mellanlagring - [api.auth-staging.adobe.com](http://api.auth-staging.adobe.com/)
 
-&lt;sp_fqdn>:
+&lt;SP_FQDN>:
 
 * Produktion - [api.auth.adobe.com](http://api.auth.adobe.com/)
 * Mellanlagring - [api.auth-staging.adobe.com](http://api.auth-staging.adobe.com/)
@@ -37,9 +37,9 @@ ht-degree: 0%
 
 Hämtar auktoriseringssvar.
 
-| Slutpunkt | Anropat  </br>Av | Indata   </br>Parametrar | HTTP  </br>Metod | Svar | HTTP  </br>Svar |
+| Slutpunkt | Anropat </br>av | Indata   </br>Parametrar | HTTP </br>Metod | Svar | HTTP </br>Response |
 | --- | --- | --- | --- | --- | --- |
-| &lt;sp_fqdn>/api/v1/authorized | Strömmande app</br></br>eller</br></br>Programmerartjänst | 1. beställare (obligatoriskt)</br>2.  deviceId (obligatoriskt)</br>3.  resurs (obligatoriskt)</br>4.  device_info/X-Device-Info (obligatoriskt)</br>5.  _deviceType_</br> 6.  _deviceUser_ (Föråldrat)</br>7.  _appId_ (Föråldrat)</br>8.  extra parametrar (valfritt) | GET | XML eller JSON som innehåller auktoriseringsinformation eller felinformation om det misslyckas. Se exemplen nedan. | 200 - lyckades  </br>403 - Ingen framgång |
+| &lt;SP_FQDN>/api/v1/authorized | Direktuppspelande app</br></br>eller</br></br>Programmeringtjänst | 1. beställare (obligatoriskt)</br>2.  deviceId (obligatoriskt)</br>3.  resurs (obligatoriskt)</br>4.  device_info/X-Device-Info (obligatoriskt)</br>5.  _deviceType_</br> 6.  _deviceUser_ (utgått)</br>7.  _appId_ (utgått)</br>8.  extra parametrar (valfritt) | GET | XML eller JSON som innehåller auktoriseringsinformation eller felinformation om det misslyckas. Se exemplen nedan. | 200 - lyckades </br> 403 - misslyckades |
 
 {style="table-layout:auto"}
 
@@ -51,18 +51,18 @@ Hämtar auktoriseringssvar.
 | begärande | Programmerarens requestId som den här åtgärden är giltig för. |
 | deviceId | Byte för enhets-ID. |
 | resurs | En sträng som innehåller ett resourceId (eller MRSS-fragment), identifierar innehållet som begärts av en användare och känns igen av MVPD-auktoriseringsslutpunkter. |
-| device_info/</br></br>X-Device-Info | Information om direktuppspelningsenhet.</br></br>**Anteckning**: Detta kan skickas som en URL-parameter, men på grund av parameterns potentiella storlek och begränsningar i längden på en GET-URL, bör det skickas som X-Device-Info i http-huvudet. </br></br><!--See the full details in [Passing Device and Connection Information](http://tve.helpdocsonline.com/passing-device-information)-->. |
-| _deviceType_ | Enhetstypen (t.ex. Roku, PC).</br></br>Om den här parametern är korrekt angiven erbjuder ESM värden som är [uppdelad per enhetstyp](/help/authentication/entitlement-service-monitoring-overview.md#clientless_device_type) när du använder Klientlös, så att olika typer av analyser kan utföras för t.ex. Roku, AppleTV, Xbox osv.</br></br>Se [Fördelar med klientlösa enhetstypparametrar i passningsvärden ](/help/authentication/benefits-of-using-the-clientless-devicetype-parameter-in-pass-metrics.md)</br></br>**Anteckning**: device_info ersätter den här parametern. |
+| device_info/</br></br>X-Device-Info | Information om direktuppspelningsenhet.</br></br>**Obs!**: Detta kan skickas som device_info som URL-parameter, men på grund av parameterns potentiella storlek och begränsningar i längden på en GET-URL, bör det skickas som X-Device-Info i http-huvudet. </br></br>Mer information finns i [Skicka information om enheter och anslutningar](/help/authentication/passing-client-information-device-connection-and-application.md). |
+| _deviceType_ | Enhetstypen (t.ex. Roku, PC).</br></br>Om den här parametern är korrekt har ESM värden som är [nedbrutna per enhetstyp](/help/authentication/entitlement-service-monitoring-overview.md#clientless_device_type) när Clientless används, så att olika typer av analyser kan utföras för t.ex. Roku, AppleTV, Xbox osv.</br></br>Se [Fördelar med parameter för klientlös enhetstyp i passningsmått ](/help/authentication/benefits-of-using-the-clientless-devicetype-parameter-in-pass-metrics.md)</br></br>**Obs!** Parametern device_info kommer att ersättas. |
 | _deviceUser_ | Enhetens användaridentifierare. |
-| _appId_ | Program-ID/namn. </br></br>**Anteckning**: device_info ersätter den här parametern. |
-| extra parametrar | Anropet kan även innehålla valfria parametrar som möjliggör andra funktioner som:</br></br>* generic_data - aktiverar användningen av [TempPass för kampanjerbjudande](/help/authentication/promotional-temp-pass.md)</br></br>Exempel: `generic_data=("email":"email@domain.com")` |
+| _appId_ | Program-ID/namn. </br></br>**Obs!**: device_info ersätter den här parametern. |
+| extra parametrar | Anropet kan även innehålla valfria parametrar som aktiverar andra funktioner som:</br></br>* generic_data - aktiverar användningen av [Promotional TempPass](/help/authentication/promotional-temp-pass.md)</br></br>Exempel: `generic_data=("email":"email@domain.com")` |
 
 {style="table-layout:auto"}
 
 >[!CAUTION]
 >
 >**IP-adress för direktuppspelningsenhet**</br>
->För klient-till-server-implementeringar skickas IP-adressen för direktuppspelningsenheten implicit med det här anropet.  För implementeringar från server till server, där **regcode** anrop görs av programmeringstjänsten och inte av direktuppspelningsenheten. Följande huvud krävs för att skicka IP-adressen för direktuppspelningsenheten:</br></br>
+>För klient-till-server-implementeringar skickas IP-adressen för direktuppspelningsenheten implicit med det här anropet.  För Server-till-Server-implementeringar, där anropet **regcode** görs av programmeringstjänsten och inte av direktuppspelningsenheten, krävs följande rubrik för att skicka IP-adressen för direktuppspelningsenheten:</br></br>
 >
 >```
 >X-Forwarded-For : <streaming\_device\_ip>
@@ -87,12 +87,12 @@ Hämtar auktoriseringssvar.
 
     &quot;XML
     &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>
-    &lt;authorization>
-    &lt;expires>1348148289000&lt;/expires>
-    &lt;mvpd>sampleMvpdId&lt;/mvpd>
-    &lt;requestor>sampleRequestorId&lt;/requestor>
+    &lt;auktorisering>
+    &lt;expirres>1348148289000&lt;/expirres>
+    &lt;mvpd>sampleMvpdId&lt;/mmbd&lt;/mres> vpd>
+    &lt;beställare>sampleRequestorId&lt;/beställare>
     &lt;resource>sampleResourceId&lt;/resource>
-    &lt;/authorization>
+    &lt;/authentication>
     &quot;
 
 
@@ -110,11 +110,11 @@ Hämtar auktoriseringssvar.
 
 >[!IMPORTANT]
 >
->När svaret kommer från ett MVPD-dokument kan det innehålla ytterligare ett element med namnet `proxyMvpd`.
+>När svaret kommer från ett MVPD-dokument för proxy kan det innehålla ytterligare ett element med namnet `proxyMvpd`.
 
 
 
-* **Fall 2: Behörighet nekas**
+* **Fall 2: Autentisering nekas**
 
 
   ```JSON

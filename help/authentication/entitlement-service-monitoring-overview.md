@@ -2,9 +2,9 @@
 title: Tillståndsövervakningens översikt
 description: Tillståndsövervakningens översikt
 exl-id: ebd5d650-0a32-4583-9045-5156356494e2
-source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
+source-git-commit: 1ad2a4e75cd64755ccbde8f3b208148b7d990d82
 workflow-type: tm+mt
-source-wordcount: '1182'
+source-wordcount: '1303'
 ht-degree: 0%
 
 ---
@@ -54,7 +54,7 @@ ESM API är inte allmänt tillgängligt.  Kontakta din Adobe-representant om du 
 
 
 | *Dimensionens namn* | *Beskrivning* |
-|---|---|
+|---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | år | Det fyrsiffriga året |
 | månad | Månad på året (1-12) |
 | dag | Dag i månaden (1-31) |
@@ -71,15 +71,20 @@ ESM API är inte allmänt tillgängligt.  Kontakta din Adobe-representant om du 
 | EAP | Den externa autentiseringsprovidern när autentiseringsflödet utförs via ett externt system. </br> Värdena kan vara: </br> - Ej tillämpligt - Autentiseringen tillhandahölls av Adobe Pass Authentication </br> - Apple - det externa system som tillhandahöll autentiseringen är Apple |
 | os-family | Operativsystem som körs på enheten |
 | webbläsarfamiljen | Användaragent som används för åtkomst till Adobe Pass-autentisering |
-| cdt | Enhetsplattformen (alternativ) som för närvarande används för klientlösa. </br>  Värdena kan vara: </br> - Ej tillämpligt - händelsen kom inte från en klientlös SDK </br> - Okänd - Eftersom parametern deviceType från ett klientlöst API är valfri finns det anrop som inte innehåller något värde. </br> - alla andra värden som skickades via det klientlösa API:t, t.ex. xbox, appletv, roku osv. </br> |
+| cdt | Enhetsplattformen (alternativ) som för närvarande används för klientlösa. </br> Värdena kan vara: </br> - N/A - händelsen kom inte från en klientlös SDK </br> - Okänd - Eftersom parametern deviceType från en klientlös API är valfri finns det anrop som inte innehåller något värde. </br> - alla andra värden som skickades via det klientlösa API:t, t.ex. xbox, appletv, roku osv. </br> |
 | platform-version | Versionen av SDK utan klient |
 | os-type | Operativsystem som körs på enheten, alternativ (används inte för närvarande) |
 | webbläsarversion | Version av användaragent |
-| sdk-typ | Klient-SDK används (Flash, HTML5, Android-inbyggt, iOS, klientlöst osv.) |
-| sdk-version | Versionen av Adobe Pass Authentication Client SDK |
+| nsdk | Klientens SDK används (android, fireTV, js, iOS, tvOS, non-sdk) |
+| nsdk-version | Versionen av Adobe Pass Authentication Client SDK |
 | event | Händelsenamnet för Adobe Pass-autentisering |
 | orsak | Orsaken till fel enligt Adobe Pass-autentisering |
 | sso-type | Den underliggande SSO-mekanismen: platform/passive/adobe. Anger att auktoriseringstoken utfärdades genom att AuthN återanvändes i ett annat program |
+| plattform | Enheten identifierade plattformen. Möjliga värden: </br> - Android </br> - FireTV </br> - Roku </br> - iOS </br> - tvOS </br> - osv. |
+| application-name | Programnamnet som konfigurerats i TVE Dashboard för det DCR-registrerade programmet som ska användas. |
+| application-version | Programversionen som konfigurerats i TVE Dashboard för det DCR-registrerade programmet som är konfigurerat att användas. |
+| kundapp | Det anpassade program-ID som skickades via [enhetsinformation](/help/authentication/passing-client-information-device-connection-and-application.md). |
+| innehållskategori | Kategorin för det innehåll som begärts av ditt program. |
 
 ## ESM för MVPD {#esm-for-mvpds}
 
@@ -100,27 +105,30 @@ ESM API är inte allmänt tillgängligt.  Kontakta din Adobe-representant om du 
 ### MVPD-program kan filtrera mätvärdena som anges ovan med följande mått:
 
 | *Dimensionens namn* | *Beskrivning* |
-|---|---|
+|------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | år | Det fyrsiffriga året |
 | månad | Månad på året (1-12) |
 | dag | Dag i månaden (1-31) |
 | timme | Timme på dagen |
 | minut | Minut av timmen |
+| mvpd | Det mvpd-ID som används för att utföra berättigandebegäran |
 | beställar-id | ID för begärande som används för att utföra berättigandebegäran |
 | EAP | Den externa autentiseringsprovidern när autentiseringsflödet utförs via ett externt system. </br> Värdena kan vara: </br> - Ej tillämpligt - Autentiseringen tillhandahölls av Adobe Pass Authentication </br> - Apple - det externa system som tillhandahöll autentiseringen är Apple |
-| cdt | Enhetsplattformen (alternativ) som för närvarande används för klientlösa. </br>  Värdena kan vara: </br> - Ej tillämpligt - händelsen kom inte från en klientlös SDK </br> - Okänd - Eftersom parametern deviceType från ett klientlöst API är valfri finns det anrop som inte innehåller något värde. </br> - alla andra värden som skickades via det klientlösa API:t, t.ex. xbox, appletv, roku osv. </br> |
-| sdk-typ | Klient-SDK används (Flash, HTML5, Android-inbyggt, iOS, klientlöst osv.) |
-
+| cdt | Enhetsplattformen (alternativ) som för närvarande används för klientlösa. </br> Värdena kan vara: </br> - N/A - händelsen kom inte från en klientlös SDK </br> - Okänd - Eftersom parametern deviceType från en klientlös API är valfri finns det anrop som inte innehåller något värde. </br> - alla andra värden som skickades via det klientlösa API:t, t.ex. xbox, appletv, roku osv. </br> |
+| sdk-typ | Klient-SDK används (Flash, HTML5, Android native, iOS, Clientless etc.) |
+| plattform | Enheten identifierade plattformen. Möjliga värden: </br> - Android </br> - FireTV </br> - Roku </br> - iOS </br> - tvOS </br> - osv. |
+| nsdk | Klientens SDK används (android, fireTV, js, iOS, tvOS, non-sdk) |
+| nsdk-version | Versionen av Adobe Pass Authentication Client SDK |
 
 ## Användningsexempel {#use-cases}
 
 Du kan använda ESM-data för följande användningsområden:
 
-- **Övervakning** - Ops- och övervakningsteam kan skapa en kontrollpanel eller diagram som anropar API:n varje minut. Med hjälp av den information som visas kan de upptäcka ett problem (med Adobe Pass Authentication, eller med ett MVPD) så fort det visas.
+- **Övervakning** - Ops- eller övervakningsteam kan skapa en instrumentpanel eller ett diagram som anropar API:t varje minut. Med hjälp av den information som visas kan de upptäcka ett problem (med Adobe Pass Authentication, eller med ett MVPD) så fort det visas.
 
-- **Felsökning/kvalitetstestning** - Eftersom data också delas upp efter plattform, enhet, webbläsare och operativsystem kan analysmönster identifiera problem med specifika kombinationer (t.ex. Safari på OSX).
+- **Felsökning/kvalitetstestning** - Eftersom data också delas upp efter plattform, enhet, webbläsare och operativsystem kan analysmönster identifiera problem med specifika kombinationer (t.ex. Safari i OSX).
 
-- **Analyser** - De data som tillhandahålls kan användas för att komplettera/granska data på klientsidan som samlas in via Adobe Analytics eller något annat analysverktyg.
+- **Analytics** - De data som tillhandahålls kan användas för att komplettera/granska data på klientsidan som samlas in via Adobe Analytics eller något annat analysverktyg.
 
 <!--
 ## Related Information {#related-information}

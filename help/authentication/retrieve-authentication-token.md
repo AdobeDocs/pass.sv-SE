@@ -2,9 +2,9 @@
 title: Hämta autentiseringstoken
 description: Hämta autentiseringstoken
 exl-id: 7fb03854-edad-41e7-b218-1858fc071876
-source-git-commit: ea064031c3a1fee3298d85cf442c40bd4bb56281
+source-git-commit: 1ad2a4e75cd64755ccbde8f3b208148b7d990d82
 workflow-type: tm+mt
-source-wordcount: '264'
+source-wordcount: '274'
 ht-degree: 0%
 
 ---
@@ -17,16 +17,16 @@ ht-degree: 0%
 
 >[!NOTE]
 >
-> REST API-implementering begränsas av [Begränsningsmekanism](/help/authentication/throttling-mechanism.md)
+> REST API-implementeringen begränsas av [Begränsningsmekanismen](/help/authentication/throttling-mechanism.md)
 
 ## REST API-slutpunkter {#clientless-endpoints}
 
-&lt;reggie_fqdn>:
+&lt;REGGIE_FQDN>:
 
 * Produktion - [api.auth.adobe.com](http://api.auth.adobe.com/)
 * Mellanlagring - [api.auth-staging.adobe.com](http://api.auth-staging.adobe.com/)
 
-&lt;sp_fqdn>:
+&lt;SP_FQDN>:
 
 * Produktion - [api.auth.adobe.com](http://api.auth.adobe.com/)
 * Mellanlagring - [api.auth-staging.adobe.com](http://api.auth-staging.adobe.com/)
@@ -37,9 +37,9 @@ ht-degree: 0%
 
 Hämtar autentiseringstoken (AuthN).
 
-| Slutpunkt | Anropat  </br>Av | Indata   </br>Parametrar | HTTP  </br>Metod | Svar | HTTP  </br>Svar |
+| Slutpunkt | Anropat </br>av | Indata   </br>Parametrar | HTTP </br>Metod | Svar | HTTP </br>Response |
 | --- | --- | --- | --- | --- | --- |
-| &lt;sp_fqdn>/api/v1/tokens/authn</br></br>Till exempel:</br></br>&lt;sp_fqdn>/api/v1/tokens/authn | Strömmande app</br></br>eller</br></br>Programmerartjänst | 1. beställare (obligatoriskt)</br>2.  deviceId (obligatoriskt)</br>3.  device_info/X-Device-Info (obligatoriskt)</br>4.  _deviceType_ (Föråldrat)</br>5.  _deviceUser_ (Föråldrat)</br>6.  _appId_ (Föråldrat) | GET | XML eller JSON som innehåller autentiseringsinformation eller felinformation om det misslyckas. | 200 - Klart.  </br>404 - token hittades inte  </br>410 - Token har gått ut |
+| &lt;SP_FQDN>/api/v1/tokens/authn</br></br>Till exempel:</br></br>&lt;SP_FQDN>/api/v1/tokens/authn | Direktuppspelande app</br></br>eller</br></br>Programmeringtjänst | 1. beställare (obligatoriskt)</br>2.  deviceId (obligatoriskt)</br>3.  device_info/X-Device-Info (obligatoriskt)</br>4.  _deviceType_ (utgått)</br>5.  _deviceUser_ (utgått)</br>6.  _appId_ (inaktuellt) | GET | XML eller JSON som innehåller autentiseringsinformation eller felinformation om det misslyckas. | 200 - Klart.  </br>404 - Det gick inte att hitta token </br>410 - token har upphört att gälla |
 
 {style="table-layout:auto"}
 
@@ -48,10 +48,10 @@ Hämtar autentiseringstoken (AuthN).
 | --- | --- |
 | begärande | Programmerarens requestId som den här åtgärden är giltig för. |
 | deviceId | Byte för enhets-ID. |
-| device_info/</br></br>X-Device-Info | Information om direktuppspelningsenhet.</br></br>**Anteckning**: Detta kan skickas som en URL-parameter, men på grund av parameterns potentiella storlek och begränsningar i längden på en GET-URL, bör det skickas som X-Device-Info i http-huvudet. </br></br><!--See the full details in [Passing Device and Connection Information](http://tve.helpdocsonline.com/passing-device-information)-->. |
-| _deviceType_ | Enhetstypen (till exempel Roku, PC).</br></br>**Anteckning**: device_info ersätter den här parametern. |
-| _deviceUser_ | Enhetens användaridentifierare.</br></br>**Anteckning**: Om det används ska deviceUser ha samma värden som i [Skapa registreringskod](/help/authentication/registration-code-request.md) begäran. |
-| _appId_ | Program-ID/namn. </br></br>**Anteckning**: device_info ersätter den här parametern. Om den används `appId` ska ha samma värden som i [Skapa registreringskod](/help/authentication/registration-code-request.md) begäran. |
+| device_info/</br></br>X-Device-Info | Information om direktuppspelningsenhet.</br></br>**Obs!**: Detta kan skickas som device_info som URL-parameter, men på grund av parameterns potentiella storlek och begränsningar i längden på en GET-URL, bör det skickas som X-Device-Info i http-huvudet. </br></br>Mer information finns i [Skicka information om enheter och anslutningar](/help/authentication/passing-client-information-device-connection-and-application.md). |
+| _deviceType_ | Enhetstypen (till exempel Roku, PC).</br></br>**Obs!**: device_info ersätter den här parametern. |
+| _deviceUser_ | Enhetens användaridentifierare.</br></br>**Obs!** Om det används ska deviceUser ha samma värden som i begäran [Skapa registreringskod](/help/authentication/registration-code-request.md). |
+| _appId_ | Program-ID/namn. </br></br>**Obs!**: device_info ersätter den här parametern. Om det används ska `appId` ha samma värden som i begäran [Skapa registreringskod](/help/authentication/registration-code-request.md). |
 
 {style="table-layout:auto"}
 
