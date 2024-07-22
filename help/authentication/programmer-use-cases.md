@@ -2,7 +2,7 @@
 title: Användningsexempel för programmerare
 description: Användningsexempel för programmerare
 exl-id: 51ca7e4f-b0d8-4e35-8398-2efb4879de2a
-source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
+source-git-commit: 189d0e5c83d1bc171c6ff3057f22dbf4055ea6b1
 workflow-type: tm+mt
 source-wordcount: '1654'
 ht-degree: 0%
@@ -131,11 +131,12 @@ Aktivera TVE-berättigande för specialhändelser som kanske inte finns i MVPD-t
 **Prioritet**- Medium
 
 Aktivera validering av medietoken innan videoströmmen släpps till klientspelaren.
-| Prioritet  |                                                   Användningsfall                                                  |                                                                                                                                                              Beskrivning                                                                                                                                                             | Plattformar | MVPD-anteckningar |
-|—|—|—|—|—|—|
-| Hög      | Programmer Federated Player - med behörighet på sidnivå                                                 | Adobe Pass-autentiserings-API:er görs i JavaScript på sidan och token skickas till spelaren. Token kan skickas till valideringstjänsten på några sätt:                                 Hämta param på verifieringstjänstens URL                    URL-parametern skickades i frågesträngen för strömmens URL                    API för externt gränssnitt                    FlashVars                           |           |            |
-| Medium    | Programmer Federated Player - med intern spelarbehörighet                                            | Adobe Pass autentiserings-API:er görs i ActionScriptet i spelaren SWF, så token är tillgänglig för spelaren från återanropet.                                                                                                                                                                                         |           |            |
-| Hög      | Syndikerad spelare - finns på MVPD-portalen med sidnivåautentisering Använda en iFrame för att kapsla in spelaren  | Liknar spelaren med sidnivåauktorisering, men med spelarsidans wrapper iFramed i MVPD-portalen. Autentisering måste ske separat i MVPD-portalen.                                                                                                                                                    |           |                        |
+
+| Prioritet | Användningsfall | Beskrivning | Plattformar | MVPD-anteckningar |
+|---------|-----------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|----------|
+| Hög | Programmer Federated Player - med behörighet på sidnivå | Adobe Pass-autentiserings-API:er görs i JavaScript på sidan och token skickas till spelaren. Token kan skickas till valideringstjänsten på några sätt:                                 Hämta param på verifieringstjänstens URL                    URL-parametern skickades i frågesträngen för strömmens URL                    API för externt gränssnitt                    FlashVars |           |            |
+| Medium | Programmer Federated Player - med intern spelarbehörighet | Adobe Pass autentiserings-API:er görs i ActionScriptet i spelaren SWF, så token är tillgänglig för spelaren från återanropet. |           |            |
+| Hög | Syndikerad spelare - finns på MVPD-portalen med sidnivåautentisering Använda en iFrame för att kapsla in spelaren | Liknar spelaren med sidnivåauktorisering, men med spelarsidans wrapper iFramed i MVPD-portalen. Autentisering måste ske separat i MVPD-portalen. |           |                        |
 
 
 <!--
