@@ -4,7 +4,7 @@ description: Migrera inloggningssidan för MVPD från iFrame till Popup
 exl-id: 389ea0ea-4e18-4c2e-a527-c84bffd808b4
 source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
 workflow-type: tm+mt
-source-wordcount: '689'
+source-wordcount: '686'
 ht-degree: 0%
 
 ---
@@ -23,7 +23,7 @@ Vissa användare har stött på cookie-problem från tredje part med iFrame-impl
 * [Adobe Pass Authentication and Safari login issues](https://tve.helpdocsonline.com/adobe-pass)
 * [MVPD iFrame login and 3rd party cookies](https://tve.helpdocsonline.com/mvpd)-->
 
-Adobe Pass-autentiseringsteamet **rekommenderar att inloggningssidan för popup-fönster implementeras** i stället för iFrame-versionen i Firefox och Safari.  Om du implementerar en inloggningssida för Internet Explorer kan du stöta på problem med popup-implementeringen. IE-problemen orsakas av att Adobe Pass Authentication tvingar en överordnad sida att omdirigeras efter att användaren har autentiserat med sitt MVPD i popup-fönstret, vilket ses som en popup-blockerare i Internet Explorer. Adobe Pass-autentiseringsteamet **rekommenderar att iFrame-inloggningen för Internet Explorer implementeras**.
+Adobe Pass-autentiseringsteamet **rekommenderar att du implementerar inloggningssidan för popup-fönster** i stället för iFrame-versionen i Firefox och Safari.  Om du implementerar en inloggningssida för Internet Explorer kan du stöta på problem med popup-implementeringen. IE-problemen orsakas av att Adobe Pass Authentication tvingar en överordnad sida att omdirigeras efter att användaren har autentiserat med sitt MVPD i popup-fönstret, vilket ses som en popup-blockerare i Internet Explorer. Adobe Pass-autentiseringsteamet **rekommenderar att iFrame-inloggningen för Internet Explorer** implementeras.
 
 I exempelkoden i den här TechNote-artikeln används en hybridimplementering av både iFrame och popup-fönster, som öppnar en iFrame i Internet Explorer och ett popup-fönster i andra webbläsare.
 
@@ -32,7 +32,7 @@ Med tanke på att det redan finns en iFrame-implementering, presenterar den för
 
 ## MVPD-väljaren med inloggningssida i en iFrame {#mvpd-pickr-iframe}
 
-I tidigare kodexempel visades en HTML-sida som innehåller &lt;div> -tagg där iFrame ska skapas tillsammans med knappen close för iFrame:
+I tidigare kodexempel visades en HTML-sida som innehåller taggen &lt;div> där iFrame ska skapas tillsammans med stängningsknappen för iFrame:
 
 ```HTML
 <body> 
@@ -48,7 +48,7 @@ I tidigare kodexempel visades en HTML-sida som innehåller &lt;div> -tagg där i
 </body>
 ```
 
-Här är de associerade **JavaScript** kod:
+Här är associerad **JavaScript**-kod:
 
 ```JavaScript
 /*
@@ -105,7 +105,7 @@ function setSelectedProvider(providerID) {
 
 ## MVPD-väljaren med inloggningssida i ett popup-fönster {#mvpd-pickr-popup}
 
-Eftersom vi inte använder en **iFrame** HTML-koden innehåller inte längre iFrame eller den knapp som behövs för att stänga iFrame. Den div som tidigare innehöll iFrame - **mvpddiv** - kommer att förvaras och användas för följande:
+Eftersom vi inte längre använder en **iFrame** kommer HTML-koden inte att innehålla iFrame eller knappen för att stänga iFrame. Den div som tidigare innehöll iFrame - **mvpddiv** - behålls och används för följande:
 
 * för att meddela användaren att inloggningssidan för MVPD redan är öppen om popup-fokus försvinner
 * för att skapa en länk för att återfå fokus på popup-fönstret
@@ -134,9 +134,9 @@ Eftersom vi inte använder en **iFrame** HTML-koden innehåller inte längre iFr
 </body>
 ```
 
-Listan över MVPD visas i den div som anropas **väljare** som ett val **-mvpdList**.
+Listan med MVPD:er visas i diven med namnet **picker** som ett select **-mvpdList**.
 
-Ett nytt API-återanrop används - **setConfig(configXML)**. Återanropet aktiveras efter att funktionen setRequestor(requestID) har anropats. Det här återanropet returnerar en lista över MVPD-filer som är integrerade med det beställar-ID som tidigare angetts. I callback-metoden tolkas den inkommande XML-filen och listan över MVPD-filer cachelagras. MVPD-väljaren skapas också men visas inte.
+Ett nytt API-återanrop kommer att användas - **setConfig(configXML)**. Återanropet aktiveras efter att funktionen setRequestor(requestID) har anropats. Det här återanropet returnerar en lista över MVPD-filer som är integrerade med det beställar-ID som tidigare angetts. I callback-metoden tolkas den inkommande XML-filen och listan över MVPD-filer cachelagras. MVPD-väljaren skapas också men visas inte.
 
 ```JavaScript
 var mvpdList;  // The list of cached MVPDs
@@ -181,13 +181,13 @@ function displayProviderDialog(providers) {
 
 När användaren har valt ett PDF-dokument i väljaren måste popup-fönstret skapas. Vissa webbläsare kan blockera popup-fönstret om det skapas med about:blank eller med en sida som finns i en annan domän. Därför bör du öppna det med värdnamnet som AccessEnabler läses in från.
 
-I iFrame-implementeringen återställs autentiseringsflödet av knappen btnCloseIframe och JavaScript-funktionen closeIframeAction(), men nu går det inte längre att dekorera iFrame. Så samma beteende uppnås genom att man tittar efter när popup-fönstret stängs (antingen av användaren eller genom att autentiseringsflödet slutförs). Ett kodfragment har lagts till som också är användbart om användaren förlorar fokus i popup-fönstret:
+I iFrame-implementeringen återställs autentiseringsflödet av btnCloseIframe-knappen och JavaScript-funktionen closeIframeAction(), men nu går det inte längre att dekorera iFrame. Så samma beteende uppnås genom att man tittar efter när popup-fönstret stängs (antingen av användaren eller genom att autentiseringsflödet slutförs). Ett kodfragment har lagts till som också är användbart om användaren förlorar fokus i popup-fönstret:
 
 ```HTML
 "<a href="javascript:mvpdWindow.focus();">Click here to open it.</a>".
 ```
 
-I återanropet createIFrame() visas **mvpddiv** div visas.
+På motringningen createIFrame() visas **mvpddiv** div.
 
 ```JavaScript
 function createIFrame(width, height) {
@@ -230,5 +230,5 @@ function checkClosed() {
 >
 >* Exempelkoden innehåller en hårdkodad variabel för det begärda begärorID:t - REF, som ska ersättas med ett riktigt programmerarbegärande-ID.
 >* Exempelkoden kommer endast att köras korrekt från en vitlistad domän som är associerad med det begärande-ID som används.
->* Eftersom hela koden är tillgänglig för hämtning har koden som presenteras i den här TechNote trunkerats. Ett fullständigt exempel finns på **JS iFrame vs Popup Sample**.
+>* Eftersom hela koden är tillgänglig för hämtning har koden som presenteras i den här TechNote trunkerats. Ett fullständigt exempel finns i **JS iFrame vs Popup-exempel**.
 >* De externa JavaScript-biblioteken länkades från [Google värdtjänster](https://developers.google.com/speed/libraries/).

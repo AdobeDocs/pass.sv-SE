@@ -4,7 +4,7 @@ description: Versionsinformation om autentisering av iOS/tvOS 3.7.0
 exl-id: 19c1179e-16b1-4608-954f-25b0980d7ad9
 source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
 workflow-type: tm+mt
-source-wordcount: '117'
+source-wordcount: '126'
 ht-degree: 0%
 
 ---

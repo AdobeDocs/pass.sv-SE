@@ -19,9 +19,9 @@ API:t för förauktorisering kan användas för att få ett beslut om förauktor
 
 >[!IMPORTANT]
 >
->Auktoriserings-API **måste** användas innan användaren ges åtkomst till de angivna resurserna.
+>Auktoriserings-API:t **måste** användas innan användaråtkomst till de angivna resurserna beviljas.
 
-Om resultatet för Förhandsauktorisera API-svar innehåller en eller flera resurser med ett beslut om förauktorisering som inte stöds, kan ytterligare felinformation inkluderas **(se nedan)** för varje påverkad resurs.
+Om resultatet för Förauktorisera API-svar innehåller en eller flera resurser med ett beslut om förauktorisering som inte stöds, kan ytterligare felinformation inkluderas **(se nedan)** för varje berörd resurs.
 
 >[!IMPORTANT]
 >
@@ -47,7 +47,7 @@ Om förauktoriserings-API-begäran inte kunde hanteras på grund av ett Adobe Pa
 
 ## `class PreauthorizeRequest`{#androidpreauthorizerequest}
 
-### **class PreAuthzeRequest.Builder**
+### **klassen PreAuthzeRequest.Builder**
 
 ```
     ///
@@ -111,7 +111,7 @@ Om förauktoriserings-API-begäran inte kunde hanteras på grund av ett Adobe Pa
 ```
 
 
-## **enum PreauthorizedRequest.Feature**
+## **enum PreAuthzeRequest.Feature**
 
 ```
     ///
@@ -169,7 +169,7 @@ I det här avsnittet beskrivs JSON-strukturen för några möjliga PreAuthzeResp
 
 >[!IMPORTANT]
 >
->En lista över eventuella ytterligare fel som har hämtats via den förbättrade felrapporteringsfunktionen finns i [Avancerad felrapportering](/help/authentication/enhanced-error-codes.md).
+>Listan över eventuella ytterligare fel som har hämtats via den förbättrade felrapporteringsfunktionen finns i [Avancerad felrapportering](/help/authentication/enhanced-error-codes.md).
 
 #### Slutförd
 

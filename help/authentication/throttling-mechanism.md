@@ -1,13 +1,13 @@
 ---
 title: Begränsningsmekanism
 description: Ta reda på vilken begränsningsmekanism som används vid Adobe Pass-autentisering. Utforska en översikt över den här funktionen på den här sidan.
-source-git-commit: 4f81f39427d87e4274c27d8f1b4bd1eb366d9abb
+exl-id: f00f6c8e-2281-45f3-b592-5bbc004897f7
+source-git-commit: 8552a62f4d6d80ba91543390bf0689d942b3a6f4
 workflow-type: tm+mt
 source-wordcount: '987'
 ht-degree: 0%
 
 ---
-
 
 # Begränsningsmekanism {#throttling-mechanism}
 
@@ -40,7 +40,7 @@ Den föreslagna begränsningsmekanismen använder de identifierade enheterna sep
 
 Implementeringar från server till server måste vidarebefordra klientens IP-adresser med hjälp av rubrikmekanismen X-Forwarded-For.
 
-Mer information om hur du skickar rubriken X-Forwarded-For finns [här](rest-api-cookbook-servertoserver.md).
+Du hittar mer information om hur du skickar rubriken [här](rest-api-cookbook-servertoserver.md) för X-Forwarded-For.
 
 ### Faktiska gränser och slutpunkter
 
@@ -76,24 +76,24 @@ Eftersom klienter som använder den angivna SDK:n för Adobe Pass-autentisering 
 
 #### setRequestor
 
-Vid uppnående av begränsningsgränsen med `setRequestor` SDK-funktionen från SDK returnerar en CFG429-felkod via `errorHandler` återanrop.
+SDK returnerar en CFG429-felkod genom `errorHandler`-återanrop när begränsningsgränsen nås med funktionen `setRequestor` från SDK.
 
 #### getAuthorization
 
-Vid uppnående av begränsningsgränsen med `getAuthorization` SDK-funktionen från SDK returnerar en Z100-felkod via `errorHandler` återanrop.
+SDK returnerar en Z100-felkod genom `errorHandler`-återanrop när begränsningen nås med funktionen `getAuthorization` från SDK.
 
 #### checkPreauthorizedResources
 
-Vid uppnående av begränsningsgränsen med `checkPreauthorizedResources` SDK-funktionen från SDK returnerar en P100-felkod via `errorHandler` återanrop.
+SDK returnerar en P100-felkod genom `errorHandler`-återanrop när begränsningen nås med funktionen `checkPreauthorizedResources` från SDK.
 
 #### getMetadata
 
-Vid uppnående av begränsningsgränsen med `getMetadata` SDK-funktionen returnerar ett tomt svar via `setMetadataStatus` återanrop.
+När begränsningen har uppnåtts med funktionen `getMetadata` från SDK returnerar SDK ett tomt svar via `setMetadataStatus`-återanropet.
 
 För varje specifik implementeringsinformation, se den specifika SDK-dokumentationen.
 
 - [API-referens för JavaScript SDK](javascript-sdk-api-reference.md)
-- [Android SDK API-referens](android-sdk-api-reference.md)
+- [API-referens för Android SDK](android-sdk-api-reference.md)
 - [API-referens för iOS/tvOS](iostvos-sdk-api-reference.md)
 
 ### Ändringar av API-svar och svar
@@ -135,7 +135,7 @@ p3p: CP="NOI DSP COR CURa ADMa DEVa OUR BUS IND UNI COM NAV STA"
 
 Kunder som använder en anpassad implementering (inklusive server-till-server-en) för att interagera med API:t för lösenordsautentisering bör se till att de kan hämta användarens IP-adress och vidarebefordra den korrekt med hjälp av rubriken X-Forwarded-For vidare till API:t för autentisering.
 
-Se [här](rest-api-cookbook-servertoserver.md) för mer information.
+Mer information finns [här](rest-api-cookbook-servertoserver.md).
 
 ### Reagera på ny svarskod
 

@@ -17,7 +17,7 @@ ht-degree: 0%
 
 ## Introduktion {#tve-db-intro}
 
-[[!DNL Adobe] TVE Dashboard (TVE Dashboard)](https://console.auth.adobe.com/) är en självbetjäningsdashboard som riktar sig till användare som arbetar för medieföretag (programmerare) som har en affärsrelation med Adobe Pass Authentication-produktgruppen.
+[[!DNL Adobe] TVE Dashboard (TVE Dashboard)](https://console.auth.adobe.com/) är en självbetjäningspanel som är avsedd för användare som arbetar för medieföretag (programmerare) som har en affärsrelation med Adobe Pass Authentication-produktgruppen.
 
 Kontakta din kontoansvarige (TAM) för att få åtkomst. För att få åtkomst måste du ha två nya användargrupper konfigurerade i din Adobe Marketing Cloud-organisation:
 
@@ -36,28 +36,28 @@ Innan du börjar gå in på den här användarhandboken rekommenderar vi att du 
 Om du fortsätter till nästa avsnitt i den här användarhandboken kommer du att upptäcka sätt att administrera olika inställningar för företagets kanaler, programmerare eller integreringar mellan kanaler och distributörer av videoprogram (Multichannel Video Program Distributors).
 
 >[!IMPORTANT]
->TVE Dashboard ger möjlighet att växla mellan en grundläggande och en avancerad arbetsyta. Du kan göra detta genom att växla ikonen i det övre högra hörnet. Avancerad arbetsyta är avsedd för användare med omfattande teknisk kunskap och avancerade kunskaper om de funktioner som Adobe Pass Authentication-produktteamet erbjuder.
+>TVE Dashboard ger möjlighet att växla mellan en grundläggande och en avancerad Workspace. Du kan göra detta genom att växla ikonen i det övre högra hörnet. Avancerade Workspace riktar sig till användare med omfattande teknisk kunskap och avancerade kunskaper om de funktioner som Adobe Pass Authentication-produktteamet erbjuder.
 
-![arbetsytor i TVE Dashboard](assets/tve-basic-advanced-workspace.png)
+![TVE Dashboard-arbetsytor](assets/tve-basic-advanced-workspace.png)
 
-*Bild 1: Listrutan Adobe Primetime TVE Dashboard &quot;Basic/Advanced Workspace&quot;*
+*Bild 1: Listrutan Grundläggande/avancerad Workspace på Adobe Primetime TV-instrumentpanelen*
 
 ## Miljö {#authn-environments}
 
-Beroende på vilka uppgifter en användare kan behöva utföra kan han/hon behöva växla mellan Adobe Pass autentiseringsmiljöer. Mer information om Adobe Pass autentiseringsmiljöer finns i följande dokument: [Förstå Adobe Pass autentiseringsmiljöer](/help/authentication/understanding-the-adobe-environments.md).
+Beroende på vilka uppgifter en användare kan behöva utföra kan han/hon behöva växla mellan Adobe Pass autentiseringsmiljöer. Mer information om Adobe Pass autentiseringsmiljöer finns i följande dokument: [Om Adobe Pass autentiseringsmiljöer](/help/authentication/understanding-the-adobe-environments.md).
 
 TVE Dashboard innehåller två miljöer som heter Prequal (Prekvalificering) och Release, där var och en har två profiler som heter Staging and Production, enligt nedan:
 
 * [Föregående mellanlagring](https://console-prequal.auth-staging.adobe.com/)
-* [Föregående produktion](https://console-prequal.auth.adobe.com/)
+* [Förhandsproduktion](https://console-prequal.auth.adobe.com/)
 * [Frigör mellanlagring](https://console.auth-staging.adobe.com/)
 * [Frigör produktion](https://console.auth.adobe.com/)
 
 För att växla mellan miljöer kan användaren klicka på den miljö som posten från det nedrullningsbara elementet nedan representerar:
 
-![Listruta för TVE Dashboard-miljöer](assets/tve-dashboard-env.png)
+![TVE Dashboard-miljölistruta](assets/tve-dashboard-env.png)
 
-*Bild 2: Listrutan Adobe Pass TVE Dashboard-miljöer*
+*Figur 2: Listrutan Adobe Pass TVE Dashboard-miljöer*
 
 >[!IMPORTANT]
 >
@@ -73,7 +73,7 @@ Så här gör du administrativa ändringar i din konfiguration för Adobe Pass-a
 >
 >För att de administrativa ändringarna ska börja gälla måste användarna navigera till avsnittet Granska och push-ändra genom att markera knappen, som visas längst ned till vänster i sidofältet, för att granska ändringar, lägga till en beskrivning för de nyligen skapade ändringarna och bekräfta konfigurationsuppdateringen genom att välja Push Configuration (Push-konfiguration).
 
-![Granska ett push-meddelande på instrumentpanelen](assets/tve-review-push-notifications.png)
+![TV Dashboard granskar ett push-meddelande](assets/tve-review-push-notifications.png)
 
 *Bild 3: Adobe Primetime TVE Dashboard Review and Push Changes notification*
 
@@ -81,23 +81,23 @@ Så här gör du administrativa ändringar i din konfiguration för Adobe Pass-a
 
 Användare som arbetar för medieföretag (programmerare) kan komma åt följande avsnitt i TVE Dashboard från sidofältet:
 
-* **Kanaler** - Innehåller inställningar för innehållsleverantörer
-* **Programmerare** - Innehåller inställningar som är relaterade till överordnad organisation som aggregerar en eller flera **Kanaler**
-* **Integreringar** - Innehåller inställningar som är relaterade till integrationen mellan **Kanaler** och **MVPD**
-* **MVPD** - Innehåller inställningar som är relaterade till tillgängliga **MVPD**
+* **Kanaler** - Innehåller inställningar relaterade till innehållsleverantörer
+* **Programmerare** - Innehåller inställningar som är relaterade till den överordnade organisationen som aggregerar en eller flera **kanaler**
+* **Integrationer** - Innehåller inställningar som är relaterade till integreringen mellan **Kanaler** och **MVPD-filer**
+* **MVPD** - Innehåller inställningar som är relaterade till tillgängliga **MVPD-filer**
 * **Rapporter** - Innehåller aggregerade data för tre typer av rapporter: AuthN TTL, AuthZ TTL, SSO
-* **Ändringslogg** - Innehåller de senaste ändringarna som används i TVE Dashboard-konfigurationen
+* **Ändringslogg** - Innehåller de senaste ändringarna som används i TVE-instrumentpanelskonfigurationen
 
-![TVE-instrumentpanelsektioner](assets/tve-dashboard-sections.png)
+![TVE-instrumentpanelsavsnitt](assets/tve-dashboard-sections.png)
 
-*Bild 4: Avsnitten i Adobe Primetime TVE Dashboard*
+*Figur 4: Avsnitten i Adobe Primetime TVE Dashboard*
 
 ### Kanaler {#tve-db-channels-section}
 
 I det här avsnittet kan du visa och redigera inställningar för tillgängliga kanaler eller skapa nya. Om du klickar på en av de tillgängliga kanalerna visas en skärm med följande flikar:
 
 * **Kanaldata**
-   * **Kanal-ID** - Kanalens unika ID som används i vårt system, kallas även för begärande-ID.
+   * **Kanal-ID** - Kanalens unika ID som används i vårt system kallas även för begärande-ID.
    * **Visningsnamn** - Kanalens kommersiella namn.
 * **Allmänna inställningar**
    * **Analyskonfiguration** - Konfigurera Adobe Pass-autentiseringshändelser som ska vidarebefordras till Adobe Analytics. Kontakta Adobe om du vill ha mer information om hur Report Suite-ID (RSID) måste konfigureras innan den här funktionen aktiveras.
@@ -107,16 +107,16 @@ I det här avsnittet kan du visa och redigera inställningar för tillgängliga 
 * **Domäner**
 
   Innehåller listan över domäner från vilka respektive kanal ska kommunicera med Adobe Pass-autentisering.
-* **Integreringar**
+* **Integrationer**
 
   Innehåller en lista över integreringar med tillgängliga programmeringsgränssnitt, tillsammans med statusen för varje integrering som kan vara aktiverad eller inte. Du kan navigera till integreringssidan genom att klicka på en viss post.
 * **Registrerade program**
 
-  Innehåller listan över programregistreringar. Mer information finns i dokumentet [Dynamisk hantering av klientregistrering](/help/authentication/dynamic-client-registration-management.md).
+  Innehåller listan över programregistreringar. Mer information finns i dokumentet [Dynamisk klientregistreringshantering](/help/authentication/dynamic-client-registration-management.md).
 
 * **Anpassade scheman**
 
-  Innehåller en lista med anpassade scheman. Mer information finns i [Registrering av iOS/tvOS](/help/authentication/iostvos-application-registration.md) och [Dynamisk hantering av klientregistrering](/help/authentication/dynamic-client-registration-management.md)
+  Innehåller en lista med anpassade scheman. Mer information finns i [iOS/tvOS-programregistrering](/help/authentication/iostvos-application-registration.md) och [Dynamisk klientregistreringshantering](/help/authentication/dynamic-client-registration-management.md)
 
 
 #### Lägg till/ta bort domäner {#add-delete-domains}
@@ -125,7 +125,7 @@ Om du vill börja lägga till en ny domän för den valda kanalen måste du klic
 
 ![Lägg till en ny domän i ett markerat kanalavsnitt](assets/add-domain-to-channel-sec.png)
 
-*Bild: Fliken Domäner i kanaler*
+*Figur: Fliken Domäner i kanaler*
 
 ### Programmerare {#tve-db-programmers-section}
 
@@ -134,8 +134,8 @@ I det här avsnittet kan du visa och redigera inställningar för tillgängliga 
 * **Programmerardata**
    * **Programmer-ID** - Programmerarens unika ID som används i vårt system.
    * **Visningsnamn** - Programmerarens kommersiella namn.
-   * **URL för logotyp** - Programmerarens logotyp för enhetlig resursposition (URL).
-   * **Förhandsgranska logotyp** - Programmerarens kommersiella logotyp som förhandsvisas genom att den hämtas från den ovannämnda URL:en (Universal resource locator).
+   * **Logo Url** - Programmerarens företagslogotyp, URL (Unik Resource Locator).
+   * **Förhandsgranskning av logotyp** - Programmerarens kommersiella logotyp förhandsvisas genom att den hämtas från den ovanstående URL:en (Unik Resource Locator).
 
 * **Certifikat**
 
@@ -147,26 +147,26 @@ I det här avsnittet kan du visa och redigera inställningar för tillgängliga 
 
 * **Registrerade program**
 
-  Innehåller listan över programregistreringar. Mer information finns i [Dynamisk hantering av klientregistrering](/help/authentication/dynamic-client-registration-management.md).
+  Innehåller listan över programregistreringar. Mer information finns i [Hantera dynamisk klientregistrering](/help/authentication/dynamic-client-registration-management.md).
 
 * **Anpassade scheman**
 
-  Innehåller en lista med anpassade scheman. Mer information finns i [Registrering av iOS/tvOS](/help/authentication/iostvos-application-registration.md) och [Dynamisk hantering av klientregistrering](/help/authentication/dynamic-client-registration-management.md).
+  Innehåller en lista med anpassade scheman. Mer information finns i [iOS/tvOS-programregistrering](/help/authentication/iostvos-application-registration.md) och [Dynamisk klientregistreringshantering](/help/authentication/dynamic-client-registration-management.md).
 
 
 ### Integreringar {#tve-db-integrations-sec}
 
-I det här avsnittet kan du visa och redigera inställningar för integrering mellan kanaler och tillgängliga programmeringsvideofiler (MVPD) eller skapa en ny. Om du klickar på en av de tillgängliga integreringarna returneras en sida när du använder den grundläggande arbetsytan eller en skärm med följande flikar när du använder den avancerade arbetsytan:
+I det här avsnittet kan du visa och redigera inställningar för integrering mellan kanaler och tillgängliga programmeringsvideofiler (MVPD) eller skapa en ny. Om du klickar på någon av de tillgängliga integreringarna returneras en sida när du använder Workspace Basic (Grundläggande) eller en skärm med följande flikar när du använder Workspace Advanced (Avancerad):
 
 * **Integreringsdata**
-   * **Integration-ID**- Resultatet av att lägga till det unika ID:t för MVPD-filen till kanalens unika ID, avgränsat med tecknet &quot;_&quot;.
+   * **Integrations-ID** - Resultatet av att lägga till de unika ID:n för MVPD till kanalens unika ID, avgränsat med tecknet &quot;_&quot;.
    * **Kanalvisningsnamn** - Kanalens kommersiella namn.
-   * **Kanal-ID** - Kanalens unika ID som används i vårt system, kallas även för begärande-ID.
+   * **Kanal-ID** - Kanalens unika ID som används i vårt system kallas även för begärande-ID.
    * **MVPD-visningsnamn** - MVPD:s kommersiella namn.
    * **MVPD-ID** - MVPD:s unika ID som används i vårt system.
 * **Allmänna inställningar**
-   * **Användarmetadatanycklar** - Konfigurera metadatanycklar som är tillgängliga för den specifika integreringen.
-   * **Plattformsspecifika inställningar** - Konfigurera olika inställningar för en viss plattform (till exempel TTL, SSO och IFrames).
+   * **Nycklar för användarmetadata** - Konfigurera metadatanycklar som är tillgängliga för den specifika integreringen.
+   * **Plattformsspecifika inställningar** - Konfigurera olika inställningar för en specifik plattform (till exempel TTL, SSO och IFrames).
 
 * **Autentiseringsinställningar**
    * Innehåller inställningar som är relaterade till autentiseringsfunktionen för Adobe Pass-autentisering.
@@ -198,15 +198,15 @@ Följ stegen nedan för att skapa en ny integrering:
 
 Om du vill uppdatera en befintlig integrering klickar du på tabellposten för den specifika integreringen i avsnittet Integrationer eller i avsnittet Kanaler, som innehåller fliken Integrationer.
 
-När du använder läget Grundläggande arbetsyta kan du i det här avsnittet se och redigera de vanligaste uppdaterade inställningarna, t.ex. TTL-värden för autentiserings- och auktoriseringstoken (time-to-live) samt iFrame-inställningar. Tänk på att TTL-inställningar kan saknas för integreringar med MVPD som stöder dynamisk definierad Token Persistence TTL (se post 1.19 från [Krav för MVPD-integrering](/help/authentication/mvpd-integr-features.md)).
+När du använder läget Grundläggande Workspace kan du i det här avsnittet se och redigera de mest uppdaterade inställningarna, som TTL-värden för autentisering och auktoriseringstoken (time-to-live) samt iFrame-inställningar. Tänk på att TTL-inställningar kan saknas för integreringar med MVPD-program som stöder dynamisk definierad Token Persistence TTL (se post 1.19 från [MVPD-integreringskrav](/help/authentication/mvpd-integr-features.md)).
 
 
 
-I det här avsnittet kan du visa och redigera mindre vanliga inställningar i det avancerade arbetsyteläget.
+I det här avsnittet kan du visa och redigera mindre vanliga inställningar i det avancerade Workspace-läget.
 
 
 
-I både grundläggande och avancerad arbetsyta kan du ändra dessa inställningar på plattformsnivå (t.ex. välja ett anpassat värde för TTL-token för auktorisering på Android, som standard på alla andra plattformar).
+I både det grundläggande läget och det avancerade läget för Workspace kan du ändra dessa inställningar på plattformsnivå (t.ex. välja ett anpassat värde för TTL-token för auktorisering på Android, som är standard på alla andra plattformar).
 
 
 
@@ -223,14 +223,14 @@ I både grundläggande och avancerad arbetsyta kan du ändra dessa inställninga
 
 Det här underavsnittet kan användas för att åsidosätta inställningarna för specifika plattformar. De tillgängliga plattformarna är:
 
-* **Alla plattformar** - Ange värden som ska tillämpas på alla plattformar oavsett vilka programmeringsimplementeringar som används om inga andra värden har angetts för en viss plattform.
+* **Alla plattformar** - Ange värden som ska tillämpas på alla plattformar oavsett programmeringsimplementeringar om inga andra värden har angetts för en viss plattform.
 * **Android** - Ange värden som ska tillämpas på programmeringsimplementeringarna via Adobe Pass Authentication Android SDK.
-* **Klientlöst REST API** - Ange värden som ska tillämpas på programmeringsimplementeringarna via Adobe Pass Authentication REST API.
+* **Klientlöst REST API** - Ange värden som ska tillämpas på programmeringsimplementeringarna över Adobe Pass Authentication REST API.
 * **Fire TV** - Ange värden som ska tillämpas på programmeringsimplementeringarna via Adobe Pass Authentication FireTV SDK.
-* **Flash SDK** - Den här plattformen är inaktuell. **inaktuell**
+* **Flash-SDK** - Den här plattformen är föråldrad. **har tagits bort**
 * **JavaScript SDK** - Ange värden som ska tillämpas på programmeringsimplementeringarna via Adobe Pass Authentication JavaScript SDK.
 * **Roku** - Ange värden som ska tillämpas på programmeringsimplementeringarna via Adobe Pass Authentication REST API och som skickar &quot;Roku&quot; som enhetstyp. Detta har företräde framför de värden som anges för den klientlösa REST API-plattformen för Roku-enheter.
-* **Inbyggd Xbox SDK** - Den här plattformen är inaktuell. **inaktuell**
+* **Inbyggt Xbox SDK** - Den här plattformen är föråldrad. **har tagits bort**
 * **Xbox 360 REST API** - Ange värden som ska tillämpas på programmeringsimplementeringarna via Adobe Pass Authentication REST API och som skickar &quot;xbox&quot; som enhetstyp. Detta har företräde framför de värden som angetts för den klientlösa REST API-plattformen för Xbox 360-enheter.
 * **Xbox One REST API** - Ange värden som ska tillämpas på programmeringsimplementeringarna via Adobe Pass Authentication REST API och som skickar &quot;xboxOne&quot; som enhetstyp. Detta har företräde framför de värden som angetts för den klientlösa REST API-plattformen för XboxOne-enheter.
 * **iOS** - Ange värden som ska tillämpas på programmeringsimplementeringarna via Adobe Pass Authentication iOS SDK.
@@ -239,43 +239,43 @@ Det här underavsnittet kan användas för att åsidosätta inställningarna fö
 
 ![](assets/platform-sp-settings.png)
 
-*Figur 7. Adobe Primetime TVE Dashboard Platform Specific Settings*
+*Figur 7. De plattformsspecifika inställningarna för Adobe Primetime TVE Dashboard*
 
 
 #### Aktivera enkel plattformsinloggning {#enable-platform-sso}
 
 Följ stegen nedan för att aktivera/inaktivera enkel inloggning för en specifik integrering och plattform:
 
-* kontrollera att du använder läget Avancerad arbetsyta
+* kontrollera att du använder avancerat Workspace-läge
 * navigera till önskad integrering
-* navigera till **Allmänna inställningar** tab
+* navigera till fliken **Allmänna inställningar**
 * välj den plattform där du vill aktivera eller inaktivera enkel inloggning
-* växla **Aktivera enkel inloggning** flagga till det önskade värdet (Ja/Nej)
+* växla flaggan **Aktivera enkel inloggning** till det önskade värdet (Ja/Nej)
 
   >[!IMPORTANT]
-  >Det är viktigt att notera att **Aktivera enkel inloggning** Flaggan är bara tillgänglig för iOS-, tvOS-, Roku- och FireTV-plattformarna och endast för integreringar med MVPD-program som stöder enkel inloggning för dessa plattformar.
+  >Det är viktigt att komma ihåg att flaggan **Aktivera enkel inloggning** endast är tillgänglig för iOS, tvOS, Roku och FireTV och endast för integrering med MVPD-program som stöder enkel inloggning för dessa plattformar.
 
-* växla **Tvinga plattformsbehörighet** flagga till det önskade värdet (Ja/Nej)
+* växla flaggan **Tillämpa plattformsbehörighet** till det önskade värdet (Ja/Nej)
 
   >[!IMPORTANT]
-  >Det är viktigt att notera att **Tvinga plattformsbehörighet** flaggan kontrollerar om användarens beslut att tillåta eller neka plattformsåtkomst till sin TV-leverantörsprenumeration kommer att verkställas eller inte. Fundera på scenariot när **Aktivera enkel inloggning** flaggan är inställd på Ja, **Tvinga plattformsbehörighet** Flaggan är också inställd på Ja och användaren väljer att neka plattformsåtkomst till sin TV-leverantörsprenumeration. Då kan inte respektive program (kanal) använda den Adobe Pass-autentiseringstoken som erhålls av ett annat program (kanal).
+  >Observera att flaggan **Tillämpa plattformsbehörighet** kontrollerar om användarens beslut att tillåta eller neka plattformsåtkomst till hans/hennes TV-leverantörsprenumeration kommer att verkställas eller inte. Med tanke på scenariot när flaggan **Aktivera enkel inloggning** är inställd på Ja, **Använd plattformsbehörighet** är inställd på Ja och användaren väljer att neka plattformsåtkomst till sin TV-leverantörsprenumeration, kommer respektive program (kanal) inte att kunna använda den Adobe Pass-autentiseringstoken som erhålls av ett annat program (kanal).
 
 
 #### Aktivera hembaserad autentisering {#enable-hba}
 
-Följ stegen nedan för att aktivera/inaktivera autentisering av hembas för **OAuth2** MVPD-baserade:
+Följ stegen nedan för att aktivera/inaktivera Home-Base Authentication för **OAuth2**-baserade MVPD-filer:
 
-* kontrollera att du använder läget Avancerad arbetsyta
+* kontrollera att du använder avancerat Workspace-läge
 * navigera till önskad integrering
-* navigera till **Autentiseringsinställningar** tab
-* navigera till **AuthN dynamiska regler** underflik
-* växla **Attempt HBA** flagga till det önskade värdet (Ja/Nej)
+* navigera till fliken **Autentiseringsinställningar**
+* navigera till underfliken **AuthN Dynamiska regler**
+* växla flaggan **Attempt HBA** till det önskade värdet (Ja/Nej)
 
 
 >[!IMPORTANT]
 >Tänk på att HBA AuthN TTL-värdet aldrig ska åsidosättas, annars kan auktoriseringsflödet misslyckas oväntat.
 
-Nå ut till **tve-support@adobe.com** för information om aktivering av Home-Base Authentication för SAML-baserade MVPD.
+Gå till **tve-support@adobe.com** för information om hur du aktiverar Home-Base Authentication för SAML-baserade MVPD-filer.
 
 ### MVPD {#tve-db-mvpds-sec}
 
@@ -284,16 +284,16 @@ I det här avsnittet tillåts visningsinställningar för tillgängliga MVPD-fil
 * **MVPD-data**
    * **MVPD-ID** - MVPD:s unika ID som används i vårt system.
    * **Visningsnamn** - MVPD:s kommersiella namn som kan användas i användarens väljare.
-   * **URL för logotyp** - MVPD:s kommersiella logotyp, URL.
-   * **Förhandsgranska logotyp** - MVPD:s kommersiella logotyp förhandsvisas genom att den laddas ned från den ovannämnda enhetliga resursplaceraren (URL).
+   * **Logo Url** - MVPD:s kommersiella logotyp, URL (Unik Resource Locator).
+   * **Logo Preview** - MVPD:s kommersiella logotypförhandsvisning genom att ladda ned den från ovanstående URL (Unik Resource Locator).
 * **Allmänna inställningar**
-   * **Användarmetadatanycklar**
+   * **Metadatanycklar för användare**
       * Metadatanycklar som är tillgängliga för det specifika MVPD-programmet.
    * **Egenskaper för klientdata**
       * **Auth/Aggregator** - Om värdet är Ja behövs en ny autentiseringstoken för varje ny kanal som användaren försöker få åtkomst till.
-      * **Passiv AuthN aktiverad** - Om Auth-/Aggregator-flaggan är inställd på Ja och om Passiv AuthN är aktiverad är inställd på Ja, kommer autentiseringsprocessen med en annan kanal att ske i bakgrunden utan att en fullständig omdirigering av webbläsaren behövs och väljaren visas.
-      * **Autentisering/webbläsarsession** - Om inställningen är &quot;Ja&quot; loggas användaren ut när webbläsaren har stängts. Om inställningen är Nej kan användaren starta om webbläsaren och vara inloggad.
-      * **IFrame krävs** - Om det är inställt på &quot;Yes&quot; innebär det att inloggningsfönstret för MVPD kräver en iFrame. Fälten &quot;iFrame Width&quot; och &quot;iFrame Height&quot; representerar den storlek som behövs för den iFrame som läser in inloggningssidan för MVPD.
+      * **Passiv AuthN är aktiverad** - Om flaggan Auth/Aggregator är inställd på Ja och om Passiv AuthN är inställd på Ja, sker autentiseringsprocessen med en annan kanal i bakgrunden utan att en fullständig omdirigering av webbläsaren behövs och väljaren visas.
+      * **Autentisering/webbläsarsession** - Om inställningen är Ja loggas användaren ut när webbläsaren har stängts. Om inställningen är Nej kan användaren starta om webbläsaren och vara inloggad.
+      * **IFrame Required** - Om värdet är Yes anger det att MVPD-inloggningsfönstret kräver en iFrame. Fälten &quot;iFrame Width&quot; och &quot;iFrame Height&quot; representerar den storlek som behövs för den iFrame som läser in inloggningssidan för MVPD.
 * **Autentiseringsinställningar**
    * **Markera slutpunkt**
       * Det här fältet anger de verifieringsslutpunkter som exponeras av MVPD. Slutpunkten kan variera beroende på vilket autentiseringsprotokoll som används.
@@ -301,7 +301,7 @@ I det här avsnittet tillåts visningsinställningar för tillgängliga MVPD-fil
       * Den här underfliken visar autentiseringsprotokollet som används av MVPD och protokollrelaterad information.
    * **AuthN-certifikat**
       * På denna underflik visas de certifikat som MVPD använder i autentiseringsflödet tillsammans med utfärdarorganisationen, utfärdandedatum och utgångsdatum. Dessa certifikat fungerar som privata/offentliga nycklar och används i valideringssyfte.
-   * **AuthN dynamiska regler**
+   * **Dynamiska AuthN-regler**
       * På den här underfliken visas de regler som gäller för autentiseringsprocessen. Genom att trycka på diagrammets begäran/svar/token kan du se de parametrar som används för den delen av autentiseringsflödet som markerat.
 * **Behörighetsinställningar**
    * **Markera slutpunkt**
@@ -309,29 +309,29 @@ I det här avsnittet tillåts visningsinställningar för tillgängliga MVPD-fil
    * **Allmänna inställningar för AuthZ**
       * På den här underfliken visas auktoriseringsprotokollet som används av MVPD och protokollrelaterad information.
       * **Preflight-konfiguration**
-         * Den beskriver antalet resurser som kan förauktoriseras av ett MVPD i ett enda anrop, den PreFlight-modell som används samt tidsgränsen. Ibland kan antalet resurser vara olika för en viss integrering. Detta kan hanteras genom att du redigerar **Max antal preflight-resurser**&quot;, som finns på fliken General Settings. Den här egenskapen är bara tillgänglig för en viss integrering och om den anges används den i stället för det värde som definieras i auktoriseringsinställningar -> PreFlight-konfiguration -> PreFlight Max-resurser.
+         * Den beskriver antalet resurser som kan förauktoriseras av ett MVPD i ett enda anrop, den PreFlight-modell som används samt tidsgränsen. Ibland kan antalet resurser vara olika för en viss integrering. Du kan hantera detta genom att redigera egenskapen **Max antal preflight-resurser** som finns på fliken Allmänna inställningar. Den här egenskapen är bara tillgänglig för en viss integrering och om den anges används den i stället för det värde som definieras i auktoriseringsinställningar -> PreFlight-konfiguration -> PreFlight Max-resurser.
       * **DOS-skydd**
          * Det beskriver Denial-Of-Service-skyddet för MVPD-auktoriseringsslutpunkten. Om du vill visa en exakt beskrivning av varje fält kan du visa verktygstipsen genom att hovra över DOS-skyddsfälten.
-      * Om MVPD är en **TempPass** och sedan **Allmänna inställningar för AuthZ** innehåller även information om TempPass-varaktighet.
-      * Om MVPD är en **FlexibleTempPass** och sedan **Allmänna inställningar för AuthZ** innehåller även information om TempPass-varaktighet, maximalt antal resurser och identifieringsfält (se bilden nedan).
+      * Om MVPD är ett **TempPass** innehåller även **AuthZ-allmänna inställningar** information om TempPass-varaktigheten.
+      * Om MVPD är ett **FlexibleTempPass** innehåller **AuthZ-inställningarna** även information om TempPass-varaktighet, maximalt antal resurser och identifieringsfält (se bilden nedan).
    * **AuthZ-certifikat**
       * På denna underflik visas de certifikat som MVPD använder i auktoriseringsflödet tillsammans med utfärdarorganisationen, utfärdandedatum och utgångsdatum. Dessa certifikat fungerar som privata/offentliga nycklar och används i valideringssyfte.
-   * **AuthZ Dynamiska regler**
-      * På den här underfliken visas de regler som gäller för auktoriseringsprocessen. Genom att trycka på diagrammets **Begäran/svar/token** kan du se de parametrar som används i den delen av auktoriseringsflödet som markerade.
+   * **Dynamiska AuthZ-regler**
+      * På den här underfliken visas de regler som gäller för auktoriseringsprocessen. Genom att trycka på diagrammets **Request/Response/Token** kan du se de parametrar som används för den delen av auktoriseringsflödet som markerade.
 * **Utloggningsinställningar**
    * **Markera slutpunkt**
       * I det här fältet anges slutpunkten för utloggningen som visas av MVPD. Angivna protokoll kan vara antingen SAML eller OAuth2.
       * **Allmänna inställningar för utloggning**
          * Den här underfliken visar det utloggningsprotokoll som används av MVPD och protokollrelaterad information.
-         * **Kräv utloggningssvar signerat** - Om inställningen är &quot;Ja&quot; måste svaret signeras av ett betrott certifikat.
+         * **Kräv inloggningssvar signerat** - Om värdet är Ja måste svaret signeras av ett betrott certifikat.
       * **Utloggningscertifikat**
          * På denna underflik visas de certifikat som MVPD använder i utloggningsflödet tillsammans med utfärdarorganisationen, utfärdandedatum och utgångsdatum. Dessa certifikat fungerar som privata/offentliga nycklar och används i valideringssyfte.
-      * **Dynamiska regler för utloggning**
-         * På den här underfliken visas de regler som gäller för utloggningsprocessen. Genom att trycka på diagrammets **Begäran/svar/token** kan du se parametrarna som används i den delen av utloggningsflödet som markerade.
+      * **Utloggning av dynamiska regler**
+         * På den här underfliken visas de regler som gäller för utloggningsprocessen. Genom att trycka på diagrammets **Request/Response/Token** kan du se de parametrar som används i den delen av utloggningsflödet som markerade.
 
 ### Rapporter {#tve-db-reports-sec}
 
-Klicka på Rapporter i &quot;[Kontrollpanelsektioner](#sections)&quot;. Du kan navigera till en skärm med 3 flikar, som visas i detalj i följande underavsnitt: [AuthN TTL-rapporter](#authn-ttl-reports), [AuthZ TTL-rapporter](#authz-ttl-reports), [SSO-rapporter](#sso-reports).
+Om du vill gå till det här avsnittet klickar du på Rapporter på menyn [Instrumentpanelsavsnitt](#sections). Detta navigerar till en skärm med 3 flikar, som presenteras i detalj i följande underavsnitt: [AuthN TTL Reports](#authn-ttl-reports), [AuthZ TTL Reports](#authz-ttl-reports), [SSO Reports](#sso-reports).
 
 I det här avsnittet kan du visa och exportera aggregerade data för flera typer av rapporter för kanalintegrering/kanalintegrering/kanalintegreringar med olika programmeringsgränssnitt för alla plattformar.
 
@@ -340,13 +340,13 @@ I det här avsnittet kan du visa och exportera aggregerade data för flera typer
 Alla rapporterar aggregerade värden för följande plattformar:
 
 **WEBBLÄSARE**
-Visar värden som ska tillämpas på programmeringsimplementeringarna via Adobe Pass Authentication JavaScript SDK.
+Visar värden som ska användas för programmeringsimplementeringar via Adobe Pass Authentication JavaScript SDK.
 
 **MOBIL: IOS**
 Visar värden som ska användas för programmeringsimplementeringar via Adobe Pass Authentication iOS SDK.
 
 **MOBIL: ANDROID**
-Visar värden som ska tillämpas på programmeringsimplementeringarna via Adobe Pass Authentication Android SDK.
+Visar värden som ska användas för programmeringsimplementeringar via Adobe Pass Authentication Android SDK.
 
 **MOBIL: ÖVRIGT**
 Visar värden som ska tillämpas på programmeringsimplementeringar över Adobe Pass Authentication REST API som utvecklats för mobila enheter.
@@ -360,26 +360,26 @@ Visar värden som ska tillämpas på programmeringsimplementeringarna via Adobe 
 **TVCD: APPLETV**
 Visar värden som ska tillämpas på programmeringsimplementeringar via Adobe Pass Authentication TVOS SDK.
 
-**TVCD: ÖVRIGT**
+**TVCD: ANDRA**
 Visar värden som ska tillämpas på programmeringsimplementeringarna via Adobe Pass Authentication REST API som utvecklats för tv-anslutna enheter.
 
 **PLATTFORM: OKÄND**
 Visar värden som ska tillämpas på de programmeringsimplementeringar för vilka Adobe Pass Authentication Services identifierar en okänd enhetstyp.
 
-Granska mekanismen för [skicka klientinformation](/help/authentication/passing-client-information-device-connection-and-application.md) till Adobe Pass Authentication REST API:er eller SDK:er för mer information om hur du skickar önskad enhetstyp (till exempel&quot;Roku&quot;).
+Granska mekanismen för att [skicka klientinformation](/help/authentication/passing-client-information-device-connection-and-application.md) till Adobe Pass Authentication REST API:er eller SDK:er för mer information om hur du skickar önskad enhetstyp (till exempel&quot;Roku&quot;).
 
 Alla rapporterar sammanställningsvärden som beräknas baserat på konfigurationen som är specifik för varje Adobe Pass-autentiseringsmiljö. Därför kan du förvänta dig olika rapporteringsdata när du växlar mellan olika TVE Dashboard-miljöer.
 
-Granska [Miljö](#authn-environments) för mer information om tillgängliga miljöer för Adobe Pass-autentisering.
+Mer information om tillgängliga miljöer för Adobe Pass-autentisering finns i avsnittet [Miljö](#authn-environments).
 
 
 ##### Välja specifika kanaler/videobandspelare {#selecting-specific-channels-mvpds}
 
 I alla rapporter kan du använda filter genom att välja specifika kanaler eller välja specifika MVPD-filer som ska inkluderas i de resulterande rapporterna.
 
-Använd **listruta** placerad efter etiketten &quot;Kanaler valda för rapport&quot;. Se Figur 8./9./10. bilder nedan.
+Om du vill välja en eller flera kanaler använder du listrutan **** som placerats efter etiketten Kanaler som valts för rapport. Se Figur 8./9./10. bilder nedan.
 
-Om du vill välja en eller flera PDF-filer använder du **listruta** placerad efter etiketten&quot;MVPDs selected for report&quot;. Se Figur 8./9./10. bilder nedan.
+Om du vill välja en eller flera PDF-filer använder du listrutan **** som placerats efter etiketten&quot;MVPDs selected for report&quot;. Se Figur 8./9./10. bilder nedan.
 
 Som standard sammanställs data i alla företagets kanaler (&quot;Alla kanaler&quot;) och de videoprogrammeringsprogram som de är integrerade med (&quot;Alla videoprogrammeringsprogram&quot;).
 
@@ -392,15 +392,15 @@ Alla rapporter tillåter export av data i en fil med kommaseparerade värden (CS
 
 Om du vill exportera data använder du knappen &quot;Exportera rapport&quot; i fönstrets övre högra hörn. Se Figur 8./9./10. bilder nedan.
 
-En fil med namnet **Report.csv** hämtas automatiskt till din dator. Kontrollera därför att webbläsarens inställningar tillåter hämtning av filer.
+En fil med namnet **Report.csv** hämtas automatiskt till datorn. Kontrollera därför att webbläsarens inställningar tillåter hämtning av filer.
 
-Inläsningsikonen &quot;Exporting Data&quot; visas på skärmen när filen Report.csv beräknas, vilket kan ta upp **till några minuter** beroende på storleken på de data som du vill exportera.
+Inläsningsikonen &quot;Exporterar data&quot; visas på skärmen när filen Report.csv beräknas, vilket kan ta upp till **till några minuter** beroende på storleken på data som du vill exportera.
 
 #### AuthN TTL-rapporter (#authn-ttl-reports)
 
 Den här rapporten visar TTL (Time-To-Live) för den autentiseringstoken som konfigurerats för kanalintegrering/kanalintegreringar med olika MVPD-program på alla plattformar.
 
-Autentiseringstoken Time-To-Live, som också kallas **AuthN TTL**, visas med värden som är läsbara för människor, till exempel: **dagar, timmar, minuter, sekunder**.
+Autentiseringstoken Time-To-Live, som också kallas **AuthN TTL**, visas i läsbara värden som **dagar, timmar, minuter, sekunder**.
 
 När det gäller användarupplevelsen kan du med hjälp av AuthN TTL-rapporterna visuellt kontrollera hur lång tid en användare autentiseras med tanke på ett specifikt MVPD och en specifik plattform.
 
@@ -408,21 +408,21 @@ Om du vill gå till den här typen av rapport klickar du på fliken&quot;AuthN T
 
 ![AuthN TTL-rapporter](assets/authn-ttl-reports.png)
 
-*Bild 8: Fliken Adobe Primetime TVE Dashboard AuthN TTL Report*
+*Figur 8: Fliken för TTL-rapport för Adobe Primetime TVE Dashboard AuthN*
 
 Tabellen AuthN TTL Reports innehåller sidor och kan rullas vågrätt och lodrätt beroende på skärmstorleken.
 
-Om du funderar på att ändra ett AuthN TTL-värde kan du läsa [Integreringar](#tve-db-integrations-sec) -avsnitt.
+Om du överväger att ändra ett AuthN TTL-värde kan du gå igenom avsnittet [Integrationer](#tve-db-integrations-sec).
 
 >[!IMPORTANT]
->The &quot;**Inställd av MVPD**&quot; används som platshållare i de fall då det MVPD-värde som används för AuthN TTL-värdet och inte för Adobe Pass Authentication-konfigurationen används.
+>Platshållaren **Set by MVPD** används i de fall då MVPD är den som tvingar AuthN TTL-värdet och inte Adobe Pass-autentiseringskonfigurationen.
 
 
 #### AuthZ TTL-rapporter {#authz-ttl-reports}
 
 Den här rapporten visar TTL (Time-To-Live) för den auktoriseringstoken som konfigurerats för kanalintegrering/kanalintegrering/kanalintegreringar med olika MVPD-program på alla plattformar.
 
-Auktoriseringstoken Time-To-Live, som också kallas **AuthZ TTL**, visas med värden som är läsbara för människor, till exempel: **dagar, timmar, minuter, sekunder**.
+Auktoriseringstoken Time-To-Live, som också kallas **AuthZ TTL**, visas i läsbara värden som **dagar, timmar, minuter, sekunder**.
 
 När det gäller användarupplevelser kan du i AuthZ TTL-rapporterna visuellt kontrollera hur lång tid en användare kommer att få behörighet med tanke på ett specifikt MVPD och en specifik plattform.
 
@@ -430,38 +430,38 @@ Om du vill navigera till den här typen av rapport klickar du på fliken&quot;Au
 
 ![AuthZ TTL-rapporter](assets/authz-ttl-reports.png)
 
-*Bild 9. Fliken Adobe Primetime TVE Dashboard AuthZ TTL Report*
+*Figur 9. Fliken Adobe Primetime TVE Dashboard AuthZ TTL Report*
 
 Tabellen AuthZ TTL Reports innehåller sidor och kan rullas vågrätt och lodrätt beroende på skärmstorleken.
 
-Om du funderar på att ändra ett AuthZ TTL-värde kan du läsa [Integreringar](#tve-db-integrations-sec) -avsnitt.
+Om du funderar på att ändra ett AuthZ TTL-värde läser du avsnittet [Integrationer](#tve-db-integrations-sec).
 
 >[!IMPORTANT]
->The &quot;**Inställd av MVPD**&quot; används som platshållare i de fall då det MVPD-värde som används för AuthZ TTL-värdet och inte för Adobe Pass Authentication-konfigurationen används.
+>Platshållaren **Set by MVPD** används i de fall då MVPD är den som tvingar AuthZ TTL-värdet och inte Adobe Pass-autentiseringskonfigurationen.
 
 
 #### SSO-rapporter {#sso-reports}
 
 I den här rapporten visas SSO-statusen (Single Sign-On) som konfigurerats för kanalintegrering/kanalintegreringar med olika MVPD-program på alla plattformar.
 
-Status för enkel inloggning, som också kallas **SSO-status**, visas som ett trimläge med följande värden: **Inaktiverad enkel inloggning, aktiverad enkel inloggning, osäker enkel inloggning**.
+Statusen enkel inloggning, som också kallas **SSO-status**, visas som ett trimläge med följande möjliga värden: **SSO inaktiverat, SSO aktiverat, SSO osäkert**.
 
 När det gäller användarupplevelsen gör SSO-rapporterna att du visuellt kan inspektera den förväntade användarautentiseringen av enkel inloggning med tanke på ett specifikt MVPD-program och en specifik plattform.
 
-Klicka på &quot;**SSO-rapporter**&quot; från &quot;**Rapporter**&quot;.
+Om du vill gå till den här typen av rapport klickar du på fliken **SSO-rapporter** i avsnittet **Rapporter**.
 
 
-![Fliken TVE Dashboard SSO-rapporter](assets/sso-reports.png)
+![Fliken SSO-rapporter för TVE-instrumentpanelen](assets/sso-reports.png)
 
 
-*Bild 10: Fliken SSO-rapporter för Adobe Primetime TVE Dashboard*
+*Figur 10: Fliken SSO-rapporter för Adobe Primetime TVE Dashboard*
 
 Tabellen över SSO-rapporter innehåller sidor och kan rullas vågrätt och lodrätt beroende på skärmstorleken.
 
-Om du funderar på att ändra en SSO-status kan du läsa [Integreringar](#tve-db-integrations-sec) -avsnitt.
+Om du överväger att ändra en SSO-status kan du gå igenom avsnittet [Integrationer](#tve-db-integrations-sec).
 
 >[!IMPORTANT]
->&quot;**Osäker enkel inloggning**&quot; används som platshållare när enkel inloggning är aktiverat och möjligt, men användarplattformsinställningar/användarbeslut (t.ex. om att webbläsaren ska blockera cookies från tredje part, användaren väljer att neka plattformsåtkomst till sin TV-leverantörsprenumeration) eller MVPD-inställningar (t.ex. MVPD som begär autentisering för varje kanal) kan förhindra att enkel inloggning sker.
+>Platshållaren **Osäker enkel inloggning** används i fall där enkel inloggning är aktiverad och möjlig, men användarplattformsinställningar/användarbeslut (t.ex. alternativet för användarwebbläsare att blockera cookies från tredje part, användaren väljer att neka plattformsåtkomst till sin TV-leverantörsprenumeration) eller inställningarna för avancerad videohantering (t.ex. MVPD som begär autentisering för varje kanal) kan förhindra enkel inloggning.
 
 ### Ändra logg {#tve-db-changelog-sec}
 
@@ -481,13 +481,13 @@ I det här avsnittet kan användare skicka feedback. Följ de här stegen för a
 * vid behov ladda upp en skärmbild till meddelandet genom att klicka på knappen &quot;Överför skärmbild&quot;
 * klicka på knappen Skicka
 
-![skicka feedback från instrumentpanelen](assets/tve-dashboard-feedback.png)
+![Ta del av feedback från instrumentpanelen](assets/tve-dashboard-feedback.png)
 
-*Bild 11: Feedback-avsnittet för Adobe Primetime TV E Dashboard*
+*Figur 11: Feedback-avsnittet för Adobe Primetime TVE Dashboard*
 
 Instruktioner om hur du tar skärmdumpar finns på länkarna nedan:
 
-* [Hämta skärmbilder i Windows](https://support.microsoft.com/en-us/windows/use-snipping-tool-to-capture-screenshots-00246869-1843-655f-f220-97299b865f6b#1TC=windows-7)
+* [Så här fångar du skärmbilder i Windows](https://support.microsoft.com/en-us/windows/use-snipping-tool-to-capture-screenshots-00246869-1843-655f-f220-97299b865f6b#1TC=windows-7)
 
 * [Så här fångar du skärmbilder på Mac](https://support.apple.com/en-us/HT201361)
 
@@ -507,10 +507,10 @@ Om detta inträffar måste du vänta på att Adobe Pass Authentication Engineeri
 
 ### Försämrat läge {#degraded-state}
 
-![TVE-app i degraderat tillstånd](assets/tve-degraded-state.png)
+![TVE-app i skadat tillstånd](assets/tve-degraded-state.png)
 
 
-*Bild: TVE App i degraderat läge*
+*Bild: TVE-app i degraderat läge*
 
 Om TVE Dashboard är i&quot;degraderat läge&quot; saknar användarna sök- och sorteringsfunktioner, men användarna kan visa eller göra nya ändringar.
 

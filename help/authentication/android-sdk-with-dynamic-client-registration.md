@@ -1,15 +1,15 @@
 ---
-title: Android SDK med registrering av dynamisk klient
-description: Android SDK med registrering av dynamisk klient
+title: Android SDK med dynamisk klientregistrering
+description: Android SDK med dynamisk klientregistrering
 exl-id: 8d0c1507-8e80-40a4-8698-fb795240f618
 source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
 workflow-type: tm+mt
-source-wordcount: '1294'
+source-wordcount: '1277'
 ht-degree: 0%
 
 ---
 
-# Android SDK med registrering av dynamisk klient {#android-sdk-with-dynamic-client-registration}
+# Android SDK med dynamisk klientregistrering {#android-sdk-with-dynamic-client-registration}
 
 >[!NOTE]
 >
@@ -19,12 +19,12 @@ ht-degree: 0%
 
 Android AccessEnabler SDK för Android har ändrats för att aktivera autentisering utan att använda sessionscookies. I takt med att fler och fler webbläsare begränsar åtkomsten till cookies måste en annan metod användas för att tillåta autentisering.
 
-För Android begränsar användningen av anpassade flikar i Chrome åtkomsten till cookies från andra program.
+För Android begränsar användningen av Chrome anpassade flikar åtkomsten till cookies från andra program.
 
 >**Android SDK 3.0.0** introducerar:
 
 - dynamisk klientregistrering ersätter den aktuella appregistreringsmekanismen baserat på autentisering av signerad begärande-ID och sessionscookie
-- Krom anpassade flikar för autentiseringsflöden
+- Chrome anpassade flikar för autentiseringsflöden
 
 >[!NOTE]
 >
@@ -38,14 +38,14 @@ Android SDK v3.0+ använder den dynamiska klientregistreringsproceduren som defi
 
 ## Demo {#Demo}
 
-Titta [det här webbinariet](https://my.adobeconnect.com/pzkp8ujrigg1/) som ger ett större sammanhang för funktionen och innehåller en demonstration av hur programsatser ska hanteras med TVE Dashboard och hur de genererade programsatserna ska testas med ett demoprogram som tillhandahålls av Adobe som en del av Android SDK.
+Titta på [det här webbinariet](https://my.adobeconnect.com/pzkp8ujrigg1/) som ger mer information om funktionen och innehåller en demonstration om hur du hanterar programsatser med TVE Dashboard och hur du testar genererade programsatser med ett demoprogram som tillhandahålls av Adobe som en del av Android SDK.
 
 ## API-ändringar {#API}
 
 
 ### Factory.getInstance
 
-**Beskrivning:** Instansierar Access Enabler-objektet. Det ska finnas en enda instans av Access Enabler per programinstans.
+**Beskrivning:** Instansierar åtkomstaktiveringsobjektet. Det ska finnas en enda instans av Access Enabler per programinstans.
 
 | API-anrop: konstruktor |
 | --- |
@@ -57,8 +57,8 @@ Titta [det här webbinariet](https://my.adobeconnect.com/pzkp8ujrigg1/) som ger 
 **Parametrar:**
 
 - *appContext*: Android-programkontext
-- softwareStatement: värde från TVE Dashboard eller *null* om &quot;software\_statement&quot; är inställt i strings.xml
-- redirectUrl : unique url, en av domänerna i omvänd ordning som uttryckligen lades till i TVE Dashboard eller *null* om &quot;redirect\_uri&quot; har angetts i strings.xml
+- softwareStatement: värde från TVE Dashboard eller *null* om &quot;software\_statement&quot; har angetts i strings.xml
+- redirectUrl : unique url, en av domänerna i omvänd ordning som uttryckligen lades till i TVE Dashboard eller *null* om &quot;redirect\_uri&quot; anges i strings.xml
 
 Obs! Ogiltig softwareStatement eller redirectUrl gör att programmet inte initierar AccessEnabler eller registrerar program för Adobe Pass-autentisering och -auktorisering
 </br>
@@ -67,13 +67,13 @@ Obs! Parametern redirectUrl eller redirect\_uri i strings.xml ska vara värdet f
 
 ### setRequestor
 
-**Beskrivning:** Fastställer kanalens identitet. Varje kanal tilldelas ett unikt ID när den registreras med Adobe för Adobe Pass autentiseringssystem. När det gäller enkel inloggning och fjärrtoken kan autentiseringstillståndet ändras när programmet är i bakgrunden. Det går att anropa setRequestor igen när programmet försätts i förgrunden för att synkronisera med systemtillståndet (hämta en fjärrtoken om enkel inloggning är aktiverad eller ta bort den lokala token om en utloggning inträffar under tiden).
+**Beskrivning:** Anger kanalens identitet. Varje kanal tilldelas ett unikt ID när den registreras med Adobe för Adobe Pass autentiseringssystem. När det gäller enkel inloggning och fjärrtoken kan autentiseringstillståndet ändras när programmet är i bakgrunden. Det går att anropa setRequestor igen när programmet försätts i förgrunden för att synkronisera med systemtillståndet (hämta en fjärrtoken om enkel inloggning är aktiverad eller ta bort den lokala token om en utloggning inträffar under tiden).
 
 Serversvaret innehåller en lista över MVPD:er tillsammans med viss konfigurationsinformation som är kopplad till kanalens identitet. Serversvaret används internt av åtkomstaktiveringskoden. Endast åtgärdens status (d.v.s. SUCCESS/FAIL) visas för programmet via callback-funktionen setRequestorComplete().
 
-Om *urls* parametern används inte, det resulterande nätverksanropet har standardtjänstleverantörens URL som mål: Adobe Release/Production Environment.
+Om parametern *urls* inte används anger det resulterande nätverksanropet standardtjänstleverantörens URL: Adobe Release/Production Environment.
 
-Om ett värde anges för *urls* parametern, aktiverar det resulterande nätverksanropet alla URL:er som anges i *urls* parameter. Alla konfigurationsbegäranden aktiveras samtidigt i olika trådar. Den första svararen har företräde när listan över MVPD kompileras. För varje MVPD i listan kommer åtkomstaktiveringen att komma ihåg URL:en för den associerade tjänstleverantören. Alla efterföljande tillståndsbegäranden dirigeras till den URL som är associerad med tjänstleverantören som parats med mål-MVPD under konfigurationsfasen.
+Om ett värde anges för parametern *urls*, anger det resulterande nätverksanropet alla URL:er som anges i parametern *urls* som mål. Alla konfigurationsbegäranden aktiveras samtidigt i olika trådar. Den första svararen har företräde när listan över MVPD kompileras. För varje MVPD i listan kommer åtkomstaktiveringen att komma ihåg URL:en för den associerade tjänstleverantören. Alla efterföljande tillståndsbegäranden dirigeras till den URL som är associerad med tjänstleverantören som parats med mål-MVPD under konfigurationsfasen.
 
 | API-anrop: konfiguration för begärare |
 | --- |
@@ -89,14 +89,14 @@ Om ett värde anges för *urls* parametern, aktiverar det resulterande nätverks
 
 **Parametrar:**
 
-- *requestID*: Det unika ID som är associerat med kanalen. Skicka det unika ID som tilldelats av Adobe till din webbplats när du först registrerade dig hos Adobe Pass autentiseringstjänst.
-- *urls*: Valfri parameter. Som standard används Adobes tjänsteleverantör [http://sp.auth.adobe.com/](http://sp.auth.adobe.com/). Med den här arrayen kan du ange slutpunkter för autentisering och auktoriseringstjänster som tillhandahålls av Adobe (olika instanser kan användas i felsökningssyfte). Du kan använda detta för att ange flera instanser av Adobe Pass Authentication-tjänstprovidern. När detta görs består MVPD-listan av slutpunkterna från alla tjänsteleverantörer. Varje MVPD är kopplat till den snabbaste tjänsteleverantören, dvs. den leverantör som svarade först och som stöder det MVPD.
+- *requestedID*: Det unika ID som är associerat med kanalen. Skicka det unika ID som tilldelats av Adobe till din webbplats när du först registrerade dig hos Adobe Pass autentiseringstjänst.
+- *urls*: Valfri parameter. Som standard används Adobes tjänstleverantör [http://sp.auth.adobe.com/](http://sp.auth.adobe.com/). Med den här arrayen kan du ange slutpunkter för autentisering och auktoriseringstjänster som tillhandahålls av Adobe (olika instanser kan användas i felsökningssyfte). Du kan använda detta för att ange flera instanser av Adobe Pass Authentication-tjänstprovidern. När detta görs består MVPD-listan av slutpunkterna från alla tjänsteleverantörer. Varje MVPD är kopplat till den snabbaste tjänsteleverantören, dvs. den leverantör som svarade först och som stöder det MVPD.
 
 Föråldrat:
 
-- *signedRequestorID*: En kopia av begärande-ID som signeras digitalt med din privata nyckel. <!--For more details, see [Registering Native Clients](http://tve.helpdocsonline.com/registering-native-clients)-->.
+- *signedRequestorID*: En kopia av begärande-ID:t som har signerats digitalt med din privata nyckel. <!--For more details, see [Registering Native Clients](http://tve.helpdocsonline.com/registering-native-clients)-->.
 
-**Återanrop utlösta:** `setRequestorComplete()`
+**Återanrop har utlösts:** `setRequestorComplete()`
 
 ### utloggning
 
@@ -108,9 +108,9 @@ Föråldrat:
 
 **Tillgänglighet:** v3.0+
 
-**Parametrar:** Ingen
+**Parametrar:** Inga
 
-**Återanrop utlösta:** `setAuthenticationStatus()`
+**Återanrop har utlösts:** `setAuthenticationStatus()`
 </br></br>
 
 ## Programmeringsimplementeringsflöde {#Progr}
@@ -128,7 +128,8 @@ Lägg till i strings.xml:
 <string name="redirect_uri">application_url.com</string>
 ```
 
-Anropa AccessEnabler.getInstance(appContext,softwareStatement, redirectUrl)
+Anropa AccessEnabler.getInstance(appContext,softwareStatement,
+redirectUrl)
 
 
 ### 2. Konfigurera program
@@ -137,11 +138,11 @@ a. setRequestor(request\_id)
 
 SDK utför följande åtgärder:
 
-- registrera program: använda **software\_statement** får SDK en **client\_id, client\_secrets, client\_id\_issued\_at, redirect\_uris, grant\_types**. Den här informationen lagras i programmets interna lagring.
+- registreringsprogram: med **software\_statement** får SDK en **client\_id, client\_secrets, client\_id\_issued\_at, redirect\_uris, grant\_types**. Den här informationen lagras i programmets interna lagring.
 
-- få en **access\_token** med client\_id, client\_secrets och grant\_type=&quot;client\_credentials&quot;. Denna åtkomst\_token kommer att användas för varje anrop från SDK till Adobe Pass-servrar
+- hämta en **access\_token** med client\_id, client\_secrets och grant\_type=&quot;client\_credentials&quot;. Denna åtkomst\_token kommer att användas för varje anrop från SDK till Adobe Pass-servrar
 
-**Tokenfelsvar:**
+**Token Error Responses:**
 
 | Felsvar | | |
 | --- | --- | --- |
@@ -149,14 +150,14 @@ SDK utför följande åtgärder:
 | HTTP 400 (Ogiltig begäran) | {&quot;error&quot;: &quot;invalid\_client&quot;} | Klientautentiseringen misslyckades eftersom klienten var okänd. SDK MÅSTE registreras på auktoriseringsservern igen. |
 | HTTP 400 (Ogiltig begäran) | {&quot;error&quot;: &quot;unauthorized\_client&quot;} | Den autentiserade klienten har inte behörighet att använda den här behörighetstypen. |
 
-- om ett MVPD-dokument kräver passiv autentisering öppnas en anpassad flik i Chrome så att den körs passivt med detta MVPD-dokument och stängs när det är klart
+- om ett MVPD-dokument kräver passiv autentisering öppnas en anpassad Chrome-flik för att köra passivt med detta MVPD och stängs när det är klart
 
 b. checkAuthentication()
 
 - true : gå till Authorization
 - false : gå till Select MVPD
 
-c. getAuthentication : SDK kommer att innehålla **access_token** i anropsparametrar
+c. getAuthentication : SDK inkluderar **access_token** i anropsparametrar
 
 - mvpd kom ihåg : gå till setSelectedProvider(mvpd_id)
 - mvpd är inte markerat: displayProviderDialog
@@ -169,18 +170,19 @@ d. setSelectedProvider
 - inloggningen avbröts: återställ MVPD-val
 - URL-schemat har etablerats som &quot;adobepass://redirect_uri&quot; för hämtning när autentiseringen är klar
 
-e. get/checkAuthorization: SDK kommer att innehålla **access_token** in header as Authorization: Bearer **access_token**
+e. get/checkAuthorization: SDK inkluderar **access_token** i huvudet som Authorization: Bearer **access_token**
 
-- om auktoriseringen lyckas, kommer ett anrop att göras för att erhålla medietoken
+- om auktoriseringen lyckas, kommer en uppmaning att inhämta
+medietoken
 
 f. utloggning:
 
 - SDK kommer att ta bort giltig token för den aktuella begäraren (autentiseringar som erhållits av andra program och inte via enkel inloggning kommer att förbli giltiga)
-- SDK öppnar anpassade Chrome-flikar för att nå mvpd_id-utloggningsslutpunkten. När du är klar stängs de anpassade Chrome-flikarna
+- SDK öppnar anpassade Chrome-flikar för att nå mvpd_id-slutpunkten för utloggning. När du är klar stängs Chrome anpassade flikar
 - URL-schemat är &quot;adobepass://logout&quot; för att fånga in tidpunkten då utloggningen är klar
 - utlöser en sendTrackingData(new Event(EVENT_LOGOUT,USER_NOT_AUTHENTICATED_ERROR) och ett återanrop : setAuthenticationStatus(0,&quot;Logout&quot;)
 
-**Obs!** eftersom varje samtal kräver **access_token,** Möjliga felkoder nedan hanteras i SDK.
+**Obs!** eftersom varje anrop kräver en **access_token,** möjliga felkoder nedan hanteras i SDK:n.
 
 
 | Felsvar | | |

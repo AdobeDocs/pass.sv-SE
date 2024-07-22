@@ -17,13 +17,13 @@ ht-degree: 0%
 
 ## Introduktion {#intro}
 
-Kunder kan använda [Nagios](http://www.nagios.org) eller andra verktyg för att kontrollera om Adobe Pass Authentication är aktiverat eller inte.
+Kunder kan använda [Nagios](http://www.nagios.org) eller andra verktyg för att kontrollera om Adobe Pass-autentisering är aktiverad eller inte.
 
 ## Övervaka slutpunkter {#monitoring-endpoints}
 
 ### Slutpunkter som du kan övervaka {#endpoints-to-monitor}
 
-* Konfigurationsslutpunkten för alla plattformar: `https://sp.auth.adobe.com/adobe-services/config/[your-config-ID]`- Den är tillgänglig via antingen HTTP eller HTTPS (beroende på vilket val som görs av innehållsleverantörens utvecklare). Om den här slutpunkten saknas betyder det att innehållet inte är tillgängligt på alla plattformar och för alla programmeringsgränssnitten. För det klientlösa REST API:t har vi även följande slutpunkt:  `https://api.auth.adobe.com/adobe-services/config your-config-ID]`.
+* Konfigurationsslutpunkten för alla plattformar: `https://sp.auth.adobe.com/adobe-services/config/[your-config-ID]`- Den är tillgänglig via antingen HTTP eller HTTPS (beroende på vilket val som görs av innehållsleverantörens utvecklare). Om den här slutpunkten saknas betyder det att innehållet inte är tillgängligt på alla plattformar och för alla programmeringsgränssnitten. För klientlöst REST API har vi även följande slutpunkt: `https://api.auth.adobe.com/adobe-services/config your-config-ID]`.
 
 * Följande slutpunkter ingår i Adobe Pass Authentication web SDK.  Om betal-TV-pass saknas betyder det att betal-TV-pass inte används för alla programmerare och alla webbegenskaper:
 

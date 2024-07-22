@@ -4,7 +4,7 @@ description: Autentisering med OAuth 2.0-protokollet
 exl-id: 0c1f04fe-51dc-4b4d-88e7-66e8f4609e02
 source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
 workflow-type: tm+mt
-source-wordcount: '1074'
+source-wordcount: '1088'
 ht-degree: 0%
 
 ---
@@ -39,7 +39,7 @@ Protokollet ger också större flexibilitet när det gäller de data som exponer
 
 För att stödja autentisering med OAuth 2.0 måste ett MVPD uppfylla följande krav:
 
-Först och främst måste det VPD se till att det stöder [Beviljande av auktoriseringskod](https://oauthlib.readthedocs.io/en/latest/oauth2/grants/authcode.html) flöde.
+Först och främst måste MVPD se till att det har stöd för flödet [Bevilja auktoriseringskod](https://oauthlib.readthedocs.io/en/latest/oauth2/grants/authcode.html).
 
 Efter att ha bekräftat att MVPD stöder flödet måste det förse oss med följande information:
 
@@ -50,14 +50,14 @@ Efter att ha bekräftat att MVPD stöder flödet måste det förse oss med följ
    * uppdateringstoken måste vara stabil (den får inte ändras varje gång vi begär en ny åtkomsttoken
    * MVPD måste tillåta flera aktiva åtkomsttoken för varje uppdateringstoken
    * den här slutpunkten utbyter även en uppdateringstoken för en åtkomsttoken
-* vi behöver en **slutpunkt för användarprofil**
+* vi behöver en **slutpunkt för användarprofilen**
    * den här slutpunkten tillhandahåller användar-ID, som måste vara unikt för ett konto och inte ska innehålla någon personligt identifierbar information
-* den **/loggout** slutpunkt (valfritt)
+* **/utloggning** slutpunkt (valfritt)
    * Adobe Pass Authentication kommer att omdirigera till denna slutpunkt, tillhandahålla MVPD en omdirigerings-URI; i denna slutpunkt kan MVPD rensa cookies på klientdatorn eller använda önskad logik för utloggning
 * vi rekommenderar starkt att du har stöd för auktoriserade klienter (klientappar som inte utlöser någon användarauktoriseringssida)
 * vi kommer också att behöva:
    * **clientID** och **klienthemlighet** för integreringskonfigurationerna
-   * **time to live** (TTL)-värden för uppdateringstoken och åtkomsttoken
+   * **tid till live**-värden (TTL) för uppdateringstoken och åtkomsttoken
    * Vi kan förse MVPD med en URI för auktoriseringsåteranrop och inloggning. Vid behov kan vi även tillhandahålla en lista över IP-adresser som ska vitlistas i brandväggsinställningarna.
 
 
@@ -69,7 +69,7 @@ I autentiseringsflödet kommunicerar Adobe Pass-autentiseringen med MVPD på det
 
 ![Diagram som visar autentiseringsflödet i Adobe-autentiseringen som kommunicerar med MVPD för det protokoll som valts i konfigurationen.](assets/authn-flow.png)
 
-**Bild 1: OAuth 2.0-autentiseringsflöde**
+**Figur 1: OAuth 2.0-autentiseringsflöde**
 
 
 
@@ -102,7 +102,7 @@ Ett typiskt auktoriseringsflöde utför ett utbyte av den uppdateringstoken som 
 
 Migrering av integreringar från SAML till OAuth 2.0 kommer att utföras av Adobe och MVPD. Programmeraren behöver inte göra några tekniska ändringar, även om programmeraren kanske vill kontrollera/testa sammärkningen på inloggningssidan för MVPD. Enligt MVPD krävs slutpunkterna och annan information som krävs enligt Oauth 2.0-kraven.
 
-För att **bevara SSO**, kommer de användare som redan har en autentiseringstoken som erhållits via SAML fortfarande att betraktas som autentiserade och deras förfrågningar kommer att dirigeras via den gamla SAML-integreringen.
+För att **bevara enkel inloggning** kommer de användare som redan har en autentiseringstoken som hämtats via SAML fortfarande att betraktas som autentiserade och deras förfrågningar dirigeras via den gamla SAML-integreringen.
 
 Ur ett tekniskt perspektiv:
 

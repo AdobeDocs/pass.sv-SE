@@ -17,16 +17,16 @@ ht-degree: 1%
 
 >[!NOTE]
 >
-> REST API-implementering begränsas av [Begränsningsmekanism](/help/authentication/throttling-mechanism.md)
+> REST API-implementeringen begränsas av [Begränsningsmekanismen](/help/authentication/throttling-mechanism.md)
 
 ## REST API-slutpunkter {#clientless-endpoints}
 
-&lt;reggie_fqdn>:
+&lt;REGGIE_FQDN>:
 
 * Produktion - [api.auth.adobe.com](http://api.auth.adobe.com/)
 * Mellanlagring - [api.auth-staging.adobe.com](http://api.auth-staging.adobe.com/)
 
-&lt;sp_fqdn>:
+&lt;SP_FQDN>:
 
 * Produktion - [api.auth.adobe.com](http://api.auth.adobe.com/)
 * Mellanlagring - [api.auth-staging.adobe.com](http://api.auth-staging.adobe.com/)
@@ -37,9 +37,9 @@ ht-degree: 1%
 
 Returnerar en lista över konfigurerade MVPD-filer för den som gjorde begäran.
 
-| Slutpunkt | Anropat  </br>Av | Indata   </br>Parametrar | HTTP  </br>Metod | Svar | HTTP  </br>Svar |
+| Slutpunkt | Anropat </br>av | Indata   </br>Parametrar | HTTP </br>Metod | Svar | HTTP </br>Response |
 | --- | --- | --- | --- | --- | --- |
-| &lt;sp_fqdn>/api/v1/config/{requestorId}</br></br>Till exempel:</br></br>&lt;sp_fqdn>/api/v1/config/sampleRequestorId | Adobe Pass-autentisering | 1. Begärande</br>    (Bankomponent)</br>_2.  deviceType (utgått)_ | GET | XML eller JSON som innehåller en lista över PDF-filer. | 200 |
+| &lt;SP_FQDN>/api/v1/config/{requestorId}</br></br>Till exempel:</br></br>&lt;SP_FQDN>/api/v1/config/sampleRequestorId | Adobe Pass-autentisering | 1. Begärande </br>    (Bankomponent)</br>_2.  deviceType (utgått)_ | GET | XML eller JSON som innehåller en lista över PDF-filer. | 200 |
 
 {style="table-layout:auto"}
 
@@ -57,8 +57,8 @@ Samma som det befintliga MVPD XML-svaret till /config-servern
 
 Obs! Alla MVPD-filer som konfigurerats för att använda enkel inloggning för plattformar har följande extra egenskaper i motsvarande nod (JSON/XML):
 
-* **enablePlatformServices (boolean):** flagga som anger om denna MVPD är integrerad via plattformens SSO
-* **boardingStatus (sträng):** flagga som anger om MVPD har fullt stöd för Platform SSO (SUPPORTED) eller om MVPD bara visas i plattformsväljaren (PICKER)
-* **displayInPlatformPicker (boolean):** om det här videofilmsprogrammet ska visas i plattformsväljaren
-* **platformMappingId (sträng):** identifieraren för detta MVPD så som den är känd av plattformen
-* **requiredMetadataFields (strängmatris):** de metadatafält som förväntas vara tillgängliga vid en lyckad inloggning
+* **enablePlatformServices (boolesk):**-flagga som anger om detta MVPD är integrerat via plattformens SSO
+* **boardingStatus (sträng):** flagga som anger om MVPD har fullständigt stöd för Platform SSO (SUPPORTED) eller om MVPD bara visas i plattformsväljaren (PICKER)
+* **displayInPlatformPicker (booleskt):** om detta MVPD ska visas i plattformsväljaren
+* **platformMappingId (sträng):** identifieraren för det här MVPD som är känd av plattformen
+* **requiredMetadataFields (strängmatris):** användarmetadatafälten som förväntades vara tillgängliga vid en lyckad inloggning

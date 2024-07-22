@@ -1,13 +1,13 @@
 ---
 title: TVE Dashboard MVPDs
 description: Lär dig mer om MVPD och dess konfigurationer i TVE Dashboard.
-source-git-commit: b81cc7498a8035f4c274ba25952dcd1dcd8d71f5
+exl-id: 802c1570-9a5b-4bec-8fb2-6c7738b28bc9
+source-git-commit: c2dcea9e4170a3e10654bcd3f8d2f5cdb82c9603
 workflow-type: tm+mt
 source-wordcount: '133'
 ht-degree: 0%
 
 ---
-
 
 # MVPD
 
@@ -15,17 +15,16 @@ ht-degree: 0%
 >
 >Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användningen av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
 
-The **MVPD** på TVE Dashboard kan du visa en lista över integrerade MVPD:er i Adobe Pass Authentication-ekosystemet.
+I avsnittet **MVPDs** i TVE Dashboard kan du visa en lista med integrerade MVPD:er i Adobe Pass Authentication-ekosystemet.
 
-The **MVPD** på den vänstra panelen visas en lista med MVPD-filer med följande information:
+Fliken **MVPDs** i den vänstra panelen visar en lista med MVPD-filer med följande information:
 
 * **Visningsnamn**: Visningsnamnet i väljaren för varje MVPD.
 
-* **MVPD-ID**: Ett unikt ID för MVPD som används för att skapa en ny integrering i systemet.
+* **MVPD ID**: Ett unikt ID för MVPD som används för att konfigurera en ny integrering i systemet.
 
-![Lista över integrerade programmeringsskyltar](assets/mvpds-list.png)
+![Lista över integrerade MVPD:er](assets/mvpds-list.png)
 
-*Lista över integrerade programmeringsskyltar*
+*Lista över integrerade MVPD:er*
 
-Skriv namnet på en MVPD i **Sök** ovanför listan för att hitta ett specifikt MVPD.
-
+Skriv namnet på ett MVPD-dokument i **sökfältet** ovanför listan för att hitta ett specifikt MVPD-dokument.

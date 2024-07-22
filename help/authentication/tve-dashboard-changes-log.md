@@ -1,13 +1,13 @@
 ---
 title: Ändringslogg
 description: Se hur en administratör kan övervaka konfigurationsändringarna i TVE Dashboard.
-source-git-commit: 06c2e1e54515a2ec47722ba1f360467dadd1f73b
+exl-id: 9b53a61b-679f-491e-90f3-5d827e21b32c
+source-git-commit: c2dcea9e4170a3e10654bcd3f8d2f5cdb82c9603
 workflow-type: tm+mt
 source-wordcount: '270'
 ht-degree: 0%
 
 ---
-
 
 # Ändringslogg {#changes-log}
 
@@ -15,14 +15,14 @@ ht-degree: 0%
 >
 >Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användningen av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
 
-The **Ändringslogg** på TVE Dashboard kan du visa de konfigurationsändringar som skickas till Adobe Pass Authentication-miljön via TVE Dashboard. Du kan också jämföra två olika konfigurationsändringar.
+Med delen **Ändringslogg** på TVE-instrumentpanelen kan du visa konfigurationsändringar som skickats till Adobe Pass autentiseringsmiljö via TVE-instrumentpanelen. Du kan också jämföra två olika konfigurationsändringar.
 
-The **Ändringslogg** I den vänstra panelen visas en lista med alla konfigurationsändringar som gjorts via ett specifikt konto på TVE Dashboard. Den här listan över ändringar innehåller följande information:
+På fliken **Ändringslogg** i den vänstra panelen visas en lista med alla konfigurationsändringar som gjorts via ett specifikt konto på TVE-instrumentpanelen. Den här listan över ändringar innehåller följande information:
 
 * **Ändra beskrivning**: En kort beskrivning av omfattningen av konfigurationsändringen.
-* **Skickat av**: Ett e-post-ID för den användare som ansvarar för ändringen.
-* **Push-datum**: Datum för konfigurationsändringen.
-* **Push-status**: Anger om push-åtgärden lyckades, väntade eller misslyckades.
+* **Publicerad av**: Ett e-post-ID för den användare som ansvarar för ändringen.
+* **Push-datum**: Datumet för konfigurationsändringen.
+* **Push-status**: Anger om push-åtgärden lyckades, väntar eller misslyckades.
 
 ## Jämför ändringar {#compare-changes}
 
@@ -34,9 +34,9 @@ Så här jämför du ändringar:
 
    *Jämför konfigurationsändringar*
 
-1. Välj **Jämför** i skärmens övre högra hörn.
+1. Välj **Jämför** längst upp till höger på skärmen.
 
-   The **Konfigurationsändringar** -avsnittet visar enhetstyp, enhets-ID, egenskap och status för ändringsåtgärden för varje ändring.
+   Avsnittet **Konfigurationsändringar** visar entitetstyp, enhets-ID, egenskap och status för ändringsåtgärden för varje ändring.
 
 1. Håll muspekaren över den konfigurationsändring som du vill visa.
 1. Välj **Visa** för att komma åt de ändrade värdena.
@@ -50,5 +50,3 @@ Följande är ett exempel på en ändring som har gjorts i den valda konfigurati
 ![Gammalt och nytt värde](assets/change.png)
 
 *Gammalt och nytt värde*
-
-

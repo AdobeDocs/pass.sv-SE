@@ -4,7 +4,7 @@ description: JavaScript SDK - översikt
 exl-id: 8756c804-a4c1-4ee3-b2b9-be45f38bdf94
 source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
 workflow-type: tm+mt
-source-wordcount: '511'
+source-wordcount: '510'
 ht-degree: 0%
 
 ---
@@ -19,9 +19,9 @@ ht-degree: 0%
 
 Adobe rekommenderar att du migrerar till den senaste JS v4.x-versionen av AccessEnabler-biblioteket.
 
-Integreringen med Adobe Pass Authentication JavaScript ger programmerare en TV-Everywhere-lösning i den välbekanta utvecklingsmiljön för JS-webbapplikationer. De viktigaste komponenterna i integreringen är ditt högnivåprogram (användarinteraktion, videopresentation) och det lågnivåbibliotek för AccessEnabler som tillhandahålls av Adobe som ger dig tillgång till tillståndsflödena och hanterar kommunikationen med Adobe Pass autentiseringsservrar.
+Integrationen med Adobe Pass Authentication JavaScript ger programmerare en TV-Everywhere-lösning i den välbekanta utvecklingsmiljön för JS-webbapplikationer. De viktigaste komponenterna i integreringen är ditt högnivåprogram (användarinteraktion, videopresentation) och det lågnivåbibliotek för AccessEnabler som tillhandahålls av Adobe som ger dig tillgång till tillståndsflödena och hanterar kommunikationen med Adobe Pass autentiseringsservrar.
 
-Det allmänna berättigandeflödet för Adobe Pass-autentisering beskrivs i [Tillståndsflöde för programmerare](/help/authentication/entitlement-flow.md)och JavaScript Integration Cookbook guidar dig genom implementeringen. I följande avsnitt finns beskrivningar och exempel som är specifika för JavaScript AccessEnabler-integreringen.
+Det allmänna berättigandeflödet för Adobe Pass-autentisering beskrivs i [Tillståndsflöde för programmerare](/help/authentication/entitlement-flow.md) och JavaScript Integration Cookbook visar dig hur implementeringen görs. I följande avsnitt finns beskrivningar och exempel som är specifika för integreringen av JavaScript AccessEnabler.
 
 >[!IMPORTANT]
 >
@@ -76,7 +76,7 @@ I följande kodexempel visas hur du identifierar och visar tjänsteleverantören
 ```
 
 
-**JavaScript** Den här JavaScript-filen frågar om Access Enabler för den aktuella providern är inloggad och visar resultatet i det reserverade sidavsnittet. Den implementerar även en dialogruta för MVPD-väljare:
+**JavaScript** Den här JavaScript-filen frågar den aktuella providerns åtkomstaktivering om användaren redan är inloggad och visar resultatet i det reserverade sidavsnittet. Den implementerar även en dialogruta för MVPD-väljare:
 
 ```JS
     $(function() {
@@ -197,13 +197,13 @@ I följande kodexempel visas hur du identifierar och visar tjänsteleverantören
 
 ## Loggar ut {#logout}
 
-Utlysning `logout()` för att initiera utloggningsprocessen. Den här metoden tar inga argument. Den loggar ut den aktuella användaren, rensar all autentiserings- och auktoriseringsinformation för den användaren och tar bort alla AuthN- och AuthZ-token från det lokala systemet.
+Anropa `logout()` för att initiera utloggningsprocessen. Den här metoden tar inga argument. Den loggar ut den aktuella användaren, rensar all autentiserings- och auktoriseringsinformation för den användaren och tar bort alla AuthN- och AuthZ-token från det lokala systemet.
 
 Det finns vissa fall där spelaren inte ansvarar för att hantera användarutloggningar:
 
 
 
-- **När utloggningen initieras från en webbplats som inte är integrerad med Adobe Pass Authentication.** I det här fallet kan MVPD anropa tjänsten Adobe Pass Authentication Single Logout via en omdirigering till en webbläsare. (Anrop av SLO via ett anrop i bakkanalen stöds inte för närvarande.)
+- **När utloggningen initieras från en webbplats som inte är integrerad med Adobe Pass-autentiseringen.** I det här fallet kan MVPD anropa tjänsten Adobe Pass Authentication Single Logout via en webbläsaromdirigering. (Anrop av SLO via ett anrop i bakkanalen stöds inte för närvarande.)
 
 >[!NOTE]
 >

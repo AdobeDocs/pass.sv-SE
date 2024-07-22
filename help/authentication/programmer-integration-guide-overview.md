@@ -27,9 +27,9 @@ ht-degree: 0%
 
 ## API-referenser {#api-references}
 
-* AccessEnabler JavaScript SDK API-referens
+* AccessEnabler JavaScript SDK API Reference
 * API-referens för AccessEnabler iOS/tvOS SDK
-* API-referens för AccessEnabler Android SDK
+* AccessEnabler Android SDK API Reference
 * REST API-referens
 
 ## Tekniska översikter {#technical-overviews}

@@ -4,7 +4,7 @@ description: Amazon FireOS SSO med Clientless API Cookbook
 exl-id: 4c65eae7-81c1-4926-9202-a36fd13af6ec
 source-git-commit: 59672b44074c472094ed27a23d6bfbcd7654c901
 workflow-type: tm+mt
-source-wordcount: '762'
+source-wordcount: '755'
 ht-degree: 0%
 
 ---
@@ -23,7 +23,7 @@ Det här dokumentet innehåller anvisningar om hur du implementerar Amazon SSO-v
 
 Den andra delen av dokumentet går igenom huvudstegen för att implementera klientlöst API för Adobe Pass Authentication.
 
-En utförlig teknisk översikt över hur den klientlösa lösningen fungerar finns i [REST API - översikt](/help/authentication/rest-api-overview.md). Adobe är den kontaktperson som föredrar att få support för den övergripande arkitekturen och de första implementeringarna.
+En utförlig teknisk översikt över hur den klientlösa lösningen fungerar finns i [REST API-översikt](/help/authentication/rest-api-overview.md). Adobe är den kontaktperson som föredrar att få support för den övergripande arkitekturen och de första implementeringarna.
 
 ## Amazon klientlös SSO {#AMZ-Clientless-SSO}
 
@@ -37,16 +37,16 @@ Om nyttolasten känns igen och motsvarar en autentiserad session, kommer de klie
 
 ### Så här skapar du programmet som ska använda Amazon SDK {#Build-entries}
 
-* Hämta och kopiera den senaste [Amazon Stub SDK](https://tve.zendesk.com/hc/en-us/article_attachments/360064368131/ottSSOTokenLib_v1.jar) till en /SSOEnabler-mapp som är parallell med programkatalogen
+* Hämta och kopiera den senaste [Amazon Stub SDK](https://tve.zendesk.com/hc/en-us/article_attachments/360064368131/ottSSOTokenLib_v1.jar) till en /SSOEnabler-mapp parallellt med programkatalogen
 * Uppdatera manifest-/gradle-filer så att biblioteket används:
 
-  **Lägg till följande rad i din Manifest-fil:**
+  **Lägg till följande rad i din manifestfil:**
 
   ```Java
   <uses-library android:name="com.amazon.ottssotokenlib" android:required="false"/\>
   ```
 
-  **Poster i övertoningsfil:**
+  **Övertoningsfilposter:**
 
   Under databaser:
 
@@ -65,7 +65,7 @@ Om nyttolasten känns igen och motsvarar en autentiserad session, kommer de klie
 
 * Hantera frånvaron av Amazon app:
 
-  Även om det inte är troligt att följeslagaren inte finns på den Amazon-enhet som programmet körs på, bör du stöta på ett ClassNotFoundException vid körning för följande klass: `com.amazon.ottssotokenlib.SSOEnabler`.
+  Även om det inte är sannolikt, bör du stöta på ett ClassNotFoundException vid körning på följande klass om det inte finns någon följeslagare på den Amazon-enhet som programmet körs: `com.amazon.ottssotokenlib.SSOEnabler`.
 
   Om detta skulle inträffa behöver du bara hoppa över nyttolaststeget och återgå till det vanliga PrimeTime-flödet. SSO kommer inte att aktiveras, men ett vanligt autentiseringsflöde sker normalt.
 
@@ -113,7 +113,7 @@ Om API-anropen av någon anledning inte returnerar någon nyttolast använder du
 
 * Detta API ger svar via callback-funktionen som ställs in under initieringen.
 
-  **Ex**. anrop med singleton-instans som skapats under init:
+  **ex**. anrop med singleton-instans som skapats under init:
 
   ```JAVA
   ssoEnabler.getSSOTokenAsync().
@@ -145,13 +145,13 @@ Om API-anropen av någon anledning inte returnerar någon nyttolast använder du
 
 ### Adobe Pass Client-less API-uppdatering för dynamisk klientregistrering {#clientlessdcr}
 
-Om detta är din första implementering, se **Kundfri teknisk översikt** och kontakta Adobe om du behöver hjälp.
+Om det här är den första implementeringen, se **klientlös teknisk översikt** och kontakta Adobe om du behöver hjälp.
 
 Adobe klientlöst API kräver att program använder dynamisk klientregistrering för att anropa Adobe-servrar.
 
-* Följ instruktionerna i om du vill använda dynamisk klientregistrering i ditt program [Registrering av programmet med dynamisk klientregistrering](/help/authentication/dynamic-client-registration-management.md).
+* Om du vill använda dynamisk klientregistrering i ditt program följer du anvisningarna i [Dynamic Client Registration Management för att registrera programmet](/help/authentication/dynamic-client-registration-management.md).
 
-* Följ instruktionerna i om du vill implementera API för registrering av dynamiska klienter för att utföra autentiserings- och auktoriseringsbegäranden till Adobe Pass-servrar [API för dynamisk klientregistrering](/help/authentication/dynamic-client-registration-api.md) .
+* Följ instruktionerna i [API för dynamisk klientregistrering](/help/authentication/dynamic-client-registration-api.md) för att implementera API för dynamisk klientregistrering för att utföra autentiserings- och auktoriseringsbegäranden till Adobe Pass-servrar.
 
 ### API-uppdatering utan Adobe Pass Client som använder Amazon SSO {#clientlesssso}
 
@@ -181,7 +181,7 @@ Alla Adobe Pass-autentiseringsslutpunkter har stöd för följande metoder för 
 
 **Exempel:**
 
-**Skicka som anpassad rubrik**
+**Skickar som anpassad rubrik**
 
 ```HTTPS
 GET /adobe-services/config/requestor HTTP/1.1 Host: sp-preprod.auth.adobe.com
@@ -189,7 +189,7 @@ GET /adobe-services/config/requestor HTTP/1.1 Host: sp-preprod.auth.adobe.com
 Adobe-Subject-Token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJyb2t1IiwiaWF0IjoxNTExMzY4ODAyLCJleHAiOjE1NDI5MDQ4MDIsImF1ZCI6ImFkb2JlIiwic3ViIjoiNWZjYzMwODctYWJmZi00OGU4LWJhZTgtODQzODViZTFkMzQwIiwiZGlkIjoiY2FmZjQ1ZDAtM2NhMy00MDg3LWI2MjMtNjFkZjNhMmNlOWM4In0.JlBFhNhNCJCDXLwBjy5tt3PtPcqbMKEIGZ6sr2NA
 ```
 
-**Skicka som frågeparameter**
+**Skickar som frågeparameter**
 
 ```HTTPS
 GET /adobe-services/config/requestor?ast=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJyb2t1IiwiaWF0IjoxNTExMzY4ODAyLCJleHAiOjE1NDI5MDQ4MDIsImF1ZCI6ImFkb2JlIiwic3ViIjoiNWZjYzMwODctYWJmZi00OGU4LWJhZTgtODQzODViZTFkMzQwIiwiZGlkIjoiY2FmZjQ1ZDAtM2NhMy00MDg3LWI2MjMtNjFkZjNhMmNlOWM4In0.JlBFhNhNCJCDXLwBjy5tt3PtPcqbMKEIGZ6sr2NA
@@ -199,7 +199,7 @@ Host: sp.auth.adobe.com
 ```
 
 
-**Skickar som postparameter**
+**Skickar som post-parameter**
 
 
 ```HTTPS

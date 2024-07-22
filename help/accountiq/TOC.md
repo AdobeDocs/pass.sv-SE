@@ -10,13 +10,13 @@ ht-degree: 28%
 
 ---
 
-# Hjälp för konto-IQ {#aiq-help}
+# Hjälp om Account IQ {#aiq-help}
 
-+ [Översikt över konto-IQ](/help/accountiq/home.md)
-+ [Versioner av konto-IQ](/help/accountiq/versions-aiq.md)
-+ [Kom igång med konto-IQ](/help/accountiq/get-started.md)
++ [Account IQ - översikt](/help/accountiq/home.md)
++ [Account IQ-versioner](/help/accountiq/versions-aiq.md)
++ [Kom igång med Account IQ](/help/accountiq/get-started.md)
 + [Arbeta med segment](/help/accountiq/work-with-segments.md)
-+ Kontrollpanel {#dashboard}
++ Instrumentpanel {#dashboard}
    + [Introduktion till kontrollpanelen](/help/accountiq/introduction-dashboard.md)
    + [Segment och tidsintervall](/help/accountiq/segments-timeinterval.md)
    + [Datapaneler](/help/accountiq/data-panels.md)
@@ -26,7 +26,7 @@ ht-degree: 28%
    + [Rapporter om delade konton](/help/accountiq/shared-acc-reports.md)
    + [Exportera konton med hög delning](/help/accountiq/export-acc-information.md)
 + [Användningsmönster](/help/accountiq/usage-patterns.md)
-+ [Operationer](/help/accountiq/operations.md)
++ [Åtgärder](/help/accountiq/operations.md)
 + [God praxis](/help/accountiq/best-practices.md)
 + [Begränsningar](/help/accountiq/limitations.md)
 + [Isoleringsläge MVPD](/help/accountiq/isolation-mode.md)

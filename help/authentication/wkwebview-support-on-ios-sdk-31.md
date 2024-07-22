@@ -4,7 +4,7 @@ description: Stöd för WKWebView i iOS SDK 3.1+
 exl-id: 90062be0-1a0a-44ae-8d8e-f4d97a92b17a
 source-git-commit: 19ed211c65deaa1fe97ae462065feac9f77afa64
 workflow-type: tm+mt
-source-wordcount: '306'
+source-wordcount: '311'
 ht-degree: 0%
 
 ---
@@ -17,7 +17,7 @@ ht-degree: 0%
 
 </br>
 
-**Eftersom Apple har ersatt UIWebView i iOS har vi uppdaterat iOS SDK 3.1 med stöd för WKWebView.**
+**På grund av att Apple har ersatt UIWebView i iOS har vi uppdaterat iOS SDK 3.1 med stöd för WKWebView.**
 
 ## Kompatibilitet {#compatibility}
 
@@ -27,7 +27,7 @@ Observera att migrering innebär att du helt enkelt byter UIWebView-klass till W
 
 ## Kända fel {#known-issues}
 
-Adobe AccessEnabler använde en dold intern UIWebView-instans för att utföra[passiv autentisering](/help/authentication/sso-passive-authn.md)&quot; för vissa MVPD. Det&quot;passiva&quot; flödet var användbart för MVPD-program som kräver autentisering för varje begärande-ID, och från det här flödet användes programmerare som använde samma team-ID i flera iOS-program för att simulera en SSO-upplevelse (Adobe SSO). Den här funktionen används för närvarande av ett begränsat antal MVPD-program.
+Adobe AccessEnabler använde en dold intern UIWebView-instans för att utföra [passiv autentisering](/help/authentication/sso-passive-authn.md) för vissa MVPD-program. Det&quot;passiva&quot; flödet var användbart för MVPD-program som kräver autentisering för varje begärande-ID, och från det här flödet användes programmerare som använde samma team-ID i flera iOS-program för att simulera en SSO-upplevelse (Adobe SSO). Den här funktionen används för närvarande av ett begränsat antal MVPD-program.
 
 Funktionen använde ett beteende hos UIWebView som gjorde att Adobe kunde hämta autentiseringscookies och spela upp dem igen under det passiva flödet. WKWebView har nu en starkare säkerhet som förhindrar Adobe att hämta cookies som angetts vid inloggning och spela upp dem igen med en dold instans av WKWebView. På grund av den här säkerhetsförbättringen och med tanke på att det passiva flödet endast omfattade en mycket begränsad uppsättning programmeringsdokument i ett mycket specifikt implementeringsscenario (flera program som använder samma team-ID) tog Adobe bort funktionen&quot;passiv autentisering&quot; för programmeringsvideoprogrammeringsprogram som använder webbvyer för autentisering.
 

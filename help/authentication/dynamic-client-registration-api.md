@@ -4,7 +4,7 @@ description: API för registrering av dynamisk klient
 exl-id: 06a76c71-bb19-4115-84bc-3d86ebcb60f3
 source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
 workflow-type: tm+mt
-source-wordcount: '930'
+source-wordcount: '904'
 ht-degree: 0%
 
 ---
@@ -19,8 +19,8 @@ ht-degree: 0%
 
 För närvarande finns det två sätt på vilka Adobe Pass Authentication identifierar och registrerar program:
 
-* webbläsarbaserade klienter registreras via tillåtet [domänlista](/help/authentication/programmer-overview.md)
-* Inbyggda programklienter, som iOS och Android-program, registreras via den signerade beställarens mekanism.
+* webbläsarbaserade klienter registreras via tillåten [domänlista](/help/authentication/programmer-overview.md)
+* Inbyggda programklienter, som iOS- och Android-program, registreras via en signerad beställarmekanism.
 
 Adobe Pass Authentication föreslår en ny metod för att registrera program. Denna mekanism beskrivs i följande stycken.
 
@@ -28,11 +28,13 @@ Adobe Pass Authentication föreslår en ny metod för att registrera program. De
 
 ### Tekniska skäl {#reasons}
 
-Autentiseringsmekanismen i Adobe Pass Authentication förlitade sig på sessionscookies, men på grund av [Android Chrome, anpassade flikar](https://developer.chrome.com/multidevice/android/customtabs){target=_blank} and [Apple Safari View Controller](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller){target=_blank}kan detta mål inte uppnås längre.
+Autentiseringsmekanismen i Adobe Pass Authentication förlitade sig på sessionscookies, men på grund av [Android Chrome anpassade flikar](https://developer.chrome.com/multidevice/android/customtabs){target=_blank} och [Apple Safari View Controller](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller){target=_blank} kan detta mål inte uppnås längre.
 
-Med tanke på dessa begränsningar inför Adobe en ny registreringsmekanism för alla sina kunder. Den baseras på OAuth 2.0 RFC och består av följande steg:
+Med tanke på dessa begränsningar inför Adobe en ny registreringsmekanism för alla sina kunder. Den baseras på OAuth 2.0 RFC och består av
+av följande steg:
 
-1. Hämtar programsatsen från TVE Dashboard
+1. Hämtar programsatsen från TVE
+Kontrollpanel
 1. Hämtar klientautentiseringsuppgifter
 1. Hämtar åtkomsttoken
 
@@ -80,7 +82,7 @@ När du har hämtat en programsats från TVE Dashboard måste du registrera prog
 | client_secrets | Sträng | obligatoriskt |
 | client_id_Issu_at_at | long | obligatoriskt |
 | redirect_uris | lista med strängar | obligatoriskt |
-| grant_types | lista med strängar<br/> **godkänt värde**<br/> `client_credentials`: Används av osäkra klienter, till exempel Android SDK. | obligatoriskt |
+| grant_types | lista med strängar <br/> **godkänt värde**<br/> `client_credentials`: Används av osäkra klienter, till exempel Android SDK. | obligatoriskt |
 | fel | **godkända värden**<ul><li>invalid_request</li><li>invalid_redirect_uri</li><li>invalid_software_statement</li><li>unapproved_software_statement</li></ul> | obligatoriskt i ett felflöde |
 
 
@@ -160,14 +162,14 @@ När du har hämtat den unika klientidentifieraren (klient-ID och klienthemlighe
 **Begäran**
 
 
-| **HTTP-samtal** | |
+| **HTTP-anrop** | |
 | --- | --- |
 | bana | `/o/client/token` |
 | method | POST |
 
-| **frågeparametrar** | |
+| **begäranparametrar** | |
 | --- | --- |
-| `grant_type` | Mottaget i klientregistreringsprocessen.<br/> **Godkänt värde**<br/>`client_credentials`: Används för osäkra klienter, som Android SDK. |
+| `grant_type` | Mottaget i klientregistreringsprocessen.<br/> **Godkänt värde**<br/>`client_credentials`: Används för osäkra klienter, till exempel Android SDK. |
 | `client_id` | Klient-ID som hämtats i klientregistreringsprocessen. |
 | `client_secret` | Klient-ID som hämtats i klientregistreringsprocessen. |
 
@@ -177,9 +179,9 @@ När du har hämtat den unika klientidentifieraren (klient-ID och klienthemlighe
 | --- | --- | --- |
 | `access_token` | Det åtkomsttokenvärde som du bör använda för att anropa Adobe Pass API:er | obligatoriskt |
 | `expires_in` | Tiden i sekunder tills access_token upphör att gälla | obligatoriskt |
-| `token_type` | Typen av token **innehavare** | obligatoriskt |
+| `token_type` | Typen för token **Bearer** | obligatoriskt |
 | `created_at` | Utgivningstiden för token | obligatoriskt |
-| **svarsrubriker** | | |
+| **svarshuvuden** | | |
 | `Content-Type` | application/json | obligatoriskt |
 
 **Felsvar**
@@ -234,7 +236,7 @@ Pragma: no-cache
 
 Använd åtkomsttoken för att utföra Adobe Pass [API-anrop för autentisering](/help/authentication/initiate-authentication.md). Åtkomsttoken måste läggas till i API-begäran på något av följande sätt:
 
-* genom att lägga till en ny frågeparameter i begäran. Den nya parametern anropas **access_token**.
+* genom att lägga till en ny frågeparameter i begäran. Den nya parametern kallas **access_token**.
 
 * genom att lägga till en ny HTTP-rubrik i begäran: Authorization: Bearer. Vi rekommenderar att du använder HTTP-huvudet eftersom frågesträngar ofta visas i serverloggar.
 
@@ -256,7 +258,7 @@ GET adobe-services/config?access_token=<access_token>&requestor_id=... HTTP/1.1
 Host: sp.auth.adobe.com
 ```
 
-**Skickar åtkomsttoken som HTTP-huvud:**
+**Skickar åtkomsttoken som HTTP-rubrik:**
 
 ```HTTPS
 POST adobe-services/sessionDevice?device_id=platformDeviceId HTTP/1.1

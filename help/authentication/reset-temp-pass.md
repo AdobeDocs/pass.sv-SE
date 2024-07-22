@@ -1,9 +1,10 @@
 ---
 title: Återställ tillfälligt pass
 description: Återställ tillfälligt pass
-source-git-commit: 4ae0b17eff2dfcf0aaa5d11129dfd60743f6b467
+exl-id: ab39e444-eab2-4338-8d09-352a1d5135b6
+source-git-commit: 28d432891b7d7855e83830f775164973e81241fc
 workflow-type: tm+mt
-source-wordcount: '0'
+source-wordcount: '439'
 ht-degree: 0%
 
 ---
@@ -16,33 +17,36 @@ ht-degree: 0%
 >
 >Om du vill använda API:t Återställ tillfälligt pass måste du:
 >- be supportteamet om en programsats för ditt registrerade program
->- hämta en åtkomsttoken baserad på [Dynamisk klientregistrering](dynamic-client-registration.md)
+>- hämta en åtkomsttoken baserad på [registrering av dynamisk klient](dynamic-client-registration.md)
 > 
 
-För att **återställa ett specifikt tillfälligt pass**, Adobe Pass Authentication ger programmerare en *public* webb-API:
+För att **återställa ett specifikt tillfälligt pass** tillhandahåller Adobe Pass Authentication programmerare ett *offentligt* webb-API:
 
-- **Environment:** Anger serverslutpunkten Adobe Pay-TV-pass som tar emot återställningen av tillfälligt Pass-nätverksanropet. Möjliga värden: **Föregående** (*mgmt-prequal.auth.adobe.com*), **Frigör** (*mgmt.auth.adobe.com*) eller **Egen** (reserverat för intern testning i Adobe).
-- **OAuth2-åtkomsttoken:** OAuth2-token krävs för att godkänna programmeraren för autentisering med Adobe Pay-TV. En sådan token kan hämtas från [Dynamisk klientregistrering](dynamic-client-registration.md).
-- **ID för tillfälligt pass:** Det unika ID:t för det temporära pass-MVPD som ska återställas.(en programmerare kan använda flera Temp Pass MVPD och vill återställa en specifik)
-- **Allmän nyckel:** vissa Temp Pass MVPD (dvs. [Kampanjtillfälligt pass](promotional-temp-pass.md)).
+- **Miljö:** anger serverslutpunkten Adobe Pay-TV som tar emot återställningen av tillfälligt pass-nätverksanropet. Möjliga värden: **Prequal** (*mgmt-prequal.auth.adobe.com*), **Release** (*mgmt.auth.adobe.com*) eller **Custom** (reserverat för intern Adobe-testning).
+- **OAuth2-åtkomsttoken:** OAuth2-token krävs för att auktorisera programmeraren för Adobe Pay-TV-autentisering. En sådan token kan hämtas från [Dynamisk klientregistrering](dynamic-client-registration.md).
+- **Temporärt ID:** är det unika ID som används för att återställa det temporära MVPD-dokumentet.(en programmerare kan använda flera Temp Pass MVPD och vill återställa en specifik)
+- **Allmän nyckel:** vissa temporära pass-MVPD (dvs. [Kampanjtemporärt pass](promotional-temp-pass.md)).
 
-Alla ovanstående parametrar (utom *Allmän nyckel*) är obligatoriska. Här är ett exempel på parametrar och det associerade nätverksanropet (exemplet är i form av ett *curl *command):
+Alla ovanstående parametrar (förutom *Allmän nyckel*) är obligatoriska. Här är ett exempel på parametrar och det associerade nätverksanropet (exemplet är i form av ett *curl *command):
 
-- **Environment:** Frigör (*mgmt.auth.adobe.com*)
-- **OAuth2-åtkomsttoken:** &lt;access_token> från [Dynamisk klientregistrering](dynamic-client-registration.md)
+- **Miljö:** Utgåva (*mgmt.auth.adobe.com*)
+- **OAuth2-åtkomsttoken:** &lt;åtkomsttoken> från [Dynamisk klientregistrering](dynamic-client-registration.md)
 - **Program-ID:** REF
-- **ID för tillfälligt pass:** TempPassREF
+- **Tillfälligt pass-ID:** TempPassREF
 - **Allmän nyckel:** null (inget värde har angetts)
 
 ```curl
 curl -X DELETE -H "Authorization:Bearer <access_token_here>" "https://mgmt.auth.adobe.com/reset-tempass/v3/reset?device_id=f23804a37802993fdc8e28a7f244dfe088b6a9ea21457670728e6731fa639991&requestor_id=REF&mvpd_id=TempPassREF"
 ```
 
-en DELETE HTTP-begäran kommer att göras till **/reset** slutpunkt, skicka *OAuth2-åtkomsttoken* i auktoriseringsrubriken och *Enhets-ID*, *Begärande-ID* och *Tillfälligt pass-ID (MVPD ID)* som parametrar.
+en DELETE HTTP-begäran kommer att göras till **/reset**-slutpunkten, och *OAuth2-åtkomsttoken* skickas i auktoriseringshuvudet och *enhets-ID*, *begärande-ID* och *Temp Pass-ID (MVPD ID)* skickas som parametrar.
 
-Om Programmeraren anger ett värde för *Allmän nyckel*, kommer ytterligare ett HTTP-anrop att utföras (den här gången till **/reset/generic** slutpunkt), skicka *Allmän nyckel* innanför *key* request-parameter.
+Om programmeraren anger ett värde för den *allmänna nyckeln* kommer ett annat HTTP-anrop att utföras (den här gången till **/reset/generic** -slutpunkten) och *Generic Key* skickas i *key* -begärandeparametern.
 
-Du kan till exempel ange *Allmän nyckel* till en hash-kodad e-postadress (för Temp Pass MVPD-program som stöder den här typen av funktioner) ger följande HTTP-anrop (e-postmeddelandet är `user@domain.com` dess SHA-256-hash är `f7ee5ec7312165148b69fcca1d29075b14b8aef0b5048a332b18b88d09069fb7`):
+Om du till exempel anger *Allmän nyckel* som en hash för e-postadressen (till exempel
+Temp-pass-MVPD-program som stöder den här typen av funktioner) ger
+efter HTTP-anrop (e-postmeddelandet är `user@domain.com` dess SHA-256
+hash är `f7ee5ec7312165148b69fcca1d29075b14b8aef0b5048a332b18b88d09069fb7`):
 
 ```curl
 curl -X DELETE -H "Authorization:Bearer <access_token_here>"
@@ -50,7 +54,7 @@ curl -X DELETE -H "Authorization:Bearer <access_token_here>"
 ```
 
 
-För att **återställa ett specifikt tillfälligt pass för alla enheter**, Adobe Pass Authentication ger programmerare en *public* webb-API:
+Adobe Pass Authentication förser programmerare med ett *public* webb-API för att **återställa ett specifikt tillfälligt pass för alla enheter**:
 
 ```url
 DELETE https://mgmt.auth.adobe.com/reset-tempass/v3/reset
@@ -65,7 +69,7 @@ DELETE https://mgmt.auth.adobe.com/reset-tempass/v3/reset
    - Föregående - mgmt-prequal.auth.adobe.com
 - **Sökväg:** /reset-tempass/v3/reset
 - **Frågeparametrar:** `device_id=all&requestor_id=REQUESTOR_ID&mvpd_id=TEMPPASS_MVPD_ID`
-- **Sidhuvuden:** Behörighet: Bearer &lt;access_token_here>
+- **Rubriker:** Behörighet: Bearer &lt;access_token_here>
 - **Svar:**
    - Lyckades - HTTP 204
    - Fel:

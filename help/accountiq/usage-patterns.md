@@ -11,9 +11,9 @@ ht-degree: 0%
 
 # Användningsmönster {#usage-patterns}
 
-Med konto-IQ klassificeras prenumerantkontots användare i olika kategorier utifrån deras sociala beteende, som resenärer eller datorer, stora familjer och communitydelning. The **Användningsmönster** på sidan visas flera olika analyser och rapporter för dessa användartypologier. Till exempel: **Distribution av användningsmönster** rapporter jämför hur det aktuella segmentet fungerar med alla dina konton.
+Account IQ klassificerar abonnentkontots användare i olika kategorier utifrån deras sociala beteende, som resenärer eller datorer, stora familjer och communitydelning. På sidan **Användningsmönster** visas flera olika analyser och rapporter för de här användartypologierna. **Distribution av användningsmönster** jämför till exempel användningsbeteendet för det aktuella segmentet med alla dina konton.
 
-Analyserna och rapporterna baseras på det aktuella segmentet som definieras i appen [segmentpanel](/help/accountiq/segments-timeinterval.md).
+Analyserna och rapporterna baseras på det segment som definierats i [segmentpanelen](/help/accountiq/segments-timeinterval.md), precis som de andra sidorna i appen.
 
 ## Distribution av användningsmönster {#usage-pattern-dis}
 
@@ -35,13 +35,13 @@ Förutom att jämföra de olika användningsmönstren i det aktuella segmentet m
 
 ![](assets/segment-users-industry.png)
 
-*Distribution av användningsmönster - Användare i segment jämfört med branscher*
+*Distribution av användningsmönster - Användare i segment jämfört med bransch*
 
 +++
 
 ## Fördelning av användningsmönster i segment {#usage-pattern-dis-segment}
 
-The **[!UICONTROL Usage patterns distribution in segment]** visas följande information för varje användarmönster i en tabell:
+Panelen **[!UICONTROL Usage patterns distribution in segment]** visar följande information för varje användarmönster:
 
 * Sannolikhetsintervall för delning som de enskilda kontona hamnar i.
 * Antal och procentandel konton i det mönstret.
@@ -63,7 +63,7 @@ I visualiseringen ovan:
 
 +++D2C-tjänster: Distribution av användningsmönster för regioner
 
-The **[!UICONTROL Usage pattern distribution]** tabellen innehåller en jämförelse av användningsmönster över [videokategorier](product-concepts.md##video-category-def) i aktuellt segment.
+Tabellen **[!UICONTROL Usage pattern distribution]** innehåller en jämförelse av användningsmönster mellan [videokategorier](product-concepts.md##video-category-def) i det aktuella segmentet.
 
 ![](assets/d2c-usage-patterns-regions.png)
 
@@ -71,13 +71,13 @@ The **[!UICONTROL Usage pattern distribution]** tabellen innehåller en jämför
 
 >[!NOTE]
 >
->videokategorin som visas i föregående bild, till exempel **Regioner** är bara ett exempel. När du loggar in på konto-IQ visas företagets specifika videokategorier på etiketten.
+>Videokategorin som visades i föregående bild, till exempel **Områden**, är bara ett exempel. När du loggar in på Account IQ visas företagets specifika videokategorier på etiketten.
 
 +++
 
 +++Programmer: Distribution av användningsmönster för MVPD
 
-The **[!UICONTROL Usage pattern distribution]** tabellen innehåller en jämförelse av användningsmönsterfördelningen för de olika versionerna av PDF-filerna i det aktuella segmentet.
+Tabellen **[!UICONTROL Usage pattern distribution]** innehåller en jämförelse av användningsmönsterdistributionen för MVPD i det aktuella segmentet.
 
 ![](assets/usage-patterns-mvpdwise.png)
 
@@ -87,10 +87,10 @@ The **[!UICONTROL Usage pattern distribution]** tabellen innehåller en jämför
 
 +++MVPD: Distribution av användningsmönster för programmerare
 
-The **[!UICONTROL Usage pattern distribution]** tabellen innehåller en jämförelse av användningsmönsterfördelningen för programmerare eller kanaler i det aktuella segmentet.
+Tabellen **[!UICONTROL Usage pattern distribution]** innehåller en jämförelse av användningsmönsterfördelningen för programmerare eller kanaler i det aktuella segmentet.
 
 ![](assets/usage-patterns-programmerwise.png)
 
-*Distribuering av användningsmönster för MVPD-filer*
+*Distribution av användningsmönster för MVPD:er*
 
 +++

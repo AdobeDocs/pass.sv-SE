@@ -18,14 +18,14 @@ ht-degree: 0%
 
 ## Ökning {#overview}
 
-Det här dokumentet innehåller stegvisa instruktioner för programmerarens tekniker att integrera en&quot;smart enhet&quot; (spelkonsol, smart TV-app, digitalbox osv.) med Adobe Pass Authentication med REST API services. Denna klient-till-server-metod, som använder REST-API:er i stället för en klient-SDK, ger bredare stöd för olika plattformar där det inte skulle vara möjligt att utveckla ett stort antal unika SDK:er. En utförlig teknisk översikt över hur den klientlösa lösningen fungerar finns i [Kundfri teknisk översikt](/help/authentication/rest-api-overview.md).
+Det här dokumentet innehåller stegvisa instruktioner för programmerarens tekniker att integrera en&quot;smart enhet&quot; (spelkonsol, smart TV-app, digitalbox osv.) med Adobe Pass Authentication med REST API services. Denna klient-till-server-metod, som använder REST-API:er i stället för en klient-SDK, ger bredare stöd för olika plattformar där det inte skulle vara möjligt att utveckla ett stort antal unika SDK:er. En utförlig teknisk översikt över hur den klientlösa lösningen fungerar finns i [Översikt över klientlös teknik](/help/authentication/rest-api-overview.md).
 
 
 Strategin kräver två komponenter (direktuppspelningsapp och AuthN-app) för att slutföra de nödvändiga flödena: start-, registrerings-, auktoriserings- och vymedieflöden i direktuppspelningsappen och autentiseringsflödet i din AuthN-app.
 
 ### Begränsningsmekanism
 
-Adobe Pass Authentication REST API styrs av en [Begränsningsmekanism](/help/authentication/throttling-mechanism.md).
+REST-API:t för Adobe Pass-autentisering styrs av en [begränsningsmekanism](/help/authentication/throttling-mechanism.md).
 
 ## Komponenter {#components}
 
@@ -44,7 +44,7 @@ I en fungerande klient-till-server-lösning ingår följande komponenter:
 
 
 
-Ytterligare termer som används i flödet definieras i [Ordlista](/help/authentication/glossary.md).
+Ytterligare termer som används i flödet definieras i [ordlistan](/help/authentication/glossary.md).
 
 ## Flöden{#flows}
 
@@ -65,7 +65,7 @@ Adobe Pass använder DCR för att säkra klientkommunikationen mellan ett progra
 
 3. Utfärda ett Check-authentication-anrop för att se om enheten redan är autentiserad.  Till exempel: [`<SP_FQDN>/api/v1/checkauthn [device ID]`](/help/authentication/check-authentication-token.md)
 
-4. Om `checkauthn` samtalet lyckades, fortsätt till auktoriseringsflödet från och med steg 2.  Starta registreringsflödet om det inte fungerar.
+4. Om anropet `checkauthn` lyckas fortsätter du till auktoriseringsflödet från steg 2 och framåt.  Starta registreringsflödet om det inte fungerar.
 
 
 
@@ -83,7 +83,7 @@ Adobe Pass använder DCR för att säkra klientkommunikationen mellan ett progra
 
 #### Auktoriseringsflöde
 
-1. Användaren återgår från den andra skärmappen och trycker på knappen &quot;Fortsätt&quot; på enheten. Du kan också implementera en avsökningsmekanism för att kontrollera autentiseringsstatusen, men Adobe Pass Authentication rekommenderar att du använder knappmetoden Fortsätt framför avsökningen. <!--(For information on employing a "Continue" button versus polling the Adobe Pass Authentication backend server, see the Clientless Technical Overview: Managing 2nd-Screen Workflow Transition.)--> Till exempel: [\&lt;sp _fqdn=&quot;&quot;>/api/v1/tokens/authn](/help/authentication/retrieve-authentication-token.md)
+1. Användaren återgår från den andra skärmappen och trycker på knappen &quot;Fortsätt&quot; på enheten. Du kan också implementera en avsökningsmekanism för att kontrollera autentiseringsstatusen, men Adobe Pass Authentication rekommenderar att du använder knappmetoden Fortsätt framför avsökningen. <!--(For information on employing a "Continue" button versus polling the Adobe Pass Authentication backend server, see the Clientless Technical Overview: Managing 2nd-Screen Workflow Transition.)--> Exempel: [\&lt;SP\_FQDN\>/api/v1/tokens/authn](/help/authentication/retrieve-authentication-token.md)
 
 2. Skicka en GET-begäran till auktoriseringstjänsten för Adobe Pass-autentisering för att initiera auktorisering. Till exempel: `<SP_FQDN>/api/v1/authorize [device ID, Requestor ID, Resource ID]`
 
@@ -109,9 +109,11 @@ Adobe Pass använder DCR för att säkra klientkommunikationen mellan ett progra
 
    a. Din app kontrollerar om mediet är skyddat.
 
-   b. Om mediet är skyddat startar din app autentiseringsflödet (AuthZ) ovan.
+   b. Om mediet är skyddat startar din app auktoriseringen
+(AuthZ) Flöde ovanför.
 
-   c. Om mediet inte är skyddat spelas mediet upp för användaren.
+   c. Om mediet inte är skyddat kan du spela upp mediet för
+användare.
 
 3. Spela upp mediet.
 
@@ -139,7 +141,7 @@ Vissa plattformar har dedikerat stöd för enkel inloggning (SSO). Implementerin
 
 För TempPass- och Promotional TempPass-implementeringar där användaren inte behöver ange inloggningsuppgifter kan autentisering implementeras direkt i Streaming App.
 
-**För att kunna använda detta API måste strömningsappen se till att enhets-ID är unikt eftersom detta används för att identifiera token, tillsammans med de valfria extra data.**
+**Om du vill använda det här API:t måste direktuppspelningsappen se till att enhets-ID är unikt eftersom det används för att identifiera token, tillsammans med valfria extra data.**
 
 
 ![](assets/temp-pass-promo-temppass.png)

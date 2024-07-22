@@ -17,16 +17,16 @@ ht-degree: 0%
 
 >[!NOTE]
 >
-> REST API-implementering begränsas av [Begränsningsmekanism](/help/authentication/throttling-mechanism.md)
+> REST API-implementeringen begränsas av [Begränsningsmekanismen](/help/authentication/throttling-mechanism.md)
 
 ## REST API-slutpunkter {#clientless-endpoints}
 
-&lt;reggie_fqdn>:
+&lt;REGGIE_FQDN>:
 
 * Produktion - [api.auth.adobe.com](http://api.auth.adobe.com/)
 * Mellanlagring - [api.auth-staging.adobe.com](http://api.auth-staging.adobe.com/)
 
-&lt;sp_fqdn>:
+&lt;SP_FQDN>:
 
 * Produktion - [api.auth.adobe.com](http://api.auth.adobe.com/)
 * Mellanlagring - [api.auth-staging.adobe.com](http://api.auth-staging.adobe.com/)
@@ -40,9 +40,9 @@ En begäran till Adobe Pass Authentication om att få en lista över förauktori
 Det finns två uppsättningar API:er: en uppsättning för Streaming App eller Programmer Service och en uppsättning för Second Screen Web App. Den här sidan beskriver API:t för AuthN-appen.
 
 
-| Slutpunkt | Anropat  </br>Av | Indata   </br>Parametrar | HTTP  </br>Metod | Svar | HTTP  </br>Svar |
+| Slutpunkt | Anropat </br>av | Indata   </br>Parametrar | HTTP </br>Metod | Svar | HTTP </br>Response |
 | --- | --- | --- | --- | --- | --- |
-| &lt;sp_fqdn>/api/v1/preAuthze/{registreringskod} | AuthN-modul | 1. Registreringskod  </br>    (Bankomponent)</br>2.  begärande (obligatoriskt)</br>3.  resurslista (obligatoriskt) | GET | XML eller JSON som innehåller individuella beslut före auktorisering eller felinformation. Se exemplen nedan. | 200 - lyckades</br></br>400 - Ogiltig begäran</br></br>401 - Obehörig</br></br>405 - Metoden är inte tillåten  </br></br>412 - Förhandsvillkoret misslyckades</br></br>500 - Internt serverfel |
+| &lt;SP_FQDN>/api/v1/preauthorized/{registration code} | AuthN-modul | 1. Registreringskod </br>    (Bankomponent)</br>2.  begärande (obligatoriskt)</br>3.  resurslista (obligatoriskt) | GET | XML eller JSON som innehåller individuella beslut före auktorisering eller felinformation. Se exemplen nedan. | 200 - Lyckades</br></br>400 - Felaktig begäran</br></br>401 - Obehörig</br></br>405 - Metoden tillåts inte </br></br> 412 - Förhandsvillkoret misslyckades</br></br>500 - Internt serverfel |
 
 
 

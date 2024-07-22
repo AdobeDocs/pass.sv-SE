@@ -4,7 +4,7 @@ description: Felsöka AccessEnabler iOS/tvOS SDK med hjälp av apploggarna i kon
 exl-id: 0dad325e-db15-4ea0-a87a-75409eaf8d46
 source-git-commit: 59672b44074c472094ed27a23d6bfbcd7654c901
 workflow-type: tm+mt
-source-wordcount: '551'
+source-wordcount: '553'
 ht-degree: 0%
 
 ---
@@ -28,13 +28,13 @@ Syftet med loggningsmekanismen i AccessEnabler iOS/tvOS är att generera använd
 
 Från och med AccessEnabler-versionen av iOS/tvOS 3.5.0 introducerar loggningsfunktionen följande förbättringar som ändringar:
 
-* AccessEnabler-ramverket använder Apple som rekommenderas [OSLog](https://developer.apple.com/documentation/os/oslog) implementering.
+* I AccessEnabler-ramverket används den Apple rekommenderade [OSLog](https://developer.apple.com/documentation/os/oslog)-implementeringen.
 
-* I AccessEnabler-ramverket introduceras möjligheten att filtrera konsolens apploggar baserat på undersystem: **com.adobe.pass.AccessAktivera**. Alla meddelanden som skickas av SDK ingår i com.adobe.pass.AccessEnabler.
+* I AccessEnabler-ramverket introduceras möjligheten att filtrera konsolapploggar baserat på undersystemet: **com.adobe.pass.AccessEnabler**. Alla meddelanden som skickas av SDK ingår i com.adobe.pass.AccessEnabler.
 
-* I AccessEnabler-ramverket introduceras möjligheten att filtrera konsolens apploggar baserat på Any (prefix): **[AccessEnabler]**. Alla meddelanden som skickas av SDK har prefix [AccessEnabler].
+* I AccessEnabler-ramverket introduceras möjligheten att filtrera konsolens apploggar baserat på Any (prefix): **[AccessEnabler]**. Alla meddelanden som skickas av SDK har prefixet [AccessEnabler].
 
-* I AccessEnabler-ramverket introduceras möjligheten att filtrera konsolens apploggar baserat på kategori: **debug**, **fel** tillsammans med något av de två ovanstående villkoren: Delsystem eller Valfritt (prefix).
+* I AccessEnabler-ramverket introduceras möjligheten att filtrera konsolapploggar baserat på kategori: **debug**, **error** i kombination med något av de två ovanstående villkoren: Subsystem eller Any (prefix).
 
 ## Felsöka med hjälp av konsolapploggar
 
@@ -45,30 +45,30 @@ Beroende på vilka problem som utreds kanske du vill inkludera eller exkludera d
 
 #### Inklusive {#including}
 
-Först och främst för att kunna se alla loggningsmeddelanden som skickas av det AccessEnabler-ramverk du använder **måste** Markera&quot;Inkludera informationsmeddelanden&quot; och&quot;Inkludera felsökningsmeddelanden&quot; i delen Åtgärd i konsolappen enligt bilden nedan.
+För att kunna se något av de loggningsmeddelanden som skickas av AccessEnabler-ramverket **måste** markera Inkludera informationsmeddelanden och Inkludera felsökningsmeddelanden i åtgärdsavsnittet i Console-appen, enligt bilden nedan.
 
 ![](assets/include-info-debug-msg.png)
 
 
-För att kunna felsöka funktionerna i AccessEnabler iOS/tvOS SDK och **se** I AccessEnabler-ramverket loggas du:
+För att kunna felsöka funktionerna i AccessEnabler iOS/tvOS SDK och **se** loggarna i AccessEnabler-ramverket kan du:
 
-* Sök i konsolappen med **Delsystem** som är lika med värdet com.adobe.pass.AccessEnabler som i bilden nedan.
+* Sök i konsolappen med alternativet **Subsystem** som är lika med värdet com.adobe.pass.AccessEnabler som i bilden nedan.
 
 ![](assets/subsys-console-app.png)
 
-* Sök i konsolappen med **Alla** som innehåller
-  [AccessEnabler] som i bilden nedan.
+* Sök i konsolappen med alternativet **Valfri** som innehåller
+  [AccessEnabler]-värde som i bilden nedan.
 
 ![](assets/any-optn-console-app.png)
 
-Förutom de två ovanstående villkoren kan du också använda **Kategori** alternativ i konjugering med **Delsystem** eller **Valfritt (prefix)** att explicit söka efter **debug** eller **fel** nivåmeddelanden som skickas av AccessEnabler iOS/tvOS SDK.
+Tillsammans med ovanstående två villkor kan du även använda alternativet **Kategori** i kombination med **Delsystem** eller **Valfritt (prefix)** för att explicit söka efter **debug** eller **error** -nivåmeddelanden som skickas av AccessEnabler iOS/tvOS SDK.
 
 #### Exklusive
 
-För att bättre kunna felsöka funktionaliteten i andra komponenter och **exclude** I AccessEnabler-ramverket loggas du:
+För att kunna felsöka funktionerna i andra komponenter bättre och **exkludera** loggarna i AccessEnabler-ramverket kan du:
 
-* Sök i konsolappen med **Delsystem** som inte är lika med värdet com.adobe.pass.AccessEnabler.
-* Sök i konsolappen med **Alla** som inte innehåller [AccessEnabler] värde.
+* Sök i konsolappen med alternativet **Subsystem** som inte är lika med värdet com.adobe.pass.AccessEnabler.
+* Sök i konsolappen med alternativet **Any** som inte innehåller värdet [AccessEnabler].
 
 ## Rapportera ett problem
 
@@ -77,4 +77,4 @@ När du rapporterar ett problem med Adobe Pass-autentisering bör du överväga 
 * Var god försök att tillhandahålla reproduktionsstegen.
 * Försök att ange den eller de operativsystemsversioner och enhetsmodeller som problemet gäller.
 * Ange vilken version av AccessEnabler iOS/tvOS SDK som har problem.
-* försök hämta och bifoga alla loggningsmeddelanden för AccessEnabler iOS/tvOS SDK med något av de två alternativen i [Inklusive](#including) -avsnitt.
+* försök att hämta och bifoga alla loggningsmeddelanden för AccessEnabler iOS/tvOS SDK med något av de två alternativen i avsnittet [Inklusive](#including).

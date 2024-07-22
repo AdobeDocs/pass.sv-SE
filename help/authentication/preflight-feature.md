@@ -4,7 +4,7 @@ description: Preflight-funktion, Så här aktiverar, felsöker eller fastställe
 exl-id: 9e4ec343-371f-4116-915f-191e5f42cb47
 source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
 workflow-type: tm+mt
-source-wordcount: '495'
+source-wordcount: '498'
 ht-degree: 0%
 
 ---
@@ -20,9 +20,9 @@ Det externa gränssnittet för PreAuthorization API är oförändrat, inga uppda
 
 Preflight-resurserna beräknas på tre sätt:
 
-* **Fork- och kopplingsmetod till MVPD**: detta innebär att Adobe gör flera auktoriseringsanrop till MVPD (klienten måste ändå göra ett preflight-anrop).
+* **Kör och koppla metod till MVPD**: Detta innebär att Adobe gör flera auktoriseringsanrop till MVPD (klienten måste fortfarande göra ett preflight-anrop).
 * **Kanaljustering**: MVPD visar kanalraden för den inloggade användaren i SAML-autentiseringssvaret och Adobe returnerar de auktoriserade resurserna baserat på detta. SAML authN-svaret i SAML-spåraren bör visa den listan.
-* **Flerkanalsauktorisering**: både klient- och Adobe-autentiseringen gör ett enda anrop till MVPD för en uppsättning resurser.
+* **Flerkanalsauktorisering**: Klient- och Adobe-autentiseringen anropar båda ett enda anrop till MVPD för en uppsättning resurser.
 
 Oavsett vilket MVPD-värde som används kommer klientprogrammet att göra ett enda anrop till preflight-slutpunkten (checkPreauthorizedResources API) och skicka en uppsättning resurs-ID:n. Baserat på ett av de ovanstående sätten som stöds av MVPD, returnerar Adobe de förauktoriserade resurs-ID:n.
 

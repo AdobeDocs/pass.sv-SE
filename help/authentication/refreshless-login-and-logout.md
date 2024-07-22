@@ -4,7 +4,7 @@ description: Inloggning och utloggning utan uppdatering
 exl-id: 3ce8dfec-279a-4d10-93b4-1fbb18276543
 source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
 workflow-type: tm+mt
-source-wordcount: '1772'
+source-wordcount: '1761'
 ht-degree: 0%
 
 ---
@@ -44,18 +44,18 @@ Låt oss börja med en sammanfattning av de ursprungliga autentiserings- och utl
 
 Adobe Pass Autentiseringsklienter har två sätt att autentisera, beroende på kraven för programmeringsskyltar:
 
-1. **Omdirigering av hela sidor -** När användaren har valt en leverantör (konfigurerad med helsidesomdirigering) från MVPD-väljaren på Programmerarens webbplats, `setSelectedProvider(<mvpd>)` anropas på AccessEnabler och användaren omdirigeras till MVPD:s inloggningssida. När användaren har angett giltiga inloggningsuppgifter dirigeras han/hon tillbaka till programmerarens webbplats. AccessEnabler initieras och autentiseringstoken hämtas från Adobe Pass-autentisering under `setRequestor`.
-1. **iFrame / Popup Window -** När användaren har valt en provider (konfigurerad med iFrame), `setSelectedProvider(<mvpd>)` anropas i AccessEnabler. Den här åtgärden aktiverar `createIFrame(width, height)` callback, meddela programmeraren att en iFrame (eller popup-meny - beroende på webbläsaren/inställningarna) ska skapas med namnet `"mvpdframe"` och de angivna måtten. När iFrame/popup har skapats läser AccessEnabler in MVPD:s inloggningssida i iFrame/popup. Användaren anger giltiga autentiseringsuppgifter och iFrame/popup omdirigeras till Adobe Pass Authentication, som returnerar ett JS-fragment som stänger iFrame/popup-fönstret och läser in den överordnade sidan (programmerarens webbplats) igen. På samma sätt som för flöde 1 hämtas autentiseringstoken under `setRequestor`.
+1. **Omdirigering på helsida -** När användaren har valt en leverantör    (konfigurerad med omdirigering på helsida) från MVPD-väljaren på    Programmerarens webbplats `setSelectedProvider(<mvpd>)` anropas på AccessEnabler och användaren omdirigeras till MVPD:s inloggningssida. När användaren har angett giltiga inloggningsuppgifter dirigeras han/hon tillbaka till programmerarens webbplats. AccessEnabler initieras och autentiseringstoken hämtas från Adobe Pass-autentisering under `setRequestor`.
+1. **iFrame/Popup Window -** När användaren har valt en provider (konfigurerad med iFrame) anropas `setSelectedProvider(<mvpd>)` på AccessEnabler. Den här åtgärden utlöser återanropet `createIFrame(width, height)` och meddelar programmeraren att skapa en iFrame (eller popup - beroende på webbläsaren/inställningarna) med namnet `"mvpdframe"` och de angivna dimensionerna. När iFrame/popup har skapats läser AccessEnabler in MVPD:s inloggningssida i iFrame/popup. Användaren anger giltiga autentiseringsuppgifter och iFrame/popup omdirigeras till Adobe Pass Authentication, som returnerar ett JS-fragment som stänger iFrame/popup-fönstret och läser in den överordnade sidan (programmerarens webbplats) igen. På samma sätt som för flöde 1 hämtas autentiseringstoken under `setRequestor`.
 
-The `displayProviderDialog` återanrop (utlöses av `getAuthentication`/`getAuthorization`) returnerar en lista över de virtuella dokumentdokumenten och deras lämpliga inställningar. The `iFrameRequired` egenskapen för en MVPD gör att programmeraren kan veta om den ska aktivera flöde 1 eller flöde 2. Observera att programmeraren krävs för att utföra en extra åtgärd (skapa en iFrame/popup) endast för flöde 2.
+Återanropet `displayProviderDialog` (utlöses av `getAuthentication`/`getAuthorization`) returnerar en lista över MVPD-filer och deras lämpliga inställningar. Egenskapen `iFrameRequired` för ett MVPD-dokument gör att programmeraren kan veta om det ska aktivera flöde 1 eller flöde 2. Observera att programmeraren krävs för att utföra en extra åtgärd (skapa en iFrame/popup) endast för flöde 2.
 
 **Avbryt autentisering**
 
 Det finns också en situation där användaren uttryckligen avbryter autentiseringsflödet genom att stänga inloggningssidan. Här är scenarierna och den föreslagna lösningen för programmerarna:
 
 1. **Omdirigering av hela sidor -** När inloggningssidan stängs måste användaren navigera till programmerarens webbplats igen och initiera hela flödet från början. Ingen explicit åtgärd krävs på programmerarens sida i det här scenariot.
-1. **iFrame -** Programmeraren rekommenderas att ha iFrame inuti en `div` (eller liknande UI-komponent) som har en stängningsknapp kopplad till sig. När användaren trycker på stängningsknappen kommer programmeraren att förstöra iFrame tillsammans med det associerade användargränssnittet och utföra `setSelectedProvider(null)`. Detta anrop gör att AccessEnabler kan rensa sitt interna tillstånd och gör det möjligt för användaren att initiera ett efterföljande autentiseringsflöde. `setAuthenticationStatus` och `sendTrackingData(AUTHENTICATION_DETECTION...)` aktiveras för att signalera ett misslyckat autentiseringsflöde (båda på `getAuthentication` och `getAuthorization`).
-1. **Popup -** I vissa webbläsare går det inte att identifiera fönsterstängningshändelsen korrekt. Därför måste en annan metod användas här (till skillnad från iFrame-flödet ovan). Adobe rekommenderar att Programmeraren initierar en timer som regelbundet verifierar om inloggningsfönstret finns. Om fönstret inte finns kan programmeraren vara säker på att användaren manuellt har avbrutit inloggningsflödet och programmeraren kan fortsätta att ringa `setSelectedProvider(null)`. De utlösta återanropen är samma som i flöde 2 ovan.
+1. **iFrame -** Programmeraren rekommenderas som värd för iFrame i en `div` (eller liknande UI-komponent) som har en stängningsknapp kopplad till sig. När användaren trycker på stängningsknappen kommer programmeraren att förstöra iFrame tillsammans med det associerade användargränssnittet och utföra `setSelectedProvider(null)`. Detta anrop gör att AccessEnabler kan rensa sitt interna tillstånd och gör det möjligt för användaren att initiera ett efterföljande autentiseringsflöde. `setAuthenticationStatus` och `sendTrackingData(AUTHENTICATION_DETECTION...)` aktiveras för att signalera ett misslyckat autentiseringsflöde (både på `getAuthentication` och `getAuthorization`).
+1. **Popup -** Vissa webbläsare kan inte identifiera fönstrets close-händelse korrekt, så här måste ett annat tillvägagångssätt användas (i motsats till iFrame-flödet ovan). Adobe rekommenderar att Programmeraren initierar en timer som regelbundet verifierar om inloggningsfönstret finns. Om fönstret inte finns kan programmeraren vara säker på att användaren manuellt har avbrutit inloggningsflödet och programmeraren kan fortsätta att anropa `setSelectedProvider(null)`. De utlösta återanropen är samma som i flöde 2 ovan.
 
 </br>
 
@@ -75,7 +75,7 @@ Utloggnings-API:t för AccessEnabler rensar bibliotekets lokala status och läse
 >
 >De förbättrade, uppdateringsfria inloggnings- och utloggningsflödena kräver att webbläsaren stöder moderna HTML5-tekniker, inklusive webbmeddelanden.
 
-Både autentiserings- (inloggnings-) och utloggningsflödena ovan ger en liknande användarupplevelse genom att huvudsidan läses in igen när varje flöde har slutförts.  Den aktuella funktionen syftar till att förbättra användarupplevelsen genom att tillhandahålla en inloggning och inloggning utan uppdatering (bakgrund). Programmeraren kan aktivera/inaktivera inloggning och utloggning i bakgrunden genom att skicka två booleska flaggor (`backgroundLogin` och `backgroundLogout`) till `configInfo` parametern för `setRequestor` API. Som standard är inloggning/utloggning i bakgrunden inaktiverad (vilket ger kompatibilitet med den tidigare implementeringen).
+Både autentiserings- (inloggnings-) och utloggningsflödena ovan ger en liknande användarupplevelse genom att huvudsidan läses in igen när varje flöde har slutförts.  Den aktuella funktionen syftar till att förbättra användarupplevelsen genom att tillhandahålla en inloggning och inloggning utan uppdatering (bakgrund). Programmeraren kan aktivera/inaktivera inloggning och utloggning i bakgrunden genom att skicka två booleska flaggor (`backgroundLogin` och `backgroundLogout`) till parametern `configInfo` i API:t `setRequestor`. Som standard är inloggning/utloggning i bakgrunden inaktiverad (vilket ger kompatibilitet med den tidigare implementeringen).
 
 **Exempel:**
 
@@ -92,13 +92,13 @@ Både autentiserings- (inloggnings-) och utloggningsflödena ovan ger en liknand
 
 Följande punkter beskriver övergången mellan de ursprungliga autentiseringsflödena och de förbättrade flödena:
 
-1. Den fullständiga omdirigeringen ersätts med en ny webbläsarflik där MVPD-inloggningen utförs. Programmeraren krävs för att skapa en ny flik (via `window.open`) namngivna `mvpdwindow` när användaren väljer en MVPD (med `iFrameRequired = false`). Programmeraren körs sedan `setSelectedProvider(<mvpd>)`så att AccessEnabler kan läsa in URL:en för MVPD-inloggning på den nya fliken. När användaren har angett giltiga inloggningsuppgifter stänger Adobe Pass Authentication fliken och skickar ett window.postMessage till programmerarens webbplats som signalerar till AccessEnabler att autentiseringsflödet har slutförts. Följande återanrop aktiveras:
+1. Den fullständiga omdirigeringen ersätts med en ny webbläsarflik där MVPD-inloggningen utförs. Programmeraren måste skapa en ny flik (via `window.open`) med namnet `mvpdwindow` när användaren väljer ett MVPD (med `iFrameRequired = false`). Programmeraren kör sedan `setSelectedProvider(<mvpd>)`, så att AccessEnabler kan läsa in URL:en för MVPD-inloggning på den nya fliken. När användaren har angett giltiga inloggningsuppgifter stänger Adobe Pass Authentication fliken och skickar ett window.postMessage till programmerarens webbplats som signalerar till AccessEnabler att autentiseringsflödet har slutförts. Följande återanrop aktiveras:
 
-   - Om flödet initierades av `getAuthentication`: `setAuthenticationStatus` och `sendTrackingData(AUTHENTICATION_DETECTION...)` aktiveras för att signalera lyckad/misslyckad autentisering.
+   - Om flödet startades av `getAuthentication`: `setAuthenticationStatus` och `sendTrackingData(AUTHENTICATION_DETECTION...)` aktiveras för att signalera lyckad/misslyckad autentisering.
 
-   - Om flödet initierades av `getAuthorization`: `setToken/tokenRequestFailed` och `sendTrackingData(AUTHORIZATION_DETECTION...)` aktiveras för att signalera att auktoriseringen lyckades/misslyckades.
+   - Om flödet startades av `getAuthorization`: `setToken/tokenRequestFailed` och `sendTrackingData(AUTHORIZATION_DETECTION...)` aktiveras för att signalera lyckad/misslyckad auktorisering.
 
-1. Flödet för iFrame-/popup-fönstret är i stort sett oförändrat. Skillnaden är att den överordnade sidan inte läses in igen när användaren har angett giltiga inloggningsuppgifter. iFrame/popup stängs automatiskt efter inloggning och en `window.postMessage` skickas till den överordnade sidan och meddelar AccessEnabler om att flödet har slutförts. Samma återanrop utlöses som i föregående flöde, **plus följande nya återanrop:`destroyIFrame`**. The `destroyIFrame` återanrop gör att programmeraren kan ta bort alla iFrame-associerade/hjälpkomponenter, till exempel UI-dekorationer. Återanropet krävdes inte i det gamla autentiseringsflödet eftersom Adobe Pass Authentication skulle läsa in programmerarens sida på nytt när inloggningen var klar och därmed förstöra alla gränssnittskomponenter i den.
+1. Flödet för iFrame-/popup-fönstret är i stort sett oförändrat. Skillnaden är att den överordnade sidan inte läses in igen när användaren har angett giltiga inloggningsuppgifter. iFrame/popup stängs automatiskt efter inloggning och en `window.postMessage` skickas till den överordnade sidan och meddelar AccessEnabler om att flödet har slutförts. Samma återanrop utlöses som i föregående flöde, **plus följande nya återanrop:`destroyIFrame`**. Med `destroyIFrame`-återanropet kan programmeraren ta bort alla iFrame-associerade/hjälpkomponenter, till exempel UI-dekorationer. Återanropet krävdes inte i det gamla autentiseringsflödet eftersom Adobe Pass Authentication skulle läsa in programmerarens sida på nytt när inloggningen var klar och därmed förstöra alla gränssnittskomponenter i den.
 
 </br>
 
@@ -112,11 +112,11 @@ Följande punkter beskriver övergången mellan de ursprungliga autentiseringsfl
 
 Detta är flödena för att avbryta autentisering:
 
-1. **Fliken Webbläsare -** Eftersom fliken i princip är ett nytt fönster har hämtning av close-händelsen samma begränsningar som i scenario 3 från de gamla autentiseringsflödena. Dessutom går det inte att använda den här tidsinställningen eftersom det inte går att skilja mellan en flik som stängdes manuellt av användaren och en flik som stängdes automatiskt i slutet av inloggningsflödet. Lösningen här är att AccessEnabler förblir tyst (inga återanrop aktiveras) när användaren avbryter flödet. Programmeraren behöver inte heller utföra någon specifik åtgärd. Användaren kan initiera ett annat autentiseringsflöde utan att få felmeddelandet &quot;Multiple Authentication Requests Error&quot; (det här felet har inaktiverats i AccessEnabler för bakgrundsinloggning).
+1. **Fliken Webbläsare -** Eftersom fliken i princip är ett nytt fönster har hämtning av den close-händelse samma begränsningar som i scenario 3 från de gamla autentiseringsflödena. Dessutom går det inte att använda den här tidsinställningen eftersom det inte går att skilja mellan en flik som stängdes manuellt av användaren och en flik som stängdes automatiskt i slutet av inloggningsflödet. Lösningen här är att AccessEnabler förblir tyst (inga återanrop aktiveras) när användaren avbryter flödet. Programmeraren behöver inte heller utföra någon specifik åtgärd. Användaren kan initiera ett annat autentiseringsflöde utan att få felmeddelandet &quot;Multiple Authentication Requests Error&quot; (det här felet har inaktiverats i AccessEnabler för bakgrundsinloggning).
 
-1. **iFrame -** Programmeraren kan använda det tillvägagångssätt som beskrivs i scenario 2 från de gamla autentiseringsflödena (skapa omslutningsgränssnitt från iFrame och tillhörande stängningsknapp som utlöser `setSelectedProvider(null)`. Även om detta tillvägagångssätt inte längre är ett starkt krav (flera autentiseringsflöden tillåts för bakgrundsinloggning, vilket beskrivs i scenario 1 ovan), rekommenderas det fortfarande av Adobe.
+1. **iFrame -** Programmeraren kan använda det tillvägagångssätt som beskrivs i scenario 2 från de gamla autentiseringsflödena (skapa omslutningsgränssnitt från iFrame och associerad stängningsknapp som utlöser `setSelectedProvider(null)`. Även om detta tillvägagångssätt inte längre är ett starkt krav (flera autentiseringsflöden tillåts för bakgrundsinloggning, vilket beskrivs i scenario 1 ovan), rekommenderas det fortfarande av Adobe.
 
-1. **Popup -** Detta är identiskt med flikflödet ovan.
+1. **Popup -** Detta är identiskt med flikflödet ovan i webbläsaren.
 
 </br>
 
@@ -124,7 +124,7 @@ Detta är flödena för att avbryta autentisering:
 
 Det nya utloggningsflödet utförs i en dold iFrame, vilket eliminerar omdirigeringen av hela sidan.  Detta är möjligt eftersom användaren inte behöver utföra någon specifik åtgärd på MVPD:s utloggningssida.
 
-När utloggningsflödet är klart dirigeras iFrame om till en anpassad Adobe Pass Authentication-slutpunkt. Detta genererar ett JS-fragment som utför en `window.postMessage` till den överordnade och meddela AccessEnabler att utloggningen är klar. Följande återanrop aktiveras: `setAuthenticationStatus()` och `sendTrackingData(AUTHENTICATION_DETECTION ...)`, vilket signalerar att användaren inte längre är autentiserad.
+När utloggningsflödet är klart dirigeras iFrame om till en anpassad Adobe Pass Authentication-slutpunkt. Detta genererar ett JS-fragment som utför en `window.postMessage` till det överordnade objektet och meddelar AccessEnabler om att utloggningen är klar. Följande återanrop aktiveras: `setAuthenticationStatus()` och `sendTrackingData(AUTHENTICATION_DETECTION ...)`, vilket signalerar att användaren inte längre är autentiserad.
 
 Bilden nedan visar det uppdateringsfria flödet som gör att en användare kan logga in på sitt MVPD-program utan att uppdatera programmets huvudsida:
 
@@ -142,13 +142,13 @@ Eftersom TempPass-flödet kräver att ett fönster skapas automatiskt och stäng
 
 Här är de aspekter som programmeraren måste vara medveten om när TempPass implementeras för uppdatering utan inloggning och inloggning:
 
-- Innan autentiseringen startas behöver iFrame- eller popup-fönstret bara skapas för icke-TempPass MVPD-filer. Programmeraren kan identifiera om ett MVPD är TempPass eller inte genom att läsa `tempPass` MVPD-objektets egenskap (returneras av `setConfig()` / `displayProviderDialog()`).
+- Innan autentiseringen startas behöver iFrame- eller popup-fönstret bara skapas för icke-TempPass MVPD-filer. Programmeraren kan identifiera om ett MVPD är TempPass eller inte genom att läsa egenskapen `tempPass` för MVPD-objektet (returneras av `setConfig()` / `displayProviderDialog()`).
 
-- The `createIFrame()` callback-funktionen måste innehålla en kontroll för TempPass och dess logik ska bara köras när MVPD är NOT TempPass.
+- Återanropet `createIFrame()` måste innehålla en kontroll för TempPass och dess logik ska bara köras när MVPD är NOT TempPass.
 
-- The `destroyIFrame()` callback-funktionen måste innehålla en kontroll för TempPass och dess logik ska bara köras när MVPD är NOT TempPass.
+- Återanropet `destroyIFrame()` måste innehålla en kontroll för TempPass och dess logik ska bara köras när MVPD är NOT TempPass.
 
-- The `setAuthenticationStatus()` och `sendTrackingData()` återanrop anropas när autentiseringen har slutförts (exakt som i det uppdateringsfria flödet för vanliga MVPD-program).
+- Återanropen `setAuthenticationStatus()` och `sendTrackingData()` anropas när autentiseringen har slutförts (exakt som i det uppdateringsfria flödet för vanliga MVPD).
 
 >[!NOTE]
 >

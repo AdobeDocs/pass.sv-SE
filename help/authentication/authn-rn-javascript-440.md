@@ -1,14 +1,15 @@
 ---
-title: Versionsinformation om Adobe Pass-autentisering JavaScript 4.4.0
-description: Versionsinformation om Adobe Pass-autentisering JavaScript 4.4.0
-source-git-commit: 7057aeda34b4fe0d059912ab0a71ea856427654c
+title: Adobe Pass Authentication JavaScript 4.4.0 Release Notes
+description: Adobe Pass Authentication JavaScript 4.4.0 Release Notes
+exl-id: 28cc0ccc-7a1d-45bd-8455-26cfde25c5c5
+source-git-commit: 8552a62f4d6d80ba91543390bf0689d942b3a6f4
 workflow-type: tm+mt
 source-wordcount: '245'
 ht-degree: 0%
 
 ---
 
-# Versionsinformation om Adobe Pass-autentisering JavaScript 4.4.0 {#javascript-sdk-440-release-notes}
+# Adobe Pass Authentication JavaScript 4.4.0 Release Notes {#javascript-sdk-440-release-notes}
 
 >[!NOTE]
 >
@@ -20,7 +21,7 @@ Den här sidan beskriver nya funktioner, ändringar och kända fel i den här ve
 
 Adobe Pass-autentisering: JavaScript 4.4.0
 
-Utgivningsdatum: **06/22/2021**
+Releasedatum: **06/22/2021**
 
 
 ## Versionsöversikt {#overview-javascript-sdk-440}

@@ -1,7 +1,8 @@
 ---
 title: TVE Dashboard-miljöer
 description: Förstå hur olika miljöer används och fungerar i TVE Dashboard.
-source-git-commit: 06c2e1e54515a2ec47722ba1f360467dadd1f73b
+exl-id: 591becb8-2f6c-46e0-b108-c64e6df69f89
+source-git-commit: c2dcea9e4170a3e10654bcd3f8d2f5cdb82c9603
 workflow-type: tm+mt
 source-wordcount: '346'
 ht-degree: 0%
@@ -16,15 +17,15 @@ ht-degree: 0%
 
 På TVE Dashboard finns olika miljöer som är anpassade för att uppfylla specifika syften i Adobe Pass-autentiseringen. Det finns två huvudmiljöer:
 
-* **Föregående**: Miljön för förhandsgodkännande fungerar som en testmiljö för att förbereda och testa nya byggen innan de distribueras till produktionen.
+* **Prequal**: Kvalificeringsmiljön fungerar som en testmiljö för att förbereda och testa nya byggen innan de distribueras till produktion.
 
-* **Frigör**: I releasemiljön finns färdiga och testade byggen för produktion.
+* **Utgåva**: I versionsmiljön finns färdiga och testade byggen för produktion.
 
 I varje miljö finns det två olika profiler:
 
-* **Mellanlagring**: Mellanlagringsprofilen ansluter till MVPD:s mellanlagringsserver för testning och validering av integreringar innan den publiceras.
+* **Förproduktion**: Mellanlagringsprofilen ansluter till MVPD:s mellanlagringsserver för testning och validering av integreringar innan den aktiveras.
 
-* **Produktion**: Produktionsprofilen är kopplad till produktionsprofilen för MVPD för faktiska produktionsaktiviteter.
+* **Produktion**: Produktionsprofilen ansluter till MVPD:s produktionsprofil för faktiska produktionsaktiviteter.
 
 ## Användningsexempel
 
@@ -56,13 +57,12 @@ Miljöerna i TVE Dashboard används i olika fall under programmets livscykel. Me
 Följ stegen för att växla mellan Adobe Pass Authentication TVE Dashboard-miljöer.
 
 1. Logga in med dina programmeringsuppgifter.
-1. Välj önskad stagg- eller produktionsmiljö i dialogrutan **Miljö** listrutemeny högst upp i den vänstra panelen.
+1. Välj önskad staging- eller produktionsmiljö i listrutan **Miljö** högst upp i den vänstra panelen.
 
-   ![Listruta för TVE Dashboard-miljöer](assets/tve-dashboard-env.png)
+   ![TVE Dashboard-miljölistruta](assets/tve-dashboard-env.png)
 
    *Listrutan Adobe Pass Authentication TVE Dashboard-miljö*
 
 >[!NOTE]
 >
 > Konfigurationerna kan variera i olika miljöer beroende på dina inställningar.
-

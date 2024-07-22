@@ -4,7 +4,7 @@ description: Översikt över PDF-filer
 exl-id: b918550b-96a8-4e80-af28-0a2f63a02396
 source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
 workflow-type: tm+mt
-source-wordcount: '2736'
+source-wordcount: '2734'
 ht-degree: 0%
 
 ---
@@ -48,7 +48,7 @@ Hur säker är Adobe Pass Authentication? Den främsta prioriteten i Adobe Pass 
 Krävs Flash Player? Adobe Pass Authentication for TV Everywhere är en spelare- och plattformsoberoende som integreras med alla uppspelningsapplikationer, inklusive Silverlight och HTML5. Dessutom har Adobe Pass Authentication inbyggt stöd för enheter som telefoner och surfplattor med iOS och Android.
 
 
-Vilka enheter stöder Adobe Pass Authentication? Adobe Pass Authentication stöds av praktiskt taget alla enheter med webbpaketet HTML5 för visning i webbläsare. Dessutom fortsätter Adobe Pass Authentication att lansera SDK:er (Software Development Kits) för olika enhetsspecifika plattformar, bland annat iOS, Android™, Xbox360 (Borttagen) och Adobe Air® (Borttagen). Nyligen har Adobe Pass Authentication tagit fram en klientlös lösning för enheter som inte kan återge webbläsarsidor (till exempel&quot;smarta&quot; TV-apparater, digitalboxar och spelkonsoler).  Möjligheten att återge webbläsarsidor är ett krav för att autentisera användare med PDF-filer.
+Vilka enheter stöder Adobe Pass Authentication? Adobe Pass Authentication stöds av praktiskt taget alla enheter med webbpaketet HTML5 för visning i webbläsare. Dessutom fortsätter Adobe Pass Authentication att lansera SDK:er (Software Development Kits) för olika enhetsspecifika plattformar, bland annat iOS, Android™, Xbox360 (Borttagen) och Adobe Air® (borttagen). Nyligen har Adobe Pass Authentication tagit fram en klientlös lösning för enheter som inte kan återge webbläsarsidor (till exempel&quot;smarta&quot; TV-apparater, digitalboxar och spelkonsoler).  Möjligheten att återge webbläsarsidor är ett krav för att autentisera användare med PDF-filer.
 
 
 Har Adobe Pass Authentication stöd för de nya standarderna för TV Everywhere? Adobe Pass Authentication är kompatibelt med specifikationen CableLabs OLCA (Online Content Access), som innehåller tekniska krav och arkitektur för leverans av video till en Pay TV-kund från onlinekällor. Adobe deltog i det gemensamma CableLabs-projektet för interopt-testning i juni 2011 och klarade testprocessen för en implementering av en tjänsteleverantör. Adobe Pass-autentisering verifieras (slutförd och testad) mot OLCA-specifikationerna för autentisering. Auktoriseringskomponenten är slutförd, men testverifieringen väntar på att CableLabs-testmiljön ska släppas. Adobe är också en aktiv medlem av OATC (Open Authentication Technical Consortium) och deltar i flera av underkommittéernas projekt för att utarbeta specifikationer som en del av detta organ.
@@ -71,7 +71,8 @@ Adobe Pass Authentication är en värdtjänst som möjliggör snabb serverintegr
 Adobe Pass-autentisering erbjuds via SaaS-modellen (Software as a Service) och möjliggör säkrare kommunikation mellan slutanvändare, distributörer och programmerare för att validera rätten till innehåll. Huvudkomponenterna i tjänsten omfattar följande:
 
 Serversidan - Den värdbaserade Adobe Pass-autentiseringsservern. Det här är en programserver som engagerar i kommunikation bakkanal (server-till-server) med autentiseringssystemen i MVPD-program.
-Klientsida: Åtkomstaktivering på klientsidan - Åtkomstaktiveraren är en liten fil som läses in i en programmerares webbsida eller spelarprogram. Den ger berättigande API:er till programmerarens visningsprogram och kommunicerar med Adobe Pass Authentication Server.
+Klientsida:
+Åtkomstaktivering på klientsidan - Åtkomstaktiveraren är en liten fil som läses in i programmerarens webbsida eller spelarprogram. Den ger berättigande API:er till programmerarens visningsprogram och kommunicerar med Adobe Pass Authentication Server.
 Klientlösa webbtjänster (för icke-webbkompatibla enheter) - RESTful-webbtjänster som tillhandahåller berättigande API:er för enheter som Smart TV, spelkonsoler och digitalboxar.
 
 >[!NOTE]
@@ -98,7 +99,7 @@ I följande diagram visas relationen mellan MVPD och Programmer och dessa Adobe 
 
 ![](assets/high-level-architecture-nflows.png)
 
-*Bild: Arkitektur och flöden på hög nivå*
+*Figur: Arkitektur och flöden på hög nivå*
 
 ## Adobe Pass-autentiseringskomponenter {#components}
 
@@ -151,7 +152,7 @@ Följande bild visar livscykeln för integreringen mellan Adobe Pass Authenticat
 
 ![](assets/mvpd-int-lifecycle.png)
 
-*Bild: Integreringslivscykel för MVPD*
+*Figur: Livscykel för MVPD-integration*
 
 ## Tillståndsflödesschema {#chart}
 
@@ -159,19 +160,19 @@ I följande flödesdiagram visas den övergripande processen för att bekräfta 
 
 ![](assets/authn-authz-entitlmnt-flow.png)
 
-*Bild: Processen för att bekräfta tillstånd med hjälp av Adobe Pass-autentisering*
+*Figur: Processen för att bekräfta tillstånd med Adobe Pass-autentisering*
 
 ## Autentiseringssteg {#authn-steps}
 
 I följande steg visas ett exempel på autentiseringsflödet för Adobe Pass-autentisering.  Detta är den del av tillståndsprocessen i vilken en programmerare avgör om användaren är en giltig kund till ett MVPD.  I det här scenariot är användaren en giltig prenumerant på ett MVPD.  Användaren försöker visa skyddat innehåll med en programmerares program för Flash:
 
-1. Användaren går till programmerarens webbsida, som läser in programmerarens program för Flash och Adobe Pass Authentication Access Enabler-komponenterna på användarens dator. Flashen använder Access Enabler för att ange programmerarens ID med Adobe Pass Authentication, och Adobe Pass Authentication-kontot använder Access Enabler med konfigurations- och tillståndsdata för den programmeraren (&quot;begäraren&quot;). Åtkomstaktiveraren måste ta emot dessa data från servern innan andra API-anrop kan utföras.  Teknisk kommentar: Programmeraren anger sin identitet med åtkomstaktiverarens `setRequestor()` metod; mer information finns i [Integreringshandbok för programmerare](/help/authentication/programmer-integration-guide-overview.md).
+1. Användaren går till programmerarens webbsida, som läser in programmerarens program för Flash och Adobe Pass Authentication Access Enabler-komponenterna på användarens dator. Flashen använder Access Enabler för att ange programmerarens ID med Adobe Pass Authentication, och Adobe Pass Authentication-kontot använder Access Enabler med konfigurations- och tillståndsdata för den programmeraren (&quot;begäraren&quot;). Åtkomstaktiveraren måste ta emot dessa data från servern innan andra API-anrop kan utföras.  Teknisk information: Programmeraren anger sin identitet med åtkomstaktiveringens `setRequestor()`-metod. Mer information finns i [Programmerarintegreringsguiden](/help/authentication/programmer-integration-guide-overview.md).
 1. När användaren försöker visa programmerarens skyddade innehåll, visar programmerarens program användaren en lista med distributörer (MVPD) som användaren väljer en leverantör från.
 1. Användaren omdirigeras till en Adobe Pass-autentiseringsserver, där en krypterad SAML-begäran för det MVPD som användaren valt skapas. Denna begäran skickas som en autentiseringsbegäran för programmeraren till MVPD. Beroende på vilket system som används i MVPD dirigeras användarens webbläsare sedan antingen till webbplatsen för MVPD för att logga in, eller så skapas en iFrame-inloggning i programmerarens app.
 1. I båda fallen (omdirigering eller iFrame) accepterar MVPD begäran och visar sin inloggningssida.
 1. Användaren loggar in med MVPD, MVPD validerar användarens status som betalande kund och sedan skapar MVPD en egen HTTP-session.
 1. När användaren valideras skapar MVPD ett svar (SAML &amp; encrypted) som MVPD skickar tillbaka till Adobe Pass Authentication.
-1. Adobe Pass Authentication tar emot MVPD-svaret, ser till att en HTTP-session för Adobe Pass Authentication är öppen, validerar [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) svar från MVPD och dirigerar om till programmerarens webbplats.
+1. Adobe Pass Authentication tar emot MVPD-svaret, ser att en HTTP-session för Adobe Pass-autentisering är öppen, validerar [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language)-svaret från MVPD och dirigerar om tillbaka till programmerarens webbplats.
 1. Programmerarens webbplats läses in igen, Access Enabler läses in igen och programmeraren anropar setRequestor() igen.  Det andra anropet till setRequestor() är nödvändigt eftersom den aktuella konfigurationen har ändrats - det finns nu en flagga som informerar Access Enabler om att en AuthN-token väntar på att genereras på servern.
 1. Åtkomstaktiveraren ser att det finns en väntande autentisering och begär token från Adobe Pass-autentiseringsservern. Token hämtas från servern genom att Flashens Player DRM-funktioner anropas.
 1. AuthN-token lagras i programmerarens LSO-cache för Flash Player. Autentiseringen är nu slutförd och sessionen förstörs på Adobe Pass autentiseringsserver.
@@ -180,7 +181,7 @@ I följande steg visas ett exempel på autentiseringsflödet för Adobe Pass-aut
 
 Följande steg fortsätter från föregående avsnitt ([Autentiseringssteg](#authn-steps)):
 
-1. När användaren försöker få åtkomst till programmerarens skyddade innehåll söker programmerarens program först efter en AuthN-token på användarens lokala dator eller enhet.  Om den variabeln inte finns där, [Autentiseringssteg](#authn-steps) ovanstående följs.  Om AuthN-token finns där, fortsätter auktoriseringsflödet med programmerarens program som startar ett anrop till Access Enabler med en begäran om att få användarens visningsrättigheter för ett visst objekt med skyddat innehåll.
+1. När användaren försöker få åtkomst till programmerarens skyddade innehåll söker programmerarens program först efter en AuthN-token på användarens lokala dator eller enhet.  Om denna token inte finns där följs [autentiseringsstegen](#authn-steps) ovan.  Om AuthN-token finns där, fortsätter auktoriseringsflödet med programmerarens program som startar ett anrop till Access Enabler med en begäran om att få användarens visningsrättigheter för ett visst objekt med skyddat innehåll.
 1. Den specifika posten med skyddat innehåll representeras av en &quot;resursidentifierare&quot;.  Detta kan vara en enkel sträng eller en mer komplex struktur, men i vilket fall som helst avtalas om resursidentifierarens typ i förväg mellan Programmeraren och det virtuella dokumentationsdokumentet.  Programmerarens program skickar resursidentifieraren till Access Enabler.  Åtkomstaktiveraren söker efter en AuthZ-token på användarens lokala dator eller enhet.  Om AuthZ-token inte finns där, skickar Access Enabler begäran till Adobe Pass-autentiseringsservern i serverdelen.
 1. Adobe Pass-autentiseringsservern kommunicerar med MVPD-auktoriseringsslutpunkten med hjälp av standardiserade protokoll.  Om svaret från MVPD anger att användaren har rätt att visa det skyddade innehållet, skapar Adobe Pass Authentication-servern en AuthZ-token och skickar tillbaka den till Access Enabler, som lagrar AuthZ-token på användarens dator.
 1. Med en AuthZ-token lagrad på användarens dator eller enhet anropar programmerarens program Access Enabler för att erhålla en medietoken från Adobe Pass Authentication-servern och tillhandahåller denna token till programmerarens program.

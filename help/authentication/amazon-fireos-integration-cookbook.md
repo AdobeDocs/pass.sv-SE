@@ -4,7 +4,7 @@ description: Amazon FireOS Integration Cookbook
 exl-id: 1982c485-f0ed-4df3-9a20-9c6a928500c2
 source-git-commit: 1b8371a314488335c68c82882c930b7c19aa64ad
 workflow-type: tm+mt
-source-wordcount: '1416'
+source-wordcount: '1424'
 ht-degree: 0%
 
 ---
@@ -20,27 +20,27 @@ ht-degree: 0%
 
 ## Introduktion {#intro}
 
-I det här dokumentet beskrivs de tillståndsarbetsflöden som kan implementeras av en programmerares program på den översta nivån via de API:er som exponeras av Amazon FireOS `AccessEnabler` bibliotek.
+I det här dokumentet beskrivs de tillståndsarbetsflöden som en programmers program på den översta nivån kan implementera via de API:er som exponeras av Amazon FireOS `AccessEnabler`-biblioteket.
 
 Adobe Pass Authentication-berättigandelösningen för Amazon FireOS är uppdelad i två domäner:
 
-- Användargränssnittets domän - det här är det övre programlagret som implementerar användargränssnittet och använder tjänsterna som tillhandahålls av `AccessEnabler` bibliotek för att ge åtkomst till begränsat innehåll.
-- The `AccessEnabler` domain - this is where the entitlement workflows are implementation in the form of:
+- Användargränssnittsdomänen - det här är det övre programlagret som implementerar användargränssnittet och använder tjänsterna som tillhandahålls av biblioteket `AccessEnabler` för att ge åtkomst till begränsat innehåll.
+- Domänen `AccessEnabler` - här implementeras berättigandearbetsflödena i form av:
    - Nätverksanrop gjorda till Adobe serverdel
    - Affärslogik för arbetsflödena för autentisering och auktorisering
    - Hantering av olika resurser och bearbetning av arbetsflödestillstånd (t.ex. tokencache)
 
-Målsättningen med `AccessEnabler` domänen är att dölja alla komplexa tillståndsarbetsflöden och att tillhandahålla till programmet i det övre lagret (via `AccessEnabler` bibliotek) en uppsättning enkla berättigandemallar. Med den här processen kan du implementera tillståndsarbetsflöden:
+Målet för domänen `AccessEnabler` är att dölja alla komplexiteter i tillståndsarbetsflödena och att tillhandahålla en uppsättning enkla berättigandeprinciper till programmet i det övre lagret (via biblioteket `AccessEnabler`). Med den här processen kan du implementera tillståndsarbetsflöden:
 
 1. Ange identiteten för begärande.
 1. Kontrollera och hämta autentisering mot en viss identitetsleverantör.
 1. Kontrollera och få behörighet för en viss resurs.
 1. Logga ut.
 
-The `AccessEnabler`Nätverksaktiviteten äger rum i en annan tråd så gränssnittstråden blockeras aldrig. Det innebär att den tvåvägskommunikationskanal som finns mellan de två programdomänerna måste följa ett fullständigt asynkront mönster:
+Nätverksaktiviteten för `AccessEnabler` äger rum i en annan tråd, så gränssnittstråden blockeras aldrig. Det innebär att den tvåvägskommunikationskanal som finns mellan de två programdomänerna måste följa ett fullständigt asynkront mönster:
 
-- Användargränssnittets programlager skickar meddelanden till `AccessEnabler` via API-anrop som visas av `AccessEnabler` bibliotek.
-- The `AccessEnabler` svarar på UI-lagret via återkopplingsmetoderna i `AccessEnabler` som UI-lagret registrerar med `AccessEnabler` bibliotek.
+- Gränssnittets programlager skickar meddelanden till domänen `AccessEnabler` via API-anrop som exponeras av biblioteket `AccessEnabler`.
+- `AccessEnabler` svarar på UI-lagret via återanropsmetoderna i protokollet `AccessEnabler` som UI-lagret registrerar med biblioteket `AccessEnabler`.
 
 ## Tillståndsflöden {#entitlement}
 
@@ -56,51 +56,51 @@ The `AccessEnabler`Nätverksaktiviteten äger rum i en annan tråd så gränssni
 1. Skapa callback-funktioner:
    - [`setRequestorComplete()`](#$setRequestorComplete)
 
-      - Utlöses av `setRequestor()`, returnerar om åtgärden lyckades eller misslyckades.     Slutfört visar att du kan fortsätta med berättigandeanrop.
+      - Utlöses av `setRequestor()` och returnerar om åtgärden lyckades eller misslyckades.     Slutfört visar att du kan fortsätta med berättigandeanrop.
 
    - [displayProviderDialog(mvpds)](#$displayProviderDialog)
 
-      - Utlöses av `getAuthentication()` endast om användaren inte har valt en leverantör (MVPD) och ännu inte är autentiserad. The `mvpds` är en array med providers som är tillgängliga för användaren.
+      - Utlöses endast av `getAuthentication()` om användaren inte har valt en leverantör (MVPD) och ännu inte är autentiserad. Parametern `mvpds` är en matris med providers som är tillgängliga för användaren.
 
    - [`setAuthenticationStatus(status, orsak)`](#$setAuthNStatus)
 
-      - Utlöses av `checkAuthentication()` varje gång. Utlöses av `getAuthentication()` endast om användaren redan är autentiserad och har valt en leverantör.
+      - Utlöses av `checkAuthentication()` varje gång. Utlöses endast av `getAuthentication()` om användaren redan är autentiserad och har valt en leverantör.
 
       - Status som returneras är autentiserad eller inte autentiserad. Orsaken beskriver ett autentiseringsfel eller en utloggningsåtgärd.
 
    - [navigateToUrl(url)](#$navigateToUrl)
 
-      - Metoden ignoreras i AmazonFireOS SDK och används på Android-plattformar där den aktiveras av `getAuthentication()` efter att användaren har valt ett MVPD.  The `url` parameter anger platsen för MVPD:s inloggningssida.
+      - Metoden ignoreras i AmazonFireOS SDK och används på Android-plattformar där utlöses av `getAuthentication()` efter att användaren har valt en MVPD.  Parametern `url` anger platsen för MVPD:s inloggningssida.
 
    - [`sendTrackingData(event, data)`](#$sendTrackingData)
 
       - Utlöses av `checkAuthentication(), getAuthentication(), checkAuthorization(), getAuthorization(), setSelectedProvider()`.
-The `event` parametern anger vilken berättigandehändelse som har inträffat; `data` parameter är en lista med värden som relaterar till händelsen.
+Parametern `event` anger vilken berättigandehändelse som inträffade. Parametern `data` är en lista med värden som relaterar till händelsen.
 
    - [`setToken(token, resource)`](#$setToken)
 
       - Utlöses av `checkAuthorization()` och `getAuthorization()` efter en auktorisering för att visa en resurs.
-      - The `token` parametern är den kortlivade medietoken, `resource` -parametern är det innehåll som användaren har behörighet att visa.
+      - Parametern `token` är den kortlivade medietoken. Parametern `resource` är det innehåll som användaren har behörighet att visa.
 
    - [`tokenRequestFailed(resource, code, description)`](#$tokenRequestFailed)
 
       - Utlöses av `checkAuthorization()` och `getAuthorization()` efter en misslyckad auktorisering.
-      - The `resource` parametern är det innehåll som användaren försöker visa, `code` parametern är felkoden som anger vilken typ av fel som inträffat. `description` -parametern beskriver felet som är associerat med felkoden.
+      - Parametern `resource` är det innehåll som användaren försökte visa. Parametern `code` är felkoden som anger vilken typ av fel som uppstod. Parametern `description` beskriver felet som är associerat med felkoden.
 
    - [`selectedProvider(mvpd)`](#$selectedProvider)
 
       - Utlöses av `getSelectedProvider()`.
-      - The `mvpd` -parametern ger information om den leverantör som användaren har valt.
+      - Parametern `mvpd` ger information om providern som valts av användaren.
 
    - [`setMetadataStatus(metadata, nyckel, argument)`](#$setMetadataStatus)
 
       - Utlöses av `getMetadata().`
-      - The `metadata` parametern innehåller de specifika data som du har begärt; `key` parametern är nyckeln som används i `getMetadata()` begäran, och `arguments` parametern är samma ordlista som skickas till `getMetadata()`.
+      - Parametern `metadata` innehåller de specifika data som du har begärt, parametern `key` är nyckeln som används i begäran `getMetadata()` och parametern `arguments` är samma ordlista som skickades till `getMetadata()`.
 
    - [&quot;preauthorizedResources(resources)`](#$preauthResources)
 
       - Utlöses av `checkPreauthorizedResources()`.
-      - The `authorizedResources` -parametern visar de resurser som användaren har behörighet att visa.
+      - Parametern `authorizedResources` visar de resurser som användaren har behörighet att visa.
 
 
 ![](assets/android-entitlement-flows.png)
@@ -111,36 +111,36 @@ The `event` parametern anger vilken berättigandehändelse som har inträffat; `
 1. Starta programmet på den översta nivån.
 1. Initiera Adobe Pass-autentisering.
 
-   1. Utlysning [`getInstance`](#$getInstance) för att skapa en enda instans av Adobe Pass-autentiseringen `AccessEnabler`.
+   1. Anropa [`getInstance`](#$getInstance) om du vill skapa en enda instans av Adobe Pass-autentiseringen `AccessEnabler`.
 
       - **Beroende:** Adobe Pass Authentication Native Amazon FireOS Library (`AccessEnabler`)
 
-   1. Utlysning` setRequestor()` fastställa programmerarens identitet, skicka in programmerarens `requestorID` och (valfritt) en array med slutpunkter för Adobe Pass-autentisering.
+   1. Anropa ` setRequestor()` för att upprätta identifieringen av programmeraren; skicka en matris med Adobe Pass Authentication-slutpunkter till programmeraren `requestorID` och (valfritt).
 
-      - **Beroende:** Giltigt Adobe Pass Authentication RequestorID (Använd din kontohanterare för Adobe Pass-autentisering för att ordna detta.)
+      - **Beroende:** Giltigt begärande-ID för Adobe Pass-autentisering (använd din kontohanterare för Adobe Pass-autentisering för att ordna detta.)
 
-      - **Utlösare:** setRequestorComplete(), återanrop
+      - **Utlösare:** setRequestorComplete()-återanrop
 
-   Inga berättigandebegäranden kan slutföras förrän identiteten för den som gjorde begäran har etablerats fullständigt. Detta innebär att när setRequestor() fortfarande körs, kommer alla efterföljande berättigandebegäranden (till exempel`checkAuthentication()`) är blockerade.
+   Inga berättigandebegäranden kan slutföras förrän identiteten för den som gjorde begäran har etablerats fullständigt. Detta innebär att när setRequestor() fortfarande körs blockeras alla efterföljande berättigandebegäranden (till exempel `checkAuthentication()`).
 
    Du har två implementeringsalternativ: När begärarens identifieringsinformation skickas till backend-servern kan gränssnittets programlager välja en av följande två metoder:</p>
 
-   1. Vänta på att utlösaren för `setRequestorComplete()` callback (del av `AccessEnabler` delegat).  Det här alternativet ger den största säkerheten för att `setRequestor()` slutförd, så det rekommenderas för de flesta implementeringar.
-   1. Fortsätt utan att vänta på att utlösaren för `setRequestorComplete()` återanrop och börja utfärda tillståndsansökningar. Dessa anrop (checkAuthentication, checkAuthorization, getAuthentication, getAuthorization, checkPreauthorizedResource, getMetadata, logout) köas av `AccessEnabler` biblioteket, vilket gör att de faktiska nätverksanropen görs efter `setRequestor()`. Det här alternativet kan ibland avbrytas om nätverksanslutningen till exempel är instabil.
+   1. Vänta på att återanropet `setRequestorComplete()` aktiveras (ingår i delegaten `AccessEnabler`).  Det här alternativet ger den största säkerheten för att `setRequestor()` har slutförts, så det rekommenderas för de flesta implementeringar.
+   1. Fortsätt utan att vänta på att återanropet `setRequestorComplete()` ska utlösas och börja utfärda tillståndsbegäranden. Dessa anrop (checkAuthentication, checkAuthorization, getAuthentication, getAuthorization, checkPreauthorizedResource, getMetadata, logout) köas av biblioteket `AccessEnabler`, vilket gör att de faktiska nätverksanropen görs efter `setRequestor()`. Det här alternativet kan ibland avbrytas om nätverksanslutningen till exempel är instabil.
 
-1. Utlysning [checkAuthentication()](#$checkAuthN) för att kontrollera om det finns en befintlig autentisering utan att initiera det fullständiga autentiseringsflödet.  Om samtalet lyckas kan du gå direkt till auktoriseringsflödet.  Om inte, fortsätter du till autentiseringsflödet.
+1. Anropa [checkAuthentication()](#$checkAuthN) om du vill söka efter en befintlig autentisering utan att initiera det fullständiga autentiseringsflödet.  Om samtalet lyckas kan du gå direkt till auktoriseringsflödet.  Om inte, fortsätter du till autentiseringsflödet.
 
-- **Beroende:** Ett samtal till `setRequestor()` (detta beroende gäller även för alla efterföljande anrop).
+- **Beroende:** Ett lyckat anrop till `setRequestor()` (det här beroendet gäller även för alla efterföljande anrop).
 
-- **Utlösare:** setAuthenticationStatus(), återanrop
+- **Utlösare:** setAuthenticationStatus() återanrop
 
 ### C. Autentiseringsflöde {#authn_flow}
 
-1. Utlysning [`getAuthentication()`](#$getAuthN) för att initiera autentiseringsflödet eller för att få en bekräftelse på att användaren redan är autentiserad.
+1. Ring [`getAuthentication()`](#$getAuthN) för att initiera autentiseringsflödet eller för att få en bekräftelse på att användaren redan är autentiserad.
 
    **Utlösare:**
 
-   - Callback-funktionen setAuthenticationStatus(), om användaren redan är autentiserad.  I det här fallet går du direkt till [Auktoriseringsflöde](#authz_flow).
+   - Callback-funktionen setAuthenticationStatus(), om användaren redan är autentiserad.  I det här fallet går du direkt till [auktoriseringsflödet](#authz_flow).
    - Callback-funktionen displayProviderDialog(), om användaren inte har autentiserats ännu.
 
 1. Presentera användaren med listan över leverantörer som skickats till `displayProviderDialog()`.
@@ -148,13 +148,13 @@ The `event` parametern anger vilken berättigandehändelse som har inträffat; `
 
    >[!NOTE]
    >
-   >Nu har användaren möjlighet att avbryta autentiseringsflödet. Om detta inträffar visas `AccessEnabler` rensar det interna tillståndet och återställer autentiseringsflödet.
+   >Nu har användaren möjlighet att avbryta autentiseringsflödet. Om detta inträffar rensar `AccessEnabler` det interna tillståndet och återställer autentiseringsflödet.
 
 1. När användaren har loggat in stängs WebView.
-1. ring `getAuthenticationToken(),` som instruerar `AccessEnabler` för att hämta autentiseringstoken från backend-servern.
-1. [Valfritt] Utlysning [`checkPreauthorizedResources(resources)`](#$checkPreauth) för att kontrollera vilka resurser användaren har behörighet att visa. The `resources` parametern är en array med skyddade resurser som är associerad med användarens autentiseringstoken.
+1. anropa `getAuthenticationToken(),` som instruerar `AccessEnabler` att hämta autentiseringstoken från serverdelen.
+1. [Valfritt] samtal [`checkPreauthorizedResources(resources)`](#$checkPreauth) för att kontrollera vilka resurser användaren har behörighet att visa. Parametern `resources` är en matris med skyddade resurser som är associerad med användarens autentiseringstoken.
 
-   **Utlösare:** `preAuthorizedResources()` callback\
+   **Utlösare:** `preAuthorizedResources()` återanrop\
    **Körningspunkt:** Efter det slutförda autentiseringsflödet
 
 1. Om autentiseringen lyckades fortsätter du till auktoriseringsflödet.
@@ -162,23 +162,23 @@ The `event` parametern anger vilken berättigandehändelse som har inträffat; `
 
 ### D. Auktoriseringsflöde {#authz_flow}
 
-1. Utlysning [`getAuthorization()`](#$getAuthZ) för att initiera auktoriseringsflödet.
+1. Anropa [`getAuthorization()`](#$getAuthZ) för att initiera auktoriseringsflödet.
 
    Beroende: Giltiga resurs-ID:n som har avtalats med MVPD:n.
 
-   **Obs!** Resurs-ID:n ska vara samma som de som används på andra enheter eller plattformar och ska vara samma för alla programmeringsgränssnitten.
+   **Obs!** Resurs-ID:n ska vara samma som de som används på andra enheter eller plattformar och ska vara samma för alla flerkanalsprogram.
 
 1. Validera autentisering och auktorisering.
 
-   - Om `getAuthorization()` anropet lyckades: Användaren har giltiga AuthN- och AuthZ-tokens (användaren är autentiserad och har behörighet att titta på det begärda mediet).
-   - If `getAuthorization()` misslyckas: Undersök undantaget som utlöses för att fastställa dess typ (AuthN, AuthZ eller något annat):
+   - Om anropet `getAuthorization()` lyckas: Användaren har giltiga AuthN- och AuthZ-tokens (användaren är autentiserad och har behörighet att titta på det begärda mediet).
+   - Om `getAuthorization()` misslyckas: Undersök undantaget som utlösts för att fastställa dess typ (AuthN, AuthZ eller något annat):
       - Om det var ett autentiseringsfel (AuthN) startar du om autentiseringsflödet.
       - Om det var ett auktoriseringsfel (AuthZ) har användaren inte behörighet att titta på det begärda mediet och någon typ av felmeddelande ska visas för användaren.
       - Om det finns någon annan typ av fel (anslutningsfel, nätverksfel osv.) visar sedan ett felmeddelande för användaren.
 
 1. Validera den korta medietoken.
 
-   Använd Adobe Pass Authentication Media Token Verifier-biblioteket för att verifiera den kortlivade medietoken som returneras från `getAuthorization()` ring ovan:
+   Använd Adobe Pass Authentication Media Token Verifier-biblioteket för att verifiera den kortlivade medietoken som returnerats från `getAuthorization()`-anropet ovan:
 
    - Om valideringen lyckas: Spela upp det begärda mediet för användaren.
    - Om valideringen misslyckas: AuthZ-token var ogiltig, ska mediebegäran avvisas och ett felmeddelande ska visas för användaren.
@@ -189,11 +189,11 @@ The `event` parametern anger vilken berättigandehändelse som har inträffat; `
 
 1. Användaren väljer de media som ska visas.
 1. Är mediet skyddat?  Programmet kontrollerar om det valda mediet är skyddat:
-   - Om det valda mediet är skyddat startar programmet [Auktoriseringsflöde](#authz_flow) ovan.
+   - Om det valda mediet är skyddat startar programmet [auktoriseringsflödet](#authz_flow) ovan.
    - Om det valda mediet inte är skyddat kan du spela upp mediet för användaren.
 
 ### F. Utloggningsflöde {#logout_flow}
 
-1. Utlysning [`logout()`](#$logout) för att logga ut användaren. The `AccessEnabler` tar bort alla cachelagrade värden och token som användaren fått för det aktuella MVPD-värdet för alla begärare som delar inloggningen via enkel inloggning. När cacheminnet har rensats `AccessEnabler` gör ett serveranrop för att rensa sessionerna på serversidan.  Observera, att eftersom serveranropet kan resultera i en SAML-omdirigering till IdP (detta tillåter sessionsrensning på IdP-sidan), måste det här anropet följa alla omdirigeringar. Därför hanteras det här anropet inuti en WebView-kontroll, som inte är synlig för användaren.
+1. Ring [`logout()`](#$logout) för att logga ut användaren. `AccessEnabler` rensar bort alla cachelagrade värden och token som har hämtats av användaren för det aktuella MVPD-värdet på alla begärande som delar inloggningen via enkel inloggning. När cacheminnet har rensats gör `AccessEnabler` ett serveranrop för att rensa sessionerna på serversidan.  Observera, att eftersom serveranropet kan resultera i en SAML-omdirigering till IdP (detta tillåter sessionsrensning på IdP-sidan), måste det här anropet följa alla omdirigeringar. Därför hanteras det här anropet inuti en WebView-kontroll, som inte är synlig för användaren.
 
-   **Obs!** Utloggningsflödet skiljer sig från autentiseringsflödet på så sätt att användaren inte behöver interagera med WebView på något sätt. Det är därför möjligt (och rekommenderas) att göra WebView-kontrollen osynlig (dvs. dold) under utloggningsprocessen.
+   **Obs!** Loggoutflödet skiljer sig från autentiseringsflödet på så sätt att användaren inte behöver interagera med WebView på något sätt. Det är därför möjligt (och rekommenderas) att göra WebView-kontrollen osynlig (dvs. dold) under utloggningsprocessen.

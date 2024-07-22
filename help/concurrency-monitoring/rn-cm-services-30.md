@@ -1,13 +1,13 @@
 ---
 title: Versionsinformation för Concurrency Monitoring Services 3.0
 description: Versionsinformation för Concurrency Monitoring Services 3.0
-source-git-commit: 19ed211c65deaa1fe97ae462065feac9f77afa64
+exl-id: 247e310f-35a2-4078-a3d7-53b44ef08ad9
+source-git-commit: f30b6814b8a77424c13337d44d7b247105e0bfe2
 workflow-type: tm+mt
-source-wordcount: '88'
-ht-degree: 0%
+source-wordcount: '93'
+ht-degree: 2%
 
 ---
-
 
 # Versionsinformation för Concurrency Monitoring Services 3.0 {#cms-rn-30}
 
@@ -15,7 +15,8 @@ Den här sidan beskriver nya funktioner, ändringar och kända fel i den här ve
 
 ## Versionsinformation {#release-info}
 
-Version: 3.0 Releasedatum: 05/05/2020
+Version: 3.0
+Releasedatum: 05/05/2020
 
 ## Versionsöversikt {#release-overview}
 

@@ -1,13 +1,13 @@
 ---
 title: Kontrollpanel
 description: Läs mer om startsidan för TVE Dashboard.
-source-git-commit: 06c2e1e54515a2ec47722ba1f360467dadd1f73b
+exl-id: 3073cd86-89f8-4c65-996b-24edda24f25b
+source-git-commit: c2dcea9e4170a3e10654bcd3f8d2f5cdb82c9603
 workflow-type: tm+mt
 source-wordcount: '276'
 ht-degree: 0%
 
 ---
-
 
 # Kontrollpanel {#dashboard}
 
@@ -15,7 +15,7 @@ ht-degree: 0%
 >
 >Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användningen av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
 
-The **Kontrollpanel** i den vänstra panelen fungerar som hemsida för Adobe Pass Authentication TVE Dashboard.
+Avsnittet **Kontrollpanel** i den vänstra panelen fungerar som hemsida för Adobe Pass Authentication TVE Dashboard.
 
 Det finns två avsnitt på hemsidan:
 
@@ -26,10 +26,10 @@ Det finns två avsnitt på hemsidan:
 
 I det här avsnittet kan du komma åt den offentliga dokumentationen direkt från välkomstmeddelandet och visa en ögonblicksbild av dina aktuella konfigurationer.
 
-* **Aktiva integreringar**: Antalet aktiva integreringar i den aktuella miljön. Välj **Visa mer i integreringsavsnittet** för att få tillgång till detaljerad information i [Integreringar](tve-dashboard-integrations.md) -avsnitt.
-* **Aktiva kanaler**: Antalet aktiva kanaler i den aktuella miljön. Välj **Visa mer i avsnittet Kanaler** för att få tillgång till detaljerad information i [Kanaler](tve-dashboard-channels.md) -avsnitt.
-* **Databasuppdateringar**: Antal konfigurationsändringar som gjorts i den aktuella miljön. Välj **Visa mer i avsnittet Ändringslogg** för att få tillgång till detaljerad information i [Ändringslogg](tve-dashboard-changes-log.md) -avsnitt.
-* **ESM-kontrollpanel**: Håll utkik efter den kommande ESM Dashboard-panelen med djupgående mått på egenskapsanvändning i den aktuella miljön. Den här funktionen kommer att vara tillgänglig i framtida uppdateringar.
+* **Aktiva integreringar**: Antalet aktiva integreringar i den aktuella miljön. Välj **Visa mer i integreringsavsnittet** om du vill få tillgång till detaljerad information i avsnittet [Integrationer](tve-dashboard-integrations.md).
+* **Aktiva kanaler**: Antalet aktiva kanaler i den aktuella miljön. Välj **Visa mer i avsnittet Kanaler** om du vill få tillgång till detaljerad information i avsnittet [Kanaler](tve-dashboard-channels.md).
+* **Databasuppdateringar**: Antalet konfigurationsändringar som har gjorts i den aktuella miljön. Välj **Visa mer i avsnittet Ändringslogg** om du vill ha mer information i avsnittet [Ändringslogg](tve-dashboard-changes-log.md).
+* **ESM-instrumentpanel**: Håll utkik efter den kommande ESM-instrumentpanelen med djupgående statistik om egenskapsanvändning i den aktuella miljön. Den här funktionen kommer att vara tillgänglig i framtida uppdateringar.
 
 ![Välkomstskärm](assets/welcome-screen.png)
 
@@ -39,12 +39,12 @@ I det här avsnittet kan du komma åt den offentliga dokumentationen direkt frå
 
 I det här avsnittet presenteras 10 senaste konfigurationsändringar som inkluderar:
 
-* **Ändringsbeskrivning**: En kort beskrivning av ändringen som valts av användaren.
-* **Skickat av**: Det konto som ansvarar för ändringen.
+* **Ändrar beskrivning**: En kort beskrivning av den ändring som har valts av användaren.
+* **Publicerad av**: Kontot som är ansvarig för ändringen.
 * **Push-datum**: Det datum då ändringen gjordes.
 
 ![Konfigurationsstatus för en ändringslogg](assets/configuration-status.png)
 
 *Konfigurationsstatus för en ändringslogg*
 
-Om du vill visa hela listan med ändringar väljer du **Visa mer i ändringsloggen** längst ned till höger för att visa [Ändringslogg](tve-dashboard-changes-log.md) -avsnitt.
+Om du vill visa hela listan med ändringar väljer du **Visa mer i ändringsloggen** längst ned till höger för att visa avsnittet [Ändringslogg](tve-dashboard-changes-log.md).

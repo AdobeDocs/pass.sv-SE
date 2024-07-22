@@ -9,7 +9,7 @@ ht-degree: 0%
 
 ---
 
-# Felsök problem i konto-IQ {#troubleshoot}
+# Felsöka problem i Account IQ {#troubleshoot}
 
 Om du får problem med att läsa in data och diagram, problem med att exportera rapporter eller andra problem som rör mått eller diagram kan du fortsätta läsa för att få hjälp med felsökning.
 
@@ -17,6 +17,6 @@ Om du får problem med att läsa in data och diagram, problem med att exportera 
 
   ![](assets/troubleshoot.png)
 
-* Om du inte kan se några data eller diagram även efter uppdateringen loggar du ut från konto-IQ och loggar sedan in igen.
+* Om du inte kan se data eller diagram ens efter uppdateringen loggar du ut från Account IQ och loggar sedan in igen.
 
-* Om ingen av ovanstående felsökningsmetoder hjälper dig, eller om du har andra frågor som rör data eller oförmåga att exportera statistik, kontaktar du Adobe Support genom att skicka ett e-postmeddelande till <tve-support@adobe.com>.
+* Om ingen av ovanstående felsökningsmetoder hjälper dig, eller om du har andra frågor som rör data eller om du inte kan exportera statistik, kontaktar du Adobe Support genom att skicka ett e-postmeddelande till <tve-support@adobe.com>.

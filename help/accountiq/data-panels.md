@@ -1,7 +1,8 @@
 ---
 title: Datapaneler på kontrollpanelen
 description: Kontrollpanelen hjälper till att identifiera förekomster av lösenordsdelning genom att analysera en mängd olika prenumerationsdata.
-source-git-commit: 88b11527b2a432c2cd27bf9e29fd286969036eb0
+exl-id: 12abba05-7422-4bcc-8b11-76aca4911c0b
+source-git-commit: 2bb570ab14a3295d46ee6dc0d38485697d63809c
 workflow-type: tm+mt
 source-wordcount: '889'
 ht-degree: 0%
@@ -12,15 +13,15 @@ ht-degree: 0%
 
 När du har valt ett segment och ett tidsintervall visas olika datapaneler, tabeller och diagram på kontrollpanelen som visar en högnivåvy över delningsaktiviteter inom det valda segmentet.
 
-Tabellen nedan visar tillgängligheten och skillnaderna mellan datapanelerna i olika [versioner](/help/accountiq/versions-aiq.md) för konto-IQ:
+Tabellen nedan visar tillgängligheten och skillnaderna mellan datapanelerna i olika [versioner](/help/accountiq/versions-aiq.md) av Account IQ:
 
 | Datapaneler | D2C-tjänster | TVE Programmers | TVE MVPD |
 |---|---|---|---|
-| [Genomsnittlig poängaggregerad delning för aktuellt segment](#aggregated-sharing) | Tillgänglig och konsekvent | Tillgänglig och konsekvent | Tillgänglig och konsekvent |
+| [Medelvärde för delningspoäng som aggregerats för det aktuella segmentet](#aggregated-sharing) | Tillgänglig och konsekvent | Tillgänglig och konsekvent | Tillgänglig och konsekvent |
 | [Videokategorier i segment](#video-categories-segment) | Finns med små variationer | Finns med små variationer | Finns med små variationer |
-| [Dela poäng via kanaler och videoprogrammeringsfönster](#sharin-score-by-channels-and-mvpds) | Otillgänglig | Tillgänglig | Otillgänglig |
+| [Dela bakgrundsmusik efter kanaler och MVPD](#sharin-score-by-channels-and-mvpds) | Otillgänglig | Tillgänglig | Otillgänglig |
 | [Sannolikhet för kontodelning](#accounts-sharing-probability) | Tillgänglig och konsekvent | Tillgänglig och konsekvent | Tillgänglig och konsekvent |
-| [Antal konton och användning genom att dela sannolikhetsnivå](#number-of-accounts-usage-sharing-probability) | Tillgänglig och konsekvent | Tillgänglig och konsekvent | Tillgänglig och konsekvent |
+| [Antal konton och användning genom att dela sannolikhet](#number-of-accounts-usage-sharing-probability) | Tillgänglig och konsekvent | Tillgänglig och konsekvent | Tillgänglig och konsekvent |
 
 
 ## Genomsnittlig delningspoäng som aggregerats för det aktuella segmentet {#aggregated-sharing}
@@ -32,11 +33,11 @@ Mätvärdena hjälper er att förstå omfattningen (från låg, medel, hög till
 ![](assets/aggregate-sharing-score.png)
 
 
-*Genomsnittlig poängpanelssammanställning för delning för aktuellt segment*
+*Medelvärde för delningspoängpanelaggregerad för det aktuella segmentet*
 
 >[!NOTE]
 >
-> Den blå indikatorn i dialogrutan **Genomsnittlig delningspoäng som aggregerats för det aktuella segmentet** har olika syften för D2C-tjänster jämfört med TV Everywhere. För D2C-tjänster representerar den **Genomsnittsindex för tjänst** som i föregående bild. Om du loggar in som programmerare eller MVPD ändras etiketten till **Branschmedelindex**.
+> Den blå indikatorn i det **genomsnittliga delningspoängen som aggregerats för det aktuella segmentet** har olika syften för D2C-tjänster jämfört med TV Everywhere. För D2C-tjänster representerar den **tjänstens genomsnittsindex** enligt föregående bild. Om du loggar in som programmerare eller MVPD ändras etiketten till **Branschmedelindex**.
 
 Följande mått är komponenter i panelen Medeldelningspoäng.
 
@@ -55,7 +56,7 @@ Trend-indikatorn visar den procentuella förändringen i måttets värde från f
 
 ### Användning från delade konton {#usage-from-shared-accounts}
 
-Mätaren visar hur många procent av de delade kontonas användning som finns bland alla abonnentkonton för det definierade segmentet och tidsperioden. Intervallen, som heter Låg, Medel, Hög och Onormal, baseras på branschens medelvärden.
+Mätaren visar hur många procent av de delade kontonas användning som finns bland alla abonnentkonton för det definierade segmentet och tidsperioden. Intervallen, som heter Låg, Medium, Hög och Onormal, baseras på branschens medelvärden.
 
 Trend-indikatorn, som visar en ökning eller minskning av användningen från delade konton jämfört med föregående tidsintervall.
 
@@ -73,15 +74,15 @@ Det ger en poäng som återspeglar den övergripande effekten av delning. Dess s
 ![](assets/overall-sharing-score.png){width="350" align="left"}
 
 
-*Total delning*
+*Samlat delningsresultat*
 
 ## Videokategorier i segment {#video-categories-segment}
 
-Du kan välja kolumnrubrikerna för att sortera data i alla versioner av konto-IQ.
+Du kan välja kolumnrubrikerna för att sortera data i alla versioner av Account IQ.
 
 +++D2C-tjänster: Segmentregioner
 
-När du loggar in som en D2C-tjänst **Segmentregioner** tabellen ger en jämförande bild av de olika aggregerade delningspoängen för [videokategorier](/help/accountiq/product-concepts.md#video-category-def) i aktuellt segment.
+När du loggar in som en D2C-tjänst ger **Regioner i segmenttabellen** en jämförande bild av de olika aggregerade delningsresultaten för [videokategorierna](/help/accountiq/product-concepts.md#video-category-def) i det aktuella segmentet.
 
 ![](assets/sharing-scores-by-regions-in-segment.png)
 
@@ -89,33 +90,33 @@ När du loggar in som en D2C-tjänst **Segmentregioner** tabellen ger en jämfö
 
 >[!NOTE]
 >
-> The [videokategorier](product-concepts.md#video-category-def)  som visas i föregående bild, till exempel **Regioner** in segment är bara ett exempel. När du loggar in på konto-IQ visas företagets specifika videokategori på den här panelen.
+> De [videokategorier](product-concepts.md#video-category-def) som visas i den föregående bilden, till exempel **Områden** i segmentet, är bara ett exempel. När du loggar in på Account IQ visas företagets specifika videokategori på den här panelen.
 
-Välj **Exportera** om du vill hämta data i en CSV-fil. Läs [hur du exporterar rapporter i datapanelen](/help/accountiq/export-reports.md).
+Välj **Exportera** om du vill hämta data i en CSV-fil. Lär dig [hur du exporterar datapanelrapporter](/help/accountiq/export-reports.md).
 
 +++
 
 +++Programmerare: MVPD i segment
 
-När du loggar in som programmerare **MVPD i segment** tabellen ger en jämförande bild av de olika aggregerade delningspoängen för de avancerade programmeringsversionerna i det aktuella segmentet.
+När du loggar in som programmerare ger **MVPD i segmenttabellen** en jämförande vy över de olika aggregerade delningspoängen för MVPD i det aktuella segmentet.
 
 ![](assets/sharing-scores-by-mvpds-in-segment.png)
 
-Välj **Exportera** om du vill hämta data i en CSV-fil. Läs [hur du exporterar rapporter i datapanelen](/help/accountiq/export-reports.md).
+Välj **Exportera** om du vill hämta data i en CSV-fil. Lär dig [hur du exporterar datapanelrapporter](/help/accountiq/export-reports.md).
 
 +++
 
 +++MVPDs: Programmerare i segment
 
-När du loggar in som en MVPD-fil **Programmerare i segment** tabellen ger en jämförande bild av de olika aggregerade delningspoängen för programmerarna i det aktuella segmentet.
+När du loggar in som ett MVPD-program ger **Programmerare i segmenttabellen** en jämförande bild av de olika aggregerade delningsresultaten för Programmerarna i det aktuella segmentet.
 
 Markera kolumnrubrikerna för att sortera data.
 
 ![](assets/sharing-scores-by-programmers-in-segment.png)
 
-*Dela bakgrundsmusik med programmerare i segment*
+*Dela bakgrundsmusik efter programmerare i segment*
 
-Välj **Exportera** om du vill hämta data i en CSV-fil. Läs [hur du exporterar rapporter i datapanelen](/help/accountiq/export-reports.md).
+Välj **Exportera** om du vill hämta data i en CSV-fil. Lär dig [hur du exporterar datapanelrapporter](/help/accountiq/export-reports.md).
 
 +++
 
@@ -128,11 +129,11 @@ Markera kolumnrubrikerna för att sortera data.
 ![](assets/sharing-scores-by-channels-mvpds.png)
 
 
-*Dela bakgrundsmusik per kanal och videoprogrammerare*
+*Dela bakgrundsmusik via kanaler och MVPD*
 
 ## Sannolikhet för kontodelning {#accounts-sharing-probability}
 
-Diagrammet delas upp i olika sannolikhetsintervall, från mycket låga (0-20 %) till mycket höga (80-100 %). Läs mer om [Sannolikhet för kontodelning](#accounts-sharing-probability).
+Diagrammet delas upp i olika sannolikhetsintervall, från mycket låga (0-20 %) till mycket höga (80-100 %). Läs mer om intervallen för [Sannolikhet för kontodelning](#accounts-sharing-probability).
 
 >[!NOTE]
 >
@@ -147,11 +148,10 @@ Diagrammet delas upp i olika sannolikhetsintervall, från mycket låga (0-20 %) 
 
 ## Antal konton och användning genom att dela sannolikhetsnivå {#number-of-accounts-usage-sharing-probability}
 
-Den här panelen ger en tabellvy över konton som är uppdelade i intervall med troliga quinles för delning, från mycket låg (0-20 %) till mycket hög (80-100 %), med varje quintiles associerade användning från delade konton. Läs mer om [Sannolikhet för kontodelning](#accounts-sharing-probability).
+Den här panelen ger en tabellvy över konton som är uppdelade i intervall med troliga quinles för delning, från mycket låg (0-20 %) till mycket hög (80-100 %), med varje quintiles associerade användning från delade konton. Läs mer om intervallen för [Sannolikhet för kontodelning](#accounts-sharing-probability).
 
 ![](assets/no-acc-usage-prob-level.png)
 
 *Antal konton, trender och användningar inom olika sannolikhetsintervall*
 
-Välj **Exportera** om du vill hämta data i en CSV-fil. Läs [hur du exporterar rapporter i datapanelen](/help/accountiq/export-reports.md).
-
+Välj **Exportera** om du vill hämta data i en CSV-fil. Lär dig [hur du exporterar datapanelrapporter](/help/accountiq/export-reports.md).

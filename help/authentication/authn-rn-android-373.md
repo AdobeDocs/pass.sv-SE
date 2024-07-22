@@ -1,14 +1,15 @@
 ---
-title: Versionsinformation om Adobe Pass-autentisering Android 3.7.3
-description: Versionsinformation om Adobe Pass-autentisering Android 3.7.3
-source-git-commit: 284ae59837fd42bc6b711b3041eb6b7ef79aaed3
+title: Adobe Pass Authentication Android 3.7.3 Release Notes
+description: Adobe Pass Authentication Android 3.7.3 Release Notes
+exl-id: f335357e-c209-428d-af2a-2181551447d4
+source-git-commit: f30b6814b8a77424c13337d44d7b247105e0bfe2
 workflow-type: tm+mt
-source-wordcount: '141'
+source-wordcount: '146'
 ht-degree: 0%
 
 ---
 
-# Versionsinformation om Adobe Pass-autentisering Android 3.7.3 {#android-sdk-373-release-notes}
+# Adobe Pass Authentication Android 3.7.3 Release Notes {#android-sdk-373-release-notes}
 
 >[!NOTE]
 >
@@ -26,8 +27,8 @@ Releasedatum: 2023-09-19
 
 ## Versionsöversikt {#overview-android-sdk-373}
 
-* Ändringar av stöd för Android 14 och program med API-nivå 34 som mål
-   * Lägg till flagga som krävs av [Android 14-runtime-registrerade sändningsmottagare](https://developer.android.com/about/versions/14/behavior-changes-14#runtime-receivers-exported).
+* Ändringar som har stöd för Android 14 och program som riktar sig till API-nivå 34
+   * Flagga som krävs av [Android 14 körningsregistrerade sändningsmottagare](https://developer.android.com/about/versions/14/behavior-changes-14#runtime-receivers-exported).
 * Åtgärda ChromeCustomTabs som inte öppnas för MVPD-inloggning i emulator-API:t 32+
    * Obs! En lösning på problemet med SDK &lt;3.7.3 är att öppna Chrome-appen på emulatorn och slutföra konfigurationen innan du försöker göra en MVPD-inloggning
 

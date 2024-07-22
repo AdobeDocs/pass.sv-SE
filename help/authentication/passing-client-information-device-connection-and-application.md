@@ -4,7 +4,7 @@ description: Skicka klientinformation (enhet, anslutning och program)
 exl-id: 0b21ef0e-c169-48ff-ac01-25411cfece1e
 source-git-commit: 59672b44074c472094ed27a23d6bfbcd7654c901
 workflow-type: tm+mt
-source-wordcount: '1681'
+source-wordcount: '1643'
 ht-degree: 0%
 
 ---
@@ -31,31 +31,31 @@ Fördelarna med att tillhandahålla kundinformation är:
 
 Klientinformationen består av:
 
-* **Enhet** information om de maskin- och programvaruattribut som finns på den enhet från vilken användaren försöker använda programmerarinnehållet.
+* **Enhet** information om maskinvaru- och programvaruattributen för enheten som användaren försöker använda programmerarinnehållet från.
 * **Anslutning** information om anslutningsattributen för den enhet från vilken användaren ansluter till Adobe Pass autentiseringstjänster och/eller programmeringstjänster (t.ex. server-till-server-implementeringar).
-* **Program** information om det registrerade programmet från vilket användaren försöker förbruka programmerarinnehållet.
+* **Program** information om det registrerade programmet som användaren försöker använda programmerarinnehållet från.
 
 Klientinformationen är ett JSON-objekt som skapats med nycklar som presenteras i följande tabell.
 
 >[!NOTE]
 >
->Följande **tangenter** är **obligatoriskt** som ska skickas i JSON-objektet för klientinformation: **modell**, **osName**.
+>Följande **nycklar** är **obligatoriska** som ska skickas i JSON-objektet för klientinformation: **model**, **osName**.
 >
->Följande tangenter har **begränsad** värden: `primaryHardwareType`, `osName`, `osFamily`, `browserName`, `browserVendor`, `connectionSecure`.
+>Följande tangenter har **begränsade** värden: `primaryHardwareType`, `osName`, `osFamily`, `browserName`, `browserVendor`, `connectionSecure`.
 
 |   | Nyckel | Begränsad | Beskrivning | Möjliga värden |
 |---|---|---|---|---|
-|            | primärHardwareType | # Ja | Enhetens primära maskinvarutyp. | # The values are restricted: Camera DataCollectionTerminal Desktop EmbeddedNetworkModule eReader GamesConsole GeolocationTracker Glasses MediaPlayer MobilePhone PaymentTerminal PluginModem SetTopBox TV Tablet WirelessHotspot-färgkarta okänd |
+|            | primärHardwareType | # Ja | Enhetens primära maskinvarutyp. | # Värdena är begränsade:                                                                     Kamera                                                      DataCollectionTerminal                                                      Skrivbord                                                      EmbeddedNetworkModule                                                      eReader                                                      GamesConsole                                                      GeolocationTracker                                                      Glasögon                                                      MediaPlayer                                                      MobilePhone                                                      PaymentTerminal                                                      PluginModem                                                      SetTopBox                                                      TV                                                      Tablet                                                      WirelessHotspot                                                      Armur                                                      Okänd |
 | #mandatory | modell | Nej | Enhetens modellnamn. | t.ex. iPhone, SM-G930V, AppleTV osv. |
 |            | version | Nej | Enhetens version. | t.ex. 2.0.1 osv. |
 |            | tillverkare | Nej | Enhetens tillverkningsföretag/organisation. | t.ex. Samsung, LG, ZTE, Huawei, Motorola, Apple osv. |
 |            | leverantör | Nej | Enhetens säljande företag/organisation. | t.ex. Apple, Samsung, LG, Google osv. |
-| #mandatory | osName | # Ja | Enhetens operativsystemnamn. | # Värdena är begränsade: Android Chrome OS Linux Mac OS X OpenBSD Roku OS Windows iOS tvOS webOS |
-|            | osFamily | Ja | Enhetens operativsystemsgruppnamn. | # Värdena är begränsade: Android BSD Linux PlayStation OS Roku OS Symbian Tizen Windows iOS macOS tvOS webOS |
-|            | osVendor | Nej | Enhetens operativsystemsleverantör. | Amazon Apple Google LG Microsoft Mozilla Nintendo Nokia Roku Samsung Sony Tizen Project |
+| #mandatory | osName | # Ja | Enhetens operativsystemnamn. | # Värdena är begränsade:                                                   Android                   CHROME OS                   Linux                   MAC OS                   OS X                   OpenBSD                   Roku OS                   Windows                   iOS                   tvOS                   webOS |
+|            | osFamily | Ja | Enhetens operativsystemsgruppnamn. | # Värdena är begränsade:                                                   Android                   BSD                   Linux                   PlayStation OS                   Roku OS                   Symbian                   Tizen                   Windows                   iOS                   macOS                   tvOS                   webOS |
+|            | osVendor | Nej | Enhetens operativsystemsleverantör. | Amazon                   Apple                   Google                   LG                   Microsoft                   Mozilla                   Nintendo                   Nokia                   Roku                   Samsung                   Sony                   Tizen Project |
 |            | osVersion | Nej | Enhetens operativsystemversion. | t.ex. 10.2, 9.0.1 osv. |
-|            | browserName | # Ja | Webbläsarens namn. | # The values are limited: Android Browser Chrome Edge Firefox Internet Explorer Opera Safari SeaMonkey Symbian Browser |
-|            | browserVendor | # Ja | Webbläsarens byggföretag/organisation. | # The values are restricted: Amazon Apple Google Microsoft Motorola Mozilla Netscape Nintendo Nokia Samsung Sony Ericsson |
+|            | browserName | # Ja | Webbläsarens namn. | # Värdena är begränsade:                                                   Android Browser                   Chrome                   Edge                   Firefox                   Internet Explorer                   Opera                   Safari                   SeaMonkey                   Symbian Browser |
+|            | browserVendor | # Ja | Webbläsarens byggföretag/organisation. | # Värdena är begränsade:                                                   Amazon                   Apple                   Google                   Microsoft                   Motorola                   Mozilla                   Netscape                   Nintendo                   Nokia                   Samsung                   Sony Ericsson |
 |            | browserVersion | Nej | Enhetens webbläsarversion. | Exempel: 60.0.3112 |
 |            | userAgent | Nej | Enhetens användaragent. | Exempel: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/602.4.8 (KHTML, t.ex. Gecko) Version/10.0.3 Safari/602.4.8 |
 |            | displayWidth | Nej | Enhetens fysiska skärmbredd. |                                                                                                                                                                                                                                                                                                                                                           |
@@ -65,7 +65,7 @@ Klientinformationen är ett JSON-objekt som skapats med nycklar som presenteras 
 |            | connectionIp | Nej | Enhetens IP som används för att skicka HTTP-begäranden. | t.ex. 8.8.4.4 |
 |            | connectionPort | Nej | Enhetens port som används för att skicka HTTP-begäranden. | till exempel 53124 |
 |            | connectionType | Nej | Nätverksanslutningstypen. | t.ex. WiFi, LAN, 3G, 4G, 5G |
-|            | connectionSecure | # Ja | Säkerhetsstatus för nätverksanslutning. | # Värdena är begränsade: true - om det är ett säkert nätverk som är false - om det är en offentlig aktiv punkt |
+|            | connectionSecure | # Ja | Säkerhetsstatus för nätverksanslutning. | # Värdena är begränsade:                                                   true - om det är ett säkert nätverk                   false - om det är en offentlig aktiv punkt |
 |            | applicationId | Nej | Programmets unika identifierare. | t.ex. CNN |
 
 ## API-referenser {#api-ref}
@@ -76,52 +76,52 @@ I det här avsnittet presenteras det API som hanterar klientinformation när du 
 
 Adobe Pass autentiseringstjänster har stöd för att ta emot klientinformationen på följande sätt:
 
-* Som en **header: &quot;X-Device-Info&quot;**
+* Som ett **huvud: &quot;X-Device-Info&quot;**
 * Som en **frågeparameter: &quot;device_info&quot;**
 * Som en **post-parameter: &quot;device_info&quot;**
 
 >[!IMPORTANT]
 >
->I alla tre scenarierna måste rubrikens eller parameterns nyttolast vara **Base64-kodad och URL-kodad**.
+>I alla tre scenarierna måste nyttolasten för huvudet eller parametern vara **Base64-kodad och URL-kodad**.
 
 **SDK**
 
 #### JavaScript SDK {#js-sdk}
 
-AccessEnabler JavaScript SDK skapar som standard ett JSON-objekt för klientinformation, som skickas till Adobe Pass Authentication Services, om det inte åsidosätts.
+AccessEnabler JavaScript SDK skapar som standard ett JSON-objekt för klientinformation, som skickas till Adobe Pass autentiseringstjänster, om det inte åsidosätts.
 
-JavaScript SDK för AccessEnabler har stöd för **åsidosätta endast** nyckeln &quot;applicationId&quot; från JSON-objektet för klientinformation via [setRequestor](/help/authentication/javascript-sdk-api-reference.md#setrequestor(inRequestorID,endpoints,options))&#39;s *applicationId* options-parameter.
+AccessEnabler JavaScript SDK har stöd för **att endast** åsidosätta nyckeln &quot;applicationId&quot; från JSON-objektet för klientinformation via alternativparametern [setRequestor](/help/authentication/javascript-sdk-api-reference.md#setrequestor(inRequestorID,endpoints,options)) för *applicationId*.
 
 >[!CAUTION]
 >
->The `applicationId` parametervärdet måste vara ett oformaterat textsträngsvärde.
->Om programmerarprogrammet beslutar att skicka applicationId, kommer resten av klientinformationsnycklarna fortfarande att beräknas av AccessEnabler JavaScript SDK.
+>Parametervärdet `applicationId` måste vara ett vanligt textsträngsvärde.
+>Om programmerarprogrammet beslutar att godkänna applicationId, kommer resten av klientinformationsnycklarna fortfarande att beräknas av AccessEnabler JavaScript SDK.
 
 #### iOS/tvOS SDK {#ios-tvos-sdk}
 
 AccessEnabler iOS/tvOS SDK skapar som standard ett JSON-objekt för klientinformation, som skickas till Adobe Pass autentiseringstjänster, om det inte åsidosätts.
 
-AccessEnabler iOS/tvOS SDK stöder **åsidosätta hela** JSON-objekt för klientinformation via [setOptions](/help/authentication/iostvos-sdk-api-reference.md#setoptions)&#39;s device_info parameter.
+AccessEnabler iOS/tvOS SDK har stöd för **åsidosättning av JSON-objektet för hela**-klientinformationen via parametern device_info i [setOptions](/help/authentication/iostvos-sdk-api-reference.md#setoptions).
 
 >[!CAUTION]
 >
->The *device_info* parametervärdet måste vara ett **Base64-kodad** *NSString* värde.
+>Parametervärdet *device_info* måste vara ett **Base64-kodat** *NSString* -värde.
 >
->Om Programmer-programmet beslutar att godkänna *device_info*, åsidosätts alla klientinformationsnycklar som beräknas av AccessEnabler iOS/tvOS SDK. Därför är det mycket viktigt att beräkna och skicka värdena för så många tangenter som möjligt. Mer information om implementeringen finns i [Ökning](#pass-client-info-overview) tabellen och [iOS/tvOS cookbook](#ios-tvos).
+>Om programmerarprogrammet beslutar att skicka *device_info* åsidosätts alla klientinformationsnycklar som beräknas av AccessEnabler iOS/tvOS SDK. Därför är det mycket viktigt att beräkna och skicka värdena för så många tangenter som möjligt. Mer information om implementeringen finns i tabellen [Översikt](#pass-client-info-overview) och i [iOS/tvOS-cookbook](#ios-tvos).
 
 #### Android/FireOS SDK {#and-fire-os-sdk}
 
-The `AccessEnabler` Android/FireOS SDK skapar som standard ett JSON-objekt för klientinformation, som skickas till Adobe Pass autentiseringstjänster, om det inte åsidosätts.
+Android/FireOS SDK (`AccessEnabler`) skapar som standard ett JSON-objekt för klientinformation, som skickas till Adobe Pass autentiseringstjänster, om det inte åsidosätts.
 
-The `AccessEnabler` Android/FireOS SDK stöder **åsidosätta hela** JSON-objekt för klientinformation via [setOptions](/help/authentication/android-sdk-api-reference.md#setOptions)s/[setOptions](/help/authentication/amazon-fireos-native-client-api-reference.md#fire_setOption)&#39;s `device_info` parameter.
+Android/FireOS SDK `AccessEnabler` har stöd för **åsidosättning av JSON-objektet för hela**-klientinformationen via [setOptions](/help/authentication/android-sdk-api-reference.md#setOptions)s/[setOptions](/help/authentication/amazon-fireos-native-client-api-reference.md#fire_setOption)s `device_info` -parameter.
 
 >[!NOTE]
 >
->The `device_info` parametervärdet måste vara ett **Base64-kodad** Strängvärde.
+>Parametervärdet `device_info` måste vara ett **Base64-kodat**-strängvärde.
 
 >[!IMPORTANT]
 >
->Om Programmer-programmet beslutar att godkänna `device_info`och sedan alla klientinformationsnycklar som beräknas av `AccessEnabler` Android/FireOS SDK åsidosätts. Därför är det mycket viktigt att beräkna och skicka värdena för så många tangenter som möjligt. Mer information om implementeringen finns i [Ökning](#pass-client-info-overview) tabellen och [Android](#android) och [FireOS](#fire-tv) kokbok.
+>Om programmerarprogrammet beslutar att skicka `device_info` åsidosätts alla klientinformationsnycklar som beräknas av `AccessEnabler` Android/FireOS SDK. Därför är det mycket viktigt att beräkna och skicka värdena för så många tangenter som möjligt. Mer information om implementeringen finns i tabellen [Översikt](#pass-client-info-overview) och i cookbook-programmen [Android](#android) och [FireOS](#fire-tv) .
 
 ## Cookbooks {#cookbooks}
 
@@ -129,13 +129,13 @@ I det här avsnittet presenteras en cookbook för att skapa JSON-objekt för kli
 
 >[!IMPORTANT]
 >
->De tangenter som är markerade med  **!** är obligatoriska att skicka.
+>Nycklarna som är markerade med **!** måste skickas.
 
 ### Android {#android}
 
 Enhetsinformationen kan utformas på följande sätt:
 
-|   | Nyckel | Källa | Värde (exempel) |
+|   | Nyckel | Source | Värde (exempel) |
 |---|---------------|-----------------------------|---------------|
 | ! | modell | Build.MODEL | GT-I9505 |
 |   | leverantör | Build.BRAND | samsung |
@@ -148,20 +148,20 @@ Enhetsinformationen kan utformas på följande sätt:
 
 Anslutningsinformationen kan utformas på följande sätt:
 
-|   | Nyckel | Källa | Värde (exempel) |
+|   | Nyckel | Source | Värde (exempel) |
 |---|---|---|---|
 | ! | connectionType | `<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>` `getSystemService(Context.CONNECTIVITY_SERVICE).getActiveNetworkInfo().getType()` | `"WIFI","BLUETOOTH","MOBILE","ETHERNET","VPN","DUMMY","MOBILE_DUN","WIMAX","notAccessible"` |
 |   | connectionSecure |                                                                                                                                                           |                                                                                           |
 
 Programinformationen kan utformas på följande sätt:
 
-|   | Nyckel | Källa | Värde (exempel) |
+|   | Nyckel | Source | Värde (exempel) |
 |---|---------------|-----------|--------------|
 |   | applicationId | hårdkodad | CNN |
 
 >[!IMPORTANT]
 >
-Information om enheten, anslutningen och programmet måste läggas till i samma JSON-objekt. Efteråt måste det resulterande objektet **Base64-kodad**. För Adobe Pass Authentication REST API:er måste värdet dessutom vara **URL-kodad**.
+Information om enheten, anslutningen och programmet måste läggas till i samma JSON-objekt. Efteråt måste det resulterande objektet vara **Base64-kodat**. För Adobe Pass Authentication REST API:er måste värdet dessutom vara **URL-kodat**.
 
 **Exempelkod**
 
@@ -241,13 +241,13 @@ private JSONObject computeClientInformation() {
 >[!NOTE]
 >
 **Resurser:**
-* public, klass [bygg](https://developer.android.com/reference/android/os/Build.html){target=_blank} i dokumentationen för Java-utvecklare.
+* den offentliga klassen [build](https://developer.android.com/reference/android/os/Build.html){target=_blank} i Java-utvecklarens dokumentation.
 
 ### FireTV {#fire-tv}
 
 Enhetsinformationen kan utformas på följande sätt:
 
-|   | Nyckel | Källa | Värde (till exempel) |
+|   | Nyckel | Source | Värde (till exempel) |
 |---|---------------|-----------------------------|--------------|
 | ! | modell | Build.MODEL | AFTM |
 |   | leverantör | Build.BRAND | Amazon |
@@ -260,32 +260,32 @@ Enhetsinformationen kan utformas på följande sätt:
 
 Anslutningsinformationen kan utformas på följande sätt:
 
-|   | Nyckel | Källa | Värde (exempel) |
+|   | Nyckel | Source | Värde (exempel) |
 |---|------------------|--------|---------------|
 | ! | connectionType |        |               |
 |   | connectionSecure |        |               |
 
 Programinformationen kan utformas på följande sätt:
 
-|   | Nyckel | Källa | Värde (exempel) |
+|   | Nyckel | Source | Värde (exempel) |
 |---|---------------|-----------|--------------|
 |   | applicationId | hårdkodad | CNN |
 
 >[!IMPORTANT]
 >
-Information om enheten, anslutningen och programmet måste läggas till i samma JSON-objekt. Efteråt måste det resulterande objektet **Base64-kodad**. För Adobe Pass Authentication REST API:er måste värdet dessutom vara **URL-kodad**.
+Information om enheten, anslutningen och programmet måste läggas till i samma JSON-objekt. Efteråt måste det resulterande objektet vara **Base64-kodat**. För Adobe Pass Authentication REST API:er måste värdet dessutom vara **URL-kodat**.
 
 >[!NOTE]
 >
 **Resurser:**
-* public, klass [Bygge](https://developer.android.com/reference/android/os/Build.html){target=_blank} i dokumentationen för Android-utvecklare.
+* den offentliga klassen [Build](https://developer.android.com/reference/android/os/Build.html){target=_blank} i dokumentationen för Android-utvecklare.
 * [Identifiera FireTV-enheter](https://developer.amazon.com/docs/fire-tv/identify-amazon-fire-tv-devices.html){target=_blank}
 
 ### iOS/tvOS {#ios-tvos}
 
 Enhetsinformationen kan utformas på följande sätt:
 
-|   | Nyckel | Källa | Värde (exempel) |
+|   | Nyckel | Source | Värde (exempel) |
 |---|---------------|------------------------|--------------|
 | ! | modell | uname.machine | iPhone |
 |   | leverantör | hårdkodad | Apple |
@@ -294,19 +294,19 @@ Enhetsinformationen kan utformas på följande sätt:
 |   | displayWidth | UIScreen.mainScreen | 320 |
 |   | displayHeight | UIScreen.mainScreen | 568 |
 | ! | osName | UIDevice.systemName | iOS |
-| ! | osVersion | UIDevice.systemVersion | 10.2 |
+| ! | osVersion | UIDevice.systemVersion | 10,2 |
 
 Anslutningsinformationen kan utformas på följande sätt:
 
-|   | Nyckel | Källa | Värde (exempel) |
+|   | Nyckel | Source | Värde (exempel) |
 |---|------------------|-------------------------------------------|--------------|
-| ! | connectionType | [Tillgänglighet currentReachabilityStatus] |              |
+| ! | connectionType | [Nyttjbarhet currentReachabilityStatus] |              |
 |   | connectionSecure |                                           |              |
 
 
 Programinformationen kan utformas på följande sätt:
 
-|   | Nyckel | Källa | Värde (exempel) |
+|   | Nyckel | Source | Värde (exempel) |
 |---|---------------|-----------|--------------|
 |   | applicationId | hårdkodad | CNN |
 
@@ -393,7 +393,7 @@ Information om enheten, anslutningen och programmet måste läggas till i samma 
 
 Enhetsinformationen kan utformas på följande sätt:
 
-| Nyckel | Källa | Värde (exempel) |                 |
+| Nyckel | Source | Värde (exempel) |                 |
 |-----|---------------|--------------------------------------------|-----------------|
 | ! | modell | hårdkodad | &quot;Roku&quot; |
 |     | leverantör | ifDeviceInfo.GetModelDetails().VendorName | &quot;Sharp&quot;, &quot;Roku&quot; |
@@ -406,20 +406,20 @@ Enhetsinformationen kan utformas på följande sätt:
 
 Anslutningsinformationen kan utformas på följande sätt:
 
-|   | Nyckel | Källa | Värde (exempel) |
+|   | Nyckel | Source | Värde (exempel) |
 |---|---|---|---|
 | ! | connectionType | ifDeviceInfo.GetConnectionType() | &quot;WifiConnection&quot;, &quot;WiredConnection&quot; |
 |   | connectionSecure | hårdkodad | true om anslutningen är kopplad |
 
 Programinformationen kan utformas på följande sätt:
 
-|   | Nyckel | Källa | Värde (exempel) |
+|   | Nyckel | Source | Värde (exempel) |
 |---|---------------|-----------|--------------|
 |   | applicationId | hårdkodad | CNN |
 
 >[!IMPORTANT]
 >
-Information om enheten, anslutningen och programmet måste läggas till i samma JSON-objekt. Efteråt måste det resulterande objektet **Base64-kodad**. För Adobe Pass Authentication REST API:er måste värdet också vara URL-kodat.
+Information om enheten, anslutningen och programmet måste läggas till i samma JSON-objekt. Efteråt måste det resulterande objektet vara **Base64-kodat**. För Adobe Pass Authentication REST API:er måste värdet också vara URL-kodat.
 
 >[!NOTE]
 >
@@ -429,7 +429,7 @@ Mer information finns i [ifDeviceInfo](https://developer.roku.com/docs/reference
 
 Enhetsinformationen kan utformas på följande sätt:
 
-|   | Nyckel | Källa | Värde (exempel) |
+|   | Nyckel | Source | Värde (exempel) |
 |---|---|---|---|
 | ! | modell | EasClientDeviceInformation.SystemProductName |                 |
 |   | leverantör | hårdkodad | Microsoft |
@@ -442,22 +442,22 @@ Enhetsinformationen kan utformas på följande sätt:
 
 Anslutningsinformationen kan utformas på följande sätt:
 
-|   | Nyckel | Källa | Exempel |
+|   | Nyckel | Source | Exempel |
 |---|---|---|---|
 | ! | connectionType |                                                   |                   |
 |   | connectionSecure | NetworkAuthenticationType | &quot;Ingen&quot;, &quot;Wpa&quot; etc. |
 
 Programinformationen kan utformas på följande sätt:
 
-| Nyckel | Källa | Värde (exempel) |
+| Nyckel | Source | Värde (exempel) |
 |---|---|---|
 | applicationId | hårdkodad | CNN |
 
 >[!IMPORTANT]
 >
-Information om enheten, anslutningen och programmet måste läggas till i samma JSON-objekt. Efteråt måste det resulterande objektet **Base64-kodad**. För Adobe Pass Authentication REST API:er måste värdet dessutom vara **URL-kodad**.
+Information om enheten, anslutningen och programmet måste läggas till i samma JSON-objekt. Efteråt måste det resulterande objektet vara **Base64-kodat**. För Adobe Pass Authentication REST API:er måste värdet dessutom vara **URL-kodat**.
 
-**Resurs**
+**Resurser**
 
 * [Klassen EasClientDeviceInformation](https://docs.microsoft.com/en-us/uwp/api/windows.security.exchangeactivesyncprovisioning.easclientdeviceinformation?view=winrt-22000)
 * [Klassen DisplayInformation](https://docs.microsoft.com/en-us/uwp/api/windows.graphics.display.displayinformation?view=winrt-22000)

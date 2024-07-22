@@ -15,11 +15,11 @@ ht-degree: 3%
 # Hjälp för Adobe Pass-autentisering {#authentication}
 
 + [Översikt över Adobe Pass-autentisering](home.md)
-+ Adobe Pass Authentication concepts {#authentication-concepts}
++ Adobe Pass-autentiseringskoncept {#authentication-concepts}
    + [Tekniskt papper](technical-paper.md)
    + [Översikt för programmerare](programmer-overview.md)
    + [MVPD - översikt](mvpd-overview.md)
-+ Kickstart-stödlinjer {#kickstart-guides}
++ Kickstartguider {#kickstart-guides}
    + [Programmeraren kickstart](programmer-kickstart-guide.md)
    + [MVPD - startguide](mvpd-kickstart-guide.md)
 + Integreringsguide för programmerare {#programmer-integration-guide}
@@ -32,7 +32,7 @@ ht-degree: 3%
       + [REST API - översikt](rest-api-overview.md)
       + [REST API Cookbook (Server-to-Server)](rest-api-cookbook-servertoserver.md)
       + [REST API Cookbook (klient-till-server)](rest-api-cookbook-clienttoserver.md)
-      + Referens för resterande API {#rest-api-reference}
+      + Återstående API-referens {#rest-api-reference}
          + [REST API-referens](rest-api-reference.md)
          + [Registreringskodförfrågan](registration-code-request.md)
          + [Returregistreringspost](return-registration-record.md)
@@ -67,18 +67,18 @@ ht-degree: 3%
          + [API-referens för iOS/tvOS SDK](iostvos-sdk-api-reference.md)
          + Riktlinjer {#ios-tvos-sdk-guidelines}
             + [iOS/tvOS - programregistrering](iostvos-application-registration.md)
-            + Riktlinjer för migrering {#migration-guidelines}
+            + Migreringsriktlinjer {#migration-guidelines}
                + [Migreringshandbok för iOS/tvOS v3.x](iostvos-v3x-migration-guide.md)
             + [iOS/tvOS Storage Integrity Checks](iostvos-sdk-storage-integrity-checks.md)
          + iOS/tvOS API {#ios-tvos-api}
-            + [Förhandsauktorisera](preauthorize.md)
+            + [Förauktorisera](preauthorize.md)
       + Android SDK {#androidsdk}
          + [Android SDK - översikt](android-sdk-overview.md)
          + [Android SDK Cookbook](android-sdk-cookbook.md)
-         + [Android SDK API-referens](android-sdk-api-reference.md)
+         + [API-referens för Android SDK](android-sdk-api-reference.md)
          + Riktlinjer {#androidguidelines}
-            + [Android-programregistrering](android-application-registration.md)
-            + [Android SDK med registrering av dynamisk klient](android-sdk-with-dynamic-client-registration.md)
+            + [Registrering av Android](android-application-registration.md)
+            + [Android SDK med dynamisk klientregistrering](android-sdk-with-dynamic-client-registration.md)
          + Android API{#androidapi}
             + [Förhandsauktorisera](preauthorize-android.md)
       + Amazon FireOS SDK {#fireossdk}
@@ -90,15 +90,15 @@ ht-degree: 3%
          + [Amazon FireOS - programregistrering](amazon-fireos-application-registration.md)
          + [FireOS SDK med dynamisk klientregistrering](fireos-sdk-with-dynamic-client-registration.md)
    + Plattforms-SSO {#platform-sso}
-      + APPLE SSO {#apple-sso}
+      + Apple SSO {#apple-sso}
          + [Apple SSO - översikt](apple-sso-overview.md)
          + [Apple SSO Cookbook (REST API)](apple-sso-cookbook-rest-api.md)
          + [Apple SSO Cookbook (iOS/tvOS SDK)](apple-sso-cookbook-iostvos-sdk.md)
       + Roku SSO {#roku-sso}
          + [Roku SSO](roku-sso-overview.md)
-   + Metadata för innehåll {#content-metadata}
+   + Innehållsmetadata {#content-metadata}
       + [Identifierar skyddad resurs](identify-protected-resources.md)
-   + Integrering med innehållsserver {#content-serv-int}
+   + Integrering av innehållsserver {#content-serv-int}
       + [Integrera Media Token Verifier](media-token-verifier-int.md)
    + Tillägg {#appendices}
       + [Felsökningstips](appendix-b-debugging-tips.md)
@@ -115,8 +115,8 @@ ht-degree: 3%
    + [Integrering av MVPD SAML-proxy](proxy-mvpd-saml-int.md)
    + [Tjänstleverantörsomfång](serv-provider-scoping.md)
    + [MVPD tillåter IP-adresser](mvpd-listing-ip-addres.md)
-+ Adobe Pass autentiseringsfunktioner {#auth-features}
-   + Integrering med Adobe Analytics {#analytics-int}
++ Adobe Pass-autentiseringsfunktioner {#auth-features}
+   + Adobe Analytics-integrering {#analytics-int}
       + [Integrera data på serversidan för Adobe Pass Authentication i Adobe Analytics](integrate-authn-servr-data-analytics.md)
       + [Använda Experience Cloud-ID i Adobe Pass-autentisering](exp-cloud-id-authn.md)
    + Tillståndsövervakning {#entitlement-service-monitoring}
@@ -136,19 +136,19 @@ ht-degree: 3%
    + Användarmetadata {#user-metadat}
       + [Användarmetadata](user-metadata-feature.md)
    + [Preflight-behörighet](preflight-authz.md)
-   + Felrapportering {#error-reportn}
+   + Fel vid rapportering av {#error-reportn}
       + [Felrapportering](error-reporting.md)
       + [Förbättrade felkoder](enhanced-error-codes.md)
    + Klientregistrering {#client-regn}
       + [Dynamisk klientregistrering](dynamic-client-registration.md)
       + [API för registrering av dynamisk klient](dynamic-client-registration-api.md)
       + [Registreringshantering för dynamisk klient](dynamic-client-registration-management.md)
-   + Försämringstjänst {#degrn-service}
+   + Försämringstjänsten {#degrn-service}
       + [Översikt över API-nedgradering](degradation-api-overview.md)
-   + Integritetsberedskap {#privacy-readiness}
+   + Sekretessberedskap {#privacy-readiness}
       + [Översikt över stöd för Privecy](privacy-supp-overview.md)
       + [Hur man gör en sekretessförfrågan](make-privacy-req.md)
-+ Tips och felsökning {#tips-troubleshoot}
++ Tips och felsökning för {#tips-troubleshoot}
    + [Tillåt PDF-filer i urvalsdialogrutan](allow-mvpd-selectn-dialog.md)
    + [Förhindra att PDF-filer visas i urvalsdialogrutan](prevent-mvpd-selectn-dialog.md)
 + Support {#support}
@@ -167,16 +167,16 @@ ht-degree: 3%
    + [Versionsinformation om Adobe Pass Authentication 2.64](auth-rn-264.md)
    + [Versionskommentarer för Adobe Pass Authentication 2.63](auth-rn-263.md)
    + [Versionsinformation om Adobe Pass Authentication 2.62.1](auth-rn-2621.md)
-   + Versionsinformation för JavaScript SDK  {#release-notes-javascript}
-      + [Versionsinformation om Adobe Pass-autentisering JavaScript 4.7.0](authn-rn-javascript-470.md)
-      + [Versionsinformation om Adobe Pass-autentisering JavaScript 4.6.0](authn-rn-javascript-460.md)
-      + [Versionsinformation om Adobe Pass-autentisering JavaScript 4.4.0](authn-rn-javascript-440.md)
-      + [Versionsinformation om Adobe Pass-autentisering JavaScript 4.2.0](authn-rn-javascript-420.md)
-      + [Versionsinformation om Adobe Pass-autentisering JavaScript 4.1.1](authn-rn-javascript-411.md)
-      + [Versionsinformation om Adobe Pass-autentisering JavaScript 4.1.0](authn-rn-javascript-410.md)
-      + [Versionsinformation om Adobe Pass-autentisering JavaScript 4.0.0](authn-rn-javascript-400.md)
-      + [Versionsinformation om Adobe Pass-autentisering JavaScript 3.5.0](authn-rn-javascript-350.md)
-   + Versionsinformation om iOS/tvOS SDK  {#release-notes-ios}
+   + Versionsinformation för JavaScript SDK {#release-notes-javascript}
+      + [Adobe Pass Authentication JavaScript 4.7.0 Release Notes](authn-rn-javascript-470.md)
+      + [Adobe Pass Authentication JavaScript 4.6.0 Release Notes](authn-rn-javascript-460.md)
+      + [Adobe Pass Authentication JavaScript 4.4.0 Release Notes](authn-rn-javascript-440.md)
+      + [Adobe Pass Authentication JavaScript 4.2.0 Release Notes](authn-rn-javascript-420.md)
+      + [Adobe Pass Authentication JavaScript 4.1.1 Release Notes](authn-rn-javascript-411.md)
+      + [Adobe Pass Authentication JavaScript 4.1.0 Release Notes](authn-rn-javascript-410.md)
+      + [Adobe Pass Authentication JavaScript 4.0.0 Release Notes](authn-rn-javascript-400.md)
+      + [Adobe Pass Authentication JavaScript 3.5.0 Release Notes](authn-rn-javascript-350.md)
+   + Versionsinformation för iOS/tvOS SDK {#release-notes-ios}
       + [Adobe Pass Authentication iOS / tvOS 3.9.2 Release Notes](authn-rn-ios-tvos-392.md)
       + [Adobe Pass Authentication iOS / tvOS 3.8.4 Release Notes](authn-rn-ios-tvos-384.md)
       + [Adobe Pass Authentication iOS / tvOS 3.8.3 Release Notes](authn-rn-ios-tvos-383.md)
@@ -184,16 +184,16 @@ ht-degree: 3%
       + [Adobe Pass Authentication iOS / tvOS 3.8.1 versionsinformation](authn-rn-ios-tvos-381.md)
       + [Adobe Pass Authentication iOS / tvOS 3.7.0 Release Notes](authn-rn-ios-tvos-370.md)
    + Versionsinformation för Android SDK {#release-notes-android}
-      + [Versionsinformation om Adobe Pass-autentisering Android 3.7.3](authn-rn-android-373.md)
-+ Tekniska anteckningar {#tech-notes}
-   + Adobe Pass Authentication SDKs {#primetime-authentication-sdks}
+      + [Adobe Pass Authentication Android 3.7.3 Release Notes](authn-rn-android-373.md)
++ Tech Notes {#tech-notes}
+   + SDK för Adobe Pass-autentisering {#primetime-authentication-sdks}
       + [Frågor och svar om certifikat](certificates-qa.md)
       + JavaScript SDK {#javascript}
          + [Utvärdering av förebyggande av spårning - Apple Safari](tracking-prevention-assessment-apple-safari.md)
          + [Utvärdering av förebyggande av spårning - Google Chrome](tracking-prevention-assessment-google-chrome.md)
          + [Cookies Updates - SameSite and Secure flags](cookies-updates-samesite-and-secure-flags.md)
       + Android SDK {#android}
-         + [Åtkomstaktivera Android SDK enkel inloggning (SSO) i Android 10-program](access-enabler-android-sdk-single-signon-sso-on-android-10-devices.md)
+         + [Aktivera Android SDK enkel inloggning (SSO) i Android 10-appar](access-enabler-android-sdk-single-signon-sso-on-android-10-devices.md)
          + [Adobe Pass Authentication and the Android 6 &quot;Marshmallow&quot; New Permissions Model](adobe-primetime-authentication-and-the-android-6-marshmallow-new-permissions-model.md)
       + iOS/tvOS SDK {#iostvos}
          + [Stöd för WKWebView i iOS SDK 3.1+](wkwebview-support-on-ios-sdk-31.md)
@@ -216,10 +216,10 @@ ht-degree: 3%
    + Användarupplevelse {#user-exp}
       + [Migrera inloggningssidan för MVPD från iFrame till popup-fönster](migr-mvpd-login-iframe-popup.md)
       + [Preflight-funktion: Så här aktiverar, felsöker eller fastställer du problemet](preflight-feature.md)
-   + Verktyg {#tools-and-utilities}
+   + Verktyg och verktyg {#tools-and-utilities}
       + [Använda Charles Proxy](using-charles-proxy.md)
-   + Concepts {#concepts}
-      + [Förstå användar-ID:n](understanding-user-ids.md)
+   + Koncept {#concepts}
+      + [Förstå användar-ID](understanding-user-ids.md)
 + [Användarhandbok för TVE Dashboard](tve-dashboard-user-guide.md)
 + Ny användarhandbok för TVE Dashboard {#user-guide}
    + [Översikt över TVE Dashboard](/help/authentication/tve-dashboard-overview.md)

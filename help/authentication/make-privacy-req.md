@@ -4,7 +4,7 @@ description: Hur man gör en sekretessförfrågan
 exl-id: abb21306-98d6-4899-914a-bdfa85cbd204
 source-git-commit: 59672b44074c472094ed27a23d6bfbcd7654c901
 workflow-type: tm+mt
-source-wordcount: '590'
+source-wordcount: '558'
 ht-degree: 0%
 
 ---
@@ -221,12 +221,12 @@ För en Delete-begäran:
 
 Det finns två sätt för kunder att skicka sekretessförfrågningar till Adobe:
 
-* **manuellt** - genom att använda [Privacy Servicens användargränssnitt](#privacy-service-ui)
-* **automatiskt** - genom att använda [Privacy Services-API](#privacy-service-api)
+* **manuellt** - med [Privacy Servicens användargränssnitt](#privacy-service-ui)
+* **automatiskt** - med [Privacy Service-API](#privacy-service-api)
 
 ### Genom att använda Privacy Servicens användargränssnitt {#privacy-service-ui}
 
-A [komplett självstudiekurs](https://experienceleague.adobe.com/docs/experience-platform/privacy/home.html?lang=en#!api-specification/markdown/narrative/tutorials/privacy_service_tutorial/privacy_service_ui_tutorial.md) om hur du får åtkomst till och använder Privacy Servicens användargränssnitt finns online via Adobe I/O-tjänster. Dessutom kan kunderna använda den här länken för att få tillgång till bibliotek med videoklipp och artiklar om sekretessbestämmelser. Klicka på Adobe Experience Cloud- och GDPR-menyn. Detta öppnar ett antal videofilmer -&quot;GDPR UI How-to&quot; förklarar hur du använder det.
+En [komplett självstudiekurs](https://experienceleague.adobe.com/docs/experience-platform/privacy/home.html?lang=en#!api-specification/markdown/narrative/tutorials/privacy_service_tutorial/privacy_service_ui_tutorial.md) om hur du kommer åt och använder användargränssnittet för Privacy Service finns tillgänglig online via Adobe I/O-tjänster. Dessutom kan kunderna använda den här länken för att få tillgång till bibliotek med videoklipp och artiklar om sekretessbestämmelser. Klicka på Adobe Experience Cloud- och GDPR-menyn. Detta öppnar ett antal videofilmer -&quot;GDPR UI How-to&quot; förklarar hur du använder det.
 
 I användargränssnittet måste kunderna läsa in sina egna IMSOrgID och en JSON som innehåller GDPR begär information för varje produkt.
 
@@ -234,12 +234,12 @@ I användargränssnittet måste kunderna läsa in sina egna IMSOrgID och en JSON
 
 Adobe Experience Platform Privacy Service erbjuder en gemensam, centraliserad lösning för begäran om åtkomst/radering och avanmälan av försäljningsförfrågningar för privata data.
 
-The **Privacy Services-API-dokumentation** behandlar ingående hur en Adobe-kund kan integrera med Adobe API:t.
+**Privacy Service-API-dokumentationen** innehåller detaljerad information om hur en Adobe-kund kan integrera med Adobe API:t.
 
-**Visualisera API-anrop med Postman (en kostnadsfri tredjepartsprogramvara):**
+**Visa API-anrop med Postman (en kostnadsfri tredjepartsprogramvara):**
 
-* [Privacy Service API Postman-samling på GitHub](https://github.com/adobe/experience-platform-postman-samples/blob/master/apis/experience-platform/Privacy%20Service%20API.postman_collection.json)
-* [Videoguide för Postman](https://video.tv.adobe.com/v/28832)
+* [Privacy Service-API Postman-samling på GitHub](https://github.com/adobe/experience-platform-postman-samples/blob/master/apis/experience-platform/Privacy%20Service%20API.postman_collection.json)
+* [Videoguide för att skapa Postman-miljön](https://video.tv.adobe.com/v/28832)
 * [Steg för att importera miljöer och samlingar i Postman](https://learning.postman.com/docs/running-collections/intro-to-collection-runs/)
 
 
@@ -252,8 +252,8 @@ The **Privacy Services-API-dokumentation** behandlar ingående hur en Adobe-kund
 
 **Obligatoriska rubriker:**
 
-* Alla samtal kräver rubriker `Authorization`, `x-gw-ims-org-id`och `x-api-key`. Mer information om hur du hämtar dessa värden finns i **självstudiekurs om autentisering**.
-* Alla begäranden med en nyttolast i begärandetexten (som anrop till POST, PUT och PATCH) måste innehålla rubriken `Content-Type` med värdet `application/json`.
+* Alla anrop kräver rubrikerna `Authorization`, `x-gw-ims-org-id` och `x-api-key`. Mer information om hur du hämtar dessa värden finns i **självstudiekursen för autentisering**.
+* Alla begäranden med en nyttolast i begärandetexten (till exempel anropen POST, PUT och PATCH) måste innehålla huvudet `Content-Type` med värdet `application/json`.
 
 <!--
 

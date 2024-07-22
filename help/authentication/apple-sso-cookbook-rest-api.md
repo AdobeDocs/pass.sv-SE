@@ -4,7 +4,7 @@ description: Apple SSO Cookbook (REST API)
 exl-id: cb27c4b7-bdb4-44a3-8f84-c522a953426f
 source-git-commit: 1b8371a314488335c68c82882c930b7c19aa64ad
 workflow-type: tm+mt
-source-wordcount: '1435'
+source-wordcount: '1344'
 ht-degree: 0%
 
 ---
@@ -19,11 +19,11 @@ ht-degree: 0%
 
 Adobe Pass Authentication REST API har stöd för plattformsautentisering med enkel inloggning (SSO) för slutanvändare av klientprogram som körs på iOS, iPadOS eller tvOS via det vi kallar Apple SSO-arbetsflöde.
 
-Observera att det här dokumentet fungerar som ett tillägg till den befintliga REST API-dokumentationen, som du hittar [här](/help/authentication/rest-api-reference.md).
+Observera att det här dokumentet fungerar som ett tillägg till den befintliga REST API-dokumentationen, som finns [här](/help/authentication/rest-api-reference.md).
 
 ## Cookbooks {#Cookbooks}
 
-För att dra nytta av Apple SSO-användarupplevelse måste ett program integrera [Video Subscriber Account](https://developer.apple.com/documentation/videosubscriberaccount) när det gäller kommunikationen med Adobe Pass Authentication REST API, som utvecklats av Apple, måste programmet följa den tipssekvens som presenteras nedan.
+För att Apple SSO-användarupplevelsen ska fungera måste ett program integrera ramverket [Video Subscriber Account](https://developer.apple.com/documentation/videosubscriberaccount) som utvecklats av Apple, och när det gäller kommunikationen med Adobe Pass Authentication REST API måste det följa de tips som presenteras nedan.
 
 ### Autentisering {#Authentication}
 
@@ -47,24 +47,24 @@ För att dra nytta av Apple SSO-användarupplevelse måste ett program integrera
 
 >[!TIP]
 >
-> **<u>Tips:</u>** Implementera detta via [Adobe Pass-autentisering](/help/authentication/check-authentication-token.md) service.
+> **<u>Tips!</u>** Implementera detta via tjänsten [Adobe Pass Authentication](/help/authentication/check-authentication-token.md).
 
 
 #### Steg:&quot;Är användaren inloggad via plattformens SSO?&quot; {#Is_the_user_logged_in_via_Platform_SSO}
 
 >[!TIP]
 >
-> **<u>Tips:</u>** Implementera detta via [Video Subscriber Account](https://developer.apple.com/documentation/videosubscriberaccount) ramverk.
+> **<u>Tips!</u>** Implementera detta via ramverket [Videoprenumerantkonto](https://developer.apple.com/documentation/videosubscriberaccount).
 
-- Programmet måste då kontrollera [behörighet att komma åt](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanager/1949763-checkaccessstatus) användarens prenumerationsinformation och fortsätt bara om användaren tillåter det.
-- Ansökan måste då lämna in en [förfrågan](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadatarequest) för information om prenumerationskonto.
-- Programmet måste vänta och bearbeta [metadata](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadata) information.
+- Programmet måste kontrollera om användaren har [behörighet att komma åt](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanager/1949763-checkaccessstatus) användarens prenumerationsinformation och fortsätta endast om användaren tillåter det.
+- Programmet måste skicka en [förfrågan](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadatarequest) för prenumerantkontoinformation.
+- Programmet måste vänta och bearbeta [metadata](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadata)-informationen.
 
 
 
 >[!TIP]
 >
-> **<u>Pro Tip:</u>** Följ kodfragmentet och observera kommentarerna.
+> **<u>Pro Tip:</u>** Följ kodfragmentet och observera kommentarerna extra.
 
 ```swift
 ...
@@ -124,29 +124,29 @@ videoSubscriberAccountManager.checkAccessStatus(options: [VSCheckAccessOption.pr
 
 >[!TIP]
 >
-> **<u>Tips:</u>** Implementera detta via [Adobe Pass-autentisering](/help/authentication/provide-mvpd-list.md) service.
+> **<u>Tips!</u>** Implementera detta via tjänsten [Adobe Pass Authentication](/help/authentication/provide-mvpd-list.md).
 
 
 >[!TIP]
 >
-> **<u>Pro Tip:</u>** Observera egenskaperna för MVPD: *`enablePlatformServices`*, *`boardingStatus`*, *`displayInPlatformPicker`*, *`platformMappingId`*, *`requiredMetadataFields`* och lägg märke till kommentarerna i kodfragment från andra steg.
+> **<u>Pro Tip:</u>** Observera MVPD-egenskaperna: *`enablePlatformServices`*, *`boardingStatus`*, *`displayInPlatformPicker`*, *`platformMappingId`*, *`requiredMetadataFields`* och observera de kommentarer som presenteras i kodfragment från andra steg.
 
 #### Steg&quot;Initiera SSO-arbetsflöde för plattformen med Adobe config&quot; {#Initiate_Platform_SSO_workflow_with_Adobe_config}
 
 >[!TIP]
 >
-> **<u>Tips:</u>** Implementera detta via [Video Subscriber Account](https://developer.apple.com/documentation/videosubscriberaccount) ramverk.
+> **<u>Tips!</u>** Implementera detta via ramverket [Videoprenumerantkonto](https://developer.apple.com/documentation/videosubscriberaccount).
 
-- Programmet måste då kontrollera [behörighet att komma åt](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanager/1949763-checkaccessstatus) användarens prenumerationsinformation och fortsätt bara om användaren tillåter det.
-- Ansökan måste innehålla en [delegera](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanagerdelegate) för VSAccountManager.
-- Ansökan måste då lämna in en [förfrågan](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadatarequest) för information om prenumerationskonto.
-- Programmet måste vänta och bearbeta [metadata](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadata) information.
+- Programmet måste kontrollera om användaren har [behörighet att komma åt](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanager/1949763-checkaccessstatus) användarens prenumerationsinformation och fortsätta endast om användaren tillåter det.
+- Programmet måste tillhandahålla [delegate](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanagerdelegate) för VSAccountManager.
+- Programmet måste skicka en [förfrågan](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadatarequest) för prenumerantkontoinformation.
+- Programmet måste vänta och bearbeta [metadata](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadata)-informationen.
 
 
 
 >[!TIP]
 >
-> **<u>Pro Tip:</u>** Följ kodfragmentet och observera kommentarerna.
+> **<u>Pro Tip:</u>** Följ kodfragmentet och observera kommentarerna extra.
 
 
 ```swift
@@ -250,34 +250,34 @@ videoSubscriberAccountManager.checkAccessStatus(options: [VSCheckAccessOption.pr
 
 >[!TIP]
 >
-> **<u>Pro Tip:</u>** Observera kodfragmentet i [&quot;Starta arbetsflödet för enkel inloggning på plattformen med Adobe config&quot;](#Initiate_Platform_SSO_workflow_with_Adobe_config) steg. Användarinloggningen lyckas om *`vsaMetadata!.accountProviderIdentifier`* innehåller ett giltigt värde och det aktuella datumet har inte passerat *`vsaMetadata!.authenticationExpirationDate`* värde.
+> **<u>Pro Tips!</u>** Observera kodfragmentet från [&quot;Starta enkel inloggning för plattformen med Adobe config&quot;](#Initiate_Platform_SSO_workflow_with_Adobe_config) -steget. Användarinloggningen lyckas om *`vsaMetadata!.accountProviderIdentifier`* innehåller ett giltigt värde och det aktuella datumet inte har passerat värdet *`vsaMetadata!.authenticationExpirationDate`*.
 
 #### Steg&quot;Hämta en profilförfrågan från Adobe för det valda MVPD&quot; {#Obtain_a_profile_request_from_Adobe_for_the_selected_MVPD}
 
 >[!TIP]
 >
-> **<u>Tips:</u>** Implementera detta via Adobe Pass Authentication [Profilbegäran](/help/authentication/retrieve-profilerequest.md) service.
+> **<u>Tips!</u>** Implementera detta via tjänsten [Profilbegäran](/help/authentication/retrieve-profilerequest.md) för Adobe Pass-autentisering.
 
 >[!TIP]
 >
-> **<u>Pro Tip:</u>** Observera att den leverantörsidentifierare som hämtas från Video Subscriber Account-ramverket representerar *`platformMappingId`* när det gäller konfigurationen av Adobe Pass-autentisering. Därför måste programmet fastställa egenskapsvärdet för MVPD ID med hjälp av *`platformMappingId`* genom Adobe Pass-autentisering [Ange MVPD-lista](/help/authentication/provide-mvpd-list.md) service.
+> **<u>Pro Tip:</u>** Observera att den provider-identifierare som hämtas från ramverket för videoprenumerantkontot representerar *`platformMappingId`* med avseende på konfigurationen för Adobe Pass-autentisering. Därför måste programmet fastställa MVPD ID-egenskapsvärdet med hjälp av värdet *`platformMappingId`* via tjänsten [Tillhandahåll MVPD-lista](/help/authentication/provide-mvpd-list.md) för Adobe Pass-autentisering.
 
 #### Steg:&quot;Vidarebefordra Adobe-begäran till plattformens SSO för att hämta profilen&quot; {#Forward_the_Adobe_request_to_Platform_SSO_to_obtain_the_profile}
 
 >[!TIP]
 >
-> **<u>Tips:</u>** Implementera detta via [Video Subscriber Account](https://developer.apple.com/documentation/videosubscriberaccount) ramverk.
+> **<u>Tips!</u>** Implementera detta via ramverket [Videoprenumerantkonto](https://developer.apple.com/documentation/videosubscriberaccount).
 
 
-- Programmet måste då kontrollera [behörighet att komma åt](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanager/1949763-checkaccessstatus) användarens prenumerationsinformation och fortsätt bara om användaren tillåter det.
-- Ansökan måste då lämna in en [förfrågan](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadatarequest) för information om prenumerationskonto.
-- Programmet måste vänta och bearbeta [metadata](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadata) information.
+- Programmet måste kontrollera om användaren har [behörighet att komma åt](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanager/1949763-checkaccessstatus) användarens prenumerationsinformation och fortsätta endast om användaren tillåter det.
+- Programmet måste skicka en [förfrågan](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadatarequest) för prenumerantkontoinformation.
+- Programmet måste vänta och bearbeta [metadata](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadata)-informationen.
 
 
 
 >[!TIP]
 >
-> **<u>Pro Tip:</u>** Följ kodfragmentet och observera kommentarerna.
+> **<u>Pro Tip:</u>** Följ kodfragmentet och observera kommentarerna extra.
 
 ```swift
     ...
@@ -347,12 +347,12 @@ videoSubscriberAccountManager.checkAccessStatus(options: [VSCheckAccessOption.pr
 
 >[!TIP]
 >
-> **<u>Tips:</u>** Implementera detta via Adobe Pass Authentication [Tokenutbyte](/help/authentication/token-exchange.md) service.
+> **<u>Tips!</u>** Implementera detta via tjänsten Adobe Pass Authentication [Token Exchange](/help/authentication/token-exchange.md).
 
 
 >[!TIP]
 >
-> **<u>Pro Tip:</u>** Observera kodfragmentet i [&quot;Vidarebefordra Adobe-begäran till enkel inloggning för plattformen för att erhålla profilen&quot;](#Forward_the_Adobe_request_to_Platform_SSO_to_obtain_the_profile) steg. Detta *`vsaMetadata!.samlAttributeQueryResponse!`* representerar *`SAMLResponse`* som måste skickas vidare [Tokenutbyte](/help/authentication/token-exchange.md) och kräver strängändring och kodning (*Base64* kodade och *URL* kodas därefter) innan samtalet görs.
+> **<u>Pro Tips!</u>** Observera kodfragmentet från [&quot;Vidarebefordra Adobe-begäran till plattformsoberoende enkel inloggning för att hämta profilen&quot;](#Forward_the_Adobe_request_to_Platform_SSO_to_obtain_the_profile)-steget. Denna *`vsaMetadata!.samlAttributeQueryResponse!`* representerar *`SAMLResponse`*, som måste skickas på [Token Exchange](/help/authentication/token-exchange.md) och som kräver strängmanipulering och kodning (*Base64*-kodad och *URL*-kodad efteråt) innan anropet görs.
 
 </br>
 
@@ -360,41 +360,41 @@ videoSubscriberAccountManager.checkAccessStatus(options: [VSCheckAccessOption.pr
 
 >[!TIP]
 >
-> **<u>Tips:</u>** Implementera detta via Adobe Pass-autentisering [Tokenutbyte](/help/authentication/token-exchange.md) ett lyckat svar, som *`204 No Content`*, vilket anger att token har skapats och är klar att användas för auktoriseringsflödena.
+> **<u>Tips!</u>** Implementera detta via Adobe Pass-autentiseringen [Token Exchange](/help/authentication/token-exchange.md). Svaret är ett *`204 No Content`* som anger att token har skapats och är klar att användas för auktoriseringsflödena.
 
 </br>
 
 #### Steg:&quot;Initiera ett andra autentiseringsarbetsflöde för skärmen&quot; {#Initiate_second_screen_authentication_workflow}
 
-**Viktigt:** Terminologi för autentisering på andra skärmen är lämplig för AppleTV, medan terminologi för autentisering på första skärmen/för det reguljära autentiseringsarbetsflödet är lämpligare för iPhone och iPad.
+**Viktigt!**&quot;Arbetsflöde för autentisering på andra skärmen&quot; är lämplig för AppleTV-program, medan&quot;Arbetsflöde för autentisering på första skärmen&quot;/&quot;Vanligt autentiseringsarbetsflöde&quot; skulle vara lämpligare för iPhone och iPad.
 
 
 >[!TIP]
 >
-> **<u>Tips:</u>** Implementera detta via Adobe Pass Authentication
+> **<u>Tips!</u>** Implementera detta via Adobe Pass-autentisering
 
-[Registreringskodförfrågan](/help/authentication/registration-code-request.md), [Initiera autentisering](/help/authentication/initiate-authentication.md) och [REST API Retrieve Authentication Token](/help/authentication/retrieve-authentication-token.md) eller [Kontrollera autentiseringstoken](/help/authentication/check-authentication-token.md) tjänster.
+[Registreringskodbegäran](/help/authentication/registration-code-request.md), [Initiera autentisering](/help/authentication/initiate-authentication.md) och [REST API Retrieve Authentication Token](/help/authentication/retrieve-authentication-token.md) eller [Kontrollera autentiseringstoken](/help/authentication/check-authentication-token.md).
 
 
 >[!TIP]
 >
-> **<u>Pro Tip:</u>** Följ stegen nedan för implementeringen/implementeringarna av tvOS.
+> **<u>Pro Tip:</u>** Följ stegen nedan för implementering/implementering av tvOS.
 
-- Ansökan måste [få en registreringskod](/help/authentication/registration-code-request.md) och presentera den för slutanvändaren på den första enheten (skärmen).
-- Programmet måste då starta [avfråga för att bekräfta autentiseringsstatus](/help/authentication/retrieve-authentication-token.md) på den första enheten (skärmen) efter att registreringskoden erhållits.
+- Programmet måste [hämta en registreringskod](/help/authentication/registration-code-request.md) och presentera den för slutanvändaren på den första enheten (skärmen).
+- Programmet måste starta [avsökningen för att bekräfta autentiseringstillståndet](/help/authentication/retrieve-authentication-token.md) på den första enheten (skärmen) när registreringskoden har hämtats.
 - Ett annat program måste [initiera autentisering](/help/authentication/initiate-authentication.md) på en andra enhet (skärm) när registreringskoden används.
-- Programmet måste då sluta [avsökning](/help/authentication/retrieve-authentication-token.md) på den första enheten (skärmen) när autentiseringstoken genereras.
+- Programmet måste stoppa [avsökningen](/help/authentication/retrieve-authentication-token.md) på den första enheten (skärmen) när autentiseringstoken genereras.
 
 
 
 >[!TIP]
 >
-> **<u>Pro Tip:</u>** Följ stegen nedan för implementering/implementering av iOS/iPadOS.
+> **<u>Pro Tips!</u>** Följ stegen nedan för implementering/implementering av iOS/iPadOS.
 
-- Ansökan måste [få en registreringskod](/help/authentication/registration-code-request.md) som inte ska visas för slutanvändaren på den första enheten (skärmen).
-- Ansökan måste [initiera autentisering](/help/authentication/initiate-authentication.md) på den första enheten (skärmen) med registreringskoden och en [WKWebView](https://developer.apple.com/documentation/webkit/wkwebview) eller en [SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) -komponenten.
-- Programmet måste då starta [avfråga för att känna till autentiseringsstatus](/help/authentication/retrieve-authentication-token.md) på den första enheten (skärmen) efter [WKWebView](https://developer.apple.com/documentation/webkit/wkwebview) eller [SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) stängs.
-- Programmet måste då sluta [avsökning](/help/authentication/retrieve-authentication-token.md) på den första enheten (skärmen) när autentiseringstoken genereras.
+- Programmet måste [hämta en registreringskod](/help/authentication/registration-code-request.md) som inte ska visas för slutanvändaren på den första enheten (skärmen).
+- Programmet måste [initiera autentisering](/help/authentication/initiate-authentication.md) på den första enheten (skärmen) med registreringskoden och en [WKWebView](https://developer.apple.com/documentation/webkit/wkwebview) eller en [SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) -komponent.
+- Programmet måste starta [avsökningen för att känna till autentiseringstillståndet](/help/authentication/retrieve-authentication-token.md) på den första enheten (skärmen) när [WKWebView](https://developer.apple.com/documentation/webkit/wkwebview) eller [SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) -komponenten stängs.
+- Programmet måste stoppa [avsökningen](/help/authentication/retrieve-authentication-token.md) på den första enheten (skärmen) när autentiseringstoken genereras.
 
 </br>
 
@@ -402,37 +402,37 @@ videoSubscriberAccountManager.checkAccessStatus(options: [VSCheckAccessOption.pr
 
 >[!TIP]
 >
-> **<u>Tips:</u>** Implementera detta via Adobe Pass Authentication [Initiera auktorisering](/help/authentication/initiate-authorization.md) och [Hämta kort medietoken](/help/authentication/obtain-short-media-token.md) tjänster.
+> **<u>Tips!</u>** Implementera detta via Adobe Pass-autentiseringen [Initiera auktorisering](/help/authentication/initiate-authorization.md) och [Hämta korta medietoken](/help/authentication/obtain-short-media-token.md).
 
 </br>
 
 ### Utloggning {#Logout}
 
-The [Video Subscriber Account](https://developer.apple.com/documentation/videosubscriberaccount) ramverket innehåller inte något API för att programmässigt logga ut personer som har loggat in på sitt TV-leverantörskonto på enhetssystemnivå. För att utloggningen ska få full effekt måste slutanvändaren därför uttryckligen logga ut från *`Settings -> TV Provider`* på iOS/iPadOS eller *`Settings -> Accounts -> TV Provider`* på tvOS. Det andra alternativet som användaren skulle ha möjlighet att återkalla behörigheten att få åtkomst till användarens prenumerationsinformation från det specifika avsnittet för programinställningar (TV-leverantörsåtkomst).
+Ramverket [Video Subscriber Account](https://developer.apple.com/documentation/videosubscriberaccount) innehåller inte något API för att logga ut personer som har loggat in på sitt TV-leverantörskonto på enhetssystemnivå. För att utloggningen ska få full effekt måste slutanvändaren därför uttryckligen logga ut från *`Settings -> TV Provider`* på iOS/iPadOS eller *`Settings -> Accounts -> TV Provider`* på tvOS. Det andra alternativet som användaren skulle ha möjlighet att återkalla behörigheten att få åtkomst till användarens prenumerationsinformation från det specifika avsnittet för programinställningar (TV-leverantörsåtkomst).
 
 >[!TIP]
 >
-> **<u>Tips:</u>** Implementera detta via Adobe Pass Authentication [Anrop av användarmetadata](/help/authentication/user-metadata.md) och [Utloggning](/help/authentication/initiate-logout.md) tjänster.
-
-
->[!TIP]
->
-> **<u>Pro Tip:</u>** Följ stegen nedan för implementeringen/implementeringarna av tvOS.
-
-
-- Programmet måste avgöra om autentiseringen har skett som ett resultat av en inloggning via plattformens SSO eller inte, med hjälp av &quot;*tokenSource&quot;* [användar-metadata](/help/authentication/user-metadata.md) från Adobe Pass autentiseringstjänst.
-- Programmet måste instruera/uppmana användaren att explicit logga ut från *`Settings -> Accounts -> TV Provider`* på tvOS **endast** om *&quot;tokenSource&quot;* värdet är lika med *Apple&quot;.*
-- Ansökan måste [initiera utloggningen](/help/authentication/initiate-logout.md) från tjänsten Adobe Pass Authentication med ett direkt HTTP-anrop. Detta skulle inte underlätta sessionsrensning på MVPD-sidan.
-
+> **<u>Tips!</u>** Implementera detta via Adobe Pass-autentiseringen [Anrop av användarmetadata](/help/authentication/user-metadata.md) och [Logga ut](/help/authentication/initiate-logout.md).
 
 
 >[!TIP]
 >
-> **<u>Pro Tip:</u>** Följ stegen nedan för implementering/implementering av iOS/iPadOS.
+> **<u>Pro Tip:</u>** Följ stegen nedan för implementering/implementering av tvOS.
 
-- Programmet måste avgöra om autentiseringen har skett som ett resultat av en inloggning via plattformens SSO eller inte, med hjälp av &quot;*tokenSource&quot;* [användar-metadata](/help/authentication/user-metadata.md) från Adobe Pass autentiseringstjänst.
-- Programmet måste instruera/uppmana användaren att explicit logga ut från *`Settings -> TV Provider`* på iOS/iPadOS **endast** om *&quot;tokenSource&quot;* värdet är lika med *&quot;Apple&quot;*.
-- Ansökan måste [initiera utloggningen](/help/authentication/initiate-logout.md) från tjänsten Adobe Pass Authentication med en [WKWebView](https://developer.apple.com/documentation/webkit/wkwebview) eller en [SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) -komponenten. Detta underlättar sessionssanering på den mobila dokumentationssidan.
+
+- Programmet måste avgöra om autentiseringen har skett som ett resultat av en inloggning via plattformens SSO eller inte, med hjälp av *tokenSource* [användarens metadata](/help/authentication/user-metadata.md) från Adobe Pass Authentication-tjänsten.
+- Programmet måste instruera/uppmana användaren att explicit logga ut från *`Settings -> Accounts -> TV Provider`* på tvOS **only** om värdet *&quot;tokenSource&quot;* är lika med *Apple&quot;.*
+- Programmet måste [initiera utloggningen](/help/authentication/initiate-logout.md) från Adobe Pass-autentiseringstjänsten med ett direkt HTTP-anrop. Detta skulle inte underlätta sessionsrensning på MVPD-sidan.
+
+
+
+>[!TIP]
+>
+> **<u>Pro Tips!</u>** Följ stegen nedan för implementering/implementering av iOS/iPadOS.
+
+- Programmet måste avgöra om autentiseringen har skett som ett resultat av en inloggning via plattformens SSO eller inte, med hjälp av *tokenSource* [användarens metadata](/help/authentication/user-metadata.md) från Adobe Pass-autentiseringstjänsten.
+- Programmet måste instruera/uppmana användaren att explicit logga ut från *`Settings -> TV Provider`* på iOS/iPadOS **only** om värdet *&quot;tokenSource&quot;* är lika med *&quot;Apple&quot;*.
+- Programmet måste [initiera utloggningen](/help/authentication/initiate-logout.md) från Adobe Pass-autentiseringstjänsten med en [WKWebView](https://developer.apple.com/documentation/webkit/wkwebview) eller en [SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) -komponent. Detta underlättar sessionssanering på den mobila dokumentationssidan.
 
 <!--
 

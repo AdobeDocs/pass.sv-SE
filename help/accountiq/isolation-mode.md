@@ -1,13 +1,13 @@
 ---
 title: Isoleringsläge MVPD
 description: Lär dig mer om programmerare som arbetar med isoleringsläge för videoprogrammerare för TV Everywhere
-source-git-commit: 5639319ce8915f0c33d927ca9554c405b3b2e87d
+exl-id: 7ffe4ce3-e9cb-4382-a421-bb57d1927b53
+source-git-commit: 2bb570ab14a3295d46ee6dc0d38485697d63809c
 workflow-type: tm+mt
 source-wordcount: '502'
 ht-degree: 0%
 
 ---
-
 
 # programmerare för Isoleringsläge för videoprogrammerare för TV Everywhere {#isolation-mode-tve}
 
@@ -21,7 +21,7 @@ Här är ett exempel:
 
 ![](assets/isolation-diff-new.png)
 
-*Isoleringsläge MVPD identifierar fyra olika abonnenter i stället för två*
+*I isoleringsläge-MVPD identifieras fyra olika prenumeranter i stället för två*
 
 * Om en prenumerant B i ett Isolation Mode MVPD (t.ex. Xfinity) får åtkomst till det innehåll som erbjuds av två olika programmerare med samma enhet kopplas olika identifierare till de två olika åtkomstförsöken. Det verkar som om det finns två olika prenumeranter som får åtkomst till programmerarnas innehåll (L och M i figuren).
 
@@ -45,7 +45,7 @@ Systemet arbetar automatiskt i isoleringsläge när det valda segmentet innehål
 >
 > Beteendet i isoleringsläge är inte kompatibelt med standardläget. Isoleringsläge MVPD kan inte blandas med andra MVPD och vice versa.
 
-Om du vill skapa ett segment som analyseras i isoleringsläge drar du Isoleringsläget MVPD, till exempel **Xfinity**, till segmentdefinitionens MVPD-avsnitt.
+Om du vill skapa ett segment som analyseras i isoleringsläge drar du Isoleringsläge MVPD, till exempel **Xfinity**, till avsnittet MVPD-värden i segmentdefinitionen.
 
 >[!NOTE]
 >
@@ -57,7 +57,7 @@ Om du vill skapa ett segment som analyseras i isoleringsläge drar du Isolerings
 
 >[!IMPORTANT]
 >
-> Kontodelning är mer relevant när den mäts för direktuppspelning i alla programmerarens program. Förvänta dig lägre **Dela bakgrundsmusik** och vissa variationer i mätvärdena i isoleringsläge.
+> Kontodelning är mer relevant när den mäts för direktuppspelning i alla programmerarens program. Förväntade lägre **delningspoäng** och vissa variationer i mätvärdena i isoleringsläge.
 
 ![](assets/aggregate-sharing-isolation.png)
 

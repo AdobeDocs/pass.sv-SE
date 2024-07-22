@@ -1,32 +1,32 @@
 ---
 title: Eskaleringsprocedurer för övervakning av samtidig användning
 description: Eskaleringsprocedurer för övervakning av samtidig användning
-source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
+exl-id: eb110465-3a74-489e-a521-0e17f5aeecb8
+source-git-commit: f30b6814b8a77424c13337d44d7b247105e0bfe2
 workflow-type: tm+mt
-source-wordcount: '823'
+source-wordcount: '849'
 ht-degree: 0%
 
 ---
-
 
 # Eskaleringsprocedurer för övervakning av samtidig användning {#esc-procedures}
 
 >[!NOTE]
 >
->Ring hotline: +1-205-693-9813 och skicka ett e-postmeddelande till `tve-support@adobe.com` inklusive&quot;URGENT - INCIDENT&quot; i ämnesraden.
+>Ring hotline: +1-205-693-9813 och skicka ett e-postmeddelande till `tve-support@adobe.com` med&quot;URGENT - INCIDENT&quot; på ärenderaden.
 
 
 ## Introduktion {#cm-escalation-intro}
 
-I det här dokumentet beskrivs supportförfarandena för större incidenter (**ALLVARLIGHET 1** nivå) påverkar Adobe Pass-autentisering, Adobe Pass Concurrency Monitoring och dess partners.
+I det här dokumentet beskrivs supportrutinerna för större incidenter (**SEVERITY 1** -nivå) som påverkar Adobe Pass-autentisering, Adobe Pass Concurrency Monitoring och dess partners.
 
 ## Definition av eskaleringsallvarlighetsgrad 1-nivå {#defn-escl-sevrityone-level}
 
-A **ALLVARLIGHET 1** nivåincident är en **LIVE** situation, **i produktionsmiljön**, som inte tillåter komplettering av autentiserings- och/eller auktoriseringsflödena för en kanal och ett separat programmeringsdokument, vilket påverkar ett stort antal abonnenter av det sidodokument som utför flödet.
+En incident på **ALLVARLIGARE nivå 1** är en **LIVE** -situation, **inträffar i produktionsmiljön**, som inte tillåter att autentiserings- och/eller auktoriseringsflödena för en kanal och en MVPD slutförs, vilket påverkar ett stort antal prenumeranter på det MVPD som utför flödet.
 
 ## Exempel på incidenter med allvarlighetsgrad 1 {#exampl-sevone-incident}
 
-* Produktionsåtkomstfunktionen finns på <http://entitlement.auth.adobe.com/entitlement/AccessEnabler.js> är inte tillgängligt.
+* Aktiveraren för produktionsåtkomst som finns på <http://entitlement.auth.adobe.com/entitlement/AccessEnabler.js> är inte tillgänglig.
 
 * För ett visst MVPD-dokument dirigerar inte längre Adobe om/visar inloggningssidan efter att användaren har valt MVPD (i någon av webbläsarna som stöds).
 
@@ -35,14 +35,14 @@ A **ALLVARLIGHET 1** nivåincident är en **LIVE** situation, **i produktionsmil
 * Under autentiseringsprocessen fastnar användaren på en felsida i Adobe utan möjlighet att återinitiera autentiserings-/auktoriseringsflödet.
 
 
-## Exempel på *NOT* en incident av typen Allvarlighetsgrad 1 {#exampl-not-sev1}
+## Exempel på vad som är *NOT* en allvarlig händelse 1 {#exampl-not-sev1}
 
-*När det gäller frågor av denna typ kommer Adobe att ge stöd för utredningar, men det rör sig inte om incidenter med allvarlighetsgrad 1:*
+*För problem av den här typen ger Adobe stöd för utredningar, men de är inte incidenter av typen Allvarlighetsgrad 1:*
 
 * En eller ett fåtal prenumeranter kan inte utföra flödet på grund av ett problem med Flashens version (Flash saknas, blockering av Flashar, fel Flash).
 * En eller ett fåtal prenumeranter kan inte autentisera sig och finns kvar på inloggningssidan för MVPD.
 * En eller några prenumeranter är autentiserade men kan inte spela upp videor.
-* Ett/ett fåtal/alla prenumeranter påträffar ett JavaScript-fel på Programmer-webbplatsen.
+* Ett/ett fåtal/alla prenumeranter stöter på ett JavaScript-fel på Programmer-webbplatsen.
 
 ## Allvarlighetsgrad 1 Eskaleringsflöden {#sevone-escalation-flows}
 
@@ -66,7 +66,7 @@ Allvarlighetsgrad 1-incidenter kan initieras av Adobe eller en Adobe Pass-autent
    * **1-205-693-9813**
 
 
-**Om du inte tar med&quot;URGENT-INCIDENT&quot; i biljettens titel hämtas den inte upp av vårt meddelandesystem.**
+**Om du inte inkluderar &quot;URGENT-INCIDENT&quot; i biljettens titel hämtas den inte av vårt meddelandesystem.**
 
 ### Adobe initierat flöde {#adobe-initiated-flow}
 
@@ -83,7 +83,7 @@ Allvarlighetsgrad 1-incidenter kan initieras av Adobe eller en Adobe Pass-autent
 
 1. Adobe identifierar ett problem som rör integreringen med ett sidoskydd eller på en av Programmerarens sajter.
 
-1. Adobe meddelar den berörda partnern **följa de stödförfaranden som är i kraft hos den partnern,** och öppnar en biljett med partnerns supportorganisation.
+1. Adobe meddelar den berörda partnern **efter supportrutinerna som gäller för den partnern** och öppnar en biljett till partnerns supportorganisation.
 
 1. Om Adobe under konsekvensanalysen konstaterar att problemet hör till ett av de på förhand överenskomna besluten om incidentscenarier (se avsnittet&quot;Förhandsöverenskomna beslut om incidentscenarier&quot; nedan), kommer det att agera därefter utan att vänta på partnern1. Indata.
 

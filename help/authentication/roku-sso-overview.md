@@ -49,12 +49,12 @@ Programmerarna bör kontrollera att deras nuvarande implementeringar baserade p�
 
 ## Vanliga frågor {#faq}
 
-* **Hur fungerar SSO?**
+* **Hur fungerar enkel inloggning?**
 
   SSO fungerar i alla programmerarprogram som drivs av Adobe Pass Authentication på alla Roku-enheter som är kopplade till samma Roku-användare.
 Roku SSO tillåts inte för alla MVPD-program.
 
-* **Kommer autentiserings-TTL att ändras?**
+* **Kommer autentiserings-TTL:er att ändras?**
 
   Den första giltiga autentiseringstoken används för att utföra enkel inloggning och i det här fallet kommer alla andra program som autentiseras via enkel inloggning att använda samma TTL tills den upphör att gälla. När du navigerar från ett program till ett annat kommer det andra programmet att dela TTL-värdet för det första programmet som autentiseras.
 
@@ -62,6 +62,6 @@ Roku SSO tillåts inte för alla MVPD-program.
 
   Alla Adobe Pass-autentiseringsfunktioner fungerar som tidigare.
 
-* **Finns det någon process för programmerarens deltagande/avanmälan som drar nytta av enkel inloggning på Roku-plattformen?**
+* **Finns det en process för anmälan/avanmälan av programmerare som drar nytta av enkel inloggning på Roku-plattformen?**
 
   Detta kommer att bli en konfigurationsändring i Adobe TV Dashboard. Varje programmerare kan aktivera/inaktivera enkel inloggning på Roku-plattformen för specifika integreringar.

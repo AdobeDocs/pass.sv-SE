@@ -1,13 +1,13 @@
 ---
 title: Implementera CM för en enskild klient/princip och flera program
 description: Implementera CM för en enskild klient/princip och flera program
-source-git-commit: 59672b44074c472094ed27a23d6bfbcd7654c901
+exl-id: 5c579c7d-f235-4dba-95c2-8485021d9065
+source-git-commit: f30b6814b8a77424c13337d44d7b247105e0bfe2
 workflow-type: tm+mt
-source-wordcount: '236'
+source-wordcount: '241'
 ht-degree: 0%
 
 ---
-
 
 # Implementera CM för en enskild klient/princip och flera program {#imp-cm}
 
@@ -29,7 +29,7 @@ Två appar + en webbplats används för att starta strömmar:
 
 1. Användaren startar en ström från iPhone-appen och en ström från iPad-appen. Policyn tillåter detta.
 1. Användaren startar sedan en tredje ström från programmerarens webbplats.
-1. Regeln i principen (max 2 strömmar, senaste vinner) tillåter att den senaste strömmen spelas upp så **den första strömmen som startades markeras som icke-kompatibel med principen och stoppas.**
+1. Regeln i principen (max 2 strömmar, senaste vinner) tillåter att den senaste strömmen spelas upp så **att den första strömmen som startades markeras som icke-kompatibel med principen och stoppas.**
 
 
 

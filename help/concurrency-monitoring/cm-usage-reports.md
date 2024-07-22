@@ -1,13 +1,13 @@
 ---
 title: Användningsrapporter för övervakning av samtidig användning
 description: Användningsrapporter för övervakning av samtidig användning
-source-git-commit: 19ed211c65deaa1fe97ae462065feac9f77afa64
+exl-id: 20220436-e748-4b22-8e7c-e074e0bfe242
+source-git-commit: f30b6814b8a77424c13337d44d7b247105e0bfe2
 workflow-type: tm+mt
-source-wordcount: '723'
+source-wordcount: '757'
 ht-degree: 0%
 
 ---
-
 
 # Användningsrapporter för övervakning av samtidig användning {#cm-usage-reports}
 
@@ -19,11 +19,11 @@ ht-degree: 0%
 
 ## Ökning {#usage-rep-overview}
 
-The **Användningsrapporter för övervakning av samtidig användning** är tillgänglig via ett REST API som ger insikt i den samtidiga användningen enligt vad som rapporterats av kundens program.
+Tjänsten **Concurrency Monitoring Usage Reports** är tillgänglig via ett REST API som ger insikt i den samtidiga användningen som rapporterats av kundens program.
 
 ## Förutsättningar {#usage-rep-prerequisites}
 
-För att få åtkomst till produkten Concurrency Monitoring Usage Reports måste kunden först kontakta Concurrency Monitoring [Supportteam](mailto:tve-support@adobe.com) och de kommer att utföra de åtgärder som krävs för att ge dig tillgång till API-produkten.
+För att få åtkomst till produkten Concurrency Monitoring Usage Reports måste kunden först kontakta [supportteamet](mailto:tve-support@adobe.com) för övervakning av samtidig användning och de kommer att utföra de åtgärder som krävs för att ge dig åtkomst till API-produkten.
 
 ## Allmänna rapportmått och uppdelningar {#general-rep-metrics-breakdown}
 
@@ -68,7 +68,7 @@ För att få åtkomst till produkten Concurrency Monitoring Usage Reports måste
 
 ## Mätvärden och uppdelningar för samtidighetsrapport {#concurrency-reports-metrics-breakdown}
 
-Från och med Concurrency Monitoring version 2.9.0 har vi infört en ny rapport för att förstå samtidig användning: ett histogram för **samtidighetsnivå** och **aktivitetsnivå**.
+Från och med Concurrency Monitoring version 2.9.0 har vi introducerat en ny rapport för att förstå samtidig användning: ett histogram för **concurrency-level** och **activity-level**.
 
 Huvudsyftet med den här rapporten är att hjälpa er att förstå effekten av att fastställa en policy med en viss samtidighetsgräns och att ge er tillräckligt med information för att avgöra om ni bör höja gränsen.
 
@@ -85,6 +85,6 @@ Huvudsyftet med den här rapporten är att hjälpa er att förstå effekten av a
 | år | Det fyrsiffriga året |
 | månad | Månad på året (1-12) |
 | dag | Dag i månaden (1-31) |
-| samtidighetsnivå | Representerar distinkta **dataströmaktivitet som godkändes vid sessionsinitieringsfasen** för att en användare ska kunna se hur många samtidiga strömmar **öppnades** av en användare och förstå effekten av att tillämpa en viss samtidighetsgräns |
-| aktivitetsnivå | Representerar distinkta **direktuppspelningsaktivitet (oavsett status: startad, aktiv, stoppad, avvisad)** för att en användare ska kunna se hur många samtidiga strömmar som öppnats av en användare och förstå effekten av att tillämpa en viss samtidighetsgräns |
+| samtidighetsnivå | Representerar en distinkt **dataströmaktivitet som godkändes vid sessionsinitieringsfasen** för en användare för att kunna se hur många samtidiga strömmar **som öppnades** av en användare och förstå effekten av att tillämpa en viss samtidighetsgräns |
+| aktivitetsnivå | Representerar en distinkt **dataströmaktivitet (oavsett tillstånd: startad, aktiv, stoppad, avvisad)** för en användare för att kunna se hur många samtidiga strömmar som öppnats av en användare och förstå effekten av att tillämpa en viss samtidighetsgräns |
 | mvpd | MVPD-filen som tillhandahålls vid sessionshantering |

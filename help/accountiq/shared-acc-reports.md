@@ -11,7 +11,7 @@ ht-degree: 0%
 
 # Rapporter om delade konton {#shared-accounts-reports}
 
-Rapporterna om delade konton innehåller en annan grupp diagram som återspeglar delningsbeteende och -förbrukning för det aktuella segmentet. Till exempel: **[!UICONTROL Over Moderate Probability]** och **[!UICONTROL Over Low Probability]** för aktuellt segment.
+Rapporterna om delade konton innehåller en annan grupp diagram som återspeglar delningsbeteende och -förbrukning för det aktuella segmentet. Till exempel **[!UICONTROL Over Moderate Probability]** och **[!UICONTROL Over Low Probability]** för det aktuella segmentet.
 
 ## Sannolikhet för kontodelning {#accounts-sharing-probability}
 
@@ -23,7 +23,7 @@ I det här dons- och streckdiagrammet visas procentsatserna (och absoluta tal) f
 * Låg (20-40 %)
 * Mycket låg (0 %-20 %)
 
-Den röda linjen markerar det tröskelvärde som är markerat i [Konton över tröskelvärdet i aktuellt segment](#threshold-selector) och det ljusröda området innehåller summan av alla konton över det tröskelvärdet.
+Den röda raden markerar det tröskelvärde som har valts i [Konton över tröskelvärdet i den aktuella segmentpanelen](#threshold-selector) och det ljusröda området innehåller summan av alla konton över det tröskelvärdet.
 
 ![](assets/accounts-sharing-probability-pie.png)
 
@@ -43,11 +43,11 @@ På den här panelen kan du välja ett tröskelvärde för diagrammen för munst
 
 * Konton **över mycket låg** delning **sannolikhet**
 
-* Konton **över lågt** delning **sannolikhet**
+* Konton **över låg** delning **sannolikhet**
 
-* Konton **övermåttlig** delning **sannolikhet**
+* Konton **över måttlig** delning **sannolikhet**
 
-* Konton **över högt** delning **sannolikhet**
+* Konton **över hög** delning **sannolikhet**
 
 ![](assets/threshold-selector-shared-accounts.png)
 
@@ -77,7 +77,7 @@ I det här diagrammet visas hur många abonnenter i det aktuella segmentet som k
 
 >[!NOTE]
 >
->Du kan zooma in de fält som representerar mer än en uppsättning postnummer, som representeras av en **+** (plus) genom att dubbelklicka på dem.
+>Du kan zooma in på de fält som representerar mer än en uppsättning postnummer, representerade med ett **+** (plustecken) (t.ex. 10+), genom att dubbelklicka på dem.
 
 
 ## Segmentgeografisk spännvidd per period per konto {#geo-span-period-account}
@@ -88,8 +88,8 @@ I det här stapeldiagrammet visas antalet abonnentkonton som förbrukar innehål
 
 >[!NOTE]
 >
-> Du kan zooma in de fält som representerar mer än en uppsättning geografiska avstånd, som representeras av en **+** (plus) (t.ex. 1000+) genom att dubbelklicka på dem.
+> Du kan zooma in på fält som representerar mer än en uppsättning geografiska avstånd, representerade med ett **+** (plustecken) (t.ex. 1000+), genom att dubbelklicka på dem.
 
 >[!MORELIKETHIS]
 >
->* Lär dig hur du exporterar rapporter för de 1 000 populäraste prenumeranterna i det valda segmentet med hjälp av filter i Delade kontorapporter med [Exportera de 1 000 populäraste kontona](/help/accountiq/export-acc-information.md) alternativ.
+>* Lär dig hur du exporterar rapporter för de 1 000 främsta prenumeranterna i det valda segmentet med hjälp av filter i Delade kontorapporter med alternativet [Exportera de 1 000 främsta kontona](/help/accountiq/export-acc-information.md).

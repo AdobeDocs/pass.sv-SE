@@ -16,14 +16,14 @@ ht-degree: 0%
 >Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
 >För att kunna använda API:t för degradering måste du:
 >- be supportteamet om en programsats för ditt registrerade program
->- hämta en åtkomsttoken baserad på [Dynamisk klientregistrering](dynamic-client-registration.md)
+>- hämta en åtkomsttoken baserad på [registrering av dynamisk klient](dynamic-client-registration.md)
 > 
 
 >[!NOTE]
 >
 >För att kunna använda API:t för degradering måste du:
 >- be supportteamet om en programsats för ditt registrerade program
->- hämta en åtkomsttoken baserad på [Dynamisk klientregistrering](dynamic-client-registration.md)
+>- hämta en åtkomsttoken baserad på [registrering av dynamisk klient](dynamic-client-registration.md)
 > 
 
 ## Allmän information {#general_info}

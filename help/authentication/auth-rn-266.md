@@ -1,9 +1,10 @@
 ---
 title: Versionsinformation om Adobe Pass Authentication 2.6
 description: Versionsinformation om Adobe Pass Authentication 2.6
-source-git-commit: 19ed211c65deaa1fe97ae462065feac9f77afa64
+exl-id: 7c3cd007-ed2b-455f-8f70-6ec5d0a6552a
+source-git-commit: f30b6814b8a77424c13337d44d7b247105e0bfe2
 workflow-type: tm+mt
-source-wordcount: '148'
+source-wordcount: '154'
 ht-degree: 0%
 
 ---
@@ -24,7 +25,7 @@ Den här sidan beskriver nya funktioner, ändringar och kända fel i den här ve
 ### Byggnummer {#build-number-266}
 
 Adobe Pass-autentisering: adobe-pass-**2.66.0.1**
-Utgivningsdatum: **07/11/2023 - 07/13/2023**
+Releasedatum: **07/11/2023 - 07/13/2023**
 
 ### Versionsöversikt {#release-overview-266}
 
@@ -33,5 +34,5 @@ I den här versionen har vi fortsatt interna uppdateringar för det nya REST API
 #### Felkorrigeringar {#release-overview-bugfixes-266}
 
 * Åtgärdade utloggningsflödet för SAML-baserade MVPD-filer, där parametern RelayState saknades i utloggningsbegäran. Konfigurationsuppdateringar efter lanseringen görs för att återställa utloggningsflödet för berörda MVPD-filer.
-* Lagt till möjligheten att uppdatera SSL-certifikat i konfigurationen för SOAP-auktoriseringsslutpunkter.
+* Lagt till möjligheten att uppdatera SSL-certifikat i vår konfiguration för SOAP åtkomstslutpunkter.
 * Korrigerade ett hörnfall där felaktiga data loggades i fältet Programmer i vissa ESM-rapporter.

@@ -1,15 +1,15 @@
 ---
-title: Åtkomstaktivera Android SDK enkel inloggning (SSO) i Android 10-program
-description: Åtkomstaktivera Android SDK enkel inloggning (SSO) i Android 10-program
+title: Aktivera Android SDK enkel inloggning (SSO) i Android 10-appar
+description: Aktivera Android SDK enkel inloggning (SSO) i Android 10-appar
 exl-id: dedade15-c451-4757-b684-d3728e11dd87
 source-git-commit: 1b8371a314488335c68c82882c930b7c19aa64ad
 workflow-type: tm+mt
-source-wordcount: '374'
+source-wordcount: '383'
 ht-degree: 0%
 
 ---
 
-# Åtkomstaktivera Android SDK enkel inloggning (SSO) i Android 10-program {#access-enabler-android-sdk-single-sign-on-sso-on-android-10-apps}
+# Aktivera Android SDK enkel inloggning (SSO) i Android 10-appar {#access-enabler-android-sdk-single-sign-on-sso-on-android-10-apps}
 
 >[!NOTE]
 >
@@ -17,23 +17,23 @@ ht-degree: 0%
 
 ## Ökning
 
-Single Sign-On (SSO) mellan program som använder Adobe Pass Authentication är tillgängligt på enheter som använder Android OS via Access Enabler Android SDK. För att kunna erbjuda enkel inloggning (SSO) på Android-enheter använder Access Enabler Android SDK version 3.2.1 (senaste) och tidigare versioner en delad databasfil som sparats i en Android-lagringsimplementering, som är tillgänglig för alla program som använder Adobe Pass Authentication.
+Single Sign-On (SSO) mellan program som använder Adobe Pass Authentication är tillgängligt på enheter som använder Android OS via Access Enabler Android SDK. För att kunna erbjuda enkel inloggning (SSO) på Android-enheter använder Access Enabler Android SDK version 3.2.1 (senaste) och tidigare versioner en delad databasfil som sparats i en Android-lagringsimplementering, som är tillgänglig för alla program som drivs med Adobe Pass Authentication.
 
-Men Google i den senaste Android 10-utgåvan medförde vissa ändringar &quot;för att ge användarna bättre kontroll över sina filer och för att begränsa filtrassel, så får appar med Android 10 (API-nivå 29) och senare som standard tillgång till en extern lagringsenhet, eller lagringsutrymme med omfång. Sådana program kan bara se sin programspecifika katalog `\[...\]`&quot;. Mer information om de här lagringsändringarna för Android 10 finns i [Dokumentation för data och fillagring för Android](https://developer.android.com/training/data-storage/files/external-scoped).
+Men Google i den senaste Android 10-versionen medförde vissa ändringar &quot;för att ge användarna bättre kontroll över sina filer och för att begränsa fillösheten, så får appar som är inriktade på Android 10 (API-nivå 29) och senare som standard tillgång till en extern lagringsenhet, eller lagringsutrymme som omfattas. Sådana appar kan bara se sin programspecifika katalog `\[...\]`. Mer information om dessa Android 10-lagringsändringar finns i [Data- och fillagringsdokumentation för Android](https://developer.android.com/training/data-storage/files/external-scoped).
 
-Som ett resultat av dessa ändringar är den enkel inloggning (SSO) som finns i Android-versionen med Access Enabler **3.2.1 SDK (senaste)** och tidigare versioner kan påverkas på Android 10-enheter, vilket förklaras i nästa avsnitt.
+Som ett resultat av dessa ändringar kan enkel inloggning (SSO) som erbjuds av Access Enabler Android version **3.2.1 SDK (senaste)** och tidigare versioner påverkas på Android 10-enheter, vilket förklaras i nästa avsnitt.
 
-Se [Roku SSO-översikt](/help/authentication/roku-sso-overview.md).
+Se [Återställ SSO-översikt](/help/authentication/roku-sso-overview.md).
 
 ## Beteende
 
-Beroende på appens **[!UICONTROL target SDK level]** eller användningen av **android:requestLegacyExternalStorage** manifest-attributet för enkel inloggning (SSO) som erbjuds av Access Enabler Android version 3.2.1 SDK (senaste) och tidigare versioner fungerar för närvarande enligt följande:
+Beroende på appens **[!UICONTROL target SDK level]** eller användningen av manifestattributet **android:requestLegacyExternalStorage** kommer enkel inloggning (SSO) som erbjuds av Access Enabler Android version 3.2.1 SDK (senaste) och tidigare versioner att fungera enligt följande:
 
-- Dina appmål **Android 9 (API-nivå 28)** eller lägre **-\>** enkel inloggning (SSO) **kommer att arbeta**
-- Dina appmål **Android 10** **(API-nivå 29)** och gör **set** värdet av **requestLegacyExternalStorage till true** i appens manifestfil **-\>** enkel inloggning (SSO) **kommer att arbeta**
-- Dina appmål **Android 10** **(API-nivå 29)** och gör **inte inställd** värdet av **requestLegacyExternalStorage till true** i appens manifestfil **-\>** enkel inloggning (SSO) **fungerar inte**
+- Din app har **Android 9 (API-nivå 28)** eller lägre **-\>** enkel inloggning (SSO) **fungerar**
+- Din app har **Android 10** **(API-nivå 29)** som mål och **anger** värdet för **requestLegacyExternalStorage till true** i appens manifestfil **-\>** enkel inloggning (SSO) **fungerar**
+- Din app har **Android 10** **(API-nivå 29)** som mål och **anger inte** värdet för **requestLegacyExternalStorage till true** i appens manifestfil **-\>** enkel inloggning (SSO) **fungerar inte**
 
 
 >[!TIP]
 >
-> Innan aktivering av Android SDK för Adobe Pass-autentiseringsåtkomst är helt kompatibelt med omfångslagring kan du tillfälligt avanmäla dig baserat på programmets mål-SDK-nivå eller attributet requestLegacyExternalStorage-manifest enligt beskrivningen i det offentliga [Android-dokumentation](https://developer.android.com/training/data-storage/files/external-scoped#opt-out-of-scoped-storage).
+> Innan aktiveringen av Adobe Pass Authentication Access Enabler Android SDK är helt kompatibelt med omfångslagring kan du tillfälligt avanmäla dig baserat på programmets mål-SDK-nivå eller attributet requestLegacyExternalStorage-manifest enligt beskrivningen i den offentliga [Android-dokumentationen](https://developer.android.com/training/data-storage/files/external-scoped#opt-out-of-scoped-storage).

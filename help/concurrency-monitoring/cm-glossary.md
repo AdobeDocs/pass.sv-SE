@@ -1,13 +1,13 @@
 ---
 title: Ordlista
 description: Ordlista för termer i övervakning av samtidig användning
-source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
+exl-id: 3b3b36fe-9f04-4de9-bd84-9f8d766bbc71
+source-git-commit: f30b6814b8a77424c13337d44d7b247105e0bfe2
 workflow-type: tm+mt
-source-wordcount: '760'
+source-wordcount: '762'
 ht-degree: 0%
 
 ---
-
 
 # Ordlista {#glossary}
 
@@ -17,26 +17,26 @@ ht-degree: 0%
 
 ## Åtgärd {#action-defn}
 
-* Den typ av åtkomst som ämnet begär; möjliga värden för CM är ***starta*** eller ***continue*** en strömningssession.
+* Den typ av åtkomst som ämnet begär. Möjliga värden för CM är ***launch*** eller ***continue*** en direktuppspelningssession.
 
 ## Aktiv ström {#active-stream-defn}
 
 * En ström som har fått minst en händelse (pulsslag) under de senaste 90 sekunderna.
 
-* ***Obs!*** Om den sista händelsen i strömmen är av typen stop (`?event=stop`) kommer den inte att räknas. Detta är en optimering som gör att en spelare uttryckligen kan stänga en ström så att den inte längre betraktas som aktiv.
+* ***Obs!*** Om den sista händelsen i strömmen är av typen stop (`?event=stop`) räknas den inte. Detta är en optimering som gör att en spelare uttryckligen kan stänga en ström så att den inte längre betraktas som aktiv.
 
 ## Program {#application-defn}
 
 * Utvecklad av klienten för åtkomst till videoinnehåll
-* Fatta och verkställa beslut om innehållsåtkomst baserat på information som tillhandahålls av Concurrency Monitoring Service (detta gäller i [Policyinformationspunkt](/help/concurrency-monitoring/policy-info-pt-versionone.md) case)
-* Kommer att ha en unik **program-ID** tillhandahålls av Adobe.
+* Fungerar och verkställer beslut om innehållsåtkomst baserat på information som tillhandahålls av Concurrency Monitoring Service (detta gäller i fallet [Policy Information Point](/help/concurrency-monitoring/policy-info-pt-versionone.md))
+* Kommer att ha ett unikt **program-ID** som tillhandahålls av Adobe.
 
 ## Övervakningstjänst för samtidig valuta {#cm-service-defn}
 
 * Fungerar som ett övervakningssystem för abonnenterna som stöder de sidoskydd och programmerare som arbetar med att genomföra policyer för olika tillämpningar.
 * Tar emot pulsslag som indikerar strömaktivitet.
-* Fungerar som en _Policybeslutspunkt_ genom att utvärdera begäranden om auktorisering baserat på användaraktivitet och ge ett svar om att tillåta/neka.
-* Fungerar som en _Policyinformationspunkt_ genom att rapportera antalet aktiva strömmar (och ytterligare strömmetadata) för en prenumerant.
+* Fungerar som en _principbeslutspunkt_ genom att utvärdera auktoriseringsbegäranden baserat på användaraktivitet och ange ett allow/deny-svar.
+* Fungerar som en _principinformationspunkt_ genom att rapportera antalet aktiva strömmar (och ytterligare strömmetadata) för en prenumerant.
 
 ## Miljö {#env-defn}
 
@@ -76,9 +76,9 @@ ht-degree: 0%
 * Behovet av stöd för MVPD vid insamling av abonnentaktivitet och genomförande av begränsningsreglerna när det gäller deras egenskaper.
 * Som en separat regel kan du även vara intresserad av att begränsa den samtidiga åtkomsten till innehållet i alla målportaler.
 
-  *F: Varför programmera och inte beställar-ID som i resten av Adobe Pass-autentiseringen?*
+  *F: Varför programmerare och inte begärande-ID som i resten av Adobe Pass-autentiseringen?*
 
-  *S: Anledningen är att programmerare kan använda den här parametern flexibelt för att skicka eller isolera data mellan sina egenskaper beroende på hur de används.*
+  *A: Orsaken är att programmerare kan använda den här parametern flexibelt för att skicka eller isolera data mellan sina egenskaper beroende på deras användningsfall.*
 
 ## Resurs {#resource-defn}
 
@@ -94,7 +94,7 @@ ht-degree: 0%
 
 ## Ämne {#subj-defn}
 
-* Konsumenten av (video)-innehållet via internet. Vi undviker avsiktligt termen _**användare**_, eftersom Concurrency Monitoring vanligtvis hanterar konton-ID:n för distributörer av videoprogrammeringstjänster (vilket inbegriper flera faktiska användare som delar samma kontrakt, till exempel familjemedlemmar för ett hushåll).
+* Konsumenten av (video)-innehållet via internet. Vi undviker avsiktligt termen _**användare**_ eftersom övervakning av samtidig användning vanligtvis handlar om konton-ID:n för distributörer av videoprogrammeringstjänster (vilket inbegriper flera faktiska användare som delar samma kontrakt, till exempel familjemedlemmar för ett hushåll).
 
 * För varje ström kan motivet förbättras med attribut som är kopplade till den person som använder tjänsten, den nätverksanslutna enheten och så vidare.
 

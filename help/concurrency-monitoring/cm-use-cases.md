@@ -1,13 +1,13 @@
 ---
 title: Användningsexempel
 description: Användningsfall i övervakning av samtidig användning.
-source-git-commit: 19ed211c65deaa1fe97ae462065feac9f77afa64
+exl-id: 6cc30bb6-e985-4d9a-9f99-a7f04ae8deb7
+source-git-commit: f30b6814b8a77424c13337d44d7b247105e0bfe2
 workflow-type: tm+mt
 source-wordcount: '387'
 ht-degree: 0%
 
 ---
-
 
 # Användningsexempel {#use-cases}
 
@@ -17,8 +17,8 @@ För att kunna övervaka abonnentens användning finns det ett behov av en centr
 
 De huvudsakliga användningsområdena som stöds av denna centraliserade tjänst bör vara:
 
-1. Så snart en prenumerant börjar titta på en video kan programmet **initiera en direktuppspelningssession** och börja **rapporteringsaktivitet** data.
-1. I samma centrala tjänst får en annan instans ***CM-beslut*** - om programmet har en eller flera registrerade policyer i CM-tjänsten, kommer tjänsten att svara med åtkomstbeslut baserat på den aktuella aktiviteten.
+1. När en prenumerant börjar titta på en video kan programmet **initiera en direktuppspelningssession** och starta **rapportaktivitetsdata**.
+1. I samma centrala tjänst kommer en annan instans att få ***CM-beslut*** - om programmet har en eller flera profiler registrerade i CM-tjänsten kommer tjänsten att svara med åtkomstbeslut baserat på den aktuella aktiviteten.
 
 
 ## Skapa en session {#create-session}

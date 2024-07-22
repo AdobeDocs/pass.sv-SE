@@ -18,7 +18,7 @@ ht-degree: 0%
 </br>
 
 
-**På grund av säkerhetskrav MÅSTE vissa MVPD:s inloggningssidor visas i en SFSafariViewController i stället för i webbvyer.**
+**På grund av säkerhetskrav MÅSTE vissa MVPD-inloggningssidor presenteras i en SFSafariViewController i stället för i webbvyer.**
 
 Vissa MVPD-program kräver att deras inloggningssidor visas i en säker webbläsarkontroll som SFSafariViewController. De blockerar aktivt webbvyer, så för att kunna autentisera med dem måste vi använda SVC.
 
@@ -35,9 +35,9 @@ I sådana fall ger version 3.2 programmeraren möjlighet att hantera SVC manuell
 För att manuellt kunna hantera SVC måste implementeraren utföra följande steg:
 
 
-1. ring **setOptions([&quot;handleSVC&quot;:true])** efter initiering av AccessEnabler (kontrollera att anropet utförs innan autentiseringen börjar). Detta aktiverar&quot;manuell&quot; SVC-hantering, SDK visar inte automatiskt SVC, utan anropar istället vid behov **navigate(toUrl:*{url}* useSVC:true)**.
+1. anropa **setOptions([&quot;handleSVC&quot;:true])** efter initiering av AccessEnabler (kontrollera att anropet utförs innan autentiseringen börjar). Detta aktiverar&quot;manuell&quot; SVC-hantering, SDK visar inte automatiskt SVC, utan vid behov kommer     anropa **navigate(toUrl:*{url}* useSVC:true)**.
 
-1. implementera det valfria återanropet **`navigateToUrl:useSVC:`** I implementeringen måste du skapa en svc-instans med SFSafariViewController-instansen med den angivna url:en och visa den på skärmen:
+1. implementera det valfria återanropet **`navigateToUrl:useSVC:`** i implementeringen måste du skapa en svc-instans med SFSafariViewController-instansen med den angivna url:en och visa den på skärmen:
 
    ```obj-c
    func navigate(toUrl url: String!, useSVC: Bool) {
@@ -50,11 +50,11 @@ För att manuellt kunna hantera SVC måste implementeraren utföra följande ste
    ***Anteckningar:***
 
    - *Du kan anpassa SFSafariViewController precis som du vill. På iOS 11+ kan du till exempel ändra etiketten Klar till Avbryt.*
-   - *för att kunna avfärda SVC:n behöver du en referens till den. Skapa den inte inom ramen för **navigateToUrl:useSVC***
+   - *Om du vill kunna avvisa SVC:n behöver du en referens till den. Skapa den inte inom omfånget **navigateToUrl:useSVC***
    - *använd din egen vykontroll för &quot;myController&quot;*
 
 
-1. I programmets delegatimplementering av **application(\_app: UIApplication, open url: URL, options: \[UIApplicationOpenURLOptionsKey: Any\]) -\> Bool**, lägger du till kod för att stänga svc. Du bör redan ha kod där som anropar **accessEnabler.handleExternalURL()**. Lägg till nedan:
+1. I programdelegatimplementeringen av **application(\_app: UIApplication, öppna url: URL, alternativ: \[UIApplicationOpenURLOptionsKey: Any\]) -\> Bool**, lägg till kod för att stänga svc. Du bör redan ha kod där som anropar **accessEnabler.handleExternalURL()**. Lägg till nedan:
 
    ```obj-c
    if(svc != nil) {
@@ -65,7 +65,7 @@ För att manuellt kunna hantera SVC måste implementeraren utföra följande ste
    Även här är svc en referens till den SFSafariViewController som du skapade i steg 2.
 
 
-1. Implementera **safariViewControllerDoFinish(\_ kontrollenhet: SFSafariViewController)** från **SFSafariViewControllerDelegate** för att kunna fånga upp när användaren avbröt SVC med hjälp av knappen Klar. I den här funktionen måste du anropa följande för att informera SDK om att autentiseringen har avbrutits:
+1. Implementera **safariViewControllerDoFinish(\_-kontrollant: SFSafariViewController)** från **SFSafariViewControllerDelegate** för att fånga när användaren avbröt SVC med hjälp av knappen Klar. I den här funktionen måste du anropa följande för att informera SDK om att autentiseringen har avbrutits:
 
    ```obj-c
    accessEnabler.setSelectedProvider(nil)

@@ -4,7 +4,7 @@ description: MVPD-utbyte av användarmetadata
 exl-id: 8bce6acc-cd33-476c-af5e-27eb2239cad1
 source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
 workflow-type: tm+mt
-source-wordcount: '943'
+source-wordcount: '940'
 ht-degree: 0%
 
 ---
@@ -105,13 +105,13 @@ Adobe Pass Authentication gör följande antaganden:
 
 ### Anteckningar {#notes-mvpd-progr-metadata-exch-flow}
 
-**Normalisering och validering av resurser.** Resurs-ID:n kan skickas som en vanlig sträng eller en MRSS-sträng. En programmerare kan välja att använda antingen det rena strängformatet eller MRSS, men måste ha ett förhandsavtal med MVPD så att MVPD vet hur resursen ska hanteras.
+**Resursens normalisering och validering.** resurs-ID:n kan skickas som en oformaterad sträng eller en MRSS-sträng. En programmerare kan välja att använda antingen det rena strängformatet eller MRSS, men måste ha ett förhandsavtal med MVPD så att MVPD vet hur resursen ska hanteras.
 
-**Specifikation av resurs-ID och metadata.** Adobe Pass Authentication använder RSS-standarden med Media RSS-tillägget för att ange en resurs och dess metadata. I kombination med mediets RSS-tillägg stöder Adobe Pass Authentication en mängd olika metadata, till exempel föräldrakontroll (via `<media:rating>`) eller geopositionering (`<media:location>`).
+**Ange resurs-ID och metadata.** Adobe Pass Authentication använder RSS-standarden med Media RSS-tillägget för att ange en resurs och dess metadata. I kombination med Media RSS-tillägget stöder Adobe Pass Authentication en mängd olika metadata, till exempel föräldrakontroller (via `<media:rating>`) eller geopositionering (`<media:location>`).
 
 Adobe Pass Authentication kan även hantera genomskinlig konvertering från den äldre kanalsträngen till motsvarande RSS-resurs för MVPD-filer som kräver RSS. I den andra riktningen har Adobe Pass Authentication stöd för konvertering från RSS+MRSS till vanlig kanaltitel, för kanalspecifika MVPD-program.
 
-**Adobe Pass Authentication säkerställer fullständig bakåtkompatibilitet med befintliga integreringar.** För programmerare som använder autentisering på kanalnivå ser Adobe Pass Authentication till att paketera channel ID:t i det format som krävs innan det skickas till ett MVPD som förstår det formatet. Det motsatta gäller också: om en programmerare anger alla resurser i ett nytt format, översätter Adobe Pass Authentication det nya formatet till en enkel kanalsträng om auktorisering görs mot en MVPD som bara gör kanalnivåauktorisering.
+**Adobe Pass-autentisering garanterar fullständig bakåtkompatibilitet med befintliga integreringar.** För programmerare som använder autentisering på kanalnivå, tar Adobe Pass Authentication hand om att paketera channel ID:t i det format som krävs innan det skickas till en MVPD som förstår det formatet. Det motsatta gäller också: om en programmerare anger alla resurser i ett nytt format, översätter Adobe Pass Authentication det nya formatet till en enkel kanalsträng om auktorisering görs mot en MVPD som bara gör kanalnivåauktorisering.
 
 ## Användningsexempel för användarmetadata {#user-metadata-use-cases}
 

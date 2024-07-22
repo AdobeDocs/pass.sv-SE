@@ -4,7 +4,7 @@ description: Android SDK - översikt
 exl-id: a1d98325-32a1-4881-8635-9a3c38169422
 source-git-commit: 1b8371a314488335c68c82882c930b7c19aa64ad
 workflow-type: tm+mt
-source-wordcount: '2720'
+source-wordcount: '2731'
 ht-degree: 0%
 
 ---
@@ -17,11 +17,11 @@ ht-degree: 0%
 
 ## Introduktion {#intro}
 
-Android AccessEnabler är ett Java Android-bibliotek som gör att mobilappar kan använda Adobe Pass Authentication for TV Everywhere-berättigandetjänster. En Android-implementering består av AccessEnabler-gränssnittet som definierar berättigande-API:t och ett EntitlementDelegate-protokoll som beskriver återanropen som biblioteket utlöser. Gränssnittet och protokollet kallas under ett gemensamt namn: AccessEnabler Android-biblioteket.
+Android AccessEnabler är ett Java Android-bibliotek som gör att mobilappar kan använda Adobe Pass Authentication for TV Everywhere&#39;s tillståndsservice. En Android-implementering består av AccessEnabler-gränssnittet som definierar berättigande-API:t och ett EntitlementDelegate-protokoll som beskriver återanropen som biblioteket utlöser. Gränssnittet och protokollet kallas under ett gemensamt namn: AccessEnabler Android-biblioteket.
 
 ## Android-krav {#reqs}
 
-Aktuella tekniska krav för Android-plattformen och Adobe Pass-autentisering finns på [Plattform/enhet/verktygskrav](#android)eller läs versionsinformationen som medföljer nedladdningen av Android SDK.
+Aktuella tekniska krav för Android-plattformen och Adobe Pass-autentisering finns i [Plattform/Enhet/Verktygskrav](#android) eller i versionsinformationen som medföljer vid hämtningen av Android SDK.
 
 ## Understanding Native Client Workflows {#native_client_workflows}
 
@@ -33,18 +33,18 @@ Inbyggda klientarbetsflöden är vanligtvis desamma som, eller mycket lika, för
 
 ### Arbetsflöde efter initiering {#post-init}
 
-Alla tillståndsarbetsflöden som stöds av AccessEnabler förutsätter att du tidigare har anropat [`setRequestor()`](#setRequestor) för att fastställa din identitet. Du gör det här anropet för att bara ange ditt begärande-ID en gång, vanligtvis under programmets initierings-/installationsfas.
+Alla tillståndsarbetsflöden som stöds av AccessEnabler förutsätter att du tidigare har anropat [`setRequestor()`](#setRequestor) för att upprätta din identitet. Du gör det här anropet för att bara ange ditt begärande-ID en gång, vanligtvis under programmets initierings-/installationsfas.
 
 
-Med de inbyggda klienterna (t.ex. Android) efter ditt första anrop till [`setRequestor()`](#setRequestor)kan du välja hur du vill fortsätta:
+Med de inbyggda klienterna (t.ex. Android) kan du efter ditt första anrop till [`setRequestor()`](#setRequestor) välja hur du vill fortsätta:
 
 - Du kan börja ringa berättigandesamtal direkt och låta dem stå i kö om det behövs.
 
-- Du kan också få en bekräftelse på om [`setRequestor()`](#setRequestor) genom att implementera callback-funktionen setRequestorComplete().
+- Du kan också få en bekräftelse på att [`setRequestor()`](#setRequestor) lyckades/misslyckades genom att implementera callback-funktionen setRequestorComplete().
 
 - Eller gör båda.
 
-Det är upp till er att vänta på att ni ska meddela om det lyckades [`setRequestor()`](#setRequestor) eller för att förlita dig på AccessEnablers anropskömekanism. Eftersom alla efterföljande autentiserings- och autentiseringsbegäranden behöver begärande-ID och associerad konfigurationsinformation kan [`setRequestor()`](#setRequestor) metoden blockerar effektivt alla API-anrop för autentisering och auktorisering tills initieringen är slutförd.
+Det är upp till dig om du ska vänta på att meddelandet om att [`setRequestor()`](#setRequestor) lyckades ska visas eller om du ska förlita dig på åtkomstaktiverarens anropskömekanism. Eftersom alla efterföljande autentiserings- och autentiseringsbegäranden behöver begärande-ID och den associerade konfigurationsinformationen blockerar metoden [`setRequestor()`](#setRequestor) alla autentiserings- och auktoriserings-API-anrop tills initieringen är slutförd.
 
 ### Allmänt inledande autentiseringsarbetsflöde {#generic}
 
@@ -52,15 +52,15 @@ Syftet med det här arbetsflödet är att logga in en användare med sitt MVPD-p
 
 Observera att även om följande inbyggda klientarbetsflöde skiljer sig från det vanliga webbläsarbaserade autentiseringsarbetsflödet är steg 1-5 samma för både inbyggda klienter och webbläsarbaserade klienter:
 
-1. Sidan eller spelaren initierar autentiseringsarbetsflödet med ett anrop till [getAuthentication()](#getAuthN)som söker efter en giltig cachelagrad autentiseringstoken. Den här metoden har ett valfritt värde `redirectURL` parameter; om du inte anger något värde för `redirectURL`efter en lyckad autentisering returneras användaren till den URL som autentiseringen initierades från.
-1. AccessEnabler avgör aktuell autentiseringsstatus. Om användaren är autentiserad anropar AccessEnabler `setAuthenticationStatus()` callback-funktion, skicka en autentiseringsstatus som indikerar att åtgärden lyckades (steg 7 nedan).
-1. Om användaren inte är autentiserad fortsätter AccessEnabler autentiseringsflödet genom att fastställa om användarens senaste autentiseringsförsök lyckades med ett visst MVPD. Om ett MVPD ID cachelagras OCH `canAuthenticate` flaggan är true ELLER så har ett MVPD valts med [`setSelectedProvider()`](#setSelectedProvider)visas inte dialogrutan för MVPD-val. Autentiseringsflödet fortsätter med det cachelagrade värdet för MVPD (det vill säga samma MVPD som användes vid den senaste autentiseringen). Ett nätverksanrop görs till serverdelen och användaren omdirigeras till inloggningssidan för MVPD (steg 6 nedan).
-1. Om inget MVPD ID cachelagras OCH inget MVPD valdes med [`setSelectedProvider()`](#setSelectedProvider) ELLER `canAuthenticate` flaggan är inställd på false, [`displayProviderDialog()`](#displayProviderDialog) återanrop anropas. I det här återanropet dirigeras sidan eller spelaren till det användargränssnitt som visar en lista över PDF-filer som användaren kan välja mellan. En array med MVPD-objekt tillhandahålls, som innehåller den information som krävs för att du ska kunna skapa MVPD-väljaren. Varje MVPD-objekt beskriver en MVPD-enhet och innehåller information om exempelvis MVPD-filens ID (t.ex. XFINITY, AT\&amp;T) och den URL där MVPD-logotypen finns.
-1. När ett visst MVPD-dokument har valts måste sidan eller spelaren informera AccessEnabler om användarens val. För klienter som inte är Flashar informerar du AccessEnabler om användarvalet via ett anrop till [`setSelectedProvider()`](#setSelectedProvider) -metod. Flash-klienter skickar i stället en delad `MVPDEvent` av typen &quot;`mvpdSelection`&quot;, skickar den markerade providern.
+1. Sidan eller spelaren initierar autentiseringsarbetsflödet med ett anrop till [getAuthentication()](#getAuthN) som söker efter en giltig cachelagrad autentiseringstoken. Den här metoden har en valfri `redirectURL`-parameter. Om du inte anger ett värde för `redirectURL` returneras användaren till den URL som autentiseringen initierades från när autentiseringen lyckades.
+1. AccessEnabler avgör aktuell autentiseringsstatus. Om användaren är autentiserad anropar AccessEnabler din `setAuthenticationStatus()`-callback-funktion och skickar en autentiseringsstatus som anger att åtgärden lyckades (steg 7 nedan).
+1. Om användaren inte är autentiserad fortsätter AccessEnabler autentiseringsflödet genom att fastställa om användarens senaste autentiseringsförsök lyckades med ett visst MVPD. Om ett MVPD ID cachelagras OCH flaggan `canAuthenticate` är true ELLER om ett MVPD valdes med [`setSelectedProvider()`](#setSelectedProvider), visas ingen dialogruta för MVPD-val. Autentiseringsflödet fortsätter med det cachelagrade värdet för MVPD (det vill säga samma MVPD som användes vid den senaste autentiseringen). Ett nätverksanrop görs till serverdelen och användaren omdirigeras till inloggningssidan för MVPD (steg 6 nedan).
+1. Om inget MVPD ID cache-lagras OCH inget MVPD har valts med [`setSelectedProvider()`](#setSelectedProvider) ELLER om flaggan `canAuthenticate` har värdet false anropas [`displayProviderDialog()`](#displayProviderDialog)-återanropet. I det här återanropet dirigeras sidan eller spelaren till det användargränssnitt som visar en lista över PDF-filer som användaren kan välja mellan. En array med MVPD-objekt tillhandahålls, som innehåller den information som krävs för att du ska kunna skapa MVPD-väljaren. Varje MVPD-objekt beskriver en MVPD-enhet och innehåller information om exempelvis MVPD-filens ID (t.ex. XFINITY, AT\&amp;T) och den URL där MVPD-logotypen finns.
+1. När ett visst MVPD-dokument har valts måste sidan eller spelaren informera AccessEnabler om användarens val. För klienter som inte är Flashar informerar du AccessEnabler om användarvalet via ett anrop till metoden [`setSelectedProvider()`](#setSelectedProvider) när användaren har valt önskat MVPD. Flash-klienter skickar i stället en delad `MVPDEvent` av typen `mvpdSelection` och skickar den markerade providern.
 1. Om com.android.chrome är tillgängligt för Android-program läses autentiserings-URL:en in på anpassade Chrome-flikar.
-1. Via anpassade Chrome-flikar kommer användaren till MVPD:s inloggningssida och anger sina inloggningsuppgifter. Observera att flera omdirigeringsåtgärder utförs under den här överföringen.
-1. När anpassade Chrome-flikar upptäcker att en URL matchar schemat (adobepass://) och djuplänken från resursen &quot;redirect\_uri&quot; (d.v.s. adobepass://com.adobepass ) hämtar AccessEnabler den faktiska autentiseringstoken från serverdelsservrarna. Observera att de slutliga omdirigerings-URL:erna är ogiltiga och de är inte avsedda för anpassade Chrome-flikar för att läsa in dem. De får endast tolkas av SDK som en signal om att autentiseringsflödet har slutförts.
-1. AccessEnabler informerar programmet om att autentiseringsflödet är slutfört. AccessEnabler anropar [`setAuthenticationStatus()`](#setAuthNStatus) återanrop med statuskoden 1, vilket anger att det lyckades. Om det uppstår ett fel under körningen av dessa steg [`setAuthenticationStatus()`](#setAuthNStatus) callback-funktionen aktiveras med statuskoden 0, tillsammans med motsvarande felkod, vilket anger att autentiseringsfel uppstod.
+1. Via Chrome anpassade flikar kommer användaren till MVPD:s inloggningssida och anger sina inloggningsuppgifter. Observera att flera omdirigeringsåtgärder utförs under den här överföringen.
+1. När Chrome anpassade flikar identifierar att en URL matchar schemat (adobepass://) och djuplänken från resursen &quot;redirect\_uri&quot; (d.v.s. adobepass://com.adobepass ) hämtar AccessEnabler den faktiska autentiseringstoken från serverdelsservrarna. Observera att de slutliga omdirigerings-URL:erna är ogiltiga och de är inte avsedda för Chrome anpassade flikar för att läsa in dem. De får endast tolkas av SDK som en signal om att autentiseringsflödet har slutförts.
+1. AccessEnabler informerar programmet om att autentiseringsflödet är slutfört. AccessEnabler anropar återanropet [`setAuthenticationStatus()`](#setAuthNStatus) med statuskoden 1, vilket anger att åtgärden lyckades. Om det uppstår ett fel under körningen av dessa steg utlöses [`setAuthenticationStatus()`](#setAuthNStatus)-återanropet med statuskoden 0, tillsammans med motsvarande felkod, vilket anger att autentiseringen misslyckades.
 
 ### Utloggningsarbetsflöde {#logout}
 
@@ -68,7 +68,11 @@ För inbyggda klienter hanteras inloggningar på liknande sätt som autentiserin
 
 
 
-**Obs!** Om du loggar ut från en programmerare-/MVPD-session rensas det underliggande lagringsutrymmet för det specifika MVPD-programmet, inklusive alla andra programmerarautentiseringstoken som erhållits via enkel inloggning på den enheten. Token som erhållits för andra MVPD eller inte via enkel inloggning tas inte bort.
+**Obs!** Loggning ut från en programmerare/MVPD-session kommer att rensas
+det underliggande lagringsutrymmet för det specifika sidoskyddet, inklusive samtliga
+andra autentiseringstoken för programmerare som erhållits via enkel inloggning
+den enheten. Token som erhållits för andra videoprogrammerings-programmerings-ID eller inte via enkel inloggning kommer inte att
+tas bort.
 
 
 ## Tokens {#tokens}
@@ -83,15 +87,15 @@ För inbyggda klienter hanteras inloggningar på liknande sätt som autentiserin
 
 ### Definitioner och användning {#definitions}
 
-Adobe Pass Authentication-berättigandelösningen kretsar kring genereringen av specifika datadelar (tokens) som genereras av Adobe Pass Authentication när autentiserings- och auktoriseringsarbetsflödena har slutförts. Dessa tokens lagras lokalt på klientens Android-enhet.
+Adobe Pass Authentication-berättigandelösningen kretsar kring genereringen av specifika datadelar (tokens) som genereras av Adobe Pass Authentication när autentiserings- och auktoriseringsarbetsflödena har slutförts. Dessa token lagras lokalt på klientens Android-enhet.
 
 Tokens har begränsad livslängd. När den upphör att gälla måste tokens utfärdas på nytt genom att autentiserings- och/eller auktoriseringsarbetsflödena återupptas.
 
 Det finns tre typer av tokens som utfärdas under tillståndsarbetsflödena:
 
-- **Autentiseringstoken** - Slutresultatet av användarautentiseringsarbetsflödet blir ett autentiserings-GUID som AccessEnabler kan använda för att göra auktoriseringsfrågor för användarens räkning. Detta autentiserings-GUID har ett associerat TTL-värde (time-to-live) som kan skilja sig från användarens autentiseringssession. Adobe Pass Authentication genererar en autentiseringstoken genom att binda autentiserings-GUID till den enhet som initierar autentiseringsbegäranden.
-- **Auktoriseringstoken** - Ger åtkomst till en specifik skyddad resurs som identifieras av en unik `resourceID`. Det består av ett tillståndsbidrag som utfärdats av den tillståndsgivande parten tillsammans med originalet `resourceID`. Den här informationen är bunden till den enhet som initierar begäran.
-- **Kortlivad medietoken** - AccessEnabler ger åtkomst till värdprogrammet för en given resurs genom att returnera en kortlivad medietoken. Denna token genereras baserat på den auktoriseringstoken som tidigare förvärvats för just den aktuella resursen. Den här token är inte bunden till enheten och den associerade livstiden är betydligt kortare (standard: 5 minuter).
+- **Autentiseringstoken** - Slutresultatet av användarautentiseringsarbetsflödet blir ett autentiserings-GUID som AccessEnabler kan använda för att skapa auktoriseringsfrågor för användarens räkning. Detta autentiserings-GUID har ett associerat TTL-värde (time-to-live) som kan skilja sig från användarens autentiseringssession. Adobe Pass Authentication genererar en autentiseringstoken genom att binda autentiserings-GUID till den enhet som initierar autentiseringsbegäranden.
+- **Auktoriseringstoken** - Ger åtkomst till en specifik skyddad resurs som identifieras av en unik `resourceID`. Det består av ett auktoriseringsbidrag som utfärdats av den auktoriserande parten tillsammans med originalet `resourceID`. Den här informationen är bunden till den enhet som initierar begäran.
+- **Kortlivad medietoken** - AccessEnabler beviljar åtkomst till värdprogrammet för en given resurs genom att returnera en kortlivad medietoken. Denna token genereras baserat på den auktoriseringstoken som tidigare förvärvats för just den aktuella resursen. Den här token är inte bunden till enheten och den associerade livstiden är betydligt kortare (standard: 5 minuter).
 
 När autentiseringen och auktoriseringen är klar kommer Adobe Pass Authentication att utfärda autentiserings-, auktoriserings- och kortlivade medietoken. Dessa token bör cachelagras på användarens enhet och användas under hela den tid som de är kopplade till sin livstid.
 
@@ -106,15 +110,15 @@ När autentiseringen och auktoriseringen är klar kommer Adobe Pass Authenticati
 
 #### Autentiseringstoken
 
-- **AccessEnabler 1.6 och äldre** - Hur autentiseringstoken cachelagras på enheten beror på&#x200B;**Autentisering per begärande&quot;** flagga som är associerad med aktuellt MVPD:
+- **AccessEnabler 1.6 och äldre** - Hur autentiseringstoken cachas på enheten beror på flaggan **Authentication per Requestor** som är associerad med det aktuella MVPD:
 
 
-1. Om funktionen&quot;Autentisering per begärande&quot; är *inaktiverad*, kommer en enda autentiseringstoken att lagras lokalt på det globala monteringsbordet. Denna token delas mellan alla program som är integrerade med det aktuella MVPD-programmet.
-1. Om funktionen&quot;Autentisering per begärande&quot; är *aktiverad*, kopplas en token uttryckligen till programmeraren som utförde autentiseringsflödet (denna token lagras inte på det globala monteringsbordet, utan i en privat fil som bara är synlig för programmerarens program). Mer specifikt kommer enkel inloggning (SSO) mellan olika program att inaktiveras. Användaren måste utföra autentiseringsflödet explicit när han/hon byter till en ny app (förutsatt att programmeraren för den andra appen är integrerad med det aktuella MVPD-programmet och att det inte finns någon autentiseringstoken för den programmeraren i det lokala cacheminnet).
+1. Om funktionen &quot;Autentisering per begärande&quot; är *inaktiverad* lagras en enda autentiseringstoken lokalt på det globala monteringsbordet. Denna token delas mellan alla program som är integrerade med det aktuella MVPD-programmet.
+1. Om funktionen &quot;Autentisering per begärande&quot; är *aktiverad* kopplas en token explicit till programmeraren som utförde autentiseringsflödet (token lagras inte på det globala monteringsbordet, utan i en privat fil som bara är synlig för programmerarens program). Mer specifikt kommer enkel inloggning (SSO) mellan olika program att inaktiveras. Användaren måste utföra autentiseringsflödet explicit när han/hon byter till en ny app (förutsatt att programmeraren för den andra appen är integrerad med det aktuella MVPD-programmet och att det inte finns någon autentiseringstoken för den programmeraren i det lokala cacheminnet).
 
-   **Obs!** AE 1.6 Google GSON Tech Note: [Så här löser du Gson-beroenden](https://tve.zendesk.com/entries/22902516-Android-AccessEnabler-1-6-How-to-resolve-Gson-dependencies)
+   **Obs!** AE 1.6 Google GSON Tech Note: [Lösa Gson-beroenden](https://tve.zendesk.com/entries/22902516-Android-AccessEnabler-1-6-How-to-resolve-Gson-dependencies)
 
-- **AccessEnabler 1.7** - Detta SDK introducerar en ny metod för tokenlagring, vilket möjliggör flera programmerings-MVPD-buffertar och därmed flera autentiseringstoken. Från AE 1.7 används samma lagringslayout både för scenariot Autentisering per begärande och för det normala autentiseringsflödet. Den enda skillnaden mellan de två är hur autentiseringen utförs: &quot;Authentication per Requestor&quot; innehåller en ny förbättring (passiv autentisering) som gör det möjligt för AccessEnabler att utföra autentisering i bakkanalen baserat på att det finns en autentiseringstoken i lagringen (för en annan programmerare). Användaren behöver bara autentisera en gång, och den här sessionen kommer att användas för att hämta autentiseringstoken i efterföljande appar. Detta bakkanalsflöde äger rum under [`setRequestor()`](#setRequestor) ringa och är för det mesta transparent för programmeraren. Det finns dock ett viktigt krav här: programmeraren MÅSTE ringa [`setRequestor()`](#setRequestor) från huvudgränssnittstråden och från en aktivitet.
+- **AccessEnabler 1.7** - Denna SDK introducerar en ny metod för tokenlagring, som aktiverar flera programmerings-MVPD-bucket och därmed flera autentiseringstoken. Från AE 1.7 används samma lagringslayout både för scenariot Autentisering per begärande och för det normala autentiseringsflödet. Den enda skillnaden mellan de två är hur autentiseringen utförs: &quot;Authentication per Requestor&quot; innehåller en ny förbättring (passiv autentisering) som gör det möjligt för AccessEnabler att utföra autentisering i bakkanalen baserat på att det finns en autentiseringstoken i lagringen (för en annan programmerare). Användaren behöver bara autentisera en gång, och den här sessionen kommer att användas för att hämta autentiseringstoken i efterföljande appar. Det här bakkanalsflödet äger rum under [`setRequestor()`](#setRequestor)-anropet och är för det mesta genomskinligt för programmeraren. Det finns dock ett viktigt krav här: Programmeraren MÅSTE anropa [`setRequestor()`](#setRequestor) från huvudgränssnittstråden och inifrån en aktivitet.
 
 
 #### Auktoriseringstoken
@@ -161,12 +165,12 @@ Från och med AccessEnabler 1.7 kan tokenlagringen ha stöd för flera programme
 I äldre versioner av AccessEnabler återges användaren som icke-autentiserad i steg 6, eftersom tokenlagringen tidigare bara hade stöd för en autentiseringstoken.
 
 
-**OBS!** Om du loggar ut från en programmerare-/MVPD-session rensas det underliggande lagringsutrymmet, inklusive alla andra token för programmerarautentisering på enheten med enkel inloggning. Token som erhållits för andra MVPD eller inte via enkel inloggning tas inte bort. Avbryta autentiseringsflödet (anropar [`setSelectedProvider(null)`](#setSelectedProvider)) rensar INTE det underliggande lagringsutrymmet, men påverkar bara det aktuella autentiseringsförsöket för Programmer/MVPD (genom att radera MVPD för den aktuella programmeraren).
+**OBS!** Om du loggar ut från en programmerare/MVPD-session rensas det underliggande lagringsutrymmet, inklusive alla andra programmerarautentiseringstoken på enheten med enkel inloggning. Token som erhållits för andra MVPD eller inte via enkel inloggning tas inte bort. Om du avbryter autentiseringsflödet (anropar [`setSelectedProvider(null)`](#setSelectedProvider)) rensas INTE det underliggande lagringsutrymmet, men det påverkar bara det aktuella autentiseringsförsöket för programmerare/MVPD (genom att radera det MVPD för den aktuella programmeraren).
 
 
 En annan lagringsrelaterad funktion som ingår i AccessEnabler 1.7 gör det möjligt att importera autentiseringstoken från äldre lagringsområden. Den här&quot;tokenimporteraren&quot; hjälper till att uppnå kompatibilitet mellan efterföljande AccessEnabler-versioner och upprätthålla SSO-läget även när lagringsversionen uppgraderas.
 
-Importören utförs under [`setRequestor()`](#setRequestor) och körs i följande två scenarier (förutsatt att det inte finns någon giltig autentiseringstoken för den aktuella programmeraren i det aktuella lagringsutrymmet):
+Importören körs under [`setRequestor()`](#setRequestor)-flödet och körs i följande två scenarier (förutsatt att det inte finns någon giltig autentiseringstoken för den aktuella programmeraren i det aktuella lagringsutrymmet):
 
 - Den första installationen av en 1.7-app som har utvecklats av en specifik programmerare
 - Uppgraderingsväg till en framtida AccessEnabler som använder en ny lagringsplats
@@ -243,7 +247,7 @@ I listan nedan visas formatet för den korta medietoken.  Denna token visas för
 
 #### Enhetsbindning {#device_binding}
 
-Observera taggen med titeln i XML-listan ovan `simpleTokenFingerprint`. Syftet med den här taggen är att lagra information om anpassad enhets-ID. AccessEnabler-biblioteket kan hämta sådan individualiseringsinformation och göra den tillgänglig för Adobe Pass Authentication Services under berättigandeanropen. Tjänsten kommer att använda den här informationen och bädda in den i de faktiska tokenerna, vilket effektivt binder tokenerna till en viss enhet. Slutmålet för detta är att göra tokens icke-överförbara över olika enheter.
+Observera taggen `simpleTokenFingerprint` i XML-listan ovan. Syftet med den här taggen är att lagra information om anpassad enhets-ID. AccessEnabler-biblioteket kan hämta sådan individualiseringsinformation och göra den tillgänglig för Adobe Pass Authentication Services under berättigandeanropen. Tjänsten kommer att använda den här informationen och bädda in den i de faktiska tokenerna, vilket effektivt binder tokenerna till en viss enhet. Slutmålet för detta är att göra tokens icke-överförbara över olika enheter.
 
 
 

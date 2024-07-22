@@ -4,7 +4,7 @@ description: Registreringshantering för dynamisk klient
 exl-id: 2c3ebb0b-c814-4b9e-af57-ce1403651e9e
 source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
 workflow-type: tm+mt
-source-wordcount: '1338'
+source-wordcount: '1321'
 ht-degree: 0%
 
 ---
@@ -17,7 +17,7 @@ ht-degree: 0%
 
 ## Ökning {#overview}
 
-I och med den omfattande användningen av [Android Chrome, anpassade flikar](https://developer.chrome.com/multidevice/android/customtabs){target_blanck} och [Apple Safari View Controller](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller){target_blanck} i våra kunders program uppdaterar vi användarautentiseringsflödet i Adobe Pass Authentication. Mer specifikt kan vi inte längre uppnå målet att behålla tillståndet så att användaragentflödet för autentisering av en MVPD-prenumerant kan spåras mellan omdirigeringar. Detta har tidigare gjorts med HTTP-cookies. Den här begränsningen är drivrutinen för att börja migrera alla API:er till OAuth 2.0 [RFC6749](https://tools.ietf.org/html/rfc6749){target_blanck}.
+I och med den omfattande användningen av [Android Chrome anpassade flikar](https://developer.chrome.com/multidevice/android/customtabs){target_blanck} och [Apple Safari View Controller](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller){target_blanck} i våra kunders program uppdaterar vi användarautentiseringsflödet i Adobe Pass-autentiseringen. Mer specifikt kan vi inte längre uppnå målet att behålla tillståndet så att användaragentflödet för autentisering av en MVPD-prenumerant kan spåras mellan omdirigeringar. Detta har tidigare gjorts med HTTP-cookies. Den här begränsningen är drivrutinen för att börja migrera alla API:er till OAuth 2.0 [RFC6749](https://tools.ietf.org/html/rfc6749){target_blanck}.
 
 Med den här uppdateringen blir autentiseringsklienter för Adobe OAuth 2.0-klienter och en anpassad OAuth 2.0-autentiseringsserver distribueras för att tillgodose behoven i Adobe Pass autentiseringstjänst.
 
@@ -25,7 +25,7 @@ För att klientprogrammen ska kunna utnyttja OAuth 2.0-auktoriseringen måste se
 
 Dessa metadata kommuniceras som en programsats, som innehåller ett &quot;software_id&quot; som gör att vår autentiseringsserver kan korrelera olika instanser av ett program med samma programsats.
 
-A **programsats** är en JSON Web Token (JWT) som bekräftar metadatavärden om klientprogramvaran som ett paket. När programsatsen skickas till auktoriseringsservern som en del av en klientregistreringsbegäran måste den signeras digitalt eller MACed med JSON Web Signature (JWS).
+En **programsats** är en JSON Web Token (JWT) som bekräftar metadatavärden om klientprogramvaran som ett paket. När programsatsen skickas till auktoriseringsservern som en del av en klientregistreringsbegäran måste den signeras digitalt eller MACed med JSON Web Signature (JWS).
 
 Du hittar en mer detaljerad förklaring om vilka programsatser som är och hur de fungerar i den officiella dokumentationen [RFC7591](https://tools.ietf.org/html/rfc7591).
 
@@ -33,13 +33,13 @@ Programsatsen ska distribueras med programmet på användarens enhet.
 
 Före den här uppdateringen hade vi två mekanismer för att tillåta att program kan anropa Adobe Pass-autentisering:
 
-* webbläsarbaserade klienter registreras via tillåtet [domänlista](/help/authentication/programmer-overview.md#reg-and-init)
-* Inbyggda programklienter, som iOS och Android-program, registreras via **undertecknad beställare** mekanism
+* webbläsarbaserade klienter registreras via tillåten [domänlista](/help/authentication/programmer-overview.md#reg-and-init)
+* Inbyggda programklienter, som iOS- och Android-program, registreras via **signerad beställare**-mekanism
 
 
 Med auktoriseringsfunktionen för klientregistrering måste du lägga till dina program på TVE-kontrollpanelen.
 
-För att en kund ska kunna börja implementera nya Android SDK och kommande iOS SDK krävs en programsats. En programsats identifierar ett program som skapats i TVE Dashboard.
+För att kunder ska kunna börja implementera nya Android SDK och kommande iOS SDK behöver de en programvarubeskrivning. En programsats identifierar ett program som skapats i TVE Dashboard.
 
 Följ stegen nedan för att skapa ett registrerat program på TVE Dashboard.
 
@@ -47,25 +47,25 @@ Följ stegen nedan för att skapa ett registrerat program på TVE Dashboard.
 
 Du kan skapa ett registrerat program på två sätt i TVE Dashboard:
 
-* [Programmeringsnivå](#prog-level) - gör att du kan skapa ett registrerat program och länka det till någon eller alla programmeringskanaler.
+* [Programmernivå](#prog-level) - gör att du kan skapa ett registrerat program och länka det till någon eller alla programmeringskanaler.
 
 * [Kanalnivå](#channel-level) - gör att du kan skapa ett registrerat program som är permanent länkat till enbart den här kanalen.
 
 ### Skapa ett registrerat program på programmerarnivå {#prog-level}
 
-Gå till **Programmerare** > **Registrerade program** -fliken.
+Gå till fliken **Programmerare** > **Registrerade program**.
 
 ![](assets/reg-app-progr-level.png)
 
-Klicka på fliken Registrerade program **Lägg till nytt program**. Fyll i obligatoriska fält i det nya fönstret.
+Klicka på **Lägg till nytt program** på fliken Registrerade program. Fyll i obligatoriska fält i det nya fönstret.
 
 Som du ser i bilden nedan är fälten som du ska fylla i:
 
 * **Programnamn** - namnet på programmet
 
-* **Tilldelad till kanal** - namnet på kanalen, t</span>som det här programmet är länkat till. Standardinställningen i den nedrullningsbara masken är **Alla kanaler.** I gränssnittet kan du välja en eller flera kanaler.
+* **Tilldelad till kanal** - namnet på kanalen, t</span>som det här programmet är länkat till. Standardinställningen i den nedrullningsbara masken är **Alla kanaler.** Med gränssnittet kan du välja en eller alla kanaler.
 
-* **Programversion** - som standard är detta inställt på &quot;1.0.0&quot;, men vi rekommenderar starkt att du ändrar det med din egen programversion. Om du bestämmer dig för att ändra programversionen bör du tänka på det genom att skapa ett nytt registrerat program för det.
+* **Programversion** - som standard är detta inställt på 1.0.0, men vi rekommenderar att du ändrar det med din egen programversion. Om du bestämmer dig för att ändra programversionen bör du tänka på det genom att skapa ett nytt registrerat program för det.
 
 * **Programplattformar** - de plattformar som programmet ska länkas till. Du kan markera alla eller flera värden.
 
@@ -77,7 +77,7 @@ Som du ser i bilden nedan är fälten som du ska fylla i:
 
 När du har fyllt i fälten med lämpliga värden måste du klicka på Klar för att programmet ska sparas i konfigurationen.
 
-Observera att det finns **inget alternativ för att ändra ett redan skapat program**. Om det upptäcks att något som skapats inte längre uppfyller kraven måste ett nytt registrerat program skapas och användas tillsammans med klientprogrammet vars krav det uppfyller.
+Observera att det inte finns **något alternativ för att ändra ett redan skapat program**. Om det upptäcks att något som skapats inte längre uppfyller kraven måste ett nytt registrerat program skapas och användas tillsammans med klientprogrammet vars krav det uppfyller.
 
 
 ### Registrera ett nytt program på kanalnivå {#channel-level}
@@ -124,7 +124,7 @@ Filens namn identifieras unikt genom att prefix anges med &quot;software_stateme
 
 Observera att för samma registrerade program kommer olika programsatser att tas emot varje gång som nedladdningsknappen klickas, men detta medför inte att tidigare programsatser för det här programmet blir ogiltiga. Det beror på att de genereras på plats, per åtgärdsbegäran.
 
-Det finns en **begränsning** om nedladdningsåtgärden. Om du tillfrågas om en programsats genom att klicka på knappen &quot;Ladda ned&quot; kort efter att du skapat det registrerade programmet och den här programsatsen ännu inte sparats och konfigurationsjson inte synkroniserats, visas följande felmeddelande längst ned på sidan.
+Det finns en **begränsning** gällande hämtningsåtgärden. Om du tillfrågas om en programsats genom att klicka på knappen &quot;Ladda ned&quot; kort efter att du skapat det registrerade programmet och den här programsatsen ännu inte sparats och konfigurationsjson inte synkroniserats, visas följande felmeddelande längst ned på sidan.
 
 ![](assets/error-sw-statement-notready.png)
 
@@ -143,4 +143,4 @@ Mer information om hur slutprocessen fungerar, eller om du vill få en inblick i
 
 ## Demo {#tutorial}
 
-Titta [det här webbinariet](https://my.adobeconnect.com/pzkp8ujrigg1/) som ger ett större sammanhang för funktionerna och innehåller en demonstration av hur programsatser ska hanteras med TVE Dashboard och hur de genererade programsatserna ska testas med ett demoprogram som tillhandahålls av Adobe som en del av Android SDK.
+Titta på [det här webbinariet](https://my.adobeconnect.com/pzkp8ujrigg1/) som ger mer information om funktionerna och innehåller en demonstration om hur du hanterar programsatser med TVE Dashboard och hur du testar genererade programsatser med ett demoprogram som tillhandahålls av Adobe som en del av Android SDK.

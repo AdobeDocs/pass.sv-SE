@@ -5,7 +5,7 @@ exl-id: 6c83e703-d8cd-476b-8514-05b8230902be
 source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
 workflow-type: tm+mt
 source-wordcount: '711'
-ht-degree: 1%
+ht-degree: 0%
 
 ---
 
@@ -65,7 +65,7 @@ För att Adobe Pass Authentication ska kunna integreras med ett Proxy MVPD kräv
 
 I SAML AuthN-begäran innehåller proxyintegreringar följande extra egenskap som måste hanteras av MVPD-proxyn.  Den här egenskapen är nödvändig för att den som gjorde begäran ska kunna bearbeta den för det proxiderade PDF-dokumentet och för att återge rätt inloggningsfunktion. (Den här egenskapen markeras i exempelbegäran nedan.)
 
-**Omfångsegenskap** - Innehåller ett IDPEntry-objekt som innehåller det specifika MVPD_ID och MVPD-namnet.  Detta representerar det MVPD som användaren faktiskt valde i programmerarens väljare och matchar det MVPD_ID som angetts i proxywebbtjänsten.
+**Omfångsegenskapen** - Innehåller ett IDPEntry-objekt som innehåller det specifika MVPD_ID och MVPD-namnet.  Detta representerar det MVPD som användaren faktiskt valde i programmerarens väljare och matchar det MVPD_ID som angetts i proxywebbtjänsten.
 
 Det finns ytterligare en omfångsegenskap för RequestorID som kan användas för att anpassa inloggningen till det särskilda varumärket för Programmer (om det behövs). Eller så kan den bara användas för att analysera var begäran kommer från.
 

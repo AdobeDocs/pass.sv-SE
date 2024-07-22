@@ -1,7 +1,8 @@
 ---
 title: Utvärdering av förebyggande av spårning Apple Safari
 description: Utvärdering av förebyggande av spårning Apple Safari
-source-git-commit: 579ce868b6ee94e1854bbc51145fc7840268db26
+exl-id: a3362020-92ff-4232-b923-e462868730d5
+source-git-commit: 8552a62f4d6d80ba91543390bf0689d942b3a6f4
 workflow-type: tm+mt
 source-wordcount: '1826'
 ht-degree: 0%
@@ -18,13 +19,15 @@ ht-degree: 0%
 
 **Information**
 
-Från och med Safari 10 kommer standardsekretessinställningarna för webbläsare att få funktionerna för enkel inloggning (SSO), enkel utloggning (SLO) och passiv autentisering att sluta fungera. Enkel inloggning (SSO) och passiv autentisering fungerar inte ens i samma session mellan flera flikar eller webbläsarfönster.
+Från och med Safari 10 kommer standardsekretessinställningarna för webbläsare att få funktionerna för enkel inloggning (SSO), enkel utloggning (SLO) och passiv autentisering att sluta fungera. Enkel inloggning (SSO) och passiv autentisering fungerar inte ens i
+samma session mellan flera flikar eller webbläsarfönster.
 
-Dessa ändringar påverkar och påverkar Adobe Pass autentiseringsprocesser för följande versioner av AccessEnabler JavaScript SDK: v2 (version 2.x), v3 (version 3.x), v4 (version 4.x).
+Dessa ändringar påverkar och påverkar Adobe Pass autentiseringsprocesser
+för följande versioner av AccessEnabler JavaScript SDK: v2 (version 2.x), v3 (version 3.x), v4 (version 4.x).
 
 ### Minska {#mitigation-safari10}
 
-För att begränsa dessa begränsningar kan du instruera användaren att ändra sekretessinställningarna för webbläsaren Safari 10 och använda &quot;**Tillåt alltid**&quot; för &quot;**Cookies och webbplatsdata**&quot; på fliken Sekretess i webbläsaren från Inställningar, enligt bilden nedan.
+För att begränsa dessa begränsningar kan du instruera användaren att ändra sekretessinställningarna för webbläsaren Safari 10 och använda alternativet **Tillåt alltid** för posten **Cookies och webbplatsdata** på fliken Sekretess i inställningarna, vilket visas i bilden nedan.
 
 ![](assets/always-allow-safari10.png)
 
@@ -37,7 +40,7 @@ För att begränsa dessa begränsningar kan du instruera användaren att ändra 
 >
 >All information ovan från avsnitt Safari 10 gäller fortfarande för Safari 11.
 
-Från och med Safari 11 introduceras [Intelligent spårningsförebyggande](https://webkit.org/blog/7675/intelligent-tracking-prevention/)(ITP), en teknik som använder heuristik för att förhindra spårning mellan webbplatser. Dessa heuristika påverkar hur cookies från tredje part lagras och spelas upp på nätverksanrop, vilket innebär att Safari blockerar cookies från tredje part i kommunikationen mellan klient och servermodell beroende på vilken ITP-mekanism som aktiveras.
+Från och med Safari 11 introducerar webbläsaren mekanismen [Intelligent Tracking Prevention](https://webkit.org/blog/7675/intelligent-tracking-prevention/) (ITP), en teknik som använder heuristik för att förhindra spårning mellan webbplatser. Dessa heuristika påverkar hur cookies från tredje part lagras och spelas upp på nätverksanrop, vilket innebär att Safari blockerar cookies från tredje part i kommunikationen mellan klient och servermodell beroende på vilken ITP-mekanism som aktiveras.
 
 Adobe Pass autentiseringstjänst använder och förlitar sig på cookies som en del av autentiseringsprocessen **för att fungera**. I situationer där autentiseringsprocessen sker automatiskt (t.ex. Tillfälligt pass) eller i implementeringar som använder iFrames eller &quot;omdirigeringsfri&quot; funktionalitet, betraktas Adobe cookies som cookies från tredje part och blockeras som standard. I alla andra fall använder Safari en maskininlärningsalgoritm som kan flagga alla tjänstcookies i Adobe Pass Authentication som spårningscookies, vilket innebär att ITP blockerar.
 
@@ -47,20 +50,20 @@ Dessa ändringar påverkar och påverkar Adobe Pass autentiseringsprocesser för
 
 ### Minska {#mitigation-safari11}
 
-För både AccessEnabler JavaScript SDK v3 (version 3.x) och AccessEnabler JavaScript SDK v4 (version 4.x) innehåller biblioteket en mekanism som kan identifiera de situationer där användarens autentisering blockerades på grund av att nödvändiga cookies saknas. I dessa situationer utlöser biblioteket ett specifikt felanrop [N130](/help/authentication/error-reporting.md#advanced-error-codes-reference), som skickas tillbaka till webbplatsen med aktiverad Adobe Pass-autentisering för att användas som en signal som instruerar användaren att vidta åtgärder som kan minska problemet. För att kunna dra nytta av denna mekanism måste webbplatsen implementera [Felrapportering](/help/authentication/error-reporting.md) -specifikation.
+För både AccessEnabler JavaScript SDK v3 (version 3.x) och AccessEnabler JavaScript SDK v4 (version 4.x) innehåller biblioteket en mekanism som kan identifiera de situationer där användarens autentisering blockerades på grund av saknade nödvändiga cookies. I dessa situationer utlöser biblioteket ett specifikt felanrop [N130](/help/authentication/error-reporting.md#advanced-error-codes-reference) som skickas tillbaka till webbplatsen Adobe Pass Authentication enabled för att användas som en signal för att instruera användaren att vidta åtgärder som kan minska problemet. För att du ska kunna utnyttja den här funktionen måste webbplatsen implementera specifikationen [Felrapportering](/help/authentication/error-reporting.md).
 
-För AccessEnabler JavaScript SDK v2 (version 2.x) har biblioteket inte den mekanism som beskrivs ovan, och därför kan webbplatsen som stöder Adobe Pass Authentication inte signaleras när användaren ska instrueras att vidta åtgärder för att åtgärda problemet.
+För AccessEnabler JavaScript SDK v2 (version 2.x) har biblioteket inte den mekanism som beskrivs ovan och därför kan webbplatsen Adobe Pass Authentication enabled inte signaleras när användaren ska instruera att vidta åtgärder för att åtgärda problemet.
 
-Listan över åtgärder som kan mildra ovannämnda problem **gäller för alla tre versionerna** av AccessEnabler JavaScript SDK.
+Listan över åtgärder som kan mildra de ovannämnda problemen **gäller för alla tre versionerna** av AccessEnabler JavaScript SDK.
 
-När [N130](/help/authentication/error-reporting.md#advanced-error-codes-reference) felåteranrop tas emot av den som implementerar webbplatsen. Användaren bör instrueras att inaktivera ITP (Intelligent Tracking Prevention) och aktivera cookies från tredje part genom att:
+När felåteranrop för [N130](/help/authentication/error-reporting.md#advanced-error-codes-reference) tas emot av implementerarens webbplats bör användaren instrueras att inaktivera ITP (Intelligent Tracking Prevention) och aktivera cookies från tredje part genom att:
 
-* Om Mac OS X High Sierra och senare används avmarkering av **Förhindra spårning över flera webbplatser**&quot; för &quot;**Webbplatsspårning**&quot; på fliken Sekretess i webbläsaren från Inställningar, enligt bilden nedan.
+* Om det gäller Mac OS X High Sierra och senare: Avmarkerar alternativet **Förhindra spårning mellan webbplatser** för **webbplatsspårning** på fliken Sekretess i inställningarna, vilket visas i bilden nedan.
 
   ![](assets/uncheck-prvnt-cr-st-tr-safari11.png)
 
 
-* För Mac OS X Sierra och tidigare: Kontrollera &quot;**Tillåt alltid**&quot; för &quot;**Cookies och webbplatsdata**&quot; på fliken Sekretess i webbläsaren från Inställningar, enligt bilden nedan.
+* Om det gäller Mac OS X Sierra och tidigare: Kontrollera alternativet **Tillåt alltid** för posten **Cookies och webbplatsdata** på fliken Sekretess i Inställningar, enligt bilden nedan.
 
   ![](assets/always-allow-safari11.png)
 
@@ -72,22 +75,22 @@ När [N130](/help/authentication/error-reporting.md#advanced-error-codes-referen
 >
 >All information ovan från avsnitt Safari 10 och avsnitt Safari 11 gäller fortfarande för Safari 12.
 
-I det här avsnittet beskrivs kompatibilitetsproblemen för **AccessEnabler JavaScript SDK version 4.x** på Safari 12.
+I det här avsnittet beskrivs kompatibilitetsproblemen med **AccessEnabler JavaScript SDK version 4.x** i Safari 12.
 
 >[!NOTE]
 >
->Tänk på att om AccessEnabler JavaScript SDK version 2.x och AccessEnabler JavaScript SDK version 3.x båda använder cookies från tredje part för autentiseringsprocesserna, och på grund av ITP- och tredjepartsprinciper som börjar med Safari 11 kan användarens autentiseringsprocess vara oväntad och odefinierad, från oförmåga till inloggning, till kortare än förväntat autentiseringslängd.
+>Tänk på att när det gäller AccessEnabler JavaScript SDK version 2.x och AccessEnabler JavaScript SDK version 3.x använder båda cookies från tredje part för autentiseringsprocesserna, och på grund av ITP- och tredjepartsprinciper för cookies som börjar med Safari 11 kan användarens autentiseringsprocess vara oväntad och odefinierad, från oförmåga till inloggning, till kortare än förväntad autentiseringstid.
 
 
-### Certifierad funktionalitet i AccessEnabler JavaScript SDK v4 (version 4.x) i Safari 12 {#certified-functionality-of-accessenabler-javacscript=sdk-v4}
+### Certifierade funktioner i AccessEnabler JavaScript SDK v4 (version 4.x) i Safari 12 {#certified-functionality-of-accessenabler-javacscript=sdk-v4}
 
-**Autentisering** flöden som använder användarinteraktion fungerar alltid, även om användarens webbläsare har cookies från tredje part inaktiverade, eftersom AccessEnabler JavaScript SDK från och med version 4.0 inte längre använder cookies från tredje part för autentiseringsprocesserna.
+**Autentiseringsflöden** som använder användarinteraktion fungerar alltid, även om användarens webbläsare har inaktiverade cookies från tredje part, eftersom AccessEnabler JavaScript SDK från och med version 4.0 inte längre använder cookies från tredje part för autentiseringsprocesserna.
 
 >[!NOTE]
 >
 >Användaren MÅSTE interagera med webbplatsen för att kunna öppna popup-fönster för inloggning och/eller interagera med inloggningssidan för MVPD.
 
-**Autentisering/preflight/Användarmetadata** -åtgärder fungerar fullt ut, förutsatt att användaren redan är autentiserad.
+**Autentiserings-/preflight-/användarmetadataåtgärder** fungerar fullt ut, förutsatt att användaren redan är autentiserad.
 
 ### Kända fel i AccessEnabler JavaScript SDK v4 (version 4.x) i Safari 12 {#known-issues-of-accessenabler-javascript-sdk-4}
 
@@ -97,11 +100,11 @@ I det här avsnittet beskrivs kompatibilitetsproblemen för **AccessEnabler Java
 
 * Temporärt pass
 
-   * För tillfälliga pass använder AccessEnabler JavaScript SDK en individualiseringsmekanism för att låsa en autentiseringstoken till en specifik enhet (webbläsarinstans). På grund av nya mekanismer i Safari 12, som utformats för att förhindra spårning, använder vi det fingeravtryck vi använder i personaliseringsmekanismen **kommer att vara samma för alla användare som har samma IP-adress**. Vi tar faktiskt klientens IP-adress i beaktande för personalisering, men även detta påverkar användare som delar samma offentliga IP-adress. För dessa användare kommer vi att beräkna samma individualiserings-ID och det tillfälliga passet kommer att vara knutet till det. Det innebär att när en sådan användare använder ett tillfälligt pass har ingen annan åtkomst till det \! Detta påverkar särskilt företagsanvändare, utbildningsinstitutioner eller andra organisationer som har flera användare som använder NAT eller en gemensam proxy för att få tillgång till internet.
+   * För tillfälliga passeringar använder AccessEnabler JavaScript SDK en individualiseringsmekanism för att låsa en autentiseringstoken till en specifik enhet (webbläsarinstans). På grund av nya mekanismer i Safari 12 som utformats för att förhindra spårning, kommer det fingeravtryck som vi beräknar och använder i individualiseringsmekanismen **att vara detsamma för alla användare som har samma IP-adress**. Vi tar faktiskt klientens IP-adress i beaktande för personalisering, men även detta påverkar användare som delar samma offentliga IP-adress. För dessa användare kommer vi att beräkna samma individualiserings-ID och det tillfälliga passet kommer att vara knutet till det. Det innebär att när en sådan användare använder ett tillfälligt pass har ingen annan åtkomst till det \! Detta påverkar särskilt företagsanvändare, utbildningsinstitutioner eller andra organisationer som har flera användare som använder NAT eller en gemensam proxy för att få tillgång till internet.
 
 >[!NOTE]
 >
->Det här problemet påverkar bara användare om den som implementerar använder ett tillfälligt pass som ett resultat av användarinteraktion, annars kan autentisering med tillfälligt pass **Automatiska flöden** nedan.
+>Det här problemet påverkar bara användare om den som implementerar använder tillfälligt pass som ett resultat av användarinteraktion, annars gäller det **automatiska flöden** nedan.
 
 * Automatiska flöden
 
@@ -115,7 +118,7 @@ Användningsfall som påverkas av detta problem:
 
 ### Minska {#mitigation-safari12}
 
-**SSO och SLO**
+**enkel inloggning och enkel inloggning (SLO)**
 
 Det finns ingen känd begränsning tillgänglig eller möjlig för tillfället. Apple introducerade ett &quot;Lagringsåtkomst-API&quot; i Safari 12 (`https://webkit.org/blog/8124/introducing-storage-access-api`), men den aktuella implementeringen gäller inte för localStorage utan endast för cookies. API:t kräver dessutom användarinteraktion för att kunna användas, och när du väl har använt det får användaren också en behörighetsdialogruta som liknar den nedan.
 
@@ -124,9 +127,9 @@ Det finns ingen känd begränsning tillgänglig eller möjlig för tillfället. 
 
 I nuläget uppfyller dessa Safari-krav/-uppmaningar inte våra UX-krav och vi har inte något konsekvent beteende som i andra webbläsare, där enkel inloggning&quot;fungerar&quot; när vi har sparat en token i en gemensam domän localStorage.
 
-**Temporärt pass**
+**Tillfälligt pass**
 
-För att minska personaliseringsproblemen och få en användarinteraktion rekommenderar vi att du använder **[Kampanjtillfälligt pass](/help/authentication/promotional-temp-pass.md)** på ett interaktivt sätt och ange minst en ytterligare information om användaren (till exempel e-postadress).
+För att minska personaliseringsproblemen och för att få en användarinteraktion rekommenderar vi att du använder **[Befordrad licens](/help/authentication/promotional-temp-pass.md)** på ett interaktivt sätt och tillhandahåller minst en ytterligare information om användaren (till exempel e-postadress).
 
 ## Safari 13 {#safari13}
 
@@ -137,7 +140,7 @@ För att minska personaliseringsproblemen och få en användarinteraktion rekomm
 >All information ovan från avsnitt Safari 10 till avsnitt Safari 12 gäller fortfarande för Safari 13.
 
 
-Från och med Safari 13 introducerar webbläsaren nya ändringar i [Intelligent spårningsförebyggande](https://webkit.org/blog/7675/intelligent-tracking-prevention/) (ITP), vilket gör det heuristiskt bakom mekanismen hårdare när det gäller att flagga cookies från tredje part som spårningscookies, för att förhindra spårning mellan webbplatser.
+Från och med Safari 13 introducerar webbläsaren nya ändringar i [ITP (Intelligent Tracking Prevention)](https://webkit.org/blog/7675/intelligent-tracking-prevention/), vilket gör att heuristiken bakom mekanismen blir strängare när det gäller att flagga cookies från tredje part som spårningscookies för att förhindra spårning mellan webbplatser.
 
 Så som beskrivs i tidigare avsnitt använder och förlitar sig Adobe Pass Authentication-tjänsten på cookies från tredje part som en del av autentiseringsprocesserna när implementerare använder AccessEnabler JavaScript SDK v2 (version 2.x) och AccessEnabler JavaScript SDK v3 (version 3.x). Jämfört med tidigare versioner av webbläsaren Safari när ITP sparade in efter att ha ägnat en stund åt att &quot;lära sig&quot; om interaktionen mellan användaren och de berörda parterna (programmerarens webbplatser och Adobe) blockerar webbläsaren Safari 13 från de första cookies från tredje part som anses spåra cookies i kommunikationen mellan klient och servermodell.
 
@@ -147,18 +150,18 @@ AccessEnabler JavaScript SDK v4 (version 4.x)-biblioteket använder inte cookies
 
 ### Minska {#mitigation-safari13}
 
-Först och främst rekommenderar vi starkt **migrering till AccessEnabler JavaScript SDK version 4.x** att ha ett stabilt och förutsägbart beteende i Safari.
+Först och främst rekommenderar vi starkt att **migrering till AccessEnabler JavaScript SDK version 4.x** har ett stabilt och förutsägbart beteende i webbläsaren Safari.
 
-För det andra innehåller biblioteket, för AccessEnabler JavaScript SDK v3 (version 3.x), en mekanism som kan identifiera de situationer där användarautentisering blockerades på grund av att nödvändiga cookies saknas. I dessa fall utlöser biblioteket ett specifikt felanrop ([N130](/help/authentication/error-reporting.md#advanced-error-codes-reference)) som skickas tillbaka till webbplatsen med aktiverad Adobe Pass-autentisering för att användas som en signal som instruerar användaren att vidta åtgärder som kan minska problemet. För att kunna dra nytta av denna mekanism måste webbplatsen implementera [Felrapportering](/help/authentication/error-reporting.md) -specifikation.
+För det andra innehåller biblioteket, för AccessEnabler JavaScript SDK v3 (version 3.x), en mekanism som kan identifiera situationer där användarautentisering blockerades på grund av att nödvändiga cookies saknas. I dessa situationer utlöser biblioteket ett specifikt felåteranrop ([N130](/help/authentication/error-reporting.md#advanced-error-codes-reference)) som skickas tillbaka till webbplatsen Adobe Pass Authentication enabled för att användas som en signal för att instruera användaren att vidta åtgärder som kan minska problemet. För att du ska kunna utnyttja den här funktionen måste webbplatsen implementera specifikationen [Felrapportering](/help/authentication/error-reporting.md).
 
-För AccessEnabler JavaScript SDK v2 (version 2.x) har biblioteket inte den mekanism som beskrivs ovan, och därför kan webbplatsen som stöder Adobe Pass Authentication inte signaleras när användaren ska instrueras att vidta åtgärder för att åtgärda problemet.
+För AccessEnabler JavaScript SDK v2 (version 2.x) har biblioteket inte den mekanism som beskrivs ovan och därför kan webbplatsen Adobe Pass Authentication enabled inte signaleras när användaren ska instruera att vidta åtgärder för att åtgärda problemet.
 
-När [N130](/help/authentication/error-reporting.md#advanced-error-codes-reference) felåteranrop tas emot av den som implementerar webbplatsen. Användaren bör instrueras att inaktivera ITP (Intelligent Tracking Prevention) och aktivera cookies från tredje part genom att:
+När felåteranrop för [N130](/help/authentication/error-reporting.md#advanced-error-codes-reference) tas emot av implementerarens webbplats bör användaren instrueras att inaktivera ITP (Intelligent Tracking Prevention) och aktivera cookies från tredje part genom att:
 
-* Om Mac OS X High Sierra och senare används avmarkering av **Förhindra spårning över flera webbplatser**&quot; för &quot;**Webbplatsspårning**&quot; på fliken Sekretess i webbläsaren från Inställningar, enligt bilden nedan.
+* Om det gäller Mac OS X High Sierra och senare: Avmarkerar alternativet **Förhindra spårning mellan webbplatser** för **webbplatsspårning** på fliken Sekretess i inställningarna, vilket visas i bilden nedan.
 
   ![](assets/prvnt-cross-site-tr-safari13.png)
 
-* För Mac OS X Sierra och tidigare: Kontrollera</span>han &quot;**Tillåt alltid**&quot; för &quot;**Cookies och webbplatsdata**&quot; på fliken Sekretess i webbläsaren från Inställningar, enligt bilden nedan.
+* Om det gäller Mac OS X Sierra och tidigare: Kontrollerar </span>alternativet **Tillåt alltid** för posten **Cookies och webbplatsdata** på fliken Sekretess i Inställningar, enligt bilden nedan.
 
   ![](assets/always-allow-safari13.png)

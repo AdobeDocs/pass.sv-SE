@@ -4,7 +4,7 @@ description: Klientlöst API-flöde i frånvaro av enhets-ID
 exl-id: 6549a6d6-03a9-4d95-99fb-d3ada832323d
 source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
 workflow-type: tm+mt
-source-wordcount: '238'
+source-wordcount: '242'
 ht-degree: 0%
 
 ---
@@ -39,7 +39,7 @@ När dessa steg är klara använder Adobe Pass Authentication UUID som enhets-ID
 
 ## Permanent lösning
 
-Adobe kommer att ändra detta i en framtida version genom att `deviceId` en valfri nyttolast när du skapar reg.koden och använder UUID som token-nyckel i stället för `deviceId`, när `deviceId` finns inte.
+Adobe ändrar detta i en framtida version genom att göra `deviceId` till en valfri nyttolast när reg.koden skapas och använda UUID som tokennyckel i stället för `deviceId` när `deviceId` inte finns.
 
 <!--
 ## Related Information

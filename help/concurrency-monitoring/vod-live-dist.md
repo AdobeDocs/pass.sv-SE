@@ -1,21 +1,21 @@
 ---
 title: Hur man skiljer mellan VOD och Live Content i Concurrency Monitoring
 description: Hur man skiljer mellan VOD och Live Content i Concurrency Monitoring
-source-git-commit: 19ed211c65deaa1fe97ae462065feac9f77afa64
+exl-id: 51ba686a-7c1f-4403-9e8e-cd247bf9e345
+source-git-commit: f30b6814b8a77424c13337d44d7b247105e0bfe2
 workflow-type: tm+mt
-source-wordcount: '219'
+source-wordcount: '221'
 ht-degree: 0%
 
 ---
 
-
 # Så här gör du: Skilja mellan VOD och Live Content i Concurrency Monitoring {#dist-vod-live}
 
-**F:** Kan tjänsten för övervakning av samtidig användning skilja mellan vilken typ av innehåll som spelas upp (Live-innehåll kontra Video on demand)?
+**Q:** Kan Concurrency Monitoring-tjänsten skilja mellan vilken typ av innehåll som spelas upp (Live-innehåll kontra Video on demand)?
 
 
 
-**S:** Övervakning av samtidig användning kan inte direkt skilja mellan live-innehåll och on demand-video (VOD). Videospelaren måste känna till vilken typ av innehåll som spelas upp och skicka informationen under [sessionsinitieringsanrop](/help/concurrency-monitoring/cm-api-overview.md#session-initial) (krävs för övervakning av samtidig användning). Det reguljära arbetsflödet ser ut så här:
+**A:** Övervakning av samtidig användning kan inte direkt skilja mellan live-innehåll och VOD (Video on demand). Videospelaren måste känna till vilken typ av innehåll som spelas upp och skicka den här informationen under [sessionsinitieringsanropet](/help/concurrency-monitoring/cm-api-overview.md#session-initial) (krävs för övervakning av samtidig användning). Det reguljära arbetsflödet ser ut så här:
 
 1. Kunder med Concurrency Monitoring definierar en uppsättning metadata som de vill ha regler implementerade på (t.ex. content-type=live|vod, device-type=mobile|console|desktop).
 1. Concurrency Monitoring-teamet implementerar den önskade principen. Exempel:

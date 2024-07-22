@@ -4,7 +4,7 @@ description: Använda Experience Cloud-ID i Adobe Pass-autentisering
 exl-id: 03354c01-5aad-4d81-beee-1c3834599134
 source-git-commit: 59672b44074c472094ed27a23d6bfbcd7654c901
 workflow-type: tm+mt
-source-wordcount: '397'
+source-wordcount: '396'
 ht-degree: 0%
 
 ---
@@ -35,7 +35,7 @@ När du har fått ett ECID (förklaras ovan) måste du skicka informationen till
 
 För JavaScript måste du skicka ECID i en karta som den tredje parametern till setRequestor-anropet.
 
-**Exempel:**
+**Användningsexempel:**
 
 ```JavaScript
 accessEnabler.setRequestor("REQUESTOR_ID", ["ENDPOINT_URL"],
@@ -49,7 +49,7 @@ accessEnabler.setRequestor("REQUESTOR_ID", ["ENDPOINT_URL"],
 
 För iOS/tvOS SDK finns det en dedikerad metod som kallas setOptions.
 
-**Exempel:**
+**Användningsexempel:**
 
 ```JavaScript
 accessEnabler.setOptions(
@@ -59,11 +59,11 @@ accessEnabler.setOptions(
 );
 ```
 
-### Android/fireTV SDK {#android-sdk}
+### Android/FireTV SDK {#android-sdk}
 
 För Android/FireTV SDK liknar mekanismen iOS. Det är bara parameternamnet som är annorlunda. API:t beskrivs här.
 
-**Exempel:**
+**Användningsexempel:**
 
 ```JavaScript
 String visitor_id = "THE_ECID_VALUE";
@@ -76,8 +76,8 @@ accessEnabler.setOptions(options);
 
 ### Klientlöst API {#clientless-api}
 
-När du använder Adobe Pass via REST API:t **ECID** värde ska skickas **på alla API:er** som en parameter med namnet **&#39;ap_vi&#39;**.
+När du använder Adobe Pass via dess REST API, ska värdet **ECID** skickas **för alla API:er** som en parameter med namnet **&#39;ap_vi&#39;**.
 
-**Exempel:**
+**Användningsexempel:**
 
 `GET: https://api.auth.adobe.com/api/v1/authorize?...&ap_vi=THE_ECID_VALUE`

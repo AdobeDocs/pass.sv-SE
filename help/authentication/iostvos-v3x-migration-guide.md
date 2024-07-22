@@ -4,7 +4,7 @@ description: Migreringshandbok för iOS/tvOS v3.x
 exl-id: 4c43013c-40af-48b7-af26-0bd7f8df2bdb
 source-git-commit: 19ed211c65deaa1fe97ae462065feac9f77afa64
 workflow-type: tm+mt
-source-wordcount: '561'
+source-wordcount: '559'
 ht-degree: 0%
 
 ---
@@ -26,7 +26,7 @@ ht-degree: 0%
 
 ## Uppdatera bygginställningar {#update}
 
-Den här versionen innehåller funktioner skrivna på SWIFT-språk. Om din app är helt objektiv-C måste du ange kryssrutan Inkludera alltid standardbibliotek för Swift i målets bygginställningar till Ja. När det här alternativet har angetts skannar Xcode in de paketerade ramverken i din app och, om någon av dem innehåller Swift-kod, kopierar den relevanta biblioteken till programpaketet. Om du inte uppdaterar build-inställningarna kan programmet krascha med fel som anger att det inte kan läsa in AccessEnabler.framework eller olika `ibswift*` bibliotek.
+Den här versionen innehåller funktioner skrivna på SWIFT-språk. Om din app är helt objektiv-C måste du ange kryssrutan Inkludera alltid standardbibliotek för Swift i målets bygginställningar till Ja. När det här alternativet har angetts skannar Xcode in de paketerade ramverken i din app och, om någon av dem innehåller Swift-kod, kopierar den relevanta biblioteken till programpaketet. Om du inte uppdaterar build-inställningarna kan programmet krascha med fel som anger att det inte kan läsa in AccessEnabler.framework eller olika `ibswift*`-bibliotek.
 
 </br>
 
@@ -50,7 +50,7 @@ När du har programsatsen rekommenderar vi att du använder den på en fjärrser
 
 > Mer information om hur du hämtar ett anpassat URL-schema finns på den här sidan: [Hämta ett kund-URL-schema](/help/authentication/iostvos-application-registration.md)
 
-När du har fått det anpassade URL-schemat måste du lägga till det i programmets info.plist-fil. Det anpassade schemat har följande format: `adbe.u-XFXJeTSDuJiIQs0HVRAg://`. Du måste utesluta kolon och snedstreck när du lägger till det i filen. Exemplet ovan blir `adbe.u-XFXJeTSDuJiIQs0HVRAg`.
+När du har fått det anpassade URL-schemat måste du lägga till det i programmets info.plist-fil. Det anpassade schemat har följande format: `adbe.u-XFXJeTSDuJiIQs0HVRAg://`. Du måste utesluta kolon och snedstreck när du lägger till det i filen. Ovanstående exempel blir `adbe.u-XFXJeTSDuJiIQs0HVRAg`.
 
 ```plist
     <key>CFBundleURLTypes</key>
@@ -68,11 +68,11 @@ När du har fått det anpassade URL-schemat måste du lägga till det i programm
 
 ## Avlyssnande anrop till det anpassade URL-schemat {#intercept}
 
-Detta gäller endast om ditt program tidigare aktiverat manuell hantering av Safari View Controller (SVC) via [setOptions(\[&quot;handleSVC&quot;:true&quot;\])](/help/authentication/iostvos-sdk-api-reference.md) anropa och för specifika MVPD-filer som kräver Safari View Controller (SVC), vilket innebär att URL:er för autentisering och utloggning måste läsas in av en SFSafariViewController-styrenhet i stället för en UIWebView/WKWebView-styrenhet.
+Detta gäller endast om ditt program tidigare aktiverat manuell hantering av Safari View Controller (SVC) via anropet [setOptions(\[&quot;handleSVC&quot;:true&quot;\])](/help/authentication/iostvos-sdk-api-reference.md) och för specifika MVPD-anrop som kräver Safari View Controller (SVC), vilket innebär att URL:er för autentisering och utloggning av slutpunkter måste läsas in av en SFSafariViewController-styrenhet i stället för en i stället för en UIW-styrenhet WebView/WKWebView-kontrollant.
 
-Under autentiserings- och utloggningsflöden måste ditt program övervaka aktiviteten i `SFSafariViewController `när den går igenom flera omdirigeringar. Programmet måste identifiera tidpunkten då det läser in en specifik anpassad URL som definieras av din `application's custom URL scheme` (till exempel`adbe.u-XFXJeTSDuJiIQs0HVRAg://adobe.com)`. När kontrollenheten läser in den här anpassade URL:en måste programmet stänga `SFSafariViewController` och anropa AccessEnablers `handleExternalURL:url `API-metod.
+Under autentiserings- och utloggningsflöden måste ditt program övervaka aktiviteten för `SFSafariViewController `kontrollanten när den går igenom flera omdirigeringar. Programmet måste identifiera tidpunkten då det läser in en specifik anpassad URL som definieras av din `application's custom URL scheme` (t.ex.`adbe.u-XFXJeTSDuJiIQs0HVRAg://adobe.com)`). När kontrollenheten läser in den här anpassade URL:en måste ditt program stänga `SFSafariViewController` och anropa AccessEnablers `handleExternalURL:url `API-metod.
 
-I `AppDelegate` lägg till följande metod:
+Lägg till följande metod i `AppDelegate`:
 
 ```swift
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey: Any]) -> Bool {
@@ -89,7 +89,7 @@ I `AppDelegate` lägg till följande metod:
 
 ## Uppdatera signaturen för metoden setRequestor {#update-setreq}
 
-Eftersom den nya SDK:n använder en ny autentiseringsmekanism behövs inte parametern signedRequestId eller den offentliga nyckeln och hemligheten (för tvOS). The `setRequestor` -metoden är förenklad och behöver bara requestID.
+Eftersom den nya SDK:n använder en ny autentiseringsmekanism behövs inte parametern signedRequestId eller den offentliga nyckeln och hemligheten (för tvOS). Metoden `setRequestor` är förenklad och behöver bara begärandeID.
 
 ### iOS
 
@@ -128,7 +128,7 @@ blir:
 
 ## Ersätt getAuthenticationToken-metod med handleExternalURL-metod {#replace}
 
-`getAuthentication` tidigare har en metod använts för att slutföra autentiseringsflödet. Eftersom namnet var vilseledande, döptes det om till `handleExternalURL` och tar URL:en som en parameter.
+Metoden `getAuthentication` användes tidigare för att slutföra autentiseringsflödet. Eftersom namnet var vilseledande har namnet ändrats till `handleExternalURL` och URL:en används som parameter.
 
 Ändra alla förekomster av detta:
 

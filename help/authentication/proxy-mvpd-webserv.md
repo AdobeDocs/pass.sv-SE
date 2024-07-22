@@ -16,14 +16,14 @@ ht-degree: 0%
 >Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
 >För att kunna använda Proxy MVPD-webbtjänsten måste du:
 >- be supportteamet om en programsats för ditt registrerade program
->- hämta en åtkomsttoken baserad på [Dynamisk klientregistrering](dynamic-client-registration.md)
+>- hämta en åtkomsttoken baserad på [registrering av dynamisk klient](dynamic-client-registration.md)
 > 
 
 >[!NOTE]
 >
 >För att kunna använda Proxy MVPD-webbtjänsten måste du:
 >- be supportteamet om en programsats för ditt registrerade program
->- hämta en åtkomsttoken baserad på [Dynamisk klientregistrering](dynamic-client-registration.md)
+>- hämta en åtkomsttoken baserad på [registrering av dynamisk klient](dynamic-client-registration.md)
 > 
 
 ## Ökning {#overview-proxy-mvpd-webserv}
@@ -37,8 +37,8 @@ För att implementera ProxyMVPD-funktionen tillhandahåller Adobe Pass Authentic
 
 ## Proxy MVPD-tjänster {#proxy-mvpd-services}
 
-- [Hämta proxibla MVPD-filer](#retriev-proxied-mvpds)
-- [Skicka proxygenererade MVPD-filer](#submit-proxied-mvpds)
+- [Hämta proxibla MVPD:er](#retriev-proxied-mvpds)
+- [Skicka proxygenererade MVPD:er](#submit-proxied-mvpds)
 
 ### Hämta proxibla MVPD-filer {#retriev-proxied-mvpds}
 
@@ -46,7 +46,7 @@ Hämtar den aktuella listan över Proxied MVPD:er som är integrerade med Proxy 
 
 | Slutpunkt | Anropat av | Begärandeparametrar | Begäranrubriker | HTTP-metod | HTTP-svar |
 |--------------------------------------------------------------------------|-----------|-----------------------|---------------------------|-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| &lt;fqdn>/control/v3/mvpd-proxies/&lt;proxy-mvpd-identifier>/mvpds | ProxyMVPD | proxy-mvpd-identifier | Behörighet (obligatoriskt) | GET | <ul><li> 200 (ok) - Begäran har bearbetats och svaret innehåller en lista med ProxiedMVPD i XML-format</li><li>401 (obehörig) - Anger något av följande:<ul><li>Klienten MÅSTE begära en ny access_token</li><li>Begäran kommer från en IP-adress som inte finns i tillåtelselista</li><li>Ogiltig token</li></ul></li><li>403 (ej tillåtet) - Anger antingen att åtgärden inte stöds för de angivna parametrarna, eller att proxy-MVPD inte har angetts som proxy eller saknas</li><li>405 (metod tillåts inte) - En annan HTTP-metod än GET eller POST användes. Antingen stöds inte HTTP-metoden generellt eller så stöds den inte för den här specifika slutpunkten.</li><li>500 (internt serverfel) - Ett fel uppstod på serversidan under förfrågningsprocessen.</li></ul> |
+| &lt;FQDN>/control/v3/mvpd-proxies/&lt;proxy-mvpd-identifier>/mvpds | ProxyMVPD | proxy-mvpd-identifier | Behörighet (obligatoriskt) | GET | <ul><li> 200 (ok) - Begäran har bearbetats och svaret innehåller en lista med ProxiedMVPD i XML-format</li><li>401 (obehörig) - Anger något av följande:<ul><li>Klienten MÅSTE begära en ny access_token</li><li>Begäran kommer från en IP-adress som inte finns i tillåtelselista</li><li>Ogiltig token</li></ul></li><li>403 (ej tillåtet) - Anger antingen att åtgärden inte stöds för de angivna parametrarna, eller att proxy-MVPD inte har angetts som proxy eller saknas</li><li>405 (metod tillåts inte) - En annan HTTP-metod än GET eller POST användes. Antingen stöds inte HTTP-metoden generellt eller så stöds den inte för den här specifika slutpunkten.</li><li>500 (internt serverfel) - Ett fel uppstod på serversidan under förfrågningsprocessen.</li></ul> |
 
 Exempel på vändning:
 
@@ -93,7 +93,7 @@ Flyttar en array med MVPD-filer som är integrerade med det Proxy MVPD-program s
 
 | Slutpunkt | Anropat av | Begärandeparametrar | Begäranrubriker | HTTP-metod | HTTP-svar |
 |:------------------------------------------------------------------------:|:---------:|-----------------------|:---------------------------------------------------:|:-----------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
-| &lt;fqdn>/control/v3/mvpd-proxies/&lt;proxy-mvpd-identifier>/mvpds | ProxyMVPD | proxy-mvpd-identifier | Tillstånd (obligatoriskt) proxied-mvpds (obligatoriskt) | POST | <ul><li>201 (skapad) - push-åtgärden bearbetades</li><li>400 (felaktig begäran) - Servern kan inte behandla begäran:<ul><li>Inkommande XML följer inte schemat som publicerats i den här specifikationen</li><li>De proxibla mvpds har inga unika ID:n</li><li>BegärandeID:n som skickas finns inte för någon annan serverbehållarorsak för 400 svarskod</li></ul><li>401 (obehörig) - Anger något av följande:<ul><li>Klienten MÅSTE begära en ny access_token</li><li>Begäran kommer från en IP-adress som inte finns i tillåtelselista</li><li>Ogiltig token</li></ul></li><li>403 (ej tillåtet) - Anger antingen att åtgärden inte stöds för de angivna parametrarna, eller att proxy-MVPD inte har angetts som proxy eller saknas</li><li>405 (metod tillåts inte) - En annan HTTP-metod än GET eller POST användes. Antingen stöds inte HTTP-metoden generellt eller så stöds den inte för den här specifika slutpunkten.</li><li>500 (internt serverfel) - Ett fel uppstod på serversidan under förfrågningsprocessen.</li></ul> |
+| &lt;FQDN>/control/v3/mvpd-proxies/&lt;proxy-mvpd-identifier>/mvpds | ProxyMVPD | proxy-mvpd-identifier | Tillstånd (obligatoriskt) proxied-mvpds (obligatoriskt) | POST | <ul><li>201 (skapad) - push-åtgärden bearbetades</li><li>400 (felaktig begäran) - Servern kan inte behandla begäran:<ul><li>Inkommande XML följer inte schemat som publicerats i den här specifikationen</li><li>De proxibla mvpds har inga unika ID:n</li><li>BegärandeID:n som skickas finns inte för någon annan serverbehållarorsak för 400 svarskod</li></ul><li>401 (obehörig) - Anger något av följande:<ul><li>Klienten MÅSTE begära en ny access_token</li><li>Begäran kommer från en IP-adress som inte finns i tillåtelselista</li><li>Ogiltig token</li></ul></li><li>403 (ej tillåtet) - Anger antingen att åtgärden inte stöds för de angivna parametrarna, eller att proxy-MVPD inte har angetts som proxy eller saknas</li><li>405 (metod tillåts inte) - En annan HTTP-metod än GET eller POST användes. Antingen stöds inte HTTP-metoden generellt eller så stöds den inte för den här specifika slutpunkten.</li><li>500 (internt serverfel) - Ett fel uppstod på serversidan under förfrågningsprocessen.</li></ul> |
 
 Exempel på vändning:
 
@@ -217,21 +217,22 @@ Adobe har definierat följande godkända format för publicering/hämtning av pr
 
 **Kommentarer om element:**
 
--   `id` (obligatoriskt) - Proxied MVPD ID måste vara en sträng som är relevant för namnet på MVPD och som använder något av följande tecken (eftersom det kommer att visas för programmerare för spårningsändamål): - Alla alfanumeriska tecken, understreck (&quot;_&quot;) och bindestreck (&quot;-&quot;).
-- ID:t måste överensstämma med följande reguljära uttryck:
+-   `id` (obligatoriskt) - Proxied MVPD ID måste vara en sträng som är relevant för namnet på MVPD och som använder något av följande tecken (eftersom det kommer att visas för programmerare i spårningssyfte):
+-   Alfanumeriska tecken, understreck (&quot;_&quot;) och bindestreck (&quot;-&quot;).
+-   ID:t måste överensstämma med följande reguljära uttryck:
 `(a-zA-Z0-9((-)|_)*)`
 
     Det måste alltså ha minst ett tecken, börja med en bokstav och fortsätta med en bokstav, siffra, bindestreck eller understreck.
 
 -   `iframeSize` (valfritt) - Elementet iframeSize är valfritt och definierar storleken på iFrame om MVPD-autentiseringssidan ska finnas i en iFrame. Annars, om iframeSize-elementet inte finns, sker autentiseringen på en omdirigeringssida i en fullständig webbläsare.
--   `requestorIds` (valfritt) - Värdet för requestIds anges av Adobe. Ett krav är att ett proxiderat MVPD ska integreras med minst ett RequestId. Om taggen &quot;requestIds&quot; inte finns i det proxiderade MVPD-elementet, kommer det proxierade MVPD att integreras med alla tillgängliga beställare som är integrerade under det proxybaserade MVPD.
+-   `requestorIds` (valfritt) - RequestId-värdena kommer att anges av Adobe. Ett krav är att ett proxiderat MVPD ska integreras med minst ett RequestId. Om taggen &quot;requestIds&quot; inte finns i det proxiderade MVPD-elementet, kommer det proxierade MVPD att integreras med alla tillgängliga beställare som är integrerade under det proxybaserade MVPD.
 -   `ProviderID` (valfritt) - När attributet ProviderID finns i elementet id skickas värdet för ProviderID på SAML-autentiseringsbegäran till Proxy MVPD som Proxied MVPD/SubMVPD ID (i stället för id-värdet). I det här fallet används värdet för id endast i den MVPD-väljare som presenteras på Programmer-sidan och internt av Adobe Pass Authentication. Längden på ProviderID-attributet måste vara mellan 1 och 128 tecken.
 
 ## Säkerhet {#security}
 
 För att en begäran ska anses giltig måste den uppfylla följande regler:
 
-- begärandehuvudet måste innehålla Oauth2-åtkomsttoken för säkerhet från [Dynamisk klientregistrering](dynamic-client-registration.md).
+- Begäranhuvudet måste innehålla Oauth2-åtkomsttoken från [Dynamisk klientregistrering](dynamic-client-registration.md).
 - Begäran måste komma från en specifik IP-adress som är tillåten.
 - Begäran måste skickas via SSL-protokollet.
 
@@ -243,7 +244,10 @@ Exempel på vändning:
 
 ## Proxy MVPD Web Service Endpoints for the Adobe Pass Authentication Environment {#proxy-mvpd-wevserv-endpoints}
 
-- **Produktions-URL:** https://mgmt.auth.adobe.com/control/v3/proxiedMvpds - **Mellanlagrings-URL:** https://mgmt.auth-staging.adobe.com/control/v3/proxiedMvpds - **PreQual-Production URL:** https://mgmt-prequal.auth.adobe.com/control/v3/proxiedMvpds - **URL för förbehandling:** https://mgmt-prequal.auth-staging.adobe.com/control/v3/proxiedMvpds
+- **Produktions-URL:** https://mgmt.auth.adobe.com/control/v3/proxiedMvpds
+- **Mellanlagrings-URL:** https://mgmt.auth-staging.adobe.com/control/v3/proxiedMvpds
+- **PreQual-Production URL:** https://mgmt-prequal.auth.adobe.com/control/v3/proxiedMvpds
+- **PreQual-Staging URL:** https://mgmt-prequal.auth-staging.adobe.com/control/v3/proxiedMvpds
 
 <!--
 >[!RELATEDINFORMATION]

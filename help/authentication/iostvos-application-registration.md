@@ -4,7 +4,7 @@ description: iOS/tvOS - programregistrering
 exl-id: 89ee6b5a-29fa-4396-bfc8-7651aa3d6826
 source-git-commit: 19ed211c65deaa1fe97ae462065feac9f77afa64
 workflow-type: tm+mt
-source-wordcount: '607'
+source-wordcount: '608'
 ht-degree: 0%
 
 ---
@@ -19,7 +19,7 @@ ht-degree: 0%
 
 Från och med version 3.0 av iOS/tvOS AccessEnabler SDK ändrar vi autentiseringsmekanismen med Adobe-servrar. I stället för att använda en offentlig nyckel och ett hemligt system för att signera beställar-ID introducerar vi konceptet med en programsatssträng som kan användas för att få en åtkomsttoken som senare används för alla anrop som SDK gör till våra servrar. Förutom en programsats behöver du också ett anpassat URL-schema för programmet.
 
-Mer information finns i [Dynamisk klientregistrering](/help/authentication/dynamic-client-registration.md)
+Mer information finns i [Registrering av dynamisk klient](/help/authentication/dynamic-client-registration.md)
 
 ## Vad är en programsats? {#Soft_state}
 
@@ -31,16 +31,16 @@ En programsats är en JWT-token som innehåller information om programmet. Alla 
 
 ### Om du har tillgång till Adobe TVE Dashboard:
 
-- Öppna webbläsaren och navigera till <https://console.auth.adobe.com>
-- Navigera till `Channels` och välj kanal.
-- Navigera till `Registered Applications` Tabb.
+- Öppna webbläsaren och gå till <https://console.auth.adobe.com>
+- Navigera till avsnittet `Channels` och markera kanalen.
+- Navigera till fliken `Registered Applications`.
 - Klicka på `Add new application`.
-- Ange ett namn och en version för programmet och välj de plattformar som det ska vara tillgängligt på. iOS/tvOS i vårt fall.
+- Ange ett namn och en version för programmet och välj   de plattformar som den kommer att finnas tillgänglig på. iOS/tvOS i vårt fall.
 - Skicka ändringarna till servern och gå sedan tillbaka till fliken Registrerade program i din kanal.
-- Du bör se en lista med alla registrerade program. Klicka på   `Download` på programmet som du just har skapat. Du kan behöva vänta några minuter innan programsatsen är klar för nedladdning.
+- Du bör se en lista med alla registrerade program. Klicka på   `Download`-knappen i programmet som du just har skapat. Du kan behöva vänta några minuter innan programsatsen är klar för nedladdning.
 - En textfil hämtas. Använd innehållet som programsats.
 
-Mer information finns i [Dynamisk hantering av klientregistrering](/help/authentication/dynamic-client-registration-management.md).
+Mer information finns i [Hantering av dynamisk klientregistrering](/help/authentication/dynamic-client-registration-management.md).
 
 ### Om du inte har tillgång till Adobe TV Dashboard:
 
@@ -54,9 +54,9 @@ När du har fått programsatsen måste du skicka den som en parameter i konstruk
 
 ### Om du har tillgång till Adobe TVE Dashboard:
 
-- Öppna webbläsaren och navigera till <https://console.auth.adobe.com>
-- Navigera till `Channels` och välj kanal.
-- Navigera till `Custom Schemes` Tabb.
+- Öppna webbläsaren och gå till <https://console.auth.adobe.com>
+- Navigera till avsnittet `Channels` och markera kanalen.
+- Navigera till fliken `Custom Schemes`.
 - Klicka på `Generate a new custom scheme`.
 - Ett nytt anpassat schema skapas för programmet. Exempel: `adbe.1JqxQsYhQOCIrwPjaooY8w://`
 - Skicka ändringarna till servern.
@@ -67,7 +67,7 @@ Skicka en biljett till <tve-support@adobe.com>. Ange kanal-ID så skapar någon 
 
 ## Använda det anpassade schemat {#use_custom}
 
-I programmets `info.plist` läggs följande kod till i filen:
+Lägg till följande kod i programmets `info.plist`-fil:
 
 ```plist
     <key>CFBundleURLTypes</key>

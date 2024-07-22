@@ -1,14 +1,15 @@
 ---
-title: Versionsinformation om Adobe Pass-autentisering JavaScript 4.6.0
-description: Versionsinformation om Adobe Pass-autentisering JavaScript 4.6.0
-source-git-commit: 7057aeda34b4fe0d059912ab0a71ea856427654c
+title: Adobe Pass Authentication JavaScript 4.6.0 Release Notes
+description: Adobe Pass Authentication JavaScript 4.6.0 Release Notes
+exl-id: 09b79384-2385-48ce-9ee2-6db93bbce15d
+source-git-commit: 8552a62f4d6d80ba91543390bf0689d942b3a6f4
 workflow-type: tm+mt
 source-wordcount: '126'
 ht-degree: 0%
 
 ---
 
-# Versionsinformation om Adobe Pass-autentisering JavaScript 4.6.0 {#javascript-sdk-460-release-notes}
+# Adobe Pass Authentication JavaScript 4.6.0 Release Notes {#javascript-sdk-460-release-notes}
 
 >[!NOTE]
 >
@@ -20,12 +21,12 @@ Den här sidan beskriver nya funktioner, ändringar och kända fel i den här ve
 
 Adobe Pass-autentisering: JavaScript 4.6.0
 
-Utgivningsdatum: **09/20/2022 - 09/22/2022**
+Releasedatum: **09/20/2022 - 09/22/2022**
 
 
 ## Versionsöversikt {#overview-javascript-sdk-460}
 
-* Borttagen användning av `eval` så att SDK blir kompatibelt med Content Security Policy.
+* Användning av funktionen `eval` har tagits bort, vilket gör att SDK-funktionen är kompatibel med säkerhetsprincipen för innehåll.
 * Korrigerade ett problem som förhindrade autentiseringsflödet från att slutföras när webbläsarens lokala lagring rensades explicit av ett partnerprogram.
 
 

@@ -17,16 +17,16 @@ ht-degree: 0%
 
 >[!NOTE]
 >
-> REST API-implementering begränsas av [Begränsningsmekanism](/help/authentication/throttling-mechanism.md)
+> REST API-implementeringen begränsas av [Begränsningsmekanismen](/help/authentication/throttling-mechanism.md)
 
 ## REST API-slutpunkter {#clientless-endpoints}
 
-&lt;reggie_fqdn>:
+&lt;REGGIE_FQDN>:
 
 * Produktion - [api.auth.adobe.com](http://api.auth.adobe.com/)
 * Mellanlagring - [api.auth-staging.adobe.com](http://api.auth-staging.adobe.com/)
 
-&lt;sp_fqdn>:
+&lt;SP_FQDN>:
 
 * Produktion - [api.auth.adobe.com](http://api.auth.adobe.com/)
 * Mellanlagring - [api.auth-staging.adobe.com](http://api.auth-staging.adobe.com/)
@@ -38,9 +38,9 @@ ht-degree: 0%
 Den här resursen skapar profilförfrågningar för begärande-ID och MVPD-tuppel.
 
 
-| Slutpunkt | Anropat  </br>Av | Indata   </br>Parametrar | HTTP  </br>Metod | Svar | HTTP  </br>Svar |
+| Slutpunkt | Anropat </br>av | Indata   </br>Parametrar | HTTP </br>Metod | Svar | HTTP </br>Response |
 | --- | --- | --- | --- | --- | --- |
-| &lt;sp_fqdn>/api/v1/{requestor}/profile-requests/{mvpd} | Strömmande app</br></br>eller</br></br>Programmerartjänst | 1. beställare (path param)</br>2. mvpd (path param)</br>3. deviceType (obligatoriskt) | GET | Svarets Content-Type blir application/octet-stream eftersom den faktiska nyttolasten är ogenomskinlig för klientprogrammet.</br></br>Svaret bör vidarebefordras av programmet till plattformen</br></br>SSO-motor för att erhålla en profil-SSO. | 200 - lyckades   </br>400 - Ogiltig begäran |
+| &lt;SP_FQDN>/api/v1/{requestor}/profile-requests/{mvpd} | Direktuppspelande app</br></br>eller</br></br>Programmeringtjänst | 1. beställare (path param)</br>2. mvpd (path param)</br>3. deviceType (obligatoriskt) | GET | Svarets Content-Type blir application/octet-stream eftersom den faktiska nyttolasten är ogenomskinlig för klientprogrammet.</br></br>Svaret bör vidarebefordras av programmet till SSO-motorn för plattformen</br></br>för att erhålla en enkel inloggning för profiler. | 200 - lyckades   </br>400 - Ogiltig begäran |
 
 
 | Indataparameter | Beskrivning |

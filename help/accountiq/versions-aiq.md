@@ -1,20 +1,21 @@
 ---
-title: Versioner av konto-IQ
-description: Läs mer om versioner som används för olika tjänster i konto-IQ.
-source-git-commit: cfcaa00ab05c99a64bcb0edfe5af60845a6769a9
+title: Account IQ-versioner
+description: Läs om versioner som används för olika tjänster i Account IQ.
+exl-id: b8b014d5-a8a8-4327-b6aa-15f7e6a63274
+source-git-commit: 2bb570ab14a3295d46ee6dc0d38485697d63809c
 workflow-type: tm+mt
 source-wordcount: '312'
 ht-degree: 0%
 
 ---
 
-# Versioner av konto-IQ {#aiq-versions}
+# Account IQ-versioner {#aiq-versions}
 
-Konto-IQ är utformat för att automatiskt identifiera lösenordsdelning, särskilt inom videoströmningsbranschen. I denna bransch finns det två stora tjänstekategorier: direktförsäljning till konsumenter (D2C) och TV Everywhere (TVE).
+Account IQ är utformat för att automatiskt identifiera lösenordsdelning, särskilt inom videoströmningsbranschen. I denna bransch finns det två stora tjänstekategorier: direktförsäljning till konsumenter (D2C) och TV Everywhere (TVE).
 
 Den här guiden riktar sig till D2C-prenumeranter, TV Everywhere-programmerare och TV Everywhere MVPD-företag inom videoströmningsbranschen.
 
-På grund av de små skillnaderna mellan D2C och TVE finns motsvarande variationer av konto-IQ. Varje typ av videoströmningsföretag interagerar med sin egen specifika version av konto-IQ.
+På grund av de små skillnaderna mellan D2C och TVE finns motsvarande variationer av Account IQ. Alla slags videoströmningsföretag interagerar med sina egna specifika versioner av Account IQ.
 
 ## D2C-tjänster (Direct to Consumer) {#d-to-c}
 
@@ -26,7 +27,7 @@ TV Everywhere avser onlinekomponenten i en kunds traditionella TV-prenumeration.
 
 Det finns två versioner av TV Everywhere: [Programmerare](/help/accountiq/product-concepts.md#programmer-def) och [MVPD](/help/accountiq/product-concepts.md#mvpd-def).
 
-När du [inbyggt](/help/accountiq/get-started.md) din organisation till konto-IQ, du har tilldelats en programmerare eller en MVPD-version.
+När du [anlitar ](/help/accountiq/get-started.md) din organisation för Account IQ tilldelas du antingen en programmerare eller en MVPD-version.
 
 ### Programmerare {#programmers}
 
@@ -38,8 +39,4 @@ MVPD-program levererar flera olika TV-kanaler till abonnenter via olika distribu
 
 >[!NOTE]
 >
-> Beroende på vilken version av konto-IQ du loggar in på ändras vissa etiketter och vissa vyer kanske inte är tillgängliga.
-
-
-
-
+> Beroende på vilken version av Account IQ du loggar in på ändras vissa etiketter och vissa vyer kanske inte är tillgängliga.

@@ -1,13 +1,13 @@
 ---
 title: Standardmetadataattribut
 description: Standardmetadataattribut
-source-git-commit: 59672b44074c472094ed27a23d6bfbcd7654c901
+exl-id: 99ffa98c-213f-47a5-a6e7-fbacb77875d0
+source-git-commit: f30b6814b8a77424c13337d44d7b247105e0bfe2
 workflow-type: tm+mt
-source-wordcount: '1257'
+source-wordcount: '1053'
 ht-degree: 0%
 
 ---
-
 
 # Standardmetadataattribut {#std-metadata-attributes}
 
@@ -24,14 +24,14 @@ API:t för övervakning av samtidig användning tvingar klienter att skicka föl
 |-------------|---------------------------|--------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | applicationId | 75b4-431b-adb2-eb6b9e546013 | Rubrik för auktorisering | Zendesk-biljett vid integration |
 | mvpdName | Sample_MVPD | URI-sökväg | Adobe Pass Authentication från config endpoint när användaren väljer MVPD |
-| accountId | 12345 | URI-sökväg | Adobe Pass Authentication upstreamUserID-metadata efter användarinloggning [Användarmetadata upstreamUserID - Adobe Pass-autentisering](/help/authentication/user-metadata-feature.md) |
+| accountId | 12345 | URI-sökväg | Adobe Pass Authentication upstreamUserID metadata after user login [User Metadata upstreamUserID - Adobe Pass Authentication](/help/authentication/user-metadata-feature.md) |
 
 
 ## Metadataattribut {#metadata-attr}
 
 Fälten i tabellen nedan kan användas av programmerare och distributörer av videoprogrammeringstjänster för att skapa profiler som ska implementeras i övervakning av samtidig användning.
 
-Med [API v2.0](http://docs.adobeptime.io/cm-api-v2/)Om något av dessa attribut krävs av de definierade profilerna resulterar ett försök att starta en session utan det attributet i en 400 Dålig begäran.
+Om något av dessa attribut krävs för de definierade profilerna med [API v2.0](http://docs.adobeptime.io/cm-api-v2/) resulterar ett försök att starta en session utan det attributet i en 400-felaktig begäran.
 
 
 | Entitet | Attributnamn | Datatyp | Beskrivning | Extern referens (t.ex. EIDR, OATC) | Exempelvärde | Valideringsregler |
@@ -41,16 +41,16 @@ Med [API v2.0](http://docs.adobeptime.io/cm-api-v2/)Om något av dessa attribut 
 |                 | assetId | string | Den&quot;vänliga&quot; eller läsbara titel som ska presenteras för innehållet | [Referens för EIDR 2.0-datafält](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/files/EIDR_2_0_Data_Fields.pdf){target=_blank} | Ben-Hur |                                                                                   |
 |                 | type | uppräkning | Ett värde som beskriver den allmänna innehållstypen som representeras av TveItem. De uppräknade värdena är: movie broadcastEpisode nonBroadcastEpisode musicVideo awardsShow clip concurrt Conference newsEvent sportevent trailer | [Rekommenderad praxis för OATC-metadatafeed](https://userfiles-kb.s3.amazonaws.com/userfiles/258/326/ckfinder/files/OATC%20Metadata%20Feed%201_0d_1%20OATC%20BOARD%20APPROVED%20FOR%20RELEASE%20%281%29.pdf?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAIMM7Q2VAGHGVAOHA%2F20230803%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20230803T144225Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=1200&amp;X-Amz-Signature=e61658133a4875ff48757b1a3bafb7627054ba6fc75c134a3dea9fa8022b45fa){target=_blank} | broadcastEpisode | Fältet måste motsvara ett av objekten i uppräkningen |
 |                 | contentType | string | Det här fältet avgör om det begärda innehållet är live eller VOD | Ej tillämpligt | live, vod | live eller vod |
-|                 | genre | string | Innehållets genre som direktuppspelas. Beskriver den allmänna programmeringstypen | [OATC-metadatafeed rekommenderas](https://userfiles-kb.s3.amazonaws.com/userfiles/258/326/ckfinder/files/OATC%20Metadata%20Feed%201_0d_1%20OATC%20BOARD%20APPROVED%20FOR%20RELEASE%20%281%29.pdf?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAIMM7Q2VAGHGVAOHA%2F20230803%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20230803T144225Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=1200&amp;X-Amz-Signature=e61658133a4875ff48757b1a3bafb7627054ba6fc75c134a3dea9fa8022b45fa){target=_blank} Öva | Komedi | Giltig genre-typ |
+|                 | genre | string | Innehållets genre som direktuppspelas. Beskriver den allmänna programmeringstypen | [Metadatafeed för OATC rekommenderas](https://userfiles-kb.s3.amazonaws.com/userfiles/258/326/ckfinder/files/OATC%20Metadata%20Feed%201_0d_1%20OATC%20BOARD%20APPROVED%20FOR%20RELEASE%20%281%29.pdf?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAIMM7Q2VAGHGVAOHA%2F20230803%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20230803T144225Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=1200&amp;X-Amz-Signature=e61658133a4875ff48757b1a3bafb7627054ba6fc75c134a3dea9fa8022b45fa){target=_blank} | Komedi | Giltig genre-typ |
 |                 | varaktighet | tal | Medieobjektets varaktighet i sekunder | [Rekommenderad praxis för OATC-metadatafeed](https://userfiles-kb.s3.amazonaws.com/userfiles/258/326/ckfinder/files/OATC%20Metadata%20Feed%201_0d_1%20OATC%20BOARD%20APPROVED%20FOR%20RELEASE%20%281%29.pdf?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAIMM7Q2VAGHGVAOHA%2F20230803%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20230803T144225Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=1200&amp;X-Amz-Signature=e61658133a4875ff48757b1a3bafb7627054ba6fc75c134a3dea9fa8022b45fa){target=_blank} | 1800 | nummersekvens |
-| Enhet/webbläsare | deviceId | string | Unik enhets-ID. | [Egenskaper för enhetskartan](https://deviceatlas.com/device-data/properties){target=_blank} | 2b6f0cc904d137be2e1730235f5664094b831186 |                                                                                   |
+| Enhet/webbläsare | deviceId | string | Unik enhets-ID. | [Egenskaper för enhetskarta](https://deviceatlas.com/device-data/properties){target=_blank} | 2b6f0cc904d137be2e1730235f5664094b831186 |                                                                                   |
 |                 | deviceName | string | Enhetens egna namn. |                                                   | Joe&#39;s iPad |                                                                                   |
-|                 | marketingName | string | Marknadsföringsnamnet (eller det kundvänliga namnet) för en enhet | [Egenskaper för enhetskartan](https://deviceatlas.com/device-data/properties){target=_blank} | iPhone 6s | giltigt marknadsföringsnamn |
-|                 | mobileDevice | boolesk | True om enheten är avsedd att användas på resande fot | [Egenskaper för enhetskartan](https://deviceatlas.com/device-data/properties){target=_blank} | true, false | true, false |
-|                 | deviceModel | string | Modellnamnet för enheten, webbläsaren eller den andra komponenten | [Egenskaper för enhetskartan](https://deviceatlas.com/device-data/properties){target=_blank} | tablet, telefon, xbox. digitalbox | giltigt enhetsmodellnamn |
-|                 | osName | string | Operativsystemet som enheten körs på | [Enhetskarta - fördefinierade egenskapsvärden för operativsystem](https://deviceatlas.com/device-data/explorer/#defined_property_values/877430/4121272){target=_blank} | Android, Windows 10, OS X, Linux, Annat: Du måste vara inloggad med ett användarnamn och lösenord i Device Atlas för att kunna visa egenskapsvärdena | det förväntade värdet är ett av värdena i de fördefinierade egenskaperna för enhetskartan |
-|                 | browserName | string | Namnet eller typen av webbläsare på enheten | [Enhetskarta - fördefinierade egenskapsvärden i webbläsaren](https://deviceatlas.com/device-data/explorer/#defined_property_values/7/2705619){target=_blank} | Namnet på eller typen av webbläsare på enheten.  Obs! Du måste vara inloggad med ett användarnamn och lösenord i enhetskartan för att kunna visa egenskapsvärden | det förväntade värdet är ett av värdena i de fördefinierade egenskaperna för enhetskartan |
-|                 | browserVersion | string | Webbläsarversionen på enheten | [Egenskaper för enhetskartan](https://deviceatlas.com/device-data/properties){target=_blank} | Webbläsarversionen på enheten |                                                                                   |
+|                 | marketingName | string | Marknadsföringsnamnet (eller det kundvänliga namnet) för en enhet | [Egenskaper för enhetskarta](https://deviceatlas.com/device-data/properties){target=_blank} | iPhone 6s | giltigt marknadsföringsnamn |
+|                 | mobileDevice | boolesk | True om enheten är avsedd att användas på resande fot | [Egenskaper för enhetskarta](https://deviceatlas.com/device-data/properties){target=_blank} | true, false | true, false |
+|                 | deviceModel | string | Modellnamnet för enheten, webbläsaren eller den andra komponenten | [Egenskaper för enhetskarta](https://deviceatlas.com/device-data/properties){target=_blank} | tablet, telefon, xbox. digitalbox | giltigt enhetsmodellnamn |
+|                 | osName | string | Operativsystemet som enheten körs på | [Enhetskarta - fördefinierade egenskapsvärden för operativsystemet](https://deviceatlas.com/device-data/explorer/#defined_property_values/877430/4121272){target=_blank} | Android, Windows 10, OS X, Linux, Annat: Du måste vara inloggad med ett användarnamn och lösenord i Device Atlas för att kunna visa egenskapsvärdena | det förväntade värdet är ett av värdena i de fördefinierade egenskaperna för enhetskartan |
+|                 | browserName | string | Namnet eller typen av webbläsare på enheten | [Enhetskarta - fördefinierade egenskapsvärden för webbläsaren](https://deviceatlas.com/device-data/explorer/#defined_property_values/7/2705619){target=_blank} | Namnet på eller typen av webbläsare på enheten.  Obs! Du måste vara inloggad med ett användarnamn och lösenord i enhetskartan för att kunna visa egenskapsvärden | det förväntade värdet är ett av värdena i de fördefinierade egenskaperna för enhetskartan |
+|                 | browserVersion | string | Webbläsarversionen på enheten | [Egenskaper för enhetskarta](https://deviceatlas.com/device-data/properties){target=_blank} | Webbläsarversionen på enheten |                                                                                   |
 | Program | applicationName | string | Det användarvänliga eller konsumentläsbara namnet på programmet | Ej tillämpligt | Sample_Application |                                                                                   |
 |                 | applicationId | string | Program-ID som unikt identifierar ett klientprogram. | Ej tillämpligt | de305d54-75b4-431b-adb2-eb6b9e546013 |                                                                                   |
 |                 | applicationPlatform | string | Programmets interna plattform | Ej tillämpligt | ios, android |                                                                                   |
@@ -71,15 +71,15 @@ Med [API v2.0](http://docs.adobeptime.io/cm-api-v2/)Om något av dessa attribut 
 
 Standardmetadatafälten kan användas för att definiera serversidans principer baserat på deras fältvärden:
 
-* Du kan konfigurera en princip som bara ska gälla för specifika fältvärden (t.ex. en dedikerad iOS-princip: där `osType` är `iOS`)
+* Du kan konfigurera en princip som bara ska gälla för specifika fältvärden (till exempel en dedikerad iOS-princip: där `osType` är `iOS`)
 * Du kan begränsa antalet distinkta värden för ett visst fält. Nedan följer några exempel:
-   * inte mer än X olika enheter: `HAVING DISTINCT COUNT(deviceId) <= 2`
-   * inte mer än X distinkta postnummer: `HAVING DISTINCT COUNT(zipcode) <= 3`
+   * inte fler än X olika enheter: `HAVING DISTINCT COUNT(deviceId) <= 2`
+   * inte fler än X distinkta postnummer: `HAVING DISTINCT COUNT(zipcode) <= 3`
 * Du kan begränsa antalet aktiva strömmar per fältvärde. Nedan följer några exempel:
-   * inte fler än X aktiva strömmar för en enda enhetstyp: `GROUP BY deviceType HAVING COUNT(streamId) <= 3`
-   * inte mer än X aktiva strömmar för strömmar av livematerial: `SELECT COUNT(streamId) AS streamCount WHERE contentType='live' HAVING streamCount <= 3`
+   * inte fler än X aktiva strömmar för en enskild enhetstyp: `GROUP BY deviceType HAVING COUNT(streamId) <= 3`
+   * inte fler än X aktiva strömmar för strömmar med liveinnehåll: `SELECT COUNT(streamId) AS streamCount WHERE contentType='live' HAVING streamCount <= 3`
 
-Kontakta Concurrency Monitoring-teamet av [skapa en biljett i Zendesk](mailto:tve-support@adobe.com) och ange vilka profiler du vill implementera.
+Kontakta teamet för övervakning av samtidig användning (Concurrency Monitoring) genom att [skapa en biljett i Zendesk](mailto:tve-support@adobe.com) och ange vilka principer du vill ha implementerat.
 
 Här finns fler exempel på principer och integreringscookbooks:
 

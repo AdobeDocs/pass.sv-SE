@@ -4,7 +4,7 @@ description: AccessEnabler iOS/tvOS 3.7.0 - uppgraderingssökväg
 exl-id: f15c7414-ec9b-4e21-b457-1ecf59f47441
 source-git-commit: 1b8371a314488335c68c82882c930b7c19aa64ad
 workflow-type: tm+mt
-source-wordcount: '294'
+source-wordcount: '320'
 ht-degree: 0%
 
 ---
@@ -17,9 +17,9 @@ ht-degree: 0%
 
 </br>
 
-Förändringar av nyckelhanteraren från [new AccessEnabler version 3.7.0](/help/authentication/authn-rn-ios-tvos-370.md) är inkompatibla med Keychain-lagringsimplementering från AccessEnabler-versionen är lägre än 3.7.0.
+Ändringar av nyckelring från [nya AccessEnabler version 3.7.0](/help/authentication/authn-rn-ios-tvos-370.md) är inte kompatibla med Keychain-lagringsimplementeringen från AccessEnabler-versionen är lägre än 3.7.0.
 
-Uppgraderingssökvägen för ett program som använder den nya AccessEnabler-versionen 3.7.0 migrerar alla token från tidigare versioner av Keychain-lagring. Därför bör slutanvändare **får inte uppleva någon förlust av autentiserings-/auktoriseringssessioner** under uppdateringsprocessen för AccessEnabler-ramverket.
+Uppgraderingssökvägen för ett program som använder den nya AccessEnabler-versionen 3.7.0 migrerar alla token från tidigare versioner av Keychain-lagring. Därför bör slutanvändare **inte drabbas av förlust av autentiserings-/auktoriseringssessioner** under uppdateringsprocessen för AccessEnabler-ramverket.
 
 ## Kända begränsningar
 

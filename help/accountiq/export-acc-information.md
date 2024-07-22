@@ -11,21 +11,21 @@ ht-degree: 1%
 
 # Exportera information för konton med hög delning {#export-account-info-high-score}
 
-[!UICONTROL Account IQ] kan du exportera kontodelningsinformation för de 1 000 vanligaste prenumerantkontona baserat på deras [delningssannolikhet](/help/accountiq/product-concepts.md#account-sharing-probability-def). Du kan exportera kontodelningsinformation för den aktuella [segment](/help/accountiq/product-concepts.md#segment-def) och [angivet tidsintervall](/help/accountiq/product-concepts.md#time-interval-def) på [Rapporter om delade konton](/help/accountiq/shared-acc-reports.md) sida.
+Med [!UICONTROL Account IQ] kan du exportera kontodelningsinformation för de 1 000 vanligaste prenumerantkontona baserat på deras [delningssannolikhet](/help/accountiq/product-concepts.md#account-sharing-probability-def). Du kan exportera kontodelningsinformationen för det aktuella [segmentet](/help/accountiq/product-concepts.md#segment-def) och [angivna tidsintervallet](/help/accountiq/product-concepts.md#time-interval-def) på sidan [Delade kontorapporter](/help/accountiq/shared-acc-reports.md).
 
 Följ de här stegen för att exportera kontodelningsinformation för prenumerationskonton för ett visst segment.
 
 1. Logga in med dina inloggningsuppgifter.
-1. Navigera till **Delade konton** flik under **Rapporter** -avsnitt.
-1. Välj önskat segment och tidsintervall från segmentpanelen och tidintervallpanelen. Läs [välja ett segment och tidsintervall](segments-timeinterval.md).
+1. Gå till fliken **Delade konton** under avsnittet **Rapporter**.
+1. Välj önskat segment och tidsintervall från segmentpanelen och tidintervallpanelen. Lär dig [hur du väljer ett segment och tidsintervall](segments-timeinterval.md).
 
-   Om det behövs, se instruktionerna för [skapa ett segment](work-with-segments.md#create-new-segment) eller [redigera ett segment](work-with-segments.md#edit-segment).
+   Om det behövs kan du läsa instruktionerna för att [skapa ett segment](work-with-segments.md#create-new-segment) eller [redigera ett segment](work-with-segments.md#edit-segment).
 
-1. Välj **[!UICONTROL Export top 1000 accounts]** i segmentets övre högra hörn och panelen för tidsintervall.
+1. Välj **[!UICONTROL Export top 1000 accounts]** som finns i segmentets övre högra hörn och i panelen Tidsintervall.
 
-   ![Exportera de 1 000 populäraste kontona](assets/export-top-1000-accounts.png)
+   ![Exportera de 1 000 främsta kontona](assets/export-top-1000-accounts.png)
 
-   *Välj alternativet Exportera de 1 000 populäraste kontona*
+   *Välj alternativet Exportera de 1 000 främsta kontona*
 
 Filen hämtas automatiskt till din lokala dator som en CSV-fil.
 
@@ -33,15 +33,15 @@ Den här filen innehåller data för de 1000 främsta kontona baserat på delnin
 
 Följande är ett exempel på den exporterade CSV-filen.
 
-![exporterade data i en CSV-fil](assets/exported-csv.png)
+![exporterade data i CSV-filen](assets/exported-csv.png)
 
-*Exporterade data i en CSV-fil*
+*Exporterade data i CSV-filen*
 
 ## Kolumner i den exporterade rapporten {#columns-in-export}
 
 **Vecka/månad**
 
-Den valda veckan eller månaden i **[!UICONTROL Granularity and Time Interval]** i segmentväljaren.
+Den valda veckan eller månaden inom alternativet **[!UICONTROL Granularity and Time Interval]** i segmentväljaren.
 
 **MVPD**
 
@@ -49,7 +49,7 @@ Om du är programmerare visar kolumnen den distributör som kontot prenumererar 
 
 >[!NOTE]
 >
-> The **MVPD** -kolumnen är bara tillgänglig för TV Everywhere-versioner.
+> Kolumnen **MVPD** är bara tillgänglig för TV Everywhere-versioner.
 
 **Prenumerant-ID**
 
@@ -89,7 +89,7 @@ Antalet lägen där direktuppspelningsaktiviteten har ägt rum.
 
 **[!UICONTROL # Clusters]**
 
-Antalet distinkta [kluster](/help/accountiq/product-concepts.md#cluster-def) där strömningen har ägt rum.
+Antalet distinkta [kluster](/help/accountiq/product-concepts.md#cluster-def) där direktuppspelning har ägt rum.
 
 **[!UICONTROL Geographic span (miles)]**
 
@@ -101,7 +101,7 @@ Antalet inloggningar som användare gör under den angivna perioden med det kont
 
 >[!NOTE]
 >
-> Vissa D2C-tjänster kanske inte visas **[!UICONTROL # AuthN OK]** data eftersom de kanske inte ingår i företagets data.
+> Vissa D2C-tjänster kanske inte ser **[!UICONTROL # AuthN OK]**-data eftersom de kanske inte ingår i företagets data.
 
 **[!UICONTROL # AuthZ OK]**
 
@@ -113,7 +113,7 @@ Antalet gånger som en MVPD har auktoriserat en ström eller beviljat åtkomst t
 
 >[!NOTE]
 >
->För TV Everywhere, **[!UICONTROL # AuthZ OK]** är korrelerat med antalet **[# uppspelningsbegäranden](/help/accountiq/product-concepts.md##play-requests-def)**. Den kommer alltid att vara mindre än **[!UICONTROL # Play Requests]** eftersom Adobe vanligtvis cachar tillstånden från sidoskyddsorganisationen i cirka 24 timmar.
+>För TV Everywhere korreleras **[!UICONTROL # AuthZ OK]** med antalet **[# Play-begäranden](/help/accountiq/product-concepts.md##play-requests-def)**. Det kommer alltid att vara mindre än **[!UICONTROL # Play Requests]** eftersom Adobe vanligtvis cachelagrar auktoriseringarna från sidoskyddsprogram i cirka 24 timmar.
 
 
 **[!UICONTROL # Play Requests]**
@@ -122,7 +122,7 @@ Det faktiska antalet strömmar inträffade under en angiven tidsperiod.
 
 >[!NOTE]
 >
->The [# uppspelningsbegäranden](/help/accountiq/product-concepts.md##play-requests-def) -kolumnen är inte tillgänglig i TV Everywhere MVPD-versionen.
+>Kolumnen [# PlayRequests](/help/accountiq/product-concepts.md##play-requests-def) är inte tillgänglig i versionen TV Everywhere MVPD.
 
 **[!UICONTROL # Channels]**
 
@@ -130,7 +130,7 @@ Det totala antalet kanaler som kontot har bevakat under en angiven period.
 
 >[!NOTE]
 >
-> För D2C-tjänster **[!UICONTROL # Channels]** motsvarar antalet **[!UICONTROL # Video categories]**.
+> För D2C-tjänster motsvarar **[!UICONTROL # Channels]** antalet **[!UICONTROL # Video categories]**.
 
 >[!NOTE]
 >
@@ -206,4 +206,4 @@ Sannolikheten för att ett visst konto delar sina autentiseringsuppgifter.
 
 >[!NOTE]
 >
-> Medelvärdet för delningssannolikheten för alla konton i det valda segmentet används för att beräkna [delningsnivå](/help/accountiq/data-panels.md#sharing-level) i [medelvärde för delningspoäng](/help/accountiq/data-panels.md#aggregated-sharing).
+> Genomsnittet för delningssannolikheten för alla konton i det valda segmentet används för att beräkna [delningsnivån](/help/accountiq/data-panels.md#sharing-level) för det [genomsnittliga delningspoängen](/help/accountiq/data-panels.md#aggregated-sharing).

@@ -4,7 +4,7 @@ description: Hembaserad autentisering för TV överallt
 exl-id: abdc7724-4290-404a-8f93-953662cdc2bc
 source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
 workflow-type: tm+mt
-source-wordcount: '1687'
+source-wordcount: '1638'
 ht-degree: 0%
 
 ---
@@ -23,7 +23,7 @@ Hembaserad autentiseringsdefinition av OATC (Open Authentication Technology Comm
 
 
 
-Mer information om HBA och branschstandarderna finns i [OATC - Användningsexempel och krav](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/files/Defining%20TVE%20Home-Based%20Authentication%20(HBA)%20%20Use%20Cases%20and%20Requirements%20Recommended%20Practice%20Version%201_0%20FINAL%20DRAFT%20FOR%20BOARD%20APPROVAL.pdf){target=_blank} dokumentation och **OATC User Experience Guidelines for HBA**.
+Mer information om HBA och branschstandarderna finns i [OATC-användningsfall och -krav](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/files/Defining%20TVE%20Home-Based%20Authentication%20(HBA)%20%20Use%20Cases%20and%20Requirements%20Recommended%20Practice%20Version%201_0%20FINAL%20DRAFT%20FOR%20BOARD%20APPROVAL.pdf){target=_blank} och **OATC User Experience Guidelines for HBA**.
 
 >[!NOTE]
 >
@@ -35,7 +35,7 @@ HBA är viktigt eftersom det praktiskt taget tar bort inloggningsbarriären för
 
 För närvarande lyckas nästan hälften av försöken att logga in inte.
 
-När värdbussadaptern aktiverats av en av de fem bästa videoprogrammeringsarna konverteringsgraden för autentisering **ökade med 40 %** (från 45 % till 63 %)
+När värdbussadaptern aktiverades av en av de fem vanligaste versionerna av dokumentationsprofilerna ökade autentiseringskonverteringen **med 40 %** (från 45 % till 63 %)
 
 ![](assets/authn-conv-pre-post.png)
 
@@ -89,7 +89,7 @@ Följande tabeller innehåller information om användarupplevelsen för de platt
 I HBA-flödet för MVPD-program som är integrerade med OAuth 2.0-autentiseringsprotokollet utfärdar MVPD en uppdateringstoken och Adobe utfärdar en HBA-autentiseringstoken:
 
 * Uppdateringstoken har en TTL som bestäms av affärskraven för MVPD.
-* TTL för HBA-autentiseringstoken **måste vara mindre än eller lika med** uppdateringstoken TTL.
+* TTL **för HBA-autentiseringstoken måste vara mindre än eller lika med** TTL för uppdateringstoken.
 
 
 *Beskrivning av HBA-autentiseringsflödet för OAuth 2.0-protokollet*
@@ -98,7 +98,7 @@ I HBA-flödet för MVPD-program som är integrerade med OAuth 2.0-autentiserings
 | Användaråtgärder | Systemåtgärder |
 |---|---|
 | Användaren navigerar till programmerarens webbplats. När du försöker spela upp en video visas MVPD-väljaren. Användaren väljer sin MVPD och klickar på Logga in. | En bakgrundskontroll utförs. MVPD tillämpar sina regler för användaridentifiering (mappa till exempel användarens IP-adress till MAC-adressen för distributörsetablerade modem eller bredbandsanslutna digitalboxar). |
-| En skärm som visas i cirka 3 sekunder visas. En interstitiell sida kan visas som informerar användaren om att han/hon automatiskt loggas in med hjälp av sitt MVPD-konto. | <ol><li>AccessEnabler, som är installerat på programmeraren, skickar en autentiseringsbegäran (som en HTTP-begäran) till slutpunkten för Adobe Pass-autentisering.</li><li>Slutpunkten för Adobe Pass-autentisering dirigerar om begäran till slutpunkten för MVPD-autentisering. <br />**Obs!** Begäran innehåller `hba_flag` parameter (försök HBA = true) som signalerar att MVPD ska försöka autentisera HBA.</li><li>Slutpunkten för MVPD-autentisering skickar en auktoriseringskod till slutpunkten för Adobe Pass-autentisering.</li><li>Adobe Pass Authentication använder auktoriseringskoden för att begära en uppdateringstoken och en åtkomsttoken från MVPD:s tokenslutpunkt.</li><li>MVPD skickar ett autentiseringsbeslut och `hba_status` (true/false) i parametern `id_token`.</li><li>Ett anrop till slutpunkten för MVPD-användarprofilen skickas för att visa [hba_status-nyckel i användarens metadata](/help/authentication/user-metadata-feature.md#obtaining).</li><li>MVPD ställer in TTL för uppdateringstoken till ett MVPD-överenskommet värde och Adobe ställer in AuthN-token TTL till ett värde som är mindre eller lika med uppdateringstokens värde.</li></ol> |
+| En skärm som visas i cirka 3 sekunder visas. En interstitiell sida kan visas som informerar användaren om att han/hon automatiskt loggas in med hjälp av sitt MVPD-konto. | <ol><li>AccessEnabler, som är installerat på programmeraren, skickar en autentiseringsbegäran (som en HTTP-begäran) till slutpunkten för Adobe Pass-autentisering.</li><li>Slutpunkten för Adobe Pass-autentisering dirigerar om begäran till slutpunkten för MVPD-autentisering. <br />**Obs!** Begäran innehåller parametern `hba_flag` (försök med HBA = true) som signalerar att MVPD ska försöka utföra HBA-autentisering. </li><li>Slutpunkten för MVPD-autentisering skickar en auktoriseringskod till slutpunkten för Adobe Pass-autentisering.</li><li>Adobe Pass Authentication använder auktoriseringskoden för att begära en uppdateringstoken och en åtkomsttoken från MVPD:s tokenslutpunkt.</li><li>MVPD skickar ett autentiseringsbeslut och parametern `hba_status` (true/false) i `id_token`.</li><li>Ett anrop till slutpunkten för MVPD-användarprofilen skickas för att visa nyckeln [hba_status i användarmetadata](/help/authentication/user-metadata-feature.md#obtaining).</li><li>MVPD ställer in TTL för uppdateringstoken till ett MVPD-överenskommet värde och Adobe ställer in AuthN-token TTL till ett värde som är mindre eller lika med uppdateringstokens värde.</li></ol> |
 | Användaren är autentiserad och kan nu bläddra bland det berättigade TV Everywhere-innehållet. | Autentiseringstoken skickas till användaren som nu kan bläddra på programmerarens webbplats. |
 
 #### SAML-protokoll {#saml-protocol}
@@ -108,7 +108,7 @@ Beskrivning av HBA-autentiseringsflödet för SAML-autentiseringsprotokollet
 | Användaråtgärder | Systemåtgärder |
 |---|---|
 | Användaren navigerar till programmerarens webbplats. När du försöker spela upp en video visas MVPD-väljaren. Användaren väljer sin MVPD och klickar på Logga in. | En bakgrundskontroll utförs. MVPD tillämpar sina regler för användaridentifiering (mappa till exempel användarens IP-adress till MAC-adressen för distributörsetablerade modem eller bredbandsanslutna digitalboxar). |
-| En skärm som visas i cirka 3 sekunder visas. En interstitiell sida kan visas som informerar användaren om att han/hon automatiskt loggas in med hjälp av sitt MVPD-konto. | <ol><li>AccessEnabler, som är installerat på programmeraren, skickar en autentiseringsbegäran (som en HTTP-begäran) till slutpunkten för Adobe Pass-autentisering.</li><li>Slutpunkten för Adobe Pass-autentisering dirigerar om begäran till slutpunkten för MVPD-autentisering.</li><li>MVPD ska skicka ett autentiseringsbeslut i form av ett SAML-svar som ska innehålla HBA-flaggan: hba_status (true/false).</li><li>Ett anrop till slutpunkten för MVPD-användarprofilen skickas för att visa [hba_status-nyckel i användarens metadata](/help/authentication/user-metadata-feature.md#obtaining).</li></ol> |
+| En skärm som visas i cirka 3 sekunder visas. En interstitiell sida kan visas som informerar användaren om att han/hon automatiskt loggas in med hjälp av sitt MVPD-konto. | <ol><li>AccessEnabler, som är installerat på programmeraren, skickar en autentiseringsbegäran (som en HTTP-begäran) till slutpunkten för Adobe Pass-autentisering.</li><li>Slutpunkten för Adobe Pass-autentisering dirigerar om begäran till slutpunkten för MVPD-autentisering.</li><li>MVPD ska skicka ett autentiseringsbeslut i form av ett SAML-svar som ska innehålla HBA-flaggan: hba_status (true/false).</li><li>Ett anrop till slutpunkten för MVPD-användarprofilen skickas för att visa nyckeln [hba_status i användarmetadata](/help/authentication/user-metadata-feature.md#obtaining).</li></ol> |
 | Användaren är autentiserad och kan nu bläddra bland det berättigade TV Everywhere-innehållet. | Autentiseringstoken skickas till användaren som nu kan bläddra på programmerarens webbplats. |
 
 
@@ -116,15 +116,15 @@ Beskrivning av HBA-autentiseringsflödet för SAML-autentiseringsprotokollet
 
 * **OAuth-protokoll:**
    * Information om hur du aktiverar HBA finns i [Användarhandbok för Adobe Pass TVE Dashboard](/help/authentication/tve-dashboard-user-guide.md)
-* **SAML-protokoll:** Hembaserad autentisering aktiveras på MVPD-sidan. Programmeraren eller Adobe kräver inga åtgärder.
-Mer information om de videofilmsprogram som stöder hembaserad autentisering finns i [HBA-status för MVPD](/help/authentication/hba-status-mvpds.md).
+* **SAML-protokoll:** Hembaserad autentisering har aktiverats på MVPD-sidan. Programmeraren eller Adobe kräver inga åtgärder.
+Mer information om de MVPD-program som stöder hembaserad autentisering finns i [HBA-status för MVPD-filer](/help/authentication/hba-status-mvpds.md).
 
 ## Vanliga frågor {#faqs}
 
 
 **Fråga:** Varför separationen mellan Home Based Authentication med SAML- och OAuth2-protokoll?
 
-**Svar:** HBA-flödet är annorlunda för de två protokollen. Ur programmerarens perspektiv finns det inget behov av åtgärder för att säkerställa att HBA är aktiverat för SAML MVPD, medan HBA för OAuth2 MVPD kan aktiveras eller inaktiveras i Adobe Pass TVE Dashboard.
+**Svar:** HBA-flödet skiljer sig åt för de två protokollen. Ur programmerarens perspektiv finns det inget behov av åtgärder för att säkerställa att HBA är aktiverat för SAML MVPD, medan HBA för OAuth2 MVPD kan aktiveras eller inaktiveras i Adobe Pass TVE Dashboard.
 
 
 
@@ -134,11 +134,11 @@ Mer information om de videofilmsprogram som stöder hembaserad autentisering fin
 
 
 
-**Fråga:** Hur tillämpar man föräldrakontroll?
+**Fråga:** Hur tillämpar du föräldrakontroll?
 
-**Svar 1:** Adobe kan inaktivera värdbussadaptern för integrering med kanaler som behöver godkännas för föräldrakontroll.
+**Svar 1:** Adobe kan inaktivera HBA för integrering med kanaler som behöver godkännande av föräldrakontroll.
 
-**Svar 2:** Adobe arbetar med OATC i ett UX-dokument som rekommenderar hur man skapar HBA-upplevelsen med föräldrakontroll.
+**Svar 2:** Adobe arbetar med OATC i ett UX-dokument och rekommenderar hur du konfigurerar HBA-upplevelsen med föräldrakontroller.
 
 
 
@@ -150,9 +150,9 @@ Mer information om de videofilmsprogram som stöder hembaserad autentisering fin
 ## Användbar information {#useful-info}
 
 * [HBA (Instant Access) Recommendations](http://www.ctamtve.com/instantaccess){target=_blank} - av CTAM
-* [Exempel på implementering av HBA i programmerarapp](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/files/HBA_Flow_Sample.pdf?dc=201604222139-1346){target=_blank} - av Adobe
+* [Exempel på implementering av HBA i programmerarappen](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/files/HBA_Flow_Sample.pdf?dc=201604222139-1346){target=_blank} av Adobe
   <!--* [Home Based Authentication User Experience Guidelines for TV Everywhere](http://oatc.us/Standards/DownloadRecommendedPractices.aspx){target=_blank} - by OATC-->
-* [Hembaserad autentisering - Användningsfall och krav](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/files/Defining%20TVE%20Home-Based%20Authentication%20(HBA)%20%20Use%20Cases%20and%20Requirements%20Recommended%20Practice%20Version%201_0%20FINAL%20DRAFT%20FOR%20BOARD%20APPROVAL.pdf){target=_blank} av OATC
+* [Hembaserad autentisering - användningsfall och krav](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/files/Defining%20TVE%20Home-Based%20Authentication%20(HBA)%20%20Use%20Cases%20and%20Requirements%20Recommended%20Practice%20Version%201_0%20FINAL%20DRAFT%20FOR%20BOARD%20APPROVAL.pdf){target=_blank} av OATC
 * [Hembaserad autentiseringsinformation](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/files/AdobeNewsletterHBA.pdf?dc=201604260953-2640){target=_blank} - av Adobe
 * [Autentisering med OAuth 2.0-protokollet](/help/authentication/authn-oauth2-protocol.md)
 * [Autentisering med SAML MVPD](/help/authentication/authn-usecase.md)

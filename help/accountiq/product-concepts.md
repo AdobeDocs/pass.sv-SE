@@ -1,5 +1,5 @@
 ---
-title: IQ-ordlista för konto
+title: Account IQ ordlista
 description: En ordlista med produktterminologier.
 exl-id: 2ee54442-9538-4c30-b999-265310b3935f
 source-git-commit: cfcaa00ab05c99a64bcb0edfe5af60845a6769a9
@@ -13,7 +13,7 @@ ht-degree: 0%
 
 ## Vanliga terminologer i D2C och TV Everywhere
 
-Följande produktterminologi och definitioner är gemensamma för alla [versioner av konto-IQ](versions-aiq.md).
+Följande produktterminologier och deras definitioner är gemensamma för alla [versioner av Account IQ](versions-aiq.md).
 
 ### [!UICONTROL Accounts Sharing Probability] {#account-sharing-probability-def}
 
@@ -21,7 +21,7 @@ En kontrollpanel med diagram som delar upp det aktuella segmentets poängdelning
 
 ### [!UICONTROL Action] {#action-def}
 
-En direkt eller indirekt händelse som är associerad med en [Åtgärd](#operation-def) som påverkar egenskaperna (t.ex. delningspoäng eller antal enheter som används) för ett relaterat operationssegment.
+En direkt eller indirekt händelse som är associerad med en [operation](#operation-def) som påverkar egenskaperna (till exempel delningspoäng eller antalet enheter som används) för ett relaterat åtgärdssegment.
 
 ### [!UICONTROL Aggregated sharing score] {#sharing-probability-level-def}
 
@@ -90,7 +90,7 @@ En enhet med hög mobilitet. Till exempel mobiltelefon och surfplatta.
 
 ### Åtgärd {#operation-def}
 
-Åtgärden är en post som skapas för att spåra effekten av en viss [åtgärd](#action-def) på ett associerat segment. Ett exempel på en åtgärd kan vara en gräns för hur många samtidiga strömmar som tillåts för konton som identifieras av segmentet.
+Åtgärden är en post som skapats för att spåra effekten av en viss [åtgärd](#action-def) på ett associerat segment. Ett exempel på en åtgärd kan vara en gräns för hur många samtidiga strömmar som tillåts för konton som identifieras av segmentet.
 
 ### [!UICONTROL Overall sharing score] {#overall-sharing-score}
 

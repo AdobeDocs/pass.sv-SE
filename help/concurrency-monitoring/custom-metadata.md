@@ -1,14 +1,13 @@
 ---
 title: Anpassade metadata
 description: Anpassade metadata
-source-git-commit: 19ed211c65deaa1fe97ae462065feac9f77afa64
+exl-id: 0cfd1158-8c6c-47c2-b838-5490ff4bf0ce
+source-git-commit: f30b6814b8a77424c13337d44d7b247105e0bfe2
 workflow-type: tm+mt
-source-wordcount: '363'
+source-wordcount: '367'
 ht-degree: 0%
 
 ---
-
-
 
 # Anpassade metadata {#cm}
 
@@ -40,10 +39,9 @@ Olika regler kan fastställas utifrån de nycklar/värden som skickas. Det här 
 
 1. Kunden bestämmer att han vill skicka parametergruppen, som får värdena SPORTS och KIDS.
 1. Då måste appen göra följande:
-   * För sportkanaler skickar appen vid direktinitiering ***type=SPORTS*** som en frågeparameter
-   * För kanaler med barnrelaterat innehåll skickar appen vid direktinitiering ***type=KIDS*** som en frågeparameter
+   * För sportkanaler skickar appen ***type=SPORTS*** som en frågeparameter vid direktinitiering
+   * För kanaler med barnrelaterat innehåll skickar appen ***type=KIDS*** som en frågeparameter vid direktinitiering
 1. Därefter kan en sådan policy definieras:
    * `GROUP by type HAVING COUNT(streamID) < 4) IF type=KIDS`
    * `GROUP by type HAVING COUNT(streamID) < 2) IF type=SPORTS`
 1. Detta innebär i princip att när en användare ser sport kan han/hon inte göra det på mer än en enhet, men när användaren tittar på barninnehåll tillåts visning på max 3 enheter.
-

@@ -4,7 +4,7 @@ description: MVPD Preflight-auktorisering
 exl-id: da2e7150-b6a8-42f3-9930-4bc846c7eee9
 source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
 workflow-type: tm+mt
-source-wordcount: '745'
+source-wordcount: '750'
 ht-degree: 0%
 
 ---
@@ -21,9 +21,9 @@ ht-degree: 0%
 
 Adobe Pass Authentication har för närvarande stöd för Preflight Authorization på två sätt för MVPD, antingen via AuthN-svarsattribut eller via en AuthZ-begäran i flera kanaler.  I följande scenarier beskrivs kostnaden/nyttan av olika sätt att implementera preflight-auktorisering:
 
-* **Best Case Scenario** - Dokumentationsdokumentet för det virtuella säkerhetsdokumentet innehåller en lista över förauktoriserade resurser under godkännandefasen (Multi-channel AuthZ).
-* **Sämsta scenariot** - Om ett MVPD-dokument inte stöder någon form av auktorisering för flera resurser, kommer Adobe Pass Authentication-servern att utföra ett auktoriseringsanrop till MVPD för varje resurs i resurslistan. Det här scenariot påverkar svarstiden för preflight-auktoriseringsbegäran (i förhållande till antalet resurser). Det kan öka belastningen på både Adobe- och MVPD-servrar, vilket kan orsaka prestandaproblem. Dessutom genereras auktoriseringsförfrågningar/svarshändelser utan behov av en uppspelning.
-* **Föråldrat** - MVPD innehåller en lista över förauktoriserade resurser under autentiseringsfasen, så det kommer inte att behövas några nätverksanrop, inte ens preflight-begäran, eftersom listan cachelagras på klienten.
+* **Best Case Scenario** - MVPD tillhandahåller en lista över förauktoriserade resurser under auktoriseringsfasen (Multi-channel AuthZ).
+* **Sämsta scenariot** - Om ett MVPD-dokument inte stöder någon form av auktorisering för flera resurser, utför Adobe Pass autentiseringsserver ett auktoriseringsanrop till MVPD för varje resurs i resurslistan. Det här scenariot påverkar svarstiden för preflight-auktoriseringsbegäran (i förhållande till antalet resurser). Det kan öka belastningen på både Adobe- och MVPD-servrar, vilket kan orsaka prestandaproblem. Dessutom genereras auktoriseringsförfrågningar/svarshändelser utan behov av en uppspelning.
+* **Föråldrat** - MVPD tillhandahåller en lista med förauktoriserade resurser under autentiseringsfasen, så det behövs inga nätverksanrop, inte ens preflight-begäran, eftersom listan cachelagras på klienten.
 
 Även om programmeringsgränssnitten inte behöver stödja preflight-auktorisering, beskriver följande avsnitt några metoder för preflight-auktorisering som Adobe Pass Authentication kan stödja, innan de återgår till det värsta scenariot ovan.
 

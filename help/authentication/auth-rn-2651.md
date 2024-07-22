@@ -1,9 +1,10 @@
 ---
 title: Versionsinformation om Adobe Pass Authentication 2.65.1
 description: Versionsinformation om Adobe Pass Authentication 2.65.1
-source-git-commit: 19ed211c65deaa1fe97ae462065feac9f77afa64
+exl-id: 28d112db-b038-4d11-93c5-d6ab67a29700
+source-git-commit: f30b6814b8a77424c13337d44d7b247105e0bfe2
 workflow-type: tm+mt
-source-wordcount: '172'
+source-wordcount: '182'
 ht-degree: 0%
 
 ---
@@ -24,7 +25,7 @@ Den här sidan beskriver nya funktioner, ändringar och kända fel i den här ve
 ### Byggnummer {#build-number-2651}
 
 Adobe Pass-autentisering: adobe-pass-**2.65.1**
-Utgivningsdatum: **06/20/2023 - 06/22/2023**
+Releasedatum: **06/20/2023 - 06/22/2023**
 
 ### Versionsöversikt {#release-overview-2651}
 

@@ -1,13 +1,13 @@
 ---
 title: Kanaler
 description: Lär dig mer om kanaler och deras olika konfigurationer i TVE Dashboard.
-source-git-commit: b81cc7498a8035f4c274ba25952dcd1dcd8d71f5
+exl-id: bbddeccb-6b6f-4a8f-87ab-d4af538eee1d
+source-git-commit: c2dcea9e4170a3e10654bcd3f8d2f5cdb82c9603
 workflow-type: tm+mt
 source-wordcount: '1140'
 ht-degree: 0%
 
 ---
-
 
 # Kanaler {#channels}
 
@@ -15,25 +15,25 @@ ht-degree: 0%
 >
 >Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användningen av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
 
-The **Kanaler** på TVE Dashboard kan du visa och hantera inställningar för de kanaler som är kopplade till en viss programmerare. Du kan också [lägg till en ny kanal](#add-new-channel) efter dina behov.
+I avsnittet **Kanaler** i TVE Dashboard kan du visa och hantera inställningar för de kanaler som är associerade med en viss programmerare. Du kan även [lägga till en ny kanal](#add-new-channel) efter dina behov.
 
-The **Kanaler** på den vänstra panelen visas en lista med länkade kanaler med följande information:
+På fliken **Kanaler** i den vänstra panelen visas en lista med länkade kanaler med följande information:
 
 * **Visningsnamn**: Namnet på den kanal som används för kommersiella ändamål.
-* **Kanal-ID**: En unik identifierare som också kallas begärande-ID.
-* **Integreringar**: Antalet anslutningar som upprättats med [MVPD](/help/authentication/glossary.md#mvpd).
+* **Kanal-ID**: En unik identifierare som även kallas begärande-ID.
+* **Integrationer**: Antalet anslutningar som upprättats med [MVPD-filer](/help/authentication/glossary.md#mvpd).
 
 ![Lista över befintliga kanaler](assets/channels-list.png)
 
 *Lista över befintliga kanaler*
 
-Skriv namnet på kanalen i **Sök** om du vill ha mer information om kanalen ovanför listan.
+Skriv namnet på kanalen i **sökfältet** ovanför listan om du vill veta mer om kanalen.
 
 ## Hantera kanalkonfigurationer {#manage-channel-conf}
 
 Följ stegen för att hantera olika inställningar för en viss kanal.
 
-1. Välj **Kanaler** i den vänstra panelen.
+1. Välj fliken **Kanaler** i den vänstra panelen.
 1. Välj kanalen i listan över tillgängliga kanaler.
 1. Välj någon av följande flikar om du vill visa och redigera motsvarande inställningar för den valda kanalen:
 
@@ -64,7 +64,7 @@ I det här avsnittet kan du redigera följande information:
 
 * **Standardomdirigerings-URL**: Omdirigerings-URL för säkerhetskopiering för autentisering och utloggning.
 
-* **Felrapportering**: Vid markering **Ja** skickar Adobe Pass SDK:er felrapporter till Adobe Pass för analys.
+* **Felrapportering**: När du väljer **Ja** skickar Adobe Pass SDK:er felrapporter till Adobe Pass backend för analys.
 
 ![Redigera kanalinformation](assets/channel-information.png)
 
@@ -74,19 +74,19 @@ I det här avsnittet kan du redigera följande information:
 
 I det här avsnittet kan du konfigurera vidarebefordran av Adobe Pass Authentication-händelser till Adobe Analytics.
 
-Aktivera **Analyskonfiguration** kontaktar du din tekniska kontohanterare (TAM) för mer information om hur du konfigurerar Report Suite ID (RSID).
+Om du vill aktivera **Analyskonfiguration** kontaktar du den tekniska kontohanteraren (TAM) för mer information om hur du konfigurerar Report Suite-ID (RSID).
 
 ![Aktivera analyskonfigurationer](assets/channel-analytical-conf.png)
 
 *Aktivera analyskonfigurationer*
 
-Välj **Lägg till ny analyskonfiguration** för att lägga till flera konfigurationer.
+Välj **Lägg till ny analyskonfiguration** om du vill lägga till flera konfigurationer.
 
-En ny konfigurationsändring har skapats och är klar för serveruppdatering. Så här använder du den nya analyskonfigurationen från **Analyskonfiguration** fortsätter du med [granska och skicka ändringar](/help/authentication/tve-dashboard-review-push-changes.md) flöde.
+En ny konfigurationsändring har skapats och är klar för serveruppdatering. Om du vill använda den nya analyskonfigurationen från avsnittet **Analyskonfiguration** fortsätter du med flödet [granska och skicka ändringar](/help/authentication/tve-dashboard-review-push-changes.md).
 
 ### Integreringar {#integrations}
 
-På den här fliken visas en lista med tillgängliga integreringar mellan den valda kanalen och de virtuella dokumentdokumenten. I listan visas varje integrering tillsammans med dess status, vilket anger om den är aktiverad eller inte. Välj en specifik integrering i den här listan för att få tillgång till detaljerad information i [Integreringar](tve-dashboard-integrations.md) -avsnitt.
+På den här fliken visas en lista med tillgängliga integreringar mellan den valda kanalen och de virtuella dokumentdokumenten. I listan visas varje integrering tillsammans med dess status, vilket anger om den är aktiverad eller inte. Välj en specifik integrering i den här listan för att få tillgång till detaljerad information i avsnittet [Integrationer](tve-dashboard-integrations.md).
 
 ![Lista över tillgängliga integreringar](assets/channel-integrations.png)
 
@@ -94,15 +94,15 @@ På den här fliken visas en lista med tillgängliga integreringar mellan den va
 
 ### Certifikat {#certificates}
 
-På den här fliken visas en lista med [tillgängliga certifikat](#available-certificates) och [ärvda tillgängliga certifikat](#inherited-avail-certificates) används i krypteringsflödena för användarmetadata. Den visar information om varje certifikat som innehåller:
+På den här fliken visas en lista med [tillgängliga certifikat](#available-certificates) och [ärvda tillgängliga certifikat](#inherited-avail-certificates) som används i krypteringsflödena för användarmetadata. Den visar information om varje certifikat som innehåller:
 
-* Status (om aktiverad för **kryptering av användarmetadata** eller inte)
+* Status (om aktiverad för **användarens metadatakryptering** eller inte)
 * Serienummer
 * Emittentorganisationens namn
 * Ämnesorganisationens namn
 * Utfärdat den
 * Utgångsdatum
-* En nedrullningsbar meny för kryptering av användarmetadata (om du väljer **Ja** krypterar certifikatet känslig användarinformation, t.ex. postkodsvärden).
+* En listruta där användarmetadata krypteras (om du väljer **Ja** krypteras känslig användarinformation, t.ex. postkodsvärden).
 
 #### Tillgängliga certifikat {#available-certificates}
 
@@ -116,39 +116,39 @@ Du kan göra följande ändringar under det tillgängliga certifikatavsnittet:
 
 Så här lägger du till ett nytt certifikat:
 
-1. Välj **Lägg till nytt certifikat** högst upp på **Tillgängliga certifikat** -avsnitt.
+1. Välj **Lägg till nytt certifikat** högst upp i avsnittet **Tillgängliga certifikat**.
 
    ![Lägg till ett nytt certifikat](assets/add-new-certificate.png)
 
    *Lägg till ett nytt certifikat*
 
-1. Klistra in den offentliga nyckeln för certifikatet i **Nytt certifikat** -dialogrutan.
+1. Klistra in den offentliga nyckeln för ditt certifikat i dialogrutan **Nytt certifikat**.
 1. Välj **Lägg till certifikat**.
 
-   En ny konfigurationsändring har skapats och är klar för serveruppdatering. Så här använder du det nya certifikatet som finns i **Tillgängliga certifikat** fortsätter du med [granska och skicka ändringar](/help/authentication/tve-dashboard-review-push-changes.md) flöde.
+   En ny konfigurationsändring har skapats och är klar för serveruppdatering. Om du vill använda det nya certifikatet som visas i avsnittet **Tillgängliga certifikat** fortsätter du med flödet [granska och skicka ändringar](/help/authentication/tve-dashboard-review-push-changes.md).
 
-1. Leta reda på det nya certifikatet i listan med **Tillgängliga certifikat**.
+1. Leta reda på det nya certifikatet i listan med **tillgängliga certifikat**.
 
    >[!IMPORTANT]
    >
    > Kontrollera att dina system är uppdaterade och klara att använda det nya certifikatet.
 
-1. Välj **Ja** från **Används för att kryptera användarmetadata** för att aktivera ett nytt certifikat.
+1. Välj **Ja** i listrutan **Används för krypterade användarmetadata** för att aktivera ett nytt certifikat.
 
 ##### Ta bort certifikat {#delete-certificate}
 
 Så här tar du bort ett certifikat.
 
-1. Hovra över det certifikat som du vill ta bort från listan med **Tillgängliga certifikat**.
+1. Hovra över det certifikat som du vill ta bort från listan över **tillgängliga certifikat**.
 1. Välj **Ta bort**.
 
    ![Ta bort det markerade certifikatet](assets/channel-delete-certificate.png)
 
    *Ta bort det markerade certifikatet*
 
-1. Välj **Ta bort** från **Ta bort aktivt certifikat** -dialogrutan.
+1. Välj **Ta bort** i dialogrutan **Ta bort aktivt certifikat**.
 
-En ny konfigurationsändring har skapats och är klar för serveruppdatering. Certifikatet tas bort från **Tillgängliga certifikat** endast efter [granska och skicka ändringar](/help/authentication/tve-dashboard-review-push-changes.md).
+En ny konfigurationsändring har skapats och är klar för serveruppdatering. Certifikatet tas endast bort från avsnittet **Tillgängliga certifikat** efter [gransknings- och push-ändringar](/help/authentication/tve-dashboard-review-push-changes.md).
 
 #### Ärvda tillgängliga certifikat {#inherited-avail-certificates}
 
@@ -175,59 +175,58 @@ Du kan göra följande ändringar i domäner:
 
 Följ de här stegen för att lägga till en domän.
 
-1. Välj **Lägg till ny domän** längst upp till höger i **Tillgängliga domäner** -avsnitt.
+1. Välj **Lägg till ny domän** längst upp till höger i avsnittet **Tillgängliga domäner**.
 
    ![Lägg till en ny domän](assets/add-new-domain.png)
 
    *Lägg till en ny domän*
 
-1. Skriv namnet på din domän i **Ny domän** -dialogrutan.
+1. Skriv namnet på din domän i dialogrutan **Ny domän**.
 
 1. Välj **Lägg till domän** om du vill lägga till en ny domän för den valda kanalen.
 
-En ny konfigurationsändring har skapats och är klar för serveruppdatering. Så här använder du den nya domänen som anges i **Tillgängliga domäner** fortsätter du med [granska och skicka ändringar](/help/authentication/tve-dashboard-review-push-changes.md) flöde.
+En ny konfigurationsändring har skapats och är klar för serveruppdatering. Om du vill använda den nya domänen som visas i avsnittet **Tillgängliga domäner** fortsätter du med flödet [granska och skicka ändringar](/help/authentication/tve-dashboard-review-push-changes.md).
 
 #### Ta bort domän {#delete-domain}
 
 Så här tar du bort en domän.
 
-1. Hovra över domänen som du vill ta bort från listan över **Tillgängliga domäner**.
+1. Hovra över den domän som du vill ta bort från listan över **tillgängliga domäner**.
 1. Välj **Ta bort**.
 
-   ![Ta bort den valda domänen](assets/remove-domain.png)
+   ![Ta bort den markerade domänen](assets/remove-domain.png)
 
-   *Ta bort den valda domänen*
+   *Ta bort den markerade domänen*
 
-1. Välj **Ta bort** på **Ta bort domän** -dialogrutan.
+1. Välj **Ta bort** i dialogrutan **Ta bort domän**.
 
-En ny konfigurationsändring har skapats och är klar för serveruppdatering. Domänen tas bort från **Tillgängliga domäner** endast efter [granska och skicka ändringar](/help/authentication/tve-dashboard-review-push-changes.md).
+En ny konfigurationsändring har skapats och är klar för serveruppdatering. Domänen tas endast bort från avsnittet **Tillgängliga domäner** efter [granskning och push-ändringar](/help/authentication/tve-dashboard-review-push-changes.md).
 
 Den valda domänen är inte längre tillgänglig för användning. Därför förlorar programmet som är kopplat till den här domänen åtkomsten till Adobe Pass autentiseringstjänster.
 
 ### Registrerade program {#registered-applications}
 
-På den här fliken finns en lista med programregistreringar. Visa [Dynamisk hantering av klientregistrering](/help/authentication/dynamic-client-registration-management.md) för mer information.
+På den här fliken finns en lista med programregistreringar. Visa [Dynamisk klientregistreringshantering](/help/authentication/dynamic-client-registration-management.md) om du vill ha mer information.
 
 ### Anpassade scheman {#custom-schemes}
 
-På den här fliken visas en lista med anpassade scheman. Visa [Registrering av iOS/tvOS](/help/authentication/iostvos-application-registration.md) och [Dynamisk hantering av klientregistrering](/help/authentication/dynamic-client-registration-management.md) för mer information.
+På den här fliken visas en lista med anpassade scheman. Mer information finns i [iOS/tvOS-programregistrering](/help/authentication/iostvos-application-registration.md) och [Dynamisk klientregistreringshantering](/help/authentication/dynamic-client-registration-management.md).
 
 ## Lägg till ny kanal {#add-new-channel}
 
 Följ de här stegen för att lägga till en ny kanal.
 
-1. Välj **Kanaler** i den vänstra panelen.
-1. Välj **Lägg till ny kanal** längst upp till höger i **Kanaler** -avsnitt.
+1. Välj fliken **Kanaler** i den vänstra panelen.
+1. Välj **Lägg till ny kanal** längst upp till höger i avsnittet **Kanaler**.
 
    ![Lägg till en ny kanal](assets/add-new-channel.png)
 
    *Lägg till en ny kanal*
 
-1. Välj **Programmer-ID** i listrutan i **Ny kanal** -dialogrutan.
+1. Välj **Program-ID** i listrutan i dialogrutan **Ny kanal**.
 
-1. Ange en unik identifierare i **Kanal-ID**.
-1. Skriv namnet på den kanal som används för kommersiella ändamål i **Visningsnamn**.
+1. Ange en unik identifierare i **Channel ID**.
+1. Skriv kanalens varumärkesnamn för kommersiellt bruk i **visningsnamnet**.
 1. Välj **Lägg till kanal**.
 
-En ny konfigurationsändring har skapats och är klar för serveruppdatering. Så här använder du den nya kanalen som visas i **Kanaler** fortsätter du med [granska och skicka ändringar](/help/authentication/tve-dashboard-review-push-changes.md) flöde.
-
+En ny konfigurationsändring har skapats och är klar för serveruppdatering. Om du vill använda den nya kanalen som visas i avsnittet **Kanaler** fortsätter du med flödet [granska och skicka ändringar](/help/authentication/tve-dashboard-review-push-changes.md).

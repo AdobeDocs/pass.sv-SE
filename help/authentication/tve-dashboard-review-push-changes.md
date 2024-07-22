@@ -1,7 +1,8 @@
 ---
 title: Granska och skicka ändringar
 description: Lär dig hur du granskar och pushar ändringar på TVE-kontrollpanelen.
-source-git-commit: b81cc7498a8035f4c274ba25952dcd1dcd8d71f5
+exl-id: 2f29712e-7b3f-472a-a36f-32780bec1508
+source-git-commit: c2dcea9e4170a3e10654bcd3f8d2f5cdb82c9603
 workflow-type: tm+mt
 source-wordcount: '250'
 ht-degree: 0%
@@ -24,34 +25,32 @@ Följ de här stegen för att granska och skicka ändringar.
 
    *Granska och skicka meddelanden om ändringar*
 
-1. Välj **Granska ändringar** från **granska och skicka ändringar** meddelanderuta.
+1. Välj **Granska ändringar** i meddelanderutan **Granska och skicka ändringar**.
 
-1. Skriv en kort beskrivning av ändringen i **Konfigurationsbeskrivning** effektivt spåra och förstå syftet med varje ändring.
+1. Skriv en kort beskrivning av ändringen i **Konfigurationsbeskrivning** för att effektivt spåra och förstå syftet med varje ändring.
 
    ![Lägg till en konfigurationsbeskrivning](assets/add-conf-desc.png)
 
    *Lägg till en konfigurationsbeskrivning*
 
-1. Navigera till **Konfigurationsändringar** för att visa en sammanfattning av ändringarna.
+1. Navigera till avsnittet **Konfigurationsändringar** för att visa en sammanfattning av ändringarna.
 
 1. Håll muspekaren över ändringen som du vill granska.
 
-1. Välj **Visa** om du vill granska tidigare och nya värden som är kopplade till en konfigurationsändring.
+1. Välj **Visa** om du vill granska tidigare och nya värden som är associerade med en konfigurationsändring.
 
    ![Visa konfigurationsändringar](assets/view-configuration-changes.png)
 
    *Visa konfigurationsändringar*
 
-1. När du har granskat alla ändringar och allt ser korrekt ut väljer du **Push-ändringar** för att tillämpa den uppdaterade konfigurationen på servern.
+1. När du har granskat alla ändringar och allt ser korrekt ut väljer du **Push changes** för att tillämpa den uppdaterade konfigurationen på servern.
 
    >[!NOTE]
    >
-   >The **Push-ändringar** knappen aktiveras först när du har lagt till en **Konfigurationsbeskrivning**.
+   >Knappen **Push changes** (Skjut in ändringar) aktiveras först när du har lagt till en **Configuration Description**.
 
    ![Push-ändringar](assets/push-changes.png)
 
    *Push-ändringar*
 
-   Du kan också välja **Ignorera ändringar** om du vill återställa alla konfigurationsändringar i listan.
-
-
+   Du kan också välja **Ignorera ändringar** om du vill återställa alla konfigurationsändringar som visas.

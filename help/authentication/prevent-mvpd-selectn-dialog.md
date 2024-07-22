@@ -22,7 +22,7 @@ Du måste förhindra att specifika MVPD-filer (&quot;blocklist&quot;) visas i MV
 
 ## Lösning {#solution-prevent-mvpd-sel-dialog}
 
-Lösningen är att göra en blocklista när `displayProviderDialog()` anropas.
+Lösningen är att göra en blockerad lista när `displayProviderDialog()` anropas.
 
 Om du till exempel inte vill att CableCompany_1 och CableCompany_2 ska visas i MVPD-väljaren gör du något liknande som i följande exempel.
 

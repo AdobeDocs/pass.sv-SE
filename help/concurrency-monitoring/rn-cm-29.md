@@ -1,13 +1,13 @@
 ---
 title: Adobe Concurrency Monitoring 2.9 Release Notes
 description: Adobe Concurrency Monitoring 2.9 Release Notes
-source-git-commit: 19ed211c65deaa1fe97ae462065feac9f77afa64
+exl-id: fd793b1f-b704-492b-850c-dae6478b575a
+source-git-commit: f30b6814b8a77424c13337d44d7b247105e0bfe2
 workflow-type: tm+mt
-source-wordcount: '153'
-ht-degree: 0%
+source-wordcount: '158'
+ht-degree: 1%
 
 ---
-
 
 # Samtidighetsövervakning 2.9 versionsinformation {#rn-cm29}
 
@@ -24,7 +24,8 @@ Den här sidan beskriver nya funktioner, ändringar och kända fel i den här ve
 
 * antalet användare som har nått varje samtidighetsnivå (dvs. hur många användare som någonsin haft 2 samtidiga strömmar, 3 samtidiga strömmar osv.) under varje granularitetsintervall
 * den totala varaktigheten för varje samtidighetsnivå, i minuter (det genomsnittliga värdet kan beräknas genom att helt enkelt dividera värdet med ovanstående antal)
-* det totala antalet gånger som användare har påträffat varje samtidighetsnivå, för att uppskatta effekten av en viss regel både vad gäller påverkade användare och sammanställd användarupplevelse Mer information finns på [Användningsrapporter](/help/concurrency-monitoring/cm-usage-reports.md) sida.
+* det totala antalet gånger som användare har påträffat varje samtidighetsnivå, för att uppskatta effekten av en viss regel både vad gäller påverkade användare och sammanställd användarupplevelse
+Mer information finns på sidan [Användningsrapporter](/help/concurrency-monitoring/cm-usage-reports.md).
 
 Vi har även förbättrat SQL-injektionsskyddet och lagt till flera felkorrigeringar.
 

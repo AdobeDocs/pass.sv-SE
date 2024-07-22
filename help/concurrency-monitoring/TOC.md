@@ -23,14 +23,14 @@ ht-degree: 9%
 + [Datalagringspolicy](data-retention-policy.md)
 + [Begränsningsmekanism](throttling-mechanism.md)
 + [Eskaleringsprocedurer](cm-escalation-procedures.md)
-+ Användning av övervakning av samtidig användning {#cmu}
++ Användning av övervakning av samtidig användning (Concurrency Monitoring) {#cmu}
    + [Användningsrapporter för övervakning av samtidig användning](cm-usage-reports.md)
    + [API för samtidighetsövervakning](cmu-api.md)
    + [API-åtkomst för samtidighetsövervakning](cmu-api-access.md)
 + Version 1 API{#v1-api}
    + [Policyinformationspunkt](policy-info-pt-versionone.md)
    + [Anpassade metadata](custom-metadata.md)
-   + Integrera kokböcker {#int-cookbooks}
+   + Integrera cookbooks {#int-cookbooks}
       + [Begränsa samtidig användning med flera program som tillhör olika ägare](restrict-concurr-usage-mult-apps.md)
       + [Single tenant/policy och flera program](single-tenant-policy-mult-app.md)
    + [Implementeringsmodeller](implementation-models.md)
@@ -45,7 +45,7 @@ ht-degree: 9%
    + [Övervakning av samtidig användning - Versionsinformation 2.5.0](rn-cm-250.md)
    + [Övervakning av samtidig användning - Versionsinformation 2.3.2](rn-cm-232.md)
    + [Övervakning av samtidig användning - Versionsinformation 2.2.2](rn-cm-222.md)
-+ Tekniska anteckningar{#tech-notes}
++ Tech Notes{#tech-notes}
    + [Så här gör du: Skilja mellan VOD och Live Content i Concurrency Monitoring](vod-live-dist.md)
 
 <!--    + [Usage reports](usage-rep-versionone.md) -->

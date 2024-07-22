@@ -1,9 +1,10 @@
 ---
 title: Adobe Pass Authentication iOS / tvOS 3.8.2 Release Notes
 description: Adobe Pass Authentication iOS / tvOS 3.8.2 Release Notes
-source-git-commit: fd65582522d6b40e5797dff192e2340c5575ef3b
+exl-id: 67562582-8f93-4293-bb1b-b7a6d9364c32
+source-git-commit: f349d48191456ac29e2f952c46efb240493338f8
 workflow-type: tm+mt
-source-wordcount: '125'
+source-wordcount: '130'
 ht-degree: 0%
 
 ---

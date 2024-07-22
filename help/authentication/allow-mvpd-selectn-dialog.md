@@ -4,7 +4,7 @@ description: Tillåt PDF-filer i dialogrutan Markering
 exl-id: 2c0e0f06-ddc6-4bea-90dc-d7ef8e78d27e
 source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
 workflow-type: tm+mt
-source-wordcount: '129'
+source-wordcount: '128'
 ht-degree: 0%
 
 ---
@@ -21,7 +21,7 @@ Programmeraren kanske vill testa eller kontrollera användarupplevelsen av nya M
 
 ## Lösning {#solution}
 
-I `displayProviderDialog()` callback returnerar Adobe Pass Authentication alla MVPD:er som är integrerade med den valda programmeraren (begärande-ID). Men Programmeraren kan använda ett filter på MVPD-filens returmatris och bara visa de som finns i båda listorna.
+I motringningen `displayProviderDialog()` returnerar Adobe Pass-autentisering alla MVPD-filer som är integrerade med den valda programmeraren (begärande-ID). Men Programmeraren kan använda ett filter på MVPD-filens returmatris och bara visa de som finns i båda listorna.
 
 ## Exempel {#example}
 

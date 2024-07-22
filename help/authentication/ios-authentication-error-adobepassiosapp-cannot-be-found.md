@@ -9,7 +9,7 @@ ht-degree: 0%
 
 ---
 
-# iOS-autentiseringsfel - adobepass.ios.app hittades inte {#ios-authentication-error-adobepass.ios.app-cannot-be-found}
+# iOS-autentiseringsfel - adobepass.ios.app kan inte hittas {#ios-authentication-error-adobepass.ios.app-cannot-be-found}
 
 >[!NOTE]
 >
@@ -17,13 +17,13 @@ ht-degree: 0%
 
 ## Problem {#issue}
 
-Användaren går igenom autentiseringsflödet och när de har angett sina autentiseringsuppgifter hos providern dirigeras de tillbaka till antingen en felsida, en söksida eller någon annan anpassad sida som informerar användaren om att `adobepass.ios.app` kunde inte hittas/lösas.
+Användaren går igenom autentiseringsflödet och när de har angett sina autentiseringsuppgifter hos providern omdirigeras de antingen tillbaka till en felsida, en söksida eller någon annan anpassad sida som informerar dem om att `adobepass.ios.app` inte kunde hittas/lösas.
 
 ## Förklaring {#explanation}
 
-På iOS `adobepass.ios.app` används som den slutliga omdirigerings-URL:en för att ange att AuthN-flödet är färdigt. Nu måste appen göra en begäran till AccessEnabler för att hämta AuthN-token och slutföra AuthN-flödet.
+I iOS används `adobepass.ios.app` som den slutliga omdirigerings-URL:en för att ange att AuthN-flödet är färdigt. Nu måste appen göra en begäran till AccessEnabler för att hämta AuthN-token och slutföra AuthN-flödet.
 
-Problemet är att `adobepass.ios.app` finns inte och utlöser ett felmeddelande i `webView`. Äldre versioner av iOS DemoApp antog att det här felet alltid skulle utlösas i slutet av AuthN-flödet och konfigurerades för att hantera det därefter (`indidFailLoadWithError`).
+Problemet är att `adobepass.ios.app` inte finns och kommer att utlösa ett felmeddelande i `webView`. Äldre versioner av iOS DemoApp antog att det här felet alltid skulle utlösas i slutet av AuthN-flödet och konfigurerades för att hantera det därefter (`indidFailLoadWithError`).
 
 **Obs!** Problemet har åtgärdats i senare versioner av DemoApp (ingår i iOS SDK-nedladdningen).
 
@@ -36,7 +36,7 @@ I dessa fall kommer det svar som kommer tillbaka till iOS webView att vara ett h
 
 ## Lösning {#solution}
 
-Gör INTE samma antagande som DemoApp gör. Avlyssna begäran innan den körs (i `shouldStartLoadWithRequest`) och hantera det på rätt sätt.
+Gör INTE samma antagande som DemoApp gör. Avlyssna i stället begäran innan den körs (i `shouldStartLoadWithRequest`) och hantera den korrekt.
 
 Exempel på hur begäran ska fångas upp innan den körs:
 
@@ -60,6 +60,6 @@ return YES;
 
 Några saker att notera:
 
-- ANVÄND ALDRIG `adobepass.ios.app` direkt var som helst i koden. Använd i stället konstanten `ADOBEPASS_REDIRECT_URL`
-- The `return NO;` programsatsen förhindrar att sidan läses in
-- Se till att `getAuthenticationToken` anropet anropas en gång och endast en gång i koden. Flera anrop till `getAuthenticationToken` resulterar i odefinierade resultat.
+- Använd ALDRIG `adobepass.ios.app` direkt i koden. Använd i stället konstanten `ADOBEPASS_REDIRECT_URL`
+- Programsatsen `return NO;` förhindrar att sidan läses in
+- Se till att anropet `getAuthenticationToken` anropas en gång och bara en gång i koden. Flera anrop till `getAuthenticationToken` resulterar i odefinierade resultat.

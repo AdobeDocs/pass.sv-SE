@@ -1,7 +1,8 @@
 ---
 title: Exportera rapporter från datapanelen
 description: Lär dig hur du exporterar datapanelrapporter på kontrollpanelen.
-source-git-commit: 88b11527b2a432c2cd27bf9e29fd286969036eb0
+exl-id: ee76bb87-6cbf-4150-bcdd-31ffae2c0571
+source-git-commit: 2bb570ab14a3295d46ee6dc0d38485697d63809c
 workflow-type: tm+mt
 source-wordcount: '239'
 ht-degree: 0%
@@ -20,13 +21,13 @@ Du kan exportera följande rapporter i datapanelen:
 Följ stegen för att exportera datapanelrapporter för ett visst segment.
 
 1. Logga in med dina inloggningsuppgifter.
-1. Välj ett obligatoriskt segment och tidsintervall på segmentpanelen och panelen Tidsintervall. Visa [segment och tidsintervall](segments-timeinterval.md#segment-selection) för mer information.
+1. Välj ett obligatoriskt segment och tidsintervall på segmentpanelen och panelen Tidsintervall. Visa [segment och tidsintervall](segments-timeinterval.md#segment-selection) om du vill ha mer information.
 
-   Om det behövs, se instruktionerna för [skapa ett segment](work-with-segments.md#create-new-segment) eller [redigera ett segment](work-with-segments.md#edit-segment).
+   Om det behövs kan du läsa instruktionerna för att [skapa ett segment](work-with-segments.md#create-new-segment) eller [redigera ett segment](work-with-segments.md#edit-segment).
 
 1. Navigera till den datapanel som du vill exportera.
 
-   Tänk dig till exempel **Antal konton och användning genom att dela sannolikhetsnivå** enligt nedan.
+   Ta till exempel **Antal konton och användning genom att dela sannolikhetsnivå** enligt nedan.
 
    ![Exportera antal konton och användning genom att dela sannolikhetsnivå](assets/export-report.png){align="left"}
 

@@ -4,7 +4,7 @@ description: Lägsta systemkrav
 exl-id: 57b21e2a-abd7-4b4b-85f1-25584a850e40
 source-git-commit: 59672b44074c472094ed27a23d6bfbcd7654c901
 workflow-type: tm+mt
-source-wordcount: '434'
+source-wordcount: '446'
 ht-degree: 0%
 
 ---
@@ -48,7 +48,7 @@ Adobe Pass uppmuntrar våra kunder och partners att överväga att uppgradera ti
 | *iPadOS* | **14** eller senare |
 | *tvOS* | **14** eller senare |
 | *Fire OS* | **5 (Android 5.1)** eller senare |
-| *MAC OS* | **10.13** eller senare |
+| *Mac OS* | **10.13** eller senare |
 | *Microsoft Windows* | **10** eller senare |
 
 

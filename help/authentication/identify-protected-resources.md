@@ -43,7 +43,7 @@ Om du använder en enkel resursidentifierare, t.ex. &quot;TNT&quot;, antas den r
 ```
 
 
-En mer komplex specificerare kan t.ex. innehålla ytterligare graderingsinformation. Du kan skicka hela RSS-strängen till Access Enabler-funktioner som kräver ett resurs-ID, som [`getAuthorization()`](/help/authentication/rest-api-reference.md):
+En mer komplex specificerare kan t.ex. innehålla ytterligare graderingsinformation. Du kan skicka hela RSS-strängen till Access Enabler-funktioner som kräver ett resurs-ID, till exempel [`getAuthorization()`](/help/authentication/rest-api-reference.md):
 
 ```rss
     var resource = 
@@ -56,7 +56,7 @@ En mer komplex specificerare kan t.ex. innehålla ytterligare graderingsinformat
     getAuthorization(resource);
 ```
 
-Resursspecificerare är ogenomskinliga för Adobe Pass-autentisering. De skickas bara till MVPD. Om MVPD inte känner igen eller inte kan tolka din resursspecificerare returneras ett fel till Adobe Pass Authentication, som skickar felet tillbaka till din `tokenRequestFailed()` återanrop.
+Resursspecificerare är ogenomskinliga för Adobe Pass-autentisering. De skickas bara till MVPD. Om MVPD inte känner igen eller kan tolka din resursspecificerare returneras ett fel till Adobe Pass Authentication, som skickar tillbaka felet till ditt `tokenRequestFailed()`-återanrop.
 
 <!--
 ## Related Information {#related}

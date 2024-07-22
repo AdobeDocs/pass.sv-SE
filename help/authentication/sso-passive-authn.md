@@ -4,7 +4,7 @@ description: enkel inloggning via passiv autentisering
 exl-id: ce45899f-6e94-4bb0-a2c1-51f03bd66d8d
 source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
 workflow-type: tm+mt
-source-wordcount: '776'
+source-wordcount: '778'
 ht-degree: 0%
 
 ---
@@ -76,7 +76,8 @@ I följande diagram visas det förbättrade flödet och den passiva autentiserin
 
 
 
-Exempel på SAML-begäran Här följer ett SAML-begärandeexempel för passivt authN-flöde:
+Exempel på SAML-begäran
+Här följer ett SAML-begärandeexempel för det passiva authN-flödet:
 
 
 ```xml

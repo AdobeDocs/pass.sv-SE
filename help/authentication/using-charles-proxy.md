@@ -4,7 +4,7 @@ description: Använda Charles Proxy
 exl-id: bb38543f-f6bc-4b5a-91b8-41bc51ee4c56
 source-git-commit: 19ed211c65deaa1fe97ae462065feac9f77afa64
 workflow-type: tm+mt
-source-wordcount: '457'
+source-wordcount: '369'
 ht-degree: 0%
 
 ---
@@ -21,7 +21,7 @@ ht-degree: 0%
 
 ## Hämta, installera och komma igång med Charles Proxy {#download-install-and-get-stared-with-charles-proxy}
 
-- **Ladda ned** - <http://www.charlesproxy.com/download/>
+- **Hämta** - <http://www.charlesproxy.com/download/>
 - **Installera** - <http://www.charlesproxy.com/documentation/installation/>
 - **Komma igång** - <http://www.charlesproxy.com/documentation/getting-started/>
 
@@ -31,7 +31,7 @@ ht-degree: 0%
 Det finns två olika sätt att visa trafiken:
 
 1. **Struktur** - Begäranden grupperas efter värd
-1. **Sekvens** - Förfrågningar listas i den ordning de anropas
+1. **Sekvens** - Begäranden visas i den ordning som de anropas
 
 
 ## SSL och certifikat {#ssl-and-certificates}
@@ -55,7 +55,7 @@ Markera kryssrutan Aktivera SSL-proxy och lägg till alla HTTPS-platser.
 Om dina utdata blir för röriga kan du välja att ignorera eller exkludera platser. Du kan ignorera eller exkludera platser genom att göra något av följande:
 
 - Högerklicka på de förfrågningar du vill ignorera och välj sedan &quot;Ignorera&quot;
-- Lägg till platser att exkludera från manuellt `\[ *Proxy -\> Recording Settings... -\> Exclude* \]`
+- Lägg till platser som ska uteslutas från `\[ *Proxy -\> Recording Settings... -\> Exclude* \]` manuellt
 
 
 ## DNS-förfalskning {#dns-spoffing}
@@ -77,7 +77,7 @@ DNS-förfalskning är mycket användbart när du försöker dirigera om en begä
 
 
 
-Med kartfjärrkontrollen kan du dirigera om en inkommande begäran till en annan slutpunkt. Det vanligaste användningsområdet för den här funktionen är &quot;Karta&quot; `AccessEnabler.swf` till `AccessEnablerDebug.swf:`
+Med kartfjärrkontrollen kan du dirigera om en inkommande begäran till en annan slutpunkt. Det vanligaste användningsexemplet för den här funktionen är &quot;Mappa&quot; `AccessEnabler.swf` till `AccessEnablerDebug.swf:`
 
 ![](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/images/MapRemote.PNG) ![](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/images/MapRemoteAdd.PNG)
 
@@ -91,17 +91,17 @@ Med kartfjärrkontrollen kan du dirigera om en inkommande begäran till en annan
 
 ## Mobil {#mobile}
 
-### Använda Charles på en iOS-enhet (iPhone/iPad) {#use-charles-on-an-ios-device-(iphone-/-ipad)}
+### Använd Charles på en iOS-enhet (iPhone/iPad) {#use-charles-on-an-ios-device-(iphone-/-ipad)}
 
 #### SSL-anslutning från iPhone {#ssl-connection-from-iphone}
 
-Bläddra till <http://charlesproxy.com/charles.crt> från iOS.  Dialogrutan för certifikatinstallation startas:
+Bläddra till <http://charlesproxy.com/charles.crt> från din iOS-enhet.  Dialogrutan för certifikatinstallation startas:
 
 ![](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/images/iOSDeviceSSLCertificate1\(1\).PNG)![](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/images/iOSDeviceSSLCertificate2\(1\).PNG)![](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/images/iOSDeviceSSLCertificate3.PNG)
 
 </br>
 
-Klicka `\[ *Install*... *Install*... *Done* \]` för att slutföra installationen av certifikatet.
+Klicka på `\[ *Install*... *Install*... *Done* \]` för att slutföra installationen av certifikatet.
 
 <http://www.charlesproxy.com/documentation/faqs/ssl-connections-from-within-iphone-applications/>
 
@@ -118,14 +118,15 @@ På din iOS-enhet väljer du `\[ *Settings* -\> *Wi-FI* -\> (*YOUR\_WIFI\_NETWOR
 
 
 </br>
-Här måste du ange IP-adress och port för datorn där du kör Charles. <span style="line-height: 1.6em;">Om du nu öppnar Safari på din iOS-enhet och försöker öppna en webbsida, bör du öppna följande popup-fönster på datorn som kör Charles:
+Här måste du ange IP-adress och port för datorn där du kör Charles. <span style="line-height: 1.6em;">Om du nu öppnar Safari på din iOS-enhet och försöker öppna en webbsida bör du få följande popup-fönster på datorn som kör Charles:
 
 </br>
 
 ![](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/images/iOSDeviceManualProxy3.PNG)
 
 </br>
-Klicka på"Tillåt" för att tillåta att enheten använder Charles för att proxyvisa alla dess förfrågningar.
+Klicka på"Tillåt" för att tillåta att enheten använder Charles för att proxyvisa alla dess
+förfrågningar.
 
 <http://www.charlesproxy.com/documentation/faqs/using-charles-from-an-iphone/>
 

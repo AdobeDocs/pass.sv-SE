@@ -19,14 +19,14 @@ ht-degree: 0%
 
 >[!NOTE]
 >
-> REST API-implementering begränsas av [Begränsningsmekanism](/help/authentication/throttling-mechanism.md)
+> REST API-implementeringen begränsas av [Begränsningsmekanismen](/help/authentication/throttling-mechanism.md)
 
-&lt;reggie_fqdn>:
+&lt;REGGIE_FQDN>:
 
 * Produktion - [api.auth.adobe.com](http://api.auth.adobe.com/)
 * Mellanlagring - [api.auth-staging.adobe.com](http://api.auth-staging.adobe.com/)
 
-&lt;sp_fqdn>:
+&lt;SP_FQDN>:
 
 * Produktion - [api.auth.adobe.com](http://api.auth.adobe.com/)
 * Mellanlagring - [api.auth-staging.adobe.com](http://api.auth-staging.adobe.com/)
@@ -37,9 +37,9 @@ ht-degree: 0%
 
 Returnerar slumpmässigt genererad registreringskod och inloggningssidans URI.
 
-| Slutpunkt | Anropat  </br>Av | Indata   </br>Parameter | HTTP  </br>Metod | Svar | HTTP  </br>Svar |
+| Slutpunkt | Anropat </br>av | Indata   </br>Parameter | HTTP </br>Metod | Svar | HTTP </br>Response |
 | --- | --- | --- | --- | --- | --- |
-| &lt;reggie_fqdn>/reggie/v1/{requestor}/regcode</br>Till exempel:</br>REGGIE_FQDN/reggie/v1/sampleRequestorId/regcode | Strömmande app</br>eller</br>Programmerartjänst | 1. begärande  </br>    (Bankomponent)</br>2.  deviceId (Hashed)   </br>    (Obligatoriskt)</br>3.  device_info/X-Device-Info (obligatoriskt)</br>4.  mvpd (valfritt)</br>5.  ttl (valfritt)</br>6.  _deviceType_</br> 7.  _deviceUser_ (Föråldrat)</br>8.  _appId_ (Föråldrat) | POST | XML eller JSON som innehåller en registreringskod och information eller felinformation om felet misslyckas. Se scheman och exempel nedan. | 201 |
+| &lt;REGGIE_FQDN>/reggie/v1/{requestor}/regcode</br>Till exempel:</br>REGGIE_FQDN/reggie/v1/sampleRequestorId/regcode | Direktuppspelande app</br>eller</br>Programmeringtjänst | 1. beställare </br>    (Bankomponent)</br>2.  deviceId (Hashed)   </br>    (Obligatoriskt)</br>3.  device_info/X-Device-Info (obligatoriskt)</br>4.  mvpd (valfritt)</br>5.  ttl (valfritt)</br>6.  _deviceType_</br> 7.  _deviceUser_ (utgått)</br>8.  _appId_ (inaktuellt) | POST | XML eller JSON som innehåller en registreringskod och information eller felinformation om felet misslyckas. Se scheman och exempel nedan. | 201 |
 
 {style="table-layout:auto"}
 
@@ -47,12 +47,12 @@ Returnerar slumpmässigt genererad registreringskod och inloggningssidans URI.
 | --- | --- |
 | begärande | Programmerarens requestId som den här åtgärden är giltig för. |
 | deviceId | Byte för enhets-ID. |
-| device_info/</br>X-Device-Info | Information om direktuppspelningsenhet.</br>**Anteckning**: Detta kan skickas som en URL-parameter, men på grund av parameterns potentiella storlek och begränsningar i längden på en GET-URL, bör det skickas som X-Device-Info i http-huvudet. </br>Läs mer här: [Skicka information om enhet och anslutning](/help/authentication/passing-client-information-device-connection-and-application.md). |
+| device_info/</br>X-Device-Info | Information om direktuppspelningsenhet.</br>**Obs!**: Detta kan skickas som device_info som URL-parameter, men på grund av parameterns potentiella storlek och begränsningar i längden på en GET-URL, bör det skickas som X-Device-Info i http-huvudet. </br>Mer information finns i [Skicka information om enheter och anslutningar](/help/authentication/passing-client-information-device-connection-and-application.md). |
 | mvpd | Det MVPD-ID som den här åtgärden gäller för. |
-| ttl | Hur länge den här regkoden ska vara i sekunder.</br>**Anteckning**: Det högsta tillåtna värdet för ttl är 36 000 sekunder (10 timmar). Högre värden resulterar i ett 400 HTTP-svar (felaktig begäran). If `ttl` är tom, Adobe Pass Authentication anger standardvärdet 30 minuter. |
-| _deviceType_ | Enhetstypen (t.ex. Roku, PC).</br>Om den här parametern är korrekt angiven erbjuder ESM värden som är [uppdelad per enhetstyp](/help/authentication/entitlement-service-monitoring-overview.md#clientless_device_type) när du använder Klientlös, så att olika typer av analyser kan utföras, till exempel Roku, AppleTV och Xbox.</br>Se, [Fördelar med att använda parametern för enhetstyp utan klient i passningsvärden ](/help/authentication/benefits-of-using-the-clientless-devicetype-parameter-in-pass-metrics.md)</br>**Anteckning**: device_info ersätter den här parametern. |
+| ttl | Hur länge den här regkoden ska vara i sekunder.</br>**Obs!**: Det högsta tillåtna värdet för ttl är 36000 sekunder (10 timmar). Högre värden resulterar i ett 400 HTTP-svar (felaktig begäran). Om `ttl` lämnas tomt anges standardvärdet 30 minuter av Adobe Pass Authentication. |
+| _deviceType_ | Enhetstypen (t.ex. Roku, PC).</br>Om den här parametern är korrekt har ESM värden som är [nedbrutna per enhetstyp](/help/authentication/entitlement-service-monitoring-overview.md#clientless_device_type) när klientlösa används, så att olika typer av analyser kan utföras, till exempel Roku, AppleTV och Xbox.</br>Se, [Fördelar med att använda parametern för klientlös enhetstyp i pass-mått ](/help/authentication/benefits-of-using-the-clientless-devicetype-parameter-in-pass-metrics.md)</br>**Obs!** Parametern device_info kommer att ersättas. |
 | _deviceUser_ | Enhetens användaridentifierare. |
-| _appId_ | Program-ID/namn. </br>**Anteckning**: device_info ersätter den här parametern. |
+| _appId_ | Program-ID/namn. </br>**Obs!**: device_info ersätter den här parametern. |
 
 {style="table-layout:auto"}
 
@@ -61,7 +61,7 @@ Returnerar slumpmässigt genererad registreringskod och inloggningssidans URI.
 >
 >**IP-adress för direktuppspelningsenhet**
 ></br>
->För klient-till-server-implementeringar skickas IP-adressen för direktuppspelningsenheten implicit med det här anropet.  För implementeringar från server till server, där **regcode** anrop görs i programmeringstjänsten och inte i direktuppspelningsenheten. Följande huvud krävs för att skicka IP-adressen för direktuppspelningsenheten:
+>För klient-till-server-implementeringar skickas IP-adressen för direktuppspelningsenheten implicit med det här anropet.  För Server-till-Server-implementeringar, där anropet **regcode** görs till Programmer-tjänsten och inte till direktuppspelningsenheten, krävs följande rubrik för att skicka IP-adressen för direktuppspelningsenheten:
 >
 >
 >```

@@ -1,13 +1,13 @@
 ---
 title: Begränsningsmekanism
 description: Begränsningsmekanism
-source-git-commit: cbb45cae576332e2b63027992c597b834210988d
+exl-id: 15236570-1a75-42fb-9bba-0e2d7a59c9f6
+source-git-commit: 8552a62f4d6d80ba91543390bf0689d942b3a6f4
 workflow-type: tm+mt
 source-wordcount: '624'
 ht-degree: 1%
 
 ---
-
 
 # Begränsningsmekanism {#throttling-mechanism}
 
@@ -20,16 +20,16 @@ När gränsen har nåtts markeras förfrågningarna med en specifik svarsstatus 
 ## Mekanismöversikt {#mechanism-overview}
 
 Mekanismen avgör det maximala antalet godkända anrop för varje slutpunkt för övervakning av samtidighet inom ett visst tidsintervall.
-När det maximala antalet samtal har nåtts svarar vår tjänst med &quot;429 För många förfrågningar&quot;. 429-svarsrubriken&quot;Förfaller&quot; innehåller tidsstämpeln när nästa anrop anses vara giltigt eller när begränsningen upphör att gälla. Just nu upphör begränsningen att gälla efter en minut från det första 429 svaret.
+När det maximala antalet samtal har nåtts svarar vår tjänst med &quot;429 För många förfrågningar&quot;. 429-svarsrubriken&quot;Förfaller&quot; innehåller tidsstämpeln när nästa anrop anses vara giltigt eller när begränsningen upphör att gälla. Just nu upphör begränsningen efter en   från första 429 svaret.
 
 Följande slutpunkter har konfigurerats med begränsning:
 1. Skapa en ny session: POST /sessioner/{idp}/{subject}
-2. Heartbeat-samtal: POST /sessioner/{idp}/{subject}/{sessionId}
-3. Avsluta en session: DELETE /sessioner/{idp}/{subject}/{sessionId}
+2. Heartbeat-anrop: POST /sessions/{idp}/{subject}/{sessionId}
+3. Avsluta en session: DELETE /sessions/{idp}/{subject}/{sessionId}
 
 Begränsningen är konfigurerad på två nivåer:
-1. session: samma unika {sessionId} parameter skickad `Heartbeat` ringa och `Terminate a session` ring.
-2. användare: samma unika {subject} parameter skickad `Create a new session` ring.
+1. session: samma unika {sessionId}-parameter skickades i `Heartbeat` anrop och `Terminate a session` anrop.
+2. användare: samma unika {subject}-parameter skickades i `Create a new session`-anropet.
 
 Begränsningen för begränsning av sessionsnivå är satt till 200 begäranden inom en minut.\
 Begränsningen för begränsning av användarnivå är satt till 200 förfrågningar inom en minut.\

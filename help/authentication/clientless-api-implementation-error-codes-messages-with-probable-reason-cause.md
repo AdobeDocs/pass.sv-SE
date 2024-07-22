@@ -1,6 +1,6 @@
 ---
-title: Klientlös API-implementering – Felkoder/meddelanden med trolig orsak/orsak
-description: Klientlös API-implementering – Felkoder/meddelanden med trolig orsak/orsak
+title: Klientlös API-implementering - Felkoder / Meddelanden med trolig orsak / orsak
+description: Klientlös API-implementering - Felkoder / Meddelanden med trolig orsak / orsak
 exl-id: 616e35fc-9b72-422b-9a05-e6248bd52490
 source-git-commit: 2dbb45aebb1a00863a9344114963f6df95763dfc
 workflow-type: tm+mt
@@ -9,11 +9,11 @@ ht-degree: 0%
 
 ---
 
-# Klientlös API-implementering – Felkoder/meddelanden med trolig orsak/orsak {#clientless-api-implementation--error-codes-messages-with-probable-reason-cause}
+# Klientlös API-implementering - Felkoder / Meddelanden med trolig orsak / orsak {#clientless-api-implementation--error-codes-messages-with-probable-reason-cause}
 
 >[!NOTE]
 >
->Innehållet på denna sida tillhandahålls endast i informationssyfte. Användning av detta API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
+>Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av detta API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
 
 </br>
 
@@ -22,16 +22,16 @@ ht-degree: 0%
 
 ### Orsakar:
 
-1. Auktoriseringshuvud saknas i självtestet
-1. Problem med auktoriseringshuvud – kontrollera om begärandetiden är i millisekunder.
+1. Auktoriseringshuvud saknas i POST
+1. Problem med auktoriseringshuvudet – kontrollera om begärandetiden är i millisekunder.
 
 ## Fel: SC 400 under autentisering
 
 ### Orsakar:
 
 1. Servern hittade inte registreringskoden, som skapades för en specifik beställare och miljö.
-1. Du kan stöta på problem med skript över flera domäner
-1. Korrekt förfalskning bör läggas till i filen /etc/hosts
+1. Du kan stöta på problem med skript över domäner
+1. Korrekt spoofing bör läggas till i filen /etc/hosts
 
 ## Fel: 400 Felaktig begäran
 
@@ -44,8 +44,8 @@ ht-degree: 0%
 
 ### Orsakar:
 
-1. För många snabba begäranden – en funktion i API-hanteringen för att förhindra DoS-attacker.
-2. Om du använder prequal miljö lägger du till förfalskning, annars kontrollerar du att förfalskning har tagits bort från /etc/hosts-filen
+1. För många snabba förfrågningar - en funktion i API-hanteringen för att förhindra DoS-attacker.
+2. Om du använder prequal miljö ska du lägga till spoofing, annars se till att spoofing har tagits bort från /etc/hosts-filen
 
 ## Fel: Det går inte att logga in på MVPD-sidan
 

@@ -1,9 +1,10 @@
 ---
 title: Versionsinformation om Adobe Pass Authentication 2.67
 description: Versionsinformation om Adobe Pass Authentication 2.67
-source-git-commit: 19ed211c65deaa1fe97ae462065feac9f77afa64
+exl-id: d899fe96-a273-4681-90a5-bde54cc2f3b3
+source-git-commit: f30b6814b8a77424c13337d44d7b247105e0bfe2
 workflow-type: tm+mt
-source-wordcount: '125'
+source-wordcount: '131'
 ht-degree: 0%
 
 ---
@@ -26,7 +27,7 @@ Den här sidan beskriver nya funktioner, ändringar och kända fel i den här ve
 ### Byggnummer {#build-number-267}
 
 Adobe Pass-autentisering: adobe-pass-**2.67.0.1**
-Utgivningsdatum: **09/12/2023 - 09/14/2023**
+Releasedatum: **09/12/2023 - 09/14/2023**
 
 ### Nya funktioner {#new-features-267}
 
@@ -35,7 +36,7 @@ Utgivningsdatum: **09/12/2023 - 09/14/2023**
 
 ### MVPD-uppdateringar {#mvpd-updates-267}
 
-* Uppdateringar för **DirecTV Puerto Rico** integrering med Adobe. Kontakta din Adobe TAM om du vill ha mer information.
+* Uppdateringar för **DirectTV Puerto Rico**-integrering med Adobe. Kontakta din Adobe TAM om du vill ha mer information.
 
 #### Felkorrigeringar {#bug-fixes-267}
 

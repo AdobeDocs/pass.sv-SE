@@ -34,7 +34,7 @@ Används som kortskrift för&quot;auktorisering&quot;, som i&quot;AuthZ-token&qu
 
 ## AuthZ-token {#authz-token}
 
-Autentiseringstoken som genereras av Adobe Pass-autentisering efter att en användare har auktoriserats att visa skyddat innehåll. AuthZ-token lagras på Adobe Pass-autentiseringsservrar och används för att generera en [Kortlivad medietoken](#short-lived-token).
+Autentiseringstoken som genereras av Adobe Pass-autentisering efter att en användare har auktoriserats att visa skyddat innehåll. AuthZ-token lagras på Adobe Pass autentiseringsservrar och används för att generera en [kortlivad medietoken](#short-lived-token).
 
 ## Kanal-ID (inaktuellt) {#channel_id}
 
@@ -96,11 +96,11 @@ Ett MVPD som inte är direkt integrerat med Adobe SP, men som är integrerat gen
 
 ## Begärande-ID {#requestor-id}
 
-Identifierar unikt en [Programmer](#programmer) (ett konto, varumärke, kanal eller egendom) inom Adobe Pass Authentication. Detta ID bestäms mellan Programmer och Adobe under den första konfigurationen av kontot. På webben är det begärda ID:t associerat med en uppsättning godkända domäner. Alla anrop som använder ett ID från en extern domän nekas. Programmerare använder också begärande-ID:t för analys. Det finns vanligtvis bara ett begärande-ID per programmerare. Ytterligare en funktion som rör begärande-ID är att programmeraren måste förse Adobe med ett offentligt certifikat, eftersom setRequestor-API-anropet förväntar att krypterade data skickas, som används för att autentisera programmeraren i Adobe Pass autentiseringssystem.
+Identifierar unikt en [programmerare](#programmer) (ett konto, varumärke, kanal eller egenskap) inom Adobe Pass Authentication. Detta ID bestäms mellan Programmer och Adobe under den första konfigurationen av kontot. På webben är det begärda ID:t associerat med en uppsättning godkända domäner. Alla anrop som använder ett ID från en extern domän nekas. Programmerare använder också begärande-ID:t för analys. Det finns vanligtvis bara ett begärande-ID per programmerare. Ytterligare en funktion som rör begärande-ID är att programmeraren måste förse Adobe med ett offentligt certifikat, eftersom setRequestor-API-anropet förväntar att krypterade data skickas, som används för att autentisera programmeraren i Adobe Pass autentiseringssystem.
 
 ## Resurs-ID {#resource-id}
 
-En sträng eller mRSS-resurs som identifierar en [Programmer](#programmer) till MVPD. Programmeraren och distributörerna av videoprogrammeringstjänster kommer överens om detta. Adobe Pass Authentication skickar resurs-ID:t utan att ändras, så det måste vara samma för alla videoprogrammeringslager. En programmerare kan använda flera resurs-ID:n så länge som programmeringsprofilerna är medvetna om vad varje ID representerar.
+En sträng eller mRSS-resurs som identifierar en [programmerare](#programmer) till MVPD-filer. Programmeraren och distributörerna av videoprogrammeringstjänster kommer överens om detta. Adobe Pass Authentication skickar resurs-ID:t utan att ändras, så det måste vara samma för alla videoprogrammeringslager. En programmerare kan använda flera resurs-ID:n så länge som programmeringsprofilerna är medvetna om vad varje ID representerar.
 
 ## SessionGUID {#sessionGUID}
 
@@ -116,7 +116,7 @@ En term som används i hela dokumentationen för Adobe Pass-autentisering för a
 
 ## SP{#sp}
 
-Tjänsteleverantör; detta avser vanligtvis *roll* av SP, spelas av Adobe Pass Authentication, agerar för en programmerares räkning i en integrering med en [MVPD](#mvpd).
+Tjänsteleverantör; det här avser vanligtvis SP:s *roll*, som spelas av Adobe Pass Authentication, som agerar på uppdrag av en programmerare i en integrering med ett [MVPD](#mvpd).
 
 ## Temporärt pass {#temp-pass}
 

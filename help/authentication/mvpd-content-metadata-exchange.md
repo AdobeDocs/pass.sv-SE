@@ -4,7 +4,7 @@ description: MVPD Content Metadata Exchange
 exl-id: d17e60dc-6c61-4ca2-bad8-1840c95261e0
 source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
 workflow-type: tm+mt
-source-wordcount: '404'
+source-wordcount: '402'
 ht-degree: 0%
 
 ---
@@ -31,7 +31,7 @@ På programmerarsidan har Adobe Pass Authentication stöd för strukturerade MRS
 
 Adobe Pass Authentication stöder två metoder för översättning av MRSS till format som stöds av MVPD:
 
-* **XACML**.  Den första metoden är anpassad efter OLCA-standarden.  Den använder XACML, där MRSS-värdena extraheras för att skapa en XACMLResource med attribut som mappar till MRSS-elementen.  Detta skickas sedan till MVPD.
+* **XML**.  Den första metoden är anpassad efter OLCA-standarden.  Den använder XACML, där MRSS-värdena extraheras för att skapa en XACMLResource med attribut som mappar till MRSS-elementen.  Detta skickas sedan till MVPD.
 * **REST**.  Den andra metoden är REST-baserad.  MRSS är base64-kodad och skickas som en URL-parameter i REST-anropet.
 
 I båda metoderna behandlar det virtuella dokumentationsdokumentet tillståndsansökan genom att inkludera de extraherade värdena i sitt eget logiska flöde och returnera ett auktoriseringssvar.

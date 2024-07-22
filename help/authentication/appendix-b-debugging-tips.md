@@ -4,7 +4,7 @@ description: Bilaga B "Felsökningstips"
 exl-id: ea024797-315e-47c0-99ea-1ac49c8c9697
 source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
 workflow-type: tm+mt
-source-wordcount: '170'
+source-wordcount: '161'
 ht-degree: 0%
 
 ---
@@ -31,9 +31,9 @@ Den är webbläsartillförlitlig, men i Firefox: &quot;Verktyg&quot; -\> &quot;R
 
 ## Rensar LSO-cache {#clearing-lsos-cache}
 
-Öppna [Hjälp om Flash Player](http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager07.html).
+Gå till [Flashens Player hjälp](http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager07.html).
 
-Välj ```entitlement.\*``` (beroende på vad som har testats) och klicka på Ta bort webbplats.
+Markera ```entitlement.\*``` (beroende på vad som har testats) och klicka på Ta bort webbplats.
 
 
 ## Felsökningsverktyg {#tools}

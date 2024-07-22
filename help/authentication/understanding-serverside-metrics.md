@@ -4,7 +4,7 @@ description: Förstå mått på serversidan
 exl-id: 516884e9-6b0b-451a-b84a-6514f571aa44
 source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
 workflow-type: tm+mt
-source-wordcount: '2207'
+source-wordcount: '2232'
 ht-degree: 0%
 
 ---
@@ -24,22 +24,23 @@ I det här dokumentet beskrivs de mått på serversidan för Adobe Pass-autentis
 
 Följande händelser genereras från serversidan för Adobe Pass-autentisering:
 
-* **Händelser som genererats i autentiseringsflödet**(En inloggning med MVPD)
+* **Händelser som genererats i autentiseringsflödet** (en faktisk inloggning med MVPD)
 
    * Meddelande om AuthN-försök - Detta genereras när användaren skickas till MVPD-inloggningswebbplatsen.
-   * Meddelande om väntande AuthN-meddelande - Om användaren lyckas logga in med sitt MVPD-dokument, genereras detta när användaren dirigeras tillbaka till Adobe Pass-autentisering.
+   * AuthN-meddelande väntar - Om användaren lyckas logga in med sitt MVPD genereras detta när användaren är        omdirigerad tillbaka till Adobe Pass Authentication.
    * AuthN-meddelande beviljad - Detta genereras när användaren är tillbaka på programmerarens webbplats och har hämtat autentiseringstoken från Adobe Pass-autentisering.
-* **Auktoriseringsflöde** (Det är bara att kontrollera om du har en MVPD-fil)\
+* **Auktoriseringsflöde** (bara en kontroll för auktorisering med en
+MVPD)\
   *Krav:* En giltig AuthN-token
    * Meddelande om AuthZ-försök
    * Meddelande om AuthZ beviljad
-* **Begäran om uppspelning har slutförts**\
+* **Begäran om slutförd uppspelning**\
   *Krav:* Giltiga AuthN- och AuthZ-tokens
    * Meddelande om en kontroll med Adobe Pass-autentisering
    * En uppspelningsbegäran kräver både en given autentisering och en given auktorisering
 
 
-Antalet unika användare beskrivs i detalj i [Unika användare](#unique-users) nedan. Som en översikt gäller följande formler vanligtvis eftersom autentiserings- och auktoriseringssvar vanligtvis cachelagras:
+Antalet unika användare beskrivs i detalj i avsnittet [Unika användare](#unique-users) nedan. Som en översikt gäller följande formler vanligtvis eftersom autentiserings- och auktoriseringssvar vanligtvis cachelagras:
 
 * Antal AuthN-försök \> Antal AuthN som beviljats
 * Antal AuthZ-försök \> Antal AuthZ som beviljats
@@ -49,9 +50,10 @@ Antalet unika användare beskrivs i detalj i [Unika användare](#unique-users) n
 
 ### Exempel {#example}
 
-I följande exempel visas serversidesstatistik för en månad för ett varumärke:
+I följande exempel visas serversidans mått för en månad för
+ett varumärke:
 
-| Mått | MVPD 1 | MVPD 2 | … | MVPD n | Totalt |
+| Mått | MVPD 1 | MVPD 2 | ... | MVPD n | Totalt |
 | -------------------------- | ------ | ------ | - | ------ | ---------------------------------------------- |
 | Slutförda autentiseringar | 1125 | 2892 |   | 2203 | SUM(MVP1+...MVPD n) |
 | Slutförda auktoriseringar | 2527 | 5603 |   | 5904 | SUM(MVP1+...MVPD n) |
@@ -88,14 +90,15 @@ När flödet är klart cachelagras autentiserings- och auktoriseringstoken på a
 
 ### Returnerande användare - AuthZ- och AuthN-token cachelagrade
 
-För användare som har giltiga AuthZ- och AuthN-tokens cachelagrade utförs följande steg:
+Följande gäller för användare som har giltiga AuthZ- och AuthN-tokens cachelagrade
+steg utförs:
 
 
 ![](assets/ae-flow-tokens-cached-web.png)
 
 
 
-Detta aktiveras automatiskt vid anrop `getAuthorization()`och endast omfattar kontroller med Adobe Pass-autentisering. MVPD är inte involverat i det här flödet.
+Detta aktiveras automatiskt när `getAuthorization()` anropas och innebär endast kontroller med Adobe Pass-autentisering. MVPD är inte involverat i det här flödet.
 
 
 | Händelser på serversidan som utlösts | * Uppspelningsbegäran lyckades |
@@ -149,11 +152,12 @@ Comcast har ett annat AuthN-flöde än resten av de alternativa programmeringsdo
 
 Följande funktioner beskriver skillnaderna:
 
-* **Sessionscookie, beteende**: Detta medför att alla autentiseringstoken tas bort fullständigt när användaren har stängt webbläsaren. Den här funktionen finns endast på webben. Huvudsyftet är att se till att din Comcast-session inte är beständig på osäkra/delade datorer. Effekten blir att fler autentiseringsförsök/beviljade flöden görs än för resten av de alternativa dokumentationsdokumenten.
+* **Sessionscookie-beteende**: Detta gör att alla autentiseringstoken tas bort fullständigt när användaren har stängt webbläsaren. Den här funktionen finns endast på webben. Huvudsyftet är att se till att din Comcast-session inte är beständig på osäkra/delade datorer. Effekten blir att fler autentiseringsförsök/beviljade flöden görs än för resten av de alternativa dokumentationsdokumenten.
 
-* **AuthN per beställarID**: Comcast tillåter inte att AuthN-tillstånd cachas från ett begärande-ID till ett annat. På grund av detta måste varje webbplats/app gå till Comcast för att få en autentiseringstoken. Förutom att ta hänsyn till användarupplevelser, är effekten, som ovan, att fler autentiseringsförsök/händelser som beviljats kommer att genereras.
+* **AuthN per beställarID**: Comcast tillåter inte att AuthN-tillstånd cachas från ett beställar-ID till ett annat. På grund av detta måste varje webbplats/app gå till Comcast för att få en autentiseringstoken. Förutom att ta hänsyn till användarupplevelser, är effekten, som ovan, att fler autentiseringsförsök/händelser som beviljats kommer att genereras.
 
-* **Passiv autentisering**: För att förbättra användarupplevelsen men ändå behålla funktionen AuthN per requestID inträffar ett passivt autentiseringsflöde i en dold iFrame. Användaren kommer inte att se något, men händelserna kommer fortfarande att utlösas som tidigare.
+* **Passiv autentisering**: För att förbättra användarupplevelsen men
+fortfarande har AuthN per requestID-funktionalitet, inträffar ett passivt autentiseringsflöde i en dold iFrame. Användaren kommer inte att se något, men händelserna kommer fortfarande att utlösas som tidigare.
 
 Om användaren klickar på &quot;kom ihåg mig&quot; på inloggningssidan för Comcast, kommer efterföljande besök på den här sidan (under en tvåveckorsperiod) bara att vara en snabb omdirigering. Annars måste användarna autentisera på sidan.
 
@@ -207,7 +211,7 @@ En användare som är både autentiserad och behörig får visa skyddat innehål
 
 När uppspelningen är klar genererar Adobe Pass Authentication en kortlivad medietoken som försäkrar att användaren har rätt att visa den begärda videon. Programmeraren använder denna medietoken för ytterligare validering av den potentiella användaren. Medietoken spåras som lyckade uppspelningsbegäranden.
 
-* Adobe Pass Authentication does *not* spåra om videouppspelningen faktiskt påbörjades efter generering av medietoken. Om det till exempel finns en geobegränsning för innehållet räknas transaktionen fortfarande som en lyckad uppspelningsbegäran, även om flödet faktiskt aldrig startar.
+* Adobe Pass-autentiseringen spårar *inte* om videouppspelningen faktiskt påbörjades efter genereringen av medietoken. Om det till exempel finns en geobegränsning för innehållet räknas transaktionen fortfarande som en lyckad uppspelningsbegäran, även om flödet faktiskt aldrig startar.
 * Eftersom AuthN- och AuthZ-tokens cachelagrar MVPD-svaret under en tidsperiod, är händelsen för lyckad uppspelningsbegäran den vanligaste händelsen i mätvärdena.
 
 ## Unika användare {#unique-users}
@@ -274,9 +278,10 @@ I vissa fall kan antalet unika användare vara större än antalet lyckade auten
 
 ### Jämföra unika användare på klient- och serversidan {#comparing-client-side-and-server-side-unique-users}
 
-Om användar-ID-värdet från `sendTrackingData()` används på klientsidan för att räkna unika användare. Klientsidans och serversidans nummer ska matcha.
+Om användar-ID-värdet från `sendTrackingData()` används på klientsidan för att räkna unika användare, måste klientsidans och serversidans nummer matcha.
 
-Om skillnaderna är större är det vanligtvis följande orsaker som står för skillnaden:
+Om skillnaderna är större är det vanligen följande skäl
+differens:
 
 * Video spelar uniques jämfört med alla event uniques. Som vi nämnt räknas Adobe Pass Authentication som unika användare för alla händelser utom AuthN-försök. Det innebär att om användaren bara autentiserar (på sidan) men inte visar en video, så utlöses ändå en ökning av antalet användare.
 

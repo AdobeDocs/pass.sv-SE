@@ -17,16 +17,16 @@ ht-degree: 0%
 
 >[!NOTE]
 >
-> REST API-implementering begränsas av [Begränsningsmekanism](/help/authentication/throttling-mechanism.md)
+> REST API-implementeringen begränsas av [Begränsningsmekanismen](/help/authentication/throttling-mechanism.md)
 
 ## REST API-slutpunkter {#clientless-endpoints}
 
-&lt;reggie_fqdn>:
+&lt;REGGIE_FQDN>:
 
 * Produktion - [api.auth.adobe.com](http://api.auth.adobe.com/)
 * Mellanlagring - [api.auth-staging.adobe.com](http://api.auth-staging.adobe.com/)
 
-&lt;sp_fqdn>:
+&lt;SP_FQDN>:
 
 * Produktion - [api.auth.adobe.com](http://api.auth.adobe.com/)
 * Mellanlagring - [api.auth-staging.adobe.com](http://api.auth-staging.adobe.com/)
@@ -40,9 +40,9 @@ Initierar autentiseringsprocessen genom att informera om en MVPD-markeringshänd
 
 
 
-| Slutpunkt | Anropat  </br>Av | Indata   </br>Parametrar | HTTP  </br>Metod | Svar | HTTP  </br>Svar |
+| Slutpunkt | Anropat </br>av | Indata   </br>Parametrar | HTTP </br>Metod | Svar | HTTP </br>Response |
 | --- | --- | --- | --- | --- | --- |
-| &lt;sp_fqdn>/api/v1/authenticate | AuthN-modul | 1. beställare_id (obligatoriskt)</br>2.  mso_id (obligatoriskt)</br>3.  reg_kod (obligatoriskt)</br>4.  domain_name (obligatoriskt)</br>5.  noflash=true -  </br>    (Obligatoriskt, Resterande parameter)</br>6.  no_iframe=true (obligatorisk, rest-parameter)</br>7.  extra parametrar (valfritt)</br>8.  redirect_url (obligatoriskt) | GET | Inloggningswebbappen omdirigeras till inloggningssidan för MVPD. | 302 för fullständiga omdirigeringsimplementeringar |
+| &lt;SP_FQDN>/api/v1/authenticate | AuthN-modul | 1. request_id (obligatoriskt)</br>2.  mso_id (obligatoriskt)</br>3.  reg_code (obligatoriskt)</br>4.  domain_name (obligatoriskt)</br>5.  noflash=true - </br>    (Obligatoriskt, Restresterande parameter)</br>6.  no_iframe=true (obligatorisk, restparameter)</br>7.  extra parametrar (valfritt)</br>8.  redirect_url (obligatoriskt) | GET | Inloggningswebbappen omdirigeras till inloggningssidan för MVPD. | 302 för fullständiga omdirigeringsimplementeringar |
 
 {style="table-layout:auto"}
 
@@ -61,7 +61,7 @@ Initierar autentiseringsprocessen genom att informera om en MVPD-markeringshänd
 
 >[!IMPORTANT]
 > 
->**Viktigt: Obligatoriska parametrar -** Oavsett implementering på klientsidan är alla parametrar ovan obligatoriska.
+>**Viktigt! Obligatoriska parametrar -** Oavsett implementering på klientsidan är alla ovanstående parametrar obligatoriska.
 >
 >
 >Exempel:
@@ -81,7 +81,7 @@ Initierar autentiseringsprocessen genom att informera om en MVPD-markeringshänd
 >
 >Anropet kan även innehålla valfria parametrar som möjliggör andra funktioner som:
 >
-> * generisk\_data - aktiverar användning av [TempPass för kampanjerbjudande](/help/authentication/promotional-temp-pass.md)
+> * generisk\_data - aktiverar användning av [Promotional TempPass](/help/authentication/promotional-temp-pass.md)
 >
 >```JSON
 >Example:
@@ -91,10 +91,10 @@ Initierar autentiseringsprocessen genom att informera om en MVPD-markeringshänd
 
 ### **Anteckningar** {#notes}
 
-* Värdet för `domain_name` -parametern måste anges till ett av de domännamn som registrerats med Adobe Pass Authentication. Mer information finns i [Registrering och initiering](/help/authentication/programmer-overview.md).
+* Värdet för parametern `domain_name` måste anges till ett av de domännamn som är registrerade med Adobe Pass-autentisering. Mer information finns i [Registrering och initiering](/help/authentication/programmer-overview.md).
 
 * [Undvik att använda &#39;&amp;&#39;reg\_code i /authenticate request (Tech Note)](/help/authentication/clientless-avoid-using-reg-code-in-authenticate-request.md)
 
-* The `redirect_url` parametern måste vara den sista i ordningen
+* Parametern `redirect_url` måste vara den sista i ordningen
 
-* Värdet för `redirect_url` parametern måste vara URL-kodad
+* Värdet för parametern `redirect_url` måste vara URL-kodat

@@ -4,7 +4,7 @@ description: Användningsexempel för programmerare
 exl-id: 51ca7e4f-b0d8-4e35-8398-2efb4879de2a
 source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
 workflow-type: tm+mt
-source-wordcount: '1643'
+source-wordcount: '1654'
 ht-degree: 0%
 
 ---
@@ -24,9 +24,9 @@ I det här dokumentet sammanfattas de fall där programmeringsintegrering använ
 
 ### Grundläggande integrering: Samlad autentisering och auktorisering för ett enda kanalnätverk {#basic-integration}
 
-**Prioritet** - Hög
+**Prioritet** - hög
 
-**Uppdelning** - En app för TV-reklam med en enda programmerare med 1 Channel Network som värd inuti upplevelsen
+**Uppdelning** - En TVE-app med programmervarumärke och ett kanalnätverk som finns i upplevelsen
 
 Detta gör att programmerare kan erbjuda premiuminnehåll, i sin egen profilerade TVE-app*, med en federerad behörighetskontroll till MVPD. RequestID ska justeras så att det matchar varumärket för det program som betjänar innehållet med visningsprogrammet. I det här scenariot finns det en 1 till 1-relation mellan ID:t för Adobe Pass-autentiseringsbegäran och det resurs-ID som verifieras för berättigande.
 
@@ -38,10 +38,10 @@ Detta gör att programmerare kan erbjuda premiuminnehåll, i sin egen profilerad
 
 | Prioritet | Användningsfall | Beskrivning | Plattformar | MVPD-anteckningar |
 |:--------:|:-----------------------------------------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------:|:-----------------------------------------:|
-| Hög | MVPD Discovery from Programmer TVE App | Användaren startar i programmerarens profilerade TVE-app och uppmanas att välja sin MVPD-leverantör. | Webb (SWF/JS) Mobile (iOS/Android), klientlöst API (för sekundär skärm) |                                           |
-| Hög | Federated Authentication från programmerarens TVE-app | Användaren startar i programmerarens varumärkesprofilerade TVE-app och när användaren har valt sin MVPD-leverantör, överförs användaren till MVPD:s egen inloggningssida för att ange sina inloggningsuppgifter. | Webb (SWF/JS) Mobile (iOS/Android) |                                           |
+| Hög | MVPD Discovery from Programmer TVE App | Användaren startar i programmerarens profilerade TVE-app och uppmanas att välja sin MVPD-leverantör. | Webb (SWF/JS)                    Mobil (iOS/Android)                   Klientlöst API (för andra skärmen) |                                           |
+| Hög | Federated Authentication från programmerarens TVE-app | Användaren startar i programmerarens varumärkesprofilerade TVE-app och när användaren har valt sin MVPD-leverantör, överförs användaren till MVPD:s egen inloggningssida för att ange sina inloggningsuppgifter. | Webb (SWF/JS)                    Mobil (iOS/Android) |                                           |
 | Hög | Auktorisering från programmerarens TVE-app | När användaren har autentiserats kan programmerarens TVE-app göra återkanalsauktoriseringsbegäranden till MVPD för att kontrollera användarens berättigande. Vanligtvis kontrollerar detta bara om kanalnätverket finns i användarens MVPD-prenumerationspaket.                                  I det här fallet kommer begärande-ID och resurs-ID att matcha 1:1. | Alla plattformar |                                           |
-| Medel | Logga ut från programmerarens TVE-app | Gör det möjligt för användaren att logga ut och rensa Adobe Pass Authentication AuthN/AuthZ-tokens. I många fall loggar detta även ut användaren från MVPD. MVPD:er varierar dock om detta stöds eller inte. Den rensar alltid Adobe Pass Authentication-sessionen och token. | Alla plattformar utom XBox Native | Flera MVPD-program stöder inte detta. |
+| Medium | Logga ut från programmerarens TVE-app | Gör det möjligt för användaren att logga ut och rensa Adobe Pass Authentication AuthN/AuthZ-tokens. I många fall loggar detta även ut användaren från MVPD. MVPD:er varierar dock om detta stöds eller inte. Den rensar alltid Adobe Pass Authentication-sessionen och token. | Alla plattformar utom XBox Native | Flera MVPD-program stöder inte detta. |
 | Hög | Enkel inloggning på webbplatser och appar | Låter användaren dela inloggningssessionen mellan webbplatser och appar utan att behöva logga in igen. | Alla plattformar utom klientlöst API | Kräver minst SDK 1.7 för vissa MVPD-program. |
 
 ### En TVE-app som är värd för flera kanalnätverk {#single-app-multi-channel}
@@ -59,7 +59,7 @@ Gör att programmeraren kan samla flera kanalnätverk med innehåll på samma va
 
 ### Tillgångsnivåauktorisering {#asset-level-authz}
 
-**Prioritet** - Låg
+**Prioritet** - låg
 
 **Uppdelning** - Skicka en tillgångsidentifierare vid auktoriseringsbegäran
 
@@ -78,32 +78,32 @@ Gör att MVPD kan hämta tillgångsnivåanalyser för varje AuthZ-anrop. Nackdel
 
 ### Föräldrakontroll {#parental-controls}
 
-**Prioritet** - Låg
+**Prioritet** - låg
 
 Gör att begränsningar för MVPD-användarkonton kan tillämpas på programmerarens TVE-app.
 
 | Prioritet | Användningsfall | Beskrivning | Plattformar | MVPD-anteckningar |
 |--------|-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------|-----------------------------------|
-| Låg | Filtrera innehåll baserat på användarattribut | Gör det möjligt för programmeraren att kontrollera högsta tillåtna klassificering för en användare innan listan över tillgängligt innehåll återges för användaren. | Webb (Flash/JS) Mobile (iOS/Android) | Fungerar endast med ett MVPD för närvarande. |
-| Låg | Godkänn innehållsklassificeringar i AuthZ-begäran | Gör att programmeraren kan skicka den specifika klassificeringen av innehållet som användaren vill se som en del av AuthZ-begäran till MVPD relaterat till #3, eftersom klassificeringar vanligtvis finns på tillgångsnivå. | Alla plattformar | Fungerar endast med ett MVPD för närvarande. |
+| Låg | Filtrera innehåll baserat på användarattribut | Gör det möjligt för programmeraren att kontrollera högsta tillåtna klassificering för en användare innan listan över tillgängligt innehåll återges för användaren. | Webb (Flash/JS)                    Mobil (iOS/Android) | Fungerar endast med ett MVPD för närvarande. |
+| Låg | Godkänn innehållsklassificeringar i AuthZ-begäran | Gör att programmeraren kan skicka den specifika klassificeringen av innehållet som användaren vill titta på som en del av AuthZ-begäran till MVPD                             Relaterat till #3, eftersom omdömen vanligtvis finns på tillgångsnivå. | Alla plattformar | Fungerar endast med ett MVPD för närvarande. |
 
 #### Anpassning av MVPD-integrering per programmeringsmärke {#mvpd-int-cust-prog-brand}
 
-**Prioritet** - Medel
+**Prioritet** - Medium
 
 Aktiverar anpassad upplevelse under AuthN- eller AuthZ-felmeddelanden.
 
 | Prioritet | Användningsfall | Beskrivning | Plattformar | MVPD-anteckningar |
 |--------|------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|-----------------------------------------|
-| Medel | Identifierare för tjänstleverantör i AuthN-begäran. | Aktivera specifik branding på inloggningssidan för MVPD som är specifik för tjänsteleverantören. Aktivera även automatiskt val av standardinställning för att matcha målgruppen, t.ex. Spanska för Univision. | Alla plattformar | Varierar med MVPD. Vissa stöder inte detta. |
-| Medel | Anpassade felmeddelanden i AuthZ-svar | Aktiverar programmerings- eller varumärkesspecifika felmeddelanden från MVPD som kan innehålla ett specifikt meddelande om merförsäljning med en länk som uppgraderar paketet. | Webb, Android, iOS | Varierar med MVPD. Vissa stöder inte detta. |
+| Medium | Identifierare för tjänstleverantör i AuthN-begäran. | Aktivera specifik branding på inloggningssidan för MVPD som är specifik för tjänsteleverantören. Aktivera även automatiskt val av standardinställning för att matcha målgruppen, t.ex. Spanska för Univision. | Alla plattformar | Varierar med MVPD. Vissa stöder inte detta. |
+| Medium | Anpassade felmeddelanden i AuthZ-svar | Aktiverar programmerings- eller varumärkesspecifika felmeddelanden från MVPD som kan innehålla ett specifikt meddelande om merförsäljning med en länk som uppgraderar paketet. | Webb, Android, iOS | Varierar med MVPD. Vissa stöder inte detta. |
 
 
 ### Användningsexempel för anslutna enheter {#connected-devices}
 
 | Prioritet | Användningsfall | Beskrivning | Plattformar | MVPD-anteckningar |
 |--------|-------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Medel | XBox LiveID SSO mellan appar och konsoler | Låter användaren dela AuthN-session mellan appar och mellan olika spelkonsoler - som är kopplade till deras LiveID-konto. | XBox Native SDK | De flesta MVPD-program gillar inte detta eftersom den vanliga modellen är att binda token till enheten - inte till användaren.                             Vi rekommenderar inte det här tillvägagångssättet längre om det går. |
+| Medium | XBox LiveID SSO mellan appar och konsoler | Låter användaren dela AuthN-session mellan appar och mellan olika spelkonsoler - som är kopplade till deras LiveID-konto. | XBox Native SDK | De flesta MVPD-program gillar inte detta eftersom den vanliga modellen är att binda token till enheten - inte till användaren.                             Vi rekommenderar inte det här tillvägagångssättet längre om det går. |
 | Hög | Ansluten enhet med token bundna till appID på enheten | Gör att programmeraren kan binda MVPD-berättigandet i token till appID på den enhet som det utfärdades till. | Klientlöst API | Den anslutna enheten justeras närmare standardimplementeringen för tokens.                             Behöver fortfarande förbättras för att vara ett enhetstäckande ID. |
 
 ### Enhetsspecifik längd för AuthN TTL {#authn-ttl-length}
@@ -112,11 +112,11 @@ Aktivera TVE-berättigande för specialhändelser som kanske inte finns i MVPD-t
 
 | Prioritet | Användningsfall | Beskrivning | Plattformar | MVPD-anteckningar |
 |--------|------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|--------------------------------------------------------------------------------------------------------------------------|
-| Hög | Ange olika TTL-värden per plattform | Gör att programmeraren kan skapa en annan TTL-längd för webb, mobiler och anslutna enheter. För närvarande stöder Adobe Pass-autentisering möjligheten att ha tre separata TTL-värden: Webb (Flash) Mobile/HTML5 Client less - Connected Devices |           | Vissa MVPD-program ställer in TTL dynamiskt. Adobe kan vid behov åsidosätta dessa dynamiska inställningar med hjälp av konfigurationsinställningarna. |
+| Hög | Ange olika TTL-värden per plattform | Gör att programmeraren kan skapa en annan TTL-längd för webb, mobiler och anslutna enheter. För närvarande stöder Adobe Pass-autentisering möjligheten att ha tre separata TTL-värden:                                Webb (Flash)                    Mobil/HTML5                    Klientlösa - anslutna enheter |           | Vissa MVPD-program ställer in TTL dynamiskt. Adobe kan vid behov åsidosätta dessa dynamiska inställningar med hjälp av konfigurationsinställningarna. |
 
 ### Särskilda händelsebaserade program {#special-event}
 
-**Prioritet** - Låg
+**Prioritet** - låg
 
 Aktivera TVE-berättigande för specialhändelser som kanske inte finns i MVPD-tillståndsdatabasen, som vanliga kanaler.
 
@@ -128,10 +128,14 @@ Aktivera TVE-berättigande för specialhändelser som kanske inte finns i MVPD-t
 
 ### Integrering med innehållsserver {#content-server-integration}
 
-**Prioritet**- Medel
+**Prioritet**- Medium
 
 Aktivera validering av medietoken innan videoströmmen släpps till klientspelaren.
-| Prioritet | Användningsfall | Beskrivning | Plattformar | MVPD-anteckningar | |—|—|—|—|—|—| | Hög | Programmer Federated Player - med behörighet på sidnivå | Adobe Pass-autentiserings-API:er görs i JavaScript på sidan och token skickas till spelaren. Token kan skickas till valideringstjänsten på ett par sätt: Hämta param på URL-parametern för verifieringstjänsten som skickas i frågesträngen för API:t för det externa gränssnittet i flödet | | | | Medel | Programmer Federated Player - med intern spelarbehörighet | Adobe Pass autentiserings-API:er görs i ActionScriptet i spelaren SWF, så token är tillgänglig för spelaren från återanropet.                                                                                                                                                                                         | | | | Hög | Syndikerad spelare - finns på MVPD Portal med sidnivåautentisering Använda en iFrame för att lägga in spelaren | Liknar spelaren med sidnivåauktorisering, men med spelarsidomslutningen iFramed i MVPD-portalen. Autentisering måste ske separat i MVPD-portalen.                                                                                                                                                    |           |                        |
+| Prioritet  |                                                   Användningsfall                                                  |                                                                                                                                                              Beskrivning                                                                                                                                                             | Plattformar | MVPD-anteckningar |
+|—|—|—|—|—|—|
+| Hög      | Programmer Federated Player - med behörighet på sidnivå                                                 | Adobe Pass-autentiserings-API:er görs i JavaScript på sidan och token skickas till spelaren. Token kan skickas till valideringstjänsten på några sätt:                                 Hämta param på verifieringstjänstens URL                    URL-parametern skickades i frågesträngen för strömmens URL                    API för externt gränssnitt                    FlashVars                           |           |            |
+| Medium    | Programmer Federated Player - med intern spelarbehörighet                                            | Adobe Pass autentiserings-API:er görs i ActionScriptet i spelaren SWF, så token är tillgänglig för spelaren från återanropet.                                                                                                                                                                                         |           |            |
+| Hög      | Syndikerad spelare - finns på MVPD-portalen med sidnivåautentisering Använda en iFrame för att kapsla in spelaren  | Liknar spelaren med sidnivåauktorisering, men med spelarsidans wrapper iFramed i MVPD-portalen. Autentisering måste ske separat i MVPD-portalen.                                                                                                                                                    |           |                        |
 
 
 <!--

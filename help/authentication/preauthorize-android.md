@@ -1,6 +1,6 @@
 ---
-title: Förhandsauktorisera Android
-description: Förhandsauktorisera Android
+title: Förauktorisera Android
+description: Förauktorisera Android
 exl-id: b5337595-135f-4981-a578-2da432f125d6
 source-git-commit: 59672b44074c472094ed27a23d6bfbcd7654c901
 workflow-type: tm+mt
@@ -34,14 +34,15 @@ Om ett oväntat fel inträffar (t.ex. nätverksproblem, slutpunkten för MVPD-au
 
 **Parametrar:**
 
-- *FörhandsauktoriseraBegäran*: Det Builder-objekt som används för att definiera begäran
+- *PreauthorizedRequest*: Builder-objektet som används för att definiera begäran
 - AccessEnablerCallback : återanrop som används för att returnera API-svar
-- PreAuthzeResponse : Objektet som används för att returnera API-svarsinnehållet
+- PreAuthzeResponse : Objektet som används för att returnera API
+svarsinnehåll
 
 
 ### public class PreAuthzeRequest {#androidpreauthorizerequest}
 
-**class PreAuthzeRequest.Builder**
+**klassen PreAuthzeRequest.Builder**
 
 ```java
     ///
@@ -62,7 +63,7 @@ Om ett oväntat fel inträffar (t.ex. nätverksproblem, slutpunkten för MVPD-au
     ///
 ```
 
-**public Builder setResources(List\&lt;string> resurser)**
+**public Builder setResources(List\&lt;String\> resources)**
 
 ```
     ///
@@ -84,7 +85,7 @@ Om ett oväntat fel inträffar (t.ex. nätverksproblem, slutpunkten för MVPD-au
 ```
 
 
-**public Builder disableFeatures(Set\&lt;preauthorizerequest.feature>
+**public Builder disableFeatures(Set\&lt;PreAuthzeRequest.Feature\>
 funktioner)**
 
 ```
@@ -107,7 +108,7 @@ funktioner)**
 
 **public PreauthorizedRequest build()**
 
-**enum PreauthorizedRequest.Feature**
+**enum PreAuthzeRequest.Feature**
 
 ```java
     ///
@@ -226,7 +227,7 @@ funktioner)**
 
 </br>
 
->**klassbeslut** {#decision}
+>**class Decision** {#decision}
 
 ```
     ///

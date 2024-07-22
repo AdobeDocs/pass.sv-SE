@@ -4,7 +4,7 @@ description: Programmeraren kickstart
 exl-id: 0aecdb81-9b97-4475-b0b0-654d916b2374
 source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
 workflow-type: tm+mt
-source-wordcount: '971'
+source-wordcount: '972'
 ht-degree: 0%
 
 ---
@@ -21,12 +21,12 @@ Välkommen till Adobe Pass Authentication for TV Everywhere. Vi ser fram emot at
 
 >[!NOTE]
 >
->Detta är Kickstart Guide for Programmers (innehållsleverantörer). Om du har en distributör av flerkanalsvideo Programming (MVPD), se [MVPD - startguide](/help/authentication/mvpd-kickstart-guide.md).
+>Detta är Kickstart Guide for Programmers (innehållsleverantörer). Om du använder en distributör av flerkanalsvideo-programmering (MVPD) ska du se [guiden för MVPD-start](/help/authentication/mvpd-kickstart-guide.md).
 
 
 Kontakter för Adobe Pass-autentisering:
 
-* Support - för alla frågor, incidenter eller förslag på nya funktioner, `tve-support@adobe.com`
+* Support - för alla frågor, incidenter eller funktionsförfrågningar, `tve-support@adobe.com`
 * En aktiveringskontakt tilldelas ditt projekt när projektet startar.
 
 I följande information beskrivs några viktiga första steg för att komma vidare till en stabil och effektiv start. Målet är att ge en förklaring och förväntan om hur vi kommer att samarbeta med partners för att uppnå integreringar. Observera avsnitten &quot;du kommer att ange&quot; / &quot;Adobe kommer att tillhandahålla&quot; nedan för varje objekt. De listas som en checklista eller guide när vi arbetar med projektet.
@@ -50,7 +50,7 @@ Om inga kritiska problem uppstår under det föregående två veckor långa test
 Adobe kommer att tillhandahålla
 
 * Distributionshandbok: **`https://tve.zendesk.com/entries/498741-tve-deployment-guide`**
-* Tillgång till vårt Zendesk-system för kundsupport. Här hittar du också exempel, information och videokurser om några av processerna. För att få tillgång till det här dokumentet på Zendesk, tillsammans med andra dokument som publicerats där, måste du registrera dig och skapa ett konto på `https://tve.zendesk.com/home`. Det finns ingen gräns för hur många användare du kan registrera.  Du kan se och dela kommentarer på alla arkiverade biljetter. Alla supportfrågor ska ställas till `tve-support@adobe.com`.
+* Tillgång till vårt Zendesk-system för kundsupport. Här hittar du också exempel, information och videokurser om några av processerna. För att få tillgång till det här dokumentet på Zendesk, tillsammans med andra dokument som publicerats där, måste du registrera och skapa ett konto på `https://tve.zendesk.com/home`. Det finns ingen gräns för hur många användare du kan registrera.  Du kan se och dela kommentarer på alla arkiverade biljetter. Alla supportfrågor ska adresseras till `tve-support@adobe.com`.
 * [Integreringshandbok för programmerare](/help/authentication/programmer-integration-guide-overview.md)
 * Verifieringsbibliotek för medietoken: `https://tve.zendesk.com/entries/471323-media-token-validator-library`.
 
@@ -81,15 +81,15 @@ Du kommer att tillhandahålla (via MVPD):
 
 Adobe Pass Authentication har stöd för ett MRSS-baserat metadatamatchema, vilket innebär att resurs-ID:n kan vara så specifika som behövs, och kan innehålla identifierare som kan vara unika för ett specifikt MVPD.
 
-**NYTT Integrering med MVPD**: Det är viktigt att komma ihåg att ditt valda MVPD spelar en viktig roll när det gäller att slutföra integreringen. Adobe måste skriva kod för varje MVPD enligt sina specifikationer. Innan dessa steg är slutförda kan du inte välja det MVPD-programmet i dialogrutan eller slutföra produkttestningen. Adobe måste schemalägga detta arbete i förväg för att passa nästa tillgängliga sprint. (Aktuell schemainformation finns i Release Calendar.)
+**NY MVPD-integrering**: Det är viktigt att komma ihåg att ditt valda MVPD spelar en viktig roll när det gäller att slutföra integreringen. Adobe måste skriva kod för varje MVPD enligt sina specifikationer. Innan dessa steg är slutförda kan du inte välja det MVPD-programmet i dialogrutan eller slutföra produkttestningen. Adobe måste schemalägga detta arbete i förväg för att passa nästa tillgängliga sprint. (Aktuell schemainformation finns i Release Calendar.)
 
-**Befintliga MVPD-integreringar**: Om ditt MVPD-program redan är konfigurerat med Adobe bör anslutningsstegen vara mycket enklare (snabbare) och anslutningen kan ofta göras med hjälp av konfigurationsändringar.
+**Befintliga MVPD-integreringar**: Om ditt valda MVPD redan har konfigurerats med Adobe bör anslutningsstegen vara mycket enklare (snabbare) och anslutningen kan ofta uppnås genom konfigurationsändringar.
 
 >[!NOTE]
 >
 >MVPD måste FORTFARANDE aktivera Programmeraren och teckna avtal.
 
-**QE med MVPD**: Alla integreringar innefattar gemensamma QE, och eftersom slutanvändaren i slutändan är kund hos MVPD har många testcykler innan man trycker&quot;live&quot;. Eftersom detta innebär schemaläggning av MVPD-resurser kan detta försenas.
+**QE med MVPD:er**: Alla integreringar kommer att innebära en gemensam QE, och eftersom slutanvändaren i slutändan är kund av MVPD har många testcykler innan live-push körs. Eftersom detta innebär schemaläggning av MVPD-resurser kan detta försenas.
 
 <!--
 >[RELATEDINFORMATION]

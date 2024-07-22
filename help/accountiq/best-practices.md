@@ -1,5 +1,5 @@
 ---
-title: Bästa praxis för IQ-konton
+title: Account IQ bästa praxis
 description: Läs mer om [!UICONTROL Account IQ] i Adobe Pass.
 exl-id: 55901f5d-d9c1-4ee5-9349-afa28445b324
 source-git-commit: 60aeba449cae1c4dc510a23aaf1ba793a7a60db0
@@ -11,11 +11,11 @@ ht-degree: 0%
 
 # God praxis {#aiq-best-practices}
 
-[!UICONTROL Account IQ] gör det möjligt att identifiera delning av autentiseringsuppgifter, mäta dess omfattning och effekt, segmentera relevanta kohorter och spåra effekten av riktade åtgärder. Det innehåller en mängd verktyg, diagram och rapporter som används för att förstå och hantera delade konton och som kan användas på många olika sätt. Varje direktuppspelningstjänst tar sig an detta beteende och utvecklar processer som matchar deras unika mål, och produkten är utformad för att på ett flexibelt sätt tillgodose dessa behov.  Det finns dock vissa allmänna regler för praxis som kan tillämpas på en rad olika scenarier.
+Med [!UICONTROL Account IQ] kan du identifiera delning av autentiseringsuppgifter, mäta dess omfattning och effekt, segmentera relevanta kohorter och spåra effekten av riktade åtgärder. Det innehåller en mängd verktyg, diagram och rapporter som används för att förstå och hantera delade konton och som kan användas på många olika sätt. Varje direktuppspelningstjänst tar sig an detta beteende och utvecklar processer som matchar deras unika mål, och produkten är utformad för att på ett flexibelt sätt tillgodose dessa behov.  Det finns dock vissa allmänna regler för praxis som kan tillämpas på en rad olika scenarier.
 
 ## Analysera och förstå {#analyze-understand}
 
-[!UICONTROL Account IQ] verktygen hjälper till att förstå vilken typ av och bredd som delning av autentiseringsuppgifter ger företaget, från diagram på högsta nivå som visar procentandelen delade konton till export på lägsta nivå som rapporterar de enskilda kontonas egenskaper. I synnerhet från början använder du dessa verktyg för att utforska data och identifiera ovanliga eller intressanta kohorter eller beteendemönster - vilket till exempel indikerar en hög grad av delning. Sedan kan segment som representerar en viss affärsmöjlighet eller ett visst mål identifieras.
+Verktygen i [!UICONTROL Account IQ] hjälper dig att förstå typen och bredden av delning av autentiseringsuppgifter i ditt företag, från diagram på högsta nivån som visar procentandelen delade konton till export på lägsta nivå som rapporterar egenskaperna för enskilda konton. I synnerhet från början använder du dessa verktyg för att utforska data och identifiera ovanliga eller intressanta kohorter eller beteendemönster - vilket till exempel indikerar en hög grad av delning. Sedan kan segment som representerar en viss affärsmöjlighet eller ett visst mål identifieras.
 
 Så här förstår du hur delning påverkar ditt företag:
 

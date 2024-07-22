@@ -1,14 +1,13 @@
 ---
 title: Policyinformationspunkt
 description: Policyinformationspunkt
-source-git-commit: 19ed211c65deaa1fe97ae462065feac9f77afa64
+exl-id: 964bb28d-cfef-4a37-b6c4-10cc59be0b47
+source-git-commit: f30b6814b8a77424c13337d44d7b247105e0bfe2
 workflow-type: tm+mt
-source-wordcount: '226'
+source-wordcount: '227'
 ht-degree: 0%
 
 ---
-
-
 
 # Policyinformationspunkt {#pip}
 
@@ -16,7 +15,7 @@ ht-degree: 0%
 >
 >Den här sidan är inaktuell eftersom den gäller den tidigare versionen av API som inte längre rekommenderas för nya integreringar
 
-I följande diagram visas flödet om kunden väljer **Policyinformationspunkt**, i vilket fall CM bara används för att fråga aktiviteten och all åtkomstlogik är inbäddad i klientprogrammet):
+I följande diagram visas flödet om kunden väljer **principinformationspunkten**, i vilket fall CM bara används för att fråga aktiviteten och all åtkomstlogik är inbäddad i klientprogrammet):
 
 ![](assets/pip-workflow.png)
 
@@ -33,4 +32,3 @@ I korthet är det vanliga meddelandeflödet följande:
 1. Under videouppspelning gör det instrumenterade programmet hjärtslagsanrop till Concurrency Monitoring Service, vilket visar att användaren för närvarande använder en video.
 1. Andra instrumenterade program kan göra statusfrågeanrop till Concurrency Monitoring Service, som returnerar den aktuella användaraktiviteten.
 1. När videouppspelningen avslutas kan det instrumenterade programmet göra ett pulsslagsanrop med &quot;event=stop&quot;, vilket anger att videon har stoppats och att den aktuella strömmen inte längre ska räknas som en aktiv ström.
-

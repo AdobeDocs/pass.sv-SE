@@ -17,16 +17,16 @@ ht-degree: 0%
 
 >[!NOTE]
 >
-> REST API-implementering begränsas av [Begränsningsmekanism](/help/authentication/throttling-mechanism.md)
+> REST API-implementeringen begränsas av [Begränsningsmekanismen](/help/authentication/throttling-mechanism.md)
 
 ## REST API-slutpunkter {#clientless-endpoints}
 
-&lt;reggie_fqdn>:
+&lt;REGGIE_FQDN>:
 
 * Produktion - [api.auth.adobe.com](http://api.auth.adobe.com/)
 * Mellanlagring - [api.auth-staging.adobe.com](http://api.auth-staging.adobe.com/)
 
-&lt;sp_fqdn>:
+&lt;SP_FQDN>:
 
 * Produktion - [api.auth.adobe.com](http://api.auth.adobe.com/)
 * Mellanlagring - [api.auth-staging.adobe.com](http://api.auth-staging.adobe.com/)
@@ -38,9 +38,9 @@ ht-degree: 0%
 
 Tar bort reg.kodposten och släpper reg.koden för återanvändning.
 
-| Slutpunkt | Anropat  </br>Av | Indata   </br>Parametrar | HTTP  </br>Metod | Svar | HTTP  </br>Svar |
+| Slutpunkt | Anropat </br>av | Indata   </br>Parametrar | HTTP </br>Metod | Svar | HTTP </br>Response |
 | --- | --- | --- | --- | --- | --- |
-| &lt;reggie_fqdn>/reggie/v1/{requestorId}/regcode/{registrationCode}</br></br>Till exempel:</br></br>&lt;reggie_fqdn>/reggie/v1/regcode/ER45RTY | Strömmande app</br></br>eller</br></br>Programmerartjänst | 1. Begärande-ID  </br>    (Bankomponent)</br>2.  Registreringskod  </br>    (Bankomponent) | DELETE | Ingen | 204 |
+| &lt;REGGIE_FQDN>/reggie/v1/{requestorId}/regcode/{registrationCode}</br></br>Till exempel:</br></br>&lt;REGGIE_FQDN>/reggie/v1/regcode/ER45RTY | Direktuppspelande app</br></br>eller</br></br>Programmeringtjänst | 1. Begärande-ID </br>    (Bankomponent)</br>2.  Registreringskod </br>    (Bankomponent) | DELETE | Ingen | 204 |
 
 {style="table-layout:auto"}
 
