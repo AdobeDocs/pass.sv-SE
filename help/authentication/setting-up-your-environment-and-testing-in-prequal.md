@@ -2,7 +2,7 @@
 title: Konfigurera din miljö och testning i Pre-Qual
 description: Konfigurera din miljö och testning i Pre-Qual
 exl-id: f822c0a1-045a-401f-a44f-742ed25bfcdc
-source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
+source-git-commit: 3a6a5633c728398a3847ee3e341e82aba915f0d9
 workflow-type: tm+mt
 source-wordcount: '477'
 ht-degree: 0%
@@ -68,7 +68,7 @@ Steg 1 och 2 är att sätta upp testmiljön på en av testmaskinerna, steg 3 är
 * *Redigera filen c:\\windows\\System32\\drivers\\etc\\hosts* (i Windows) eller */etc/hosts* filen (på Macintosh/Linux/Android) och lägg till följande:
 
 * Profil för förfalskning av produktion
-   * 52.13.71.11 http://entitlement.auth.adobe.com, http://sp.auth.adobe.com, http://api.auth.adobe.com
+   * 52.13.71.11 entitlement.auth.adobe.com sp.auth.adobe.com api.auth.adobe.com
 
 **Spofing på Android:** Om du vill göra en buffring på Android måste du använda en Android-emulator.
 
