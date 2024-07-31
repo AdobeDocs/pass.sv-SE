@@ -2,7 +2,7 @@
 title: API-referens för Android SDK
 description: API-referens för Android SDK
 exl-id: f932e9a1-2dbe-4e35-bd60-a4737407942d
-source-git-commit: 854698397d9d14c1bfddcc10eecc61c7e3c32b71
+source-git-commit: e4567dd870790d11b9c5904d635fc00bdd1a23d2
 workflow-type: tm+mt
 source-wordcount: '4537'
 ht-degree: 0%
@@ -95,6 +95,7 @@ Om ett värde anges för parametern *urls*, anger det resulterande nätverksanro
 | API-anrop: konfiguration för begärare |
 | --- |
 | ```public void setRequestor(String requestorId, ArrayList<String> urls)``` |
+
 **Tillgänglighet:** v3.0+
 
 

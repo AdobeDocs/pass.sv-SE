@@ -2,7 +2,7 @@
 title: MVPD-integreringsfunktioner
 description: MVPD-integreringsfunktioner
 exl-id: fcd65940-9a86-49b2-9d52-9031fb763338
-source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
+source-git-commit: e4567dd870790d11b9c5904d635fc00bdd1a23d2
 workflow-type: tm+mt
 source-wordcount: '1733'
 ht-degree: 2%
@@ -84,8 +84,8 @@ Tabellerna är avsedda att driva integreringsprocessen för Adobe Pass Authentic
 | 3,3 | Registrering av infogat konto | MVPD ger ett sätt att skapa ett nytt kontoinfogat till ett federerat AuthN-flöde. | A |                                                                                                                                                           |
 | 3,4 | Onlinehjälp/support | MVPD tillhandahåller ett hjälpmedel som kan användas under det federerade AuthN-flödet. | A |                                                                                                                                                           |
 | 3,5 | Modembaserad autentisering hemma | MVPD autentiserar automatiskt en enhet när den finns i det lokala nätverket för en registrerad modell (endast ISP MVPD). | B | Det här är en lägre prioritet eftersom det är en optimering som många ännu inte kan stödja och som ger upphov till vissa problem när det gäller begränsning av bedrägerier och föräldrakontroll |
-Nu kan du importera kod från markeringstabellen direkt med dialogrutan Arkiv/Klistra in tabelldata...
 
+Nu kan du importera kod från markeringstabellen direkt med dialogrutan Arkiv/Klistra in tabelldata...
 
 
 ## 4. Analysfunktioner {#analytics-features}
