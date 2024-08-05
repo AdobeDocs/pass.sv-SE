@@ -1,7 +1,7 @@
 ---
 title: Hämta konfiguration för en viss tjänsteleverantör
 description: REST API V2 - Hämta konfiguration för specifik tjänstleverantör
-source-git-commit: 4598aaa0827b943de83a9e7d847227edf6b0b387
+source-git-commit: 150e064d0287eaac446c694fb5a2633f7ea4b797
 workflow-type: tm+mt
 source-wordcount: '521'
 ht-degree: 1%
@@ -11,7 +11,7 @@ ht-degree: 1%
 
 # Hämta konfiguration för en viss tjänsteleverantör {#retrieve-configuration-for-specific-service-provider}
 
->[!NOTE]
+>[!IMPORTANT]
 >
 > Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
 

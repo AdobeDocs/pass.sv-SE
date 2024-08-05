@@ -1,7 +1,7 @@
 ---
 title: Header - AD-Service-Token
 description: REST API V2 - huvud - AD-Service-Token
-source-git-commit: 4d1ce1301d6baf7309e8ee52c43b02403aa2fab9
+source-git-commit: 150e064d0287eaac446c694fb5a2633f7ea4b797
 workflow-type: tm+mt
 source-wordcount: '252'
 ht-degree: 0%
@@ -21,7 +21,7 @@ ht-degree: 0%
 
 Det här huvudet är utformat för att användas i enkla inloggningsflöden (SSO) som utnyttjar Service Token-metoden.
 
-Mer information om SSO-aktiverade flöden (Single Sign-on) som använder Service Token-metoden finns i dokumentationen för [enkel inloggning med tjänsttokenflöden](../../flows/single-sign-on-flows/rest-api-v2-single-sign-on-service-token-flows.md).
+Mer information om SSO-aktiverade flöden (Single Sign-on) som använder Service Token-metoden finns i dokumentationen för [enkel inloggning med tjänsttokenflöden](../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-service-token-flows.md).
 
 ## Syntax {#syntax}
 

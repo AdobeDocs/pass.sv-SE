@@ -1,7 +1,7 @@
 ---
 title: Header - Adobe-Subject-Token
 description: REST API V2 - rubrik - Adobe-Subject-token
-source-git-commit: 4d1ce1301d6baf7309e8ee52c43b02403aa2fab9
+source-git-commit: 150e064d0287eaac446c694fb5a2633f7ea4b797
 workflow-type: tm+mt
 source-wordcount: '156'
 ht-degree: 0%
@@ -21,7 +21,7 @@ Begärandehuvudet <b>Adobe-Subject-Token</b> innehåller den unika plattformside
 
 Det här huvudet är utformat för att användas i enkla inloggningsflöden (SSO) som utnyttjar plattformsidentitetsmetoden.
 
-Mer information om enkel inloggning (SSO)-aktiverade flöden som utnyttjar metoden för plattformsidentitet finns i dokumentationen för [enkel inloggning med plattformsidentitetsflöden](../../flows/single-sign-on-flows/rest-api-v2-single-sign-on-platform-identity-flows.md).
+Mer information om enkel inloggning (SSO)-aktiverade flöden som utnyttjar metoden för plattformsidentitet finns i dokumentationen för [enkel inloggning med plattformsidentitetsflöden](../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-platform-identity-flows.md).
 
 ## Syntax {#syntax}
 

@@ -1,7 +1,7 @@
 ---
 title: Hämta partnerautentiseringsbegäran
 description: REST API V2 - Hämta begäran om partnerautentisering
-source-git-commit: 4598aaa0827b943de83a9e7d847227edf6b0b387
+source-git-commit: 150e064d0287eaac446c694fb5a2633f7ea4b797
 workflow-type: tm+mt
 source-wordcount: '1104'
 ht-degree: 0%
@@ -11,7 +11,7 @@ ht-degree: 0%
 
 # Hämta partnerautentiseringsbegäran {#retrieve-partner-authentication-request}
 
->[!NOTE]
+>[!IMPORTANT]
 >
 > Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
 
@@ -123,7 +123,7 @@ ht-degree: 0%
       <td>
         Genereringen av nyttolasten för enkel inloggning för partnermetoden beskrivs i dokumentationen för <a href="../../appendix/headers/rest-api-v2-appendix-headers-ap-partner-framework-status.md">AP-Partner-Framework-Status</a> .
         <br/><br/>
-        Mer information om aktiverade flöden för enkel inloggning med en partner finns i dokumentationen för <a href="../../flows/single-sign-on-flows/rest-api-v2-single-sign-on-partner-flows.md"> enkel inloggning med partnerflöden </a> .</td>
+        Mer information om aktiverade flöden för enkel inloggning med en partner finns i dokumentationen för <a href="../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-partner-flows.md"> enkel inloggning med partnerflöden </a> .</td>
       <td>valfri</td>
    </tr>
    <tr>

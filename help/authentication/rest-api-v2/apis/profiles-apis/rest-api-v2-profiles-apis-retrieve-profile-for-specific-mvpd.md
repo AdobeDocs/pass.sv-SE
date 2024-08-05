@@ -1,15 +1,15 @@
 ---
-title: Hämta profiler
-description: REST API V2 - Hämta profiler
+title: Hämta profil för specifik mvpd
+description: REST API V2 - Hämta profil för specifik mvpd
 source-git-commit: 150e064d0287eaac446c694fb5a2633f7ea4b797
 workflow-type: tm+mt
-source-wordcount: '823'
+source-wordcount: '965'
 ht-degree: 0%
 
 ---
 
 
-# Hämta profiler {#retrieve-profiles}
+# Hämta profil för specifik mvpd {#retrieve-profile-for-specific-mvpd}
 
 >[!IMPORTANT]
 >
@@ -29,7 +29,7 @@ ht-degree: 0%
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">bana</td>
-      <td>/api/v2/{serviceProvider}/profiler</td>
+      <td>/api/v2/{serviceProvider}/profiles/{mvpd}</td>
       <td></td>
    </tr>
    <tr>
@@ -45,6 +45,11 @@ ht-degree: 0%
    <tr>
       <td style="background-color: #DEEBFF;">serviceProvider</td>
       <td>Den interna unika identifierare som är associerad med tjänsteleverantören under introduktionsprocessen.</td>
+      <td><i>obligatoriskt</i></td>
+   </tr>
+   <tr>
+      <td style="background-color: #DEEBFF;">mvpd</td>
+      <td>Den interna unika identifierare som är associerad med identitetsleverantören under introduktionsprocessen.</td>
       <td><i>obligatoriskt</i></td>
    </tr>
    <tr>
@@ -110,6 +115,11 @@ ht-degree: 0%
         Genereringen av nyttolasten för enkel inloggning för partnermetoden beskrivs i dokumentationen för <a href="../../appendix/headers/rest-api-v2-appendix-headers-ap-partner-framework-status.md">AP-Partner-Framework-Status</a> .
         <br/><br/>
         Mer information om aktiverade flöden för enkel inloggning med en partner finns i dokumentationen för <a href="../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-partner-flows.md"> enkel inloggning med partnerflöden </a> .</td>
+      <td>valfri</td>
+    </tr>
+   <tr>
+      <td style="background-color: #DEEBFF;">AP-TempPass-Identity</td>
+      <td>Genereringen av användarens unika identifierarnyttolast beskrivs i dokumentationen för <a href="../../appendix/headers/rest-api-v2-appendix-headers-ap-temppass-identity.md">AP-TempPass-Identity</a>.</td>
       <td>valfri</td>
    </tr>
    <tr>
@@ -254,6 +264,16 @@ ht-degree: 0%
                         </td>
                      </tr>
                      <tr>
+                        <td style="background-color: #DEEBFF;">Adobe</td>
+                        <td>
+                            Profilen skapades som ett resultat av:
+                            <ul>
+                                <li>Försämrad åtkomst</li>
+                                <li>Tillfällig åtkomst</li>
+                            </ul>
+                        </td>
+                     </tr>
+                     <tr>
                         <td style="background-color: #DEEBFF;">Apple</td>
                         <td>
                             Profilen skapades som ett resultat av:
@@ -282,6 +302,24 @@ ht-degree: 0%
                             Profilen skapades som ett resultat av:
                             <ul>
                                 <li>Grundläggande autentisering</li>
+                            </ul>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td style="background-color: #DEEBFF;">nedtonad</td>
+                        <td>
+                            Profilen skapades som ett resultat av:
+                            <ul>
+                                <li>Försämrad åtkomst</li>
+                            </ul>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td style="background-color: #DEEBFF;">tillfällig</td>
+                        <td>
+                            Profilen skapades som ett resultat av:
+                            <ul>
+                                <li>Tillfällig åtkomst</li>
                             </ul>
                         </td>
                      </tr>
@@ -371,15 +409,15 @@ ht-degree: 0%
 
 ## Exempel {#samples}
 
-### 1. Hämta alla befintliga och giltiga autentiserade profiler som erhållits via grundläggande autentisering
+### 1. Hämta alla befintliga och giltiga autentiserade profiler som erhållits via grundläggande autentisering för en specifik mvpd
 
 >[!BEGINTABS]
 
 >[!TAB Begäran]
 
 ```JSON
-GET /api/v2/REF30/profiles
- 
+GET /api/v2/REF30/profiles/Spectrum  
+
 Authorization: Bearer ....
 AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
 X-Device-Info ....
@@ -395,10 +433,10 @@ Content-Type: application/json; charset=utf-8
  
 {
     "profiles" : {
-        "Cablevision" : {
+        "Spectrum" : {
             "notBefore" : 1623943955,
             "notAfter" : 1623951155,
-            "issuer" : "Cablevision",
+            "issuer" : "Spectrum",
             "type" : "regular",
             "attributes" : {
                 "userId" : {
@@ -416,18 +454,6 @@ Content-Type: application/json; charset=utf-8
                 "parental-controls" : {
                     "value" : BASE64_value_parental-controls,
                     "state" : "plain"
-                }          
-            }
-        },
-        "Spectrum" : {
-            "notBefore" : 1623943955,
-            "notAfter" : 1623951155,
-            "issuer" : "Spectrum",
-            "type" : "regular",
-            "attributes" : {
-                "userId" : {
-                    "value" : "BASE64_value_userId",
-                    "state" : "plain"
                 }
             }
         }
@@ -437,15 +463,15 @@ Content-Type: application/json; charset=utf-8
 
 >[!ENDTABS]
 
-### 2. Hämta alla befintliga och giltiga autentiserade profiler, inklusive de som erhållits via autentisering med enkel inloggning med Service Token-metoden
+### 2. Hämta alla befintliga och giltiga autentiserade profiler, inklusive de som erhållits via autentisering med enkel inloggning med Service Token-metoden för en viss mvpd
 
 >[!BEGINTABS]
 
 >[!TAB Begäran]
 
 ```JSON
-GET /api/v2/REF30/profiles
- 
+GET /api/v2/REF30/profiles/AdobeShibboleth  
+
 Authorization: Bearer ....
 AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
 X-Device-Info ....
@@ -481,18 +507,6 @@ Content-Type: application/json; charset=utf-8
                "state": "plain"
             }
          }
-      },
-      "Spectrum": {
-         "notBefore": 1623943955,
-         "notAfter": 1623951155,
-         "issuer": "Spectrum",
-         "type": "regular",
-         "attributes": {
-            "userId": {
-               "value": "BASE64_value_userId",
-               "state": "plain"
-            }
-         }
       }
    }
 }
@@ -500,14 +514,14 @@ Content-Type: application/json; charset=utf-8
 
 >[!ENDTABS]
 
-### 3. Hämta alla befintliga och giltiga autentiserade profiler, inklusive de som erhållits via autentisering med enkel inloggning med plattformsidentitetsmetoden
+### 3. Hämta alla befintliga och giltiga autentiserade profiler, inklusive de som erhållits via autentisering med enkel inloggning med plattformsidentitetsmetoden för en specifik mvpd
 
 >[!BEGINTABS]
 
 >[!TAB Begäran]
 
 ```JSON
-GET /api/v2/REF30/profiles
+GET /api/v2/REF30/profiles/AdobePass_SMI  
  
 Authorization: Bearer ....
 AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
@@ -544,21 +558,320 @@ Content-Type: application/json; charset=utf-8
                "state": "plain"
             }
          }
-      },
-      "Cablevision": {
-         "notBefore": 1623943955,
-         "notAfter": 1623951155,
-         "issuer": "Spectrum",
-         "type": "regular",
-         "attributes": {
-            "userId": {
-               "value": "BASE64_value_userId",
-               "state": "plain"
-            }
-         }
       }
    }
 }
 ```
+
+>[!ENDTABS]
+
+### 4. Hämta profilinformation för tillfälligt pass
+
+>[!BEGINTABS]
+
+>[!TAB Begäran]
+
+```JSON
+GET /api/v2/REF30/profiles/TempPass_TEST40
+ 
+Authorization: Bearer ....
+AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
+X-Device-Info ....
+Accept: application/json
+User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 14.5 like Mac OS X; en_US)
+```
+
+>[!TAB Svar - tillgängligt]
+
+```JSON
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+ 
+{
+    "profiles": {
+        "TempPass_TEST40": {
+            "notBefore": 1697718650206,
+            "notAfter": 1697718710206,
+            "issuer": "Adobe",
+            "type": "temporary",
+            "attributes": {
+                "expiration_date": {
+                    "value": 1697718710206,
+                    "state": "plain"
+                },
+                "userID": {
+                    "value": "temppass_0bdf451aa9c8fa60e80f6b99ab48310c73b480f1",
+                    "state": "plain"
+                }
+            }
+        }
+    }
+}
+```
+
+>[!TAB Svar - startat]
+
+```JSON
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8  
+ 
+{
+    "profiles": {
+        "TempPass_TEST40": {
+            "notBefore": 1697719584085,
+            "notAfter": 1697719704085,
+            "issuer": "Adobe",
+            "type": "temporary",
+            "attributes": {
+                "expiration_date": {
+                    "value": 1697719704085,
+                    "state": "plain"
+                },
+                "userID": {
+                    "value": "temppass_0bdf451aa9c8fa60e80f6b99ab48310c73b480f1",
+                    "state": "plain"
+                }
+            }
+        }
+    }
+}
+```
+
+>[!TAB Svar - Har upphört]
+
+```JSON
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8    
+ 
+{
+    "status": 200,
+    "code": "temppass_expired",
+    "message": "TempPass has expired.",
+    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
+    "action": "none"
+}
+```
+
+>[!TAB Svar - Ogiltig konfiguration]
+
+```JSON
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8      
+ 
+{
+    "status": 500,
+    "code": "temppass_invalid_configuration",
+    "message": "TempPass configuration is invalid.",
+    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
+    "action": "none"
+}
+```
+
+>[!ENDTABS]
+
+### 5. Hämta profilinformation för tillfälligt kampanjpass
+
+>[!BEGINTABS]
+
+>[!TAB Begäran]
+
+```JSON
+GET /api/v2/REF30/profiles/flexibleTempPass
+ 
+Authorization: Bearer ....
+AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
+X-Device-Info ....
+AP-TempPass-Identity: eyJlbWFpbCI6ImZvb0BiYXIuY29tIn0=
+Accept: application/json
+User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 14.5 like Mac OS X; en_US)
+```
+
+>[!TAB Svar - tillgängligt]
+
+```JSON
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+ 
+{
+    "profiles": {
+        "flexibleTempPass": {
+            "notBefore": 1697719042666,
+            "notAfter": 1697719102666,
+            "issuer": "Adobe",
+            "type": "temporary",
+            "attributes": {
+                "remaining_resources": {
+                    "value": 5,
+                    "state": "plain"
+                },
+                "used_assets": {
+                    "value": 0,
+                    "state": "plain"
+                },
+                "expiration_date": {
+                    "value": 1697719102666,
+                    "state": "plain"
+                },
+                "userID": {
+                    "value": "temppass_0bdf451aa9c8fa60e80f6b99ab48310c73b480f1",
+                    "state": "plain"
+                }
+            }
+        }
+    }
+}
+```
+
+>[!TAB Svar - startat]
+
+```JSON
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+ 
+{
+    "profiles": {
+        "flexibleTempPass": {
+            "notBefore": 1697720528524,
+            "notAfter": 1697720588524,
+            "issuer": "Adobe",
+            "type": "temporary",
+            "attributes": {
+                "remaining_resources": {
+                    "value": 1,
+                    "state": "plain"
+                },
+                "used_assets": {
+                    "value": [
+                        "res04",
+                        "res02",
+                        "res03",
+                        "res01"
+                    ],
+                    "state": "plain"
+                },
+                "expiration_date": {
+                    "value": 1697720528524,
+                    "state": "plain"
+                },
+                "userID": {
+                    "value": "temppass_0bdf451aa9c8fa60e80f6b99ab48310c73b480f1",
+                    "state": "plain"
+                }
+            }
+        }
+    }
+}
+```
+
+>[!TAB Svar - Har upphört]
+
+```JSON
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+ 
+{
+    "status": 200,
+    "code": "temppass_expired",
+    "message": "TempPass has expired.",
+    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
+    "action": "none"
+}
+```
+
+>[!TAB Svar - Förbrukad]
+
+```JSON
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+ 
+{
+    "decisions": [
+        {
+            "authorized": false,
+            "error": {
+                "status": 200,
+                "code": "temppass_max_resources_exceeded",
+                "message": "Flexible TempPass maximum resources exceeded.",
+                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
+                "action": "none"
+            }
+        }
+    ]
+}
+```
+
+>[!TAB Svar - Ogiltig konfiguration]
+
+```JSON
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8      
+ 
+{
+    "status": 500,
+    "code": "temppass_invalid_configuration",
+    "message": "TempPass configuration is invalid.",
+    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
+    "action": "none"
+}
+```
+
+>[!TAB Svar - Ogiltig identitet]
+
+```JSON
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+ 
+{
+    "status": 400,
+    "code": "temppass_invalid_identity",
+    "message": "TempPass is not available for the specified identity.",
+    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
+    "action": "none"
+}
+```
+
+>[!ENDTABS]
+
+### 6. Hämta profilinformation för degraderad mvpd
+
+>[!BEGINTABS]
+
+>[!TAB Begäran]
+
+```JSON
+GET /api/v2/REF30/profiles/degradedMvpd
+ 
+Authorization: Bearer ....
+AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
+X-Device-Info ....
+Accept: application/json
+User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 14.5 like Mac OS X; en_US)
+```
+
+>[!TAB Svar - AuthNAll-degradering]
+
+```JSON
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+ 
+{
+    "profiles": {
+        "degradedMvpd": {
+            "notBefore": 1697719042666,
+            "notAfter": 1697719102666,
+            "issuer": "Adobe",
+            "type": "degraded",
+            "attributes":
+                "userID": {
+                    "value": "95cf93bcd183214a0bdf451aa9c8fa60e80f6b99ab48310c73b480f1",
+                    "state": "plain"
+                }
+            }
+        }
+    }
+}
+```
+
+**Obs!** 95cf93bcd183214a är ett nedbrytningsspecifikt prefix.
 
 >[!ENDTABS]

@@ -1,7 +1,7 @@
 ---
 title: Initiera utloggning för specifik mvpd
 description: REST API V2 - Initiera utloggning för specifik mvpd
-source-git-commit: 4598aaa0827b943de83a9e7d847227edf6b0b387
+source-git-commit: 150e064d0287eaac446c694fb5a2633f7ea4b797
 workflow-type: tm+mt
 source-wordcount: '911'
 ht-degree: 0%
@@ -11,7 +11,7 @@ ht-degree: 0%
 
 # Initiera utloggning för specifik mvpd {#initiate-logout-for-specific-mvpd}
 
->[!NOTE]
+>[!IMPORTANT]
 >
 > Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
 
@@ -110,7 +110,7 @@ ht-degree: 0%
       <td>
         Genereringen av nyttolasten för enkel inloggning för plattformsidentitetsmetoden beskrivs i <a href="../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md">Adobe-Subject-Token</a> -dokumentationen.
         <br/><br/>
-        Mer information om enkla inloggningsaktiverade flöden med en plattformsidentitet finns i dokumentationen för <a href="../../flows/single-sign-on-flows/rest-api-v2-single-sign-on-platform-identity-flows.md"> enkel inloggning med plattformsidentitetsflöden </a> .
+        Mer information om enkla inloggningsaktiverade flöden med en plattformsidentitet finns i dokumentationen för <a href="../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-platform-identity-flows.md"> enkel inloggning med plattformsidentitetsflöden </a> .
       </td>
       <td>valfri</td>
    </tr>
@@ -119,7 +119,7 @@ ht-degree: 0%
       <td>
         Genereringen av nyttolasten för enkel inloggning för Service Token-metoden beskrivs i dokumentationen för <a href="../../appendix/headers/rest-api-v2-appendix-headers-ad-service-token.md">AD-Service-Token</a>.
         <br/><br/>
-        Mer information om enkla inloggningsaktiverade flöden med en tjänsttoken finns i dokumentationen för <a href="../../flows/single-sign-on-flows/rest-api-v2-single-sign-on-service-token-flows.md"> enkel inloggning med tjänsttoken flows </a> .
+        Mer information om enkla inloggningsaktiverade flöden med en tjänsttoken finns i dokumentationen för <a href="../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-service-token-flows.md"> enkel inloggning med tjänsttoken flows </a> .
       </td>
       <td>valfri</td>
    </tr>
