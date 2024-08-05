@@ -1,15 +1,19 @@
 ---
 title: Enkel inloggning - partner - flöden
 description: REST API V2 - enkel inloggning - partner - flöden
-source-git-commit: c3aa2a24b242669ce0818b95ec34de2adec8001b
+source-git-commit: 4d1ce1301d6baf7309e8ee52c43b02403aa2fab9
 workflow-type: tm+mt
-source-wordcount: '1280'
+source-wordcount: '1306'
 ht-degree: 0%
 
 ---
 
 
 # Samlad inloggning med partnerflöden {#single-sign-on-partner-flows}
+
+>[!NOTE]
+>
+> Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
 
 ## Hämta partnerautentiseringsbegäran {#retrieve-partner-authentication-request}
 

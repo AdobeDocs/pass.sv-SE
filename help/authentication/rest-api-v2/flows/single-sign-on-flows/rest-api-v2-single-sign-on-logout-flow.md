@@ -1,15 +1,19 @@
 ---
 title: Enkel utloggning - flöde
 description: REST API V2 - enkel utloggning - flöde
-source-git-commit: c3aa2a24b242669ce0818b95ec34de2adec8001b
+source-git-commit: 4d1ce1301d6baf7309e8ee52c43b02403aa2fab9
 workflow-type: tm+mt
-source-wordcount: '540'
+source-wordcount: '566'
 ht-degree: 0%
 
 ---
 
 
 # Enkelt utloggningsflöde {#single-logout-flow}
+
+>[!NOTE]
+>
+> Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
 
 ## Initiera enkel utloggning för specifik mvpd {#initiate-single-logout-for-specific-mvpd}
 

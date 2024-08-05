@@ -1,15 +1,19 @@
 ---
 title: Grundläggande autentisering - sekundärt program - flöde
 description: Grundläggande autentisering - REST API V2 - Sekundärt program - flöde
-source-git-commit: c3aa2a24b242669ce0818b95ec34de2adec8001b
+source-git-commit: 4d1ce1301d6baf7309e8ee52c43b02403aa2fab9
 workflow-type: tm+mt
-source-wordcount: '1719'
+source-wordcount: '1745'
 ht-degree: 0%
 
 ---
 
 
 # Grundläggande autentiseringsflöde som utförs i sekundärt program {#basic-authentication-flow-performed-within-secondary-application}
+
+>[!NOTE]
+>
+> Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
 
 **Autentiseringsflödet** i Adobe Pass-autentiseringsberättigandet gör att direktuppspelningsprogrammet kan verifiera att en användare har ett giltigt MVPD-konto. Denna process kräver att användaren har ett aktivt MVPD-konto och anger giltiga inloggningsuppgifter på MVPD-inloggningssidan.
 
