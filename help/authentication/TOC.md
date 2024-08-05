@@ -4,10 +4,10 @@ audience: end-user
 feature: Authentication
 user-guide-title: Adobe Pass-autentisering
 user-guide-description: Adobe Pass-autentisering är en berättigandelösning för TV Everywhere, som tillhandahåller ett modulärt ramverk för att avgöra om någon som begär åtkomst till en resurs är berättigad till den.
-source-git-commit: 26236fbd4b2d5703bcf99fc0cc5e0460e75ed185
+source-git-commit: c3aa2a24b242669ce0818b95ec34de2adec8001b
 workflow-type: tm+mt
-source-wordcount: '957'
-ht-degree: 3%
+source-wordcount: '1125'
+ht-degree: 2%
 
 ---
 
@@ -28,7 +28,7 @@ ht-degree: 3%
    + [Användningsexempel för programmerare](programmer-use-cases.md)
    + [Skicka klientinformation (enhet, anslutning och program)](passing-client-information-device-connection-and-application.md)
    + [Begränsningsmekanism](throttling-mechanism.md)
-   + REST API {#restapi}
+   + REST API V1 {#rest-api-v1}
       + [REST API - översikt](rest-api-overview.md)
       + [REST API Cookbook (Server-to-Server)](rest-api-cookbook-servertoserver.md)
       + [REST API Cookbook (klient-till-server)](rest-api-cookbook-clienttoserver.md)
@@ -52,6 +52,52 @@ ht-degree: 3%
          + [Hämta profilbegäran](retrieve-profilerequest.md)
          + [Tokenutbyte](token-exchange.md)
          + [Kostnadsfri förhandsgranskning för tillfälligt pass och tillfälligt kampanjpass](free-preview-for-temp-pass-and-promotional-temp-pass.md)
+   + REST API V2 {#rest-api-v2}
+      + API:er {#rest-api-v2-apis}
+         + Konfiguration {#rest-api-v2-configuration-apis}
+            + [Hämta konfiguration för en viss tjänsteleverantör](./rest-api-v2/apis/configuration-apis/rest-api-v2-configuration-apis-retrieve-configuration-for-specific-service-provider.md)
+         + Sessioner {#rest-api-v2-sessions-apis}
+            + [Skapa autentiseringssession](./rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md)
+            + [Återuppta autentiseringssession](./rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-resume-authentication-session.md)
+            + [Hämta autentiseringssession](./rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-retrieve-authentication-session-information-using-code.md)
+         + Profiler {#rest-api-v2-profiles-apis}
+            + [Hämta profiler](./rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md)
+            + [Hämta profil för specifik mvpd](./rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles-for-specific-mvpd.md)
+            + [Hämta profil för specifik kod](./rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles-for-specific-code.md)
+         + Beslut {#rest-api-v2-decisions-apis}
+            + [Hämta auktoriseringsbeslut med hjälp av specifik mvpd](./rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md)
+            + [Hämta förauktoriseringsbeslut med hjälp av specifik mvpd](./rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md)
+         + Utloggning {#rest-api-v2-logout-apis}
+            + [Initiera utloggning för specifik mvpd](./rest-api-v2/apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md)
+         + Enkel inloggning för partner {#rest-api-v2-partner-single-sign-on-apis}
+            + [Hämta partnerautentiseringsbegäran](rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-partner-authentication-request.md)
+            + [Hämta profil med partnerautentiseringssvar](rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-profile-using-partner-authentication-response.md)
+      + Flöden {#rest-api-v2-flows}
+         + Grundläggande flöden {#rest-api-v2-basic-flows}
+            + [Grundläggande profilflöden som utförs i det primära programmet](./rest-api-v2/flows/basic-flows/rest-api-v2-basic-profiles-primary-application-flow.md)
+            + [Grundläggande profiler som körs i sekundärt program](./rest-api-v2/flows/basic-flows/rest-api-v2-basic-profiles-secondary-application-flow.md)
+            + [Grundläggande autentiseringsflöde som utförs i det primära programmet](./rest-api-v2/flows/basic-flows/rest-api-v2-basic-authentication-primary-application-flow.md)
+            + [Grundläggande autentiseringsflöde som utförs i sekundärt program](./rest-api-v2/flows/basic-flows/rest-api-v2-basic-authentication-secondary-application-flow.md)
+            + [Grundläggande auktoriseringsflöde som utförs i primärt program](./rest-api-v2/flows/basic-flows/rest-api-v2-basic-authorization-primary-application-flow.md)
+            + [Grundläggande förauktoriseringsflöde som utförs i det primära programmet](./rest-api-v2/flows/basic-flows/rest-api-v2-basic-preauthorization-primary-application-flow.md)
+            + [Grundläggande utloggningsflöde som har utförts i det primära programmet](./rest-api-v2/flows/basic-flows/rest-api-v2-basic-logout-primary-application-flow.md)
+         + Försämrade åtkomstflöden {#rest-api-v2-degraded-access-flows}
+            + [Försämrade åtkomstflöden](rest-api-v2/flows/access-degraded-flows/rest-api-v2-access-degraded-flows.md)
+         + Tillfälliga åtkomstflöden {#rest-api-v2-temporary-access-flows}
+            + [Tillfälliga åtkomstflöden](rest-api-v2/flows/access-temporary-flows/rest-api-v2-access-temporary-flows.md)
+         + Enstaka inloggningsflöden {#rest-api-v2-single-sign-on-flows}
+            + [Samlad inloggning med partnerflöden](./rest-api-v2/flows/single-sign-on-flows/rest-api-v2-single-sign-on-partner-flows.md)
+            + [Samlad inloggning med plattformsidentitetsflöden](./rest-api-v2/flows/single-sign-on-flows/rest-api-v2-single-sign-on-platform-identity-flows.md)
+            + [Enkel inloggning med tjänsttoken-flöden](./rest-api-v2/flows/single-sign-on-flows/rest-api-v2-single-sign-on-service-token-flows.md)
+            + [Enkelt utloggningsflöde](./rest-api-v2/flows/single-sign-on-flows/rest-api-v2-single-sign-on-logout-flow.md)
+      + Bilaga {#rest-api-v2-appendix}
+         + Rubriker {#rest-api-v2-appendix-headers}
+            + [Header - AD-Service-Token](./rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ad-service-token.md)
+            + [Header - Adobe-Subject-Token](./rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md)
+            + [Header - AP-Device-Identifier](./rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-device-identifier.md)
+            + [Header - AP-Partner-Framework-Status](./rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-partner-framework-status.md)
+            + [Header - AP-TempPass-Identity](./rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-temppass-identity.md)
+            + [Header - X-Device-Info](./rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-x-device-info.md)
    + AccessEnabler SDK {#accessenabler-sdk}
       + JavaScript SDK {#javascriptsdk}
          + [JavaScript SDK - översikt](javascript-sdk-overview.md)
