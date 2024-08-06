@@ -1,9 +1,9 @@
 ---
 title: Hämta förauktoriseringsbeslut med hjälp av en specifik mvpd
 description: REST API V2 - Hämta förauktoriseringsbeslut med hjälp av specifik mvpd
-source-git-commit: 150e064d0287eaac446c694fb5a2633f7ea4b797
+source-git-commit: dc9fab27c7eced2be5dd9f364ab8f2d64f8e4177
 workflow-type: tm+mt
-source-wordcount: '813'
+source-wordcount: '816'
 ht-degree: 0%
 
 ---
@@ -21,11 +21,11 @@ ht-degree: 0%
 
 ## Begäran {#request}
 
-<table>
+<table style="table-layout:auto">
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">HTTP</th>
+      <th style="background-color: #EFF2F7;">HTTP</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">bana</td>
@@ -38,9 +38,9 @@ ht-degree: 0%
       <td></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">Sökvägsparametrar</th>
+      <th style="background-color: #EFF2F7;">Sökvägsparametrar</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">serviceProvider</td>
@@ -53,9 +53,9 @@ ht-degree: 0%
       <td><i>obligatoriskt</i></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">Kroppsparametrar</th>
+      <th style="background-color: #EFF2F7;">Kroppsparametrar</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">resurser</td>
@@ -63,9 +63,9 @@ ht-degree: 0%
       <td><i>obligatoriskt</i></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">Sidhuvuden</th>
+      <th style="background-color: #EFF2F7;">Sidhuvuden</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">Behörighet</td>
@@ -154,10 +154,10 @@ ht-degree: 0%
 
 ## Svar {#response}
 
-<table>
+<table style="table-layout:auto">
    <tr>
-      <th style="background-color: #EFF2F7; width: 10%;">Code</th>
-      <th style="background-color: #EFF2F7; width: 20%;">Text</th>
+      <th style="background-color: #EFF2F7;">Code</th>
+      <th style="background-color: #EFF2F7;">Text</th>
       <th style="background-color: #EFF2F7;">Beskrivning</th>
    </tr>
    <tr>
@@ -199,11 +199,11 @@ ht-degree: 0%
 
 ### Lyckades {#success}
 
-<table>
+<table style="table-layout:auto">
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">Sidhuvuden</th>
+      <th style="background-color: #EFF2F7;">Sidhuvuden</th>
       <th style="background-color: #EFF2F7"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">Status</td>
@@ -216,19 +216,19 @@ ht-degree: 0%
       <td><i>obligatoriskt</i></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">Brödtext</th>
+      <th style="background-color: #EFF2F7;">Brödtext</th>
       <th style="background-color: #EFF2F7"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">beslut</td>
       <td>
          JSON innehåller en lista med element, där varje element har följande attribut:
-         <table>
+         <table style="table-layout:auto">
             <tr>
-               <th style="background-color: #EFF2F7; width: 20%;">Attribut</th>
+               <th style="background-color: #EFF2F7;">Attribut</th>
                <th style="background-color: #EFF2F7"></th>
-               <th style="background-color: #EFF2F7; width: 15%;"></th>
+               <th style="background-color: #EFF2F7;"></th>
             </tr>
             <tr>
                 <td style="background-color: #DEEBFF;">resurs</td>
@@ -254,28 +254,14 @@ ht-degree: 0%
                <td style="background-color: #DEEBFF;">källa</td>
                <td>
                   Information om beslutskälla:
-                  <table>
-                     <tr>
-                        <th style="background-color: #EFF2F7; width: 30%;">Värde</th>
-                        <th style="background-color: #EFF2F7;"></th>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">mvpd</td>
-                        <td>Beslutet utfärdas av slutpunkten för förhandsgodkännande av sidoskyddet.</td>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">nedbrytning</td>
-                        <td>Beslut fattas till följd av försämrad tillgång.</td>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">temppass</td>
-                        <td>Beslutet fattas till följd av tillfällig tillgång.</td>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">dummy</td>
-                        <td>Beslut fattas som ett resultat av förhandstillståndet för dummy.</td>
-                     </tr>
-                  </table>
+                  <br/><br/>
+                  Möjliga värden är:
+                  <ul>
+                    <li><b>mvpd</b><br/>Beslutet utfärdas av MVPD-slutpunkten för förhandsauktorisering.</li>
+                    <li><b>degradering</b><br/>Beslut utfärdas som ett resultat av försämrad åtkomst.</li>
+                    <li><b>mall</b><br/>Beslut utfärdas som ett resultat av tillfällig åtkomst.</li>
+                    <li><b>dummy</b><br/>Beslut utfärdas som ett resultat av en overksam förauktoriseringsfunktion.</li>
+                  </ul>
                <td><i>obligatoriskt</i></td>
             </tr>
             <tr>
@@ -290,11 +276,11 @@ ht-degree: 0%
 
 ### Fel {#error}
 
-<table>
+<table style="table-layout:auto">
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">Sidhuvuden</th>
+      <th style="background-color: #EFF2F7;">Sidhuvuden</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">Status</td>
@@ -307,9 +293,9 @@ ht-degree: 0%
       <td><i>obligatoriskt</i></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">Brödtext</th>
+      <th style="background-color: #EFF2F7;">Brödtext</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">fel</td>

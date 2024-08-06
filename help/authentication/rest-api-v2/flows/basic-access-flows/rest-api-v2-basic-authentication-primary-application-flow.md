@@ -1,7 +1,7 @@
 ---
 title: Grundläggande autentisering - primärt program - flöde
 description: REST API V2 - grundläggande autentisering - primärt program - flöde
-source-git-commit: 150e064d0287eaac446c694fb5a2633f7ea4b797
+source-git-commit: dc9fab27c7eced2be5dd9f364ab8f2d64f8e4177
 workflow-type: tm+mt
 source-wordcount: '894'
 ht-degree: 0%
@@ -91,6 +91,8 @@ Följ de angivna stegen för att implementera det grundläggande autentiseringsf
    >
    > * Parametrarna och rubrikerna _required_ måste vara giltiga.
    > * Integrationen mellan angiven `serviceProvider` och `mvpd` måste vara aktiv.
+   > 
+   > <br/>
    > 
    > Om valideringen misslyckas genereras ett felsvar som ger ytterligare information som följer dokumentationen för [Förbättrade felkoder](../../../enhanced-error-codes.md).
 

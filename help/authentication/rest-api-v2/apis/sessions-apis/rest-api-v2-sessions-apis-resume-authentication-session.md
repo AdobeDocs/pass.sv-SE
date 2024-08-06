@@ -1,9 +1,9 @@
 ---
 title: Återuppta autentiseringssession
 description: REST API V2 - Återuppta autentiseringssession
-source-git-commit: 4afd8492c77fdceae3c2504ba392fbcfc0979b22
+source-git-commit: dc9fab27c7eced2be5dd9f364ab8f2d64f8e4177
 workflow-type: tm+mt
-source-wordcount: '755'
+source-wordcount: '753'
 ht-degree: 0%
 
 ---
@@ -21,11 +21,11 @@ ht-degree: 0%
 
 ## Begäran {#request}
 
-<table>
+<table style="table-layout:auto">
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">HTTP</th>
+      <th style="background-color: #EFF2F7;">HTTP</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">bana</td>
@@ -38,9 +38,9 @@ ht-degree: 0%
       <td></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">Sökvägsparametrar</th>
+      <th style="background-color: #EFF2F7;">Sökvägsparametrar</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">serviceProvider</td>
@@ -53,9 +53,9 @@ ht-degree: 0%
       <td><i>obligatoriskt</i></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">Kroppsparametrar</th>
+      <th style="background-color: #EFF2F7;">Kroppsparametrar</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">mvpd</td>
@@ -87,9 +87,9 @@ ht-degree: 0%
       <td><i>obligatoriskt</i></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">Sidhuvuden</th>
+      <th style="background-color: #EFF2F7;">Sidhuvuden</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">Behörighet</td>
@@ -134,10 +134,10 @@ ht-degree: 0%
 
 ## Svar {#response}
 
-<table>
+<table style="table-layout:auto">
    <tr>
-      <th style="background-color: #EFF2F7; width: 10%;">Code</th>
-      <th style="background-color: #EFF2F7; width: 20%;">Text</th>
+      <th style="background-color: #EFF2F7;">Code</th>
+      <th style="background-color: #EFF2F7;">Text</th>
       <th style="background-color: #EFF2F7;">Beskrivning</th>
    </tr>
    <tr>
@@ -179,11 +179,11 @@ ht-degree: 0%
 
 ### Lyckades {#success}
 
-<table>
+<table style="table-layout:auto">
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">Sidhuvuden</th>
+      <th style="background-color: #EFF2F7;">Sidhuvuden</th>
       <th style="background-color: #EFF2F7"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">Status</td>
@@ -191,19 +191,19 @@ ht-degree: 0%
       <td><i>obligatoriskt</i></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">Brödtext</th>
+      <th style="background-color: #EFF2F7;">Brödtext</th>
       <th style="background-color: #EFF2F7"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;"></td>
       <td>
          JSON-objekt med följande attribut:
-         <table>
+         <table style="table-layout:auto">
             <tr>
-               <th style="background-color: #EFF2F7; width: 20%;">Attribut</th>
+               <th style="background-color: #EFF2F7;">Attribut</th>
                <th style="background-color: #EFF2F7"></th>
-               <th style="background-color: #EFF2F7; width: 15%;"></th>
+               <th style="background-color: #EFF2F7;"></th>
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">actionName</td>
@@ -211,24 +211,11 @@ ht-degree: 0%
                   Den åtgärd som strömningsenheten måste utföra för att autentiseringsflödet ska kunna slutföras.
                   <br/><br/>
                   Möjliga värden är:
-                  <table>
-                     <tr>
-                        <th style="background-color: #EFF2F7; width: 30%;">Värde</th>
-                        <th style="background-color: #EFF2F7;"></th>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">autentisera</td>
-                        <td>Direktuppspelningsenheten eller någon annan enhet måste öppna den angivna URL:en i en användaragent.</td>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">försök igen</td>
-                        <td>Direktuppspelningsenheten eller någon annan enhet måste tillhandahålla de saknade parametrarna och försöka att återuppta autentiseringssessionen med koden.</td>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">auktorisera</td>
-                        <td>Direktuppspelningsenheten kan fortsätta direkt med beslutsflöden.</td>
-                     </tr>
-                  </table>
+                  <ul>
+                    <li><b>Autentisera</b><br/>Direktuppspelningsenheten eller en annan enhet måste öppna den angivna URL:en i en användaragent.</li>
+                    <li><b>försök igen</b><br/>Direktuppspelningsenheten eller någon annan enhet måste tillhandahålla de parametrar som saknas och försöka återta autentiseringssessionen med hjälp av koden.</li>
+                    <li><b>auktorisera</b><br/>Direktuppspelningsenheten kan fortsätta direkt med beslutsflöden.</li>
+                  </ul> 
                <td><i>obligatoriskt</i></td>
             </tr>
             <tr>
@@ -237,20 +224,10 @@ ht-degree: 0%
                   Den typ av interaktion som direktuppspelningsenheten måste utföra för att fortsätta flödet med den åtgärd som anges av attributet actionName.
                   <br/><br/>
                   Möjliga värden är:
-                  <table>
-                     <tr>
-                        <th style="background-color: #EFF2F7; width: 30%;">Värde</th>
-                        <th style="background-color: #EFF2F7;"></th>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">direkt</td>
-                        <td>Flödet fortsätter med ett direkt anrop till den angivna URL:en med en HTTP-klient som är tillgänglig för klientimplementeringen.</td>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">interaktiv</td>
-                        <td>Flödet fortsätter med en navigering till den angivna URL:en med en användaragent.</td>
-                     </tr>
-                  </table>
+                  <ul>
+                    <li><b>interaktiv</b><br/>Flödet fortsätter med en navigering till den angivna URL:en med en användaragent.</li>
+                    <li><b>direct</b><br/>Flödet fortsätter med ett direkt anrop till den angivna URL:en med en HTTP-klient som är tillgänglig för klientimplementeringen.</li>
+                  </ul>
                <td><i>obligatoriskt</i></td>
             </tr>
             <tr>
@@ -290,11 +267,11 @@ ht-degree: 0%
 
 ### Fel {#error}
 
-<table>
+<table style="table-layout:auto">
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">Sidhuvuden</th>
+      <th style="background-color: #EFF2F7;">Sidhuvuden</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">Status</td>
@@ -307,9 +284,9 @@ ht-degree: 0%
       <td><i>obligatoriskt</i></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">Brödtext</th>
+      <th style="background-color: #EFF2F7;">Brödtext</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">fel</td>

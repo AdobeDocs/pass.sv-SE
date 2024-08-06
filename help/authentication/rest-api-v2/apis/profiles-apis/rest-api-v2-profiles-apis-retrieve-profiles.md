@@ -1,9 +1,9 @@
 ---
 title: Hämta profiler
 description: REST API V2 - Hämta profiler
-source-git-commit: 150e064d0287eaac446c694fb5a2633f7ea4b797
+source-git-commit: dc9fab27c7eced2be5dd9f364ab8f2d64f8e4177
 workflow-type: tm+mt
-source-wordcount: '823'
+source-wordcount: '824'
 ht-degree: 0%
 
 ---
@@ -21,11 +21,11 @@ ht-degree: 0%
 
 ## Begäran {#request}
 
-<table>
+<table style="table-layout:auto">
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">HTTP</th>
+      <th style="background-color: #EFF2F7;">HTTP</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">bana</td>
@@ -38,9 +38,9 @@ ht-degree: 0%
       <td></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">Sökvägsparametrar</th>
+      <th style="background-color: #EFF2F7;">Sökvägsparametrar</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">serviceProvider</td>
@@ -48,9 +48,9 @@ ht-degree: 0%
       <td><i>obligatoriskt</i></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">Sidhuvuden</th>
+      <th style="background-color: #EFF2F7;">Sidhuvuden</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">Behörighet</td>
@@ -130,10 +130,10 @@ ht-degree: 0%
 
 ## Svar {#response}
 
-<table>
+<table style="table-layout:auto">
    <tr>
-      <th style="background-color: #EFF2F7; width: 10%;">Code</th>
-      <th style="background-color: #EFF2F7; width: 20%;">Text</th>
+      <th style="background-color: #EFF2F7;">Code</th>
+      <th style="background-color: #EFF2F7;">Text</th>
       <th style="background-color: #EFF2F7;">Beskrivning</th>
    </tr>
    <tr>
@@ -175,11 +175,11 @@ ht-degree: 0%
 
 ### Lyckades {#success}
 
-<table>
+<table style="table-layout:auto">
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">Sidhuvuden</th>
+      <th style="background-color: #EFF2F7;">Sidhuvuden</th>
       <th style="background-color: #EFF2F7"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">Status</td>
@@ -192,9 +192,9 @@ ht-degree: 0%
       <td><i>obligatoriskt</i></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">Brödtext</th>
+      <th style="background-color: #EFF2F7;">Brödtext</th>
       <th style="background-color: #EFF2F7"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">profiler</td>
@@ -202,11 +202,11 @@ ht-degree: 0%
         JSON innehåller en karta över nyckel- och värdepar.
         <br/><br/>
         Nyckelelementet definieras med följande värde:
-        <table>
+        <table style="table-layout:auto">
             <tr>
-               <th style="background-color: #EFF2F7; width: 20%;">Värde</th>
+               <th style="background-color: #EFF2F7;">Värde</th>
                <th style="background-color: #EFF2F7"></th>
-               <th style="background-color: #EFF2F7; width: 15%;"></th>
+               <th style="background-color: #EFF2F7;"></th>
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">mvpd</td>
@@ -215,11 +215,11 @@ ht-degree: 0%
             </tr>
          </table>
          Elementet value definieras av följande attribut:
-         <table>
+         <table style="table-layout:auto">
             <tr>
-               <th style="background-color: #EFF2F7; width: 20%;">Attribut</th>
+               <th style="background-color: #EFF2F7;">Attribut</th>
                <th style="background-color: #EFF2F7"></th>
-               <th style="background-color: #EFF2F7; width: 15%;"></th>
+               <th style="background-color: #EFF2F7;"></th>
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">notBefore</td>
@@ -237,32 +237,11 @@ ht-degree: 0%
                   Den enhet som äger profilen.
                   <br/><br/>
                   Möjliga värden är:
-                  <table>
-                     <tr>
-                        <th style="background-color: #EFF2F7; width: 30%;">Värde</th>
-                        <th style="background-color: #EFF2F7;"></th>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">mvpd<br/><br/>t.ex. Spectrum, Cablevision osv.</td>
-                        <td>
-                            Profilen skapades som ett resultat av:
-                            <ul>
-                                <li>Grundläggande autentisering</li>
-                                <li>Enkel inloggning med plattformsidentitet</li>
-                                <li>Enkel inloggning med tjänsttoken</li>
-                            </ul>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">Apple</td>
-                        <td>
-                            Profilen skapades som ett resultat av:
-                            <ul>
-                                <li>Enkel inloggning med partner-Apple</li>
-                            </ul>
-                        </td>
-                     </tr>
-                  </table>
+                  <ul>
+                    <li><b>mvpd (t.ex. spektrum, Cablevision)</b><br/>Profilen skapades som ett resultat av: grundläggande autentisering, enkel inloggning med plattformsidentitet eller enkel inloggning med tjänsttoken.</li>
+                    <li><b>Apple</b><br/>Profilen skapades som ett resultat av: enkel inloggning med partner-Apple.</li>
+                  </ul>
+               </td>
                <td><i>obligatoriskt</i></td>
             </tr>
             <tr>
@@ -271,48 +250,12 @@ ht-degree: 0%
                   Profilens typ.
                   <br/><br/>
                   Möjliga värden är:
-                  <table>
-                     <tr>
-                        <th style="background-color: #EFF2F7; width: 30%;">Värde</th>
-                        <th style="background-color: #EFF2F7;"></th>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">normal</td>
-                        <td>
-                            Profilen skapades som ett resultat av:
-                            <ul>
-                                <li>Grundläggande autentisering</li>
-                            </ul>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">appleSSO</td>
-                        <td>
-                            Profilen skapades som ett resultat av:
-                            <ul>
-                                <li>Enkel inloggning med partner-Apple</li>
-                            </ul>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">platformSSO</td>
-                        <td>
-                            Profilen skapades som ett resultat av:
-                            <ul>
-                                <li>Enkel inloggning med plattformsidentitet</li>
-                            </ul>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">serviceTokenSSO</td>
-                        <td>
-                            Profilen skapades som ett resultat av:
-                            <ul>
-                                <li>Enkel inloggning med tjänsttoken</li>
-                            </ul>
-                        </td>
-                     </tr>
-                  </table>
+                  <ul>
+                    <li><b>normal</b><br/>Profilen skapades som ett resultat av: grundläggande autentisering.</li>
+                    <li><b>appleSSO</b><br/>Profilen skapades som ett resultat av: enkel inloggning med partner-Apple.</li>
+                    <li><b>platformSSO</b><br/>Profilen skapades som ett resultat av: enkel inloggning med plattformsidentitet.</li>
+                    <li><b>serviceTokenSSO</b><br/>Profilen skapades som ett resultat av: enkel inloggning med tjänsttoken.</li>
+                  </ul>
                <td><i>obligatoriskt</i></td>
             </tr>
             <tr>
@@ -341,11 +284,11 @@ ht-degree: 0%
 
 ### Fel {#error}
 
-<table>
+<table style="table-layout:auto">
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">Sidhuvuden</th>
+      <th style="background-color: #EFF2F7;">Sidhuvuden</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">Status</td>
@@ -358,9 +301,9 @@ ht-degree: 0%
       <td><i>obligatoriskt</i></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">Brödtext</th>
+      <th style="background-color: #EFF2F7;">Brödtext</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">fel</td>

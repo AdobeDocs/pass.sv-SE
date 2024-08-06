@@ -1,9 +1,9 @@
 ---
 title: Initiera utloggning för specifik mvpd
 description: REST API V2 - Initiera utloggning för specifik mvpd
-source-git-commit: 150e064d0287eaac446c694fb5a2633f7ea4b797
+source-git-commit: dc9fab27c7eced2be5dd9f364ab8f2d64f8e4177
 workflow-type: tm+mt
-source-wordcount: '911'
+source-wordcount: '909'
 ht-degree: 0%
 
 ---
@@ -21,11 +21,11 @@ ht-degree: 0%
 
 ## Begäran {#request}
 
-<table>
+<table style="table-layout:auto">
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">HTTP</th>
+      <th style="background-color: #EFF2F7;">HTTP</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">bana</td>
@@ -38,9 +38,9 @@ ht-degree: 0%
       <td></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">Sökvägsparametrar</th>
+      <th style="background-color: #EFF2F7;">Sökvägsparametrar</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">serviceProvider</td>
@@ -53,9 +53,9 @@ ht-degree: 0%
       <td><i>obligatoriskt</i></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">Frågeparametrar</th>
+      <th style="background-color: #EFF2F7;">Frågeparametrar</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">redirectUrl</td>
@@ -67,9 +67,9 @@ ht-degree: 0%
       <td><i>obligatoriskt</i></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">Sidhuvuden</th>
+      <th style="background-color: #EFF2F7;">Sidhuvuden</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">Behörighet</td>
@@ -141,10 +141,10 @@ ht-degree: 0%
 
 ## Svar {#response}
 
-<table>
+<table style="table-layout:auto">
    <tr>
-      <th style="background-color: #EFF2F7; width: 10%;">Code</th>
-      <th style="background-color: #EFF2F7; width: 20%;">Text</th>
+      <th style="background-color: #EFF2F7;">Code</th>
+      <th style="background-color: #EFF2F7;">Text</th>
       <th style="background-color: #EFF2F7;">Beskrivning</th>
    </tr>
    <tr>
@@ -186,11 +186,11 @@ ht-degree: 0%
 
 ### Lyckades {#success}
 
-<table>
+<table style="table-layout:auto">
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">Sidhuvuden</th>
+      <th style="background-color: #EFF2F7;">Sidhuvuden</th>
       <th style="background-color: #EFF2F7"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">Status</td>
@@ -203,9 +203,9 @@ ht-degree: 0%
       <td><i>obligatoriskt</i></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">Brödtext</th>
+      <th style="background-color: #EFF2F7;">Brödtext</th>
       <th style="background-color: #EFF2F7"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">utloggningar</td>
@@ -213,11 +213,11 @@ ht-degree: 0%
          JSON innehåller en karta över nyckel- och värdepar.
          <br/><br/>
          Nyckelelementet definieras med följande värde:
-         <table>
+         <table style="table-layout:auto">
             <tr>
-               <th style="background-color: #EFF2F7; width: 20%;">Värde</th>
+               <th style="background-color: #EFF2F7;">Värde</th>
                <th style="background-color: #EFF2F7"></th>
-               <th style="background-color: #EFF2F7; width: 15%;"></th>
+               <th style="background-color: #EFF2F7;"></th>
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">mvpd</td>
@@ -225,11 +225,11 @@ ht-degree: 0%
                <td><i>obligatoriskt</i></td>
          </table>
          Elementet value definieras av följande attribut:
-         <table>
+         <table style="table-layout:auto">
             <tr>
-               <th style="background-color: #EFF2F7; width: 20%;">Attribut</th>
+               <th style="background-color: #EFF2F7;">Attribut</th>
                <th style="background-color: #EFF2F7"></th>
-               <th style="background-color: #EFF2F7; width: 15%;"></th>
+               <th style="background-color: #EFF2F7;"></th>
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">actionName</td>
@@ -237,47 +237,11 @@ ht-degree: 0%
                   Den åtgärd som strömningsenheten måste utföra för att slutföra utloggningsflödet.
                   <br/><br/>
                   Möjliga värden är:
-                  <table>
-                     <tr>
-                        <th style="background-color: #EFF2F7; width: 30%;">Värde</th>
-                        <th style="background-color: #EFF2F7;"></th>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">utloggning</td>
-                        <td>
-                            Direktuppspelningsenheten måste öppna den angivna URL:en i en användaragent.
-                            <br/><br/>
-                            Den här åtgärden gäller för följande scenarier:
-                            <ul>
-                                <li>Logga ut från MVPD med en utloggningsslutpunkt</li>
-                            </ul>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">complete</td>
-                        <td>
-                            Direktuppspelningsenheten behöver inte utföra några efterföljande åtgärder.
-                            <br/><br/>
-                            Den här åtgärden gäller för följande scenarier:
-                            <ul>\
-                                <li>Logga ut från MVPD utan utloggningsslutpunkt (dummy-utloggningsfunktion)</li>
-                                <li>Logga ut under begränsad åtkomst</li>
-                                <li>Logga ut under temporär åtkomst</li>
-                            </ul>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">ogiltig</td>
-                        <td>
-                            Direktuppspelningsenheten behöver inte utföra några efterföljande åtgärder.
-                            <br/><br/>
-                            Den här åtgärden gäller för följande scenarier:
-                            <ul>
-                                <li>Logga ut från MVPD när ingen giltig profil hittas</li>
-                            </ul>
-                        </td>
-                     </tr>
-                  </table>
+                  <ul>
+                    <li><b>utloggning</b><br/>Direktuppspelningsenheten måste öppna den angivna URL:en i en användaragent.<br/>Den här åtgärden gäller för följande scenarier: logga ut från MVPD med en utloggningsslutpunkt.</li>
+                    <li><b>complete</b><br/>Direktuppspelningsenheten behöver inte utföra några efterföljande åtgärder.<br/>Den här åtgärden gäller för följande scenarier: logga ut från MVPD utan en utloggningsslutpunkt (dummy-utloggningsfunktion), logga ut under försämrad åtkomst, logga ut under tillfällig åtkomst.</li>
+                    <li><b>invalid</b><br/>Direktuppspelningsenheten behöver inte utföra några efterföljande åtgärder.<br/>Den här åtgärden gäller för följande scenarier: logga ut från MVPD när ingen giltig profil hittas.</li>
+                  </ul>  
                <td><i>obligatoriskt</i></td>
             </tr>
             <tr>
@@ -286,31 +250,10 @@ ht-degree: 0%
                   Den typ av interaktion som direktuppspelningsenheten måste utföra för att fortsätta flödet med den åtgärd som anges av attributet actionName.
                   <br/><br/>
                   Möjliga värden är:
-                  <table>
-                     <tr>
-                        <th style="background-color: #EFF2F7; width: 30%;">Värde</th>
-                        <th style="background-color: #EFF2F7;"></th>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">interaktiv</td>
-                        <td>
-                            Den här typen gäller för följande värden för attributet "actionName":
-                            <ul>
-                                <li>utloggning</li>
-                            </ul>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">ingen</td>
-                        <td>
-                            Den här typen gäller för följande värden för attributet "actionName":
-                            <ul>
-                                <li>complete</li>
-                                <li>ogiltig</li>
-                            </ul>
-                        </td>
-                     </tr>
-                  </table>
+                  <ul>
+                    <li><b>interaktiv</b><br/>Den här typen gäller för följande värden för attributet "actionName": <b>logOut</b>.</li>
+                    <li><b>ingen</b><br/>Den här typen gäller för följande värden för attributet "actionName": <b>complete</b>, <b>invalid</b>.</li>
+                  </ul>
                <td><i>obligatoriskt</i></td>
             </tr>
             <tr>
@@ -325,8 +268,8 @@ ht-degree: 0%
                   <br/><br/>
                   Detta gäller inte för följande värden för attributet "actionName":
                   <ul>
-                    <li>complete</li>
-                    <li>ogiltig</li>
+                    <li><b>complete</b></li>
+                    <li><b>ogiltig</b></li>
                   </ul>
                </td>
                <td>valfri</td>
@@ -338,11 +281,11 @@ ht-degree: 0%
 
 ### Fel {#error}
 
-<table>
+<table style="table-layout:auto">
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">Sidhuvuden</th>
+      <th style="background-color: #EFF2F7;">Sidhuvuden</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">Status</td>
@@ -355,9 +298,9 @@ ht-degree: 0%
       <td><i>obligatoriskt</i></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">Brödtext</th>
+      <th style="background-color: #EFF2F7;">Brödtext</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">fel</td>

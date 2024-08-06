@@ -1,23 +1,23 @@
 ---
 title: Skapa autentiseringssession
 description: REST API V2 - Skapa autentiseringssession
-source-git-commit: cf479236cbd43d5e4585bf0eac18a12dbe4bc6c4
+source-git-commit: dc9fab27c7eced2be5dd9f364ab8f2d64f8e4177
 workflow-type: tm+mt
-source-wordcount: '965'
+source-wordcount: '964'
 ht-degree: 0%
 
 ---
 
 
-# Skapa autentiseringssession - test {#create-authentication-session}
+# Skapa autentiseringssession {#create-authentication-session}
 
 >[!IMPORTANT]
 >
->Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
+> Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
 
 >[!IMPORTANT]
 >
->REST API V2-implementeringen begränsas av dokumentationen för [begränsningsmekanismen](/help/authentication/throttling-mechanism.md).
+> REST API V2-implementeringen begränsas av dokumentationen för [begränsningsmekanismen](/help/authentication/throttling-mechanism.md).
 
 ## Begäran {#request}
 
@@ -247,18 +247,9 @@ ht-degree: 0%
                   <br/><br/>
                   Möjliga värden är:
                   <ul>
-                    <li><b>autentisera</b></li>
-                    <ul>
-                        <li>Direktuppspelningsenheten eller någon annan enhet måste öppna den angivna URL:en i en användaragent.</li>
-                    </ul>
-                    <li><b>meritförteckning</b></li>
-                    <ul>
-                        <li>Direktuppspelningsenheten eller någon annan enhet måste tillhandahålla de saknade parametrarna och återuppta autentiseringssessionen med hjälp av koden.</li>
-                    </ul>
-                    <li><b>auktorisera</b></li>
-                    <ul>
-                        <li>Direktuppspelningsenheten kan fortsätta direkt med beslutsflöden.</li>
-                    </ul>
+                    <li><b>Autentisera</b><br/>Direktuppspelningsenheten eller en annan enhet måste öppna den angivna URL:en i en användaragent.</li>
+                    <li><b>CV</b><br/>Direktuppspelningsenheten eller en annan enhet måste tillhandahålla de saknade parametrarna och återuppta autentiseringssessionen med hjälp av koden.</li>
+                    <li><b>auktorisera</b><br/>Direktuppspelningsenheten kan fortsätta direkt med beslutsflöden.</li>
                   </ul>
                <td><i>obligatoriskt</i></td>
             </tr>
@@ -269,14 +260,8 @@ ht-degree: 0%
                   <br/><br/>
                   Möjliga värden är:
                   <ul>
-                    <li><b>interaktiv</b></li>
-                    <ul>
-                        <li>Flödet fortsätter med en navigering till den angivna URL:en med en användaragent.</li>
-                    </ul>
-                    <li><b>direkt</b></li>
-                    <ul>
-                        <li>Flödet fortsätter med ett direkt anrop till den angivna URL:en med en HTTP-klient som är tillgänglig för klientimplementeringen.</li>
-                    </ul>
+                    <li><b>interaktiv</b><br/>Flödet fortsätter med en navigering till den angivna URL:en med en användaragent.</li>
+                    <li><b>direct</b><br/>Flödet fortsätter med ett direkt anrop till den angivna URL:en med en HTTP-klient som är tillgänglig för klientimplementeringen.</li>
                   </ul>
                <td><i>obligatoriskt</i></td>
             </tr>

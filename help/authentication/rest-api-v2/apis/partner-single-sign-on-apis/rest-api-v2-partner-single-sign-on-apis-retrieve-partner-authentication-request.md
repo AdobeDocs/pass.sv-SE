@@ -1,9 +1,9 @@
 ---
 title: Hämta partnerautentiseringsbegäran
 description: REST API V2 - Hämta begäran om partnerautentisering
-source-git-commit: 150e064d0287eaac446c694fb5a2633f7ea4b797
+source-git-commit: dc9fab27c7eced2be5dd9f364ab8f2d64f8e4177
 workflow-type: tm+mt
-source-wordcount: '1104'
+source-wordcount: '1092'
 ht-degree: 0%
 
 ---
@@ -21,11 +21,11 @@ ht-degree: 0%
 
 ## Begäran {#request}
 
-<table>
+<table style="table-layout:auto">
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">HTTP</th>
+      <th style="background-color: #EFF2F7;">HTTP</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">bana</td>
@@ -38,9 +38,9 @@ ht-degree: 0%
       <td></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">Sökvägsparametrar</th>
+      <th style="background-color: #EFF2F7;">Sökvägsparametrar</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">serviceProvider</td>
@@ -53,9 +53,9 @@ ht-degree: 0%
       <td><i>obligatoriskt</i></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">Kroppsparametrar</th>
+      <th style="background-color: #EFF2F7;">Kroppsparametrar</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">domainName</td>
@@ -82,9 +82,9 @@ ht-degree: 0%
       <td><i>obligatoriskt</i></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">Sidhuvuden</th>
+      <th style="background-color: #EFF2F7;">Sidhuvuden</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">Behörighet</td>
@@ -155,10 +155,10 @@ ht-degree: 0%
 
 ## Svar {#response}
 
-<table>
+<table style="table-layout:auto">
    <tr>
-      <th style="background-color: #EFF2F7; width: 10%;">Code</th>
-      <th style="background-color: #EFF2F7; width: 20%;">Text</th>
+      <th style="background-color: #EFF2F7;">Code</th>
+      <th style="background-color: #EFF2F7;">Text</th>
       <th style="background-color: #EFF2F7;">Beskrivning</th>
    </tr>
    <tr>
@@ -200,11 +200,11 @@ ht-degree: 0%
 
 ### Lyckades {#success}
 
-<table>
+<table style="table-layout:auto">
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">Sidhuvuden</th>
+      <th style="background-color: #EFF2F7;">Sidhuvuden</th>
       <th style="background-color: #EFF2F7"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">Status</td>
@@ -217,19 +217,19 @@ ht-degree: 0%
       <td><i>obligatoriskt</i></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">Brödtext</th>
+      <th style="background-color: #EFF2F7;">Brödtext</th>
       <th style="background-color: #EFF2F7"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;"></td>
       <td>
          JSON-objekt med följande attribut:
-         <table>
+         <table style="table-layout:auto">
             <tr>
-               <th style="background-color: #EFF2F7; width: 20%;">Attribut</th>
+               <th style="background-color: #EFF2F7;">Attribut</th>
                <th style="background-color: #EFF2F7"></th>
-               <th style="background-color: #EFF2F7; width: 15%;"></th>
+               <th style="background-color: #EFF2F7;"></th>
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">actionName</td>
@@ -237,36 +237,12 @@ ht-degree: 0%
                   Den åtgärd som strömningsenheten måste utföra för att autentiseringsflödet ska kunna slutföras.
                   <br/><br/>
                   Möjliga värden är:
-                  <table>
-                     <tr>
-                        <th style="background-color: #EFF2F7; width: 30%;">Värde</th>
-                        <th style="background-color: #EFF2F7;"></th>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">partner_profile</td>
-                        <td>Direktuppspelningsenheten kan använda den angivna partnerautentiseringsbegäran för att erhålla ett partnerautentiseringssvar som kan utnyttjas för att hämta en profil.</td>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">autentisera</td>
-                        <td>
-                            När partnerns enkla inloggningsflöde inte kan fortsätta kan direktuppspelningsenheten återgå till det grundläggande autentiseringsflödet.
-                            <br/><br/>
-                            Direktuppspelningsenheten eller någon annan enhet måste öppna den angivna URL:en i en användaragent.
-                        </td>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">meritförteckning</td>
-                        <td>
-                            När partnerns enkla inloggningsflöde inte kan fortsätta kan direktuppspelningsenheten återgå till det grundläggande autentiseringsflödet.
-                            <br/><br/>
-                            Direktuppspelningsenheten eller någon annan enhet måste tillhandahålla de saknade parametrarna och återuppta autentiseringssessionen med hjälp av koden.
-                        </td>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">auktorisera</td>
-                        <td>Direktuppspelningsenheten kan fortsätta direkt med beslutsflöden.</td>
-                     </tr>
-                  </table>
+                  <ul>
+                    <li><b>partner_profile</b><br/>Direktuppspelningsenheten kan använda den angivna partnerautentiseringsbegäran för att erhålla ett partnerautentiseringssvar som kan utnyttjas för att hämta en profil.</li>
+                    <li><b>Autentisera</b><br/>När partnerflödet för enkel inloggning inte kan fortsätta kan direktuppspelningsenheten återgå till det grundläggande autentiseringsflödet.<br/>Direktuppspelningsenheten eller en annan enhet måste öppna den angivna URL:en i en användaragent.</li>
+                    <li><b>meritförteckning</b><br/>När partnerflödet för enkel inloggning inte kan fortsätta kan direktuppspelningsenheten återgå till det grundläggande autentiseringsflödet.<br/>Direktuppspelningsenheten eller någon annan enhet måste tillhandahålla de saknade parametrarna och återuppta autentiseringssessionen med hjälp av koden.</li>
+                    <li><b>auktorisera</b><br/>Direktuppspelningsenheten kan fortsätta direkt med beslutsflöden.</li>
+                  </ul>
                <td><i>obligatoriskt</i></td>
             </tr>
             <tr>
@@ -275,20 +251,10 @@ ht-degree: 0%
                   Den typ av interaktion som direktuppspelningsenheten måste utföra för att fortsätta flödet med den åtgärd som anges av attributet actionName.
                   <br/><br/>
                   Möjliga värden är:
-                  <table>
-                     <tr>
-                        <th style="background-color: #EFF2F7; width: 30%;">Värde</th>
-                        <th style="background-color: #EFF2F7;"></th>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">direkt</td>
-                        <td>Flödet fortsätter med ett direkt anrop till den angivna URL:en med en HTTP-klient som är tillgänglig för klientimplementeringen.</td>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">interaktiv</td>
-                        <td>Flödet fortsätter med en navigering till den angivna URL:en med en användaragent.</td>
-                     </tr>
-                  </table>
+                  <ul>
+                    <li><b>interaktiv</b><br/>Flödet fortsätter med en navigering till den angivna URL:en med en användaragent.</li>
+                    <li><b>direct</b><br/>Flödet fortsätter med ett direkt anrop till den angivna URL:en med en HTTP-klient som är tillgänglig för klientimplementeringen.</li>
+                  </ul>
                <td><i>obligatoriskt</i></td>
             </tr>
             <tr>
@@ -322,38 +288,11 @@ ht-degree: 0%
                     Det här fältet visas när partnerflödet för enkel inloggning kan fortsätta.
                     <br/><br/>
                     JSON-objekt med följande attribut:
-                    <table>
-                        <tr>
-                            <th style="background-color: #EFF2F7; width: 30%;">Attribut</th>
-                            <th style="background-color: #EFF2F7;"></th>
-                        </tr>
-                        <tr>
-                            <td style="background-color: #DEEBFF;">type</td>
-                            <td>
-                                Anger vilken typ av protokoll som stöds av MVPD.
-                                <br/><br/>
-                                Möjliga värden är:
-                                <table>
-                                    <tr>
-                                        <th style="background-color: #EFF2F7; width: 30%;">Värde</th>
-                                        <th style="background-color: #EFF2F7;"></th>
-                                    </tr>
-                                    <tr>
-                                        <td style="background-color: #DEEBFF;">saml</td>
-                                        <td>MVPD stöder SAML-protokoll.</td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="background-color: #DEEBFF;">förfrågan</td>
-                            <td>SAML-begäran.</td>
-                        </tr>
-                        <tr>
-                            <td style="background-color: #DEEBFF;">attributes</td>
-                            <td>Attributen för SAML-begäran.</td>
-                        </tr>
-                    </table>
+                    <ul>
+                        <li><b>typ</b><br/>Anger vilken typ av protokoll som stöds av MVPD (endast SAML).</li>
+                        <li><b>request</b><br/>SAML-begäran.</li>
+                        <li><b>attribut</b><br/>SAML-attributen begär.</li>
+                    </ul>
                </td>
                <td>valfri</td>
             </tr>
@@ -378,11 +317,11 @@ ht-degree: 0%
 
 ### Fel {#error}
 
-<table>
+<table style="table-layout:auto">
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">Sidhuvuden</th>
+      <th style="background-color: #EFF2F7;">Sidhuvuden</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">Status</td>
@@ -395,9 +334,9 @@ ht-degree: 0%
       <td><i>obligatoriskt</i></td>
    </tr>
    <tr>
-      <th style="background-color: #EFF2F7; width: 15%;">Brödtext</th>
+      <th style="background-color: #EFF2F7;">Brödtext</th>
       <th style="background-color: #EFF2F7;"></th>
-      <th style="background-color: #EFF2F7; width: 10%;"></th>
+      <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">fel</td>
