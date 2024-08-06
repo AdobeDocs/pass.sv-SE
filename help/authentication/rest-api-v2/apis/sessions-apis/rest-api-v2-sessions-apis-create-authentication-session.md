@@ -1,9 +1,9 @@
 ---
 title: Skapa autentiseringssession
 description: REST API V2 - Skapa autentiseringssession
-source-git-commit: 9c04ec17c848d6734dc2ca2d6357ed5fb49341ec
+source-git-commit: cf479236cbd43d5e4585bf0eac18a12dbe4bc6c4
 workflow-type: tm+mt
-source-wordcount: '967'
+source-wordcount: '965'
 ht-degree: 0%
 
 ---
@@ -246,24 +246,20 @@ ht-degree: 0%
                   Den åtgärd som strömningsenheten måste utföra för att autentiseringsflödet ska kunna slutföras.
                   <br/><br/>
                   Möjliga värden är:
-                  <table style="table-layout:auto">
-                     <tr>
-                        <th style="background-color: #EFF2F7;">Värde</th>
-                        <th style="background-color: #EFF2F7;"></th>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">autentisera</td>
-                        <td>Direktuppspelningsenheten eller någon annan enhet måste öppna den angivna URL:en i en användaragent.</td>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">meritförteckning</td>
-                        <td>Direktuppspelningsenheten eller någon annan enhet måste tillhandahålla de saknade parametrarna och återuppta autentiseringssessionen med hjälp av koden.</td>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">auktorisera</td>
-                        <td>Direktuppspelningsenheten kan fortsätta direkt med beslutsflöden.</td>
-                     </tr>
-                  </table>
+                  <ul>
+                    <li><b>autentisera</b></li>
+                    <ul>
+                        <li>Direktuppspelningsenheten eller någon annan enhet måste öppna den angivna URL:en i en användaragent.</li>
+                    </ul>
+                    <li><b>meritförteckning</b></li>
+                    <ul>
+                        <li>Direktuppspelningsenheten eller någon annan enhet måste tillhandahålla de saknade parametrarna och återuppta autentiseringssessionen med hjälp av koden.</li>
+                    </ul>
+                    <li><b>auktorisera</b></li>
+                    <ul>
+                        <li>Direktuppspelningsenheten kan fortsätta direkt med beslutsflöden.</li>
+                    </ul>
+                  </ul>
                <td><i>obligatoriskt</i></td>
             </tr>
             <tr>
@@ -272,20 +268,16 @@ ht-degree: 0%
                   Den typ av interaktion som direktuppspelningsenheten måste utföra för att fortsätta flödet med den åtgärd som anges av attributet actionName.
                   <br/><br/>
                   Möjliga värden är:
-                  <table style="table-layout:auto">
-                     <tr>
-                        <th style="background-color: #EFF2F7;">Värde</th>
-                        <th style="background-color: #EFF2F7;"></th>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">direkt</td>
-                        <td>Flödet fortsätter med ett direkt anrop till den angivna URL:en med en HTTP-klient som är tillgänglig för klientimplementeringen.</td>
-                     </tr>
-                     <tr>
-                        <td style="background-color: #DEEBFF;">interaktiv</td>
-                        <td>Flödet fortsätter med en navigering till den angivna URL:en med en användaragent.</td>
-                     </tr>
-                  </table>
+                  <ul>
+                    <li><b>interaktiv</b></li>
+                    <ul>
+                        <li>Flödet fortsätter med en navigering till den angivna URL:en med en användaragent.</li>
+                    </ul>
+                    <li><b>direkt</b></li>
+                    <ul>
+                        <li>Flödet fortsätter med ett direkt anrop till den angivna URL:en med en HTTP-klient som är tillgänglig för klientimplementeringen.</li>
+                    </ul>
+                  </ul>
                <td><i>obligatoriskt</i></td>
             </tr>
             <tr>
