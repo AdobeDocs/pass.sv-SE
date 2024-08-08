@@ -1,9 +1,9 @@
 ---
 title: Grundläggande autentisering - sekundärt program - flöde
 description: REST API V2 - grundläggande autentisering - sekundärt program - flöde
-source-git-commit: dc9fab27c7eced2be5dd9f364ab8f2d64f8e4177
+source-git-commit: c849882286c88d16a5652717d381700287c53277
 workflow-type: tm+mt
-source-wordcount: '1756'
+source-wordcount: '2000'
 ht-degree: 0%
 
 ---
@@ -109,7 +109,46 @@ Följ de angivna stegen för att implementera det grundläggande autentiseringsf
 
    Om Adobe Pass serverdel inte identifierar en giltig profil, visar direktuppspelningsprogrammet `code` som kan användas för att återuppta autentiseringssessionen i ett sekundärt program.
 
+1. **Verifiera autentiseringskod:** Det sekundära programmet verifierar användaren som har tillhandahållits `code` för att säkerställa att det kan fortsätta med MVPD-autentisering i användaragenten.
+
+   >[!IMPORTANT]
+   >
+   > Mer information om följande finns i [Hämta information om autentiseringssession](../../apis/sessions-apis/rest-api-v2-sessions-apis-retrieve-authentication-session-information-using-code.md) API-dokumentationen:
+   >
+   > * Alla _obligatoriska_-parametrar, som `serviceProvider` och `code`
+   > * Alla _obligatoriska_ rubriker, som `Authorization`
+   > * Alla _valfria_ parametrar och rubriker
+
+1. **Returnera information om autentiseringssession:** Sessionernas slutpunktssvar innehåller följande data:
+   * Attributet `existing` innehåller befintliga parametrar som redan har angetts.
+   * Attributet `missing` innehåller de saknade parametrar som måste anges för att autentiseringsflödet ska kunna slutföras.
+
+   >[!IMPORTANT]
+   >
+   > Mer information om vilken information som finns i ett sessionsvalideringssvar finns i [Hämta information om autentiseringssession](../../apis/sessions-apis/rest-api-v2-sessions-apis-retrieve-authentication-session-information-using-code.md) API-dokumentationen.
+   >
+   > <br/>
+   >
+   > Sessionernas slutpunkt validerar data i begäran för att säkerställa att de grundläggande villkoren uppfylls:
+   >
+   > * Parametrarna och rubrikerna _required_ måste vara giltiga.
+   >
+   > <br/>
+   >
+   > Om valideringen misslyckas genereras ett felsvar som ger ytterligare information som följer dokumentationen för [Förbättrade felkoder](../../../enhanced-error-codes.md).
+
+   >[!NOTE]
+   >
+   > Förslag: Det sekundära programmet kan informera användare om att `code` som används är ogiltig om ett felsvar indikerar en saknad autentiseringssession och råda dem att försöka igen med en ny.
+
 1. **Öppna URL i användaragent:** Det sekundära programmet öppnar en användaragent för inläsning av den självberäknade `url`, vilket gör en begäran till slutpunkten för autentisering. Det här flödet kan innehålla flera omdirigeringar, vilket i slutänden leder användaren till MVPD-inloggningssidan och anger giltiga inloggningsuppgifter.
+
+   >[!IMPORTANT]
+   >
+   > Mer information om hur du gör det finns i [Utför autentisering i API-dokumentationen för användaragenten](../../apis/sessions-apis/rest-api-v2-sessions-apis-perform-authentication-in-user-agent.md):
+   >
+   > * Alla _obligatoriska_-parametrar, som `serviceProvider` och `code`
+   > * Alla _valfria_ parametrar och rubriker
 
 1. **Fullständig MVPD-autentisering:** Om autentiseringsflödet lyckas sparar användaragentinteraktionen en vanlig profil i Adobe Pass-serverdelen och når den angivna `redirectUrl`.
 
@@ -231,6 +270,10 @@ Följ de angivna stegen för att implementera det grundläggande autentiseringsf
    > <br/>
    > 
    > Om valideringen misslyckas genereras ett felsvar som ger ytterligare information som följer dokumentationen för [Förbättrade felkoder](../../../enhanced-error-codes.md).
+
+   >[!NOTE]
+   >
+   > Förslag: Det sekundära programmet kan informera användare om att `code` som används är ogiltig om ett felsvar indikerar en saknad autentiseringssession och råda dem att försöka igen med en ny.
 
 1. **Ange befintlig profil:** Sessionernas slutpunktssvar innehåller följande data:
    * Attributet `actionName` är inställt på&quot;auktorisera&quot;.

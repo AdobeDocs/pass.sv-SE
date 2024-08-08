@@ -1,7 +1,7 @@
 ---
 title: Återuppta autentiseringssession
 description: REST API V2 - Återuppta autentiseringssession
-source-git-commit: dc9fab27c7eced2be5dd9f364ab8f2d64f8e4177
+source-git-commit: c849882286c88d16a5652717d381700287c53277
 workflow-type: tm+mt
 source-wordcount: '753'
 ht-degree: 0%
@@ -47,7 +47,7 @@ ht-degree: 0%
       <td>Den interna unika identifierare som är associerad med tjänsteleverantören under introduktionsprocessen.</td>
       <td><i>obligatoriskt</i></td>
    </tr>
-    <tr>
+   <tr>
       <td style="background-color: #DEEBFF;">kod</td>
       <td>Autentiseringskoden som hämtas när autentiseringssessionen har skapats på den direktuppspelade enheten.</td>
       <td><i>obligatoriskt</i></td>

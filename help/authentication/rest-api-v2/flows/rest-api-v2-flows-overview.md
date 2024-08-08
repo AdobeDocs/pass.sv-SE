@@ -1,15 +1,15 @@
 ---
 title: REST API V2 - Flöden - Översikt
 description: REST API V2 - Flöden - Översikt
-source-git-commit: 150e064d0287eaac446c694fb5a2633f7ea4b797
+source-git-commit: c849882286c88d16a5652717d381700287c53277
 workflow-type: tm+mt
-source-wordcount: '140'
+source-wordcount: '201'
 ht-degree: 0%
 
 ---
 
 
-# Översikt över REST API V2-flöden {#rest-api-v2-flows-overview}
+# REST API V2 - Flöden - Översikt {#rest-api-v2-flows-overview}
 
 >[!IMPORTANT]
 >
@@ -19,7 +19,17 @@ ht-degree: 0%
 >
 > REST API V2-implementeringen begränsas av dokumentationen för [begränsningsmekanismen](/help/authentication/throttling-mechanism.md).
 
-## Grundläggande åtkomstflöden {#rest-api-v2-flows-access-basic}
+## Vill du testa REST API V2?
+
+Nu kan du utforska Adobe Pass Authentication REST API V2 via vår produktdedikerade sida från webbplatsen [Adobe Developer](https://developer.adobe.com/adobe-pass/) .
+
+Vårt dedikerade supportteam finns också tillgängligt för att hjälpa dig med frågor och teknisk hjälp som du kan behöva.
+
+## REST API V2 - Flöden {#rest-api-v2-flows}
+
+Du kommer igång genom att gå till vår offentliga dokumentation för varje flöde som stöds.
+
+### Grundläggande åtkomstflöden {#rest-api-v2-flows-access-basic}
 
 * [Grundläggande profilflöden som utförs i det primära programmet](./basic-access-flows/rest-api-v2-basic-profiles-primary-application-flow.md)
 * [Grundläggande profiler som körs i sekundärt program](./basic-access-flows/rest-api-v2-basic-profiles-secondary-application-flow.md)
@@ -29,15 +39,15 @@ ht-degree: 0%
 * [Grundläggande förauktoriseringsflöde som utförs i det primära programmet](./basic-access-flows/rest-api-v2-basic-preauthorization-primary-application-flow.md)
 * [Grundläggande utloggningsflöde som har utförts i det primära programmet](./basic-access-flows/rest-api-v2-basic-logout-primary-application-flow.md)
 
-## Försämrade åtkomstflöden {#rest-api-v2-flows-access-degraded}
+### Försämrade åtkomstflöden {#rest-api-v2-flows-access-degraded}
 
 * [Försämrade åtkomstflöden](./degraded-access-flows/rest-api-v2-access-degraded-flows.md)
 
-## Tillfälliga åtkomstflöden {#rest-api-v2-flows-access-temporary}
+### Tillfälliga åtkomstflöden {#rest-api-v2-flows-access-temporary}
 
 * [Tillfälliga åtkomstflöden](./temporary-access-flows/rest-api-v2-access-temporary-flows.md)
 
-## Åtkomstflöden för enkel inloggning {#rest-api-v2-flows-access-single-sign-on}
+### Åtkomstflöden för enkel inloggning {#rest-api-v2-flows-access-single-sign-on}
 
 * [Samlad inloggning med partnerflöden](./single-sign-on-access-flows/rest-api-v2-single-sign-on-partner-flows.md)
 * [Samlad inloggning med plattformsidentitetsflöden](./single-sign-on-access-flows/rest-api-v2-single-sign-on-platform-identity-flows.md)
