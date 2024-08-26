@@ -2,9 +2,9 @@
 title: Användarhandbok för Primetime TVE Dashboard
 description: Användarhandbok för Primetime TVE Dashboard
 exl-id: 6f7f7901-db3a-4c68-ac6a-27082db9240a
-source-git-commit: c6afb9b080ffe36344d7a3d658450e9be767be61
+source-git-commit: 3cff9d143eedb35155aa06c72d53b951b2d08d39
 workflow-type: tm+mt
-source-wordcount: '4377'
+source-wordcount: '5504'
 ht-degree: 0%
 
 ---
@@ -112,12 +112,11 @@ I det här avsnittet kan du visa och redigera inställningar för tillgängliga 
   Innehåller en lista över integreringar med tillgängliga programmeringsgränssnitt, tillsammans med statusen för varje integrering som kan vara aktiverad eller inte. Du kan navigera till integreringssidan genom att klicka på en viss post.
 * **Registrerade program**
 
-  Innehåller listan över programregistreringar. Mer information finns i dokumentet [Dynamisk klientregistreringshantering](/help/authentication/dynamic-client-registration-management.md).
+  Innehåller listan över programregistreringar. Mer information finns i dokumentet [Dynamic Client Registration Management](/help/authentication/dcr-api/dynamic-client-registration-overview.md#dynamic-client-registration-management).
 
 * **Anpassade scheman**
 
-  Innehåller en lista med anpassade scheman. Mer information finns i [iOS/tvOS-programregistrering](/help/authentication/iostvos-application-registration.md) och [Dynamisk klientregistreringshantering](/help/authentication/dynamic-client-registration-management.md)
-
+  Innehåller en lista med anpassade scheman. Mer information finns i [iOS/tvOS-programregistrering](/help/authentication/iostvos-application-registration.md) och [Dynamisk klientregistreringshantering](/help/authentication/dcr-api/dynamic-client-registration-overview.md#dynamic-client-registration-management)
 
 #### Lägg till/ta bort domäner {#add-delete-domains}
 
@@ -126,6 +125,50 @@ Om du vill börja lägga till en ny domän för den valda kanalen måste du klic
 ![Lägg till en ny domän i ett markerat kanalavsnitt](assets/add-domain-to-channel-sec.png)
 
 *Figur: Fliken Domäner i kanaler*
+
+#### Skapa ett registrerat program på kanalnivå {#create-registered-application-channel-level}
+
+Om du vill skapa ett registrerat program på kanalnivå går du till menyn Kanaler och väljer det program som du vill skapa ett program för. När du har navigerat till fliken &quot;Registrerade program&quot; klickar du på knappen &quot;Lägg till nytt program&quot;.
+
+![](./assets/reg-new-app-channel-level.png)
+
+Som du ser i bilden nedan är fälten som du ska fylla i:
+
+* **Programnamn** - namnet på programmet
+
+* **Tilldelad till kanal** - Som visas nedan är det något annorlunda här, jämfört med samma åtgärd som har utförts på programmeringsnivå, att listrutan Tilldelade kanaler inte är aktiverad, så det finns inget alternativ för att binda det registrerade programmet till en annan kanal än den aktuella.
+
+* **Programversion** - som standard är detta inställt på 1.0.0, men vi rekommenderar att du ändrar det med din egen programversion. Om du bestämmer dig för att ändra programversionen bör du tänka på det genom att skapa ett nytt registrerat program för det.
+
+* **Programplattformar** - de plattformar som programmet ska länkas till. Du kan markera alla eller flera värden.
+
+* **Domännamn** - domänerna som programmet ska länkas till. Domänerna i listrutan är ett enhetligt urval av alla domäner från alla kanaler. Du kan välja flera domäner i listan. Innehållet i domänerna är omdirigerings-URL:er [RFC6749](https://tools.ietf.org/html/rfc6749). I klientregistreringsprocessen kan klientprogrammet begära att få använda en omdirigerings-URL för att slutföra autentiseringsflödet. När ett klientprogram begär en viss omdirigerings-URL valideras den mot de domäner som vitlistas i det här registrerade programmet som är kopplat till programsatsen.
+
+![](./assets/new-reg-app-channel.png)
+
+När du har fyllt i fälten med lämpliga värden måste du klicka på Klar för att programmet ska sparas i konfigurationen.
+
+Observera att det inte finns **något alternativ för att ändra ett redan skapat program**. Om det upptäcks att något som skapats inte längre uppfyller kraven måste ett nytt registrerat program skapas och användas tillsammans med klientprogrammet vars krav det uppfyller.
+
+##### Ladda ned en programsats {#download-software-statement-channel-level}
+
+![](./assets/reg-app-list.png)
+
+Om du klickar på knappen &quot;Ladda ned&quot; på den listpost för vilken en programsats behövs genereras en textfil. Den här filen kommer att innehålla något som liknar exempelutdata nedan.
+
+![](./assets/download-software-statement.png)
+
+Filens namn identifieras unikt genom att prefix anges med &quot;software_statement&quot; och den aktuella tidsstämpeln läggs till.
+
+Observera att för samma registrerade program kommer olika programsatser att tas emot varje gång som nedladdningsknappen klickas, men detta medför inte att tidigare programsatser för det här programmet blir ogiltiga. Det beror på att de genereras på plats, per åtgärdsbegäran.
+
+Det finns en **begränsning** gällande hämtningsåtgärden. Om du tillfrågas om en programsats genom att klicka på knappen &quot;Ladda ned&quot; kort efter att du skapat det registrerade programmet och denna ännu inte sparats och konfigurationsjson inte synkroniserats, visas följande felmeddelande längst ned på sidan.
+
+![](./assets/error-sw-statement-notready.png)
+
+Detta omsluter en HTTP 404 Hittade inte felkod som tagits emot från kärnan eftersom ID:t för det registrerade programmet ännu inte har spridits och kärnan inte känner till det.
+
+Lösningen är att efter att ha skapat det registrerade programmet vänta i högst två minuter på att konfigurationen ska synkroniseras. När detta inträffar kommer felmeddelandet inte längre att tas emot och textfilen med programsatsen kommer att vara tillgänglig för hämtning.
 
 ### Programmerare {#tve-db-programmers-section}
 
@@ -147,12 +190,57 @@ I det här avsnittet kan du visa och redigera inställningar för tillgängliga 
 
 * **Registrerade program**
 
-  Innehåller listan över programregistreringar. Mer information finns i [Hantera dynamisk klientregistrering](/help/authentication/dynamic-client-registration-management.md).
+  Innehåller listan över programregistreringar. Mer information finns i [Registreringshantering för dynamisk klient](/help/authentication/dcr-api/dynamic-client-registration-overview.md#dynamic-client-registration-management).
 
 * **Anpassade scheman**
 
-  Innehåller en lista med anpassade scheman. Mer information finns i [iOS/tvOS-programregistrering](/help/authentication/iostvos-application-registration.md) och [Dynamisk klientregistreringshantering](/help/authentication/dynamic-client-registration-management.md).
+  Innehåller en lista med anpassade scheman. Mer information finns i [iOS/tvOS-programregistrering](/help/authentication/iostvos-application-registration.md).
 
+#### Skapa ett registrerat program på programnivå {#create-registered-application-programmer-level}
+
+Gå till fliken **Programmerare** > **Registrerade program**.
+
+![](./assets/reg-app-progr-level.png)
+
+Klicka på **Lägg till nytt program** på fliken Registrerade program. Fyll i obligatoriska fält i det nya fönstret.
+
+Som du ser i bilden nedan är fälten som du ska fylla i:
+
+* **Programnamn** - namnet på programmet
+
+* **Tilldelad till kanal** - namnet på kanalen, t</span>som det här programmet är länkat till. Standardinställningen i den nedrullningsbara masken är **Alla kanaler.** Med gränssnittet kan du välja en eller alla kanaler.
+
+* **Programversion** - som standard är detta inställt på 1.0.0, men vi rekommenderar att du ändrar det med din egen programversion. Om du bestämmer dig för att ändra programversionen bör du tänka på det genom att skapa ett nytt registrerat program för det.
+
+* **Programplattformar** - de plattformar som programmet ska länkas till. Du kan markera alla eller flera värden.
+
+* **Domännamn** - domänerna som programmet ska länkas till. Domänerna i listrutan är ett enhetligt urval av alla domäner från alla kanaler. Du kan välja flera domäner i listan. Innehållet i domänerna är omdirigerings-URL:er [RFC6749](https://tools.ietf.org/html/rfc6749). I klientregistreringsprocessen kan klientprogrammet begära att få använda en omdirigerings-URL för att slutföra autentiseringsflödet. När ett klientprogram begär en viss omdirigerings-URL valideras den mot de domäner som vitlistas i det här registrerade programmet som är kopplat till programsatsen.
+
+![](./assets/new-reg-app.png)
+
+När du har fyllt i fälten med lämpliga värden måste du klicka på Klar för att programmet ska sparas i konfigurationen.
+
+Observera att det inte finns **något alternativ för att ändra ett redan skapat program**. Om det upptäcks att något som skapats inte längre uppfyller kraven måste ett nytt registrerat program skapas och användas tillsammans med klientprogrammet vars krav det uppfyller.
+
+##### Ladda ned en programsats {#download-software-statement-programmer-level}
+
+![](./assets/reg-app-list.png)
+
+Om du klickar på knappen &quot;Ladda ned&quot; på den listpost för vilken en programsats behövs genereras en textfil. Den här filen kommer att innehålla något som liknar exempelutdata nedan.
+
+![](./assets/download-software-statement.png)
+
+Filens namn identifieras unikt genom att prefix anges med &quot;software_statement&quot; och den aktuella tidsstämpeln läggs till.
+
+Observera att för samma registrerade program kommer olika programsatser att tas emot varje gång som nedladdningsknappen klickas, men detta medför inte att tidigare programsatser för det här programmet blir ogiltiga. Det beror på att de genereras på plats, per åtgärdsbegäran.
+
+Det finns en **begränsning** gällande hämtningsåtgärden. Om du tillfrågas om en programsats genom att klicka på knappen &quot;Ladda ned&quot; kort efter att du skapat det registrerade programmet och den här programsatsen ännu inte sparats och konfigurationsjson inte synkroniserats, visas följande felmeddelande längst ned på sidan.
+
+![](./assets/error-sw-statement-notready.png)
+
+Detta omsluter en HTTP 404 Hittade inte felkod som tagits emot från kärnan eftersom ID:t för det registrerade programmet ännu inte har spridits och kärnan inte känner till det.
+
+Lösningen är att efter att ha skapat det registrerade programmet vänta i högst två minuter på att konfigurationen ska synkroniseras. När detta inträffar kommer felmeddelandet inte längre att tas emot och textfilen med programsatsen kommer att vara tillgänglig för hämtning.
 
 ### Integreringar {#tve-db-integrations-sec}
 

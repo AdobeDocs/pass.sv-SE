@@ -2,9 +2,9 @@
 title: Registrering av Android
 description: Registrering av Android
 exl-id: 6238bd87-ac97-4a5c-9d92-3631f7b2d46a
-source-git-commit: 1b8371a314488335c68c82882c930b7c19aa64ad
+source-git-commit: 3cff9d143eedb35155aa06c72d53b951b2d08d39
 workflow-type: tm+mt
-source-wordcount: '585'
+source-wordcount: '586'
 ht-degree: 0%
 
 ---
@@ -19,7 +19,7 @@ ht-degree: 0%
 
 Från och med version 3.0 av Android AccessEnabler SDK ändrar vi autentiseringsmekanismen med Adobe-servrar. I stället för att använda en offentlig nyckel och ett hemligt system för att signera begärande-ID introducerar vi begreppet programsatssträng som kan användas för att få en åtkomsttoken som senare används för alla anrop som SDK gör till våra servrar. Förutom en programsats måste du också skapa en djup länk till programmet.
 
-Mer information finns i [Registrering av dynamisk klient](/help/authentication/dynamic-client-registration.md)
+Mer information finns i [Översikt över registrering av dynamisk klient](./dcr-api/dynamic-client-registration-overview.md).
 
 ## Vad är en programsats? {#what}
 
@@ -57,7 +57,7 @@ Här beskrivs hur du kan få en programsats.
 
    En textfil hämtas. Använd innehållet som programsats.
 
-Mer information finns i [Hantera dynamisk klientregistrering](/help/authentication/dynamic-client-registration-management.md)
+Mer information finns i [Registreringshantering för dynamisk klient](./dcr-api/dynamic-client-registration-overview.md#dynamic-client-registration-management).
 
 ### Om du inte har tillgång till Adobe TV Dashboard
 

@@ -1,7 +1,7 @@
 ---
 title: Återuppta autentiseringssession
 description: REST API V2 - Återuppta autentiseringssession
-source-git-commit: d59afc0384a1c3617143efcef4ab5fb1a323e511
+source-git-commit: 3cff9d143eedb35155aa06c72d53b951b2d08d39
 workflow-type: tm+mt
 source-wordcount: '753'
 ht-degree: 0%
@@ -93,7 +93,7 @@ ht-degree: 0%
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">Behörighet</td>
-      <td>Genereringen av mottagarens tokennyttolast beskrivs i dokumentationen för <a href="../../../dynamic-client-registration-api.md">Dynamisk klientregistrering</a>.</td>
+      <td>Genereringen av mottagarens tokennyttolast beskrivs i rubrikdokumentationen för <a href="../../appendix/headers/rest-api-v2-appendix-headers-authorization.md">autentisering</a>.</td>
       <td><i>obligatoriskt</i></td>
    </tr>
    <tr>
@@ -158,7 +158,7 @@ ht-degree: 0%
       <td>401</td>
       <td>Obehörig</td>
       <td>
-        Åtkomsttoken är ogiltig. Klienten måste hämta en ny åtkomsttoken och försöka igen. Mer information finns i dokumentationen för <a href="../../../dynamic-client-registration-api.md">registrering av dynamisk klient</a>.
+        Åtkomsttoken är ogiltig. Klienten måste hämta en ny åtkomsttoken och försöka igen. Mer information finns i dokumentationen <a href="../../../dcr-api/dynamic-client-registration-overview.md">Översikt över registrering av dynamisk klient</a>.
       </td>
    </tr>
    <tr>

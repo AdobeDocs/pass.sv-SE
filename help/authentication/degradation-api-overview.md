@@ -2,29 +2,28 @@
 title: Översikt över API-nedgradering
 description: Översikt över API-nedgradering
 exl-id: c7d6685b-a235-42eb-9c9c-0ffa1747f614
-source-git-commit: f918d7f9f7b2af5b4364421f6703211e413eafb4
+source-git-commit: 3cff9d143eedb35155aa06c72d53b951b2d08d39
 workflow-type: tm+mt
-source-wordcount: '431'
+source-wordcount: '427'
 ht-degree: 0%
 
 ---
 
+
 # Översikt över API-nedgradering {#degradation-api-overview}
 
->[!NOTE]
+>[!IMPORTANT]
 >
->Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
->För att kunna använda API:t för degradering måste du:
->- be supportteamet om en programsats för ditt registrerade program
->- hämta en åtkomsttoken baserad på [registrering av dynamisk klient](dynamic-client-registration.md)
-> 
+> Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
 
->[!NOTE]
+>[!IMPORTANT]
 >
->För att kunna använda API:t för degradering måste du:
->- be supportteamet om en programsats för ditt registrerade program
->- hämta en åtkomsttoken baserad på [registrering av dynamisk klient](dynamic-client-registration.md)
-> 
+> Innan du använder API:t för degradering måste du kontrollera att följande krav är uppfyllda:
+>
+> * Hämta klientautentiseringsuppgifterna enligt beskrivningen i API-dokumentationen för [Hämta klientautentiseringsuppgifter](./dcr-api/apis/dynamic-client-registration-apis-retrieve-client-credentials.md).
+> * Hämta åtkomsttoken enligt beskrivningen i API-dokumentationen för [Hämta åtkomsttoken](./dcr-api/apis/dynamic-client-registration-apis-retrieve-access-token.md).
+>
+> Mer information om hur du skapar ett registrerat program och hämtar programsatsen finns i [Översikt över registrering av dynamiska klienter](./dcr-api/dynamic-client-registration-overview.md) .
 
 ## Allmän information {#general_info}
 
@@ -42,7 +41,7 @@ Försämringsinformation:
 
 - Den här funktionen är avsedd att användas tillsammans med API:t för användningsövervakning, som ger realtidsinformation om antalet autentiseringar och auktoriseringar per MVPD, genomsnittlig auktoriseringsfördröjning och andra mått som behövs för en fullständig serviceöversikt.
 - Den här funktionen tillåter inte att autentiseringstjänsten Adobe Primetime kringgås. Om Adobe Pass Authentication finns nere finns det ingen mekanism i tjänsten som kan användas för att tillåta användare att se innehåll. Webbplatserna eller apparna kan dock själva dirigera runt Adobe Pass Authentication.
-- Adobe kommer för närvarande inte att utlösa någon direkt försämring - beslutet måste alltid fattas med en särskild programmerare som har samtyckt till sådana villkor med sidoskyddsprogram. I framtiden kan Adobe Pass Authentication vara proaktivt när det gäller att utlösa försämringsregler om avtal (SLA-skydd) kan nås med MVPD.
+- Adobe kommer för närvarande inte att utlösa någon direkt försämring - beslutet måste alltid fattas med en särskild programmerare som har samtyckt till sådana villkor med sidoskyddsprogram. I framtiden kan Adobe Pass Authentication vara proaktivt för att utlösa regler för försämring om avtal (SLA-skydd) kan nås med sidoskyddsprogram.
 
 <!--
 ## Related Information {#related}

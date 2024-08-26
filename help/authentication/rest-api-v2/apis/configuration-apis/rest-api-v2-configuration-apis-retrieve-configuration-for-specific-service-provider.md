@@ -1,9 +1,9 @@
 ---
 title: Hämta konfiguration för en viss tjänsteleverantör
 description: REST API V2 - Hämta konfiguration för specifik tjänstleverantör
-source-git-commit: dc9fab27c7eced2be5dd9f364ab8f2d64f8e4177
+source-git-commit: 3cff9d143eedb35155aa06c72d53b951b2d08d39
 workflow-type: tm+mt
-source-wordcount: '521'
+source-wordcount: '523'
 ht-degree: 1%
 
 ---
@@ -64,18 +64,18 @@ ht-degree: 1%
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">Behörighet</td>
-      <td>Genereringen av mottagarens tokennyttolast beskrivs i dokumentationen för <a href="../../../dynamic-client-registration-api.md">Dynamisk klientregistrering</a>.</td>
+      <td>Genereringen av mottagarens tokennyttolast beskrivs i rubrikdokumentationen för <a href="../../appendix/headers/rest-api-v2-appendix-headers-authorization.md">autentisering</a>.</td>
       <td><i>obligatoriskt</i></td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">AP-Device-Identifier</td>
-      <td>Genereringen av nyttolasten för enhetsidentifieraren beskrivs i dokumentationen för <a href="../../appendix/headers/rest-api-v2-appendix-headers-ap-device-identifier.md">AP-Device-Identifier</a>.</td>
+      <td>Genereringen av nyttolasten för enhetsidentifieraren beskrivs i rubrikdokumentationen för <a href="../../appendix/headers/rest-api-v2-appendix-headers-ap-device-identifier.md">AP-Device-Identifier</a>.</td>
       <td><i>obligatoriskt</i></td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">X-Device-Info</td>
       <td>
-         Genereringen av nyttolasten för enhetsinformation beskrivs i <a href="../../appendix/headers/rest-api-v2-appendix-headers-x-device-info.md">X-Device-Info</a> -dokumentationen.
+         Genereringen av nyttolasten för enhetsinformation beskrivs i rubrikdokumentationen för <a href="../../appendix/headers/rest-api-v2-appendix-headers-x-device-info.md">X-Device-Info</a>.
          <br/><br/>
          Vi rekommenderar att du alltid använder den när programmets enhetsplattform tillåter explicit tillhandahållande av giltiga värden.
          <br/><br/>
@@ -138,7 +138,7 @@ ht-degree: 1%
       <td>401</td>
       <td>Obehörig</td>
       <td>
-        Åtkomsttoken är ogiltig. Klienten måste hämta en ny åtkomsttoken och försöka igen. Mer information finns i dokumentationen för <a href="../../../dynamic-client-registration-api.md">registrering av dynamisk klient</a>.
+        Åtkomsttoken är ogiltig. Klienten måste hämta en ny åtkomsttoken och försöka igen. Mer information finns i dokumentationen <a href="../../../dcr-api/dynamic-client-registration-overview.md">Översikt över registrering av dynamisk klient</a>.
       </td>
    </tr>
    <tr>

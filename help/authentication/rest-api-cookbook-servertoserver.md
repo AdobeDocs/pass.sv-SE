@@ -2,9 +2,9 @@
 title: REST API Cookbook (Server-to-Server)
 description: Återställ API-cookbook-servern till servern.
 exl-id: 36ad4a64-dde8-4a5f-b0fe-64b6c0ddcbee
-source-git-commit: ea064031c3a1fee3298d85cf442c40bd4bb56281
+source-git-commit: 3cff9d143eedb35155aa06c72d53b951b2d08d39
 workflow-type: tm+mt
-source-wordcount: '1847'
+source-wordcount: '1844'
 ht-degree: 0%
 
 ---
@@ -49,7 +49,7 @@ Ytterligare termer som används i flödet definieras i
 ### Dynamic Client Registration (DCR)
 
 
-Adobe Pass använder DCR för att säkra klientkommunikationen mellan ett programmeringsprogram eller en server och Adobe Pass tjänster. DCR-flödet är separat, beroende och nödvändigt och finns i [Dynamisk klientregistrering](/help/authentication/dynamic-client-registration.md).
+Adobe Pass använder DCR för att säkra klientkommunikationen mellan ett programmeringsprogram eller en server och Adobe Pass tjänster. DCR-flödet är separat och beskrivs i [Översikt över registrering av dynamiska klienter](./dcr-api/dynamic-client-registration-overview.md) -dokumentationen.
 
 
 ### Autentisering (authN)

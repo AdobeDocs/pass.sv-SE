@@ -2,18 +2,27 @@
 title: API för tillståndsövervaknings-API
 description: API för tillståndsövervaknings-API
 exl-id: a9572372-14a6-4caa-9ab6-4a6baababaa1
-source-git-commit: 1ad2a4e75cd64755ccbde8f3b208148b7d990d82
+source-git-commit: 3cff9d143eedb35155aa06c72d53b951b2d08d39
 workflow-type: tm+mt
-source-wordcount: '2010'
+source-wordcount: '2070'
 ht-degree: 0%
 
 ---
 
 # API för tillståndsövervaknings-API {#entitlement-service-monitoring-api}
 
->[!NOTE]
+>[!IMPORTANT]
 >
 >Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
+
+>[!IMPORTANT]
+>
+> Innan du använder API:t för degradering måste du kontrollera att följande krav är uppfyllda:
+>
+> * Hämta klientautentiseringsuppgifterna enligt beskrivningen i API-dokumentationen för [Hämta klientautentiseringsuppgifter](./dcr-api/apis/dynamic-client-registration-apis-retrieve-client-credentials.md).
+> * Hämta åtkomsttoken enligt beskrivningen i API-dokumentationen för [Hämta åtkomsttoken](./dcr-api/apis/dynamic-client-registration-apis-retrieve-access-token.md).
+>
+> Mer information om hur du skapar ett registrerat program och hämtar programsatsen finns i [Översikt över registrering av dynamiska klienter](./dcr-api/dynamic-client-registration-overview.md) .
 
 ## API-översikt {#api-overview}
 

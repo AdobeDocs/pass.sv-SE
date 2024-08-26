@@ -4,9 +4,9 @@ audience: end-user
 feature: Authentication
 user-guide-title: Adobe Pass-autentisering
 user-guide-description: Adobe Pass-autentisering är en berättigandelösning för TV Everywhere, som tillhandahåller ett modulärt ramverk för att avgöra om någon som begär åtkomst till en resurs är berättigad till den.
-source-git-commit: d59afc0384a1c3617143efcef4ab5fb1a323e511
+source-git-commit: 3cff9d143eedb35155aa06c72d53b951b2d08d39
 workflow-type: tm+mt
-source-wordcount: '1142'
+source-wordcount: '1149'
 ht-degree: 2%
 
 ---
@@ -68,7 +68,7 @@ ht-degree: 2%
             + [Hämta profil för specifik kod](./rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md)
          + Beslut {#rest-api-v2-decisions-apis}
             + [Hämta auktoriseringsbeslut med hjälp av specifik mvpd](./rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md)
-            + [Hämta förauktoriseringsbeslut med hjälp av specifik mvpd](./rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md)
+            + [Hämta förauktoriseringsbeslut med hjälp av en specifik mvpd](./rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md)
          + Utloggning {#rest-api-v2-logout-apis}
             + [Initiera utloggning för specifik mvpd](./rest-api-v2/apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md)
          + Enkel inloggning för partner {#rest-api-v2-partner-single-sign-on-apis}
@@ -95,12 +95,13 @@ ht-degree: 2%
             + [Enkelt utloggningsflöde](rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-logout-flow.md)
       + Bilaga {#rest-api-v2-appendix}
          + Rubriker {#rest-api-v2-appendix-headers}
+            + [Header - Authorization](./rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-authorization.md)
+            + [Header - AP-Device-Identifier](./rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-device-identifier.md)
+            + [Header - X-Device-Info](./rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-x-device-info.md)
             + [Header - AD-Service-Token](./rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ad-service-token.md)
             + [Header - Adobe-Subject-Token](./rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md)
-            + [Header - AP-Device-Identifier](./rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-device-identifier.md)
             + [Header - AP-Partner-Framework-Status](./rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-partner-framework-status.md)
             + [Header - AP-TempPass-Identity](./rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-temppass-identity.md)
-            + [Header - X-Device-Info](./rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-x-device-info.md)
    + AccessEnabler SDK {#accessenabler-sdk}
       + JavaScript SDK {#javascriptsdk}
          + [JavaScript SDK - översikt](javascript-sdk-overview.md)
@@ -120,7 +121,7 @@ ht-degree: 2%
                + [Migreringshandbok för iOS/tvOS v3.x](iostvos-v3x-migration-guide.md)
             + [iOS/tvOS Storage Integrity Checks](iostvos-sdk-storage-integrity-checks.md)
          + iOS/tvOS API {#ios-tvos-api}
-            + [Förauktorisera](preauthorize.md)
+            + [Förhandsauktorisera](preauthorize.md)
       + Android SDK {#androidsdk}
          + [Android SDK - översikt](android-sdk-overview.md)
          + [Android SDK Cookbook](android-sdk-cookbook.md)
@@ -188,10 +189,13 @@ ht-degree: 2%
    + Fel vid rapportering av {#error-reportn}
       + [Felrapportering](error-reporting.md)
       + [Förbättrade felkoder](enhanced-error-codes.md)
-   + Klientregistrering {#client-regn}
-      + [Dynamisk klientregistrering](dynamic-client-registration.md)
-      + [API för registrering av dynamisk klient](dynamic-client-registration-api.md)
-      + [Registreringshantering för dynamisk klient](dynamic-client-registration-management.md)
+   + Klientregistrering {#dcr-api}
+      + [Översikt över dynamisk klientregistrering](./dcr-api/dynamic-client-registration-overview.md)
+      + API:er {#dcr-api-apis}
+         + [Hämta klientautentiseringsuppgifter](./dcr-api/apis/dynamic-client-registration-apis-retrieve-client-credentials.md)
+         + [Hämta åtkomsttoken](./dcr-api/apis/dynamic-client-registration-apis-retrieve-access-token.md)
+      + Flöden {#dcr-api-flows}
+         + [Dynamiskt klientregistreringsflöde](./dcr-api/flows/dynamic-client-registration-flow.md)
    + Försämringstjänsten {#degrn-service}
       + [Översikt över API-nedgradering](degradation-api-overview.md)
    + Sekretessberedskap {#privacy-readiness}
@@ -268,7 +272,7 @@ ht-degree: 2%
    + Verktyg och verktyg {#tools-and-utilities}
       + [Använda Charles Proxy](using-charles-proxy.md)
    + Koncept {#concepts}
-      + [Förstå användar-ID](understanding-user-ids.md)
+      + [Förstå användar-ID:n](understanding-user-ids.md)
 + [Användarhandbok för TVE Dashboard](tve-dashboard-user-guide.md)
 + Ny användarhandbok för TVE Dashboard {#user-guide}
    + [Översikt över TVE Dashboard](/help/authentication/tve-dashboard-overview.md)
@@ -282,4 +286,3 @@ ht-degree: 2%
    + [Rapporter](/help/authentication/tve-dashboard-reports.md)
    + [Ändringslogg](/help/authentication/tve-dashboard-changes-log.md)
 + [Ordlista](glossary.md)
-

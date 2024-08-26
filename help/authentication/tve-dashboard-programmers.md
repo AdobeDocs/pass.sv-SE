@@ -2,9 +2,9 @@
 title: Programmerare
 description: Lär dig mer om programmerare och dess konfigurationer på TVE-kontrollpanelen.
 exl-id: b450d7cc-d5b5-4454-8f95-8047856bfb98
-source-git-commit: c2dcea9e4170a3e10654bcd3f8d2f5cdb82c9603
+source-git-commit: 3cff9d143eedb35155aa06c72d53b951b2d08d39
 workflow-type: tm+mt
-source-wordcount: '717'
+source-wordcount: '701'
 ht-degree: 0%
 
 ---
@@ -120,11 +120,11 @@ En ny konfigurationsändring har skapats och är klar för serveruppdatering. Ce
 
 ### Registrerade program {#registered-applications}
 
-På den här fliken finns en lista med programregistreringar. Visa [Dynamisk klientregistreringshantering](/help/authentication/dynamic-client-registration-management.md) om du vill ha mer information.
+På den här fliken finns en lista med programregistreringar.
 
 ### Anpassade scheman {#custom-schemes}
 
-På den här fliken visas en lista med anpassade scheman. Mer information finns i [iOS/tvOS-programregistrering](/help/authentication/iostvos-application-registration.md) och [Dynamisk klientregistreringshantering](/help/authentication/dynamic-client-registration-management.md).
+På den här fliken visas en lista med anpassade scheman. Visa [iOS/tvOS-programregistrering](/help/authentication/iostvos-application-registration.md).
 
 ## Lägg till ny programmerare {#add-new-programmer}
 

@@ -2,9 +2,9 @@
 title: Amazon FireOS - programregistrering
 description: Amazon FireOS - programregistrering
 exl-id: 650fd4a2-dfc3-4c74-9b5b-6bea832a28ca
-source-git-commit: 1b8371a314488335c68c82882c930b7c19aa64ad
+source-git-commit: 3cff9d143eedb35155aa06c72d53b951b2d08d39
 workflow-type: tm+mt
-source-wordcount: '514'
+source-wordcount: '515'
 ht-degree: 0%
 
 ---
@@ -21,7 +21,7 @@ ht-degree: 0%
 
 Från och med version 3.0 av FireOS AccessEnabler SDK ändrar vi autentiseringsmekanismen med Adobe-servrar. I stället för att använda en offentlig nyckel och ett hemligt system för att signera begärande-ID introducerar vi begreppet programsatssträng som kan användas för att få en åtkomsttoken som senare används för alla anrop som SDK gör till våra servrar. Förutom en programsats måste du också skapa en djup länk till programmet.
 
-Mer information finns i [Registrering av dynamisk klient](/help/authentication/dynamic-client-registration.md)
+Mer information finns i [Översikt över registrering av dynamisk klient](./dcr-api/dynamic-client-registration-overview.md).
 
 ## Vad är en programsats? {#what}
 
@@ -55,7 +55,7 @@ En programsats är en JWT-token som innehåller information om programmet. Alla 
 
    En textfil hämtas. Använd innehållet som programsats.
 
-Mer information finns i [Hantera registrering av dynamisk klient](/help/authentication/dynamic-client-registration-management.md)
+Mer information finns i [Registreringshantering för dynamisk klient](./dcr-api/dynamic-client-registration-overview.md#dynamic-client-registration-management).
 
 ### Om du inte har tillgång till Adobe TV Dashboard:
 

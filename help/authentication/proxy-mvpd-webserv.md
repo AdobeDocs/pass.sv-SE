@@ -2,29 +2,28 @@
 title: Proxy MVPD-webbtjänst
 description: Proxy MVPD-webbtjänst
 exl-id: f75cbc4d-4132-4ce8-a81c-1561a69d1d3a
-source-git-commit: f8cef3c41fb7132204c4fa499301c3010f62ca14
+source-git-commit: 3cff9d143eedb35155aa06c72d53b951b2d08d39
 workflow-type: tm+mt
 source-wordcount: '1003'
 ht-degree: 0%
 
 ---
 
+
 # Proxy MVPD-webbtjänst {#proxy-mvpd-wbservice}
 
->[!NOTE]
+>[!IMPORTANT]
 >
->Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
->För att kunna använda Proxy MVPD-webbtjänsten måste du:
->- be supportteamet om en programsats för ditt registrerade program
->- hämta en åtkomsttoken baserad på [registrering av dynamisk klient](dynamic-client-registration.md)
-> 
+> Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
 
->[!NOTE]
+>[!IMPORTANT]
 >
->För att kunna använda Proxy MVPD-webbtjänsten måste du:
->- be supportteamet om en programsats för ditt registrerade program
->- hämta en åtkomsttoken baserad på [registrering av dynamisk klient](dynamic-client-registration.md)
-> 
+> Innan du använder Proxy MVPD-webbtjänsten måste du kontrollera att följande krav är uppfyllda:
+>
+> * Hämta klientautentiseringsuppgifterna enligt beskrivningen i API-dokumentationen för [Hämta klientautentiseringsuppgifter](./dcr-api/apis/dynamic-client-registration-apis-retrieve-client-credentials.md).
+> * Hämta åtkomsttoken enligt beskrivningen i API-dokumentationen för [Hämta åtkomsttoken](./dcr-api/apis/dynamic-client-registration-apis-retrieve-access-token.md).
+>
+> Mer information om hur du skapar ett registrerat program och hämtar programsatsen finns i [Översikt över registrering av dynamiska klienter](./dcr-api/dynamic-client-registration-overview.md) .
 
 ## Ökning {#overview-proxy-mvpd-webserv}
 
@@ -232,7 +231,7 @@ Adobe har definierat följande godkända format för publicering/hämtning av pr
 
 För att en begäran ska anses giltig måste den uppfylla följande regler:
 
-- Begäranhuvudet måste innehålla Oauth2-åtkomsttoken från [Dynamisk klientregistrering](dynamic-client-registration.md).
+- Begärandehuvudet måste innehålla den Oauth2-åtkomsttoken för säkerhet som hämtas enligt beskrivningen i API-dokumentationen för [Hämta åtkomsttoken](./dcr-api/apis/dynamic-client-registration-apis-retrieve-access-token.md).
 - Begäran måste komma från en specifik IP-adress som är tillåten.
 - Begäran måste skickas via SSL-protokollet.
 

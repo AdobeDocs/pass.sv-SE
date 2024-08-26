@@ -2,9 +2,9 @@
 title: Kanaler
 description: Lär dig mer om kanaler och deras olika konfigurationer i TVE Dashboard.
 exl-id: bbddeccb-6b6f-4a8f-87ab-d4af538eee1d
-source-git-commit: c2dcea9e4170a3e10654bcd3f8d2f5cdb82c9603
+source-git-commit: 3cff9d143eedb35155aa06c72d53b951b2d08d39
 workflow-type: tm+mt
-source-wordcount: '1140'
+source-wordcount: '1124'
 ht-degree: 0%
 
 ---
@@ -206,11 +206,11 @@ Den valda domänen är inte längre tillgänglig för användning. Därför för
 
 ### Registrerade program {#registered-applications}
 
-På den här fliken finns en lista med programregistreringar. Visa [Dynamisk klientregistreringshantering](/help/authentication/dynamic-client-registration-management.md) om du vill ha mer information.
+På den här fliken finns en lista med programregistreringar.
 
 ### Anpassade scheman {#custom-schemes}
 
-På den här fliken visas en lista med anpassade scheman. Mer information finns i [iOS/tvOS-programregistrering](/help/authentication/iostvos-application-registration.md) och [Dynamisk klientregistreringshantering](/help/authentication/dynamic-client-registration-management.md).
+På den här fliken visas en lista med anpassade scheman. Visa [iOS/tvOS-programregistrering](/help/authentication/iostvos-application-registration.md).
 
 ## Lägg till ny kanal {#add-new-channel}
 

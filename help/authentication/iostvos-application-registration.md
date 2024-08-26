@@ -2,12 +2,13 @@
 title: iOS/tvOS - programregistrering
 description: iOS/tvOS - programregistrering
 exl-id: 89ee6b5a-29fa-4396-bfc8-7651aa3d6826
-source-git-commit: 19ed211c65deaa1fe97ae462065feac9f77afa64
+source-git-commit: 3cff9d143eedb35155aa06c72d53b951b2d08d39
 workflow-type: tm+mt
-source-wordcount: '608'
+source-wordcount: '609'
 ht-degree: 0%
 
 ---
+
 
 # iOS/tvOS - programregistrering {#iostvos-application-registration}
 
@@ -17,9 +18,9 @@ ht-degree: 0%
 
 ## Introduktion {#Intro}
 
-Från och med version 3.0 av iOS/tvOS AccessEnabler SDK ändrar vi autentiseringsmekanismen med Adobe-servrar. I stället för att använda en offentlig nyckel och ett hemligt system för att signera beställar-ID introducerar vi konceptet med en programsatssträng som kan användas för att få en åtkomsttoken som senare används för alla anrop som SDK gör till våra servrar. Förutom en programsats behöver du också ett anpassat URL-schema för programmet.
+Från och med version 3.0 av iOS/tvOS AccessEnabler SDK ändrar vi autentiseringsmekanismen med Adobe-servrar. I stället för att använda en offentlig nyckel och ett hemligt system för att signera beställar-ID introducerar vi begreppet programsatssträng som kan användas för att få en åtkomsttoken som senare används för alla anrop som SDK gör till våra servrar. Förutom en programsats behöver du också ett anpassat URL-schema för programmet.
 
-Mer information finns i [Registrering av dynamisk klient](/help/authentication/dynamic-client-registration.md)
+Mer information finns i [Översikt över registrering av dynamisk klient](./dcr-api/dynamic-client-registration-overview.md).
 
 ## Vad är en programsats? {#Soft_state}
 
@@ -40,7 +41,7 @@ En programsats är en JWT-token som innehåller information om programmet. Alla 
 - Du bör se en lista med alla registrerade program. Klicka på   `Download`-knappen i programmet som du just har skapat. Du kan behöva vänta några minuter innan programsatsen är klar för nedladdning.
 - En textfil hämtas. Använd innehållet som programsats.
 
-Mer information finns i [Hantering av dynamisk klientregistrering](/help/authentication/dynamic-client-registration-management.md).
+Mer information finns i [Registreringshantering för dynamisk klient](./dcr-api/dynamic-client-registration-overview.md#dynamic-client-registration-management).
 
 ### Om du inte har tillgång till Adobe TV Dashboard:
 
