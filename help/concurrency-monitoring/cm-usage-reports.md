@@ -2,9 +2,9 @@
 title: Användningsrapporter för övervakning av samtidig användning
 description: Användningsrapporter för övervakning av samtidig användning
 exl-id: 20220436-e748-4b22-8e7c-e074e0bfe242
-source-git-commit: f30b6814b8a77424c13337d44d7b247105e0bfe2
+source-git-commit: 36da78fd66cfbc86e7bea7575c757fef536c0755
 workflow-type: tm+mt
-source-wordcount: '757'
+source-wordcount: '799'
 ht-degree: 0%
 
 ---
@@ -23,7 +23,7 @@ Tjänsten **Concurrency Monitoring Usage Reports** är tillgänglig via ett REST
 
 ## Förutsättningar {#usage-rep-prerequisites}
 
-För att få åtkomst till produkten Concurrency Monitoring Usage Reports måste kunden först kontakta [supportteamet](mailto:tve-support@adobe.com) för övervakning av samtidig användning och de kommer att utföra de åtgärder som krävs för att ge dig åtkomst till API-produkten.
+För att få åtkomst till produkten Concurrency Monitoring Usage Reports måste kunden först kontakta [supportteamet](mailto:tve-support@adobe.com) för övervakning av samtidig användning och de kommer att utföra de åtgärder som krävs för att ge dig åtkomst till API-produkten. Mer information om [CMU API-åtkomst](/help/concurrency-monitoring/cmu-api-access.md).
 
 ## Allmänna rapportmått och uppdelningar {#general-rep-metrics-breakdown}
 
@@ -54,12 +54,12 @@ För att få åtkomst till produkten Concurrency Monitoring Usage Reports måste
 ### Användningsrapporter kan filtrera mätvärdena ovan med följande mått: {#dimensions-2-filter-metrics}
 
 | Dimensionens namn | Beskrivning |
-|:---|:---|
+|:---------------|:------------------------------------------------------------------------------------------------------------------|
 | år | Det fyrsiffriga året |
 | månad | Månad på året (1-12) |
 | dag | Dag i månaden (1-31) |
 | timme | Timme på dagen |
-| minut | Minut av timmen |
+| minut | Minut av timmen [^1] |
 | program | Programnamnet som är registrerat i Concurrency Monitoring och som används för att hantera sessioner |
 | application-id | Program-ID som är registrerat i samtidighetsövervakning som används för att hantera sessioner |
 | kanal | Kanalmetadata som skickas när sessionen initieras (markeras som Okänd om inga metadata skickas) |
@@ -88,3 +88,9 @@ Huvudsyftet med den här rapporten är att hjälpa er att förstå effekten av a
 | samtidighetsnivå | Representerar en distinkt **dataströmaktivitet som godkändes vid sessionsinitieringsfasen** för en användare för att kunna se hur många samtidiga strömmar **som öppnades** av en användare och förstå effekten av att tillämpa en viss samtidighetsgräns |
 | aktivitetsnivå | Representerar en distinkt **dataströmaktivitet (oavsett tillstånd: startad, aktiv, stoppad, avvisad)** för en användare för att kunna se hur många samtidiga strömmar som öppnats av en användare och förstå effekten av att tillämpa en viss samtidighetsgräns |
 | mvpd | MVPD-filen som tillhandahålls vid sessionshantering |
+
+### Exempel på rapporter
+
+För bästa datakvalitet rekommenderar vi rapporter som presenteras på den här sidan [Exempel på CMU-rapporter](/help/concurrency-monitoring/cm-usage-reports-examples.md)
+
+[^1]: Minsta rapporter är inte tillgängliga som standard. Kontakta [supportteamet](mailto:tve-support@adobe.com) för övervakning av samtidig användning för att begära dem.

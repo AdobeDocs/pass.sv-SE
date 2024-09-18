@@ -2,7 +2,7 @@
 title: API-översikt
 description: API-översikt
 exl-id: 3fe6f6d8-5b2f-47e5-a8da-06fb18a5d46b
-source-git-commit: f30b6814b8a77424c13337d44d7b247105e0bfe2
+source-git-commit: 301825253b21746684df9b6372a239b03305d50e
 workflow-type: tm+mt
 source-wordcount: '2043'
 ht-degree: 0%
@@ -24,7 +24,7 @@ CMU (Concurrency Monitoring Usage) implementeras som ett WOLAP-projekt (webbaser
 >
 >CMU-API:t är inte allmänt tillgängligt. Kontakta din Adobe-representant om du har frågor om tillgänglighet.
 
-CMU-API:t ger en hierarkisk vy över de underliggande OLAP-kubarna. Varje resurs ([dimension](/help/authentication/entitlement-service-monitoring-overview.md#progr-filter-metrics) i dimensionshierarkin, mappad som ett URL-sökvägssegment) genererar rapporter med (aggregerade) [mått](/help/authentication/entitlement-service-monitoring-overview.md#programmers-can-monitor-the-following-metrics) för den aktuella markeringen. Varje resurs pekar på sin överordnade resurs (för sammanslagning) och dess underresurser (för fördjupning). Segmentering och segmentering uppnås med frågesträngsparametrar som fäster dimensioner till specifika värden eller intervall.
+CMU-API:t ger en hierarkisk vy över de underliggande OLAP-kubarna. Varje resurs ([dimension](/help/concurrency-monitoring/cm-usage-reports.md#dimensions-2-filter-metrics) i dimensionshierarkin, mappad som ett URL-sökvägssegment) genererar rapporter med (aggregerade) [mått](/help/concurrency-monitoring/cm-usage-reports.md#monitor-metrics) för den aktuella markeringen. Varje resurs pekar på sin överordnade resurs (för sammanslagning) och dess underresurser (för fördjupning). Segmentering och segmentering uppnås med frågesträngsparametrar som fäster dimensioner till specifika värden eller intervall.
 
 REST API tillhandahåller tillgängliga data inom ett tidsintervall som anges i begäran (som faller tillbaka till standardvärdena om inget anges), enligt dimensionssökvägen, tillhandahållna filter och valda mätvärden. Tidsintervallet används inte för rapporter som inte innehåller tidsdimensioner (år, månad, dag, timme, minut, sekund).
 
