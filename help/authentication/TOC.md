@@ -4,7 +4,7 @@ audience: end-user
 feature: Authentication
 user-guide-title: Adobe Pass-autentisering
 user-guide-description: Adobe Pass-autentisering är en berättigandelösning för TV Everywhere, som tillhandahåller ett modulärt ramverk för att avgöra om någon som begär åtkomst till en resurs är berättigad till den.
-source-git-commit: 82fd63a0e208a90753235b81fa52757283c9d314
+source-git-commit: acff285f7db1bdd32d5da3e01a770d9581d3ba75
 workflow-type: tm+mt
 source-wordcount: '1155'
 ht-degree: 2%
@@ -274,16 +274,16 @@ ht-degree: 2%
       + [Använda Charles Proxy](using-charles-proxy.md)
    + Koncept {#concepts}
       + [Förstå användar-ID:n](understanding-user-ids.md)
-+ [Användarhandbok för TVE Dashboard](tve-dashboard-user-guide.md)
++ [Användarhandbok för TVE Dashboard](tve-dashboard/old-tve-dashboard/tve-dashboard-user-guide.md)
 + Ny användarhandbok för TVE Dashboard {#user-guide}
-   + [Översikt över TVE Dashboard](/help/authentication/tve-dashboard-overview.md)
-   + [Miljö](/help/authentication/tve-dashboard-environments.md)
-   + [Granska och skicka ändringar](/help/authentication/tve-dashboard-review-push-changes.md)
-   + [Kontrollpanel](/help/authentication/tve-dashboard-home.md)
-   + [Kanaler](/help/authentication/tve-dashboard-channels.md)
-   + [Programmerare](/help/authentication/tve-dashboard-programmers.md)
-   + [MVPD](/help/authentication/tve-dashboard-mvpds.md)
-   + [Integreringar](/help/authentication/tve-dashboard-integrations.md)
-   + [Rapporter](/help/authentication/tve-dashboard-reports.md)
-   + [Ändringslogg](/help/authentication/tve-dashboard-changes-log.md)
+   + [Översikt över TVE Dashboard](/help/authentication/tve-dashboard/new-tve-dashboard/tve-dashboard-overview.md)
+   + [Miljö](/help/authentication/tve-dashboard/new-tve-dashboard/tve-dashboard-environments.md)
+   + [Granska och skicka ändringar](/help/authentication/tve-dashboard/new-tve-dashboard/tve-dashboard-review-push-changes.md)
+   + [Kontrollpanel](/help/authentication/tve-dashboard/new-tve-dashboard/tve-dashboard-home.md)
+   + [Kanaler](/help/authentication/tve-dashboard/new-tve-dashboard/tve-dashboard-channels.md)
+   + [Programmerare](/help/authentication/tve-dashboard/new-tve-dashboard/tve-dashboard-programmers.md)
+   + [MVPD](/help/authentication/tve-dashboard/new-tve-dashboard/tve-dashboard-mvpds.md)
+   + [Integreringar](/help/authentication/tve-dashboard/new-tve-dashboard/tve-dashboard-integrations.md)
+   + [Rapporter](/help/authentication/tve-dashboard/new-tve-dashboard/tve-dashboard-reports.md)
+   + [Ändringslogg](/help/authentication/tve-dashboard/new-tve-dashboard/tve-dashboard-changes-log.md)
 + [Ordlista](glossary.md)

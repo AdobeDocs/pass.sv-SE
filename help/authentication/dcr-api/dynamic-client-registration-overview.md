@@ -1,13 +1,13 @@
 ---
 title: Översikt över registrering av dynamisk klient
 description: Översikt över registrering av dynamisk klient
-source-git-commit: 3cff9d143eedb35155aa06c72d53b951b2d08d39
+exl-id: 9f98dfcd-4375-48c3-beff-259dfb1d3a26
+source-git-commit: acff285f7db1bdd32d5da3e01a770d9581d3ba75
 workflow-type: tm+mt
 source-wordcount: '840'
 ht-degree: 0%
 
 ---
-
 
 # Översikt över registrering av dynamisk klient {#dynamic-client-registration-overview}
 
@@ -53,7 +53,7 @@ Mer information om hur du hanterar och använder dynamisk klientregistrering fin
 
 Den dynamiska klientregistreringsprocessen gör att klientprogram som körs på specifika plattformar och som behöver åtkomst till specifika API:er för Adobe Pass-autentisering kan registreras via [Adobe Pass TVE Dashboard](https://console.auth.adobe.com/).
 
-Adobe Pass TVE Dashboard är ett verktyg som används av Adobe Pass Authentication-kunder (programmerare) för att hantera konfiguration och data. Den här självbetjäningsinstrumentpanelen möjliggör en rad funktioner som beskrivs i [Adobe Pass TVE Dashboard User Guide](../tve-dashboard-user-guide.md) -dokumentationen.
+Adobe Pass TVE Dashboard är ett verktyg som används av Adobe Pass Authentication-kunder (programmerare) för att hantera konfiguration och data. Den här självbetjäningsinstrumentpanelen möjliggör en rad funktioner som beskrivs i [Adobe Pass TVE Dashboard User Guide](../tve-dashboard/old-tve-dashboard/tve-dashboard-user-guide.md) -dokumentationen.
 
 Om du har tillgång till [Adobe Pass TVE Dashboard](https://console.auth.adobe.com/) följer du stegen nedan för att skapa ett registrerat program och hämta programsatsen.
 
@@ -67,12 +67,12 @@ Det finns två sätt att skapa ett registrerat program:
 
 * **Programmernivå**
 
-  Med registreringsprocessen på programmeringsnivå kan du skapa ett registrerat program som är länkat till alla tillgängliga kanaler eller en vald delmängd av kanaler. Mer information finns i avsnittet [Skapa ett registrerat program på programmerarnivå](../tve-dashboard-user-guide.md#create-registered-application-programmer-level) i dokumentationen för [TVE Dashboard-användarhandboken](../tve-dashboard-user-guide.md).
+  Med registreringsprocessen på programmeringsnivå kan du skapa ett registrerat program som är länkat till alla tillgängliga kanaler eller en vald delmängd av kanaler. Mer information finns i avsnittet [Skapa ett registrerat program på programmerarnivå](../tve-dashboard/old-tve-dashboard/tve-dashboard-user-guide.md#create-registered-application-programmer-level) i dokumentationen för [TVE Dashboard-användarhandboken](../tve-dashboard/old-tve-dashboard/tve-dashboard-user-guide.md).
 
 
 * **Kanalnivå**
 
-  Med registreringsprocessen på kanalnivå kan du skapa ett registrerat program som bara är länkat till den valda kanalen. Mer information finns i avsnittet [Skapa ett registrerat program på kanalnivå](../tve-dashboard-user-guide.md#create-registered-application-channel-level) i dokumentationen för [TVE Dashboard-användarhandboken](../tve-dashboard-user-guide.md).
+  Med registreringsprocessen på kanalnivå kan du skapa ett registrerat program som bara är länkat till den valda kanalen. Mer information finns i avsnittet [Skapa ett registrerat program på kanalnivå](../tve-dashboard/old-tve-dashboard/tve-dashboard-user-guide.md#create-registered-application-channel-level) i dokumentationen för [TVE Dashboard-användarhandboken](../tve-dashboard/old-tve-dashboard/tve-dashboard-user-guide.md).
 
 >[!IMPORTANT]
 >
@@ -92,11 +92,11 @@ Det finns två sätt att ladda ned en programsats baserat på nivån där det re
 
 * **Programmernivå**
 
-  Mer information finns i avsnittet [Hämta en programsats på programmerarnivå](../tve-dashboard-user-guide.md#download-software-statement-programmer-level) i dokumentationen för [TVE Dashboard-användarhandboken](../tve-dashboard-user-guide.md).
+  Mer information finns i avsnittet [Hämta en programsats på programmerarnivå](../tve-dashboard/old-tve-dashboard/tve-dashboard-user-guide.md#download-software-statement-programmer-level) i dokumentationen för [TVE Dashboard-användarhandboken](../tve-dashboard/old-tve-dashboard/tve-dashboard-user-guide.md).
 
 * **Kanalnivå**
 
-  Mer information finns i avsnittet [Hämta en programsats på kanalnivå](../tve-dashboard-user-guide.md#download-software-statement-channel-level) i dokumentationen för [TVE Dashboard-användarhandboken](../tve-dashboard-user-guide.md).
+  Mer information finns i avsnittet [Hämta en programsats på kanalnivå](../tve-dashboard/old-tve-dashboard/tve-dashboard-user-guide.md#download-software-statement-channel-level) i dokumentationen för [TVE Dashboard-användarhandboken](../tve-dashboard/old-tve-dashboard/tve-dashboard-user-guide.md).
 
 Programsatsen är en JSON-webbtoken (`JWT`) som innehåller information om klientprogramvaran som ett paket. När programsatsen visas för [Hämta klientautentiseringsuppgifter](./apis/dynamic-client-registration-apis-retrieve-client-credentials.md)-API:t signeras den digitalt med JSON-webbsignatur (`JWS`).
 
