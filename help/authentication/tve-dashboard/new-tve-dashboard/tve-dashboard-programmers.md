@@ -2,9 +2,9 @@
 title: Programmerare
 description: Lär dig mer om programmerare och dess konfigurationer på TVE-kontrollpanelen.
 exl-id: b450d7cc-d5b5-4454-8f95-8047856bfb98
-source-git-commit: acff285f7db1bdd32d5da3e01a770d9581d3ba75
+source-git-commit: c29af84963b010ef9d2a2d318486aae8fffccecc
 workflow-type: tm+mt
-source-wordcount: '701'
+source-wordcount: '1139'
 ht-degree: 0%
 
 ---
@@ -122,11 +122,87 @@ En ny konfigurationsändring har skapats och är klar för serveruppdatering. Ce
 
 ### Registrerade program {#registered-applications}
 
-På den här fliken finns en lista med programregistreringar.
+På den här fliken visas en lista med registrerade program. Mer information om användning av registrerade program finns i dokumentationen om [dynamisk klientregistrering](../../dcr-api/dynamic-client-registration-overview.md).
+
+Du kan göra följande med registrerade program:
+
+* [Lägg till ett nytt registrerat program](#add-registered-applications)
+* [Ladda ned en programsats](#download-software-statement)
+
+#### Lägg till nytt registrerat program {#add-registered-applications}
+
+Följ de här stegen för att lägga till ett nytt registrerat program.
+
+1. Välj **Lägg till nytt program** längst upp till höger i avsnittet **Registrerade program**.
+
+   ![Lägg till ett nytt program](../../assets/tve-dashboard/new-tve-dashboard/programmers/programmer-add-new-application-button.png)
+
+   *Lägg till ett nytt program*
+
+1. Välj **Tilldelad till kanal** i listrutan i dialogrutan **Nytt program** .
+
+   >[!IMPORTANT]
+   >
+   > Vi rekommenderar att du skapar registrerade program med mer specifika och begränsade behörigheter för att förbättra säkerheten och förhindra obehörig åtkomst. När du skapar registrerade program bör du därför överväga att använda smalare alternativ för den tilldelade `channel`.
+
+1. Välj **Plattformar** i listrutan.
+
+   >[!IMPORTANT]
+   >
+   > Vi rekommenderar att du skapar registrerade program med mer specifika och begränsade behörigheter för att förbättra säkerheten och förhindra obehörig åtkomst. När du skapar registrerade program bör du därför överväga att använda smalare alternativ för den tilldelade `platforms`.
+
+1. Välj **Domäner** i listrutan.
+
+   >[!IMPORTANT]
+   >
+   > I klientregistreringsprocessen kan klientprogrammet begära att få använda en omdirigerings-URL för att slutföra autentiseringsflödet. När ett klientprogram använder en specifik omdirigerings-URL valideras den mot de `domains` som valts i det här urvalet.
+
+1. Skriv programmets **namn**.
+
+1. Skriv programmets **version**.
+
+   >[!IMPORTANT]
+   >
+   > Vi rekommenderar att du skapar ett nytt registrerat program för varje större uppdatering av klientprogrammet för att hantera dess livscykel och användning. Om det behövs skapar du en biljett via vår [Zendesk](https://adobeprimetime.zendesk.com) och ber din tekniska kontohanterare (TAM) att återkalla ett registrerat program för att blockera funktionaliteten i en viss klientprogramversion.
+
+1. Välj **Type**-värdet DIRECT i listrutan.
+
+1. Välj **Lägg till program**.
+
+En ny konfigurationsändring har skapats och är klar för serveruppdatering. Om du vill använda det nya registrerade programmet som listas i avsnittet **Registrerade program** fortsätter du med flödet [granska och skicka ändringar](/help/authentication/tve-dashboard/new-tve-dashboard/tve-dashboard-review-push-changes.md).
+
+#### Ladda ned programsats {#download-software-statement}
+
+Följ de här stegen för att hämta en programsats.
+
+1. Håll muspekaren över det registrerade programmet som du vill hämta programsatsen från listan över **registrerade program**.
+
+1. Välj **Hämta**.
+
+   ![Hämta en programsats](../../assets/tve-dashboard/new-tve-dashboard/programmers/programmer-download-software-statement-button.png)
+
+   *Hämta en programsats*
+
 
 ### Anpassade scheman {#custom-schemes}
 
-På den här fliken visas en lista med anpassade scheman. Visa [iOS/tvOS-programregistrering](/help/authentication/iostvos-application-registration.md).
+På den här fliken visas en lista med anpassade scheman. Mer information om användning av anpassade scheman finns i [iOS/tvOS-programregistreringen](/help/authentication/iostvos-application-registration.md).
+
+Du kan göra följande ändringar i anpassade scheman:
+
+* [Generera ett nytt anpassat schema](#generate-custom-schemes)
+
+#### Generera nytt anpassat schema {#generate-custom-schemes}
+
+Följ de här stegen för att skapa ett nytt anpassat schema.
+
+1. Välj **Skapa nytt anpassat schema**.
+
+   ![Skapa ett nytt anpassat schema](../../assets/tve-dashboard/new-tve-dashboard/programmers/programmer-add-new-custom-scheme-button.png)
+
+   *Skapa ett nytt anpassat schema*
+
+En ny konfigurationsändring har skapats och är klar för serveruppdatering. Om du vill använda det nya anpassade schemat som listas i avsnittet **Anpassade scheman** fortsätter du med flödet [granska och skicka ändringar](/help/authentication/tve-dashboard/new-tve-dashboard/tve-dashboard-review-push-changes.md).
 
 ## Lägg till ny programmerare {#add-new-programmer}
 
