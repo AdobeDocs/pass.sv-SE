@@ -2,9 +2,9 @@
 title: Översikt över registrering av dynamisk klient
 description: Översikt över registrering av dynamisk klient
 exl-id: 9f98dfcd-4375-48c3-beff-259dfb1d3a26
-source-git-commit: acff285f7db1bdd32d5da3e01a770d9581d3ba75
+source-git-commit: 7107d4a915113fb237602143aafc350b776c55d6
 workflow-type: tm+mt
-source-wordcount: '840'
+source-wordcount: '0'
 ht-degree: 0%
 
 ---
@@ -51,11 +51,11 @@ Mer information om hur du hanterar och använder dynamisk klientregistrering fin
 
 ## Registreringshantering för dynamisk klient {#dynamic-client-registration-management}
 
-Den dynamiska klientregistreringsprocessen gör att klientprogram som körs på specifika plattformar och som behöver åtkomst till specifika API:er för Adobe Pass-autentisering kan registreras via [Adobe Pass TVE Dashboard](https://console.auth.adobe.com/).
+Den dynamiska klientregistreringsprocessen gör att klientprogram som körs på specifika plattformar och som behöver åtkomst till specifika API:er för Adobe Pass-autentisering kan registreras via [Adobe Pass TVE Dashboard](https://experience.adobe.com/#/pass/authentication).
 
-Adobe Pass TVE Dashboard är ett verktyg som används av Adobe Pass Authentication-kunder (programmerare) för att hantera konfiguration och data. Den här självbetjäningsinstrumentpanelen möjliggör en rad funktioner som beskrivs i [Adobe Pass TVE Dashboard User Guide](../tve-dashboard/old-tve-dashboard/tve-dashboard-user-guide.md) -dokumentationen.
+Adobe Pass TVE Dashboard är ett verktyg som används av Adobe Pass Authentication-kunder (programmerare) för att hantera konfiguration och data. Den här självbetjäningsinstrumentpanelen möjliggör en rad funktioner som beskrivs i [Adobe Pass TVE Dashboard User Guide](../tve-dashboard/new-tve-dashboard/tve-dashboard-overview.md) -dokumentationen.
 
-Om du har tillgång till [Adobe Pass TVE Dashboard](https://console.auth.adobe.com/) följer du stegen nedan för att skapa ett registrerat program och hämta programsatsen.
+Om du har tillgång till [Adobe Pass TVE Dashboard](https://experience.adobe.com/#/pass/authentication) följer du stegen nedan för att skapa ett registrerat program och hämta programsatsen.
 
 ### Hantera registrerade program {#manage-registered-applications}
 
@@ -67,18 +67,18 @@ Det finns två sätt att skapa ett registrerat program:
 
 * **Programmernivå**
 
-  Med registreringsprocessen på programmeringsnivå kan du skapa ett registrerat program som är länkat till alla tillgängliga kanaler eller en vald delmängd av kanaler. Mer information finns i avsnittet [Skapa ett registrerat program på programmerarnivå](../tve-dashboard/old-tve-dashboard/tve-dashboard-user-guide.md#create-registered-application-programmer-level) i dokumentationen för [TVE Dashboard-användarhandboken](../tve-dashboard/old-tve-dashboard/tve-dashboard-user-guide.md).
+  Med registreringsprocessen på programmeringsnivå kan du skapa ett registrerat program som är länkat till alla tillgängliga kanaler eller en vald delmängd av kanaler. Mer information finns i dokumentationen för [TVE Dashboard User Guide for Programmers](../tve-dashboard/new-tve-dashboard/tve-dashboard-programmers.md).
 
 
 * **Kanalnivå**
 
-  Med registreringsprocessen på kanalnivå kan du skapa ett registrerat program som bara är länkat till den valda kanalen. Mer information finns i avsnittet [Skapa ett registrerat program på kanalnivå](../tve-dashboard/old-tve-dashboard/tve-dashboard-user-guide.md#create-registered-application-channel-level) i dokumentationen för [TVE Dashboard-användarhandboken](../tve-dashboard/old-tve-dashboard/tve-dashboard-user-guide.md).
+  Med registreringsprocessen på kanalnivå kan du skapa ett registrerat program som bara är länkat till den valda kanalen. Mer information finns i [användarhandboken för TVE Dashboard för kanaler](../tve-dashboard/new-tve-dashboard/tve-dashboard-channels.md) .
 
 >[!IMPORTANT]
 >
 > Vi rekommenderar att du skapar registrerade program med mer specifika och begränsade behörigheter för att förbättra säkerheten och förhindra obehörig åtkomst. När du skapar registrerade program bör du därför överväga att använda smalare alternativ för de tilldelade `channels`, `platforms` och `scopes`.
 >
-> Vi rekommenderar att du skapar ett nytt registrerat program för varje större uppdatering av klientprogrammet för att hantera dess livscykel och användning. Skapa vid behov en biljett via vår [Zendesk](https://adobeprimetime.zendesk.com) och be din tekniska kontohanterare (TAM) att återkalla ett registrerat program för att blockera funktionaliteten i en viss klientprogramversion.
+> Vi rekommenderar att du skapar ett nytt registrerat program för varje större uppdatering av klientprogrammet för att hantera dess livscykel och användning. Om det behövs skapar du en biljett via vår [Zendesk](https://adobeprimetime.zendesk.com) och ber din tekniska kontohanterare (TAM) att återkalla ett registrerat program för att blockera funktionaliteten i en viss klientprogramversion.
 
 ### Hantera programsatser {#manage-software-statements}
 
@@ -92,11 +92,11 @@ Det finns två sätt att ladda ned en programsats baserat på nivån där det re
 
 * **Programmernivå**
 
-  Mer information finns i avsnittet [Hämta en programsats på programmerarnivå](../tve-dashboard/old-tve-dashboard/tve-dashboard-user-guide.md#download-software-statement-programmer-level) i dokumentationen för [TVE Dashboard-användarhandboken](../tve-dashboard/old-tve-dashboard/tve-dashboard-user-guide.md).
+  Mer information finns i dokumentationen för [TVE Dashboard User Guide for Programmers](../tve-dashboard/new-tve-dashboard/tve-dashboard-programmers.md).
 
 * **Kanalnivå**
 
-  Mer information finns i avsnittet [Hämta en programsats på kanalnivå](../tve-dashboard/old-tve-dashboard/tve-dashboard-user-guide.md#download-software-statement-channel-level) i dokumentationen för [TVE Dashboard-användarhandboken](../tve-dashboard/old-tve-dashboard/tve-dashboard-user-guide.md).
+  Mer information finns i [användarhandboken för TVE Dashboard för kanaler](../tve-dashboard/new-tve-dashboard/tve-dashboard-channels.md) .
 
 Programsatsen är en JSON-webbtoken (`JWT`) som innehåller information om klientprogramvaran som ett paket. När programsatsen visas för [Hämta klientautentiseringsuppgifter](./apis/dynamic-client-registration-apis-retrieve-client-credentials.md)-API:t signeras den digitalt med JSON-webbsignatur (`JWS`).
 

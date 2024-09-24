@@ -2,9 +2,9 @@
 title: API-åtkomst för CMU
 description: API-åtkomst för CMU
 exl-id: 8d216703-aabc-489e-93fe-d4d105616b1d
-source-git-commit: 52c0ffe75f6ac9fda3da39ff08b0dc4c5d5ca428
+source-git-commit: 7107d4a915113fb237602143aafc350b776c55d6
 workflow-type: tm+mt
-source-wordcount: '407'
+source-wordcount: '0'
 ht-degree: 0%
 
 ---
@@ -27,20 +27,22 @@ Följ stegen nedan för att få åtkomst.
 ## Åtkomstprocedursteg {#access-procedure-steps}
 
 1. Ha ett registrerat program i Adobe Pass DCR-servern. Kontakta vårt [supportteam](mailto:tve-support@adobe.com) för det här steget.
+
 2. Hämta programsatsen
-   1. Gå till TVE Dashboard <a href="https://console-preprod.auth.adobe.com/#!/" target="_blank"> för produktion </a> eller <a href="https://console.auth.adobe.com/" target="_blank">PROD</a>
+   1. Gå till [Adobe Pass TVE Dashboard](https://experience.adobe.com/#/pass/authentication)
    2. Välj programmerare
-   3. Gå till fliken Program
+   3. Gå till fliken *Registrerade program*
    4. Välj program
-   5. Klicka på DownLoad Software Statement för att få en fil som liknar den vid hämtning
+   5. Klicka på Hämta på den registrerade programraden som du vill hämta en programsats för och spara den som en fil på den lokala datorn
       <figure>
-          <img src="assets/software_statement_1_download.png"
+          <img src="assets/programmer-download-software-statement-button.png"
                alt="Ladda ned programsats">
-       </figure>
+      </figure>
+
       <figure>
           <img src="assets/software_statement_2.png"
                alt="Exempel på programsats">
-       </figure>
+      </figure>
 
 3. Hämta åtkomsttoken
    1. Hämta klientens inloggningsuppgifter med programsatsen ovan och utför anropet nedan. På så sätt hämtas ett client_id - client_secrets-par som kan användas för att hämta åtkomsttoken.

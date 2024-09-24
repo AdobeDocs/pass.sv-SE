@@ -1,13 +1,13 @@
 ---
 title: Hämta klientautentiseringsuppgifter
 description: API för registrering av dynamisk klient - Hämta klientautentiseringsuppgifter
-source-git-commit: 3cff9d143eedb35155aa06c72d53b951b2d08d39
+exl-id: 0b39768b-25b8-47b9-8080-59c56fb829fb
+source-git-commit: 7107d4a915113fb237602143aafc350b776c55d6
 workflow-type: tm+mt
-source-wordcount: '431'
+source-wordcount: '0'
 ht-degree: 0%
 
 ---
-
 
 # Hämta klientautentiseringsuppgifter {#retrieve-client-credentials}
 
@@ -45,7 +45,7 @@ ht-degree: 0%
    <tr>
       <td style="background-color: #DEEBFF;">software_statement</td>
       <td>
-            Programsatsen som är associerad med det registrerade programmet som har skapats och hämtats från <a href="https://console.auth.adobe.com/">Adobe Pass TVE Dashboard</a>.
+            Programsatsen som är associerad med det registrerade programmet som har skapats och hämtats från <a href="https://experience.adobe.com/#/pass/authentication">Adobe Pass TVE Dashboard</a>.
             <br/><br/>
             Hanteringen av registrerade program beskrivs i <a href="../dynamic-client-registration-overview.md"> Översikt över registrering av dynamiska klienter </a> .
       </td>

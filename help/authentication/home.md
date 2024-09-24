@@ -2,9 +2,9 @@
 title: Välkommen till Adobe&reg; Pass Authentication!
 description: Välkommen till Adobe&reg; autentiseringsöversikt för pass
 exl-id: a8b01469-3d5f-4a44-9ae8-06a68c29d56d
-source-git-commit: acff285f7db1bdd32d5da3e01a770d9581d3ba75
+source-git-commit: 7107d4a915113fb237602143aafc350b776c55d6
 workflow-type: tm+mt
-source-wordcount: '331'
+source-wordcount: '0'
 ht-degree: 0%
 
 ---
@@ -26,8 +26,8 @@ Dina synpunkter är alltid tacksamma!
 ## Populär hjälp och vanliga frågor {#help-faqs}
 
 | **Aktuella objekt** |
-|-|
-| <ul><li>[Enkel inloggning för iOS](/help/authentication/apple-sso-overview.md)</li><li>[Kampanjtillfälligt pass](/help/authentication/promotional-temp-pass.md)</li><li>[Hembaserad autentisering (HBA)](/help/authentication/home-based-authn-tve.md)</li><li>[HBA-grafik](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/files/AdobeNewsletterHBA.pdf)</li><li>[Användarhandbok för Adobe Pass TVE Dashboard](/help/authentication/tve-dashboard/old-tve-dashboard/tve-dashboard-user-guide.md)</li></ul> |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <ul><li>[Enkel inloggning för iOS](/help/authentication/apple-sso-overview.md)</li><li>[Kampanjtillfälligt pass](/help/authentication/promotional-temp-pass.md)</li><li>[Hembaserad autentisering (HBA)](/help/authentication/home-based-authn-tve.md)</li><li>[HBA-grafik](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/files/AdobeNewsletterHBA.pdf)</li><li>[Användarhandbok för Adobe Pass TVE Dashboard](/help/authentication/tve-dashboard/new-tve-dashboard/tve-dashboard-overview.md)</li></ul> |
 
 | **För programmerare** | **För MVPD** |
 |------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------|

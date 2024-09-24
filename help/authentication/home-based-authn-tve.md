@@ -2,9 +2,9 @@
 title: Hembaserad autentisering för TV överallt
 description: Hembaserad autentisering för TV överallt
 exl-id: abdc7724-4290-404a-8f93-953662cdc2bc
-source-git-commit: acff285f7db1bdd32d5da3e01a770d9581d3ba75
+source-git-commit: 7107d4a915113fb237602143aafc350b776c55d6
 workflow-type: tm+mt
-source-wordcount: '1638'
+source-wordcount: '0'
 ht-degree: 0%
 
 ---
@@ -115,7 +115,7 @@ Beskrivning av HBA-autentiseringsflödet för SAML-autentiseringsprotokollet
 ## Så här aktiverar du HBA {#how-to-activate-hba}
 
 * **OAuth-protokoll:**
-   * Information om hur du aktiverar HBA finns i [Användarhandbok för Adobe Pass TVE Dashboard](/help/authentication/tve-dashboard/old-tve-dashboard/tve-dashboard-user-guide.md)
+   * Information om hur du aktiverar HBA finns i [Användarhandbok för Adobe Pass TVE Dashboard](/help/authentication/tve-dashboard/new-tve-dashboard/tve-dashboard-overview.md)
 * **SAML-protokoll:** Hembaserad autentisering har aktiverats på MVPD-sidan. Programmeraren eller Adobe kräver inga åtgärder.
 Mer information om de MVPD-program som stöder hembaserad autentisering finns i [HBA-status för MVPD-filer](/help/authentication/hba-status-mvpds.md).
 
@@ -156,5 +156,5 @@ Mer information om de MVPD-program som stöder hembaserad autentisering finns i 
 * [Hembaserad autentiseringsinformation](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/files/AdobeNewsletterHBA.pdf?dc=201604260953-2640){target=_blank} - av Adobe
 * [Autentisering med OAuth 2.0-protokollet](/help/authentication/authn-oauth2-protocol.md)
 * [Autentisering med SAML MVPD](/help/authentication/authn-usecase.md)
-* [Användarhandbok för Adobe Pass TVE Dashboard](/help/authentication/tve-dashboard/old-tve-dashboard/tve-dashboard-user-guide.md)
+* [Användarhandbok för Adobe Pass TVE Dashboard](/help/authentication/tve-dashboard/new-tve-dashboard/tve-dashboard-overview.md)
 * [hba_status Användarmetadata](/help/authentication/user-metadata-feature.md#obtaining)

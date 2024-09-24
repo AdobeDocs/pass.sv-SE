@@ -2,9 +2,9 @@
 title: Apple SSO - översikt
 description: Apple SSO - översikt
 exl-id: 7cf47d01-a35a-4c85-b562-e5ebb6945693
-source-git-commit: 59672b44074c472094ed27a23d6bfbcd7654c901
+source-git-commit: 7107d4a915113fb237602143aafc350b776c55d6
 workflow-type: tm+mt
-source-wordcount: '1417'
+source-wordcount: '0'
 ht-degree: 0%
 
 ---
@@ -39,7 +39,7 @@ För att kunna dra nytta av SSO-användarupplevelsen (Single Sign-On) måste en 
 
 1. Låt [Video-prenumerantens Single Sign-On-berättigande](https://developer.apple.com/documentation/bundleresources/entitlements/com_apple_developer_video-subscriber-single-sign-on) konfigureras till deras Apple Developer Account. Kontakta Apple för att aktivera [ramverket för videoprenumerantkonto](https://developer.apple.com/documentation/videosubscriberaccount) för ditt Apple Team-ID.
 
-1. Aktivera enkel inloggning (YES) för varje önskad integrering (Channel x MVPD) och önskad plattform (iOS/tvOS) via [Adobe Primetime TVE Dashboard](https://console.auth.adobe.com/).
+1. Aktivera enkel inloggning (YES) för varje önskad integrering (Channel x MVPD) och önskad plattform (iOS/tvOS) via [Adobe Pass TVE Dashboard](https://experience.adobe.com/#/pass/authentication).
 
 1. Integrera Apple SSO-arbetsflöden med någon av följande två lösningar från Adobe Pass Authentication Team:
 
@@ -90,7 +90,7 @@ MVPD måste
 ## Vanliga frågor {#FAQ}
 
 1. Om något går fel i Apple SSO-arbetsflöde, kan programmet som använder AccessEnabler iOS/tvOS SDK återgå till det reguljära autentiseringsflödet?
-   - Detta är möjligt men kräver att en konfigurationsändring utförs på [Adobe Primetime TVE Dashboard](https://console.auth.adobe.com/). *Aktivera enkel inloggning* måste anges på *NO* för den önskade integreringen (Channel x MVPD) och den önskade plattformen (iOS/tvOS).
+   - Detta är möjligt men kräver att en konfigurationsändring utförs på [Adobe Pass TVE Dashboard](https://experience.adobe.com/#/pass/authentication). *Aktivera enkel inloggning* måste anges på *NO* för den önskade integreringen (Channel x MVPD) och den önskade plattformen (iOS/tvOS).
    - Programmet skulle bara bekräfta konfigurationsändringen efter att ha anropat [setRequestor](/help/authentication/iostvos-sdk-api-reference.md#setReqV3) API om det använder AccessEnabler iOS/tvOS SDK.
 1. Vet programmet när en autentisering har skett till följd av en inloggning via plattformens SSO på en annan enhet eller ett annat program?
    - Den här informationen kommer inte att vara tillgänglig.
@@ -98,13 +98,13 @@ MVPD måste
    - Den här informationen är tillgänglig som en del av användarens metadatanyckel: *tokenSource*, som bör returnera strängvärdet: &quot;Apple&quot; i det här fallet.
 1. Vad händer om en användare loggar in genom att gå till *`Settings -> TV Provider`* på iOS/iPadOS eller *`Settings -> Accounts -> TV Provider`* på tvOS med ett MVPD som inte är integrerat med programmet?
    - När användaren startar programmet autentiseras inte användaren via arbetsflödet för enkel inloggning i Apple. Därför måste programmet återgå till det reguljära autentiseringsflödet och presentera en egen MVPD-väljare.
-1. Vad händer om en användare loggar in genom att gå till *`Settings -> TV Provider`* på iOS/iPadOS eller *`Settings -> Accounts -> TV Provider`* på tvOS med ett MVPD som har *Aktivera enkel inloggning* inställt på *NO* på [Adobe Primetime TVE Dashboard](https://console.auth.adobe.com/) för iOS/tvOS-plattformen?
+1. Vad händer om en användare loggar in genom att gå till *`Settings -> TV Provider`* på iOS/iPadOS eller *`Settings -> Accounts -> TV Provider`* på tvOS med ett MVPD som har *Aktivera enkel inloggning* inställt på *NO* på [Adobe Pass TVE Dashboard](https://experience.adobe.com/#/pass/authentication) för iOS/tvOS-plattformen?
    - När användaren startar programmet autentiseras inte användaren via arbetsflödet för enkel inloggning i Apple. Därför måste programmet återgå till det reguljära autentiseringsflödet och presentera en egen MVPD-väljare.
 1. Vad händer om en användare har ett MVPD-program som inte har introducerats (stöds inte) av Apple, men som finns i Apple-väljaren?
    - När användaren startar programmet väljer användaren bara MVPD via Apple SSO-arbetsflöde utan att slutföra autentiseringsflödet. Därför måste programmet återgå till det reguljära autentiseringsflödet, men kan använda det redan valda MVPD.
 1. Vad händer om en användare har ett MVPD som inte har anammats (stöds inte) av Apple?
    - När användaren startar programmet väljer användaren alternativet &quot;Andra TV-leverantörer&quot; via arbetsflödet för enkel inloggning i Apple. Därför måste programmet återgå till det reguljära autentiseringsflödet och presentera en egen MVPD-väljare.
-1. Vad händer om en användare har ett MVPD som bryts ned via [Adobe Primetime TVE Dashboard](https://console.auth.adobe.com/)?
+1. Vad händer om en användare har ett MVPD som bryts ned via [Adobe Pass TVE Dashboard](https://experience.adobe.com/#/pass/authentication)?
    - När användaren startar programmet autentiseras användaren via nedbrytningsmekanismen och inte via Apple SSO-arbetsflöde.
    - Användargränssnittet bör vara sömlöst, medan programmet informeras via varningskoden *N010* om det använder AccessEnabler iOS/tvOS SDK.
 1. Kommer MVPD-användar-ID att ändras mellan Apple SSO och SSO-autentiseringsflödet utanför Apple?
