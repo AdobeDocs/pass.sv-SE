@@ -4,9 +4,9 @@ audience: end-user
 feature: Authentication
 user-guide-title: Adobe Pass-autentisering
 user-guide-description: Adobe Pass-autentisering är en berättigandelösning för TV Everywhere, som tillhandahåller ett modulärt ramverk för att avgöra om någon som begär åtkomst till en resurs är berättigad till den.
-source-git-commit: 837276ce85445da5c3877592b194e37adf35fa32
+source-git-commit: dd3451f8761ce6183e9a11099fb3094abae09466
 workflow-type: tm+mt
-source-wordcount: '1165'
+source-wordcount: '1169'
 ht-degree: 2%
 
 ---
@@ -54,8 +54,9 @@ ht-degree: 2%
          + [Kostnadsfri förhandsgranskning för tillfälligt pass och tillfälligt kampanjpass](free-preview-for-temp-pass-and-promotional-temp-pass.md)
    + REST API V2 {#rest-api-v2}
       + [REST API V2 - översikt](./rest-api-v2/rest-api-v2-overview.md)
+      + [REST API V2-ordlista](./rest-api-v2/rest-api-v2-glossary.md)
       + API:er {#rest-api-v2-apis}
-         + [REST API V2 - API:er - översikt](./rest-api-v2/apis/rest-api-v2-apis-overview.md)
+         + [Översikt över REST API V2-API:er](./rest-api-v2/apis/rest-api-v2-apis-overview.md)
          + Konfiguration {#rest-api-v2-configuration-apis}
             + [Hämta konfiguration för en viss tjänsteleverantör](./rest-api-v2/apis/configuration-apis/rest-api-v2-configuration-apis-retrieve-configuration-for-specific-service-provider.md)
          + Sessioner {#rest-api-v2-sessions-apis}
@@ -76,7 +77,7 @@ ht-degree: 2%
             + [Hämta partnerautentiseringsbegäran](rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-partner-authentication-request.md)
             + [Hämta profil med partnerautentiseringssvar](rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-profile-using-partner-authentication-response.md)
       + Flöden {#rest-api-v2-flows}
-         + [REST API V2 - Flöden - Översikt](./rest-api-v2/flows/rest-api-v2-flows-overview.md)
+         + [Översikt över REST API V2-flöden](./rest-api-v2/flows/rest-api-v2-flows-overview.md)
          + Grundläggande åtkomstflöden {#rest-api-v2-basic-access-flows}
             + [Grundläggande profilflöden som utförs i det primära programmet](rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-primary-application-flow.md)
             + [Grundläggande profiler som körs i sekundärt program](rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-secondary-application-flow.md)

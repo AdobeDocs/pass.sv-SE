@@ -1,21 +1,21 @@
 ---
-title: REST API V2 - API:er - översikt
-description: REST API V2 - API:er - översikt
+title: Översikt över REST API V2-API:er
+description: Översikt över REST API V2-API:er
 exl-id: 62b48bf0-d200-4949-b268-8f8ea2daabfa
-source-git-commit: 94fcb4e8c94330561596cd4006738c4f4d75e371
+source-git-commit: dd3451f8761ce6183e9a11099fb3094abae09466
 workflow-type: tm+mt
-source-wordcount: '141'
+source-wordcount: '144'
 ht-degree: 0%
 
 ---
 
-# REST API V2 - API:er - översikt {#rest-api-v2-apis-overview}
+# Översikt över REST API V2-API:er {#rest-api-v2-apis-overview}
 
 >[!IMPORTANT]
 >
 > Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
 
-Gå till den offentliga dokumentationen för varje bidrag i listan nedan för att komma igång.
+Kom igång genom att gå till den offentliga dokumentationen för de API:er som du är intresserad av i listan nedan.
 
 ## Konfiguration {#rest-api-v2-apis-configuration}
 

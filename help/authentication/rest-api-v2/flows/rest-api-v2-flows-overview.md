@@ -1,21 +1,21 @@
 ---
-title: REST API V2 - Flöden - Översikt
-description: REST API V2 - Flöden - Översikt
+title: Översikt över REST API V2-flöden
+description: Översikt över REST API V2-flöden
 exl-id: 84a9ac0f-c26a-4159-82a8-3a31bb31f529
-source-git-commit: 94fcb4e8c94330561596cd4006738c4f4d75e371
+source-git-commit: dd3451f8761ce6183e9a11099fb3094abae09466
 workflow-type: tm+mt
-source-wordcount: '167'
+source-wordcount: '170'
 ht-degree: 0%
 
 ---
 
-# REST API V2 - Flöden - Översikt {#rest-api-v2-flows-overview}
+# Översikt över REST API V2-flöden {#rest-api-v2-flows-overview}
 
 >[!IMPORTANT]
 >
 > Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
 
-Gå till den offentliga dokumentationen för varje bidrag i listan nedan för att komma igång.
+Gå till den offentliga dokumentationen för de flöden du är intresserad av i listan nedan för att komma igång.
 
 ## Grundläggande åtkomstflöden {#rest-api-v2-flows-access-basic}
 
