@@ -2,9 +2,9 @@
 title: Metadatafunktion för användare
 description: Metadatafunktion för användare
 exl-id: 9fd68885-7b3a-4af0-a090-6f1f16efd2a1
-source-git-commit: 8896fa2242664d09ddd871af8f72d8858d1f0d50
+source-git-commit: 8c5203aa4a897a5e119a9886afc64a1b1556ee4f
 workflow-type: tm+mt
-source-wordcount: '1644'
+source-wordcount: '1654'
 ht-degree: 0%
 
 ---
@@ -28,7 +28,7 @@ Nyckelpunkter för användarmetadata:
 - Skickades till programmerarens program under autentiserings- och auktoriseringsflödena
 - Värden sparas i token
 - Värdena kan normaliseras om olika PDF-filer tillhandahåller data i olika format
-- Vissa parametrar kan krypteras med programmerarens nyckel (t.ex. postnummer)
+- Vissa parametrar kan krypteras med programmerarens nyckel (t.ex. zip-kod), se [Användarmetadatacertifikat för kryptering](./user-metadata-certificate.md) för krypteringscertifikatgenerering
 - Specifika värden är tillgängliga av Adobe via en konfigurationsändring
 
 ## Hämta användarmetadata {#obtaining}
