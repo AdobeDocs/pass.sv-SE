@@ -2,9 +2,9 @@
 title: Begränsningsmekanism
 description: Ta reda på vilken begränsningsmekanism som används vid Adobe Pass-autentisering. Utforska en översikt över den här funktionen på den här sidan.
 exl-id: f00f6c8e-2281-45f3-b592-5bbc004897f7
-source-git-commit: 8552a62f4d6d80ba91543390bf0689d942b3a6f4
+source-git-commit: 83998257b25465c109cac56ae753291d1572696c
 workflow-type: tm+mt
-source-wordcount: '987'
+source-wordcount: '1141'
 ht-degree: 0%
 
 ---
@@ -44,7 +44,7 @@ Du hittar mer information om hur du skickar rubriken [här](rest-api-cookbook-se
 
 ### Faktiska gränser och slutpunkter
 
-För närvarande tillåter standardgränsen högst 1 begäran per sekund, med en inledande sekvens på 3 begäranden (engångsavdrag vid den första interaktionen med den identifierade klienten, som bör tillåta initieringen att slutföras). Detta bör inte påverka alla vanliga affärstillfällen för alla våra kunder.
+För närvarande tillåter standardgränsen högst 1 begäran per sekund, med en inledande sekvens på 10 begäranden (engångsavdrag vid den första interaktionen med den identifierade klienten, som bör tillåta initieringen att slutföras). Detta bör inte påverka alla vanliga affärstillfällen för alla våra kunder.
 
 Begränsningsmekanismen aktiveras för följande slutpunkter:
 
@@ -67,6 +67,7 @@ Begränsningsmekanismen aktiveras för följande slutpunkter:
 - /api/v1/authenticate/
 - /api/v1/.+/profile-requests/.+
 - /api/v1/identities
+- /adobe-services/config/
 - /reggie/v1/.+/regcode
 - /reggie/v1/.+/regcode/.+
 
@@ -144,13 +145,21 @@ Kunder som använder en anpassad implementering (inklusive server-till-server-s�
 ## Scenarioexempel för begränsning
 
 | Tid sedan första begäran | Mottaget svar | Förklaring |
-|--------------------------|-----------------------------------|----------------------------------------------------------------------------------------------------------|
+|--------------------------|-----------------------------------|-----------------------------------------------------------------------------------------------------------|
 | Andra 0 | Samtalet tar emot statuskod för lyckat resultat | 1 samtal förbrukas från gränsen |
 | Andra 0.3 | Samtalet tar emot statuskod för lyckat resultat | 1 samtal förbrukade från gränsen och 1 samtal markerade som burna |
 | Andra 0,6 | Samtalet tar emot statuskod för lyckat resultat | 1 samtal förbrukade från gränsen och 2 samtal markerade som burna |
 | Andra 0,9 | Samtalet tar emot statuskod för lyckat resultat | 1 samtal förbrukade från gränsen och 3 samtal markerade som burna |
 | Andra 1.2 | Samtalet tar emot statuskod för lyckat resultat | 2 samtal förbrukade från gränsen och 3 samtal markerade som burna |
-| Andra 1.4 | Samtalet tar emot 429 statuskod | 2 samtal tas bort från gränsen och 3 samtal markeras som burst och 1 samtal tar emot&quot;429 För många begäranden&quot; |
-| Andra 1.6 | Samtalet tar emot 429 statuskod | 2 samtal tas bort från gränsen och 3 samtal markeras som burst och 2 samtal tar emot&quot;429 För många begäranden&quot; |
-| Andra 1.8 | Samtalet tar emot 429 statuskod | 2 samtal tas bort från gränsen och 3 samtal markeras som burst och 3 samtal tar emot&quot;429 För många begäranden&quot; |
-| Andra 2.1 | Samtalet tar emot statuskod för lyckat resultat | 3 samtal tas bort från gränsen och 3 samtal markeras som burst och 3 samtal tar emot&quot;429 För många begäranden&quot; |
+| Andra 1.3 | Samtalet tar emot statuskod för lyckat resultat | 2 samtal förbrukade från gränsen och 4 samtal markerade som burna |
+| Andra 1.4 | Samtalet tar emot statuskod för lyckat resultat | 2 samtal förbrukade från gränsen och 5 samtal markerade som burna |
+| Andra 1.5 | Samtalet tar emot statuskod för lyckat resultat | 2 samtal förbrukade från gränsen och 6 samtal markerade som burna |
+| Andra 1.6 | Samtalet tar emot statuskod för lyckat resultat | 2 samtal förbrukade från gränsen och 7 samtal markerade som burna |
+| Andra 1.7 | Samtalet tar emot statuskod för lyckat resultat | 2 samtal förbrukade från gränsen och 8 samtal markerade som burna |
+| Andra 1.8 | Samtalet tar emot statuskod för lyckat resultat | 2 samtal förbrukade från gränsen och 9 samtal markerade som burna |
+| Andra 2.1 | Samtalet tar emot statuskod för lyckat resultat | 3 samtal förbrukade från gränsen och 9 samtal markerade som burna |
+| Andra 2.2 | Samtalet tar emot statuskod för lyckat resultat | 3 samtal förbrukade från gränsen och 10 samtal markerade som burst |
+| Andra 2.4 | Samtalet tar emot 429 statuskod | 3 samtal tas bort från gränsen och 10 samtal markeras som burst och 1 samtal tar emot&quot;429 För många begäranden&quot; |
+| Andra 2.6 | Samtalet tar emot 429 statuskod | 3 samtal tas bort från gränsen och 10 samtal markeras som burst och 2 samtal tar emot&quot;429 För många begäranden&quot; |
+| Andra 2.8 | Samtalet tar emot 429 statuskod | 3 samtal tas bort från gränsen och 10 samtal markeras som burst och 3 samtal tar emot&quot;429 För många begäranden&quot; |
+| Andra 3.1 | Samtalet tar emot statuskod för lyckat resultat | 4 samtal tas bort från gränsen och 10 samtal markeras som burst och 3 samtal tar emot&quot;429 För många begäranden&quot; |
