@@ -1,13 +1,13 @@
 ---
 title: Hämta konfiguration för en viss tjänsteleverantör
 description: REST API V2 - Hämta konfiguration för specifik tjänstleverantör
-source-git-commit: 3cff9d143eedb35155aa06c72d53b951b2d08d39
+exl-id: ad7e4c6d-ed96-4ae7-82a9-3c24e5fc9302
+source-git-commit: 3eab67e93d0af83a4d896b966743ad0bc53883e3
 workflow-type: tm+mt
-source-wordcount: '523'
+source-wordcount: '525'
 ht-degree: 1%
 
 ---
-
 
 # Hämta konfiguration för en viss tjänsteleverantör {#retrieve-configuration-for-specific-service-provider}
 
@@ -224,7 +224,7 @@ ht-degree: 1%
                     <ul>
                         <li><b>id</b></li>
                         <li><b>displayName</b></li>
-                        <li><b>logoUr</b></li>
+                        <li><b>logoUrl</b></li>
                         <li><b>isTempPass</b></li>
                         <li><b>isProxy</b></li>
                         <li><b>boardingStatus</b></li>
@@ -270,8 +270,8 @@ ht-degree: 1%
       <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
-      <td style="background-color: #DEEBFF;">fel</td>
-      <td>Felet ger ytterligare information som följer dokumentationen för <a href="../../../enhanced-error-codes.md">Förbättrade felkoder</a>.</td>
+      <td style="background-color: #DEEBFF;"></td>
+      <td>Svarstexten kan innehålla ytterligare felinformation som följer dokumentationen för <a href="../../../enhanced-error-codes.md">Förbättrade felkoder</a>.</td>
       <td><i>obligatoriskt</i></td>
    </tr>
 </table>
