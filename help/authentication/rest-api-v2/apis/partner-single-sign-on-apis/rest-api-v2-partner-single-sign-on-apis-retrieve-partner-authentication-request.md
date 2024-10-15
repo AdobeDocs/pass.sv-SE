@@ -1,13 +1,13 @@
 ---
 title: Hämta partnerautentiseringsbegäran
 description: REST API V2 - Hämta begäran om partnerautentisering
-source-git-commit: 3cff9d143eedb35155aa06c72d53b951b2d08d39
+exl-id: 52d8a8e9-c176-410f-92bc-e83449278943
+source-git-commit: ca8eaff83411daab5f136f01394e1d425e66f393
 workflow-type: tm+mt
-source-wordcount: '1095'
+source-wordcount: '1136'
 ht-degree: 0%
 
 ---
-
 
 # Hämta partnerautentiseringsbegäran {#retrieve-partner-authentication-request}
 
@@ -339,30 +339,30 @@ ht-degree: 0%
       <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
-      <td style="background-color: #DEEBFF;">fel</td>
-      <td>Felet ger ytterligare information som följer dokumentationen för <a href="../../../enhanced-error-codes.md">Förbättrade felkoder</a>.</td>
+      <td style="background-color: #DEEBFF;"></td>
+      <td>Svarstexten kan innehålla ytterligare felinformation som följer dokumentationen för <a href="../../../enhanced-error-codes.md">Förbättrade felkoder</a>.</td>
       <td><i>obligatoriskt</i></td>
    </tr>
 </table>
 
 ## Exempel {#samples}
 
-### 1. Giltig enkel inloggning för partner aktiverad
+### 1. Hämta begäran om partnerautentisering
 
 >[!BEGINTABS]
 
 >[!TAB Begäran]
 
-```JSON
-POST /api/v2/REF30/sessions/sso/Apple
+```HTTPS
+POST /api/v2/REF30/sessions/sso/Apple HTTP/1.1
  
-Authorization: Bearer ....
-AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
-X-Device-Info: ....
-AP-Partner-Framework-Status: ewogICAidXNlcl9wZXJtaXNzaW9ucyIgOiB7fSwKICAgIm12cGRfc3RhdHVzIiA6IHt9Cn0=
-Content-Type: application/x-www-form-urlencoded
-Accept: application/json
-User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 14.5 like Mac OS X; en_US)
+    Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjNGZjM2U3ZS0xMmQ5LTQ5NWQtYjc0Mi02YWVhYzhhNDkwZTciLCJuYmYiOjE3MjQwODc4NjgsImlzcyI6ImF1dGguYWRvYmUuY29tIiwic2NvcGVzIjoiYXBpOmNsaWVudDp2MiIsImV4cCI6MTcyNDEwOTQ2OCwiaWF0IjoxNzI0MDg3ODY4fQ.DJ9GFl_yKAp2Qw-NVcBeRSnxIhqrwxhns5T5jU31N2tiHxCucKLSQ5guBygqkkJx6D0N_93f50meEEyfb7frbHhVHHwmRjHYjkfrWqHCpviwVjVZKKwl8Y3FEMb0bjKIB8p_E3txX9IbzeNGWRufZBRh2sxB5Q9B7XYINpVfh8s_sFvskrbDu5c01neCx5kEagEW5CtE0_EXTgEb5FSr_SfQG3UUu_iwlkOggOh_kOP_5GueElf9jn-bYBMnpObyN5s-FzuHDG5Rtac5rvcWqVW2reEqFTHqLI4rVC7UKQb6DSvPBPV4AgrutAvk30CYgDsOQILVyrjniincp7r9Ww
+    Content-Type: application/x-www-form-urlencoded
+    AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
+    X-Device-Info: ewoJInByaW1hcnlIYXJkd2FyZVR5cGUiOiAiU2V0VG9wQm94IiwKCSJtb2RlbCI6ICJUViA1dGggR2VuIiwKCSJtYW51ZmFjdHVyZXIiOiAiQXBwbGUiLAoJIm9zTmFtZSI6ICJ0dk9TIgoJIm9zVmVuZG9yIjogIkFwcGxlIiwKCSJvc1ZlcnNpb24iOiAiMTEuMCIKfQ==
+    AP-Partner-Framework-Status: ewogICAgImZyYW1ld29ya1Blcm1pc3Npb25JbmZvIjogewogICAgICAiYWNjZXNzU3RhdHVzIjogImdyYW50ZWQiCiAgICB9LAogICAgImZyYW1ld29ya1Byb3ZpZGVySW5mbyIgOiB7CiAgICAgICJpZCIgOiAiQ2FibGV2aXNpb24iLAogICAgICAiZXhwaXJhdGlvbkRhdGUiIDogIjIwMjU0MzA2MzYwMDAiCiAgICB9Cn0=
+    Accept: application/json
+    User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 11.0 like Mac OS X; en_US)
 
 Body:
 
@@ -371,41 +371,44 @@ domainName=adobe.com&redirectUrl=https%3A%2F%2Fadobe.com
 
 >[!TAB Svar]
 
-```JSON
+```HTTPS
 HTTP/1.1 200 OK  
- 
+
+Content-Type: application/json;charset=UTF-8
+
 {
-   "actionName":"partner_profile",
-   "actionType":"direct",
-   "url":"/v2/REF30/profiles/sso/Apple/Cablevision",
-   "sessionId":"83c046be-ea4b-4581-b5f2-13e56e69dee9",
-   "mvpd":"Cablevision",
-   "serviceProvider":"REF30",
-   "authenticationRequest":{
-      "type":"saml",
-      "request":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRG...."
+    "actionName": "partner_profile",
+    "actionType": "direct",
+    "url": "/api/v2/REF30/profiles/sso/Apple",
+    "sessionId": "83c046be-ea4b-4581-b5f2-13e56e69dee9",
+    "mvpd": "Cablevision",
+    "serviceProvider": "REF30",
+    "authenticationRequest": {
+        "type": "saml",
+        "request": "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRG....",
+        "attributesNames": ["uid", "NameID", "uniqueId"]
    }
 }    
 ```
 
 >[!ENDTABS]
 
-### 2. Försämrad MVPD
+### 2. Hämta partnerautentiseringsbegäran, men nedgradering tillämpas
 
 >[!BEGINTABS]
 
 >[!TAB Begäran]
 
-```JSON
-POST /api/v2/REF30/sessions/sso/Apple
+```HTTPS
+POST /api/v2/REF30/sessions/sso/Apple HTTP/1.1
  
-Authorization: Bearer ....
-AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
-X-Device-Info: ....
-AP-Partner-Framework-Status: ewogICAidXNlcl9wZXJtaXNzaW9ucyIgOiB7fSwKICAgIm12cGRfc3RhdHVzIiA6IHt9Cn0=
-Content-Type: application/x-www-form-urlencoded
-Accept: application/json
-User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 14.5 like Mac OS X; en_US)
+    Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjNGZjM2U3ZS0xMmQ5LTQ5NWQtYjc0Mi02YWVhYzhhNDkwZTciLCJuYmYiOjE3MjQwODc4NjgsImlzcyI6ImF1dGguYWRvYmUuY29tIiwic2NvcGVzIjoiYXBpOmNsaWVudDp2MiIsImV4cCI6MTcyNDEwOTQ2OCwiaWF0IjoxNzI0MDg3ODY4fQ.DJ9GFl_yKAp2Qw-NVcBeRSnxIhqrwxhns5T5jU31N2tiHxCucKLSQ5guBygqkkJx6D0N_93f50meEEyfb7frbHhVHHwmRjHYjkfrWqHCpviwVjVZKKwl8Y3FEMb0bjKIB8p_E3txX9IbzeNGWRufZBRh2sxB5Q9B7XYINpVfh8s_sFvskrbDu5c01neCx5kEagEW5CtE0_EXTgEb5FSr_SfQG3UUu_iwlkOggOh_kOP_5GueElf9jn-bYBMnpObyN5s-FzuHDG5Rtac5rvcWqVW2reEqFTHqLI4rVC7UKQb6DSvPBPV4AgrutAvk30CYgDsOQILVyrjniincp7r9Ww
+    Content-Type: application/x-www-form-urlencoded
+    AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
+    X-Device-Info: ewoJInByaW1hcnlIYXJkd2FyZVR5cGUiOiAiU2V0VG9wQm94IiwKCSJtb2RlbCI6ICJUViA1dGggR2VuIiwKCSJtYW51ZmFjdHVyZXIiOiAiQXBwbGUiLAoJIm9zTmFtZSI6ICJ0dk9TIgoJIm9zVmVuZG9yIjogIkFwcGxlIiwKCSJvc1ZlcnNpb24iOiAiMTEuMCIKfQ==
+    AP-Partner-Framework-Status: ewogICAgImZyYW1ld29ya1Blcm1pc3Npb25JbmZvIjogewogICAgICAiYWNjZXNzU3RhdHVzIjogImdyYW50ZWQiCiAgICB9LAogICAgImZyYW1ld29ya1Byb3ZpZGVySW5mbyIgOiB7CiAgICAgICJpZCIgOiAiJHtkZWdyYWRlZE12cGR9IiwKICAgICAgImV4cGlyYXRpb25EYXRlIiA6ICIyMDI1NDMwNjM2MDAwIgogICAgfQp9
+    Accept: application/json
+    User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 11.0 like Mac OS X; en_US)
 
 Body:
 
@@ -414,79 +417,47 @@ domainName=adobe.com&redirectUrl=https%3A%2F%2Fadobe.com
 
 >[!TAB Svar]
 
-```JSON
+```HTTPS
 HTTP/1.1 200 OK
- 
-{          
-   "actionName" : "authorize",
-   "actionType" : "direct",
-   "url" : "/api/v2/REF30/decisions",
-   "mvpd" : "Cablevision",
-   "serviceProvider" : "REF30",
-   "sessionId":"14d4f239-e3b1-4a4a-b8b3-6395b968a260"
-}
-```
 
->[!ENDTABS]
+Content-Type: application/json;charset=UTF-8
 
-### 3. Inaktiverad integrering
-
->[!BEGINTABS]
-
->[!TAB Begäran]
-
-```JSON
-POST /api/v2/REF30/sessions/sso/Apple
- 
-Authorization: Bearer ....
-AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
-X-Device-Info: ....
-AP-Partner-Framework-Status: ewogICAidXNlcl9wZXJtaXNzaW9ucyIgOiB7fSwKICAgIm12cGRfc3RhdHVzIiA6IHt9Cn0=
-Content-Type: application/x-www-form-urlencoded
-Accept: application/json
-User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 14.5 like Mac OS X; en_US)
-
-Body:
-
-domainName=adobe.com&redirectUrl=https%3A%2F%2Fadobe.com
-```
-
->[!TAB Svar]
-
-```JSON
-HTTP/1.1 403
-Content-Type: application/json; charset=utf-8
- 
 {
-    "errors" : [
-        {
-            "code": "unknown_integration",
-            "message": "The integration between the specified programmer and identity provider doesn't exist or it's disabled. Use the TVE Dashboard to register or enable the required integration.",
-            "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
-            "action": "none"        
-        } 
-    ]
+    "actionName": "authorize",
+    "actionType": "direct",
+    "url": "/api/v2/REF30/decisions/authorize/${degradedMvpd}",
+    "sessionId": "14d4f239-e3b1-4a4a-b8b3-6395b968a260",
+    "mvpd": "${degradedMvpd}",
+    "serviceProvider": "REF30"
 }
 ```
 
 >[!ENDTABS]
 
-### 4. Partnerenkel inloggning är inte aktiverad (i lösenordskonfiguration eller VSA) - återgår till vanlig autentisering, alla nödvändiga parametrar finns
+### 3. Hämta begäran om partnerautentisering, men återgå till grundläggande autentiseringsflöde utan att behöva saknade parametrar
+
+>[!IMPORTANT]
+> 
+> Antaganden
+> 
+> <br/>
+>
+> * Fall tillbaka till det grundläggande autentiseringsflödet på grund av parametrar för enkel inloggning hos partner eller till partnerkonfigurationen för enkel inloggning på Adobe Pass-backend.
 
 >[!BEGINTABS]
 
 >[!TAB Begäran]
 
-```JSON
-POST /api/v2/REF30/sessions/sso/Apple
+```HTTPS
+POST /api/v2/REF30/sessions/sso/Apple HTTP/1.1
  
-Authorization: Bearer ....
-AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
-X-Device-Info: ....
-AP-Partner-Framework-Status : ewogICAidXNlcl9wZXJtaXNzaW9ucyIgOiB7fSwKICAgIm12cGRfc3RhdHVzIiA6IHt9Cn0=
-Content-Type: application/x-www-form-urlencoded
-Accept: application/json
-User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 14.5 like Mac OS X; en_US)
+    Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjNGZjM2U3ZS0xMmQ5LTQ5NWQtYjc0Mi02YWVhYzhhNDkwZTciLCJuYmYiOjE3MjQwODc4NjgsImlzcyI6ImF1dGguYWRvYmUuY29tIiwic2NvcGVzIjoiYXBpOmNsaWVudDp2MiIsImV4cCI6MTcyNDEwOTQ2OCwiaWF0IjoxNzI0MDg3ODY4fQ.DJ9GFl_yKAp2Qw-NVcBeRSnxIhqrwxhns5T5jU31N2tiHxCucKLSQ5guBygqkkJx6D0N_93f50meEEyfb7frbHhVHHwmRjHYjkfrWqHCpviwVjVZKKwl8Y3FEMb0bjKIB8p_E3txX9IbzeNGWRufZBRh2sxB5Q9B7XYINpVfh8s_sFvskrbDu5c01neCx5kEagEW5CtE0_EXTgEb5FSr_SfQG3UUu_iwlkOggOh_kOP_5GueElf9jn-bYBMnpObyN5s-FzuHDG5Rtac5rvcWqVW2reEqFTHqLI4rVC7UKQb6DSvPBPV4AgrutAvk30CYgDsOQILVyrjniincp7r9Ww
+    Content-Type: application/x-www-form-urlencoded
+    AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
+    X-Device-Info: ewoJInByaW1hcnlIYXJkd2FyZVR5cGUiOiAiU2V0VG9wQm94IiwKCSJtb2RlbCI6ICJUViA1dGggR2VuIiwKCSJtYW51ZmFjdHVyZXIiOiAiQXBwbGUiLAoJIm9zTmFtZSI6ICJ0dk9TIgoJIm9zVmVuZG9yIjogIkFwcGxlIiwKCSJvc1ZlcnNpb24iOiAiMTEuMCIKfQ==
+    AP-Partner-Framework-Status: ewogICAgImZyYW1ld29ya1Blcm1pc3Npb25JbmZvIjogewogICAgICAiYWNjZXNzU3RhdHVzIjogImdyYW50ZWQiCiAgICB9LAogICAgImZyYW1ld29ya1Byb3ZpZGVySW5mbyIgOiB7CiAgICAgICJpZCIgOiAiQ2FibGV2aXNpb24iLAogICAgICAiZXhwaXJhdGlvbkRhdGUiIDogIjIwMjU0MzA2MzYwMDAiCiAgICB9Cn0=
+    Accept: application/json
+    User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 11.0 like Mac OS X; en_US)
 
 Body:
 
@@ -495,38 +466,48 @@ domainName=adobe.com&redirectUrl=https%3A%2F%2Fadobe.com
 
 >[!TAB Svar]
 
-```JSON
+```HTTPS
 HTTP/1.1 200 OK  
- 
+
+Content-Type: application/json;charset=UTF-8
+
 {
-   "actionName":"authenticate",
-   "actionType":"interactive",
-   "url":"/v2/authenticate/REF30/OKTWW2W",
-   "code":"OKTWW2W",
-   "sessionId":"748f0b9e-a2ae-46d5-acd9-4b4e6d71add7",
-   "mvpd":"Cablevision",
-   "serviceProvider":"REF30"
-}  
+    "actionName": "authenticate",
+    "actionType": "interactive",
+    "url": "/api/v2/authenticate/REF30/OKTWW2W",
+    "code": "OKTWW2W",
+    "sessionId": "748f0b9e-a2ae-46d5-acd9-4b4e6d71add7",
+    "mvpd": "Cablevision",
+    "serviceProvider": "REF30"
+}
 ```
 
 >[!ENDTABS]
 
-### 5. Enkel inloggning för partner är inte aktiverad (i lösenordskonfiguration eller på VSA) - återgång till vanlig autentisering, nödvändiga parametrar saknas, autentiseringssessionen måste återupptas
+### 4. Hämta partnerautentiseringsbegäran, men gå tillbaka till grundläggande autentiseringsflöde med saknade parametrar
+
+>[!IMPORTANT]
+>
+> Antaganden
+>
+> <br/>
+>
+> * Fall tillbaka till det grundläggande autentiseringsflödet på grund av parametrar för enkel inloggning hos partner eller till partnerkonfigurationen för enkel inloggning på Adobe Pass-backend.
 
 >[!BEGINTABS]
 
 >[!TAB Begäran]
 
-```JSON
-POST /api/v2/REF30/sessions/sso/Apple
+```HTTPS
+POST /api/v2/REF30/sessions/sso/Apple HTTP/1.1
  
-Authorization: Bearer ....
-AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
-X-Device-Info: ....
-AP-Partner-Framework-Status: ewogICAidXNlcl9wZXJtaXNzaW9ucyIgOiB7fSwKICAgIm12cGRfc3RhdHVzIiA6IHt9Cn0=
-Content-Type: application/x-www-form-urlencoded
-Accept: application/json
-User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 14.5 like Mac OS X; en_US)
+    Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjNGZjM2U3ZS0xMmQ5LTQ5NWQtYjc0Mi02YWVhYzhhNDkwZTciLCJuYmYiOjE3MjQwODc4NjgsImlzcyI6ImF1dGguYWRvYmUuY29tIiwic2NvcGVzIjoiYXBpOmNsaWVudDp2MiIsImV4cCI6MTcyNDEwOTQ2OCwiaWF0IjoxNzI0MDg3ODY4fQ.DJ9GFl_yKAp2Qw-NVcBeRSnxIhqrwxhns5T5jU31N2tiHxCucKLSQ5guBygqkkJx6D0N_93f50meEEyfb7frbHhVHHwmRjHYjkfrWqHCpviwVjVZKKwl8Y3FEMb0bjKIB8p_E3txX9IbzeNGWRufZBRh2sxB5Q9B7XYINpVfh8s_sFvskrbDu5c01neCx5kEagEW5CtE0_EXTgEb5FSr_SfQG3UUu_iwlkOggOh_kOP_5GueElf9jn-bYBMnpObyN5s-FzuHDG5Rtac5rvcWqVW2reEqFTHqLI4rVC7UKQb6DSvPBPV4AgrutAvk30CYgDsOQILVyrjniincp7r9Ww
+    Content-Type: application/x-www-form-urlencoded
+    AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
+    X-Device-Info: ewoJInByaW1hcnlIYXJkd2FyZVR5cGUiOiAiU2V0VG9wQm94IiwKCSJtb2RlbCI6ICJUViA1dGggR2VuIiwKCSJtYW51ZmFjdHVyZXIiOiAiQXBwbGUiLAoJIm9zTmFtZSI6ICJ0dk9TIgoJIm9zVmVuZG9yIjogIkFwcGxlIiwKCSJvc1ZlcnNpb24iOiAiMTEuMCIKfQ==
+    AP-Partner-Framework-Status: ewogICAgImZyYW1ld29ya1Blcm1pc3Npb25JbmZvIjogewogICAgICAiYWNjZXNzU3RhdHVzIjogImdyYW50ZWQiCiAgICB9LAogICAgImZyYW1ld29ya1Byb3ZpZGVySW5mbyIgOiB7CiAgICAgICJpZCIgOiAiQ2FibGV2aXNpb24iLAogICAgICAiZXhwaXJhdGlvbkRhdGUiIDogIjIwMjU0MzA2MzYwMDAiCiAgICB9Cn0=
+    Accept: application/json
+    User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 11.0 like Mac OS X; en_US)
 
 Body:
         
@@ -535,20 +516,22 @@ domainName=adobe.com
 
 >[!TAB Svar]
 
-```JSON
+```HTTPS
 HTTP/1.1 200 OK  
- 
+
+Content-Type: application/json;charset=UTF-8
+
 {
-   "actionName":"resume",
-   "actionType":"direct",
-   "missingParameters":[
-      "redirectUrl"
-   ],
-   "url":"/v2/REF30/sessions/SB7ZRIO",
-   "code":"SB7ZRIO",
-   "sessionId":"1476173f-5088-43b8-b7c3-8cf3a185de0a",
-   "mvpd":"Cablevision",
-   "serviceProvider":"REF30"
+    "actionName": "resume",
+    "actionType": "direct",
+    "missingParameters": [
+          "redirectUrl"
+    ],
+    "url": "/api/v2/REF30/sessions/SB7ZRIO",
+    "code": "SB7ZRIO",
+    "sessionId": "1476173f-5088-43b8-b7c3-8cf3a185de0a",
+    "mvpd": "Cablevision",
+    "serviceProvider": "REF30"
 }
 ```
 

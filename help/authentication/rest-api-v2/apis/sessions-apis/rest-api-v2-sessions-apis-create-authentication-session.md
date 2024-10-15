@@ -1,13 +1,13 @@
 ---
 title: Skapa autentiseringssession
 description: REST API V2 - Skapa autentiseringssession
-source-git-commit: 3cff9d143eedb35155aa06c72d53b951b2d08d39
+exl-id: bb2a6bb4-0778-4748-a674-df9d0e8242c8
+source-git-commit: ca8eaff83411daab5f136f01394e1d425e66f393
 workflow-type: tm+mt
-source-wordcount: '968'
+source-wordcount: '954'
 ht-degree: 0%
 
 ---
-
 
 # Skapa autentiseringssession {#create-authentication-session}
 
@@ -324,29 +324,29 @@ ht-degree: 0%
       <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
-      <td style="background-color: #DEEBFF;">fel</td>
-      <td>Felet ger ytterligare information som följer dokumentationen för <a href="../../../enhanced-error-codes.md">Förbättrade felkoder</a>.</td>
+      <td style="background-color: #DEEBFF;"></td>
+      <td>Svarstexten kan innehålla ytterligare felinformation som följer dokumentationen för <a href="../../../enhanced-error-codes.md">Förbättrade felkoder</a>.</td>
       <td><i>obligatoriskt</i></td>
    </tr>
 </table>
 
 ## Exempel {#samples}
 
-### 1. Skapa en autentiseringssession och ange värden för alla obligatoriska parametrar
+### 1. Skapa en autentiseringssession utan att saknade parametrar.
 
 >[!BEGINTABS]
 
 >[!TAB Begäran]
 
-```JSON
-POST /api/v2/REF30/sessions
- 
-Authorization: Bearer ....
-AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
-X-Device-Info ....
-Accept: application/json
-Content-Type: application/x-www-form-urlencoded
-User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 14.5 like Mac OS X; en_US)
+```HTTPS
+POST /api/v2/REF30/sessions HTTP/1.1
+
+    Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjNGZjM2U3ZS0xMmQ5LTQ5NWQtYjc0Mi02YWVhYzhhNDkwZTciLCJuYmYiOjE3MjQwODc4NjgsImlzcyI6ImF1dGguYWRvYmUuY29tIiwic2NvcGVzIjoiYXBpOmNsaWVudDp2MiIsImV4cCI6MTcyNDEwOTQ2OCwiaWF0IjoxNzI0MDg3ODY4fQ.DJ9GFl_yKAp2Qw-NVcBeRSnxIhqrwxhns5T5jU31N2tiHxCucKLSQ5guBygqkkJx6D0N_93f50meEEyfb7frbHhVHHwmRjHYjkfrWqHCpviwVjVZKKwl8Y3FEMb0bjKIB8p_E3txX9IbzeNGWRufZBRh2sxB5Q9B7XYINpVfh8s_sFvskrbDu5c01neCx5kEagEW5CtE0_EXTgEb5FSr_SfQG3UUu_iwlkOggOh_kOP_5GueElf9jn-bYBMnpObyN5s-FzuHDG5Rtac5rvcWqVW2reEqFTHqLI4rVC7UKQb6DSvPBPV4AgrutAvk30CYgDsOQILVyrjniincp7r9Ww
+    Content-Type: application/x-www-form-urlencoded
+    AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
+    X-Device-Info: ewoJInByaW1hcnlIYXJkd2FyZVR5cGUiOiAiU2V0VG9wQm94IiwKCSJtb2RlbCI6ICJUViA1dGggR2VuIiwKCSJtYW51ZmFjdHVyZXIiOiAiQXBwbGUiLAoJIm9zTmFtZSI6ICJ0dk9TIgoJIm9zVmVuZG9yIjogIkFwcGxlIiwKCSJvc1ZlcnNpb24iOiAiMTEuMCIKfQ==
+    Accept: application/json
+    User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 11.0 like Mac OS X; en_US)
  
 Body:
 
@@ -355,113 +355,78 @@ mvpd=Cablevision&domainName=adobe.com&redirectUrl=https%3A%2F%2Fadobe.com
 
 >[!TAB Svar]
 
-```JSON
+```HTTPS
 HTTP/1.1 200 OK
- 
-{           
-   "actionName" : "authenticate",
-   "actionType" : "interactive",
-   "url" : "/v2/authenticate/REF30/8ER640M",
-   "code" : "8ER640M",
-   "sessionId" : "3453453354jkopey",
-   "mvpd" : "Cablevision",
-   "serviceProvider" : "REF30"
+
+Content-Type: application/json;charset=UTF-8
+
+{
+    "actionName": "authenticate",
+    "actionType": "interactive",
+    "url": "/api/v2/authenticate/REF30/8ER640M",
+    "code": "8ER640M",
+    "sessionId": "1b614390-6610-4d14-9421-6565f6e75958",
+    "mvpd": "Cablevision",
+    "serviceProvider": "REF30"
 }
 ```
 
 >[!ENDTABS]
 
-### 2. Skapa en autentiseringssession och ange värden för inga eller några obligatoriska parametrar
+### 2. Skapa en autentiseringssession utan parametrar
 
 >[!BEGINTABS]
 
 >[!TAB Begäran]
 
-```JSON
-POST /api/v2/REF30/sessions
- 
-Authorization: Bearer ....
-AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
-X-Device-Info ....
-Accept: application/json
-Content-Type: application/x-www-form-urlencoded
-User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 14.5 like Mac OS X; en_US)
+```HTTPS
+POST /api/v2/REF30/sessions HTTP/1.1
+
+    Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjNGZjM2U3ZS0xMmQ5LTQ5NWQtYjc0Mi02YWVhYzhhNDkwZTciLCJuYmYiOjE3MjQwODc4NjgsImlzcyI6ImF1dGguYWRvYmUuY29tIiwic2NvcGVzIjoiYXBpOmNsaWVudDp2MiIsImV4cCI6MTcyNDEwOTQ2OCwiaWF0IjoxNzI0MDg3ODY4fQ.DJ9GFl_yKAp2Qw-NVcBeRSnxIhqrwxhns5T5jU31N2tiHxCucKLSQ5guBygqkkJx6D0N_93f50meEEyfb7frbHhVHHwmRjHYjkfrWqHCpviwVjVZKKwl8Y3FEMb0bjKIB8p_E3txX9IbzeNGWRufZBRh2sxB5Q9B7XYINpVfh8s_sFvskrbDu5c01neCx5kEagEW5CtE0_EXTgEb5FSr_SfQG3UUu_iwlkOggOh_kOP_5GueElf9jn-bYBMnpObyN5s-FzuHDG5Rtac5rvcWqVW2reEqFTHqLI4rVC7UKQb6DSvPBPV4AgrutAvk30CYgDsOQILVyrjniincp7r9Ww
+    Content-Type: application/x-www-form-urlencoded
+    AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
+    X-Device-Info: ewoJInByaW1hcnlIYXJkd2FyZVR5cGUiOiAiU2V0VG9wQm94IiwKCSJtb2RlbCI6ICJUViA1dGggR2VuIiwKCSJtYW51ZmFjdHVyZXIiOiAiQXBwbGUiLAoJIm9zTmFtZSI6ICJ0dk9TIgoJIm9zVmVuZG9yIjogIkFwcGxlIiwKCSJvc1ZlcnNpb24iOiAiMTEuMCIKfQ==
+    Accept: application/json
+    User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 11.0 like Mac OS X; en_US)
  
 Body:
 ```
 
 >[!TAB Svar]
 
-```JSON
+```HTTPS
 HTTP/1.1 200 OK
- 
-{           
-   "actionName" : "resume",
-   "actionType" : "direct",
-   "url" : "/v2/REF30/sessions/8ER640M",
-   "code" : "8ER640M",
-   "sessionId" : "3453453354jkopey",
-   "missingParameters" : ["mvpd","domain","redirectUrl"],
-   "serviceProvider" : "REF30"
+
+Content-Type: application/json;charset=UTF-8
+
+{
+    "actionName": "resume",
+    "actionType": "direct",
+    "url": "/api/v2/REF30/sessions/8ER640M",
+    "missingParameters": ["mvpd", "domain", "redirectUrl"],
+    "code": "8ER640M",
+    "sessionId": "1b614390-6610-4d14-9421-6565f6e75958",
+    "serviceProvider": "REF30"
 }
 ```
 
 >[!ENDTABS]
 
-### 3. Skapa en autentiseringssession samtidigt som du anger ett värde för mvpd-parametern och för vilken det redan finns en giltig autentiserad profil
+### 3. Skapa en autentiseringssession när en giltig profil redan finns.
 
 >[!BEGINTABS]
 
 >[!TAB Begäran]
 
-```JSON
-POST /api/v2/REF30/sessions
- 
-Authorization: Bearer ....
-AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
-X-Device-Info ....
-Accept: application/json
-Content-Type: application/x-www-form-urlencoded
-User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 14.5 like Mac OS X; en_US)
- 
-Body:
+```HTTPS
+POST /api/v2/REF30/sessions HTTP/1.1
 
-mvpd=Cablevision&domainName=adobe.com&redirectUrl=https%3A%2F%2Fadobe.com
-```
-
->[!TAB Svar]
-
-```JSON
-HTTP/1.1 200 OK
- 
-{           
-   "actionName" : "profile",
-   "actionType" : "direct",
-   "url" : "/v2/REF30/profiles/8ER640M",
-   "code" : "8ER640M",
-   "sessionId" : "3453453354jkopey",
-   "mvpd" : "Cablevision",
-   "serviceProvider" : "REF30"
-}
-```
-
->[!ENDTABS]
-
-### 4. Skapa en autentiseringssession samtidigt som du anger ett värde för mvpd-parametern och för vilken en försämring finns
-
->[!BEGINTABS]
-
->[!TAB Begäran]
-
-```JSON
-POST /api/v2/REF30/sessions
- 
-Authorization: Bearer ....
-AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
-X-Device-Info ....
-Accept: application/json
-Content-Type: application/x-www-form-urlencoded
-User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 14.5 like Mac OS X; en_US)
+    Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjNGZjM2U3ZS0xMmQ5LTQ5NWQtYjc0Mi02YWVhYzhhNDkwZTciLCJuYmYiOjE3MjQwODc4NjgsImlzcyI6ImF1dGguYWRvYmUuY29tIiwic2NvcGVzIjoiYXBpOmNsaWVudDp2MiIsImV4cCI6MTcyNDEwOTQ2OCwiaWF0IjoxNzI0MDg3ODY4fQ.DJ9GFl_yKAp2Qw-NVcBeRSnxIhqrwxhns5T5jU31N2tiHxCucKLSQ5guBygqkkJx6D0N_93f50meEEyfb7frbHhVHHwmRjHYjkfrWqHCpviwVjVZKKwl8Y3FEMb0bjKIB8p_E3txX9IbzeNGWRufZBRh2sxB5Q9B7XYINpVfh8s_sFvskrbDu5c01neCx5kEagEW5CtE0_EXTgEb5FSr_SfQG3UUu_iwlkOggOh_kOP_5GueElf9jn-bYBMnpObyN5s-FzuHDG5Rtac5rvcWqVW2reEqFTHqLI4rVC7UKQb6DSvPBPV4AgrutAvk30CYgDsOQILVyrjniincp7r9Ww
+    Content-Type: application/x-www-form-urlencoded
+    AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
+    X-Device-Info: ewoJInByaW1hcnlIYXJkd2FyZVR5cGUiOiAiU2V0VG9wQm94IiwKCSJtb2RlbCI6ICJUViA1dGggR2VuIiwKCSJtYW51ZmFjdHVyZXIiOiAiQXBwbGUiLAoJIm9zTmFtZSI6ICJ0dk9TIgoJIm9zVmVuZG9yIjogIkFwcGxlIiwKCSJvc1ZlcnNpb24iOiAiMTEuMCIKfQ==
+    Accept: application/json
+    User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 11.0 like Mac OS X; en_US)
  
 Body:
 
@@ -470,17 +435,96 @@ mvpd=Cablevision&domainName=adobe.com&redirectUrl=https%3A%2F%2Fadobe.com
 
 >[!TAB Svar]
 
-```JSON
+```HTTPS
 HTTP/1.1 200 OK
+
+Content-Type: application/json;charset=UTF-8
+
+{
+    "actionName": "authorize",
+    "actionType": "direct",
+    "url": "/api/v2/REF30/decisions/authorize/Cablevision",
+    "sessionId": "1b614390-6610-4d14-9421-6565f6e75958",
+    "mvpd": "Cablevision",
+    "serviceProvider": "REF30"
+}
+```
+
+### 4. Skapa en autentiseringssession med grundläggande eller kampanjtillagd TempPass (krävs inte)
+
+>[!BEGINTABS]
+
+>[!TAB Begäran]
+
+```HTTPS
+POST /api/v2/REF30/sessions HTTP/1.1
+
+    Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjNGZjM2U3ZS0xMmQ5LTQ5NWQtYjc0Mi02YWVhYzhhNDkwZTciLCJuYmYiOjE3MjQwODc4NjgsImlzcyI6ImF1dGguYWRvYmUuY29tIiwic2NvcGVzIjoiYXBpOmNsaWVudDp2MiIsImV4cCI6MTcyNDEwOTQ2OCwiaWF0IjoxNzI0MDg3ODY4fQ.DJ9GFl_yKAp2Qw-NVcBeRSnxIhqrwxhns5T5jU31N2tiHxCucKLSQ5guBygqkkJx6D0N_93f50meEEyfb7frbHhVHHwmRjHYjkfrWqHCpviwVjVZKKwl8Y3FEMb0bjKIB8p_E3txX9IbzeNGWRufZBRh2sxB5Q9B7XYINpVfh8s_sFvskrbDu5c01neCx5kEagEW5CtE0_EXTgEb5FSr_SfQG3UUu_iwlkOggOh_kOP_5GueElf9jn-bYBMnpObyN5s-FzuHDG5Rtac5rvcWqVW2reEqFTHqLI4rVC7UKQb6DSvPBPV4AgrutAvk30CYgDsOQILVyrjniincp7r9Ww
+    Content-Type: application/x-www-form-urlencoded
+    AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
+    X-Device-Info: ewoJInByaW1hcnlIYXJkd2FyZVR5cGUiOiAiU2V0VG9wQm94IiwKCSJtb2RlbCI6ICJUViA1dGggR2VuIiwKCSJtYW51ZmFjdHVyZXIiOiAiQXBwbGUiLAoJIm9zTmFtZSI6ICJ0dk9TIgoJIm9zVmVuZG9yIjogIkFwcGxlIiwKCSJvc1ZlcnNpb24iOiAiMTEuMCIKfQ==
+    Accept: application/json
+    User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 11.0 like Mac OS X; en_US)
  
-{           
-   "actionName" : "authorize",
-   "actionType" : "direct",
-   "url" : "/v2/REF30/decisions/authorize",
-   "code" : "8ER640M",
-   "sessionId" : "3453453354jkopey",
-   "mvpd" : "Cablevision",
-   "serviceProvider" : "REF30"
+Body:
+
+mvpd=TempPass_TEST40&domainName=adobe.com&redirectUrl=https%3A%2F%2Fadobe.com
+```
+
+>[!TAB Svar]
+
+```HTTPS
+HTTP/1.1 200 OK
+
+Content-Type: application/json;charset=UTF-8
+
+{
+    "actionName": "authorize",
+    "actionType": "direct",
+    "url": "/api/v2/REF30/decisions/authorize/TempPass_TEST40",
+    "sessionId": "1b614390-6610-4d14-9421-6565f6e75958",
+    "mvpd": "TempPass_TEST40",
+    "serviceProvider": "REF30"
+}
+```
+
+>[!ENDTABS]
+
+### 5. Skapa en autentiseringssession när nedgradering tillämpas
+
+>[!BEGINTABS]
+
+>[!TAB Begäran]
+
+```HTTPS
+POST /api/v2/REF30/sessions HTTP/1.1
+
+    Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjNGZjM2U3ZS0xMmQ5LTQ5NWQtYjc0Mi02YWVhYzhhNDkwZTciLCJuYmYiOjE3MjQwODc4NjgsImlzcyI6ImF1dGguYWRvYmUuY29tIiwic2NvcGVzIjoiYXBpOmNsaWVudDp2MiIsImV4cCI6MTcyNDEwOTQ2OCwiaWF0IjoxNzI0MDg3ODY4fQ.DJ9GFl_yKAp2Qw-NVcBeRSnxIhqrwxhns5T5jU31N2tiHxCucKLSQ5guBygqkkJx6D0N_93f50meEEyfb7frbHhVHHwmRjHYjkfrWqHCpviwVjVZKKwl8Y3FEMb0bjKIB8p_E3txX9IbzeNGWRufZBRh2sxB5Q9B7XYINpVfh8s_sFvskrbDu5c01neCx5kEagEW5CtE0_EXTgEb5FSr_SfQG3UUu_iwlkOggOh_kOP_5GueElf9jn-bYBMnpObyN5s-FzuHDG5Rtac5rvcWqVW2reEqFTHqLI4rVC7UKQb6DSvPBPV4AgrutAvk30CYgDsOQILVyrjniincp7r9Ww
+    Content-Type: application/x-www-form-urlencoded
+    AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
+    X-Device-Info: ewoJInByaW1hcnlIYXJkd2FyZVR5cGUiOiAiU2V0VG9wQm94IiwKCSJtb2RlbCI6ICJUViA1dGggR2VuIiwKCSJtYW51ZmFjdHVyZXIiOiAiQXBwbGUiLAoJIm9zTmFtZSI6ICJ0dk9TIgoJIm9zVmVuZG9yIjogIkFwcGxlIiwKCSJvc1ZlcnNpb24iOiAiMTEuMCIKfQ==
+    Accept: application/json
+    User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 11.0 like Mac OS X; en_US)
+ 
+Body:
+
+mvpd=Cablevision&domainName=adobe.com&redirectUrl=https%3A%2F%2Fadobe.com
+```
+
+>[!TAB Svar]
+
+```HTTPS
+HTTP/1.1 200 OK
+
+Content-Type: application/json;charset=UTF-8
+
+{
+    "actionName": "authorize",
+    "actionType": "direct",
+    "url": "/api/v2/REF30/decisions/authorize/Cablevision",
+    "sessionId": "1b614390-6610-4d14-9421-6565f6e75958",
+    "mvpd": "Cablevision",
+    "serviceProvider": "REF30"
 }
 ```
 

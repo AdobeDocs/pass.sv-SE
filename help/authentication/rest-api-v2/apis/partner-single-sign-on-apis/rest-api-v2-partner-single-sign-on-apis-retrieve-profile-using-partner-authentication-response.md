@@ -1,13 +1,13 @@
 ---
 title: Hämta profil med partnerautentiseringssvar
 description: REST API V2 - Hämta profil med partnerautentiseringssvar
-source-git-commit: 3cff9d143eedb35155aa06c72d53b951b2d08d39
+exl-id: cae260ff-a229-4df7-bbf9-4cdf300c0f9a
+source-git-commit: ca8eaff83411daab5f136f01394e1d425e66f393
 workflow-type: tm+mt
-source-wordcount: '732'
+source-wordcount: '724'
 ht-degree: 0%
 
 ---
-
 
 # Hämta profil med partnerautentiseringssvar {#retrieve-profile-using-partner-authentication-response}
 
@@ -313,30 +313,30 @@ ht-degree: 0%
       <th style="background-color: #EFF2F7;"></th>
    </tr>
    <tr>
-      <td style="background-color: #DEEBFF;">fel</td>
-      <td>Felet ger ytterligare information som följer dokumentationen för <a href="../../../enhanced-error-codes.md">Förbättrade felkoder</a>.</td>
+      <td style="background-color: #DEEBFF;"></td>
+      <td>Svarstexten kan innehålla ytterligare felinformation som följer dokumentationen för <a href="../../../enhanced-error-codes.md">Förbättrade felkoder</a>.</td>
       <td><i>obligatoriskt</i></td>
    </tr>
 </table>
 
 ## Exempel {#samples}
 
-### 1. Apple SSO aktiverat och giltigt SAML-svar
+### 1. Hämta profil med partnerautentiseringssvar
 
 >[!BEGINTABS]
 
 >[!TAB Begäran]
 
-```JSON
-POST /api/v2/REF30/profiles/sso/Apple
+```HTTPS
+POST /api/v2/REF30/profiles/sso/Apple HTTP/1.1
  
-Authorization: Bearer ....
-AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
-X-Device-Info: ....
-AP-Partner-Framework-Status: ewogICAidXNlcl9wZXJtaXNzaW9ucyIgOiB7fSwKICAgIm12cGRfc3RhdHVzIiA6IHt9Cn0=
-Content-Type: application/x-www-form-urlencoded
-Accept: application/json
-User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 14.5 like Mac OS X; en_US)
+    Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjNGZjM2U3ZS0xMmQ5LTQ5NWQtYjc0Mi02YWVhYzhhNDkwZTciLCJuYmYiOjE3MjQwODc4NjgsImlzcyI6ImF1dGguYWRvYmUuY29tIiwic2NvcGVzIjoiYXBpOmNsaWVudDp2MiIsImV4cCI6MTcyNDEwOTQ2OCwiaWF0IjoxNzI0MDg3ODY4fQ.DJ9GFl_yKAp2Qw-NVcBeRSnxIhqrwxhns5T5jU31N2tiHxCucKLSQ5guBygqkkJx6D0N_93f50meEEyfb7frbHhVHHwmRjHYjkfrWqHCpviwVjVZKKwl8Y3FEMb0bjKIB8p_E3txX9IbzeNGWRufZBRh2sxB5Q9B7XYINpVfh8s_sFvskrbDu5c01neCx5kEagEW5CtE0_EXTgEb5FSr_SfQG3UUu_iwlkOggOh_kOP_5GueElf9jn-bYBMnpObyN5s-FzuHDG5Rtac5rvcWqVW2reEqFTHqLI4rVC7UKQb6DSvPBPV4AgrutAvk30CYgDsOQILVyrjniincp7r9Ww
+    Content-Type: application/x-www-form-urlencoded
+    AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
+    X-Device-Info: ewoJInByaW1hcnlIYXJkd2FyZVR5cGUiOiAiU2V0VG9wQm94IiwKCSJtb2RlbCI6ICJUViA1dGggR2VuIiwKCSJtYW51ZmFjdHVyZXIiOiAiQXBwbGUiLAoJIm9zTmFtZSI6ICJ0dk9TIgoJIm9zVmVuZG9yIjogIkFwcGxlIiwKCSJvc1ZlcnNpb24iOiAiMTEuMCIKfQ==
+    AP-Partner-Framework-Status: ewogICAgImZyYW1ld29ya1Blcm1pc3Npb25JbmZvIjogewogICAgICAiYWNjZXNzU3RhdHVzIjogImdyYW50ZWQiCiAgICB9LAogICAgImZyYW1ld29ya1Byb3ZpZGVySW5mbyIgOiB7CiAgICAgICJpZCIgOiAiQ2FibGV2aXNpb24iLAogICAgICAiZXhwaXJhdGlvbkRhdGUiIDogIjIwMjU0MzA2MzYwMDAiCiAgICB9Cn0=
+    Accept: application/json
+    User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 11.0 like Mac OS X; en_US)
 
 Body:
 
@@ -345,28 +345,30 @@ SAMLResponse=PHNhbWxwOlJlc3BvbnNlIHhtbG5zOnNhbWxwPSJ1cm46b2FzaXM6bmFtZXM6dGM6U0F
 
 >[!TAB Svar]
 
-```JSON
-HTTP/1.1 200 OK
- 
+```HTTPS
+HTTP/1.1 201 Created
+
+Content-Type: application/json;charset=UTF-8
+
 {
-    "profiles" : {
-        "Cablevision" : {
-            "notBefore" : 1623943955,
-            "notAfter" : 1623951155,
-            "issuer" : "Apple",
-            "type" : "appleSSO",
-            "attributes" : {
-                "userId" : {
-                    "value" : "BASE64_value_userId",
-                    "state" : "plain"
+    "profiles": {
+        "Cablevision": {
+            "notBefore": 1623943955,
+            "notAfter": 1623951155,
+            "issuer": "Apple",
+            "type": "appleSSO",
+            "attributes": {
+                "userId": {
+                    "value": "BASE64_value_userId",
+                    "state": "plain"
                 },
-                "householdId" : {
-                    "value" : "BASE64_value_householdId",
-                    "state" : "plain"
+                "householdId": {
+                    "value": "BASE64_value_householdId",
+                    "state": "plain"
                 },
-                "zip" : {
-                    "value" : "BASE64_value_zip",
-                    "state" : "enc"
+                "zip": {
+                    "value": "BASE64_value_zip",
+                    "state": "enc"
                 }       
             }
         }
@@ -376,22 +378,22 @@ HTTP/1.1 200 OK
 
 >[!ENDTABS]
 
-### 2. AppleSSO-profil för en försämrad integrering
+### 2. Hämta profil med partnerautentiseringssvar, men en försämring tillämpas
 
 >[!BEGINTABS]
 
 >[!TAB Begäran]
 
-```JSON
+```HTTPS
 POST /api/v2/REF30/profiles/sso/Apple HTTP/1.1
- 
-Authorization: Bearer ....
-AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
-X-Device-Info: ....
-AP-Partner-Framework-Status: ewogICAidXNlcl9wZXJtaXNzaW9ucyIgOiB7fSwKICAgIm12cGRfc3RhdHVzIiA6IHt9Cn0=
-Content-Type: application/x-www-form-urlencoded
-Accept: application/json
-User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 14.5 like Mac OS X; en_US)
+
+    Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjNGZjM2U3ZS0xMmQ5LTQ5NWQtYjc0Mi02YWVhYzhhNDkwZTciLCJuYmYiOjE3MjQwODc4NjgsImlzcyI6ImF1dGguYWRvYmUuY29tIiwic2NvcGVzIjoiYXBpOmNsaWVudDp2MiIsImV4cCI6MTcyNDEwOTQ2OCwiaWF0IjoxNzI0MDg3ODY4fQ.DJ9GFl_yKAp2Qw-NVcBeRSnxIhqrwxhns5T5jU31N2tiHxCucKLSQ5guBygqkkJx6D0N_93f50meEEyfb7frbHhVHHwmRjHYjkfrWqHCpviwVjVZKKwl8Y3FEMb0bjKIB8p_E3txX9IbzeNGWRufZBRh2sxB5Q9B7XYINpVfh8s_sFvskrbDu5c01neCx5kEagEW5CtE0_EXTgEb5FSr_SfQG3UUu_iwlkOggOh_kOP_5GueElf9jn-bYBMnpObyN5s-FzuHDG5Rtac5rvcWqVW2reEqFTHqLI4rVC7UKQb6DSvPBPV4AgrutAvk30CYgDsOQILVyrjniincp7r9Ww
+    Content-Type: application/x-www-form-urlencoded
+    AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
+    X-Device-Info: ewoJInByaW1hcnlIYXJkd2FyZVR5cGUiOiAiU2V0VG9wQm94IiwKCSJtb2RlbCI6ICJUViA1dGggR2VuIiwKCSJtYW51ZmFjdHVyZXIiOiAiQXBwbGUiLAoJIm9zTmFtZSI6ICJ0dk9TIgoJIm9zVmVuZG9yIjogIkFwcGxlIiwKCSJvc1ZlcnNpb24iOiAiMTEuMCIKfQ==
+    AP-Partner-Framework-Status: ewogICAgImZyYW1ld29ya1Blcm1pc3Npb25JbmZvIjogewogICAgICAiYWNjZXNzU3RhdHVzIjogImdyYW50ZWQiCiAgICB9LAogICAgImZyYW1ld29ya1Byb3ZpZGVySW5mbyIgOiB7CiAgICAgICJpZCIgOiAiJHtkZWdyYWRlZE12cGR9IiwKICAgICAgImV4cGlyYXRpb25EYXRlIiA6ICIyMDI1NDMwNjM2MDAwIgogICAgfQp9
+    Accept: application/json
+    User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 11.0 like Mac OS X; en_US)
 
 Body:
 
@@ -400,67 +402,27 @@ SAMLResponse=PHNhbWxwOlJlc3BvbnNlIHhtbG5zOnNhbWxwPSJ1cm46b2FzaXM6bmFtZXM6dGM6U0F
 
 >[!TAB Svar]
 
-```JSON
+```HTTPS
 HTTP/1.1 200 OK
- 
+
+Content-Type: application/json;charset=UTF-8
+
 {
-   "profiles":{
-      "WOW":{
-         "notBefore":1706636062704,
-         "notAfter":1706696062704,
-         "issuer":"Adobe",
-         "type":"degraded",
-         "attributes":{
-            "userID":{
-               "value":"95cf93bcd183214ac9e4433153cb8a9d180a463128c0a5d26f202e8c",
-               "state":"plain"
+    "profiles": {
+        "${degradedMvpd}": {
+            "notBefore": 1706636062704,
+            "notAfter": 1706696062704,
+            "issuer": "Adobe",
+            "type": "degraded",
+            "attributes": {
+                "userID": {
+                    "value": "95cf93bcd183214ac9e4433153cb8a9d180a463128c0a5d26f202e8c",
+                    "state": "plain"
+                }
             }
-         }
-      }
+        }
    }
 }
-```
-
->[!ENDTABS]
-
-### 3. Apple SSO-flöde när SAML-svaret inte är giltigt
-
->[!BEGINTABS]
-
->[!TAB Begäran]
-
-```JSON
-POST /api/v2/REF30/profiles/sso/Apple HTTP/1.1 
- 
-Authorization: Bearer ....
-AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMWVi
-X-Device-Info: ....
-AP-Partner-Framework-Status: ewogICAidXNlcl9wZXJtaXNzaW9ucyIgOiB7fSwKICAgIm12cGRfc3RhdHVzIiA6IHt9Cn0=
-Content-Type: application/x-www-form-urlencoded
-Accept: application/json
-User-Agent: Mozilla/5.0 (Apple TV; U; CPU AppleTV5,3 OS 14.5 like Mac OS X; en_US)
-
-Body:
-        
-SAMLResponse=PHNhbWxwOlJlc3BvbnNlIHhtbG5zOnNhbWxwPSJ1cm46b2FzaXM6bmFtZXM6dGM6U0FNTDoyLjA6cHJvdG9jb2wiIH...
-```
-
->[!TAB Svar]
-
-```JSON
-HTTP/1.1 403 OK
-Content-Type: application/json; charset=utf-8
-    
-{
-    "errors" : [
-        {
-            "code": "invalid_mvpd_response",
-            "message": "The saml mvpd response is not valid",
-            "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
-            "action": "none"        
-        } 
-    ]
-}   
 ```
 
 >[!ENDTABS]

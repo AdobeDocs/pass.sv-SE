@@ -1,13 +1,13 @@
 ---
 title: Tillfälliga åtkomstflöden
 description: REST API V2 - Tillfälliga åtkomstflöden
-source-git-commit: 150e064d0287eaac446c694fb5a2633f7ea4b797
+exl-id: 387fcdb0-3a42-4893-ba83-e809426f92be
+source-git-commit: ca8eaff83411daab5f136f01394e1d425e66f393
 workflow-type: tm+mt
-source-wordcount: '3210'
+source-wordcount: '3215'
 ht-degree: 0%
 
 ---
-
 
 # Tillfälliga åtkomstflöden {#temporary-access-flows}
 
@@ -369,7 +369,7 @@ Innan du hämtar auktoriseringsbeslut när grundläggande eller kampanjtillhöri
 > <br/>
 > 
 > * En giltig konfigurationsinställning för grundläggande eller kampanjtillagda TempPass måste tillämpas på integreringen mellan angiven `serviceProvider` och `mvpd`.
-> * TTL (Time-To-Live) som konfigurerats för det grundläggande eller kampanjmässiga TempPass har gått ut.
+> * TTL (Time-To-Live) som konfigurerats för grundläggande eller kampanjerbjudande Den tillfälliga åtkomsttidsgränsen har överskridits.
 
 ### Arbetsflöde {#workflow-retrieve-authorization-decisions-when-basic-or-promotional-temppass-expires}
 

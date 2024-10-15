@@ -1,7 +1,8 @@
 ---
 title: Header - Authorization
 description: REST API V2 - Header - Authorization
-source-git-commit: 3cff9d143eedb35155aa06c72d53b951b2d08d39
+exl-id: 86917d7e-ffd9-4d34-8f9c-5a50083f85e6
+source-git-commit: ca8eaff83411daab5f136f01394e1d425e66f393
 workflow-type: tm+mt
 source-wordcount: '118'
 ht-degree: 0%
@@ -25,7 +26,7 @@ Mer information om hur du får åtkomst till Adobe Pass-skyddade API:er finns i 
 
 <table>
    <tr>
-      <td style="background-color: #DEEBFF;" colspan="2"><b>Behörighet</b>: innehavare &lt;åtkomsttoken&gt;</td>
+      <td style="background-color: #DEEBFF;" colspan="2"><b>Auktorisering</b>: Bearer &lt;åtkomsttoken&gt;</td>
    </tr>
    <tr>
       <td>Huvudtyp</td>
@@ -46,7 +47,7 @@ Mer information om hur du får åtkomst till Adobe Pass-skyddade API:er finns i 
 ## Exempel {#examples}
 
 ```JSON
-Authorization: bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI0NmY0MGZiMy01NmJkLTQyYTktOTExYS02YmZmNmEyZmY0
+Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI0NmY0MGZiMy01NmJkLTQyYTktOTExYS02YmZmNmEyZmY0
                       MDciLCJuYmYiOjE3MjM1NjE4ODUsImlzcyI6ImF1dGguYWRvYmUuY29tIiwic2NvcGVzIjoiYXBpO
                       mNsaWVudDp2MiIsImV4cCI6MTcyMzU4MzQ4NSwiaWF0IjoxNzIzNTYxODg1fQ.aZUZqwN2fCqNXgX
                       SdKFG9_HcqHjha66G6HmsfTJYcZc12iuLxMu7TT7MbhWVz3kW1jRqgJv8PHhrFSBL5_dgJ1PRSuDg
