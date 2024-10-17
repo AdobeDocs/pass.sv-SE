@@ -2,9 +2,9 @@
 title: API för tillståndsövervaknings-API
 description: API för tillståndsövervaknings-API
 exl-id: a9572372-14a6-4caa-9ab6-4a6baababaa1
-source-git-commit: 3cff9d143eedb35155aa06c72d53b951b2d08d39
+source-git-commit: 8fa1e63619f4e22794d701a218c77649f73d9f60
 workflow-type: tm+mt
-source-wordcount: '2070'
+source-wordcount: '2027'
 ht-degree: 0%
 
 ---
@@ -36,13 +36,13 @@ ESM-API:t ger en hierarkisk vy över de underliggande OLAP-kubarna. Varje resurs
 
 REST API tillhandahåller tillgängliga data inom ett tidsintervall som anges i begäran (som faller tillbaka till standardvärdena om inget anges), enligt dimensionssökvägen, tillhandahållna filter och valda mätvärden. Tidsintervallet används inte för rapporter som inte innehåller tidsdimensioner (år, månad, dag, timme, minut, sekund).
 
-Slutpunkts-URL-rotsökvägen returnerar sammanställda mått inom en enda post, tillsammans med länkarna till de tillgängliga detaljalternativen. API-versionen mappas som det avslutande segmentet i URI-sökvägen för slutpunkten. `https://mgmt.auth.adobe.com/*v2*` betyder till exempel att klienterna kommer åt WOLAP version 2.
+Slutpunkts-URL-rotsökvägen returnerar sammanställda mått inom en enda post, tillsammans med länkarna till de tillgängliga detaljalternativen. API-versionen mappas som det avslutande segmentet i URI-sökvägen för slutpunkten. `https://mgmt.auth.adobe.com/esm/v3` betyder till exempel att klienterna kommer åt WOLAP version 3.
 
 De tillgängliga URL-sökvägarna kan identifieras via länkar i svaret. Giltiga URL-sökvägar hålls för att mappa en sökväg i det underliggande fördjupningsträdet som innehåller (pre-) aggregerade mått. En sökväg i formatet `/dimension1/dimension2/dimension3` reflekterar en föraggning av dessa tre dimensioner (motsvarigheten till en SQL `clause GROUP` BY `dimension1`, `dimension2`, `dimension3`). Om det inte finns någon sådan föraggning och systemet inte kan beräkna den direkt, returnerar API:t ett 404-svar som inte hittades.
 
 ## Detaljträd {#drill-down-tree}
 
-Följande detaljerade träd visar de dimensioner (resurser) som finns i ESM 2.0 för [Programmerare](#progr-dimensions) och [MVPD](#mvpd-dimensions).
+Följande detaljerade träd visar de dimensioner (resurser) som finns i ESM 3.0 för [Programmerare](#progr-dimensions) och [MVPD](#mvpd-dimensions).
 
 
 ### Dimensioner för programmerare {#progr-dimensions}
@@ -63,13 +63,13 @@ Följande detaljerade träd visar de dimensioner (resurser) som finns i ESM 2.0 
 
 ![](assets/esm-mvpd-dimensions.png)
 
-En GET till API-slutpunkten `https://mgmt.auth.adobe.com/v2` returnerar en representation som innehåller:
+En GET till API-slutpunkten `https://mgmt.auth.adobe.com/esm/v3` returnerar en representation som innehåller:
 
 * Länkar till tillgängliga rotsökvägar:
 
-   * `<link rel="drill-down" href="/v2/dimensionA"/>`
+   * `<link rel="drill-down" href="/v3/dimensionA"/>`
 
-   * `<link rel="drill-down" href="/v2/dimensionB"/>`
+   * `<link rel="drill-down" href="/v3/dimensionB"/>`
 
 * En sammanfattning (aggregerade värden) för alla värden (i standardvärdet)
 intervall, eftersom inga frågesträngsparametrar anges, se nedan).
@@ -119,8 +119,8 @@ Följande frågesträngsparametrar har reserverade betydelser för API (och kan 
 ### ESM API Reserved Query String Parameters
 
 | Parameter | Valfritt | Beskrivning | Standardvärde | Exempel |
-| --- | ---- | --- | ---- | --- |
-| access_token | Ja | Om IMS OAuth-skyddet är aktiverat kan IMS-token skickas antingen som en standardtoken för auktorisering Bearer eller som en frågesträngsparameter. | Ingen | access_token=XXXXXX |
+| --- | ---- |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| ---- | --- |
+| access_token | Ja | DCR-token kan skickas som en standard Authorization Bearer-token. | Ingen | access_token=XXXXXX |
 | dimension-namn | Ja | Dimensionsnamn - antingen i den aktuella URL-sökvägen eller i en giltig undersökväg - värdet behandlas som ett likhetsfilter. Om inget värde anges kommer den angivna dimensionen att inkluderas i utdata även om den inte finns med eller intill den aktuella banan | Ingen | someDimension=someValue&amp;someOtherDimension |
 | end | Ja | Sluttid för rapporten i millis | Serverns aktuella tid | end=2012-07-30 |
 | format | Ja | Används för innehållsförhandling (med samma effekt men lägre prioritet än sökvägen &quot;extension&quot; - se nedan). | Ingen: innehållsförhandlingen provar andra strategier | format=json |
@@ -128,8 +128,7 @@ Följande frågesträngsparametrar har reserverade betydelser för API (och kan 
 | mått | Ja | Kommaavgränsad lista med metriska namn som ska returneras. Den ska användas både för att filtrera en delmängd av tillgängliga mätvärden (för att minska nyttolaststorleken) och för att tvinga API att returnera en projektion som innehåller de begärda mätvärdena (i stället för standardprojektionen). | Alla mätvärden som är tillgängliga för den aktuella projektionen returneras om den här parametern inte anges. | metrics=m1,m2 |
 | start | Ja | Starttid för rapporten som ISO8601. Servern fyller i den återstående delen om bara ett prefix anges: Exempel: start=2012 ger start=2012-01-01:00:00:00 | Rapporteras av servern i självlänken. Servern försöker att tillhandahålla rimliga standardinställningar baserat på den valda tidsperioden | start=2012-07-15 |
 
-Den enda tillgängliga HTTP-metoden är GET. Stöd för OPTIONS /
-Metoder för HEAD kan tillhandahållas i framtida versioner.
+Den enda tillgängliga HTTP-metoden är GET.
 
 ## ESM API-statuskoder {#esm-api-status-codes}
 
@@ -156,7 +155,7 @@ Data finns i följande format:
 
 Följande strategier för innehållsförhandling kan användas av klienter (prioriteten ges av positionen i listan - första saker först):
 
-1. Ett &quot;filtillägg&quot; har lagts till i det sista segmentet i URL-sökvägen: t.ex. `/esm/v2/media-company/year/month/day.xml`. Om URL:en innehåller en frågesträng måste tillägget komma före frågetecknet: `/esm/v2/media-company/year/month/day.csv?mvpd= SomeMVPD`
+1. Ett &quot;filtillägg&quot; har lagts till i det sista segmentet i URL-sökvägen: t.ex. `/esm/v3/media-company/year/month/day.xml`. Om URL:en innehåller en frågesträng måste tillägget komma före frågetecknet: `/esm/v3/media-company/year/month/day.csv?mvpd= SomeMVPD`
 1. En formatfrågesträngsparameter: t.ex. `/esm/report?format=json`
 1. Standardhuvudet för HTTP-godkännande: t.ex. `Accept: application/xml`
 
@@ -205,13 +204,13 @@ Resurslänken (self-rel i JSON och href-resursattributet i XML) innehåller den 
 
 Exempel (förutsatt att vi har ett enskilt mått med namnet `clients` och att det finns en föraggning för `year/month/day/...`):
 
-* https://mgmt.auth.adobe.com/esm/v2/year/month.xml
+* https://mgmt.auth.adobe.com/esm/v3/year/month.xml
 
 ```XML
-   <resource href="/esm/v2/year/month?start=2012-07-20T00:00:00&end=2012-08-20T14:35:21">
+   <resource href="/esm/v3/year/month?start=2012-07-20T00:00:00&end=2012-08-20T14:35:21">
    <links>
-   <link rel="roll-up" href="/esm/v2/year"/>
-   <link rel="drill-down" href="/esm/v2/year/month/day"/>
+   <link rel="roll-up" href="/esm/v3/year"/>
+   <link rel="drill-down" href="/esm/v3/year/month/day"/>
    </links>
    <report>
    <record month="6" year="2012" clients="205"/>
@@ -220,19 +219,19 @@ Exempel (förutsatt att vi har ett enskilt mått med namnet `clients` och att de
    </resource>
 ```
 
-* https://mgmt.auth.adobe.com/esm/v2/year/month.json
+* https://mgmt.auth.adobe.com/esm/v3/year/month.json
 
   ```JSON
       {
         "_links" : {
           "self" : {
-            "href" : "/esm/v2/year/month?start=2012-07-20T00:00:00&end=2012-08-20T14:35:21"
+            "href" : "/esm/v3/year/month?start=2012-07-20T00:00:00&end=2012-08-20T14:35:21"
           },
           "roll-up" : {
-            "href" : "/esm/v2/year"
+            "href" : "/esm/v3/year"
           },
           "drill-down" : {
-            "href" : "/esm/v2/year/month/day"
+            "href" : "/esm/v3/year/month/day"
           }
         },
         "report" : [ {
@@ -260,7 +259,7 @@ CSV-filen innehåller en rubrikrad och sedan rapportdata som efterföljande rade
 Ordningen på fälten i rubrikraden återspeglar sorteringsordningen för tabelldata.
 
 
-Exempel: https://mgmt.auth.adobe.com/v2/year/month.csv skapar en fil med namnet `report__2012-07-20_2012-08-20_1000.csv` med följande innehåll:
+Exempel: https://mgmt.auth.adobe.com/esm/v3/year/month.csv skapar en fil med namnet `report__2012-07-20_2012-08-20_1000.csv` med följande innehåll:
 
 
 | År | Månad | Klienter |
@@ -273,8 +272,6 @@ Exempel: https://mgmt.auth.adobe.com/v2/year/month.csv skapar en fil med namnet 
 De lyckade HTTP-svaren innehåller ett `Last-Modified`-huvud som anger när rapporten i brödtexten senast uppdaterades. Avsaknaden av en senast ändrad rubrik anger att rapportdata beräknas i realtid.
 
 Oftast uppdateras grova grå data mindre ofta än finkorniga data (t.ex. minutvärden eller timvärden kan vara mer aktuella än de dagliga värdena, särskilt för mätvärden som inte kan beräknas utifrån mindre granularitet, t.ex. unika tal).
-
-Framtida versioner av ESM kan göra det möjligt för klienter att utföra villkorliga GET-filer genom att ange standardrubriken&quot;If-Modified-Since&quot;.
 
 ## GZIP-komprimering {#gzip-compression}
 
