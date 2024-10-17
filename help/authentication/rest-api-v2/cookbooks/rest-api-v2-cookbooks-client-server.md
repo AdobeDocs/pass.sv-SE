@@ -1,9 +1,9 @@
 ---
 title: REST API V2 Cookbook (klient-till-server)
 description: REST API V2 Cookbook (klient-till-server)
-source-git-commit: 709835276710ec4b92abec3e39aaecae99872e77
+source-git-commit: 0d6693d51887c9e794401e984f3a4075be091ee5
 workflow-type: tm+mt
-source-wordcount: '689'
+source-wordcount: '695'
 ht-degree: 0%
 
 ---
@@ -21,7 +21,7 @@ ht-degree: 0%
 
 ## Steg för att implementera REST API V2 i klientprogram {#steps-to-implement-the-rest-api-v2-in-client-side-applications}
 
-För att implementera Adobe Pass REST API V2 måste du följa stegen nedan grupperade i faser.
+För att implementera Adobe Pass REST API V2 måste du följa stegen nedan, grupperade i faser.
 
 ## A. Registreringsfas {#registration-phase}
 
@@ -40,12 +40,12 @@ Strömmande programkontroller för befintliga autentiserade profiler: <b>/api/v2
 
 * Om ingen profil hittas och Streaming-programmet implementerar ett TempPass-flöde
    * Följ dokumentationen om hur du implementerar [Tillfälliga åtkomstflöden](../flows/temporary-access-flows/rest-api-v2-access-temporary-flows.md)
-* Om ingen profil hittas implementerar direktuppspelningsprogrammet ett autentiseringsflöde
+* Om ingen profil hittas och direktuppspelningsprogrammet implementerar ett autentiseringsflöde
    * Direktuppspelningsprogrammet hämtar listan över MVPD:er som är tillgängliga för serviceProvider: <b>/api/v2/{serviceProvider}/configuration</b><br>
 ([Hämta lista över tillgängliga MVPD:er ](../apis/configuration-apis/rest-api-v2-configuration-apis-retrieve-configuration-for-specific-service-provider.md))
    * Strömningsprogram kan implementera filtrering i listan över MVPD-program och endast visa MVPD-program som är avsedda att dölja andra (TempPass, test MVPDs, MVPDs under utveckling osv.)
-   * Visningsväljaren för direktuppspelande program, användaren väljer MVPD
-   * Direktuppspelningsprogram skapar en session: <b>/api/v2/{serviceProvider}/sessions </b><br>
+   * Direktuppspelningsprogrammet visar väljaren, användaren väljer MVPD
+   * Direktuppspelningsprogrammet skapar en session: <b>/api/v2/{serviceProvider}/sessions </b><br>
 ([Skapa autentiseringssession ](../apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md))<br>
       * en CODE och URL som ska användas för autentisering returneras
       * Om en profil hittas kan direktuppspelningsprogrammet fortsätta till <a href="#preauthorization-phase">C. Förauktoriseringsfas </a> eller <a href="#authorization-phase">D. Auktoriseringsfas </a>
@@ -54,8 +54,8 @@ Strömmande programkontroller för befintliga autentiserade profiler: <b>/api/v2
 
 Använda en webbläsare eller ett webbaserat program för en andra skärm:
 
-* Alternativ 1. Direktuppspelningsprogrammet kan öppna en webbläsare eller en webbvy, läsa in URL:en för autentisering och användaren går till inloggningssidan för MVPD där inloggningsuppgifter måste skickas
-   * användarens inloggning/lösenord, den slutliga omdirigeringen visar en sida som slutfördes
+* Alternativ 1. Direktuppspelningsprogrammet kan öppna en webbläsare eller webbvy, läsa in den URL som ska autentiseras och användaren loggar in på inloggningssidan för MVPD där inloggningsuppgifter måste skickas
+   * användaren anger inloggning/lösenord, den slutliga omdirigeringen visar en sida om slutförd åtgärd
 * Alternativ 2. Direktuppspelningsprogrammet kan inte öppna en webbläsare utan bara visa CODE. <b>Ett separat webbprogram måste utvecklas</b> för att användaren ska kunna ange CODE, skapa och öppna URL: <b>/api/v2/authenticate/{serviceProvider}/{CODE}</b>
    * användarens inloggning/lösenord, den slutliga omdirigeringen visar en sida som slutfördes
 
