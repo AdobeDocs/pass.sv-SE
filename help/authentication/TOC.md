@@ -4,7 +4,7 @@ audience: end-user
 feature: Authentication
 user-guide-title: Adobe Pass-autentisering
 user-guide-description: Adobe Pass-autentisering är en berättigandelösning för TV Everywhere, som tillhandahåller ett modulärt ramverk för att avgöra om någon som begär åtkomst till en resurs är berättigad till den.
-source-git-commit: 8c5203aa4a897a5e119a9886afc64a1b1556ee4f
+source-git-commit: 6c328eb2c635a1d76fc7dae8148a4de291c126e0
 workflow-type: tm+mt
 source-wordcount: '1174'
 ht-degree: 2%
@@ -113,8 +113,8 @@ ht-degree: 2%
          + [API-referens för JavaScript SDK](javascript-sdk-api-reference.md)
          + Riktlinjer {#js-sdk-guidelines}
             + [Inloggning och utloggning utan uppdatering](refreshless-login-and-logout.md)
-         + JavaScript API {#js-api}
-            + [Förhandsauktorisera](js-preauthorize.md)
+         + JavaScript API {#javascript-sdk-api}
+            + [Förhandsauktorisera](preauthorize-api-javascript-sdk.md)
       + iOS/tvOS SDK {#ios-sdk}
          + [iOS/tvOS SDK - översikt](iostvos-sdk-overview.md)
          + [iOS/tvOS SDK Cookbook](iostvos-sdk-cookbook.md)
@@ -124,8 +124,8 @@ ht-degree: 2%
             + Migreringsriktlinjer {#migration-guidelines}
                + [Migreringshandbok för iOS/tvOS v3.x](iostvos-v3x-migration-guide.md)
             + [iOS/tvOS Storage Integrity Checks](iostvos-sdk-storage-integrity-checks.md)
-         + iOS/tvOS API {#ios-tvos-api}
-            + [Förhandsauktorisera](preauthorize.md)
+         + iOS/tvOS API {#ios-tvos-sdk-api}
+            + [Förhandsauktorisera](preauthorize-api-ios-tvos-sdk.md)
       + Android SDK {#androidsdk}
          + [Android SDK - översikt](android-sdk-overview.md)
          + [Android SDK Cookbook](android-sdk-cookbook.md)
@@ -133,8 +133,8 @@ ht-degree: 2%
          + Riktlinjer {#androidguidelines}
             + [Registrering av Android](android-application-registration.md)
             + [Android SDK med dynamisk klientregistrering](android-sdk-with-dynamic-client-registration.md)
-         + Android API{#androidapi}
-            + [Förhandsauktorisera](preauthorize-android.md)
+         + Android API{#android-sdk-api}
+            + [Förhandsauktorisera](preauthorize-api-android-sdk.md)
       + Amazon FireOS SDK {#fireossdk}
          + [Amazon FireOS SSO - startguide för programmerare](amazon-firetv-sso-programmer-kickoff-guide.md)
          + [Amazon FireOS SSO med Clientless API Cookbook](amazon-fireos-sso-using-clientless-api-cookbook.md)
