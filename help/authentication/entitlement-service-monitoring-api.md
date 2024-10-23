@@ -2,7 +2,7 @@
 title: API för tillståndsövervaknings-API
 description: API för tillståndsövervaknings-API
 exl-id: a9572372-14a6-4caa-9ab6-4a6baababaa1
-source-git-commit: 8fa1e63619f4e22794d701a218c77649f73d9f60
+source-git-commit: 59ece09a8a72e67ea0944059064dba65e3137bd7
 workflow-type: tm+mt
 source-wordcount: '2027'
 ht-degree: 0%
@@ -122,11 +122,11 @@ Följande frågesträngsparametrar har reserverade betydelser för API (och kan 
 | --- | ---- |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| ---- | --- |
 | access_token | Ja | DCR-token kan skickas som en standard Authorization Bearer-token. | Ingen | access_token=XXXXXX |
 | dimension-namn | Ja | Dimensionsnamn - antingen i den aktuella URL-sökvägen eller i en giltig undersökväg - värdet behandlas som ett likhetsfilter. Om inget värde anges kommer den angivna dimensionen att inkluderas i utdata även om den inte finns med eller intill den aktuella banan | Ingen | someDimension=someValue&amp;someOtherDimension |
-| end | Ja | Sluttid för rapporten i millis | Serverns aktuella tid | end=2012-07-30 |
+| end | Ja | Sluttid för rapporten i millis | Serverns aktuella tid | end=2024-07-30 |
 | format | Ja | Används för innehållsförhandling (med samma effekt men lägre prioritet än sökvägen &quot;extension&quot; - se nedan). | Ingen: innehållsförhandlingen provar andra strategier | format=json |
 | limit | Ja | Maximalt antal rader som ska returneras | Standardvärde som rapporteras av servern i självlänken om ingen gräns anges i begäran | limit=1500 |
 | mått | Ja | Kommaavgränsad lista med metriska namn som ska returneras. Den ska användas både för att filtrera en delmängd av tillgängliga mätvärden (för att minska nyttolaststorleken) och för att tvinga API att returnera en projektion som innehåller de begärda mätvärdena (i stället för standardprojektionen). | Alla mätvärden som är tillgängliga för den aktuella projektionen returneras om den här parametern inte anges. | metrics=m1,m2 |
-| start | Ja | Starttid för rapporten som ISO8601. Servern fyller i den återstående delen om bara ett prefix anges: Exempel: start=2012 ger start=2012-01-01:00:00:00 | Rapporteras av servern i självlänken. Servern försöker att tillhandahålla rimliga standardinställningar baserat på den valda tidsperioden | start=2012-07-15 |
+| start | Ja | Starttid för rapporten som ISO8601. Servern fyller i den återstående delen om bara ett prefix anges: Exempel: start=2024 ger start=2024-01-01:00:00:00 | Rapporteras av servern i självlänken. Servern försöker att tillhandahålla rimliga standardinställningar baserat på den valda tidsperioden | start=2024-07-15 |
 
 Den enda tillgängliga HTTP-metoden är GET.
 
@@ -207,14 +207,14 @@ Exempel (förutsatt att vi har ett enskilt mått med namnet `clients` och att de
 * https://mgmt.auth.adobe.com/esm/v3/year/month.xml
 
 ```XML
-   <resource href="/esm/v3/year/month?start=2012-07-20T00:00:00&end=2012-08-20T14:35:21">
+   <resource href="/esm/v3/year/month?start=2024-07-20T00:00:00&end=2024-08-20T14:35:21">
    <links>
    <link rel="roll-up" href="/esm/v3/year"/>
    <link rel="drill-down" href="/esm/v3/year/month/day"/>
    </links>
    <report>
-   <record month="6" year="2012" clients="205"/>
-   <record month="7" year="2012" clients="466"/>
+   <record month="6" year="2024" clients="205"/>
+   <record month="7" year="2024" clients="466"/>
    </report>
    </resource>
 ```
@@ -225,7 +225,7 @@ Exempel (förutsatt att vi har ett enskilt mått med namnet `clients` och att de
       {
         "_links" : {
           "self" : {
-            "href" : "/esm/v3/year/month?start=2012-07-20T00:00:00&end=2012-08-20T14:35:21"
+            "href" : "/esm/v3/year/month?start=2024-07-20T00:00:00&end=2024-08-20T14:35:21"
           },
           "roll-up" : {
             "href" : "/esm/v3/year"
@@ -236,11 +236,11 @@ Exempel (förutsatt att vi har ett enskilt mått med namnet `clients` och att de
         },
         "report" : [ {
           "month" : "6",
-          "year" : "2012",
+          "year" : "2024",
           "clients" : "205"
         }, {
           "month" : "7",
-          "year" : "2012",
+          "year" : "2024",
           "clients" : "466"
         } ]
       }
@@ -259,13 +259,13 @@ CSV-filen innehåller en rubrikrad och sedan rapportdata som efterföljande rade
 Ordningen på fälten i rubrikraden återspeglar sorteringsordningen för tabelldata.
 
 
-Exempel: https://mgmt.auth.adobe.com/esm/v3/year/month.csv skapar en fil med namnet `report__2012-07-20_2012-08-20_1000.csv` med följande innehåll:
+Exempel: https://mgmt.auth.adobe.com/esm/v3/year/month.csv skapar en fil med namnet `report__2024-07-20_2024-08-20_1000.csv` med följande innehåll:
 
 
 | År | Månad | Klienter |
 | ---- | :---: | ------- |
-| 2012 | 6 | 580 |
-| 2012 | 7 | 231 |
+| 2024 | 6 | 580 |
+| 2024 | 7 | 231 |
 
 ## Datahastighet {#data-freshness}
 
