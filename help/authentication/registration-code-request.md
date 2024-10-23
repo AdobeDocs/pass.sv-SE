@@ -2,9 +2,9 @@
 title: Registreringssida
 description: Registreringssida
 exl-id: 581b8e2e-7420-4511-88b9-f2cd43a41e10
-source-git-commit: ea064031c3a1fee3298d85cf442c40bd4bb56281
+source-git-commit: 3c44f1dfbbb5b9ec31f13e267dc691e14dd2ddfa
 workflow-type: tm+mt
-source-wordcount: '498'
+source-wordcount: '493'
 ht-degree: 0%
 
 ---
@@ -31,36 +31,37 @@ ht-degree: 0%
 * Produktion - [api.auth.adobe.com](http://api.auth.adobe.com/)
 * Mellanlagring - [api.auth-staging.adobe.com](http://api.auth-staging.adobe.com/)
 
-</br>
+<br>
 
 ## Beskrivning {#create-reg-code-svc}
 
 Returnerar slumpmässigt genererad registreringskod och inloggningssidans URI.
 
-| Slutpunkt | Anropat </br>av | Indata   </br>Parameter | HTTP </br>Metod | Svar | HTTP </br>Response |
+| Slutpunkt | Anropat <br>av | Indata   <br>Parameter | HTTP <br>Metod | Svar | HTTP <br>Response |
 | --- | --- | --- | --- | --- | --- |
-| &lt;REGGIE_FQDN>/reggie/v1/{requestor}/regcode</br>Till exempel:</br>REGGIE_FQDN/reggie/v1/sampleRequestorId/regcode | Direktuppspelande app</br>eller</br>Programmeringtjänst | 1. beställare </br>    (Bankomponent)</br>2.  deviceId (Hashed)   </br>    (Obligatoriskt)</br>3.  device_info/X-Device-Info (obligatoriskt)</br>4.  mvpd (valfritt)</br>5.  ttl (valfritt)</br>6.  _deviceType_</br> 7.  _deviceUser_ (utgått)</br>8.  _appId_ (inaktuellt) | POST | XML eller JSON som innehåller en registreringskod och information eller felinformation om felet misslyckas. Se scheman och exempel nedan. | 201 |
+| &lt;REGGIE_FQDN>/reggie/v1/{requestor}/regcode<br>Till exempel:<br>REGGIE_FQDN/reggie/v1/sampleRequestorId/regcode | Direktuppspelande app<br>eller<br>Programmeringtjänst | 1. beställare <br>    (Bankomponent)<br>2.  deviceId (Hashed)   <br>    (Obligatoriskt)<br>3.  device_info/X-Device-Info (obligatoriskt)<br>4.  mvpd (valfritt)<br>5.  ttl (valfritt)<br> | POST | XML eller JSON som innehåller en registreringskod och information eller felinformation om felet misslyckas. Se exemplen nedan. | 201 |
 
 {style="table-layout:auto"}
 
-| Indataparameter | Beskrivning |
-| --- | --- |
-| begärande | Programmerarens requestId som den här åtgärden är giltig för. |
-| deviceId | Byte för enhets-ID. |
-| device_info/</br>X-Device-Info | Information om direktuppspelningsenhet.</br>**Obs!**: Detta kan skickas som device_info som URL-parameter, men på grund av parameterns potentiella storlek och begränsningar i längden på en GET-URL, bör det skickas som X-Device-Info i http-huvudet. </br>Mer information finns i [Skicka information om enheter och anslutningar](/help/authentication/passing-client-information-device-connection-and-application.md). |
-| mvpd | Det MVPD-ID som den här åtgärden gäller för. |
-| ttl | Hur länge den här regkoden ska vara i sekunder.</br>**Obs!**: Det högsta tillåtna värdet för ttl är 36000 sekunder (10 timmar). Högre värden resulterar i ett 400 HTTP-svar (felaktig begäran). Om `ttl` lämnas tomt anges standardvärdet 30 minuter av Adobe Pass Authentication. |
-| _deviceType_ | Enhetstypen (t.ex. Roku, PC).</br>Om den här parametern är korrekt har ESM värden som är [nedbrutna per enhetstyp](/help/authentication/entitlement-service-monitoring-overview.md#clientless_device_type) när klientlösa används, så att olika typer av analyser kan utföras, till exempel Roku, AppleTV och Xbox.</br>Se, [Fördelar med att använda parametern för klientlös enhetstyp i pass-mått ](/help/authentication/benefits-of-using-the-clientless-devicetype-parameter-in-pass-metrics.md)</br>**Obs!** Parametern device_info kommer att ersättas. |
-| _deviceUser_ | Enhetens användaridentifierare. |
-| _appId_ | Program-ID/namn. </br>**Obs!**: device_info ersätter den här parametern. |
+| Indataparameter | Typ | Beskrivning |
+| --- |------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Behörighet | Header <br> Värde: Bearer &lt;access_token> | DCR-åtkomsttoken |
+| Acceptera | Header <br> Värde: application/json | ange vilken innehållstyp klienten ska förstå |
+| begärande | Frågeparameter | Programmerarens requestId som den här åtgärden är giltig för. |
+| deviceId | Frågeparameter | Byte för enhets-ID. |
+| device_info/<br>X-Device-Info | device_info: Body <br> X-Device-Info: Header | Information om direktuppspelningsenhet.<br>**Obs!**: Detta kan skickas som device_info som URL-parameter, men på grund av parameterns potentiella storlek och begränsningar i längden på en GET-URL, bör det skickas som X-Device-Info i http-huvudet. <br>Mer information finns i [Skicka information om enheter och anslutningar](/help/authentication/passing-client-information-device-connection-and-application.md). |
+| mvpd | Frågeparameter | Det MVPD-ID som den här åtgärden gäller för. |
+| ttl | Frågeparameter | Hur länge den här regkoden ska vara i sekunder.<br>**Obs!**: Det högsta tillåtna värdet för ttl är 36000 sekunder (10 timmar). Högre värden resulterar i ett 400 HTTP-svar (felaktig begäran). Om `ttl` lämnas tomt anges standardvärdet 30 minuter av Adobe Pass Authentication. |
+| _deviceType_ | Frågeparameter | Föråldrat, ska inte användas. |
+| _deviceUser_ | Frågeparameter | Föråldrat, ska inte användas. |
+| _appId_ | Frågeparameter | Föråldrat, ska inte användas. |
 
 {style="table-layout:auto"}
-
 
 >[!CAUTION]
 >
 >**IP-adress för direktuppspelningsenhet**
-></br>
+><br>
 >För klient-till-server-implementeringar skickas IP-adressen för direktuppspelningsenheten implicit med det här anropet.  För Server-till-Server-implementeringar, där anropet **regcode** görs till Programmer-tjänsten och inte till direktuppspelningsenheten, krävs följande rubrik för att skicka IP-adressen för direktuppspelningsenheten:
 >
 >
@@ -69,136 +70,72 @@ Returnerar slumpmässigt genererad registreringskod och inloggningssidans URI.
 >```
 >
 >där `<streaming\_device\_ip>` är den offentliga IP-adressen för direktuppspelningsenheten.
-></br></br>
->Exempel:</br>
+><br><br>
+>Exempel:<br>
 >
 >```
->POST /reggie/v1/{req_id}/regcode HTTP/1.1</br>X-Forwarded-For:203.45.101.20
+>POST /reggie/v1/{req_id}/regcode HTTP/1.1<br>X-Forwarded-For:203.45.101.20
 >```
 >
-</br>
+<br>
 
-### XML-schema för svar {#xml-schema}
+### SVAR-JSON
 
 
-#### Registreringskod XSD {#registration-code-xsd}
+#### JSON-PROV för registreringskod
 
-```XML
-    <?xml version="1.0" encoding="UTF-8"?>
-    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="model.mvc.reggie.pass.adobe.com"
-            targetNamespace="model.mvc.reggie.pass.adobe.com"
-            attributeFormDefault="unqualified"
-            elementFormDefault="unqualified">
-        <xs:element name="regcode">
-            <xs:complexType>
-                <xs:all>
-                    <xs:element name="id" type="xs:string" />
-                    <xs:element name="code" type="xs:string" />
-                    <xs:element name="requestor" type="xs:string" minOccurs="1" maxOccurs="1"/>
-                    <xs:element name="mvpd" type="xs:string" minOccurs="1" maxOccurs="1"/
-                    <xs:element name="generated" type="xs:long" />
-                    <xs:element name="expires" type="xs:long" />
-                    <xs:element name="info" type="infoType" maxOccurs="1"/>
-                </xs:all>
-            </xs:complexType>
-        </xs:element>
-        <xs:complexType name="infoType">
-            <xs:all>
-                <xs:element name="deviceId" type="xs:base64Binary" minOccurs="1" maxOccurs="1"/>
-                <xs:element name="deviceType" type="xs:string" minOccurs="0" maxOccurs="1"/>
-                <xs:element name="deviceUser" type="xs:string" minOccurs="0" maxOccurs="1"/>
-                <xs:element name="appId" type="xs:string" minOccurs="0" maxOccurs="1"/>
-                <xs:element name="appVersion" type="xs:string" minOccurs="0" maxOccurs="1"/>
-                <xs:element name="registrationURL" type="xs:anyURI" minOccurs="0" maxOccurs="1"/>
-            </xs:all>
-        </xs:complexType>
-    </xs:schema>
+```JSON
+{
+  "id": "ef5a79e8-7c8a-41d6-a45a-e378c6c7c8b5",
+  "code": "IYQD5JQ",
+  "requestor": "sampleRequestorId",
+  "mvpd": "sampleMvpdId",
+  "generated": 1704963921144,
+  "expires": 1704965721144,
+  "info": {
+    "deviceId": "c28tZGV2aWQtMDAz",
+    "deviceInfo": "eyJ0eXBlIjoiU2V0VG9wQm94IiwibW9kZWwiOiJBRlRNTSIsInZlcnNpb24iOnsibWFqb3IiOjAsIm1pbm9yIjowLCJwYXRjaCI6MCwicHJvZmlsZSI6IiJ9LCJoYXJkd2FyZSI6eyJuYW1lIjoiQUZUTU0iLCJ2ZW5kb3IiOiJVbmtub3duIiwidmVyc2lvbiI6eyJtYWpvciI6MCwibWlub3IiOjAsInBhdGNoIjowLCJwcm9maWxlIjoiIn0sIm1hbnVmYWN0dXJlciI6IlJva3UifSwib3BlcmF0aW5nU3lzdGVtIjp7Im5hbWUiOiJBbmRyb2lkIiwiZmFtaWx5IjoiQW5kcm9pZCIsInZlbmRvciI6IkFtYXpvbiIsInZlcnNpb24iOnsibWFqb3IiOjcsIm1pbm9yIjoxLCJwYXRjaCI6MiwicHJvZmlsZSI6IiJ9fSwiYnJvd3NlciI6eyJuYW1lIjoiQ2hyb21lIiwidmVuZG9yIjoiR29vZ2xlIiwidmVyc2lvbiI6eyJtYWpvciI6MTEyLCJtaW5vciI6MCwicGF0Y2giOjU2MTUsInByb2ZpbGUiOiIifSwidXNlckFnZW50IjoiTW96aWxsYS81LjAgKExpbnV4OyBBbmRyb2lkIDcuMS4yOyBBRlRNTSBCdWlsZC9OUzYyOTc7IHd2KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBWZXJzaW9uLzQuMCBDaHJvbWUvMTEyLjAuNTYxNS4xOTcgTW9iaWxlIFNhZmFyaS81MzcuMzYgQWRvYmVQYXNzTmF0aXZlRmlyZVRWLzMuMC44Iiwib3JpZ2luYWxVc2VyQWdlbnQiOiJNb3ppbGxhLzUuMCAoTGludXg7IEFuZHJvaWQgNy4xLjI7IEFGVE1NIEJ1aWxkL05TNjI5Nzsgd3YpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIFZlcnNpb24vNC4wIENocm9tZS8xMTIuMC41NjE1LjE5NyBNb2JpbGUgU2FmYXJpLzUzNy4zNiBBZG9iZVBhc3NOYXRpdmVGaXJlVFYvMy4wLjgifSwiZGlzcGxheSI6eyJ3aWR0aCI6MCwiaGVpZ2h0IjowLCJwcGkiOjAsIm5hbWUiOiJESVNQTEFZIiwidmVuZG9yIjpudWxsLCJ2ZXJzaW9uIjpudWxsLCJkaWFnb25hbFNpemUiOm51bGx9LCJhcHBsaWNhdGlvbklkIjpudWxsLCJjb25uZWN0aW9uIjp7ImlwQWRkcmVzcyI6IjE5My4xMDUuMTQwLjEzMSIsInBvcnQiOiI5OTM0Iiwic2VjdXJlIjpmYWxzZSwidHlwZSI6bnVsbH19",
+    "userAgent": "Mozilla/5.0 (Linux; Android 7.1.2; AFTMM Build/NS6297; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/112.0.5615.197 Mobile Safari/537.36 AdobePassNativeFireTV/3.0.8",
+    "originalUserAgent": "Mozilla/5.0 (Linux; Android 7.1.2; AFTMM Build/NS6297; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/112.0.5615.197 Mobile Safari/537.36 AdobePassNativeFireTV/3.0.8",
+    "authorizationType": "OAUTH2",
+    "sourceApplicationInformation": {
+      "id": "14138364-application-id",
+      "name": "application name",
+      "version": "1.0.0"
+    }
+  }
+}
 ```
 
-</br>
+<br>
 
 | Elementnamn | Beskrivning |
-| --------------- | ------------------------------------------------------------------------------------ |
+|-----------------------------------|------------------------------------------------------------------------------------------------------------------|
 | id | UUID genererat av registreringskodstjänsten |
 | kod | Registreringskod som genererats av registreringskodstjänsten |
 | begärande | Begärande-ID |
 | mvpd | Mvpd-ID |
 | genererad | Tidsstämpel för att skapa registreringskod (i millisekunder sedan 1 januari 1970 GMT) |
 | förfaller | Tidsstämpel när registreringskoden upphör (i millisekunder sedan 1 januari 1970 GMT) |
-| deviceId | Unikt enhets-ID (eller XSTS-token) |
-| deviceType | Enhetstyp |
-| deviceUser | Användaren är inloggad på enheten |
-| appId | Program-ID |
-| appVersion | Programversion |
-| registrationURL | URL till inloggningswebbappen som ska visas för slutanvändaren |
+| deviceId | Base64 Unikt enhets-ID |
+| info:deviceId | Base64-enhetstyp |
+| info:deviceInfo | Base64 Normaliserad enhetsinformation bygger på information som mottagits från User-Agent, X-Device-Info eller device_info |
+| info:userAgent | Användaragent som skickas av programmet |
+| info:originalUserAgent | Användaragent som skickas av programmet |
+| info:authenticationType | OAUTH2 för anrop med DCR |
+| info:sourceApplicationInformation | Programinformation som konfigurerats i DCR |
 
 {style="table-layout:auto"}
 
 
-</br>
+<br>
 
-### Felmeddelande-XSD  {#error-message}
-
-```XML
-    <?xml version="1.0" encoding="UTF-8"?>
-    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="rest.pass.adobe.com"
-               targetNamespace="rest.pass.adobe.com"
-               attributeFormDefault="unqualified"
-               elementFormDefault="unqualified">
-        <xs:element name="error">
-            <xs:complexType>
-                <xs:all>
-                    <xs:element name="status" type="xs:int" minOccurs="1" maxOccurs="1"/>
-                    <xs:element name="message" type="xs:string" minOccurs="1" maxOccurs="1"/>
-                    <xs:element name="details" type="xs:string" minOccurs="0" maxOccurs="1"/>
-                </xs:all>
-            </xs:complexType>
-        </xs:element>
-    </xs:schema>
-```
-
-
-### Exempelsvar {#sample-response}
-
-**XML:**
-
-```XML
-    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-    <ns2:regcode xmlns:ns2="model.mvc.reggie.pass.adobe.com">
-        <id>678f9fea-a1cafec8-1ff0-4a26-8564-f6cd020acf13</id>
-        <code>TJJCFK</code>
-        <requestor>sampleRequestorId</requestor>
-        <mvpd>sampleMvpdId</mvpd>
-        <generated>1348039846647</generated>
-        <expires>1348043446647</expires>
-        <info>
-            <deviceId>dGhpc0lkQUR1bW15RGV2aWNlSWQ=</deviceId>
-            <deviceType>xbox</deviceType>
-            <deviceUser>JD</deviceUser>
-            <appId>2345</appId>
-            <appVersion>2.0</appVersion>
-            <registrationURL>http://loginwebapp.com</registrationURL>
-        </info>
-    </ns2:regcode>
-```
-
-**JSON:**
+### JSON-svarsexempel för felmeddelande (#error-sample-response)
 
 ```JSON
-    {
-        "id": "678f9fea-9d364b29-246c-488f-b97e-298566d1b9e0",
-        "code": "D4BDU2W",
-        "requestor": "sampleRequestorId",
-        "mvpd": "sampleMvpdId",
-        "generated": 1348039555877,
-        "expires": 1348043155877,
-        "info": {
-            "deviceId": "dGhpc0l.kQUR1bW15RGV2.aWNlSWQ=",
-            "deviceType": "xboxOne",
-            "deviceUser": "JD",
-            "appId": "2345",
-            "appVersion": "2.0",
-            "registrationURL": "http://loginwebapp.com"
-        }
-    }
+{
+  "status": 400,
+  "message": "Required '<>' is not present"
+}
 ```
+
