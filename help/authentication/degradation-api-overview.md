@@ -2,9 +2,9 @@
 title: Översikt över API-nedgradering
 description: Översikt över API-nedgradering
 exl-id: c7d6685b-a235-42eb-9c9c-0ffa1747f614
-source-git-commit: 3cff9d143eedb35155aa06c72d53b951b2d08d39
+source-git-commit: 95c3b1cbce4a591ce387ae3b242721e50ba2ddb1
 workflow-type: tm+mt
-source-wordcount: '427'
+source-wordcount: '428'
 ht-degree: 0%
 
 ---
@@ -31,7 +31,7 @@ ht-degree: 0%
 >
 >Detta API är inte allmänt tillgängligt. Kontakta din Adobe-representant för att få uppdateringar om tillgänglighet.
 
-Den här funktionen ger alla tre parter i en integrering (programmerare, distributörer av videoprogrammeringstjänster och Adobe) möjlighet att tillfälligt kringgå specifika slutpunkter för MVPD-autentisering och -auktorisering. Vanligtvis är det Programmeraren som initierar en sådan åtgärd, men oavsett vem som utlöser en nedbrytningshändelse beror åtgärden på hur man tidigare kommit överens om arrangemang med de berörda PDF-filerna.
+Den här funktionen ger alla tre huvudparterna i en integrering (programmerare, MVPD och Adobe) möjlighet att tillfälligt kringgå specifika MVPD-autentiserings- och auktoriseringsslutpunkter. Vanligtvis är det Programmeraren som initierar en sådan åtgärd, men oavsett vem som utlöser en nedbrytningshändelse är åtgärden beroende av hur man tidigare kommit överens om arrangemang med de berörda programmeringsskyltarna.
 
 Det viktigaste användningsexemplet för den här funktionen är live-sporter eller stora event. I sådana höga trafikscenarier är det möjligt att belastningen på en specifik MVPD-slutpunkt blir för hög, vilket ger mycket långa svarstider för användarna. För att bevara en bra användarupplevelse under ett sådant scenario kan programmeraren besluta att utlösa en försämringsregel som tillfälligt kan autenticera/autoauktorisera användare, eller inaktivera ett MVPD genom att ta bort det från listan över tillgängliga MVPD.
 
@@ -40,7 +40,7 @@ En försämringsregel tillämpas bara under en fast tidsperiod. Även om de prim
 Försämringsinformation:
 
 - Den här funktionen är avsedd att användas tillsammans med API:t för användningsövervakning, som ger realtidsinformation om antalet autentiseringar och auktoriseringar per MVPD, genomsnittlig auktoriseringsfördröjning och andra mått som behövs för en fullständig serviceöversikt.
-- Den här funktionen tillåter inte att autentiseringstjänsten Adobe Primetime kringgås. Om Adobe Pass Authentication finns nere finns det ingen mekanism i tjänsten som kan användas för att tillåta användare att se innehåll. Webbplatserna eller apparna kan dock själva dirigera runt Adobe Pass Authentication.
+- Den här funktionen tillåter inte att tjänsten Adobe Pass Authentication kringgås. Om Adobe Pass Authentication finns nere finns det ingen mekanism i tjänsten som kan användas för att tillåta användare att se innehåll. Webbplatserna eller apparna kan dock själva dirigera runt Adobe Pass Authentication.
 - Adobe kommer för närvarande inte att utlösa någon direkt försämring - beslutet måste alltid fattas med en särskild programmerare som har samtyckt till sådana villkor med sidoskyddsprogram. I framtiden kan Adobe Pass Authentication vara proaktivt för att utlösa regler för försämring om avtal (SLA-skydd) kan nås med sidoskyddsprogram.
 
 <!--
