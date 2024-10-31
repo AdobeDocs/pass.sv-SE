@@ -2,9 +2,9 @@
 title: Aktivera Android SDK enkel inloggning (SSO) i Android 10-appar
 description: Aktivera Android SDK enkel inloggning (SSO) i Android 10-appar
 exl-id: dedade15-c451-4757-b684-d3728e11dd87
-source-git-commit: 1b8371a314488335c68c82882c930b7c19aa64ad
+source-git-commit: 21b4ad42709351eac1c2089026f84a43deb50f8a
 workflow-type: tm+mt
-source-wordcount: '383'
+source-wordcount: '379'
 ht-degree: 0%
 
 ---
@@ -23,8 +23,6 @@ Men Google i den senaste Android 10-versionen medförde vissa ändringar &quot;f
 
 Som ett resultat av dessa ändringar kan enkel inloggning (SSO) som erbjuds av Access Enabler Android version **3.2.1 SDK (senaste)** och tidigare versioner påverkas på Android 10-enheter, vilket förklaras i nästa avsnitt.
 
-Se [Återställ SSO-översikt](/help/authentication/roku-sso-overview.md).
-
 ## Beteende
 
 Beroende på appens **[!UICONTROL target SDK level]** eller användningen av manifestattributet **android:requestLegacyExternalStorage** kommer enkel inloggning (SSO) som erbjuds av Access Enabler Android version 3.2.1 SDK (senaste) och tidigare versioner att fungera enligt följande:
@@ -32,7 +30,6 @@ Beroende på appens **[!UICONTROL target SDK level]** eller användningen av man
 - Din app har **Android 9 (API-nivå 28)** eller lägre **-\>** enkel inloggning (SSO) **fungerar**
 - Din app har **Android 10** **(API-nivå 29)** som mål och **anger** värdet för **requestLegacyExternalStorage till true** i appens manifestfil **-\>** enkel inloggning (SSO) **fungerar**
 - Din app har **Android 10** **(API-nivå 29)** som mål och **anger inte** värdet för **requestLegacyExternalStorage till true** i appens manifestfil **-\>** enkel inloggning (SSO) **fungerar inte**
-
 
 >[!TIP]
 >

@@ -1,13 +1,13 @@
 ---
 title: Enkel inloggning - partner - flöden
 description: REST API V2 - enkel inloggning - partner - flöden
-source-git-commit: 150e064d0287eaac446c694fb5a2633f7ea4b797
+exl-id: 5735d67f-a311-4d03-ad48-93c0fcbcace5
+source-git-commit: 21b4ad42709351eac1c2089026f84a43deb50f8a
 workflow-type: tm+mt
-source-wordcount: '1317'
+source-wordcount: '1444'
 ht-degree: 0%
 
 ---
-
 
 # Samlad inloggning med partnerflöden {#single-sign-on-partner-flows}
 
@@ -18,6 +18,18 @@ ht-degree: 0%
 >[!IMPORTANT]
 >
 > REST API V2-implementeringen begränsas av dokumentationen för [begränsningsmekanismen](/help/authentication/throttling-mechanism.md).
+
+Med partnermetoden kan flera program använda en statusnyttolast för partnerramverket för att uppnå enkel inloggning (SSO) på enhetsnivå när Adobe Pass-tjänster används.
+
+Programmen ansvarar för att hämta partnerramverkets statusnyttolast med partnerspecifika ramverk eller bibliotek utanför Adobe Pass system.
+
+Programmen ansvarar för att inkludera den här partnerramverkets statusnyttolast som en del av `AP-Partner-Framework-Status`-huvudet för alla begäranden som anger den.
+
+Mer information om rubriken `AP-Partner-Framework-Status` finns i dokumentationen för [AP-Partner-Framework-Status](../../appendix/headers/rest-api-v2-appendix-headers-ap-partner-framework-status.md).
+
+Adobe Pass Authentication REST API V2 har stöd för enkel inloggning (SSO) för slutanvändare av klientprogram som körs på iOS, iPadOS eller tvOS.
+
+Mer information om enkel inloggning (SSO) för Apple-plattformen finns i [Apple SSO Cookbook (REST API V2)](/help/authentication/single-sign-on/partner-single-sign-on/apple-single-sign-on/apple-sso-cookbook-rest-api-v2.md) -dokumentationen.
 
 ## Hämta partnerautentiseringsbegäran {#retrieve-partner-authentication-request}
 
@@ -61,7 +73,7 @@ Utför de angivna stegen för att hämta partnerautentiseringsbegäran enligt bi
    > Mer information om följande finns i [Hämta API-dokumentationen för partnerautentiseringsbegäran](../../apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-partner-authentication-request.md):
    >
    > * Alla _obligatoriska_-parametrar, som `serviceProvider` och `partner`
-   > * Alla _obligatoriska_ rubriker som `Authorization`, `AP-Device-Identifier` och `AP-Partner-Framework-Status`
+   > * Alla _obligatoriska_ rubriker som `Authorization`, `AP-Device-Identifier`, `Content-Type`, `X-Device-Info` och `AP-Partner-Framework-Status`
    > * Alla _valfria_ rubriker och parametrar
    >
    > <br/>
@@ -175,7 +187,7 @@ Utför de angivna stegen för att implementera flödet för hämtning av profile
    > Mer information om hur du gör det finns i [Hämta profil med API-dokumentationen för partnerautentiseringssvar](../../apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-profile-using-partner-authentication-response.md):
    >
    > * Alla _obligatoriska_-parametrar, som `serviceProvider`, `partner` och `SAMLResponse`
-   > * Alla _obligatoriska_ rubriker, som `Authorization`, `AP-Device-Identifier` och `AP-Partner-Framework-Status`
+   > * Alla _obligatoriska_-huvuden, som `Authorization`, `AP-Device-Identifier`, `Content-Type`, `X-Device-Info` och `AP-Partner-Framework-Status`
    > * Alla _valfria_ rubriker och parametrar
    >
    > <br/>

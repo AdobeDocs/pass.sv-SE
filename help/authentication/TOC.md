@@ -4,9 +4,9 @@ audience: end-user
 feature: Authentication
 user-guide-title: Adobe Pass-autentisering
 user-guide-description: Adobe Pass-autentisering är en berättigandelösning för TV Everywhere, som tillhandahåller ett modulärt ramverk för att avgöra om någon som begär åtkomst till en resurs är berättigad till den.
-source-git-commit: 2f5e511f774e1a2d8b8b60084844edfe27be6c76
+source-git-commit: 21b4ad42709351eac1c2089026f84a43deb50f8a
 workflow-type: tm+mt
-source-wordcount: '1181'
+source-wordcount: '1199'
 ht-degree: 2%
 
 ---
@@ -56,28 +56,28 @@ ht-degree: 2%
       + [REST API V2 - översikt](./rest-api-v2/rest-api-v2-overview.md)
       + [REST API V2-ordlista](./rest-api-v2/rest-api-v2-glossary.md)
       + API:er {#rest-api-v2-apis}
-         + [Översikt över REST API V2-API:er](./rest-api-v2/apis/rest-api-v2-apis-overview.md)
+         + [Översikt över REST API V2-API:er](rest-api-v2/apis/rest-api-v2-apis-overview.md)
          + Konfiguration {#rest-api-v2-configuration-apis}
-            + [Hämta konfiguration för en viss tjänsteleverantör](./rest-api-v2/apis/configuration-apis/rest-api-v2-configuration-apis-retrieve-configuration-for-specific-service-provider.md)
+            + [Hämta konfiguration för en viss tjänsteleverantör](rest-api-v2/apis/configuration-apis/rest-api-v2-configuration-apis-retrieve-configuration-for-specific-service-provider.md)
          + Sessioner {#rest-api-v2-sessions-apis}
-            + [Skapa autentiseringssession](./rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md)
-            + [Återuppta autentiseringssession](./rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-resume-authentication-session.md)
-            + [Hämta autentiseringssession](./rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-retrieve-authentication-session-information-using-code.md)
-            + [Utför autentisering i användaragent](./rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-perform-authentication-in-user-agent.md)
+            + [Skapa autentiseringssession](rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md)
+            + [Återuppta autentiseringssession](rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-resume-authentication-session.md)
+            + [Hämta autentiseringssession](rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-retrieve-authentication-session-information-using-code.md)
+            + [Utför autentisering i användaragent](rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-perform-authentication-in-user-agent.md)
          + Profiler {#rest-api-v2-profiles-apis}
-            + [Hämta profiler](./rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md)
-            + [Hämta profil för specifik mvpd](./rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md)
-            + [Hämta profil för specifik kod](./rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md)
+            + [Hämta profiler](rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md)
+            + [Hämta profil för specifik mvpd](rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md)
+            + [Hämta profil för specifik kod](rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md)
          + Beslut {#rest-api-v2-decisions-apis}
-            + [Hämta auktoriseringsbeslut med hjälp av specifik mvpd](./rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md)
-            + [Hämta förauktoriseringsbeslut med hjälp av en specifik mvpd](./rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md)
+            + [Hämta auktoriseringsbeslut med hjälp av specifik mvpd](rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md)
+            + [Hämta förauktoriseringsbeslut med hjälp av en specifik mvpd](rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md)
          + Utloggning {#rest-api-v2-logout-apis}
-            + [Initiera utloggning för specifik mvpd](./rest-api-v2/apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md)
+            + [Initiera utloggning för specifik mvpd](rest-api-v2/apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md)
          + Enkel inloggning för partner {#rest-api-v2-partner-single-sign-on-apis}
             + [Hämta partnerautentiseringsbegäran](rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-partner-authentication-request.md)
             + [Hämta profil med partnerautentiseringssvar](rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-profile-using-partner-authentication-response.md)
       + Flöden {#rest-api-v2-flows}
-         + [Översikt över REST API V2-flöden](./rest-api-v2/flows/rest-api-v2-flows-overview.md)
+         + [Översikt över REST API V2-flöden](rest-api-v2/flows/rest-api-v2-flows-overview.md)
          + Grundläggande åtkomstflöden {#rest-api-v2-basic-access-flows}
             + [Grundläggande profilflöden som utförs i det primära programmet](rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-primary-application-flow.md)
             + [Grundläggande profiler som körs i sekundärt program](rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-secondary-application-flow.md)
@@ -99,13 +99,13 @@ ht-degree: 2%
          + [REST API V2 Cookbook (klient-till-server)](rest-api-v2/cookbooks/rest-api-v2-cookbooks-client-server.md)
       + Bilaga {#rest-api-v2-appendix}
          + Rubriker {#rest-api-v2-appendix-headers}
-            + [Header - Authorization](./rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-authorization.md)
-            + [Header - AP-Device-Identifier](./rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-device-identifier.md)
-            + [Header - X-Device-Info](./rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-x-device-info.md)
-            + [Header - AD-Service-Token](./rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ad-service-token.md)
-            + [Header - Adobe-Subject-Token](./rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md)
-            + [Header - AP-Partner-Framework-Status](./rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-partner-framework-status.md)
-            + [Header - AP-TempPass-Identity](./rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-temppass-identity.md)
+            + [Header - Authorization](rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-authorization.md)
+            + [Header - AP-Device-Identifier](rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-device-identifier.md)
+            + [Header - X-Device-Info](rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-x-device-info.md)
+            + [Header - AD-Service-Token](rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ad-service-token.md)
+            + [Header - Adobe-Subject-Token](rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md)
+            + [Header - AP-Partner-Framework-Status](rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-partner-framework-status.md)
+            + [Header - AP-TempPass-Identity](rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-temppass-identity.md)
    + AccessEnabler SDK {#accessenabler-sdk}
       + JavaScript SDK {#javascriptsdk}
          + [JavaScript SDK - översikt](javascript-sdk-overview.md)
@@ -136,20 +136,24 @@ ht-degree: 2%
          + Android API{#android-sdk-api}
             + [Förhandsauktorisera](preauthorize-api-android-sdk.md)
       + Amazon FireOS SDK {#fireossdk}
-         + [Amazon FireOS SSO - startguide för programmerare](amazon-firetv-sso-programmer-kickoff-guide.md)
-         + [Amazon FireOS SSO med Clientless API Cookbook](amazon-fireos-sso-using-clientless-api-cookbook.md)
          + [Amazon FireOS Technical Overview](amazon-fireos-technical-overview.md)
          + [Amazon FireOS Integration Cookbook](amazon-fireos-integration-cookbook.md)
          + [API-referens för Amazon FireOS](amazon-fireos-native-client-api-reference.md)
          + [Amazon FireOS - programregistrering](amazon-fireos-application-registration.md)
          + [FireOS SDK med dynamisk klientregistrering](fireos-sdk-with-dynamic-client-registration.md)
-   + Plattforms-SSO {#platform-sso}
-      + Apple SSO {#apple-sso}
-         + [Apple SSO - översikt](apple-sso-overview.md)
-         + [Apple SSO Cookbook (REST API)](apple-sso-cookbook-rest-api.md)
-         + [Apple SSO Cookbook (iOS/tvOS SDK)](apple-sso-cookbook-iostvos-sdk.md)
-      + Roku SSO {#roku-sso}
-         + [Roku SSO](roku-sso-overview.md)
+         + [Amazon FireOS SSO - startguide för programmerare](amazon-firetv-sso-programmer-kickoff-guide.md)
+   + Enkel inloggning {#sso}
+      + Enkel inloggning för partner {#partner-sso}
+         + Apple enkel inloggning {#apple-sso}
+            + [Apple SSO - översikt](single-sign-on/partner-single-sign-on/apple-single-sign-on/apple-sso-overview.md)
+            + [Apple SSO Cookbook (REST API V2)](single-sign-on/partner-single-sign-on/apple-single-sign-on/apple-sso-cookbook-rest-api-v2.md)
+            + [Apple SSO Cookbook (REST API V1)](single-sign-on/partner-single-sign-on/apple-single-sign-on/apple-sso-cookbook-rest-api-v1.md)
+            + [Apple SSO Cookbook (iOS/tvOS SDK)](single-sign-on/partner-single-sign-on/apple-single-sign-on/apple-sso-cookbook-iostvos-sdk.md)
+      + Plattform enkel inloggning {#platform-sso}
+         + Amazon enkel inloggning {#amazon-sso}
+            + [Amazon SSO Cookbook (REST API V1)](single-sign-on/platform-single-sign-on/amazon-single-sign-on/amazon-sso-cookbook-rest-api-v1.md)
+         + Kör enkel inloggning {#roku-sso}
+            + [Roku SSO-översikt](single-sign-on/platform-single-sign-on/roku-single-sign-on/roku-sso-overview.md)
    + Innehållsmetadata {#content-metadata}
       + [Identifierar skyddad resurs](identify-protected-resources.md)
    + Integrering av innehållsserver {#content-serv-int}

@@ -2,7 +2,7 @@
 title: Tillfälliga åtkomstflöden
 description: REST API V2 - Tillfälliga åtkomstflöden
 exl-id: 387fcdb0-3a42-4893-ba83-e809426f92be
-source-git-commit: ca8eaff83411daab5f136f01394e1d425e66f393
+source-git-commit: 21b4ad42709351eac1c2089026f84a43deb50f8a
 workflow-type: tm+mt
 source-wordcount: '3215'
 ht-degree: 0%
@@ -349,7 +349,7 @@ Följ de angivna stegen för att implementera auktoriseringsflödet när du anv�
 
 1. **Hantera `Deny` beslutsinformation:** Direktuppspelningsprogrammet bearbetar felinformationen från svaret och kan använda den för att visa ett specifikt meddelande i användargränssnittet.
 
-   >[!NOTE]
+   >[!TIP]
    >
    > Förslag: Direktuppspelningsprogrammet kan informera användarna om att det maximala antalet resurser har överskridits och råda dem att starta ett grundläggande autentiseringsflöde med ett regelbundet MVPD-program för att fortsätta titta.
 
@@ -429,7 +429,7 @@ Följ de angivna stegen för att implementera auktoriseringsflödet när det gru
 
 1. **Hantera `Deny` beslutsinformation:** Direktuppspelningsprogrammet bearbetar felinformationen från svaret och kan använda den för att visa ett specifikt meddelande i användargränssnittet.
 
-   >[!NOTE]
+   >[!TIP]
    >
    > Förslag: Direktuppspelningsprogrammet kan informera användare om att den tillfälliga åtkomsten har upphört att gälla och råda dem att starta ett grundläggande autentiseringsflöde med ett regelbundet MVPD-program för att fortsätta titta.
 

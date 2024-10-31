@@ -1,13 +1,13 @@
 ---
 title: Enkel inloggning - tjänsttoken - flöden
 description: REST API V2 - enkel inloggning - tjänsttoken - flöden
-source-git-commit: 150e064d0287eaac446c694fb5a2633f7ea4b797
+exl-id: b0082d2a-e491-4cb5-bb40-35ba10db6b1a
+source-git-commit: 21b4ad42709351eac1c2089026f84a43deb50f8a
 workflow-type: tm+mt
 source-wordcount: '1848'
 ht-degree: 0%
 
 ---
-
 
 # Enkel inloggning med tjänsttoken-flöden{#single-sign-on-service-token-full-flows}
 
@@ -120,7 +120,7 @@ Utför de angivna stegen för att implementera autentiseringsflödet med enkel i
    > * Alla _obligatoriska_ rubriker, som `Authorization`, `AP-Device-Identifier`
    > * Alla _valfria_ parametrar och rubriker
 
-   >[!NOTE]
+   >[!TIP]
    >
    > Förslag: Direktuppspelningsprogrammet kan vänta på att användaragenten ska nå den angivna `redirectUrl` för att kontrollera om den vanliga profilen har genererats och sparats.
 

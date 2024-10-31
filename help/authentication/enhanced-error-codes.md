@@ -2,7 +2,7 @@
 title: Förbättrade felkoder
 description: Förbättrade felkoder
 exl-id: 2b0a9095-206b-4dc7-ab9e-e34abf4d359c
-source-git-commit: 6c328eb2c635a1d76fc7dae8148a4de291c126e0
+source-git-commit: 21b4ad42709351eac1c2089026f84a43deb50f8a
 workflow-type: tm+mt
 source-wordcount: '2593'
 ht-degree: 2%
@@ -301,8 +301,8 @@ Tabellen nedan visar möjliga felkoder som ett klientprogram kan stöta på när
 | **ingen** | *invalid_parameter_service_provider* | 400 | Tjänstleverantörens parametervärde saknas eller är ogiltigt. |
 |                              | *invalid_parameter_mvpd* | 400 | Parametervärdet för mvpd saknas eller är ogiltigt. |
 |                              | *invalid_parameter_code* | 400 | Kodparametervärdet saknas eller är ogiltigt. |
-|                              | *invalid_parameter_resources* | 400 | Parametervärdet för omdirigerings-URL saknas eller är ogiltigt. |
-|                              | *invalid_parameter_redirect_url* | 400 | Resursparametervärdet saknas eller är ogiltigt. |
+|                              | *invalid_parameter_resources* | 400 | Resursparametervärdet saknas eller är ogiltigt. |
+|                              | *invalid_parameter_redirect_url* | 400 | Parametervärdet för omdirigerings-URL saknas eller är ogiltigt. |
 |                              | *invalid_parameter_partner* | 400 | Partnerparametervärdet saknas eller är ogiltigt. |
 |                              | *invalid_parameter_saml_response* | 400 | SAML-svarsparametervärdet saknas eller är ogiltigt. |
 |                              | *invalid_header_device_info* | 400 | Rubrikvärdet för enhetsinformation saknas eller är ogiltigt. |

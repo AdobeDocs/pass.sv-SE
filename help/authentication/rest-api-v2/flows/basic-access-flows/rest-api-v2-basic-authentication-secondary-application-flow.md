@@ -1,13 +1,13 @@
 ---
 title: Grundläggande autentisering - sekundärt program - flöde
 description: REST API V2 - grundläggande autentisering - sekundärt program - flöde
-source-git-commit: d59afc0384a1c3617143efcef4ab5fb1a323e511
+exl-id: 83bf592e-c679-4cfe-984d-710a9598c620
+source-git-commit: 21b4ad42709351eac1c2089026f84a43deb50f8a
 workflow-type: tm+mt
 source-wordcount: '2000'
 ht-degree: 0%
 
 ---
-
 
 # Grundläggande autentiseringsflöde som utförs i sekundärt program {#basic-authentication-flow-performed-within-secondary-application}
 
@@ -137,7 +137,7 @@ Följ de angivna stegen för att implementera det grundläggande autentiseringsf
    >
    > Om valideringen misslyckas genereras ett felsvar som ger ytterligare information som följer dokumentationen för [Förbättrade felkoder](../../../enhanced-error-codes.md).
 
-   >[!NOTE]
+   >[!TIP]
    >
    > Förslag: Det sekundära programmet kan informera användare om att `code` som används är ogiltig om ett felsvar indikerar en saknad autentiseringssession och råda dem att försöka igen med en ny.
 
@@ -162,7 +162,7 @@ Följ de angivna stegen för att implementera det grundläggande autentiseringsf
    > * Alla _obligatoriska_ rubriker, som `Authorization`, `AP-Device-Identifier`
    > * Alla _valfria_ parametrar och rubriker
 
-   >[!NOTE]
+   >[!TIP]
    >
    > Förslag: Direktuppspelningsprogrammet kan implementera en avsökningsmekanism med `code` för att kontrollera om den reguljära profilen genererades och sparades.
 
@@ -271,7 +271,7 @@ Följ de angivna stegen för att implementera det grundläggande autentiseringsf
    > 
    > Om valideringen misslyckas genereras ett felsvar som ger ytterligare information som följer dokumentationen för [Förbättrade felkoder](../../../enhanced-error-codes.md).
 
-   >[!NOTE]
+   >[!TIP]
    >
    > Förslag: Det sekundära programmet kan informera användare om att `code` som används är ogiltig om ett felsvar indikerar en saknad autentiseringssession och råda dem att försöka igen med en ny.
 
@@ -300,7 +300,7 @@ Följ de angivna stegen för att implementera det grundläggande autentiseringsf
    > * Alla _obligatoriska_ rubriker, som `Authorization`, `AP-Device-Identifier`
    > * Alla _valfria_ parametrar och rubriker
 
-   >[!NOTE]
+   >[!TIP]
    >
    > Förslag: Direktuppspelningsprogrammet kan implementera en avsökningsmekanism med `code` för att kontrollera om den reguljära profilen genererades och sparades.
 

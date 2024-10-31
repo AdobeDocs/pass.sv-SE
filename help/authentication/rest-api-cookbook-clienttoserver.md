@@ -2,9 +2,9 @@
 title: REST API Cookbook (klient-till-server)
 description: Återställ API-cookbook-klienten till servern.
 exl-id: f54a1eda-47d5-4f02-b343-8cdbc99a73c0
-source-git-commit: 3cff9d143eedb35155aa06c72d53b951b2d08d39
+source-git-commit: 21b4ad42709351eac1c2089026f84a43deb50f8a
 workflow-type: tm+mt
-source-wordcount: '868'
+source-wordcount: '876'
 ht-degree: 0%
 
 ---
@@ -130,12 +130,18 @@ användare.
 
 1. Skicka tillbaka användaren till din Smart Device-app för att slutföra auktoriseringsflödet.
 
-## Plattforms-SSO {#platform-sso}
+## Enkel inloggning för partner {#partner-sso}
 
-Vissa plattformar har dedikerat stöd för enkel inloggning (SSO). Implementeringsinformation finns för varje plattform:
+Vissa enheter har dedikerat stöd för enkel inloggning (SSO) för partner:
 
-* [APPLE SSO](/help/authentication/apple-sso-cookbook-rest-api.md)
-* AMAZON SSO
+* [APPLE SSO](/help/authentication/single-sign-on/partner-single-sign-on/apple-single-sign-on/apple-sso-cookbook-rest-api-v1.md)
+
+## Plattform för enkel inloggning {#platform-sso}
+
+Vissa enheter har dedikerat stöd för enkel inloggning (SSO) på plattformen:
+
+* [AMAZON SSO](./single-sign-on/platform-single-sign-on/amazon-single-sign-on/amazon-sso-cookbook-rest-api-v1.md)
+* [Roku SSO](./single-sign-on/platform-single-sign-on/roku-single-sign-on/roku-sso-overview.md)
 
 ## TempPass och Promotional TempPass för REST API {#temppass}
 

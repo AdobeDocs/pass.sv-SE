@@ -1,13 +1,13 @@
 ---
 title: Grundläggande autentisering - primärt program - flöde
 description: REST API V2 - grundläggande autentisering - primärt program - flöde
-source-git-commit: dc9fab27c7eced2be5dd9f364ab8f2d64f8e4177
+exl-id: 8122108d-e9da-43c5-9abb-ab177cb21eb6
+source-git-commit: 21b4ad42709351eac1c2089026f84a43deb50f8a
 workflow-type: tm+mt
 source-wordcount: '894'
 ht-degree: 0%
 
 ---
-
 
 # Grundläggande autentiseringsflöde som utförs i det primära programmet {#basic-authentication-flow-performed-within-primary-application}
 
@@ -121,7 +121,7 @@ Följ de angivna stegen för att implementera det grundläggande autentiseringsf
    > * Alla _obligatoriska_ rubriker, som `Authorization`, `AP-Device-Identifier`
    > * Alla _valfria_ parametrar och rubriker
 
-   >[!NOTE]
+   >[!TIP]
    >
    > Förslag: Direktuppspelningsprogrammet kan vänta på att användaragenten ska nå den angivna `redirectUrl` för att kontrollera om den vanliga profilen har genererats och sparats.
 
