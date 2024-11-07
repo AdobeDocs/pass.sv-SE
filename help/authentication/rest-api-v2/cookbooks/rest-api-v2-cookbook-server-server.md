@@ -1,7 +1,7 @@
 ---
 title: REST API V2 Cookbook (Server-to-Server)
 description: REST API V2 Cookbook (Server-to-Server)
-source-git-commit: e1e1835d0d523377c48b39170919f7120cc3ef90
+source-git-commit: c17e52dd52fa14c50d59945598d1913f02be2468
 workflow-type: tm+mt
 source-wordcount: '1566'
 ht-degree: 0%
@@ -186,4 +186,4 @@ Programmeringstjänsten måste underhålla certifikat som delas med Adobe (för 
 
 ## Relaterad information {#related}
 
-* [REST API V2-referens](/help/authentication/rest-api-v2/rest-api-v2-flows-overview.md)
+* [REST API V2-referens](/help/authentication/rest-api-v2/rest-api-v2-overview.md)
