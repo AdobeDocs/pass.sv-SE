@@ -2,9 +2,9 @@
 title: Förbättrade felkoder
 description: Förbättrade felkoder
 exl-id: 2b0a9095-206b-4dc7-ab9e-e34abf4d359c
-source-git-commit: 21b4ad42709351eac1c2089026f84a43deb50f8a
+source-git-commit: ce9659074bfa3fac3ea62a70a6da470f15bad3fe
 workflow-type: tm+mt
-source-wordcount: '2593'
+source-wordcount: '2606'
 ht-degree: 2%
 
 ---
@@ -313,6 +313,7 @@ Tabellen nedan visar möjliga felkoder som ett klientprogram kan stöta på när
 |                              | *invalid_header_pfs_permission_access_not_granted* | 400 | Statusvärdet för åtkomstbehörighet från statusrubriken för partnerramverket har inte beviljats. |
 |                              | *invalid_header_pfs_provider_id_not_defined* | 400 | Värdet för provider-ID från statusrubriken för partnerramverket är inte associerat med en känd mvpd. |
 |                              | *invalid_header_pfs_provider_id_mismatch* | 400 | Värdet för provider-ID från statusrubriken för partnerramverket matchar inte det mvpd som skickades som parameter. |
+|                              | *invalid_header_pfs_provider_info_utgången* | 400 | Providerinformationen från statusrubriken för partnerramverket har upphört att gälla. |
 |                              | *invalid_integration* | 400 | Integrationen mellan den angivna tjänstprovidern och mvpd finns inte eller är inaktiverad. |
 |                              | *invalid_authentication_session* | 400 | Autentiseringssessionen som är associerad med denna begäran saknas eller är ogiltig. |
 |                              | *preauthentication_deny_by_mvpd* | 403 | MVPD har returnerat ett beslut om att neka vid begäran om förauktorisering för den angivna resursen. |
