@@ -1,13 +1,13 @@
 ---
 title: REST API V2 Cookbook (klient-till-server)
 description: REST API V2 Cookbook (klient-till-server)
-source-git-commit: e1e1835d0d523377c48b39170919f7120cc3ef90
+exl-id: 6a5a89d2-ea54-4f9c-9505-e575ced4301c
+source-git-commit: 563e0b17de3be9290a661242355b4835b8c386e1
 workflow-type: tm+mt
-source-wordcount: '695'
+source-wordcount: '699'
 ht-degree: 0%
 
 ---
-
 
 # REST API V2 Cookbook (klient-till-server) {#rest-api-v2-cookbook-clientserver}
 
@@ -29,7 +29,7 @@ För att implementera Adobe Pass REST API V2 måste du följa stegen nedan, grup
 
 För att programmet ska kunna anropa Adobe Pass REST API V2 krävs en åtkomsttoken som krävs för API:ts säkerhetslager.
 
-För att få åtkomst-token måste programmet följa anvisningarna: [Dynamisk klientregistrering](../../dcr-api/apis/dynamic-client-registration-apis-retrieve-access-token.md)
+För att få åtkomst-token måste programmet följa de steg som beskrivs i dokumentationen för [Dynamisk klientregistrering](../../dcr-api/apis/dynamic-client-registration-apis-retrieve-access-token.md).
 
 ## B. Autentiseringsfas {#authentication-phase}
 
@@ -54,10 +54,10 @@ Strömmande programkontroller för befintliga autentiserade profiler: <b>/api/v2
 
 Använda en webbläsare eller ett webbaserat program för en andra skärm:
 
-* Alternativ 1. Direktuppspelningsprogrammet kan öppna en webbläsare eller webbvy, läsa in den URL som ska autentiseras och användaren loggar in på inloggningssidan för MVPD där inloggningsuppgifter måste skickas
-   * användaren anger inloggning/lösenord, den slutliga omdirigeringen visar en sida om slutförd åtgärd
+* Alternativ 1. Direktuppspelningsprogrammet kan öppna en webbläsare eller webbvy, läsa in URL:en för autentisering och användaren loggar in på inloggningssidan för MVPD där inloggningsuppgifter måste skickas
+   * Användaren anger inloggning/lösenord, den slutliga omdirigeringen visar en sida om slutförd åtgärd
 * Alternativ 2. Direktuppspelningsprogrammet kan inte öppna en webbläsare utan bara visa CODE. <b>Ett separat webbprogram måste utvecklas</b> för att användaren ska kunna ange CODE, skapa och öppna URL: <b>/api/v2/authenticate/{serviceProvider}/{CODE}</b>
-   * användarens inloggning/lösenord, den slutliga omdirigeringen visar en sida som slutfördes
+   * Användaren anger inloggning/lösenord, den slutliga omdirigeringen visar en sida om slutförd åtgärd
 
 ### Steg 4: Kontrollera om det finns autentiserade profiler {#step-4-check-for-authenticated-profiles}
 
@@ -67,7 +67,7 @@ Strömmande applikationskontroller för autentisering med MVPD som slutförs i w
 ([Hämta autentiserade profiler för specifikt MVPD](../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md))
    * Om MVPD-valet inte görs i direktuppspelningsprogrammet eftersom MVPD-väljaren presenteras i programmet för sekundär skärm, ska avsökningen göras med CODE <b>/api/v2/{serviceProvider}/profiles/code/{CODE}</b><br>
 ([Hämta autentiserade profiler för specifik KOD ](../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md))
-* Avsökningen bör inte överstiga 30 minuter. Om 30 minuter har uppnåtts och direktuppspelningsprogrammet fortfarande är aktivt, måste en ny session startas och en ny CODE och URL returneras
+* Avsökningen bör inte överstiga 30 minuter, om 30 minuter har uppnåtts och direktuppspelningsprogrammet fortfarande är aktivt, en ny session måste initieras och en ny CODE och URL returneras
 * När autentiseringen är klar är returen 200 med autentiserad profil
 * Direktuppspelningsprogrammet kan fortsätta till <a href="#preauthorization-phase">C. Förauktoriseringsfas </a> eller <a href="#authorization-phase">D. Auktoriseringsfas </a>
 
@@ -78,7 +78,7 @@ Strömmande applikationskontroller för autentisering med MVPD som slutförs i w
 Direktuppspelningsprogram förbereds för visning av videor som är tillgängliga för den autentiserade användaren och har möjlighet att kontrollera
 åtkomst till dessa resurser.
 
-* Steget är valfritt och körs om programmet vill filtrera resurserna som inte är tillgängliga i det autentiserade användarpaketet
+* Steget är valfritt och körs om programmet vill filtrera bort resurser som inte är tillgängliga i det autentiserade användarpaketet
 * Anrop till <b>/api/v2/{serviceProvider}/Decision/preauthorized/{mvpd}</b><br>
 ([Hämta förauktoriseringsbeslut med hjälp av specifikt MVPD ](../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md))
 
@@ -91,7 +91,7 @@ Direktuppspelningsprogrammet förbereds för uppspelning av en video/resurs/resu
 * Steg krävs för varje uppspelningsstart
 * Ring <b>/api/v2/{serviceProvider}/Decision/authorized/{mvpd}</b><br>
 ([Hämta auktoriseringsbeslut med specifikt MVPD](../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md))
-   * beslut = &#39;Tillåt&#39;, direktuppspelningsenheten börjar direktuppspelningen
+   * beslut = &#39;Tillstånd&#39;, direktuppspelningsenheten börjar direktuppspelningen
    * beslut = &#39;Neka&#39;, strömningsenheten informerar användaren om att den inte har åtkomst till den videon
 
 ## E. Utloggningsfas {#logout-phase}
