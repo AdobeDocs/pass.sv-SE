@@ -1,9 +1,10 @@
 ---
 title: Apple SSO Cookbook (REST API V2)
 description: Apple SSO Cookbook (REST API V2)
-source-git-commit: 21b4ad42709351eac1c2089026f84a43deb50f8a
+exl-id: 81476312-9ba4-47a0-a4f7-9a557608cfd6
+source-git-commit: e5ef8c0cba636ac4d2bda1abe0e121d0ecc1b795
 workflow-type: tm+mt
-source-wordcount: '3402'
+source-wordcount: '3410'
 ht-degree: 0%
 
 ---
@@ -16,11 +17,11 @@ ht-degree: 0%
 
 Adobe Pass Authentication REST API V2 har stöd för enkel inloggning (SSO) för slutanvändare av klientprogram som körs på iOS, iPadOS eller tvOS.
 
-Det här dokumentet fungerar som ett tillägg till den befintliga REST API V2-dokumentationen som beskriver hur du implementerar [enkel inloggning med partnerflöden](/help/authentication/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-partner-flows.md).
+Det här dokumentet fungerar som ett tillägg till den befintliga [REST API V2-översikten](/help/authentication/rest-api-v2/rest-api-v2-overview.md) som ger en högnivåvy och det dokument som beskriver hur du implementerar [enkel inloggning med partnerflöden](/help/authentication/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-partner-flows.md).
 
-## Apple enkel inloggning med partnerflöden {#apple-sso-cookbook-rest-api-v2-cookbook}
+## Apple enkel inloggning med partnerflöden {#cookbook}
 
-### Förutsättningar {#apple-sso-cookbook-rest-api-v2-prerequisites}
+### Förutsättningar {#prerequisites}
 
 Innan du fortsätter med Apple enkel inloggning med partnerflöden måste du kontrollera att följande krav är uppfyllda:
 
@@ -40,7 +41,7 @@ Innan du fortsätter med Apple enkel inloggning med partnerflöden måste du kon
 >
 > * Strömningsprogrammet har slutfört de [startkrav](/help/authentication/single-sign-on/partner-single-sign-on/apple-single-sign-on/apple-sso-overview.md#apple-sso-prerequisites-programmer) som gäller för en programmerare och som krävs för att aktivera Apple Single Sign-On-användarupplevelsen.
 
-### Arbetsflöde {#apple-sso-cookbook-rest-api-v2-workflow}
+### Arbetsflöde {#workflow}
 
 Utför de angivna stegen för att implementera enkel inloggning från Apple med partnerflöden enligt bilden nedan.
 

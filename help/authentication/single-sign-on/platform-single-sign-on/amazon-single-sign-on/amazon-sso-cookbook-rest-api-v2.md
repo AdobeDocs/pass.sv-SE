@@ -1,23 +1,22 @@
 ---
-title: Amazon SSO Cookbook (REST API V1)
-description: Amazon SSO Cookbook (REST API V1)
-exl-id: 4c65eae7-81c1-4926-9202-a36fd13af6ec
+title: Amazon SSO Cookbook (REST API V2)
+description: Amazon SSO Cookbook (REST API V2)
 source-git-commit: e5ef8c0cba636ac4d2bda1abe0e121d0ecc1b795
 workflow-type: tm+mt
-source-wordcount: '590'
+source-wordcount: '542'
 ht-degree: 0%
 
 ---
 
-# Amazon SSO Cookbook (REST API V1) {#amazon-sso-cookbook-rest-api-v1}
+# Amazon SSO Cookbook (REST API V2) {#amazon-sso-cookbook-rest-api-v2}
 
 >[!IMPORTANT]
 >
 >Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
 
-Adobe Pass Authentication REST API V1 har stöd för Platform Single Sign-On (SSO) för slutanvändare av klientprogram som körs på FireOS.
+Adobe Pass Authentication REST API V2 har stöd för Platform Single Sign-On (SSO) för slutanvändare av klientprogram som körs på FireOS.
 
-Det här dokumentet fungerar som ett tillägg till den befintliga [REST API V1 Overview](/help/authentication/rest-api-overview.md) som ger en vy på hög nivå.
+Det här dokumentet fungerar som ett tillägg till den befintliga [REST API V2-översikten](/help/authentication/rest-api-v2/rest-api-v2-overview.md) som ger en högnivåvy och det dokument som beskriver hur du implementerar [enkel inloggning med plattformsidentitetsflöden](/help/authentication/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-platform-identity-flows.md).
 
 ## Amazon samlad inloggning med plattformsidentitetsflöden {#cookbook}
 
@@ -139,56 +138,31 @@ Kontrollera att direktuppspelningsprogrammet hanterar:
 
 ### Arbetsflöde {#workflow}
 
-Amazon SSO-token (platform identity)-nyttolasten måste finnas på alla HTTP-begäranden som görs mot Adobe Pass Authentication-slutpunkter:
+Amazon SSO-tokennyttolasten (platform identity) måste finnas på alla HTTP-begäranden som görs mot Adobe Pass Authentication REST API V2-slutpunkter:
 
 ```
-/adobe-services/*
-/reggie/*
-/api/*
+/api/v2/*
 ```
+
+Adobe Pass Authentication REST API V2 stöder följande metoder för att ta emot SSO-tokennyttolasten (platform identity), som är en enhetsomfattning eller plattformsomfångad identifierare:
+
+* Som en rubrik med namnet: `Adobe-Subject-Token`
 
 >[!IMPORTANT]
 > 
-> Strömningsprogrammet kan hoppa över att skicka Amazon SSO-token (platform identity)-nyttolast för anropet `/authenticate`, vilket angavs för anropet `/regcode`.
-
-Adobe Pass Authentication stöder följande metoder för att ta emot SSO-tokennyttolasten (platform identity), som är en enhetsomfattning eller plattformsomfångad identifierare:
-
-* Som en rubrik med namnet: `Adobe-Subject-Token`
-* Som en frågeparameter med namnet: `ast`
-* Som en postparameter med namnet: `ast`
-
->[!IMPORTANT]
->
-> Om den skickas som en frågeparameter kan hela URL:en bli mycket lång och avvisas.
->
-> Om det skickas som en fråga/post-parameter måste det inkluderas när signaturen för begäran genereras.
+> Mer information om rubriken `Adobe-Subject-Token` finns i [Adobe-Subject-Token](/help/authentication/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md) -dokumentationen.
 
 #### Exempel
 
 **Skicka som rubrik**
 
 ```HTTPS
-GET /api/v1/config/{requestorId} HTTP/1.1 
+GET /api/v2/{serviceProvider}/sessions HTTP/1.1 
 Host: sp-preprod.auth.adobe.com
 
 Adobe-Subject-Token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJyb2t1IiwiaWF0IjoxNTExMzY4ODAyLCJleHAiOjE1NDI5MDQ4MDIsImF1ZCI6ImFkb2JlIiwic3ViIjoiNWZjYzMwODctYWJmZi00OGU4LWJhZTgtODQzODViZTFkMzQwIiwiZGlkIjoiY2FmZjQ1ZDAtM2NhMy00MDg3LWI2MjMtNjFkZjNhMmNlOWM4In0.JlBFhNhNCJCDXLwBjy5tt3PtPcqbMKEIGZ6sr2NA
 ```
 
-**Skickar som frågeparameter**
-
-```HTTPS
-GET /api/v1/config/{requestorId}?ast=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJyb2t1IiwiaWF0IjoxNTExMzY4ODAyLCJleHAiOjE1NDI5MDQ4MDIsImF1ZCI6ImFkb2JlIiwic3ViIjoiNWZjYzMwODctYWJmZi00OGU4LWJhZTgtODQzODViZTFkMzQwIiwiZGlkIjoiY2FmZjQ1ZDAtM2NhMy00MDg3LWI2MjMtNjFkZjNhMmNlOWM4In0.JlBFhNhNCJCDXLwBjy5tt3PtPcqbMKEIGZ6sr2NA HTTP/1.1
-Host: sp.auth.adobe.com
-```
-
-**Skickar som en postparameter**
-
-```HTTPS
-POST /api/v1/config/{requestorId}?ast=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJyb2t1IiwiaWF0IjoxNTExMzY4ODAyLCJleHAiOjE1NDI5MDQ4MDIsImF1ZCI6ImFkb2JlIiwic3ViIjoiNWZjYzMwODctYWJmZi00OGU4LWJhZTgtODQzODViZTFkMzQwIiwiZGlkIjoiY2FmZjQ1ZDAtM2NhMy00MDg3LWI2MjMtNjFkZjNhMmNlOWM4In0.Jl\_BFhN\_h\_NCJCDXLwBjy5tt3PtPcqbMKEIGZ6sr2NA HTTP/1.1
-Host: sp.auth.adobe.com 
-Content-Type: multipart/form-data;
-```
-
 >[!IMPORTANT]
 >
-> Om parametervärdet `Adobe-Subject-Token` eller `ast` saknas eller är ogiltigt kommer Adobe Pass Authentication att hantera förfrågningarna utan att ta enkel inloggning i beaktande.
+> Om rubrikvärdet `Adobe-Subject-Token` saknas eller är ogiltigt hanterar Adobe Pass Authentication förfrågningarna utan att ta enkel inloggning i beaktande.

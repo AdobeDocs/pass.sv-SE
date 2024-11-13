@@ -4,9 +4,9 @@ audience: end-user
 feature: Authentication
 user-guide-title: Adobe Pass-autentisering
 user-guide-description: Adobe Pass-autentisering är en berättigandelösning för TV Everywhere, som tillhandahåller ett modulärt ramverk för att avgöra om någon som begär åtkomst till en resurs är berättigad till den.
-source-git-commit: e1e1835d0d523377c48b39170919f7120cc3ef90
+source-git-commit: e5ef8c0cba636ac4d2bda1abe0e121d0ecc1b795
 workflow-type: tm+mt
-source-wordcount: '1204'
+source-wordcount: '1210'
 ht-degree: 2%
 
 ---
@@ -152,6 +152,7 @@ ht-degree: 2%
             + [Apple SSO Cookbook (iOS/tvOS SDK)](single-sign-on/partner-single-sign-on/apple-single-sign-on/apple-sso-cookbook-iostvos-sdk.md)
       + Plattform enkel inloggning {#platform-sso}
          + Amazon enkel inloggning {#amazon-sso}
+            + [Amazon SSO Cookbook (REST API V2)](single-sign-on/platform-single-sign-on/amazon-single-sign-on/amazon-sso-cookbook-rest-api-v2.md)
             + [Amazon SSO Cookbook (REST API V1)](single-sign-on/platform-single-sign-on/amazon-single-sign-on/amazon-sso-cookbook-rest-api-v1.md)
          + Kör enkel inloggning {#roku-sso}
             + [Roku SSO-översikt](single-sign-on/platform-single-sign-on/roku-single-sign-on/roku-sso-overview.md)
