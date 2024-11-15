@@ -2,7 +2,7 @@
 title: Integrering med TVE Dashboard
 description: Lär dig mer om integreringarna mellan era kanaler och distributörer av videoprogrammeringstjänster och hur ni hanterar integreringar.
 exl-id: 0add340b-120c-4e82-8e3c-6c190d77cf7e
-source-git-commit: acff285f7db1bdd32d5da3e01a770d9581d3ba75
+source-git-commit: 1370554c66116a357970fb05c046608e261f0ed3
 workflow-type: tm+mt
 source-wordcount: '2093'
 ht-degree: 0%
@@ -328,7 +328,7 @@ Så här skapar du en ny integrering med ett nytt MVPD-program i den aktuella ko
 En ny integrering skapas först efter [granskning och push-ändringar](/help/authentication/tve-dashboard/new-tve-dashboard/tve-dashboard-review-push-changes.md).
 
 
-## Inaktivera integrering {#disable-integratgion}
+## Inaktivera integrering {#disable-integration}
 
 Så här inaktiverar du en integrering:
 

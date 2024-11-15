@@ -1,9 +1,10 @@
 ---
 title: REST API V2-ordlista
 description: REST API V2-ordlista
-source-git-commit: dd3451f8761ce6183e9a11099fb3094abae09466
+exl-id: 8b3bd2de-1ff8-4c57-b18d-27ecdf2b0de2
+source-git-commit: 1370554c66116a357970fb05c046608e261f0ed3
 workflow-type: tm+mt
-source-wordcount: '1872'
+source-wordcount: '1964'
 ht-degree: 0%
 
 ---
@@ -34,6 +35,8 @@ Autentiseringskoden är ett Adobe Pass-autentiseringskoncept som lagrar ett unik
 
 Autentiseringskoden kan användas av både ett [primärt (programmerare) program](#primary-application) eller ett [sekundärt (programmerare) program](#secondary-application) för att slutföra [autentiseringsprocessen](#authentication), hämta information om [autentiseringssessionen](#session) eller för att få åtkomst till användarprofilen [](#profile).
 
+Synonym med den tidigare termen som används i registreringskoden.
+
 #### Autentiseringssession {#session}
 
 Autentiseringssessionen är ett Adobe Pass-autentiseringskoncept som lagrar information om användarens autentiseringsprocess som har startats (eller fortsatt) från ett [Programmer](#programmer) -program och som identifieras unikt av en [autentiseringskod](#code).
@@ -45,6 +48,10 @@ Autentiseringssessionen kan även indikera [Programmer](#programmer)-programmet 
 Behörigheten är en process som gör att en användare kan komma åt skyddat innehåll ([resource](#resource)) från en [Programmer](#programmer)-katalog baserat på den ägda [MVPD](#mvpd)-prenumerationen, efter att användarrättigheterna har verifierats med [MVPD](#mvpd) .
 
 ### C {#c}
+
+#### Klientautentiseringsuppgifter {#client-credentials}
+
+Klientens autentiseringsuppgifter är en uppsättning unika värden som genereras under processen [Dynamic Client Registration (DCR)](#dcr) och som ska användas för att erhålla en [åtkomsttoken](#access-token).
 
 #### Konfiguration {#configuration}
 
@@ -114,6 +121,8 @@ Medietoken är en token som genereras av Adobe Pass Authentication som ett resul
 
 Medietoken skickas till [Programmer](#programmer), som sedan validerar den för att säkerställa åtkomstsäkerheten för den [resursen](#resource).
 
+Synonym med den tidigare termen använde kort auktoriseringstoken.
+
 #### Media Token Verifier {#media-token-verifier}
 
 Verifieraren för medietoken är ett bibliotek som distribueras av Adobe Pass Authentication och som ansvarar för att verifiera äktheten för en [medietoken](#media-token).
@@ -138,7 +147,15 @@ Partnern identifieras av ett unikt värde (t.ex.&quot;äpple&quot;) som definier
 
 #### Förhandsauktorisering {#preauthorization}
 
-Förhandsauktoriseringen är en process som gör det möjligt för en användare att förhandsgranska listan med [resurser](#resource) från en [programmerarkatalog](#programmer) som användaren har åtkomst till, efter att ha verifierat användarrättigheterna med [MVPD](#mvpd) .
+Förhandsauktoriseringen är en process som gör att en användare kan förhandsgranska en delmängd av [resources](#resource) från en [Programmer](#programmer)-katalog som han eller hon skulle ha åtkomst till efter att ha verifierat användarrättigheterna med [MVPD](#mvpd) .
+
+Synonym med [Preflight](#preflight).
+
+#### Preflight {#preflight}
+
+Preflight är en process som gör att en användare kan förhandsgranska en delmängd av [resources](#resource) från en [Programmer](#programmer)-katalog som han eller hon har åtkomst till efter att ha verifierat användarrättigheterna med [MVPD](#mvpd) .
+
+Synonym med [Förhandsauktorisering](#preauthorization).
 
 #### Primär (programmerare) applikation {#primary-application}
 
@@ -147,6 +164,8 @@ Det primära programmet refererar till ett [Programmer](#programmer)-program som
 #### Profil {#profile}
 
 Profilen är ett Adobe Pass-autentiseringskoncept som lagrar information om användarens autentiseringsstart- och slutdatum, [användarens metadata](#user-metadata) tillsammans med andra fält som anger metoden för att erhålla autentiseringen (t.ex. &quot;normal&quot;, &quot;degraderad&quot;, &quot;tillfällig&quot;, &quot;enkel inloggning&quot; osv.).
+
+Synonym med den tidigare termen använd autentiseringstoken.
 
 #### Programmer {#programmer}
 
@@ -270,7 +289,7 @@ Användaragenten refererar till en webbläsare eller liknande komponent (plattfo
 
 #### Användarmetadata {#user-metadata}
 
-Användarens metadata refererar till användarspecifika attribut (t.ex. postnummer, klassificeringar av föräldrar, användar-ID:n) som underhålls av [MVPD](#mvpd) och tillhandahålls av Adobe Pass Authentication som en del av en [profil](#profile).
+Användarens metadata refererar till användarspecifika attribut (t.ex. postnummer, föräldraklassificering, användar-ID:n) som underhålls av [MVPD](#mvpd) och tillhandahålls av Adobe Pass Authentication som en del av en [profil](#profile).
 
 Mer information finns i dokumentationen för [Användarmetadata](/help/authentication/user-metadata-feature.md).
 
