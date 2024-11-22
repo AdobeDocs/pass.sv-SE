@@ -2,9 +2,9 @@
 title: Apple SSO Cookbook (REST API V2)
 description: Apple SSO Cookbook (REST API V2)
 exl-id: 81476312-9ba4-47a0-a4f7-9a557608cfd6
-source-git-commit: e5ef8c0cba636ac4d2bda1abe0e121d0ecc1b795
+source-git-commit: dbf68d75962e3e34f0c569c409f8c98ae6b9e036
 workflow-type: tm+mt
-source-wordcount: '3410'
+source-wordcount: '3442'
 ht-degree: 0%
 
 ---
@@ -508,7 +508,10 @@ Utför de angivna stegen för att implementera enkel inloggning från Apple med 
    > * Alla _obligatoriska_ rubriker, som `Authorization`, `AP-Device-Identifier`
    > * Alla _valfria_ parametrar och rubriker
 
-1. **Ange nästa åtgärd:** Slutpunktssvaret för Adobe Pass-utloggningen innehåller de data som krävs för att vägleda direktuppspelningsprogrammet angående nästa åtgärd.
+1. **Ange nästa åtgärd:** Slutpunktssvaret för Adobe Pass-utloggningen innehåller de data som krävs för att vägleda direktuppspelningsprogrammet angående nästa åtgärd:
+   * Attributet `url` saknas eftersom användaren måste interagera med partnernivån (systemnivån) för att slutföra utloggningsflödet.
+   * Attributet `actionName` är inställt på &quot;partner_logOut&quot;.
+   * Attributet `actionType` är inställt på &quot;partner_interactive&quot;.
 
    >[!IMPORTANT]
    >
