@@ -1,7 +1,8 @@
 ---
 title: Exempel på användningsrapporter för övervakning av samtidig användning
 description: Exempel på användningsrapporter för övervakning av samtidig användning
-source-git-commit: c28820f0a520d14e8bd704e0191332b1e95bb8aa
+exl-id: e612ea40-c59c-440e-9c80-754b81b37a72
+source-git-commit: c1b52cd8a34c176bdf439ba49f016c72b2e68314
 workflow-type: tm+mt
 source-wordcount: '2360'
 ht-degree: 0%
@@ -93,4 +94,3 @@ ht-degree: 0%
 | Timstatistik för kanal/plattform per innehavare med programnamn | &quot;tenant&quot;, &quot;year&quot;, &quot;month&quot;, &quot;day&quot;, &quot;hour&quot;, &quot;channel&quot;, &quot;platform&quot;, &quot;application-id&quot;, &quot;application&quot; | cmu/v2/tenant/year/month/day/hour/channel/platform/application-id/application | &quot;active-users&quot;, &quot;active-sessions&quot;, &quot;started-sessions&quot;, &quot;complete-sessions&quot;, &quot;failed-try&quot;, &quot;dismissing-sessions&quot;, &quot;Kill-sessions&quot;, &quot;duration_0-15&quot;, &quot;duration_15-30&quot;, &quot;duration_30-60&quot;, &quot;duration_60-120&quot;, &quot;duration_2h-4h&quot; , &quot;duration_4h-8h&quot;, &quot;duration_8h-16h&quot;, &quot;duration_16h-1d&quot;, &quot;duration_1d-3d&quot;, &quot;duration_3d-7d&quot;, &quot;duration_1w-1m&quot;, &quot;duration_over-1m&quot; |
 | Timstatistik per MVPD | &quot;mvpd&quot;, &quot;year&quot;, &quot;month&quot;, &quot;day&quot;, &quot;hour&quot; | cmu/v2/mvpd/year/month/day/hour | &quot;active-users&quot;, &quot;active-sessions&quot;, &quot;started-sessions&quot;, &quot;complete-sessions&quot;, &quot;failed-try&quot;, &quot;dismissing-sessions&quot;, &quot;Kill-sessions&quot;, &quot;duration_0-15&quot;, &quot;duration_15-30&quot;, &quot;duration_30-60&quot;, &quot;duration_60-120&quot;, &quot;duration_2h-4h&quot; , &quot;duration_4h-8h&quot;, &quot;duration_8h-16h&quot;, &quot;duration_16h-1d&quot;, &quot;duration_1d-3d&quot;, &quot;duration_3d-7d&quot;, &quot;duration_1w-1m&quot;, &quot;duration_over-1m&quot; |
 | Timstatistik per MVPD-klient | &quot;mvpd&quot;, &quot;year&quot;, &quot;month&quot;, &quot;day&quot;, &quot;hour&quot;, &quot;tenant&quot; | cmu/v2/mvpd/year/month/day/hour/tenant | &quot;active-users&quot;, &quot;active-sessions&quot;, &quot;started-sessions&quot;, &quot;complete-sessions&quot;, &quot;failed-try&quot;, &quot;dismissing-sessions&quot;, &quot;Kill-sessions&quot;, &quot;duration_0-15&quot;, &quot;duration_15-30&quot;, &quot;duration_30-60&quot;, &quot;duration_60-120&quot;, &quot;duration_2h-4h&quot; , &quot;duration_4h-8h&quot;, &quot;duration_8h-16h&quot;, &quot;duration_16h-1d&quot;, &quot;duration_1d-3d&quot;, &quot;duration_3d-7d&quot;, &quot;duration_1w-1m&quot;, &quot;duration_over-1m&quot; |
-

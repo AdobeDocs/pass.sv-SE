@@ -2,7 +2,7 @@
 title: Välkommen till Adobe&reg; Pass Authentication!
 description: Välkommen till Adobe&reg; autentiseringsöversikt för pass
 exl-id: a8b01469-3d5f-4a44-9ae8-06a68c29d56d
-source-git-commit: 21b4ad42709351eac1c2089026f84a43deb50f8a
+source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
 workflow-type: tm+mt
 source-wordcount: '331'
 ht-degree: 0%
@@ -26,16 +26,16 @@ Dina synpunkter är alltid tacksamma!
 ## Populär hjälp och vanliga frågor {#help-faqs}
 
 | **Aktuella objekt** |
-|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <ul><li>[Enkel inloggning för iOS](/help/authentication/single-sign-on/partner-single-sign-on/apple-single-sign-on/apple-sso-overview.md)</li><li>[Kampanjtillfälligt pass](/help/authentication/promotional-temp-pass.md)</li><li>[Hembaserad autentisering (HBA)](/help/authentication/home-based-authn-tve.md)</li><li>[HBA-grafik](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/files/AdobeNewsletterHBA.pdf)</li><li>[Användarhandbok för Adobe Pass TVE Dashboard](/help/authentication/tve-dashboard/new-tve-dashboard/tve-dashboard-overview.md)</li></ul> |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <ul><li>[Enkel inloggning för iOS](/help/authentication/integration-guide-programmers/features-standard/sso-access/partner-sso/apple-sso/apple-sso-overview.md)</li><li>[Kampanjtillfälligt pass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/promotional-temp-pass.md)</li><li>[Hembaserad autentisering (HBA)](/help/authentication/integration-guide-programmers/features-standard/hba-access/home-based-authn-tve.md)</li><li>[HBA-grafik](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/files/AdobeNewsletterHBA.pdf)</li><li>[Användarhandbok för Adobe Pass TVE Dashboard](/help/authentication/user-guide-tve-dashboard/tve-dashboard-overview.md)</li></ul> |
 
 | **För programmerare** | **För MVPD** |
-|------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------|
-| <ul><li>[Programmer Kickstart Guide](/help/authentication/programmer-kickstart-guide.md)</li><li>[Användarmetadata](/help/authentication/user-metadata.md)</li></ul> | <ul><li>[MVPD Kickstart Guide](/help/authentication/mvpd-kickstart-guide.md)</li><li>[Autentisering](/help/authentication/authn-usecase.md)</li><li>[Behörighet](/help/authentication/authz-usecase.md)</li><li>[Logga ut](/help/authentication/usecase-mvpd-logout.md)</li></ul> |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <ul><li>[Programmer Kickstart Guide](/help/authentication/kickstart/programmer-kickstart-guide.md)</li><li>[Användarmetadata](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/user-metadata.md)</li></ul> | <ul><li>[MVPD Kickstart Guide](/help/authentication/kickstart/mvpd-kickstart-guide.md)</li><li>[Autentisering](/help/authentication/integration-guide-mvpds/authn-usecase.md)</li><li>[Behörighet](/help/authentication/integration-guide-mvpds/authz-usecase.md)</li><li>[Logga ut](/help/authentication/integration-guide-mvpds/usecase-mvpd-logout.md)</li></ul> |
 | **För inbyggda appklienter** | **För alla** |
-| <ul><li>[iOS Technical Overview](/help/authentication/iostvos-sdk-overview.md)</li><li>[Android Technical Overview](/help/authentication/android-sdk-overview.md)</li></ul> | <ul><li>[Tekniskt papper](/help/authentication/technical-paper.md)</li><li>[Eskaleringsprocedurer](/help/authentication/escalation-procedures.md)</li><li>[Ordlista](/help/authentication/glossary.md)</li></ul> |
-| **För smarta enheter** | |
-| <ul><li>[Kundlös teknisk översikt](/help/authentication/rest-api-overview.md)</li><li>[Klientlöst API](/help/authentication/rest-api-reference.md)</li></ul> | |
+| <ul><li>[iOS Technical Overview](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-overview.md)</li><li>[Android Technical Overview](/help/authentication/integration-guide-programmers/legacy/sdks/android-sdk/android-sdk-overview.md)</li></ul> | <ul><li>[Tekniskt papper](/help/authentication/kickstart/technical-paper.md)</li><li>[Eskaleringsprocedurer](/help/authentication/notes-technical/escalation-procedures.md)</li><li>[Ordlista](/help/authentication/kickstart/glossary.md)</li></ul> |
+| **För smarta enheter** |                                                                                                                                                                                                                                                                                                                                                                       |
+| <ul><li>[Kundlös teknisk översikt](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/rest-api-overview.md)</li><li>[Klientlöst API](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/rest-api-reference.md)</li></ul> |                                                                                                                                                                                                                                                                                                                                                                       |
 
 >[!IMPORTANT]
 >
@@ -43,7 +43,7 @@ Dina synpunkter är alltid tacksamma!
 >
 >[Att skicka e-post till vårt supportteam](mailto:tve-support@adobe.com) är också det första steget i en utgåva eller incidentrapport.
 >
->Om du har ett [SEVERITY 1 LIVE](/help/authentication/escalation-procedures.md) -problem och du har skickat e-post till oss och 30 minuter har gått ut utan svar kan du läsa dokumentet [Escalation Procedures](/help/authentication/escalation-procedures.md) för att få telefonnummer att ringa.
+>Om du har ett [SEVERITY 1 LIVE](/help/authentication/notes-technical/escalation-procedures.md) -problem och du har skickat e-post till oss och 30 minuter har gått ut utan svar kan du läsa dokumentet [Escalation Procedures](/help/authentication/notes-technical/escalation-procedures.md) för att få telefonnummer att ringa.
 >
 
 

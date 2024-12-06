@@ -2,7 +2,7 @@
 title: Standardmetadataattribut
 description: Standardmetadataattribut
 exl-id: 99ffa98c-213f-47a5-a6e7-fbacb77875d0
-source-git-commit: f30b6814b8a77424c13337d44d7b247105e0bfe2
+source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
 workflow-type: tm+mt
 source-wordcount: '1053'
 ht-degree: 0%
@@ -24,7 +24,7 @@ API:t för övervakning av samtidig användning tvingar klienter att skicka föl
 |-------------|---------------------------|--------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | applicationId | 75b4-431b-adb2-eb6b9e546013 | Rubrik för auktorisering | Zendesk-biljett vid integration |
 | mvpdName | Sample_MVPD | URI-sökväg | Adobe Pass Authentication från config endpoint när användaren väljer MVPD |
-| accountId | 12345 | URI-sökväg | Adobe Pass Authentication upstreamUserID metadata after user login [User Metadata upstreamUserID - Adobe Pass Authentication](/help/authentication/user-metadata-feature.md) |
+| accountId | 12345 | URI-sökväg | Adobe Pass Authentication upstreamUserID metadata after user login [User Metadata upstreamUserID - Adobe Pass Authentication](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata-feature.md) |
 
 
 ## Metadataattribut {#metadata-attr}
