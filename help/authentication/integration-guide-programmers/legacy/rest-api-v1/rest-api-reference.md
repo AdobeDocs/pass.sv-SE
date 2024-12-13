@@ -2,9 +2,9 @@
 title: REST API-referens
 description: Rest api reference
 exl-id: 67e4639e-db0b-4400-bb81-e214263e8395
-source-git-commit: 3e69473bdb9818416e67b03e6c35d24dc3e0f991
+source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
 workflow-type: tm+mt
-source-wordcount: '647'
+source-wordcount: '669'
 ht-degree: 2%
 
 ---
@@ -14,6 +14,10 @@ ht-degree: 2%
 >[!NOTE]
 >
 >Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
+
+>[!IMPORTANT]
+>
+> Se till att du håller dig informerad om de senaste produktmeddelandena för Adobe Pass-autentisering och tidslinjer för avveckling som sammanställts på sidan [Produktmeddelanden](/help/authentication/product-announcements.md).
 
 ## Begränsningsmekanism
 

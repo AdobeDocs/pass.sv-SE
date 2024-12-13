@@ -2,26 +2,20 @@
 title: Välkommen till Adobe&reg; Pass Authentication!
 description: Välkommen till Adobe&reg; autentiseringsöversikt för pass
 exl-id: a8b01469-3d5f-4a44-9ae8-06a68c29d56d
-source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
+source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
 workflow-type: tm+mt
-source-wordcount: '331'
+source-wordcount: '296'
 ht-degree: 0%
 
 ---
 
 # Välkommen till autentisering med Adobe® Pass {#pt-auth-overview}
 
->[!NOTE]
+>[!IMPORTANT]
 >
->Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
+> Se till att du håller dig informerad om de senaste produktmeddelandena för Adobe Pass-autentisering och tidslinjer för avveckling som sammanställts på sidan [Produktmeddelanden](/help/authentication/product-announcements.md).
 
 Adobe Pass Authentication är en berättigandelösning för TV Everywhere, som tillhandahåller ett modulärt ramverk för att avgöra om någon som begär åtkomst till en resurs är berättigad till den. För att kunna delta i Adobe Pass Authentication-berättigandelösning integrerar Content Providers (programmerare) och Pay TV Providers (MVPD) sina tillståndssystem med Adobe Pass Authentication-arbetsflödena. Denna dokumentationswebbplats innehåller information om integrationsprocessen samt tips för befintliga partners.
-
-Dina synpunkter är alltid tacksamma!
-
->[!NOTE]
->
->Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
 
 ## Populär hjälp och vanliga frågor {#help-faqs}
 
@@ -39,13 +33,11 @@ Dina synpunkter är alltid tacksamma!
 
 >[!IMPORTANT]
 >
->[**Skicka e-post till oss**](mailto:tve-support@adobe.com) om du inte hittar något svar.
+> [**Skicka e-post till oss**](mailto:tve-support@adobe.com) om du inte hittar något svar.
 >
->[Att skicka e-post till vårt supportteam](mailto:tve-support@adobe.com) är också det första steget i en utgåva eller incidentrapport.
+> [Att skicka e-post till vårt supportteam](mailto:tve-support@adobe.com) är också det första steget i en utgåva eller incidentrapport.
 >
->Om du har ett [SEVERITY 1 LIVE](/help/authentication/kickstart/escalation-procedures.md) -problem och du har skickat e-post till oss och 30 minuter har gått ut utan svar kan du läsa dokumentet [Escalation Procedures](/help/authentication/kickstart/escalation-procedures.md) för att få telefonnummer att ringa.
->
-
+> Om du har ett [SEVERITY 1 LIVE](/help/authentication/kickstart/escalation-procedures.md)-problem, och du har e-postat till oss och 30 minuter har gått ut utan svar, kan du läsa dokumentet [Escalation Procedures](/help/authentication/kickstart/escalation-procedures.md) för att få telefonnummer att ringa.
 
 ## För att hitta det du behöver {#how-to-search}
 

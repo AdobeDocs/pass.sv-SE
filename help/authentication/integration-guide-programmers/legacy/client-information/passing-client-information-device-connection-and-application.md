@@ -2,9 +2,9 @@
 title: Skicka klientinformation (enhet, anslutning och program)
 description: Skicka klientinformation (enhet, anslutning och program)
 exl-id: 0b21ef0e-c169-48ff-ac01-25411cfece1e
-source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
+source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
 workflow-type: tm+mt
-source-wordcount: '1644'
+source-wordcount: '1666'
 ht-degree: 0%
 
 ---
@@ -15,6 +15,9 @@ ht-degree: 0%
 >
 >Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
 
+>[!IMPORTANT]
+>
+> Se till att du håller dig informerad om de senaste produktmeddelandena för Adobe Pass-autentisering och tidslinjer för avveckling som sammanställts på sidan [Produktmeddelanden](/help/authentication/product-announcements.md).
 
 ## Omfång {#pass-client-info-scope}
 

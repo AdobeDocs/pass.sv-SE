@@ -2,9 +2,9 @@
 title: Klientlös API-implementering - Felkoder / Meddelanden med trolig orsak / orsak
 description: Klientlös API-implementering - Felkoder / Meddelanden med trolig orsak / orsak
 exl-id: 616e35fc-9b72-422b-9a05-e6248bd52490
-source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
+source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
 workflow-type: tm+mt
-source-wordcount: '205'
+source-wordcount: '227'
 ht-degree: 0%
 
 ---
@@ -14,6 +14,10 @@ ht-degree: 0%
 >[!NOTE]
 >
 >Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av detta API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
+
+>[!IMPORTANT]
+>
+> Se till att du håller dig informerad om de senaste produktmeddelandena och tidslinjerna för inaktivering av Adobe Pass Authentication som sammanställs på [sidan Product Announcements](/help/authentication/product-announcements.md) .
 
 </br>
 
@@ -33,9 +37,9 @@ ht-degree: 0%
 1. Du kan stöta på problem med skript över flera domäner
 1. Korrekt förfalskning bör läggas till i filen /etc/hosts
 
-## Fel: 400 Felaktig begäran
+## Fel: 400 Ogiltig begäran
 
-### Orsaker:
+### Orsakar:
 
 1. Felaktig url för POST/GET
 1. SAMLAssertionParserException – Det gick inte att dekryptera den krypterade SAML-försäkran hos Adobe
@@ -51,9 +55,9 @@ ht-degree: 0%
 
 ### Orsakar:
 
-1. Användarnamn och lösenord stämmer inte överens
-2. Inloggningen kan ha inaktiverats
-3. Kontrollera om inloggningen är avsedd för produktion eller mellanlagring
+1. Användarnamnet och lösenordet matchar inte
+2. Inloggning kan ha inaktiverats
+3. Kontrollera om inloggningen är för produktion eller mellanlagring
 
 
 <!--

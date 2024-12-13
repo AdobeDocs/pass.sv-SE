@@ -2,9 +2,9 @@
 title: Kontrollera autentiseringsflöde med andra skärmens webbapp
 description: Kontrollera autentiseringsflöde med andra skärmens webbapp
 exl-id: 5807f372-a520-4069-b837-67ae41b7f79b
-source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
+source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
 workflow-type: tm+mt
-source-wordcount: '212'
+source-wordcount: '234'
 ht-degree: 0%
 
 ---
@@ -14,6 +14,10 @@ ht-degree: 0%
 >[!NOTE]
 >
 >Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
+
+>[!IMPORTANT]
+>
+> Se till att du håller dig informerad om de senaste produktmeddelandena för Adobe Pass-autentisering och tidslinjer för avveckling som sammanställts på sidan [Produktmeddelanden](/help/authentication/product-announcements.md).
 
 >[!NOTE]
 >

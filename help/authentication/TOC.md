@@ -4,9 +4,9 @@ audience: end-user
 feature: Authentication
 user-guide-title: Adobe Pass-autentisering
 user-guide-description: Adobe Pass-autentisering är en berättigandelösning för TV Everywhere, som tillhandahåller ett modulärt ramverk för att avgöra om någon som begär åtkomst till en resurs är berättigad till den.
-source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
+source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
 workflow-type: tm+mt
-source-wordcount: '1258'
+source-wordcount: '1260'
 ht-degree: 2%
 
 ---
@@ -15,6 +15,35 @@ ht-degree: 2%
 # Hjälp för Adobe Pass-autentisering {#authentication}
 
 + [Adobe Pass-autentisering](home.md)
++ [Produktmeddelanden](product-announcements.md)
++ Produktreleaser {#product-releases}
+   + 2024 {#2024}
+      + [Versionsinformation om Adobe Pass Authentication 3.0.3](notes-releases/auth-rn-303.md)
+      + [Versionskommentarer för Adobe Pass Authentication 3.0](notes-releases/auth-rn-300.md)
+      + [Versionsinformation om Adobe Pass Authentication 2.70](notes-releases/auth-rn-270.md)
+      + [Versionskommentarer för Adobe Pass Authentication 2.69](notes-releases/auth-rn-269.md)
+      + [Versionsinformation om Adobe Pass Authentication JavaScript 4.7.0](notes-releases/authn-rn-javascript-470.md)
+      + [Adobe Pass Authentication iOS / tvOS 3.9.2 versionsinformation](notes-releases/authn-rn-ios-tvos-392.md)
+      + [Adobe Pass Authentication iOS / tvOS 3.8.4 versionsinformation](notes-releases/authn-rn-ios-tvos-384.md)
+   + 2023 {#2023}
+      + [Versionskommentarer för Adobe Pass Authentication 2.68](notes-releases/auth-rn-268.md)
+      + [Versionsinformation om Adobe Pass Authentication 2.67](notes-releases/auth-rn-267.md)
+      + [Versionsinformation om Adobe Pass Authentication 2.66](notes-releases/auth-rn-266.md)
+      + [Versionsinformation om Adobe Pass Authentication 2.65.1](notes-releases/auth-rn-2651.md)
+      + [Versionskommentarer för Adobe Pass Authentication 2.65](notes-releases/auth-rn-265.md)
+      + [Versionsinformation om Adobe Pass Authentication 2.64.1](notes-releases/auth-rn-2641.md)
+      + [Adobe Pass Authentication iOS / tvOS 3.8.3 versionsinformation](notes-releases/authn-rn-ios-tvos-383.md)
+      + [Adobe Pass Authentication iOS / tvOS 3.8.2 versionsinformation](notes-releases/authn-rn-ios-tvos-382.md)
+      + [Adobe Pass Authentication iOS / tvOS 3.8.1 versionsinformation](notes-releases/authn-rn-ios-tvos-381.md)
+      + [Versionsinformation om Adobe Pass Authentication Android 3.7.3](notes-releases/authn-rn-android-373.md)
+   + 2022 {#2022}
+      + [Versionsinformation om Adobe Pass Authentication 2.64](notes-releases/auth-rn-264.md)
+      + [Versionskommentarer för Adobe Pass Authentication 2.63](notes-releases/auth-rn-263.md)
+      + [Versionsinformation om Adobe Pass Authentication 2.62.1](notes-releases/auth-rn-2621.md)
+      + [Versionsinformation om Adobe Pass Authentication JavaScript 4.6.0](notes-releases/authn-rn-javascript-460.md)
+   + 2021 {#2021}
+      + [Versionsinformation om Adobe Pass Authentication JavaScript 4.4.0](notes-releases/authn-rn-javascript-440.md)
+      + [Adobe Pass Authentication iOS / tvOS 3.7.0 versionsinformation](notes-releases/authn-rn-ios-tvos-370.md)
 + Kickstart {#kickstart}
    + [Tekniskt papper](kickstart/technical-paper.md)
    + [Programmerare - översikt](kickstart/programmer-overview.md)
@@ -119,7 +148,7 @@ ht-degree: 2%
          + [Kampanjtillfälligt pass](integration-guide-programmers/features-premium/temporary-access/promotional-temp-pass.md)
          + [Återställ tillfälligt pass](integration-guide-programmers/features-premium/temporary-access/reset-temp-pass.md)
       + Försämrad åtkomst {#degraded-access}
-         + [Översikt över API-degradering](integration-guide-programmers/features-premium/degraded-access/degradation-api-overview.md)
+         + [Översikt över API-nedgradering](integration-guide-programmers/features-premium/degraded-access/degradation-api-overview.md)
       + ESM {#esm}
          + [Tillståndsövervakning - översikt](integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md)
          + [API för kontroll av berättigandetjänster](integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-api.md)
@@ -261,34 +290,6 @@ ht-degree: 2%
    + [Integreringar](/help/authentication/user-guide-tve-dashboard/tve-dashboard-integrations.md)
    + [Rapporter](/help/authentication/user-guide-tve-dashboard/tve-dashboard-reports.md)
    + [Ändringslogg](/help/authentication/user-guide-tve-dashboard/tve-dashboard-changes-log.md)
-+ Versionsinformation {#release-notes}
-   + 2024 {#release-notes-2024}
-      + [Versionsinformation om Adobe Pass Authentication 3.0.3](notes-releases/auth-rn-303.md)
-      + [Versionskommentarer för Adobe Pass Authentication 3.0](notes-releases/auth-rn-300.md)
-      + [Versionsinformation om Adobe Pass Authentication 2.70](notes-releases/auth-rn-270.md)
-      + [Versionskommentarer för Adobe Pass Authentication 2.69](notes-releases/auth-rn-269.md)
-      + [Adobe Pass Authentication JavaScript 4.7.0 Release Notes](notes-releases/authn-rn-javascript-470.md)
-      + [Adobe Pass Authentication iOS / tvOS 3.9.2 Release Notes](notes-releases/authn-rn-ios-tvos-392.md)
-      + [Adobe Pass Authentication iOS / tvOS 3.8.4 Release Notes](notes-releases/authn-rn-ios-tvos-384.md)
-   + 2023 {#release-notes-2023}
-      + [Versionskommentarer för Adobe Pass Authentication 2.68](notes-releases/auth-rn-268.md)
-      + [Versionsinformation om Adobe Pass Authentication 2.67](notes-releases/auth-rn-267.md)
-      + [Versionsinformation om Adobe Pass Authentication 2.66](notes-releases/auth-rn-266.md)
-      + [Versionsinformation om Adobe Pass Authentication 2.65.1](notes-releases/auth-rn-2651.md)
-      + [Versionskommentarer för Adobe Pass Authentication 2.65](notes-releases/auth-rn-265.md)
-      + [Versionsinformation om Adobe Pass Authentication 2.64.1](notes-releases/auth-rn-2641.md)
-      + [Adobe Pass Authentication iOS / tvOS 3.8.3 Release Notes](notes-releases/authn-rn-ios-tvos-383.md)
-      + [Adobe Pass Authentication iOS / tvOS 3.8.2 Release Notes](notes-releases/authn-rn-ios-tvos-382.md)
-      + [Adobe Pass Authentication iOS / tvOS 3.8.1 versionsinformation](notes-releases/authn-rn-ios-tvos-381.md)
-      + [Adobe Pass Authentication Android 3.7.3 Release Notes](notes-releases/authn-rn-android-373.md)
-   + 2022 {#release-notes-2022}
-      + [Versionsinformation om Adobe Pass Authentication 2.64](notes-releases/auth-rn-264.md)
-      + [Versionskommentarer för Adobe Pass Authentication 2.63](notes-releases/auth-rn-263.md)
-      + [Versionsinformation om Adobe Pass Authentication 2.62.1](notes-releases/auth-rn-2621.md)
-      + [Adobe Pass Authentication JavaScript 4.6.0 Release Notes](notes-releases/authn-rn-javascript-460.md)
-   + 2021 {#release-notes-2021}
-      + [Adobe Pass Authentication JavaScript 4.4.0 Release Notes](notes-releases/authn-rn-javascript-440.md)
-      + [Adobe Pass Authentication iOS / tvOS 3.7.0 Release Notes](notes-releases/authn-rn-ios-tvos-370.md)
 + Tech Notes {#tech-notes}
    + Miljöer {#environments}
       + [Förstå Adobe-miljöer](notes-technical/environments/understanding-the-adobe-environments.md)

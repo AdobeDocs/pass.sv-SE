@@ -2,9 +2,9 @@
 title: Utvärdering av förebyggande av spårning Google Chrome
 description: Utvärdering av förebyggande av spårning Google Chrome
 exl-id: f3d552da-2fd7-4ac8-9f82-876625af5d47
-source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
+source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
 workflow-type: tm+mt
-source-wordcount: '651'
+source-wordcount: '673'
 ht-degree: 0%
 
 ---
@@ -14,6 +14,10 @@ ht-degree: 0%
 >[!NOTE]
 >
 >Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
+
+>[!IMPORTANT]
+>
+> Se till att du håller dig informerad om de senaste produktmeddelandena för Adobe Pass-autentisering och tidslinjer för avveckling som sammanställts på sidan [Produktmeddelanden](/help/authentication/product-announcements.md).
 
 ## Ökning
 

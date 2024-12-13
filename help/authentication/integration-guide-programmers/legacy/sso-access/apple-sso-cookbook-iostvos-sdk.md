@@ -2,9 +2,9 @@
 title: Apple SSO Cookbook (iOS/tvOS SDK)
 description: Apple SSO Cookbook (iOS/tvOS SDK)
 exl-id: 2d59cd33-ccfd-41a8-9697-1ace3165bc44
-source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
+source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
 workflow-type: tm+mt
-source-wordcount: '1812'
+source-wordcount: '1834'
 ht-degree: 0%
 
 ---
@@ -14,6 +14,10 @@ ht-degree: 0%
 >[!IMPORTANT]
 >
 >Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
+
+>[!IMPORTANT]
+>
+> Se till att du håller dig informerad om de senaste produktmeddelandena för Adobe Pass-autentisering och tidslinjer för avveckling som sammanställts på sidan [Produktmeddelanden](/help/authentication/product-announcements.md).
 
 Adobe Pass Authentication AccessEnabler iOS/tvOS SDK har stöd för Partner Single Sign-On (SSO) för slutanvändare av klientprogram som körs på iOS, iPadOS eller tvOS.
 

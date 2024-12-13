@@ -2,9 +2,9 @@
 title: Testa autentiserings- och auktoriseringsflöden med Adobe API test site
 description: Testa autentiserings- och auktoriseringsflöden med Adobe API test site
 exl-id: 04af4aed-35e4-44cb-98ce-7643165a8869
-source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
+source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
 workflow-type: tm+mt
-source-wordcount: '312'
+source-wordcount: '334'
 ht-degree: 0%
 
 ---
@@ -14,6 +14,10 @@ ht-degree: 0%
 >[!NOTE]
 >
 >Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
+
+>[!IMPORTANT]
+>
+> Se till att du håller dig informerad om de senaste produktmeddelandena för Adobe Pass-autentisering och tidslinjer för avveckling som sammanställts på sidan [Produktmeddelanden](/help/authentication/product-announcements.md).
 
 För att testa AuthN- och AuthZ-flödena har vi förberett en **API-testwebbplats** som du har till ditt förfogande. Vårt supportteam ger dig gärna information om sina uppgifter. Kontakta oss på **support@tve.zendesk.com**.
 

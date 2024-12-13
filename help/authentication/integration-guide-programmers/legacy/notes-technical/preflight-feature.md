@@ -2,9 +2,9 @@
 title: Preflight-funktion, Så här aktiverar, felsöker eller fastställer du problemet
 description: Preflight-funktion, Så här aktiverar, felsöker eller fastställer du problemet
 exl-id: 9e4ec343-371f-4116-915f-191e5f42cb47
-source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
+source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
 workflow-type: tm+mt
-source-wordcount: '499'
+source-wordcount: '521'
 ht-degree: 0%
 
 ---
@@ -14,6 +14,10 @@ ht-degree: 0%
 >[!NOTE]
 >
 >Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
+
+>[!IMPORTANT]
+>
+> Se till att du håller dig informerad om de senaste produktmeddelandena för Adobe Pass-autentisering och tidslinjer för avveckling som sammanställts på sidan [Produktmeddelanden](/help/authentication/product-announcements.md).
 
 Adobe Pass Authentication beräknar preAuthorizeResources på ett annat sätt. PreAuthorization API har en ny implementering. Den här implementeringen ersätter den gamla lösningen som består av att endast göra flera auktoriseringsanrop.
 Det externa gränssnittet för PreAuthorization API är oförändrat, inga uppdateringar krävs i programmerarens program.
