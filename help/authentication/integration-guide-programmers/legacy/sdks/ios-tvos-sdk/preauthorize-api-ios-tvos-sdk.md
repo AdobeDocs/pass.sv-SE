@@ -2,14 +2,14 @@
 title: iOS/tvOS API-förauktorisering
 description: iOS/tvOS API-förauktorisering
 exl-id: 79c596a4-0e38-4b6c-bb85-f97c6af45ed8
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '391'
+source-wordcount: '392'
 ht-degree: 0%
 
 ---
 
-# Förhandsauktorisera {#preauthorize}
+# (Äldre) Förauktorisera {#preauthorize}
 
 >[!NOTE]
 >
@@ -27,7 +27,7 @@ Om resultatet för Förauktorisera API-svar innehåller en eller flera resurser 
 >
 >Den förbättrade felrapporteringsfunktionen som lägger till ytterligare felinformation för nekade förauktoriseringsbeslut är tillgänglig på begäran eftersom den måste aktiveras på konfigurationssidan för Adobe Pass-autentisering.
 
-Om förauktoriserings-API-begäran inte kunde hanteras på grund av ett Adobe Pass Authentication SDK-fel eller om ett Adobe Pass Authentication Services-fel inträffar, kommer ytterligare en felinformation (oavsett ovanstående konfiguration) och inga resurser att inkluderas i förauktoriserings-API-svarsresultatet.
+Om det inte gick att behandla förauktoriserings-API-begäran på grund av ett Adobe Pass Authentication SDK-fel eller om ett Adobe Pass Authentication Services-fel inträffar, kommer ytterligare en felinformation (oavsett ovanstående konfiguration) och inga resurser att inkluderas i förauktoriserings-API-svarsresultatet.
 
 </br>
 
@@ -273,7 +273,7 @@ Ett fel uppstod i Adobe Pass autentiseringstjänster vid behandling av föraukto
 
 #### Fel
 
-Adobe Pass Authentication SDK träffar ett fel när förauktoriserings-API-begäran hanteras
+Adobe Pass Authentication SDK träffar ett fel vid behandling av förauktoriserings-API-begäran
 
 ```JSON
     {

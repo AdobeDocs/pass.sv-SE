@@ -2,14 +2,14 @@
 title: Amazon FireOS Technical Overview
 description: Amazon FireOS Technical Overview
 exl-id: 939683ee-0dd9-42ab-9fde-8686d2dc0cd0
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '2166'
+source-wordcount: '2167'
 ht-degree: 0%
 
 ---
 
-# Amazon FireOS Technical Overview {#amazon-fireos-technical-overview}
+# (Äldre) Amazon FireOS Technical Overview {#amazon-fireos-technical-overview}
 
 >[!NOTE]
 >
@@ -40,17 +40,17 @@ Det är upp till dig om du ska vänta på att meddelandet om att [`setRequestor(
 
 ### Allmänt inledande autentiseringsarbetsflöde {#generic}
 
-Syftet med det här arbetsflödet är att logga in en användare med sitt MVPD-program.  När inloggningen är klar utfärdar backend-servern en autentiseringstoken till användaren. Autentisering sker vanligtvis som en del av auktoriseringsprocessen, men följande beskriver hur autentisering kan fungera fristående och inkluderar inga auktoriseringssteg.
+Syftet med det här arbetsflödet är att logga in en användare med sin MVPD.  När inloggningen är klar utfärdar backend-servern en autentiseringstoken till användaren. Autentisering sker vanligtvis som en del av auktoriseringsprocessen, men följande beskriver hur autentisering kan fungera fristående och inkluderar inga auktoriseringssteg.
 
 Observera att även om följande inbyggda klientarbetsflöde skiljer sig från det vanliga webbläsarbaserade autentiseringsarbetsflödet är steg 1-5 samma för både inbyggda klienter och webbläsarbaserade klienter:
 
 1. Sidan eller spelaren initierar autentiseringsarbetsflödet med ett anrop till [getAuthentication()](#getAuthN) som söker efter en giltig cachelagrad autentiseringstoken. Den här metoden har en valfri `redirectURL`-parameter. Om du inte anger ett värde för `redirectURL` returneras användaren till den URL som autentiseringen initierades från när autentiseringen lyckades.
 1. AccessEnabler avgör aktuell autentiseringsstatus. Om användaren är autentiserad anropar AccessEnabler din `setAuthenticationStatus()`-callback-funktion och skickar en autentiseringsstatus som anger att åtgärden lyckades (steg 7 nedan).
-1. Om användaren inte är autentiserad fortsätter AccessEnabler autentiseringsflödet genom att fastställa om användarens senaste autentiseringsförsök lyckades med ett visst MVPD. Om ett MVPD ID cachelagras OCH flaggan `canAuthenticate` är true ELLER om ett MVPD valdes med [`setSelectedProvider()`](#setSelectedProvider), visas ingen dialogruta för MVPD-val. Autentiseringsflödet fortsätter med det cachelagrade värdet för MVPD (det vill säga samma MVPD som användes vid den senaste autentiseringen). Ett nätverksanrop görs till serverdelen och användaren omdirigeras till inloggningssidan för MVPD (steg 6 nedan).
-1. Om inget MVPD ID cache-lagras OCH inget MVPD har valts med [`setSelectedProvider()`](#setSelectedProvider) ELLER om flaggan `canAuthenticate` har värdet false anropas [`displayProviderDialog()`](#displayProviderDialog)-återanropet. I det här återanropet dirigeras sidan eller spelaren till det användargränssnitt som visar en lista över PDF-filer som användaren kan välja mellan. En array med MVPD-objekt tillhandahålls, som innehåller den information som krävs för att du ska kunna skapa MVPD-väljaren. Varje MVPD-objekt beskriver en MVPD-enhet och innehåller information om exempelvis MVPD-filens ID (t.ex. XFINITY, AT\&amp;T osv.) och den URL där MVPD-logotypen finns.
-1. När ett visst MVPD-dokument har valts måste sidan eller spelaren informera AccessEnabler om användarens val. För klienter som inte är Flashar informerar du AccessEnabler om användarvalet via ett anrop till metoden [`setSelectedProvider()`](#setSelectedProvider) när användaren har valt önskat MVPD. Flash-klienter skickar i stället en delad `MVPDEvent` av typen `mvpdSelection` och skickar den markerade providern.
+1. Om användaren inte är autentiserad fortsätter AccessEnabler autentiseringsflödet genom att fastställa om användarens senaste autentiseringsförsök lyckades med en viss MVPD. Om ett MVPD-ID cachelagras OCH flaggan `canAuthenticate` är true ELLER om en MVPD valdes med [`setSelectedProvider()`](#setSelectedProvider) visas ingen dialogruta för val av MVPD. Autentiseringsflödet fortsätter med det cachelagrade värdet för MVPD (det vill säga samma MVPD som användes vid den senaste autentiseringen). Ett nätverksanrop görs till backend-servern och användaren omdirigeras till inloggningssidan för MVPD (steg 6 nedan).
+1. Om inget MVPD-ID cachelagras OCH ingen MVPD har valts med [`setSelectedProvider()`](#setSelectedProvider) ELLER om flaggan `canAuthenticate` har värdet false anropas [`displayProviderDialog()`](#displayProviderDialog)-återanropet. I det här återanropet dirigeras sidan eller spelaren till det användargränssnitt som visar en lista över PDF-filer som användaren kan välja mellan. En array med MVPD-objekt som innehåller den information som krävs för att du ska kunna skapa MVPD-väljaren. Varje MVPD-objekt beskriver en MVPD-enhet och innehåller information som t.ex. MVPD-ID (t.ex. XFINITY, AT\&amp;T) och den URL där MVPD-logotypen finns.
+1. När en viss MVPD har valts måste sidan eller spelaren informera AccessEnabler om vad användaren väljer. För klienter som inte är Flashar informerar du AccessEnabler om användarvalet via ett anrop till metoden [`setSelectedProvider()`](#setSelectedProvider) när användaren har valt önskad MVPD. Flash-klienter skickar i stället en delad `MVPDEvent` av typen `mvpdSelection` och skickar den markerade providern.
 1. Återanropet [`navigateToUrl()`](#navigagteToUrl) ignoreras för Amazon-program. Biblioteket Access Enabler ger åtkomst till en gemensam WebView-kontroll som autentiserar användare.
-1. Via `WebView` kommer användaren till MVPD:s inloggningssida och anger sina inloggningsuppgifter. Observera att flera omdirigeringsåtgärder utförs under den här överföringen.
+1. Via `WebView` kommer användaren till MVPD inloggningssida och anger sina inloggningsuppgifter. Observera att flera omdirigeringsåtgärder utförs under den här överföringen.
 1. När WebView-kontrollen har slutfört autentiseringen stängs den och informerar AccessEnabler om att användaren har loggat in, så hämtar AccessEnabler den faktiska autentiseringstoken från backend-servern. AccessEnabler anropar återanropet [`setAuthenticationStatus()`](#setAuthNStatus) med statuskoden 1, vilket anger att åtgärden lyckades. Om det uppstår ett fel under körningen av dessa steg utlöses [`setAuthenticationStatus()`](#setAuthNStatus)-återanropet med statuskoden 0, tillsammans med motsvarande felkod, som anger att användaren inte är autentiserad.
 
 ### Utloggningsarbetsflöde {#logout}
@@ -80,7 +80,7 @@ När autentiseringen och auktoriseringen är klar kommer Adobe Pass Authenticati
 
 #### Autentiseringstoken
 
-- **AccessEnabler 1.10.1 för FireOS** är baserad på AccessEnabler för Android 1.9.1 - Denna SDK introducerar en ny metod för tokenlagring som aktiverar flera programmerings-MVPD-buffertar och därmed flera autentiseringstoken.
+- **AccessEnabler 1.10.1 för FireOS** är baserad på AccessEnabler för Android 1.9.1 - Denna SDK introducerar en ny metod för tokenlagring som aktiverar flera programmerings-MVPD-bucket och därmed flera autentiseringstoken.
 
 #### Auktoriseringstoken
 
@@ -104,10 +104,10 @@ När en viss token har placerats i token-cachen kontrolleras dess giltighet vid 
 - Token har inte gått ut
 - Utfärdaren av token ingår i listan över tillåtna identitetsleverantörer
 
-Token Storage kan hantera flera programmerings-MVPD-kombinationer, beroende på en kapslad mappstruktur på flera nivåer som kan innehålla flera autentiseringstoken. Det nya lagringsutrymmet påverkar inte det offentliga API:t för AccessEnabler på något sätt och kräver inga ändringar från programmerarens sida. Här följer ett exempel som visar den här nyare funktionen:
+Tokenlagringen kan stödja flera programmerare-MVPD-kombinationer, beroende på en kapslad mappningsstruktur på flera nivåer som kan innehålla flera autentiseringstoken. Det nya lagringsutrymmet påverkar inte det offentliga API:t för AccessEnabler på något sätt och kräver inga ändringar från programmerarens sida. Här följer ett exempel som visar den här nyare funktionen:
 
 1. Öppna App1 (utvecklad av Programmer1).
-1. Autentisera med MVPD1 (som är integrerad med Programmer1).
+1. Autentisera med MVPD1 (som är integrerat med Programmer1).
 1. Skjut upp/stäng det aktuella programmet och öppna App2 (utvecklad av Programmer2).
 1. Låt oss anta att Programmer2 inte är integrerat med MVPD2. Därför kommer användaren INTE att autentiseras i App2.
 1. Autentisera med MVPD2 (som är integrerat med Programmer2) i App2.

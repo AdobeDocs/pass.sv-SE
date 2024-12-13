@@ -1,15 +1,15 @@
 ---
-title: API-referens för Android SDK
-description: API-referens för Android SDK
+title: Android SDK API Reference
+description: Android SDK API Reference
 exl-id: f932e9a1-2dbe-4e35-bd60-a4737407942d
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '4537'
+source-wordcount: '4538'
 ht-degree: 0%
 
 ---
 
-# API-referens för Android SDK {#android-sdk-api-reference}
+# (Äldre) Android SDK API Reference {#android-sdk-api-reference}
 
 >[!NOTE]
 >
@@ -17,9 +17,9 @@ ht-degree: 0%
 
 ## Introduktion {#intro}
 
-Det här dokumentet innehåller information om de metoder och återanrop som finns i Android SDK for Adobe Pass Authentication, som stöds av Adobe Pass Authentication version 1.7 och senare. De metoder och återanropsfunktioner som beskrivs här definieras i huvudfilerna AccessEnabler.h och EntitlementDelegate.h.
+Det här dokumentet innehåller information om de metoder och återanrop som används för autentisering med Android SDK for Adobe Pass, som stöds av Adobe Pass Authentication version 1.7 och senare. De metoder och återanropsfunktioner som beskrivs här definieras i huvudfilerna AccessEnabler.h och EntitlementDelegate.h.
 
-Besök [https://tve.zendesk.com/hc/en-us/articles/204963219-Android-Native-AccessEnabler-Library](https://tve.zendesk.com/hc/en-us/articles/204963219-Android-Native-AccessEnabler-Library) för den senaste SDK:n för Android AccessEnabler.
+Besök [https://tve.zendesk.com/hc/en-us/articles/204963219-Android-Native-AccessEnabler-Library](https://tve.zendesk.com/hc/en-us/articles/204963219-Android-Native-AccessEnabler-Library) för den senaste Android AccessEnabler SDK.
 
 
 **Obs!** Adobe Pass-autentiseringsteamet uppmanar dig att endast använda Adobe Pass-autentiserings *publika* API:er:
@@ -84,7 +84,7 @@ Serversvaret innehåller en lista över MVPD:er tillsammans med viss konfigurati
 
 Om parametern *urls* inte används anger det resulterande nätverksanropet standardtjänstleverantörens URL: Adobe Release/Production Environment.
 
-Om ett värde anges för parametern *urls*, anger det resulterande nätverksanropet alla URL:er som anges i parametern *urls* som mål. Alla konfigurationsbegäranden aktiveras samtidigt i olika trådar. Den första svararen har företräde när listan över MVPD kompileras. För varje MVPD i listan kommer åtkomstaktiveringen att komma ihåg URL:en för den associerade tjänstleverantören. Alla efterföljande tillståndsbegäranden dirigeras till den URL som är associerad med tjänstleverantören som parats med mål-MVPD under konfigurationsfasen.
+Om ett värde anges för parametern *urls*, anger det resulterande nätverksanropet alla URL:er som anges i parametern *urls* som mål. Alla konfigurationsbegäranden aktiveras samtidigt i olika trådar. Den första svararen har företräde när listan över MVPD kompileras. För varje MVPD i listan kommer Access Enabler ihåg URL:en till den associerade tjänsteleverantören. Alla efterföljande tillståndsbegäranden dirigeras till den URL som är associerad med tjänstleverantören som parats med mål-MVPD under konfigurationsfasen.
 
 | API-anrop: konfiguration för begärare |
 | --- |
@@ -105,7 +105,7 @@ Om ett värde anges för parametern *urls*, anger det resulterande nätverksanro
 
 - *signedRequestorID*: En kopia av begärande-ID:t som har signerats digitalt med din privata nyckel. <!--For more details. see [Registering Native Clients](http://tve.helpdocsonline.com/registering-native-clients)-->.
 
-- *urls*: Valfri parameter. Som standard används Adobes tjänstleverantör (http://sp.auth.adobe.com/). Med den här arrayen kan du ange slutpunkter för autentisering och auktoriseringstjänster som tillhandahålls av Adobe (olika instanser kan användas i felsökningssyfte). Du kan använda detta för att ange flera instanser av Adobe Pass Authentication-tjänstprovidern. När detta görs består MVPD-listan av slutpunkterna från alla tjänsteleverantörer. Varje MVPD är kopplat till den snabbaste tjänsteleverantören, dvs. den leverantör som svarade först och som stöder det MVPD.
+- *urls*: Valfri parameter. Som standard används Adobes tjänstleverantör (http://sp.auth.adobe.com/). Med den här arrayen kan du ange slutpunkter för autentisering och auktoriseringstjänster som tillhandahålls av Adobe (olika instanser kan användas i felsökningssyfte). Du kan använda detta för att ange flera instanser av Adobe Pass Authentication-tjänstprovidern. Då består MVPD-listan av slutpunkterna från alla tjänsteleverantörer. Varje MVPD är kopplat till den snabbaste tjänsteleverantören, dvs. den leverantör som svarade först och som stöder MVPD.
 
 **Återanrop har utlösts:** `setRequestorComplete()`
 
@@ -159,7 +159,7 @@ Värdena skickas till servern oberoende av det aktuella flödet (autentisering/a
    - **applicationProfile** - Den kan användas för att skapa serverkonfigurationer baserat på det här värdet.
    - **ap_vi** - Experience Cloud-ID (visitorID). Det här värdet kan användas senare för avancerade analysrapporter.
    - **ap_ai** - Advertising-id
-   - **device_info** - Klientinformation som beskrivs här: [Överför klientinformationsenhetsanslutning och program](/help/authentication/integration-guide-programmers/passing-client-information-device-connection-and-application.md).
+   - **device_info** - Klientinformation som beskrivs här: [Överför klientinformationsenhetsanslutning och program](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md).
 
 [Till början...](#apis)
 
@@ -168,7 +168,7 @@ Värdena skickas till servern oberoende av det aktuella flödet (autentisering/a
 
 **Beskrivning:** Kontrollerar autentiseringsstatusen. Det gör du genom att söka efter en giltig autentiseringstoken i det lokala tokenlagringsutrymmet. Den här metoden utför inga nätverksanrop och vi rekommenderar att du anropar den på huvudtråden. Den används av programmet för att fråga om användarens autentiseringsstatus och uppdatera användargränssnittet i enlighet med detta (d.v.s. uppdatera användargränssnittet för inloggning/utloggning). Autentiseringsstatusen meddelas programmet via återanropet [*setAuthenticationStatus()*](#setAuthNStatus).
 
-Om ett MVPD-dokument har stöd för funktionen &quot;Authentication per Requestor&quot; kan flera autentiseringstoken lagras på en enhet.  Mer information om den här funktionen finns i avsnittet [Riktlinjer för cachelagring](#$caching) i Android tekniska översikt.
+Om en MVPD stöder funktionen &quot;Autentisering per begärande&quot; kan flera autentiseringstoken lagras på en enhet.  Mer information om den här funktionen finns i avsnittet [Riktlinjer för cachelagring](#$caching) i Android tekniska översikt.
 
 | API-anrop: kontrollera autentiseringsstatus |
 | --- |
@@ -187,12 +187,12 @@ Om ett MVPD-dokument har stöd för funktionen &quot;Authentication per Requesto
 
 **Beskrivning:** Startar det fullständiga autentiseringsarbetsflödet. Det börjar med att kontrollera autentiseringsstatusen. Om autentiseringen inte redan har autentiserats startas tillståndsdatorn för autentiseringsflödet:
 
-- Om det senaste autentiseringsförsöket lyckades hoppas MVPD-urvalsfasen över och återanropet [*navigateToUrl()*](#navigagteToUrl) aktiveras. Programmet använder det här återanropet för att instansiera WebView-kontrollen som visar användarens inloggningssida för MVPD.
-- Om det senaste autentiseringsförsöket misslyckades eller om användaren uttryckligen loggade ut, utlöses callback-funktionen [*displayProviderDialog()*](#displayProviderDialog). Programmet använder det här återanropet för att visa användargränssnittet för MVPD-val. Ditt program måste också återuppta autentiseringsflödet genom att informera åtkomstaktiveringsbiblioteket om användarens MVPD-val via metoden [setSelectedProvider()](#setSelectedProvider) .
+- Om det senaste autentiseringsförsöket lyckades hoppas MVPD-markeringsfasen över och återanropet [*navigateToUrl()*](#navigagteToUrl) aktiveras. Programmet använder det här återanropet för att instansiera WebView-kontrollen som visar MVPD inloggningssida.
+- Om det senaste autentiseringsförsöket misslyckades eller om användaren uttryckligen loggade ut, utlöses callback-funktionen [*displayProviderDialog()*](#displayProviderDialog). Programmet använder det här återanropet för att visa användargränssnittet för val i MVPD. Ditt program krävs också för att återuppta autentiseringsflödet genom att informera åtkomstaktiveringsbiblioteket om användarens MVPD-val via metoden [setSelectedProvider()](#setSelectedProvider) .
 
-När inloggningsuppgifterna för användaren verifieras på MVPD-inloggningssidan måste programmet övervaka de omdirigeringsåtgärder som utförs medan användaren autentiserar sig på MVPD-inloggningssidan. När rätt inloggningsuppgifter anges omdirigeras WebView-kontrollen till en anpassad URL som definieras av konstanten *AccessEnabler.ADOBEPASS\_REDIRECT\_URL* . Denna URL är inte avsedd att läsas in av WebView. Programmet måste tolka denna URL och tolka händelsen som en signal om att inloggningsfasen är slutförd. Den bör sedan lämna över kontrollen till Access Enabler för att slutföra autentiseringsflödet (genom att anropa metoden *getAuthenticationToken()* ).
+När användarens inloggningsuppgifter verifieras på MVPD inloggningssida måste ditt program övervaka de omdirigeringsåtgärder som utförs medan användaren autentiseras på inloggningssidan för MVPD. När rätt inloggningsuppgifter anges omdirigeras WebView-kontrollen till en anpassad URL som definieras av konstanten *AccessEnabler.ADOBEPASS\_REDIRECT\_URL* . Denna URL är inte avsedd att läsas in av WebView. Programmet måste tolka denna URL och tolka händelsen som en signal om att inloggningsfasen är slutförd. Den bör sedan lämna över kontrollen till Access Enabler för att slutföra autentiseringsflödet (genom att anropa metoden *getAuthenticationToken()* ).
 
-Om ett MVPD-dokument har stöd för funktionen &quot;Authentication per Requestor&quot; kan flera autentiseringstoken lagras på en enhet (en per Programmer).  Mer information om den här funktionen finns i avsnittet [Riktlinjer för cachelagring](#$caching) i Android tekniska översikt.
+Om en MVPD stöder funktionen &quot;Autentisering per begärande&quot; kan flera autentiseringstoken lagras på en enhet (en per programmerare).  Mer information om den här funktionen finns i avsnittet [Riktlinjer för cachelagring](#$caching) i Android tekniska översikt.
 
 Slutligen kommuniceras autentiseringsstatusen till programmet via callback-funktionen *setAuthenticationStatus()*.
 
@@ -222,9 +222,9 @@ Slutligen kommuniceras autentiseringsstatusen till programmet via callback-funkt
 
 ### displayProviderDialog {#displayProviderDialog}
 
-**Beskrivning** Återanrop som utlöses av Access Enabler för att informera programmet om att lämpliga gränssnittselement måste instansieras så att användaren kan välja önskat MVPD. I återanropet finns en lista med MVPD-objekt med ytterligare information som kan hjälpa dig att skapa den valda gränssnittspanelen korrekt (t.ex. URL:en som pekar på MVPD:s logotyp, visningsnamn osv.)
+**Beskrivning** Återanrop utlöses av Access Enabler för att informera programmet om att lämpliga gränssnittselement måste initieras så att användaren kan välja önskad MVPD. I återanropet finns en lista med MVPD-objekt med ytterligare information som kan hjälpa dig att skapa den valda gränssnittspanelen korrekt (t.ex. URL:en som pekar på MVPD logotyp, visningsnamn osv.)
 
-När användaren har valt önskat MVPD måste programmet i det övre lagret återuppta autentiseringsflödet genom att anropa *setSelectedProvider()* och skicka ID:t för det MVPD som motsvarar användarens val.
+När användaren har valt önskad MVPD måste programmet i det övre lagret återuppta autentiseringsflödet genom att anropa *setSelectedProvider()* och skicka det ID för MVPD som motsvarar användarens val.
 
 >[!NOTE]
 >
@@ -232,7 +232,7 @@ När användaren har valt önskat MVPD måste programmet i det övre lagret åte
 > </br></br>
 > Observera att detta är en punkt där användaren kan trycka på knappen &quot;Bakåt&quot;, vilket motsvarar att autentiseringsflödet avbryts. I ett sådant fall måste ditt program anropa metoden `setSelectedProvider()` och skicka *null* som parameter för att ge Access Enabler möjlighet att återställa sin autentiseringstillståndsdator.
 
-| Återanrop: visa användargränssnittet för MVPD-markering |
+| Återanrop: visa användargränssnittet för val av MVPD |
 | --- |
 | `public void displayProviderDialog(ArrayList<Mvpd> mvpds)` |
 
@@ -240,7 +240,7 @@ När användaren har valt önskat MVPD måste programmet i det övre lagret åte
 
 **Parametrar**:
 
-- *mvpds*: Lista med MVPD-objekt som innehåller MVPD-relaterad information som programmet kan använda för att skapa gränssnittselement för MVPD-val.
+- *mvpds*: Lista med MVPD-objekt som innehåller MVPD-relaterad information som programmet kan använda för att skapa MVPD-element för markeringsgränssnitt.
 
 **Utlöses av:** `getAuthentication(), getAuthorization()`
 
@@ -249,9 +249,9 @@ När användaren har valt önskat MVPD måste programmet i det övre lagret åte
 
 ### setSelectedProvider {#setSelectedProvider}
 
-**Beskrivning:** Den här metoden anropas av ditt program för att informera åtkomstaktiveraren om användarens MVPD-val. Programmet kan använda den här metoden för att välja eller ändra tjänsteleverantören som används för autentisering.
+**Beskrivning:** Den här metoden anropas av ditt program för att informera Access Enabler om användarens val i MVPD. Programmet kan använda den här metoden för att välja eller ändra tjänsteleverantören som används för autentisering.
 
-Om det valda MVPD-programmet är ett TempPass MVPD autentiseras det automatiskt med det MVPD-programmet utan att du behöver anropa getAuthentication() efteråt.
+Om den valda MVPD är en TempPass MVPD autentiseras den automatiskt med den MVPD-versionen utan att du behöver anropa getAuthentication() efteråt.
 
 Observera att detta inte är möjligt för kampanjtillfälligt pass där extra parametrar anges för getAuthentication()-metoden.
 
@@ -272,15 +272,15 @@ När *null* skickas som en parameter antar Access Enabler att användaren har av
 
 ### navigateToUrl {#navigagteToUrl}
 
-**Borttagen:** NavigateToUrl används från och med Android SDK 3.0 endast om den anpassade fliken Chrome inte finns på enheten
+**Borttagen:** NavigateToUrl används från och med Android SDK 3.0 endast om det inte finns någon anpassad Chrome-flik på enheten
 
-**Beskrivning:** Återanrop utlöses av Access Enabler som informerar programmet om att användaren måste få tillgång till MVPD-inloggningssidan för att kunna ange sina autentiseringsuppgifter. Åtkomstaktiveraren skickar URL:en för MVPD-inloggningssidan som parameter. Programmet krävs för att instansiera en WebView-kontroll och dirigera den till den här URL:en. Dessutom måste programmet övervaka de URL:er som läses in av WebView-kontrollen och avbryta omdirigeringsåtgärden för den anpassade URL:en som definieras av konstanten `AccessEnabler.ADOBEPASS_REDIRECT_URL (deprecated)`. Vid den här händelsen måste programmet antingen stänga eller dölja WebView-kontrollen och återlämna kontrollen till åtkomstaktiveringsbiblioteket genom att anropa metoden *getAuthenticationToken()*. Åtkomstaktiveraren slutför autentiseringsflödet genom att hämta autentiseringstoken från backend-servern och lagra den lokalt i tokenlagringen.
+**Beskrivning:** Återanrop utlöses av Access Enabler som informerar programmet om att MVPD inloggningssida måste visas för att användaren ska kunna ange sina inloggningsuppgifter. Access Enabler skickar URL:en till inloggningssidan för MVPD som parameter. Programmet krävs för att instansiera en WebView-kontroll och dirigera den till den här URL:en. Dessutom måste programmet övervaka de URL:er som läses in av WebView-kontrollen och avbryta omdirigeringsåtgärden för den anpassade URL:en som definieras av konstanten `AccessEnabler.ADOBEPASS_REDIRECT_URL (deprecated)`. Vid den här händelsen måste programmet antingen stänga eller dölja WebView-kontrollen och återlämna kontrollen till åtkomstaktiveringsbiblioteket genom att anropa metoden *getAuthenticationToken()*. Åtkomstaktiveraren slutför autentiseringsflödet genom att hämta autentiseringstoken från backend-servern och lagra den lokalt i tokenlagringen.
 
 >[!WARNING]
 >
 > **Autentiseringsflödet avbryts** <br>Observera att det här är en punkt där användaren kan trycka på knappen &quot;Bakåt&quot;, vilket motsvarar att autentiseringsflödet avbryts. I ett sådant fall måste ditt program anropa metoden _setSelectedProvider()_ som skickar _null_ som parameter och ge åtkomstaktiveraren möjlighet att återställa sin autentiseringstillståndsdator.
 
-| Återanrop: visa inloggningssida för MVPD |
+| Återanrop: visa MVPD inloggningssida |
 | --- |
 | public void navigateToUrl(String url) |
 
@@ -288,7 +288,7 @@ När *null* skickas som en parameter antar Access Enabler att användaren har av
 
 **Parametrar:**
 
-- *url*: URL:en som pekar på MVPD:s inloggningssida
+- *url*: URL:en som pekar på MVPD inloggningssida
 
 **Utlöses av:** `getAuthentication(), setSelectedProvider()`
 
@@ -297,9 +297,9 @@ När *null* skickas som en parameter antar Access Enabler att användaren har av
 
 ### getAuthenticationToken {#getAuthNToken}
 
-**Borttagen:** Från och med Android SDK 3.0 används inte den här metoden från programmet eftersom den anpassade fliken Chrome används för autentisering.
+**Föråldrat:** Från och med Android SDK 3.0 används den här metoden inte längre från programmet eftersom Chrome anpassad flik används för autentisering.
 
-**Beskrivning:** Slutför autentiseringsflödet genom att begära en autentiseringstoken från backend-servern. Den här metoden ska bara anropas av programmet som svar på en händelse där WebView-kontrollen som är värd för MVPD-inloggningssidan omdirigeras till den anpassade URL som definieras av konstanten `AccessEnabler.ADOBEPASS_REDIRECT_URL`.
+**Beskrivning:** Slutför autentiseringsflödet genom att begära en autentiseringstoken från backend-servern. Den här metoden ska bara anropas av ditt program som svar på en händelse där WebView-kontrollen som är värd för MVPD inloggningssida omdirigeras till den anpassade URL som definieras av konstanten `AccessEnabler.ADOBEPASS_REDIRECT_URL`.
 
 | API-anrop: hämta autentiseringstoken |
 | --- |
@@ -309,7 +309,7 @@ När *null* skickas som en parameter antar Access Enabler att användaren har av
 
 **Parametrar:**
 
-- *cookies*: Cookies som har angetts på måldomänen (se demoprogrammet i SDK för en referensimplementering).
+- *cookies*: Cookies som har angetts på måldomänen (en referensimplementering finns i demoprogrammet i SDK).
 
 **Återanrop har utlösts:** `setAuthenticationStatus()`, `sendTrackingData()`
 
@@ -380,7 +380,7 @@ vid behov lämna ytterligare information om orsaken till felet.
 
 **Parametrar:** Parametern `resources` är en array med resurser för vilka auktorisering ska kontrolleras. Varje element i listan ska vara en sträng som representerar resurs-ID:t. Resurs-ID har samma begränsningar som resurs-ID:t i `getAuthorization()`-anropet, d.v.s. det ska vara ett avtalat värde mellan Programmer och MVPD eller ett mediets RSS-fragment.
 
-Parametern `cache` anger om cachelagrat preauktoriseringssvar kan användas eller inte. Som standard är cache true, returnerar SDK ett tidigare cachelagrat svar om det är tillgängligt.
+Parametern `cache` anger om cachelagrat preauktoriseringssvar kan användas eller inte. Som standard är cache-minnet true och SDK returnerar ett tidigare cachelagrat svar om det är tillgängligt.
 
 **Återanropet har utlösts:** `preauthorizedResources()`
 
@@ -500,7 +500,7 @@ Parametern `cache` anger om cachelagrat preauktoriseringssvar kan användas elle
    - `AccessEnablerConstants.USER_NOT_AUTHORIZED_ERROR` - Användaren kunde inte auktorisera för den angivna resursen
 - *errorDescription*: Ytterligare information om felscenariot. Om den här beskrivande strängen inte är tillgänglig av någon anledning skickar Adobe Pass Authentication en tom sträng **(&quot;&quot;)**.
 
-  Strängen kan användas av ett MVPD-program för att skicka anpassade felmeddelanden eller försäljningsrelaterade meddelanden. Om en prenumerant nekas behörighet för en resurs kan MVPD skicka ett meddelande som:&quot;Du har för närvarande inte åtkomst till den här kanalen i ditt paket. Om du vill uppgradera ditt paket klickar du här.&quot; Meddelandet skickas av Adobe Pass Authentication via det här återanropet till programmeraren, som har möjlighet att visa eller ignorera det. Adobe Pass Authentication kan också använda den här parametern för att ge ett meddelande om det tillstånd som kan ha orsakat ett fel. &quot;Ett nätverksfel uppstod t.ex. vid kommunikation med leverantörens behörighetstjänst.&quot;
+  Strängen kan användas av en MVPD för att skicka anpassade felmeddelanden eller försäljningsrelaterade meddelanden. Om en prenumerant nekas behörighet för en resurs kan MVPD skicka ett meddelande som:&quot;Du har för närvarande inte åtkomst till den här kanalen i ditt paket. Om du vill uppgradera ditt paket klickar du här.&quot; Meddelandet skickas av Adobe Pass Authentication via det här återanropet till programmeraren, som har möjlighet att visa eller ignorera det. Adobe Pass Authentication kan också använda den här parametern för att ge ett meddelande om det tillstånd som kan ha orsakat ett fel. &quot;Ett nätverksfel uppstod t.ex. vid kommunikation med leverantörens behörighetstjänst.&quot;
 
 **Utlöses av:** `checkAuthorization(), getAuthorization()`
 
@@ -508,7 +508,7 @@ Parametern `cache` anger om cachelagrat preauktoriseringssvar kan användas elle
 
 ### utloggning {#logout}
 
-**Beskrivning:** Använd den här metoden för att initiera utloggningsflödet. Utloggningen är resultatet av en serie HTTP-omdirigeringsåtgärder på grund av att användaren måste loggas ut både från Adobe Pass autentiseringsservrar och från MVPD-servrarna. Därför kan det här flödet inte slutföras med en enkel HTTP-begäran som utfärdas av biblioteket för Access Enabler. En anpassad Chrome-flik används av SDK för att köra HTTP-omdirigeringsåtgärder. Det här flödet visas för användaren och stängs när det är klart
+**Beskrivning:** Använd den här metoden för att initiera utloggningsflödet. Utloggningen är resultatet av en serie HTTP-omdirigeringsåtgärder på grund av att användaren måste loggas ut både från Adobe Pass autentiseringsservrar och från MVPD servrar. Därför kan det här flödet inte slutföras med en enkel HTTP-begäran som utfärdas av biblioteket för Access Enabler. SDK använder anpassade Chrome-flikar för att utföra HTTP-omdirigeringsåtgärder. Det här flödet visas för användaren och stängs när det är klart
 
 | API-anrop: initiera utloggningsflödet |
 | --- |
@@ -521,7 +521,7 @@ Parametern `cache` anger om cachelagrat preauktoriseringssvar kan användas elle
 **Återanrop har utlösts:**
 
 - `navigateToUrl()` för SDK-version före 3.0
-- `setAuthenticationStatus()` för SDK-version > 3.0
+- `setAuthenticationStatus()` för SDK version > 3.0
 
 
 [Tillbaka till Android API...](#api)
@@ -531,7 +531,7 @@ Parametern `cache` anger om cachelagrat preauktoriseringssvar kan användas elle
 
 **Beskrivning:** Använd den här metoden för att fastställa den valda providern.
 
-| API-anrop: avgöra vilket MVPD som är valt |
+| API-anrop: fastställa vilken MVPD som är vald |
 | --- |
 | public void getSelectedProvider() |
 
@@ -546,9 +546,9 @@ Parametern `cache` anger om cachelagrat preauktoriseringssvar kan användas elle
 
 ### <span id="selectedProvider"></span>selectedProvider
 
-**Beskrivning:** Återanrop som utlöses av Access Enabler och som levererar information om det aktuella MVPD-värdet till programmet.
+**Beskrivning:** Återanrop som utlöses av Access Enabler och som ger information om den MVPD som är vald till programmet.
 
-| Återanrop: information om det aktuella MVPD-värdet |
+| Återanrop: information om den valda MVPD |
 | --- |
 | public void selectedProvider(Mvpd mvpd) |
 
@@ -557,7 +557,7 @@ Parametern `cache` anger om cachelagrat preauktoriseringssvar kan användas elle
 
 **Parametrar:**
 
-- *mvpd*: Objekt som innehåller information om det MVPD som är markerat
+- *mvpd*: Objekt som innehåller information om den valda MVPD
 
 **Utlöses av:** `getSelectedProvider()`
 
@@ -577,7 +577,7 @@ Parametern `cache` anger om cachelagrat preauktoriseringssvar kan användas elle
 Programmerarna har två typer av metadata:
 
 - Statiska metadata (autentiseringstoken TTL, auktoriseringstoken TTL och enhets-ID)
-- Användarmetadata (användarspecifik information, t.ex. användar-ID och postnummer, som skickas från ett MVPD till en användares enhet under autentiserings- och/eller auktoriseringsflödena)
+- Användarmetadata (användarspecifik information, t.ex. användar-ID och postnummer, som skickas från en MVPD till en användares enhet under autentiserings- och/eller auktoriseringsflödena)
 
 **Parametrar:**
 
@@ -585,11 +585,11 @@ Programmerarna har två typer av metadata:
    - Om nyckeln är `METADATA_KEY_USER_META` och args innehåller ett SerializableNameValuePair-objekt med namnet = `METADATA_ARG_USER_META` och värdet = `[metadata_name]` ställs frågan efter användarens metadata. Aktuell lista över tillgängliga metadatatyper för användare:
       - `zip` - Postnummer
 
-      - `householdID` - Hushållsidentifierare. Om ett MVPD inte stöder underkonton är detta identiskt med `userID`.
+      - `householdID` - Hushållsidentifierare. Om en MVPD inte stöder underkonton är detta identiskt med `userID`.
 
       - `maxRating` - Högsta föräldraklassificering för användaren
 
-      - `userID` - användaridentifieraren. Om ett MVPD-program stöder underkonton och användaren inte är huvudkontot, kommer `userID` att vara annorlunda än `householdID`.
+      - `userID` - användaridentifieraren. Om en MVPD stöder underkonton och användaren inte är huvudkontot, kommer `userID` att vara annorlunda än `householdID`.
 
       - `channelID` - En lista över kanaler som användaren har rätt att visa
    - Om nyckeln är `METADATA_KEY_DEVICE_ID` ställs frågan för att hämta aktuellt enhets-ID. Observera att den här funktionen är inaktiverad som standard och programmerare bör kontakta Adobe för att få information om aktivering och avgifter.
@@ -606,7 +606,7 @@ Programmerarna har två typer av metadata:
 
 >[!NOTE]
 >
->Vilka faktiska användarmetadata som är tillgängliga för en programmerare beror på vad ett separat programmeringsdokument (MVPD) erbjuder.  Listan utökas ytterligare när nya metadata blir tillgängliga och läggs till i Adobe Pass autentiseringssystem.
+>Vilka användarmetadata som är tillgängliga för en programmerare beror på vad en MVPD gör tillgänglig.  Listan utökas ytterligare när nya metadata blir tillgängliga och läggs till i Adobe Pass autentiseringssystem.
 
 **Återanrop har utlösts:** [`setMetadataStatus()`](#setMetadaStatus)
 
@@ -732,7 +732,7 @@ Det här värdet är null när begäran gjordes för enkla metadata (Authenticat
 - *event*: händelsen som spåras. Det finns tre typer av spårningshändelser:
    - **permissionDetection:** när en auktoriseringstokenbegäran returnerar (händelsetypen är `EVENT_AUTHZ_DETECTION`)
    - **authenticationDetection:** när en autentiseringskontroll inträffar (händelsetypen är `EVENT_AUTHN_DETECTION`)
-   - **mvpdSelection:** när användaren väljer ett MVPD i MVPD-markeringsformuläret (händelsetypen är `EVENT_MVPD_SELECTION`)
+   - **mvpdSelection:** när användaren väljer en MVPD i MVPD-markeringsformuläret (händelsetypen är `EVENT_MVPD_SELECTION`)
 - *data*: ytterligare data som är associerade med den rapporterade händelsen. Dessa data presenteras i form av en lista med värden.
 
 Här följer instruktioner för tolkning av värdena i *data*
@@ -759,7 +759,7 @@ array:
    - **8** - Operativsystemtyp
 
 - För händelsetyp `EVENT_MVPD_SELECTION`
-   - **0** - ID för det MVPD som är markerat
+   - **0** - ID för den valda MVPD
    - **1** - Enhetstyp
    - **2** - klienttyp för åtkomstaktivering
    - **3** - Operativsystemtyp

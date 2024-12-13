@@ -2,14 +2,14 @@
 title: JavaScript SDK - översikt
 description: JavaScript SDK - översikt
 exl-id: 8756c804-a4c1-4ee3-b2b9-be45f38bdf94
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '510'
+source-wordcount: '511'
 ht-degree: 0%
 
 ---
 
-# JavaScript SDK - översikt {#javascript-sdk-overview}
+# (Äldre) JavaScript SDK - översikt {#javascript-sdk-overview}
 
 >[!NOTE]
 >
@@ -27,11 +27,11 @@ Det allmänna berättigandeflödet för Adobe Pass-autentisering beskrivs i [Til
 >
 >I det här dokumentet beskrivs implementeringen av en stationär webblösning. JavaScript-biblioteket stöds inte på mobilplattformar (till exempel Safari på iOS, Chrome på Android). Använd våra SDK:er om du vill ha en mobilplattform (iOS, Android, Windows) som mål.
 
-## Skapa dialogrutan för MVPD-val {#creating-the-mvpd-selection-dialog}
+## Skapa dialogrutan MVPD Selection {#creating-the-mvpd-selection-dialog}
 
-För att en användare ska kunna logga in på sitt MVPD-dokument och bli autentiserad måste sidan eller spelaren kunna identifiera sitt MVPD-program på ett sätt som användaren kan använda. En standardversion av en dialogruta för MVPD-val tillhandahålls för utveckling. För produktion måste du implementera en egen MVPD-väljare.
+För att en användare ska kunna logga in på sin MVPD och bli autentiserad måste sidan eller spelaren vara ett sätt för användaren att identifiera sin MVPD. En standardversion av en MVPD-dialogruta finns för utveckling. För produktion måste du implementera en egen MVPD-väljare.
 
-Om du redan vet vem som är kundens leverantör kan du [ställa in MVPD programmatiskt](/help/authentication/home.md), utan användarinteraktion. Tekniken är densamma, men kringgår steget att anropa dialogrutan Leverantörsväljare och be kunden att välja sitt MVPD-program.
+Om du redan vet vem som är kundens leverantör kan du [ställa in MVPD programmatiskt](/help/authentication/home.md), utan användarinteraktion. Tekniken är densamma, men kringgår steget att anropa dialogrutan Leverantörsväljare och be kunden välja sin MVPD.
 
 ## Visa tjänsteleverantören {#displaying-the-service-provider}
 
@@ -76,7 +76,7 @@ I följande kodexempel visas hur du identifierar och visar tjänsteleverantören
 ```
 
 
-**JavaScript** Den här JavaScript-filen frågar den aktuella providerns åtkomstaktivering om användaren redan är inloggad och visar resultatet i det reserverade sidavsnittet. Den implementerar även en dialogruta för MVPD-väljare:
+**JavaScript** Den här JavaScript-filen frågar den aktuella providerns åtkomstaktivering om användaren redan är inloggad och visar resultatet i det reserverade sidavsnittet. Den implementerar även en MVPD-väljardialogruta:
 
 ```JS
     $(function() {
@@ -207,7 +207,7 @@ Det finns vissa fall där spelaren inte ansvarar för att hantera användarutlog
 
 >[!NOTE]
 >
->Om användaren lämnar sin dator inaktiv tillräckligt länge så att deras token upphör att gälla, kan de fortfarande återgå till sin session och initiera utloggningen. Adobe Pass Authentication säkerställer att alla tokens tas bort och meddelar även MVPD om att ta bort deras session.
+>Om användaren lämnar sin dator inaktiv tillräckligt länge så att deras token upphör att gälla, kan de fortfarande återgå till sin session och initiera utloggningen. Adobe Pass Authentication säkerställer att alla tokens tas bort och meddelar även MVPD att ta bort deras session.
 
 I följande JavaScript-kod visas hur du loggar ut (avautentiserar) en autentiserad användare:
 

@@ -2,15 +2,15 @@
 title: iOS/tvOS - programregistrering
 description: iOS/tvOS - programregistrering
 exl-id: 89ee6b5a-29fa-4396-bfc8-7651aa3d6826
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '609'
+source-wordcount: '610'
 ht-degree: 0%
 
 ---
 
 
-# iOS/tvOS - programregistrering {#iostvos-application-registration}
+# (Äldre) iOS/tvOS-programregistrering {#iostvos-application-registration}
 
 >[!NOTE]
 >
@@ -24,7 +24,7 @@ Mer information finns i [Översikt över registrering av dynamisk klient](../../
 
 ## Vad är en programsats? {#Soft_state}
 
-En programsats är en JWT-token som innehåller information om programmet. Alla program ska ha en unik programsats som används av våra servrar för att identifiera programmet i Adobe system. Programsatsen måste skickas när du initierar AccessEnabler SDK och den används för att registrera programmet hos Adobe. Vid registreringen får SDK ett klient-ID och en klienthemlighet som används för att hämta en åtkomsttoken. Alla anrop som SDK gör till våra servrar kräver en giltig åtkomsttoken. SDK:n ansvarar för att registrera programmet, hämta och uppdatera åtkomsttoken.
+En programsats är en JWT-token som innehåller information om programmet. Alla program ska ha en unik programsats som används av våra servrar för att identifiera programmet i Adobe system. Programsatsen måste skickas när du initierar AccessEnabler SDK och den kommer att användas för att registrera programmet hos Adobe. Vid registreringen får SDK ett klient-ID och en klienthemlighet som används för att erhålla en åtkomsttoken. Alla samtal som SDK gör till våra servrar kräver en giltig åtkomsttoken. SDK ansvarar för att registrera programmet, hämta och uppdatera åtkomsttoken.
 
 **Obs!** En programsats är programspecifik och samma programsats kan inte användas på mer än ett program. Observera att programsatser på programmeringsnivå även följer samma regler, dvs. de kan bara användas för enstaka program - vare sig det är en kanal eller en flerkanal. Denna begränsning gäller även för anpassade scheman.
 

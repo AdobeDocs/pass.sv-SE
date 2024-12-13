@@ -1,15 +1,15 @@
 ---
-title: Integrationsplan för MVPD
-description: Integrationsplan för MVPD
+title: MVPD Direct Integration Plan
+description: MVPD Direct Integration Plan
 exl-id: 6423cc9a-a45a-4cde-b562-4cb72c98e505
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
 source-wordcount: '1071'
 ht-degree: 0%
 
 ---
 
-# MVPD-startguide: MVPD-direktintegreringsplan {#mvpd-dir-int-plan}
+# MVPD kickstart Guide: MVPD direktintegreringsplan {#mvpd-dir-int-plan}
 
 >[!NOTE]
 >
@@ -31,24 +31,24 @@ Support är alltid tillgänglig via Adobe Pass Authentication Ticket-systemet p�
 
 ## 1. Snabbmöten {#kickoff-meetings}
 
-Omfattningen av dessa möten är inledandet av tekniska diskussioner mellan Adobe och det fleråriga utvecklingsprogrammet. I det här skedet av processen måste dokumentation delas från båda sidor. Som en uppföljning måste Adobe öppna en biljett i vårt biljettsystem (https://tve.zendesk.com/) för att spåra integreringens status.
+Mötena har till syfte att inleda tekniska diskussioner mellan Adobe och MVPD. I det här skedet av processen måste dokumentation delas från båda sidor. Som en uppföljning måste Adobe öppna en biljett i vårt biljettsystem (https://tve.zendesk.com/) för att spåra integreringens status.
 
 ## 2. Funktioner {#features}
 
-Adobe kommer att upprätta ett statussamtal varje vecka för att diskutera och följa upp det övergripande schemat, stegen, tidslinjen och implementeringsinformationen för integreringen. I den här fasen gör Adobe en översyn av specifikationerna för det virtuella dokumentationsdokumentet. Resultatet av detta bör vara en specifikationssida som beskriver alla funktioner som krävs av det mobila dokumentationsdokumentet. MVPD skickar ett specifikationsdokument till Adobe med information om MVPD:s autentisering-/auktoriseringsimplementering.
+Adobe kommer att upprätta ett statussamtal varje vecka för att diskutera och följa upp det övergripande schemat, stegen, tidslinjen och implementeringsinformationen för integreringen. I den här fasen granskar Adobe MVPD specifikationer. Resultatet av detta bör vara en specifikationssida med alla funktioner som MVPD behöver. MVPD skickar ett specifikationsdokument till Adobe med information om MVPD autentisering/behörighetsimplementering.
 
-Objekt som ska klargöras finns i [MVPD-integreringsfunktioner](/help/authentication/integration-guide-mvpds/mvpd-integr-features.md).
+Objekt som du vill klargöra finns i [MVPD integreringsfunktioner](/help/authentication/integration-guide-mvpds/mvpd-integr-features.md).
 
 Det finns flera inställningar som behöver beskrivas i detalj:
 
-* **MVPD:s logotyp-URL** - Det här är en fil med följande dimensioner: 112 x 33 pixlar. Logotypen visas av programmerare på deras webbplatser när användaren klickar på knappen &quot;Logga in&quot; för att välja sin Pay TV-leverantör.
+* **MVPD logotyp-URL** - Det här är en fil med följande dimensioner: 112 x 33 pixlar. Logotypen visas av programmerare på deras webbplatser när användaren klickar på knappen &quot;Logga in&quot; för att välja sin Pay TV-leverantör.
 * **TTL-värden (time-to-live)** - TTL-värdet anges vanligtvis av MVPD under autentiserings-/auktoriseringsprocessen. Adobe kan dock åsidosätta dessa TTL-värden och ange olika värden beroende på vad som överenskommits av både Programmer och MVPD.
 * **Visningsnamn** - Detta visas av programmerare på deras webbplatser när användaren klickar på knappen Logga in för att välja sin leverantör av betal-TV.
 * **Testa autentiseringsuppgifter** - Båda profilerna (mellanlagring och produktion) måste ha en lista med testautentiseringsuppgifter.
 
 >[!IMPORTANT]
 >
->Varje gång en användare initierar ett tillståndsflöde kopplas han/hon till ett enda ogenomskinligt, unikt användar-ID.  Användar-ID:t används för att identifiera användaren av en programmerarapp, men härstammar från MVPD.
+>Varje gång en användare initierar ett tillståndsflöde kopplas han/hon till ett enda ogenomskinligt, unikt användar-ID.  Användar-ID:t används för att identifiera användaren av en programmerarapp, men kommer från MVPD.
 
 >[!CAUTION]
 >
@@ -67,11 +67,11 @@ De två sidorna måste utbyta metadata för alla berörda miljöer (produktion, 
 
 ## 4. Tillåt IP-lista {#allow-ip-list}
 
-Följande IP-adresser ska vitlistas i MVPD:s brandvägg. Kontakta Adobe för att få en lista över IP-adresser.
+Följande IP-adresser ska vitlistas i MVPD brandvägg. Kontakta Adobe för att få en lista över IP-adresser.
 
 * Adobe Pass Authentication kräver att brandväggar öppnas på portarna 80 och 443, vilket ger åtkomst till begränsade resurser.
 
-* MVPD måste lägga till en lista med IP-adresser för autentiserings- och auktoriseringsservrar (om så är fallet).
+* MVPD måste lägga till en lista med IP-adresser för autentiserings- och autentiseringsservrar (om så är fallet).
 
 ## 5. Utveckling {#deve}
 
@@ -79,7 +79,7 @@ Utvecklingsfasens varaktighet bestäms efter att specifikationerna har granskats
 
 >[!NOTE]
 >
->Observera att auktorisering utförs per resurs. Auktoriseringstransaktionen utförs vanligtvis med en ID-sträng som skickas från Programmerarens webbplats och som representerar den kanal som användaren begär auktorisering för. Detta resurs-ID är upprättat mellan Programmer och MVPD och kan vara så detaljerat som nödvändigt.
+>Observera att auktorisering utförs per resurs. Auktoriseringstransaktionen utförs vanligtvis med en ID-sträng som skickas från Programmerarens webbplats och som representerar den kanal som användaren begär auktorisering för. Detta resurs-ID är upprättat mellan Programmer och MVPD och kan vara så detaljerat som behövs.
 
 ## 6. Adobe-miljöer {#adobe-env}
 
@@ -88,23 +88,23 @@ Adobe erbjuder olika miljöer för olika faser av utvecklingsprocessen:
 * **Förhandskvalificering** (PRE-QUAL): I PRE-QUAL-miljön finns nästa release-kandidat. Adobe integrerar till att börja med nya partners i den här miljön innan man uppgraderar integreringen till releasemiljön. Partners har två veckor på sig att testa PRE-QUAL-miljön och måste uttryckligen begära ändringar i PRE-QUAL-konfigurationen (kontakta Adobe för mer information om ändringsförfrågningsprocessen). Felkorrigeringar utlöser nya distributioner i den här miljön.
 * **Version** (RELEASE): Adobe aktuella produktionsbygge distribueras till en miljö här.
 
-Mer information om hur du använder Adobe-miljöer finns i [Förstå Adobe-miljöer](/help/authentication/notes-technical/understanding-the-adobe-environments.md)
+Mer information om hur du använder Adobe-miljöer finns i [Förstå Adobe-miljöer](/help/authentication/notes-technical/environments/understanding-the-adobe-environments.md)
 
 ## 7. Mellanlagringsdistribution {#stag-env}
 
-Baserat på de metadata som tagits emot från MVPD skapar och konfigurerar Adobe ett nytt MVPD-program i Adobe Pass autentiseringssystem. Detta distribueras i Adobe prequal staging-miljö och konfigureras med vår testprogrammerare (TestDistributors).
+Baserat på de metadata som tagits emot från MVPD skapar och konfigurerar Adobe en ny MVPD i Adobe Pass autentiseringssystem. Detta distribueras i Adobe prequal staging-miljö och konfigureras med vår testprogrammerare (TestDistributors).
 
-MVPD måste göra samma distribution i QA-/staging-/testmiljön.
+MVPD måste göra samma driftsättning i sin QA-/staging-/testmiljö.
 
 ## 8. Testa och felsöka {#tes-troubleshoot}
 
-I den här fasen testar och felsöker Adobe och MVPD integreringen. För att testa integreringen kan Adobe Pass Authentication-teamet använda Adobe API test-webbplatsen. Mer information om hur du använder Adobe API-testwebbplats finns i [Testa autentiserings- och auktoriseringsflöden med hjälp av Adobe API-testwebbplats](/help/authentication/notes-technical/test-authn-authz-flows-using-adobes-api-test-site.md).
+I den här fasen testar och felsöker Adobe och MVPD integreringen. För att testa integreringen kan Adobe Pass Authentication-teamet använda Adobe API test-webbplatsen. Mer information om hur du använder Adobe API-testwebbplats finns i [Testa autentiserings- och auktoriseringsflöden med hjälp av Adobe API-testwebbplats](/help/authentication/integration-guide-programmers/legacy/notes-technical/test-authn-authz-flows-using-adobes-api-test-site.md).
 
 När testningen och felsökningen är slutförd aktiveras integreringen i testmiljön i Adobe. Nu kan Adobe integrera MVPD med en riktig programmerare.
 
 ## 9. Produktionsdistribution {#prod-dep}
 
-* MVPD måste distribueras först i produktionsprofilen för att kunna testa anslutningen.
+* MVPD måste först distribuera i produktionsprofilen för att kunna testa anslutningen.
 
 * Adobe driftsätter i förproduktion.
 

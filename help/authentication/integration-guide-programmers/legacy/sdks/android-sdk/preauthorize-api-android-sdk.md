@@ -2,14 +2,14 @@
 title: Förauktorisera Android
 description: Förauktorisera Android
 exl-id: b5337595-135f-4981-a578-2da432f125d6
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '195'
+source-wordcount: '196'
 ht-degree: 0%
 
 ---
 
-# Förhandsauktorisera {#preuthorize-android}
+# (Äldre) Förauktorisera {#preuthorize-android}
 
 >[!NOTE]
 >
@@ -22,7 +22,7 @@ API-metoden för förhandsauktorisering måste användas av program för att ett
 
 
 
-Om ett oväntat fel inträffar (t.ex. nätverksproblem, slutpunkten för MVPD-auktorisering inte är tillgänglig osv.) när en förauktoriserings-API-begäran bearbetas av Adobe Pass Authentication-tjänster, kommer en eller flera separerade felinformation att inkluderas för den eller de berörda resurserna som en del av förauktoriserings-API-svarsresultatet.
+Om ett oväntat fel inträffar (t.ex. nätverksproblem, slutpunkten för MVPD-auktorisering är inte tillgänglig osv.) när en förauktoriserad API-begäran bearbetas av Adobe Pass Authentication-tjänster, kommer en eller flera separerade felinformation att inkluderas för den eller de berörda resurserna som en del av förauktoriserings-API-svarsresultatet.
 
 
 ## `public void preauthorize(PreauthorizeRequest request, AccessEnablerCallback<PreauthorizeResponse> callback);`

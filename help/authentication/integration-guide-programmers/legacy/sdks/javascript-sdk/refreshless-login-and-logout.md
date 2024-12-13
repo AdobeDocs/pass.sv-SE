@@ -2,14 +2,14 @@
 title: Inloggning och utloggning utan uppdatering
 description: Inloggning och utloggning utan uppdatering
 exl-id: 3ce8dfec-279a-4d10-93b4-1fbb18276543
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '1761'
+source-wordcount: '1762'
 ht-degree: 0%
 
 ---
 
-# Inloggning och utloggning utan uppdatering {#tefresh-less-login-and-logout}
+# (Äldre) Uppdatera utan inloggning och utloggning {#tefresh-less-login-and-logout}
 
 >[!NOTE]
 >
@@ -17,10 +17,10 @@ ht-degree: 0%
 
 ## Ökning {#overview}
 
-För webbprogram måste du ta hänsyn till några olika möjliga scenarier för autentisering och utloggning av användare.  MVPD-program kräver att användarna loggar in på MVPD:s webbsida för att autentisera, och dessutom spelas följande ytterligare faktorer upp:
+För webbprogram måste du ta hänsyn till några olika möjliga scenarier för autentisering och utloggning av användare.  MVPD-program kräver att användare loggar in på MVPD webbsida för att autentisera, och dessutom aktiveras följande faktorer:
 
 - Vissa PDF-dokument kräver en fullständig omdirigering från din webbplats till inloggningssidan
-- För vissa PDF-filer krävs att du öppnar en iFrame på din webbplats för att visa MVPD:s inloggningssida
+- Vissa PDF-filer kräver att du öppnar en iFrame på din webbplats för att visa MVPD inloggningssida
 - Vissa webbläsare hanterar inte iFrame-scenariot så för dessa webbläsare är ett bättre alternativ att använda ett popup-fönster i stället för iFrame
 
 Före Adobe Pass Authentication 2.7 innebar alla dessa scenarier för autentisering av en användare en fullständig uppdatering av programmerarens sida. För version 2.7 och senare förbättrade Adobe Pass Authentication-teamet dessa flöden så att användaren inte behöver se någon uppdatering av sidan i din app under inloggning och utloggning.
@@ -44,10 +44,10 @@ Låt oss börja med en sammanfattning av de ursprungliga autentiserings- och utl
 
 Adobe Pass Autentiseringsklienter har två sätt att autentisera, beroende på kraven för programmeringsskyltar:
 
-1. **Omdirigering på helsida -** När användaren har valt en leverantör    (konfigurerad med omdirigering på helsida) från MVPD-väljaren på    Programmerarens webbplats `setSelectedProvider(<mvpd>)` anropas på AccessEnabler och användaren omdirigeras till MVPD:s inloggningssida. När användaren har angett giltiga inloggningsuppgifter dirigeras han/hon tillbaka till programmerarens webbplats. AccessEnabler initieras och autentiseringstoken hämtas från Adobe Pass-autentisering under `setRequestor`.
-1. **iFrame/Popup Window -** När användaren har valt en provider (konfigurerad med iFrame) anropas `setSelectedProvider(<mvpd>)` på AccessEnabler. Den här åtgärden utlöser återanropet `createIFrame(width, height)` och meddelar programmeraren att skapa en iFrame (eller popup - beroende på webbläsaren/inställningarna) med namnet `"mvpdframe"` och de angivna dimensionerna. När iFrame/popup har skapats läser AccessEnabler in MVPD:s inloggningssida i iFrame/popup. Användaren anger giltiga autentiseringsuppgifter och iFrame/popup omdirigeras till Adobe Pass Authentication, som returnerar ett JS-fragment som stänger iFrame/popup-fönstret och läser in den överordnade sidan (programmerarens webbplats) igen. På samma sätt som för flöde 1 hämtas autentiseringstoken under `setRequestor`.
+1. **Omdirigering på helsida -** När användaren har valt en leverantör    (konfigurerat med omdirigering till hela sidan) från MVPD-väljaren på    Programmerarens webbplats `setSelectedProvider(<mvpd>)` anropas på AccessEnabler och användaren omdirigeras till MVPD inloggningssida. När användaren har angett giltiga inloggningsuppgifter dirigeras han/hon tillbaka till programmerarens webbplats. AccessEnabler initieras och autentiseringstoken hämtas från Adobe Pass-autentisering under `setRequestor`.
+1. **iFrame/Popup Window -** När användaren har valt en provider (konfigurerad med iFrame) anropas `setSelectedProvider(<mvpd>)` på AccessEnabler. Den här åtgärden utlöser återanropet `createIFrame(width, height)` och meddelar programmeraren att skapa en iFrame (eller popup - beroende på webbläsaren/inställningarna) med namnet `"mvpdframe"` och de angivna dimensionerna. När iFrame/popup har skapats läser AccessEnabler in MVPD inloggningssida i iFrame/popup-fönstret. Användaren anger giltiga autentiseringsuppgifter och iFrame/popup omdirigeras till Adobe Pass Authentication, som returnerar ett JS-fragment som stänger iFrame/popup-fönstret och läser in den överordnade sidan (programmerarens webbplats) igen. På samma sätt som för flöde 1 hämtas autentiseringstoken under `setRequestor`.
 
-Återanropet `displayProviderDialog` (utlöses av `getAuthentication`/`getAuthorization`) returnerar en lista över MVPD-filer och deras lämpliga inställningar. Egenskapen `iFrameRequired` för ett MVPD-dokument gör att programmeraren kan veta om det ska aktivera flöde 1 eller flöde 2. Observera att programmeraren krävs för att utföra en extra åtgärd (skapa en iFrame/popup) endast för flöde 2.
+Återanropet `displayProviderDialog` (utlöses av `getAuthentication`/`getAuthorization`) returnerar en lista över MVPD-filer och deras lämpliga inställningar. Egenskapen `iFrameRequired` för en MVPD gör att programmeraren kan veta om den ska aktivera flöde 1 eller flöde 2. Observera att programmeraren krävs för att utföra en extra åtgärd (skapa en iFrame/popup) endast för flöde 2.
 
 **Avbryt autentisering**
 
@@ -61,7 +61,7 @@ Det finns också en situation där användaren uttryckligen avbryter autentiseri
 
 ## Ursprungligt utloggningsflöde {#orig_logout}
 
-Utloggnings-API:t för AccessEnabler rensar bibliotekets lokala status och läser in MVPD:s utloggnings-URL i den aktuella fliken/fönstret. Webbläsaren går till MVPD:s utloggningsslutpunkt och när processen är klar dirigeras användaren tillbaka till programmerarens webbplats. Den enda åtgärd som krävs för användarens räkning är att trycka på knappen/länken Logga ut och initiera flödet. Ingen användarinteraktion krävs för MVPD-slutpunkten.
+Utloggnings-API:t för AccessEnabler rensar bibliotekets lokala status och läser in MVPD utloggnings-URL:en i den aktuella fliken/fönstret. Webbläsaren går till MVPD utloggningsslutpunkt och när processen är klar dirigeras användaren tillbaka till programmerarens webbplats. Den enda åtgärd som krävs för användarens räkning är att trycka på knappen/länken Logga ut och starta flödet. Ingen användarinteraktion krävs för MVPD utloggningsslutpunkt.
 
 **Ursprunglig autentisering/utloggningsflöde med siduppdatering**
 
@@ -92,7 +92,7 @@ Både autentiserings- (inloggnings-) och utloggningsflödena ovan ger en liknand
 
 Följande punkter beskriver övergången mellan de ursprungliga autentiseringsflödena och de förbättrade flödena:
 
-1. Den fullständiga omdirigeringen ersätts med en ny webbläsarflik där MVPD-inloggningen utförs. Programmeraren måste skapa en ny flik (via `window.open`) med namnet `mvpdwindow` när användaren väljer ett MVPD (med `iFrameRequired = false`). Programmeraren kör sedan `setSelectedProvider(<mvpd>)`, så att AccessEnabler kan läsa in URL:en för MVPD-inloggning på den nya fliken. När användaren har angett giltiga inloggningsuppgifter stänger Adobe Pass Authentication fliken och skickar ett window.postMessage till programmerarens webbplats som signalerar till AccessEnabler att autentiseringsflödet har slutförts. Följande återanrop aktiveras:
+1. Den fullständiga omdirigeringen ersätts med en ny webbläsarflik där MVPD-inloggningen utförs. Programmeraren måste skapa en ny flik (via `window.open`) med namnet `mvpdwindow` när användaren väljer en MVPD (med `iFrameRequired = false`). Programmeraren kör sedan `setSelectedProvider(<mvpd>)`, vilket gör att AccessEnabler kan läsa in inloggnings-URL:en för MVPD på den nya fliken. När användaren har angett giltiga inloggningsuppgifter stänger Adobe Pass Authentication fliken och skickar ett window.postMessage till programmerarens webbplats som signalerar till AccessEnabler att autentiseringsflödet har slutförts. Följande återanrop aktiveras:
 
    - Om flödet startades av `getAuthentication`: `setAuthenticationStatus` och `sendTrackingData(AUTHENTICATION_DETECTION...)` aktiveras för att signalera lyckad/misslyckad autentisering.
 
@@ -104,7 +104,7 @@ Följande punkter beskriver övergången mellan de ursprungliga autentiseringsfl
 
 >[!IMPORTANT]
 > 
->Du måste läsa in iFrame- eller popup-fönstret för MVPD-inloggningen som ett direkt underordnat objekt till sidan som innehåller AccessEnabler-instansen. Om iFrame- eller popup-fönstret för MVPD-inloggning är kapslat två eller flera nivåer nedanför sidan med AccessEnabler-instansen kan flödet krascha. Om du till exempel har en iFrame mellan huvudsidan och MVPD iFrame (Page =\> iFrame =\> MVPD iFrame) kan inloggningsflödet misslyckas.
+>Du måste läsa in MVPD inloggningsfönster iFrame eller popup-fönster som direkt underordnat till sidan som innehåller AccessEnabler-instansen. Om iFrame- eller popup-fönstret för MVPD-inloggning är kapslat två eller flera nivåer nedanför sidan med AccessEnabler-instansen kan flödet krascha. Om du till exempel har en iFrame mellan huvudsidan och MVPD iFrame (Page =\> iFrame =\> MVPD iFrame) kan inloggningsflödet misslyckas.
 
 </br>
 
@@ -122,11 +122,11 @@ Detta är flödena för att avbryta autentisering:
 
 ## Förbättrat utloggningsflöde {#improved_logout}
 
-Det nya utloggningsflödet utförs i en dold iFrame, vilket eliminerar omdirigeringen av hela sidan.  Detta är möjligt eftersom användaren inte behöver utföra någon specifik åtgärd på MVPD:s utloggningssida.
+Det nya utloggningsflödet utförs i en dold iFrame, vilket eliminerar omdirigeringen av hela sidan.  Detta är möjligt eftersom användaren inte behöver utföra någon specifik åtgärd på MVPD utloggningssida.
 
 När utloggningsflödet är klart dirigeras iFrame om till en anpassad Adobe Pass Authentication-slutpunkt. Detta genererar ett JS-fragment som utför en `window.postMessage` till det överordnade objektet och meddelar AccessEnabler om att utloggningen är klar. Följande återanrop aktiveras: `setAuthenticationStatus()` och `sendTrackingData(AUTHENTICATION_DETECTION ...)`, vilket signalerar att användaren inte längre är autentiserad.
 
-Bilden nedan visar det uppdateringsfria flödet som gör att en användare kan logga in på sitt MVPD-program utan att uppdatera programmets huvudsida:
+Bilden nedan visar det uppdateringsfria flöde som gör att en användare kan logga in på sin MVPD utan att uppdatera programmets huvudsida:
 
 **Förbättrad (utan uppdatering) autentisering/utloggningsflöde**
 
@@ -142,11 +142,11 @@ Eftersom TempPass-flödet kräver att ett fönster skapas automatiskt och stäng
 
 Här är de aspekter som programmeraren måste vara medveten om när TempPass implementeras för uppdatering utan inloggning och inloggning:
 
-- Innan autentiseringen startas behöver iFrame- eller popup-fönstret bara skapas för icke-TempPass MVPD-filer. Programmeraren kan identifiera om ett MVPD är TempPass eller inte genom att läsa egenskapen `tempPass` för MVPD-objektet (returneras av `setConfig()` / `displayProviderDialog()`).
+- Innan autentiseringen startas behöver iFrame- eller popup-fönstret bara skapas för icke-TempPass MVPD-filer. Programmeraren kan identifiera om en MVPD är TempPass eller inte genom att läsa egenskapen `tempPass` för MVPD-objektet (returneras av `setConfig()` / `displayProviderDialog()`).
 
-- Återanropet `createIFrame()` måste innehålla en kontroll för TempPass och dess logik ska bara köras när MVPD är NOT TempPass.
+- Återanropet `createIFrame()` måste innehålla en kontroll för TempPass och dess logik ska bara köras när MVPD inte är TempPass.
 
-- Återanropet `destroyIFrame()` måste innehålla en kontroll för TempPass och dess logik ska bara köras när MVPD är NOT TempPass.
+- Återanropet `destroyIFrame()` måste innehålla en kontroll för TempPass och dess logik ska bara köras när MVPD inte är TempPass.
 
 - Återanropen `setAuthenticationStatus()` och `sendTrackingData()` anropas när autentiseringen har slutförts (exakt som i det uppdateringsfria flödet för vanliga MVPD).
 

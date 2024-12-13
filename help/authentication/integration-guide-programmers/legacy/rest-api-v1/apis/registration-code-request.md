@@ -2,14 +2,14 @@
 title: Registreringssida
 description: Registreringssida
 exl-id: 581b8e2e-7420-4511-88b9-f2cd43a41e10
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '493'
+source-wordcount: '494'
 ht-degree: 0%
 
 ---
 
-# Registreringssida {#registration-page}
+# (Äldre) Registreringssida {#registration-page}
 
 ## REST API-slutpunkter {#clientless-endpoints}
 
@@ -49,7 +49,7 @@ Returnerar slumpmässigt genererad registreringskod och inloggningssidans URI.
 | Acceptera | Header <br> Värde: application/json | ange vilken innehållstyp klienten ska förstå |
 | begärande | Frågeparameter | Programmerarens requestId som den här åtgärden är giltig för. |
 | deviceId | Frågeparameter | Byte för enhets-ID. |
-| device_info/<br>X-Device-Info | device_info: Body <br> X-Device-Info: Header | Information om direktuppspelningsenhet.<br>**Obs!**: Detta kan skickas som device_info som URL-parameter, men på grund av parameterns potentiella storlek och begränsningar i längden på en GET-URL, bör det skickas som X-Device-Info i http-huvudet. <br>Mer information finns i [Skicka information om enheter och anslutningar](/help/authentication/integration-guide-programmers/passing-client-information-device-connection-and-application.md). |
+| device_info/<br>X-Device-Info | device_info: Body <br> X-Device-Info: Header | Information om direktuppspelningsenhet.<br>**Obs!**: Detta kan skickas som device_info som URL-parameter, men på grund av parameterns potentiella storlek och begränsningar i längden på en GET-URL, bör det skickas som X-Device-Info i http-huvudet. <br>Mer information finns i [Skicka information om enheter och anslutningar](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md). |
 | mvpd | Frågeparameter | Det MVPD-ID som den här åtgärden gäller för. |
 | ttl | Frågeparameter | Hur länge den här regkoden ska vara i sekunder.<br>**Obs!**: Det högsta tillåtna värdet för ttl är 36000 sekunder (10 timmar). Högre värden resulterar i ett 400 HTTP-svar (felaktig begäran). Om `ttl` lämnas tomt anges standardvärdet 30 minuter av Adobe Pass Authentication. |
 | _deviceType_ | Frågeparameter | Föråldrat, ska inte användas. |

@@ -2,14 +2,14 @@
 title: Användarmetadata
 description: Användarmetadata
 exl-id: 3d7b6429-972f-4ccb-80fd-a99870a02f65
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '495'
+source-wordcount: '496'
 ht-degree: 0%
 
 ---
 
-# Användarmetadata {#user-metadata}
+# (Äldre) Användarmetadata {#user-metadata}
 
 >[!NOTE]
 >
@@ -35,7 +35,7 @@ ht-degree: 0%
 
 ## Beskrivning {#description}
 
-Hämta metadata som MVPD delade om den autentiserade användaren.
+Hämta metadata som MVPD delat om den autentiserade användaren.
 
 
 | Slutpunkt | Anropat </br>av | Indata   </br>Parametrar | HTTP </br>Metod | Svar | HTTP </br>Response |
@@ -47,14 +47,14 @@ Hämta metadata som MVPD delade om den autentiserade användaren.
 |------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | begärande | Programmerarens requestId som den här åtgärden är giltig för. |
 | deviceId | Byte för enhets-ID. |
-| device_info/<p>X-Device-Info | Information om direktuppspelningsenhet.</br></br> **Obs!** Det här kan skickas device_info som en URL-parameter, men på grund av parameterns potentiella storlek och begränsningar i längden på en GET-URL, bör det skickas som X-Device-Info i http-huvudet. </br></br> Se de fullständiga detaljerna i [Skicka information om enheter och anslutningar](/help/authentication/integration-guide-programmers/passing-client-information-device-connection-and-application.md). |
-| _deviceType_ | Enhetstypen (t.ex. Roku, PC).</br></br> Om den här parametern är korrekt har ESM värden som är [nedbrutna per enhetstyp](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md#progr-filter-metrics) när Clientless används, så att olika typer av analyser kan utföras för t.ex. Roku, AppleTV, Xbox osv.</br></br> Se [Fördelar med att använda parameter för enhetstyp utan klient i mätvärden för pass ](/help/authentication/notes-technical/benefits-of-using-the-clientless-devicetype-parameter-in-pass-metrics.md) </br></br> **Obs!** `device_info` ersätter den här parametern. |
+| device_info/<p>X-Device-Info | Information om direktuppspelningsenhet.</br></br> **Obs!** Det här kan skickas device_info som en URL-parameter, men på grund av parameterns potentiella storlek och begränsningar i längden på en GET-URL, bör det skickas som X-Device-Info i http-huvudet. </br></br> Se de fullständiga detaljerna i [Skicka information om enheter och anslutningar](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md). |
+| _deviceType_ | Enhetstypen (t.ex. Roku, PC).</br></br> Om den här parametern är korrekt har ESM värden som är [nedbrutna per enhetstyp](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md#progr-filter-metrics) när Clientless används, så att olika typer av analyser kan utföras för t.ex. Roku, AppleTV, Xbox osv.</br></br> Se [Fördelar med att använda parameter för enhetstyp utan klient i mätvärden för pass ](/help/authentication/integration-guide-programmers/legacy/notes-technical/benefits-of-using-the-clientless-devicetype-parameter-in-pass-metrics.md) </br></br> **Obs!** `device_info` ersätter den här parametern. |
 | _deviceUser_ | Enhetens användaridentifierare.</br></br> **Obs!** Om det används bör `deviceUser` ha samma värden som i begäran [Skapa registreringskod](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/registration-code-request.md). |
 | _appId_ | Program-ID/namn. </br></br> **Obs!** `device_info` ersätter den här parametern. Om det används ska `appId` ha samma värden som i begäran [Skapa registreringskod](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/registration-code-request.md). |
 
 >[!NOTE]
 > 
->Användarmetadatainformation ska vara tillgänglig när autentiseringsflödet har slutförts, men kan uppdateras i auktoriseringsflödet beroende på MVPD och på metadatatypen.
+>Användarmetadatainformation ska vara tillgänglig när autentiseringsflödet har slutförts, men kan uppdateras i auktoriseringsflödet beroende på MVPD och metadatatypen.
 
 
 

@@ -2,14 +2,14 @@
 title: iOS/tvOS Cookbook
 description: iOS/tvOS Cookbook
 exl-id: 4743521e-d323-4d1d-ad24-773127cfbe42
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '2402'
+source-wordcount: '2403'
 ht-degree: 0%
 
 ---
 
-# iOS/tvOS SDK Cookbook {#iostvos-sdk-cookbook}
+# (Äldre) iOS/tvOS SDK Cookbook {#iostvos-sdk-cookbook}
 
 >[!NOTE]
 >
@@ -67,7 +67,7 @@ I. [Utloggningsflöde med Apple SSO ](#logout_flow_with_AppleSSO) </br>
    * Slutfört visar att du kan fortsätta med berättigandeanrop.
 
    * [`displayProviderDialog(mvpds)`](#$dispProvDialog) </br>
-      * Utlöses endast av [`getAuthentication()`](#$getAuthN) om användaren inte har valt en leverantör (MVPD) och ännu inte är autentiserad. </br>
+      * Utlöses endast av [`getAuthentication()`](#$getAuthN) om användaren inte har valt någon leverantör (MVPD) och ännu inte är autentiserad. </br>
       * Parametern `mvpds` är en matris med providers som är tillgängliga för användaren.
 
    * `setAuthenticationStatus(status, errorcode)` </br>
@@ -76,7 +76,7 @@ I. [Utloggningsflöde med Apple SSO ](#logout_flow_with_AppleSSO) </br>
       * Status som returneras är lyckad eller misslyckad. Felkoden beskriver typen av fel.
 
    * [`navigateToUrl(url)`](#$nav2url) </br>
-      * Utlöses av [`getAuthentication()`](#$getAuthN) efter att användaren har valt ett MVPD. Parametern `url` anger platsen för MVPD:s inloggningssida.
+      * Utlöses av [`getAuthentication()`](#$getAuthN) efter att användaren har valt en MVPD. Parametern `url` anger platsen för MVPD inloggningssida.
 
    * `sendTrackingData(event, data)` </br>
       * Utlöses av `checkAuthentication()`, [`getAuthentication()`](#$getAuthN), `checkAuthorization()`, [`getAuthorization()`](#$getAuthZ), `setSelectedProvider()`.
@@ -108,7 +108,7 @@ har behörighet att se.
 
    * [`presentTvProviderDialog(viewController)`](#presentTvDialog)
 
-      * Utlöses av [getAuthentication()](#getAuthN) när den aktuella begäraren har stöd för minst en MVPD som har stöd för enkel inloggning.
+      * Utlöses av [getAuthentication()](#getAuthN) när den aktuella begäraren har stöd för minst MVPD som har SSO-stöd.
       * Parametern viewController är Apple SSO-dialogrutan och måste presenteras på huvudvykontrollanten.
 
    * [`dismissTvProviderDialog(viewController)`](#dismissTvDialog)
@@ -165,9 +165,9 @@ autentiserad.
 1. Presentera användaren med listan över leverantörer som skickats till
    [`displayProviderDialog()`](#dispProvDialog).
 
-1. När användaren har valt en provider hämtar du URL:en för användarens MVPD från `navigateToUrl:`- eller `navigateToUrl:useSVC:`-återanropet, öppnar en `UIWebView/WKWebView` - eller `SFSafariViewController`-kontrollant och dirigerar kontrollenheten till URL:en.
+1. När användaren har valt en provider hämtar du URL:en för användarens MVPD från callback-funktionen `navigateToUrl:` eller `navigateToUrl:useSVC:`, öppnar en `UIWebView/WKWebView` - eller `SFSafariViewController`-kontrollant och dirigerar kontrollenheten till URL:en.
 
-1. Genom `UIWebView/WKWebView` eller `SFSafariViewController` som instansierats i föregående steg, loggar användaren in på MVPD:s inloggningssida och anger inloggningsuppgifter. Flera omdirigeringsåtgärder utförs inom kontrollenheten.</br>
+1. Genom `UIWebView/WKWebView` eller `SFSafariViewController` som instansierats i det föregående steget, kommer användaren till MVPD inloggningssida och inloggningsuppgifter. Flera omdirigeringsåtgärder utförs inom kontrollenheten.</br>
 
 >[!NOTE]
 >
@@ -177,7 +177,7 @@ autentiserad.
 
 1. Stäng styrenheten UIWebView/WKWebView eller SFSafariViewController och anropa AccessEnablers `handleExternalURL:url`-API-metod, som instruerar AccessEnabler att hämta autentiseringstoken från backend-servern.
 
-1. (Valfritt) Ring [`checkPreauthorizedResources(resources)`](#$checkPreauth) för att kontrollera vilka resurser användaren har behörighet att visa. Parametern `resources` är en matris med skyddade resurser som är associerad med användarens autentiseringstoken. En användning för auktoriseringsinformation som hämtas från användarens MVPD är att dekorera användargränssnittet (t.ex. låsta/olåsta symboler bredvid skyddat innehåll).
+1. (Valfritt) Ring [`checkPreauthorizedResources(resources)`](#$checkPreauth) för att kontrollera vilka resurser användaren har behörighet att visa. Parametern `resources` är en matris med skyddade resurser som är associerad med användarens autentiseringstoken. Ett sätt att använda auktoriseringsinformationen som hämtas från användarens MVPD är att dekorera användargränssnittet (t.ex. låsta/olåsta symboler bredvid skyddat innehåll).
 
    * **Utlösare:** [`preauthorizedResources()`](#preauthResources) återanrop
    * **Körningspunkt:** Efter det slutförda autentiseringsflödet
@@ -189,13 +189,13 @@ autentiserad.
 1. Ring [`getAuthentication()`](#$getAuthN) för att initiera autentiseringsflödet eller för att få en bekräftelse på att användaren redan är autentiserad.
    **Utlösare:**
 
-   * Callback-funktionen [presentTvProviderDialog()](#presentTvDialog), om användaren inte är autentiserad och den aktuella begäraren har minst ett MVPD-värde som stöder enkel inloggning. Om inga MVPD-program stöder enkel inloggning används det klassiska autentiseringsflödet.
+   * Callback-funktionen [presentTvProviderDialog()](#presentTvDialog), om användaren inte är autentiserad och den aktuella begäraren har minst MVPD som stöder enkel inloggning. Om inga MVPD-program stöder enkel inloggning används det klassiska autentiseringsflödet.
 
 1. När användaren har valt en provider får AccessEnabler-biblioteket en autentiseringstoken med information från Apple VSA-ramverk.
 
 1. Callback-funktionen [setAuthenticationsStatus()](#setAuthNStatus) aktiveras. Nu bör användaren autentiseras med Apple SSO.
 
-1. [Valfritt] samtal [`checkPreauthorizedResources(resources)`](#$checkPreauth) för att kontrollera vilka resurser användaren har behörighet att visa. Parametern `resources` är en matris med skyddade resurser som är associerad med användarens autentiseringstoken. En användning för auktoriseringsinformation som hämtas från användarens MVPD är att dekorera användargränssnittet (t.ex. låsta/olåsta symboler bredvid skyddat innehåll).
+1. [Valfritt] samtal [`checkPreauthorizedResources(resources)`](#$checkPreauth) för att kontrollera vilka resurser användaren har behörighet att visa. Parametern `resources` är en matris med skyddade resurser som är associerad med användarens autentiseringstoken. Ett sätt att använda auktoriseringsinformationen som hämtas från användarens MVPD är att dekorera användargränssnittet (t.ex. låsta/olåsta symboler bredvid skyddat innehåll).
 
    * **Utlösare:** [`preauthorizedResources()`](#preauthResources) återanrop
    * **Körningspunkt:** Efter det slutförda autentiseringsflödet
@@ -208,12 +208,12 @@ autentiserad.
 autentiseringsflöde, eller för att få bekräftelse på att användaren redan
 autentiserad.
    **Utlösare:**
-   * [`presentTvProviderDialog()`](#presentTvDialog)-återanropet, om användaren inte är autentiserad och den aktuella begäraren har minst ett MVPD som stöder enkel inloggning. Om inga MVPD-program stöder enkel inloggning används det klassiska autentiseringsflödet.
+   * Återanropet [`presentTvProviderDialog()`](#presentTvDialog), om användaren inte är autentiserad och den aktuella begäraren har minst MVPD som stöder enkel inloggning. Om inga MVPD-program stöder enkel inloggning används det klassiska autentiseringsflödet.
 
 1. När användaren har valt en provider anropas [`status()`](#status_callback_implementation)-återanropet. En registreringskod kommer att anges och AccessEnabler-biblioteket börjar avfråga servern för att erhålla en andra skärmautentisering.
 
 1. Om den angivna registreringskoden användes för att autentisera på den andra skärmen aktiveras [`setAuthenticatiosStatus()`](#setAuthNStatus)-återanropet. Nu bör användaren autentiseras med Apple SSO.
-1. [Valfritt] samtal [`checkPreauthorizedResources(resources)`](#$checkPreauth) för att kontrollera vilka resurser användaren har behörighet att visa. Parametern `resources` är en matris med skyddade resurser som är associerad med användarens autentiseringstoken. En användning för auktoriseringsinformation som hämtas från användarens MVPD är att dekorera användargränssnittet (t.ex. låsta/olåsta symboler bredvid skyddat innehåll).
+1. [Valfritt] samtal [`checkPreauthorizedResources(resources)`](#$checkPreauth) för att kontrollera vilka resurser användaren har behörighet att visa. Parametern `resources` är en matris med skyddade resurser som är associerad med användarens autentiseringstoken. Ett sätt att använda auktoriseringsinformationen som hämtas från användarens MVPD är att dekorera användargränssnittet (t.ex. låsta/olåsta symboler bredvid skyddat innehåll).
 
    * **Utlösare:** [`preauthorizedResources()`](#preauthResources) återanrop
 
@@ -224,7 +224,7 @@ autentiserad.
 
 1. Anropa [getAuthorization()](#$getAuthZ) för att initiera auktoriseringsflödet.
 
-   * **Beroende:** Giltiga resurs-ID:n som har avtalats med MVPD:n.
+   * **Beroende:** Giltiga resurs-ID:n som har avtalats med MVPD(n).
    * Resurs-ID:n ska vara samma som de som används på andra enheter eller plattformar och ska vara samma för alla programmeringsgränssnitten. Mer information om resurs-ID:n finns i [Identifiera skyddade resurser](/help/authentication/integration-guide-programmers/features-standard/entitlements/identify-protected-resources.md)
 
 1. Validera autentisering och auktorisering.

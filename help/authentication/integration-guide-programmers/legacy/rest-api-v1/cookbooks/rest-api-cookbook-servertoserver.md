@@ -2,14 +2,14 @@
 title: REST API Cookbook (Server-to-Server)
 description: Återställ API-cookbook-servern till servern.
 exl-id: 36ad4a64-dde8-4a5f-b0fe-64b6c0ddcbee
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '1844'
+source-wordcount: '1845'
 ht-degree: 0%
 
 ---
 
-# REST API Cookbook (Server-to-Server) {#rest-api-cookbook-server-to-server}
+# (Äldre) REST API Cookbook (Server-to-Server) {#rest-api-cookbook-server-to-server}
 
 >[!NOTE]
 >
@@ -33,11 +33,11 @@ I en fungerande Server-till-Server-lösning ingår följande komponenter:
 | Typ | Komponent | Beskrivning |
 | --- | --- | --- |
 | Strömmande enhet | Strömmande app | Programmeringsprogrammet som finns på användarens direktuppspelningsenhet och spelar upp autentiserad video. |
-| | \[Valfritt\] AuthN-modul | Om direktuppspelningsenheten har en användaragent (t.ex. en webbläsare), är AuthN-modulen ansvarig för att autentisera användaren på MVPD IdP. |
+| | \[Valfritt\] AuthN-modul | Om direktuppspelningsenheten har en användaragent (t.ex. en webbläsare) ansvarar AuthN-modulen för att autentisera användaren på MVPD IdP. |
 | \[Valfritt\] AuthN-enhet | AuthN-app | Om direktuppspelningsenheten inte har någon användaragent (t.ex. webbläsare) är AuthN-programmet ett webbprogram för programmerare som nås från en separat användares enhet via en webbläsare. |
 | Programmeringsinfrastruktur | Programmerartjänst | En tjänst som länkar direktuppspelningsenheten till Adobe Pass-tjänsten för att få autentiserings- och auktoriseringsbeslut. |
 | Adobe infrastruktur | Adobe Pass Service | En tjänst som integreras med MVPD IdP- och AuthZ-tjänsten och som ger autentiserings- och auktoriseringsbeslut. |
-| MVPD-infrastruktur | MVPD IdP | En MVPD-slutpunkt som tillhandahåller autentiseringsbaserad autentisering för att validera användarens identitet. |
+| MVPD Infrastructure | MVPD IdP | En MVPD-slutpunkt som tillhandahåller autentiseringsbaserad autentisering för att validera användarens identitet. |
 | | MVPD AuthZ-tjänst | En MVPD-slutpunkt som ger auktoriseringsbeslut baserat på användarens prenumerationer, föräldrakontroll osv. |
 
 
@@ -65,9 +65,9 @@ till deras MVPD för att avgöra om användaren har ett giltigt konto.
 6. Om **checkauthn**-anropet returnerar statusen att användarenheten INTE är autentiserad bör programmet vänta på att en användarbegäran ska logga in.
 7. När användaren begär direkt inloggning (t.ex. väljer inloggningsknapp) eller indirekt inloggning (t.ex. väljer skyddat innehåll när det inte redan är autentiserat), skickar strömningsenhetens app en begäran till programmeringstjänsten om att initiera användarautentisering. Programmerartjänsten begär och tar emot en unik registreringskod (regcode) genom att anropa Adobe Pass-tjänstens **regcode**-API.
 8. Programmeringstjänsten hämtar även listan över aktuella MVPD-filer och attribut genom att anropa Adobe Pass Service **config** API. Obs! Detta API kan också anropas tidigare i flödet och cachelagras.
-9. Programmerartjänsten returnerar regcode till Streaming Device-appen och den bearbetade MVPD-listan som begärdes i steg \#7. Obs! Det bearbetade formatet för MVPD-listan anges av Programmer och kan filtreras så att specifika MVPD-filer tillåts eller blockeras (dvs. allow- eller block-lists).
+9. Programmerartjänsten returnerar regcode till Streaming Device-appen och den bearbetade MVPD-listan som begärdes i steg \#7. Obs! Det bearbetade listformatet för MVPD anges av Programmer och kan filtreras så att specifika MVPD-filer tillåts eller blockeras (dvs. allow- eller block-lists).
 10. Om enheten skiljer sig från AuthN-enheten (d.v.s.&quot;andra skärmen&quot;), antingen efter val eller behov (d.v.s. direktuppspelningsenheten saknar stöd för en användaragent), ska direktuppspelningsenheten visa regcode och en URI som användaren kan använda för att komma åt AuthN-programmet. Användaren skriver URI:n i användaragenten på AuthN-enheten för att starta AuthN-programmet och skriver sedan in koden i det programmet. Om direktuppspelningsenheten är samma som AuthN-enheten kan regcode skickas programmatiskt till AuthN-modulen.
-11. AuthN-modulen initierar användarautentiseringen med MVPD genom att visa en MVPD-väljare. När användaren har valt MVPD anropar AuthN-modulen **authenticate** med regcode, vilket dirigerar om användaragenten till MVPD IdP. När användaren autentiserar med MVPD omdirigeras användaragenten tillbaka via Adobe Pass-tjänsten, där den lyckade autentiseringen registreras med regcode och sedan omdirigeras tillbaka till AuthN-modulen.
+11. AuthN-modulen initierar användarautentiseringen med MVPD genom att visa en MVPD-väljare. När användaren har valt MVPD anropar AuthN-modulen **authenticate** med regcode, vilket dirigerar om användaragenten till MVPD IdP. När användaren autentiserar med MVPD omdirigeras användaragenten tillbaka via Adobe Pass-tjänsten, där autentiseringen registreras med regcode och sedan omdirigeras tillbaka till AuthN-modulen.
 12. Om direktuppspelningsenheten inte är samma som AuthN-enheten ska AuthN-enheten visa ett meddelande om lyckad autentisering för användaren och steg för att fortsätta (t.ex. &quot;Success\! Du kan nu gå tillbaka till spelkonsolen och fortsätta med \[..\]&quot;). Om direktuppspelningsenheten är densamma som AuthN-enheten kan direktuppspelningsenheten programmässigt upptäcka att autentiseringen har slutförts.
 
 
@@ -94,7 +94,7 @@ I följande diagram visas auktoriseringsflödet:
 Med utloggningsflödet kan användaren ta bort identiteten
 som är associerad med programmet.
 
-1. När användaren begär utloggning (d.v.s. tar bort det aktuella MVPD-kontot som är kopplat till programmet från enheten), anropar direktuppspelningsenhetens app programmeringstjänsten som talar om att enheten ska loggas ut.
+1. När användaren begär att få logga ut (dvs. ta bort det aktuella MVPD-kontot som är kopplat till programmet från enheten), anropar direktuppspelningsenhetens app programmeringstjänsten som säger att enheten ska loggas ut.
 1. Programmerartjänsten ska anropa Adobe Pass **logOut** API.
 
 I följande diagram visas utloggningsflödet:
@@ -125,7 +125,7 @@ Exempel på detta kan vara användar-ID, postnummer osv.
 
 1. När användaren har autentiserats kan programmeringstjänsten anropa Adobe Pass **usermetadata** -API:t för att begära information om den autentiserade användaren.
 
-1. Svaret innehåller alla metadata som är tillgängliga för den angivna användaren. De specifika fälten konfigureras separat för varje programmerare/MVPD-integrering.
+1. Svaret innehåller alla metadata som är tillgängliga för den angivna användaren. De specifika fälten konfigureras separat för varje integrering av Programmer/MVPD.
 
 I följande diagram visas förauktoriseringsflödet:
 

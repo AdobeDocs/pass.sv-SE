@@ -1,15 +1,15 @@
 ---
-title: Android SDK med dynamisk klientregistrering
-description: Android SDK med dynamisk klientregistrering
+title: Android SDK med Dynamic Client Registration
+description: Android SDK med Dynamic Client Registration
 exl-id: 8d0c1507-8e80-40a4-8698-fb795240f618
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '1278'
+source-wordcount: '1279'
 ht-degree: 0%
 
 ---
 
-# Android SDK med dynamisk klientregistrering {#android-sdk-with-dynamic-client-registration}
+# (Äldre) Android SDK med registrering av dynamisk klient {#android-sdk-with-dynamic-client-registration}
 
 >[!NOTE]
 >
@@ -21,14 +21,14 @@ Android AccessEnabler SDK för Android har ändrats för att aktivera autentiser
 
 För Android begränsar användningen av Chrome anpassade flikar åtkomsten till cookies från andra program.
 
->**Android SDK 3.0.0** introducerar:
+>I **Android SDK 3.0.0** introduceras:
 
 - dynamisk klientregistrering ersätter den aktuella appregistreringsmekanismen baserat på autentisering av signerad begärande-ID och sessionscookie
 - Chrome anpassade flikar för autentiseringsflöden
 
 >[!NOTE]
 >
->För äldre Android-versioner utan stöd för anpassade Chrome-flikar används WebView-autentiseringen på samma sätt som i äldre AccessEnabler SDK-versioner.
+>För äldre Android-versioner utan stöd för Chrome anpassade flikar används WebView-autentiseringen på samma sätt som i tidigare versioner av AccessEnabler SDK.
 
 
 ## Dynamisk klientregistrering {#DCR}
@@ -73,7 +73,7 @@ Serversvaret innehåller en lista över MVPD:er tillsammans med viss konfigurati
 
 Om parametern *urls* inte används anger det resulterande nätverksanropet standardtjänstleverantörens URL: Adobe Release/Production Environment.
 
-Om ett värde anges för parametern *urls*, anger det resulterande nätverksanropet alla URL:er som anges i parametern *urls* som mål. Alla konfigurationsbegäranden aktiveras samtidigt i olika trådar. Den första svararen har företräde när listan över MVPD kompileras. För varje MVPD i listan kommer åtkomstaktiveringen att komma ihåg URL:en för den associerade tjänstleverantören. Alla efterföljande tillståndsbegäranden dirigeras till den URL som är associerad med tjänstleverantören som parats med mål-MVPD under konfigurationsfasen.
+Om ett värde anges för parametern *urls*, anger det resulterande nätverksanropet alla URL:er som anges i parametern *urls* som mål. Alla konfigurationsbegäranden aktiveras samtidigt i olika trådar. Den första svararen har företräde när listan över MVPD kompileras. För varje MVPD i listan kommer Access Enabler ihåg URL:en till den associerade tjänsteleverantören. Alla efterföljande tillståndsbegäranden dirigeras till den URL som är associerad med tjänstleverantören som parats med mål-MVPD under konfigurationsfasen.
 
 | API-anrop: konfiguration för begärare |
 | --- |
@@ -90,7 +90,7 @@ Om ett värde anges för parametern *urls*, anger det resulterande nätverksanro
 **Parametrar:**
 
 - *requestedID*: Det unika ID som är associerat med kanalen. Skicka det unika ID som tilldelats av Adobe till din webbplats när du först registrerade dig hos Adobe Pass autentiseringstjänst.
-- *urls*: Valfri parameter. Som standard används Adobes tjänstleverantör [http://sp.auth.adobe.com/](http://sp.auth.adobe.com/). Med den här arrayen kan du ange slutpunkter för autentisering och auktoriseringstjänster som tillhandahålls av Adobe (olika instanser kan användas i felsökningssyfte). Du kan använda detta för att ange flera instanser av Adobe Pass Authentication-tjänstprovidern. När detta görs består MVPD-listan av slutpunkterna från alla tjänsteleverantörer. Varje MVPD är kopplat till den snabbaste tjänsteleverantören, dvs. den leverantör som svarade först och som stöder det MVPD.
+- *urls*: Valfri parameter. Som standard används Adobes tjänstleverantör [http://sp.auth.adobe.com/](http://sp.auth.adobe.com/). Med den här arrayen kan du ange slutpunkter för autentisering och auktoriseringstjänster som tillhandahålls av Adobe (olika instanser kan användas i felsökningssyfte). Du kan använda detta för att ange flera instanser av Adobe Pass Authentication-tjänstprovidern. Då består MVPD-listan av slutpunkterna från alla tjänsteleverantörer. Varje MVPD är kopplat till den snabbaste tjänsteleverantören, dvs. den leverantör som svarade först och som stöder MVPD.
 
 Föråldrat:
 
@@ -100,7 +100,7 @@ Föråldrat:
 
 ### utloggning
 
-**Beskrivning:** Använd den här metoden för att initiera utloggningsflödet. Utloggningen är resultatet av en serie HTTP-omdirigeringsåtgärder på grund av att användaren måste loggas ut både från Adobe Pass autentiseringsservrar och från MVPD-servrarna. Det innebär att det här flödet öppnar ett ChromeCustomTab-fönster för att köra utloggningen.
+**Beskrivning:** Använd den här metoden för att initiera utloggningsflödet. Utloggningen är resultatet av en serie HTTP-omdirigeringsåtgärder på grund av att användaren måste loggas ut både från Adobe Pass autentiseringsservrar och från MVPD servrar. Det innebär att det här flödet öppnar ett ChromeCustomTab-fönster för att köra utloggningen.
 
 | API-anrop: initiera utloggningsflödet |
 | --- |
@@ -136,26 +136,26 @@ redirectUrl)
 
 a. setRequestor(request\_id)
 
-SDK utför följande åtgärder:
+SDK kommer att göra följande:
 
 - registreringsprogram: med **software\_statement** får SDK en **client\_id, client\_secrets, client\_id\_issued\_at, redirect\_uris, grant\_types**. Den här informationen lagras i programmets interna lagring.
 
-- hämta en **access\_token** med client\_id, client\_secrets och grant\_type=&quot;client\_credentials&quot;. Denna åtkomst\_token kommer att användas för varje anrop från SDK till Adobe Pass-servrar
+- hämta en **access\_token** med client\_id, client\_secrets och grant\_type=&quot;client\_credentials&quot;. Denna åtkomst\_token kommer att användas för alla samtal som SDK gör till Adobe Pass-servrar
 
 **Token Error Responses:**
 
 | Felsvar | | |
 | --- | --- | --- |
 | HTTP 400 (Ogiltig begäran) | {&quot;error&quot;: &quot;invalid\_request&quot;} | Begäran saknar en obligatorisk parameter, innehåller ett parametervärde som inte stöds (annat än anslagstyp), upprepar en parameter, innehåller flera autentiseringsuppgifter, använder mer än en mekanism för autentisering av klienten eller har på annat sätt fel format. |
-| HTTP 400 (Ogiltig begäran) | {&quot;error&quot;: &quot;invalid\_client&quot;} | Klientautentiseringen misslyckades eftersom klienten var okänd. SDK MÅSTE registreras på auktoriseringsservern igen. |
+| HTTP 400 (Ogiltig begäran) | {&quot;error&quot;: &quot;invalid\_client&quot;} | Klientautentiseringen misslyckades eftersom klienten var okänd. SDK MÅSTE registrera sig på auktoriseringsservern igen. |
 | HTTP 400 (Ogiltig begäran) | {&quot;error&quot;: &quot;unauthorized\_client&quot;} | Den autentiserade klienten har inte behörighet att använda den här behörighetstypen. |
 
-- om ett MVPD-dokument kräver passiv autentisering öppnas en anpassad Chrome-flik för att köra passivt med detta MVPD och stängs när det är klart
+- om en MVPD kräver passiv autentisering öppnas en anpassad Chrome-flik för att köra passivt med den MVPD:n och stängs när allt är klart
 
 b. checkAuthentication()
 
 - true : gå till Authorization
-- false : gå till Select MVPD
+- false: gå till Select MVPD
 
 c. getAuthentication : SDK inkluderar **access_token** i anropsparametrar
 
@@ -167,7 +167,7 @@ d. setSelectedProvider
 
 - mvpd\_id-autentiserings-url har lästs in i ChromeCustomTabs
 - inloggningen lyckades : delegate.setAuthenticationStatus ( SUCCESS)
-- inloggningen avbröts: återställ MVPD-val
+- inloggningen avbröts: återställa MVPD-markering
 - URL-schemat har etablerats som &quot;adobepass://redirect_uri&quot; för hämtning när autentiseringen är klar
 
 e. get/checkAuthorization: SDK inkluderar **access_token** i huvudet som Authorization: Bearer **access_token**
@@ -177,16 +177,16 @@ medietoken
 
 f. utloggning:
 
-- SDK kommer att ta bort giltig token för den aktuella begäraren (autentiseringar som erhållits av andra program och inte via enkel inloggning kommer att förbli giltiga)
-- SDK öppnar anpassade Chrome-flikar för att nå mvpd_id-slutpunkten för utloggning. När du är klar stängs Chrome anpassade flikar
+- SDK kommer att ta bort giltig token för den aktuella begäraren (autentiseringar som erhållits av andra program och inte via enkel inloggning fortsätter att gälla)
+- SDK öppnar Chrome anpassade flikar för att nå mvpd_id-utloggningsslutpunkten. När du är klar stängs Chrome anpassade flikar
 - URL-schemat är &quot;adobepass://logout&quot; för att fånga in tidpunkten då utloggningen är klar
 - utlöser en sendTrackingData(new Event(EVENT_LOGOUT,USER_NOT_AUTHENTICATED_ERROR) och ett återanrop : setAuthenticationStatus(0,&quot;Logout&quot;)
 
-**Obs!** eftersom varje anrop kräver en **access_token,** möjliga felkoder nedan hanteras i SDK:n.
+**Obs!** eftersom varje anrop kräver en **access_token,** möjliga felkoder nedan hanteras i SDK.
 
 
 | Felsvar | | |
 | --- | ---|--- |
-| invalid_request | 400 | Begäran har fel format. SDK:n bör sluta utföra anrop till servern. |
+| invalid_request | 400 | Begäran har fel format. SDK bör sluta ringa anrop till servern. |
 | invalid_client | 403 | Klient-ID:t har inte längre behörighet att utföra begäranden. SDK MÅSTE utföra klientregistreringen igen. |
 | access_deny | 401 | Åtkomst\_token är inte giltig. SDK MÅSTE begära en ny access_token. |

@@ -2,14 +2,14 @@
 title: Hämta lista över förauktoriserade resurser per webbapp för sekundär skärm
 description: Hämta lista över förauktoriserade resurser per webbapp för sekundär skärm
 exl-id: 78eeaf24-4cc1-4523-8298-999c9effdb7a
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '254'
+source-wordcount: '255'
 ht-degree: 0%
 
 ---
 
-# Hämta lista över förauktoriserade resurser per webbapp för sekundär skärm {#retrieve-list-of-preauthorized-resources-by-second-screen-web-app}
+# (Äldre) Hämta lista över förauktoriserade resurser via webbappen för sekundär skärm {#retrieve-list-of-preauthorized-resources-by-second-screen-web-app}
 
 >[!NOTE]
 >
@@ -50,7 +50,7 @@ Det finns två uppsättningar API:er: en uppsättning för Streaming App eller P
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | registreringskod | Registreringskodvärdet som anges av användaren i början av autentiseringsflödet. |
 | begärande | Programmerarens requestId som den här åtgärden är giltig för. |
-| resurslista | En sträng som innehåller en kommaavgränsad lista med resourceIds som identifierar det innehåll som kan vara tillgängligt för en användare och som känns igen av MVPD-auktoriseringsslutpunkter. |
+| resurslista | En sträng som innehåller en kommaavgränsad lista med resourceIds som identifierar det innehåll som kan vara tillgängligt för en användare och som känns igen av MVPD slutpunkter för auktorisering. |
 
 
 ### Exempelsvar {#sample-response}

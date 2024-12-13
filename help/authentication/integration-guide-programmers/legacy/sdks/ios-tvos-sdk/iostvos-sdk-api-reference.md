@@ -2,14 +2,14 @@
 title: API-referens för iOS/tvOS
 description: API-referens för iOS/tvOS
 exl-id: 017a55a8-0855-4c52-aad0-d3d597996fcb
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '6933'
+source-wordcount: '6934'
 ht-degree: 0%
 
 ---
 
-# API-referens för iOS/tvOS SDK {#iostvos-sdk-api-reference}
+# (Äldre) API-referens för iOS/tvOS SDK {#iostvos-sdk-api-reference}
 
 >[!NOTE]
 >
@@ -17,7 +17,7 @@ ht-degree: 0%
 
 ## Introduktion {#intro}
 
-Den här sidan beskriver de metoder och callback-funktioner som finns i iOS/tvOS-klientens för Adobe Pass-autentisering. Metoderna och callback-funktionerna som beskrivs här definieras i rubrikfilerna `AccessEnabler.h` och `EntitlementDelegate.h`. Du hittar dem i iOS AccessEnabler SDK här: `[SDK directory]/AccessEnabler/headers/api/`
+Den här sidan beskriver de metoder och callback-funktioner som finns i iOS/tvOS-klientens för Adobe Pass-autentisering. Metoderna och återanropsfunktionerna som beskrivs här definieras i rubrikfilerna `AccessEnabler.h` och `EntitlementDelegate.h`. Du hittar dem i iOS AccessEnabler SDK här: `[SDK directory]/AccessEnabler/headers/api/`
 
 
 Associerad dokumentation:
@@ -58,13 +58,13 @@ autentiseringsberättigandeflödet med detta API finns i [iOS Integration Cookbo
 
 * [`getAuthentication:filter`](#getAuthN_filter),[`getAuthentication:withData:`](#getAuthN)[andFilter](#getAuthN_filter) - Startar det fullständiga autentiseringsarbetsflödet.
 
-* [`displayProviderDialog:`](#dispProvDialog) - Informerar ditt program om att instansiera lämpliga gränssnittselement så att användaren kan välja ett MVPD.
+* [`displayProviderDialog:`](#dispProvDialog) - Informerar ditt program om att initiera lämpliga gränssnittselement så att användaren kan välja en MVPD.
 
 * [`setSelectedProvider:`](#setSelProv) - Informerar AccessEnabler om användarens MVPD-val.
 
-* [`navigateToUrl:`](#nav2url) - Informerar ditt program om att användaren måste få tillgång till inloggningssidan för MVPD.
+* [`navigateToUrl:`](#nav2url) - Informerar ditt program om att användaren måste visas på inloggningssidan för MVPD.
 
-* [`navigateToUrl:useSVC:`](#nav2urlSVC) - Informerar ditt program om att användaren behöver få tillgång till inloggningssidan för MVPD via SFSafariViewController
+* [`navigateToUrl:useSVC:`](#nav2urlSVC) - Informerar ditt program om att användaren måste visas på inloggningssidan för MVPD med hjälp av SFSafariViewController
 
 * [`handleExternalURL:url`](#handleExternalURL) - Slutför autentiserings-/utloggningsflödet.
 
@@ -90,7 +90,7 @@ autentiseringsberättigandeflödet med detta API finns i [iOS Integration Cookbo
 
 * [`getSelectedProvider`](#getSelProv) - Bestämmer den markerade providern.
 
-* [`selectedProvider:`](#selProv) - Levererar information om det MVPD som är valt till ditt program.
+* [`selectedProvider:`](#selProv) - Levererar information om den valda MVPD-filen till ditt program.
 
 * [`getMetadata:`](#getMeta) - Hämtar information som exponeras som metadata av AccessEnabler-biblioteket.
 
@@ -148,7 +148,7 @@ autentiseringsberättigandeflödet med detta API finns i [iOS Integration Cookbo
 
 **Fil:** AccessEnabler/headers/AccessEnabler.h
 
-**Beskrivning:** Konfigurerar globala SDK-alternativ. Det accepterar en NSDictionary som ett argument. Värdena från ordlistan skickas till servern tillsammans med alla nätverksanrop som SDK gör.
+**Beskrivning:** Konfigurerar globala SDK-alternativ. Det accepterar en NSDictionary som ett argument. Värdena från ordlistan skickas till servern tillsammans med alla nätverksanrop som görs av SDK.
 
 **Obs!** Värdena skickas till servern oberoende av det aktuella flödet (autentisering/auktorisering). Om du vill ändra värdena kan du anropa den här metoden när som helst.
 
@@ -163,10 +163,10 @@ autentiseringsberättigandeflödet med detta API finns i [iOS Integration Cookbo
 * *options*: En NSDictionary som innehåller globala SDK-alternativ. Följande alternativ är tillgängliga:
    * **applicationProfile** - Den kan användas för att skapa serverkonfigurationer baserat på det här värdet.
    * **visitorID** - Experience Cloud ID-tjänsten. Det här värdet kan användas senare för avancerade analysrapporter.
-   * **handleSVC** - Boolean som anger om programmeraren ska hantera SFSafariViewControllers. Mer information finns i [Stöd för SFSafariViewController i iOS SDK 3.2+](/help/authentication/notes-technical/sfsafariviewcontroller-support-on-ios-sdk-32.md).
-      * Om värdet är **false** kommer SDK automatiskt att ge slutanvändaren en SFSafariViewController. SDK kommer att gå vidare till inloggningssidans URL för MVPD.
-      * Om värdet är **true** kommer SDK **NOT** automatiskt att presentera en SFSafariViewController för slutanvändaren. SDK utlöser ytterligare **navigate(toUrl:{url}, useSVC:YES)**.
-* **device\_info** - Klientinformation enligt beskrivningen i [Skicka klientinformation](/help/authentication/integration-guide-programmers/passing-client-information-device-connection-and-application.md).
+   * **handleSVC** - Boolean som anger om programmeraren ska hantera SFSafariViewControllers. Mer information finns i [Stöd för SFSafariViewController i iOS SDK 3.2+](/help/authentication/integration-guide-programmers/legacy/notes-technical/sfsafariviewcontroller-support-on-ios-sdk-32.md).
+      * Om värdet är **false** kommer SDK automatiskt att ge slutanvändaren en SFSafariViewController. SDK kommer att gå vidare till inloggningssidan för MVPD.
+      * Om värdet är **true** kommer SDK **NOT** automatiskt att presentera en SFSafariViewController för slutanvändaren.  SDK utlöser ytterligare **navigate(toUrl:{url}, useSVC:YES)**.
+* **device\_info** - Klientinformation enligt beskrivningen i [Skicka klientinformation](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md).
 
 [Till början...](#apis)
 
@@ -182,7 +182,7 @@ Serversvaret innehåller en lista över MVPD:er tillsammans med viss konfigurati
 Om parametern `urls` inte används anger det resulterande nätverksanropet standardtjänstleverantörens URL: Adobe RELEASE/produktionsmiljö.
 
 
-Om ett värde anges för parametern `urls`, anger det resulterande nätverksanropet alla URL:er som anges i parametern `urls` som mål. Alla konfigurationsbegäranden aktiveras samtidigt i olika trådar. Den första svararen har företräde när listan över MVPD kompileras. För varje MVPD i listan kommer AccessEnabler ihåg URL:en för den associerade tjänstleverantören. Alla efterföljande tillståndsbegäranden dirigeras till den URL som är associerad med tjänstleverantören som parats med mål-MVPD under konfigurationsfasen.
+Om ett värde anges för parametern `urls`, anger det resulterande nätverksanropet alla URL:er som anges i parametern `urls` som mål. Alla konfigurationsbegäranden aktiveras samtidigt i olika trådar. Den första svararen har företräde när listan över MVPD kompileras. För varje MVPD i listan kommer AccessEnabler ihåg URL:en för den associerade tjänsteleverantören. Alla efterföljande tillståndsbegäranden dirigeras till den URL som är associerad med tjänstleverantören som parats med mål-MVPD under konfigurationsfasen.
 
 | API-anrop: konfiguration för begärare |
 | --- |
@@ -201,7 +201,7 @@ Om ett värde anges för parametern `urls`, anger det resulterande nätverksanro
 **Parametrar:**
 
 * *requestedID*: Det unika ID som är associerat med programmeraren. Skicka det unika ID som tilldelats av Adobe till din webbplats när du först registrerar dig hos Adobe Pass autentiseringstjänst.
-* *urls*: Valfri parameter. Som standard används Adobes tjänstleverantör (http://sp.auth.adobe.com/). Med den här arrayen kan du ange slutpunkter för autentisering och auktoriseringstjänster som tillhandahålls av Adobe (olika instanser kan användas i felsökningssyfte). Du kan använda detta för att ange flera instanser av Adobe Pass Authentication-tjänstprovidern. När detta görs består MVPD-listan av slutpunkterna från alla tjänsteleverantörer. Varje MVPD är kopplat till den snabbaste tjänsteleverantören, dvs. den leverantör som svarade först och som stöder det MVPD.
+* *urls*: Valfri parameter. Som standard används Adobes tjänstleverantör (http://sp.auth.adobe.com/). Med den här arrayen kan du ange slutpunkter för autentisering och auktoriseringstjänster som tillhandahålls av Adobe (olika instanser kan användas i felsökningssyfte). Du kan använda detta för att ange flera instanser av Adobe Pass Authentication-tjänstprovidern. Då består MVPD-listan av slutpunkterna från alla tjänsteleverantörer. Varje MVPD är kopplat till den snabbaste tjänsteleverantören, dvs. den leverantör som svarade först och som stöder MVPD.
 
 >[!NOTE]
 >
@@ -223,7 +223,7 @@ Serversvaret innehåller en lista över MVPD:er tillsammans med viss konfigurati
 
 Om parametern `urls` inte används anger det resulterande nätverksanropet standardtjänstleverantörens URL: Adobe RELEASE/produktionsmiljö.
 
-Om ett värde anges för parametern `urls`, anger det resulterande nätverksanropet alla URL:er som anges i parametern `urls` som mål. Alla konfigurationsbegäranden aktiveras samtidigt i olika trådar. Den första svararen har företräde när listan över MVPD kompileras. För varje MVPD i listan kommer AccessEnabler ihåg URL:en för den associerade tjänstleverantören. Alla efterföljande tillståndsbegäranden dirigeras till den URL som är associerad med tjänstleverantören som parats med mål-MVPD under konfigurationsfasen.
+Om ett värde anges för parametern `urls`, anger det resulterande nätverksanropet alla URL:er som anges i parametern `urls` som mål. Alla konfigurationsbegäranden aktiveras samtidigt i olika trådar. Den första svararen har företräde när listan över MVPD kompileras. För varje MVPD i listan kommer AccessEnabler ihåg URL:en för den associerade tjänsteleverantören. Alla efterföljande tillståndsbegäranden dirigeras till den URL som är associerad med tjänstleverantören som parats med mål-MVPD under konfigurationsfasen.
 
 | API-anrop: konfiguration för begärare |
 | --- |
@@ -241,7 +241,7 @@ Om ett värde anges för parametern `urls`, anger det resulterande nätverksanro
 
 * *requestedID*: Det unika ID som är associerat med programmeraren. Skicka det unika ID som tilldelats av Adobe till din webbplats när du först registrerade dig hos Adobe Pass autentiseringstjänst.
 * *signedRequestorID*: **Den här parametern finns i iOS AccessEnabler version 1.2 och senare.** En kopia av begärande-ID som signeras digitalt med din privata nyckel. <!--For more details, see [Registering Native Clients](https://tve.helpdocsonline.com/registering-native-clients)-->.
-* *urls*: Valfri parameter. Som standard används Adobes tjänstleverantör (http://sp.auth.adobe.com/). Med den här arrayen kan du ange slutpunkter för autentisering och auktoriseringstjänster som tillhandahålls av Adobe (olika instanser kan användas i felsökningssyfte). Du kan använda detta för att ange flera instanser av Adobe Pass Authentication-tjänstprovidern. När detta görs består MVPD-listan av slutpunkterna från alla tjänsteleverantörer. Varje MVPD är kopplat till den snabbaste tjänsteleverantören, dvs. den leverantör som svarade först och som stöder det MVPD.
+* *urls*: Valfri parameter. Som standard används Adobes tjänstleverantör (http://sp.auth.adobe.com/). Med den här arrayen kan du ange slutpunkter för autentisering och auktoriseringstjänster som tillhandahålls av Adobe (olika instanser kan användas i felsökningssyfte). Du kan använda detta för att ange flera instanser av Adobe Pass Authentication-tjänstprovidern. Då består MVPD-listan av slutpunkterna från alla tjänsteleverantörer. Varje MVPD är kopplat till den snabbaste tjänsteleverantören, dvs. den leverantör som svarade först och som stöder MVPD.
 
 **Obs!** Om det anropas utan parametern `serviceProviders` hämtar biblioteket konfigurationen från standardtjänstleverantören (det vill säga `https://sp.auth.adobe.com` för produktionsprofilen eller `https://sp.auth-staging.adobe.com` för mellanlagringsprofilen). Om parametern `serviceProviders` anges måste den vara en matris med URL:er. Konfigurationsinformationen hämtas från alla angivna slutpunkter och sammanfogas. Om det finns duplicerad information i olika tjänstleverantörssvar löses konflikten till förmån för den snabbaste svarsservern (d.v.s. servern med den kortaste svarstiden har företräde).
 
@@ -260,7 +260,7 @@ Serversvaret innehåller en lista över MVPD:er tillsammans med viss konfigurati
 
 Om parametern `urls` inte används anger det resulterande nätverksanropet standardtjänstleverantörens URL: Adobe RELEASE/produktionsmiljö.
 
-Om ett värde anges för parametern `urls`, anger det resulterande nätverksanropet alla URL:er som anges i parametern `urls` som mål. Alla konfigurationsbegäranden aktiveras samtidigt i olika trådar. Den första svararen har företräde när listan över MVPD kompileras. För varje MVPD i listan kommer AccessEnabler ihåg URL:en för den associerade tjänstleverantören. Alla efterföljande tillståndsbegäranden dirigeras till den URL som är associerad med tjänstleverantören som parats med mål-MVPD under konfigurationsfasen.
+Om ett värde anges för parametern `urls`, anger det resulterande nätverksanropet alla URL:er som anges i parametern `urls` som mål. Alla konfigurationsbegäranden aktiveras samtidigt i olika trådar. Den första svararen har företräde när listan över MVPD kompileras. För varje MVPD i listan kommer AccessEnabler ihåg URL:en för den associerade tjänsteleverantören. Alla efterföljande tillståndsbegäranden dirigeras till den URL som är associerad med tjänstleverantören som parats med mål-MVPD under konfigurationsfasen.
 
 
 
@@ -312,7 +312,7 @@ Om ett värde anges för parametern `urls`, anger det resulterande nätverksanro
 
 * *requestedID*: Det unika ID som är associerat med programmeraren. Skicka det unika ID som tilldelats av Adobe till din webbplats första gången   har registrerats med tjänsten Adobe Pass Authentication.
 * *signedRequestorID*: **Den här parametern finns i iOS AccessEnabler   version 1.2 och senare.** En kopia av begärande-ID som signeras digitalt med din privata nyckel. <!--For more details, see [Registering Native Clients](https://tve.helpdocsonline.com/registering-native-clients)-->.
-* *urls*: Valfri parameter; som standard är Adobe-tjänstleverantören   används (http://sp.auth.adobe.com/). Med den här arrayen kan du ange slutpunkter för autentisering och auktoriseringstjänster som tillhandahålls av Adobe (olika instanser kan användas i felsökningssyfte). Du kan använda detta för att ange flera instanser av Adobe Pass Authentication-tjänstprovidern. När detta görs består MVPD-listan av slutpunkterna från alla tjänsteleverantörer. Varje MVPD är kopplat till den snabbaste tjänsteleverantören, dvs. den leverantör som svarade först och som stöder det MVPD.
+* *urls*: Valfri parameter; som standard är Adobe-tjänstleverantören   används (http://sp.auth.adobe.com/). Med den här arrayen kan du ange slutpunkter för autentisering och auktoriseringstjänster som tillhandahålls av Adobe (olika instanser kan användas i felsökningssyfte). Du kan använda detta för att ange flera instanser av Adobe Pass Authentication-tjänstprovidern. Då består MVPD-listan av slutpunkterna från alla tjänsteleverantörer. Varje MVPD är kopplat till den snabbaste tjänsteleverantören, dvs. den leverantör som svarade först och som stöder MVPD.
 * secrets och publicKey: Den hemliga och offentliga nyckel som används för att signera andra skärmanrop. Mer information finns i [dokumentationen om klientlösa](#create_dev).
 
 Om det anropas utan parametern `serviceProviders` hämtar biblioteket konfigurationen från standardtjänstleverantören (d.v.s. `https://sp.auth.adobe.com` för produktionsprofilen eller https://sp.auth-staging.adobe.com för mellanlagringsprofilen). Om parametern `serviceProviders` anges måste den vara en matris med URL:er. Konfigurationsinformationen hämtas från alla angivna slutpunkter och sammanfogas. Om det finns duplicerad information i olika tjänstleverantörssvar löses konflikten till förmån för den snabbaste svarsservern (d.v.s. servern med den kortaste svarstiden har företräde).
@@ -408,10 +408,10 @@ autentiseringsstatus meddelas till programmet via
 
 **Beskrivning:** Startar det fullständiga autentiseringsarbetsflödet. Det börjar med att kontrollera autentiseringsstatusen. Om autentiseringen inte redan har autentiserats startas tillståndsdatorn för autentiseringsflödet:
 
-* om det senaste autentiseringsförsöket lyckades,   markeringsfasen hoppas över och   [`navigateToUrl:`](#nav2url)-återanropet aktiveras. The   programmet använder det här återanropet för att instansiera WebView-kontrollen som visar användaren med MVPD:s inloggningssida. **[Obs! Från och med Access Enabler 1.5 är den här funktionen inte tillgänglig på grund av en begränsning i SDK].**
-* om det senaste autentiseringsförsöket misslyckades eller om användaren uttryckligen loggade ut, är återanropet [`displayProviderDialog:`](#dispProvDialog)   utlöses. Programmet använder det här återanropet för att visa användargränssnittet för MVPD-val. Ditt program måste också återuppta autentiseringsflödet genom att informera AccessEnabler-biblioteket om användarens MVPD-val via metoden [`setSelectedProvider:`](#setSelProv).
+* om det senaste autentiseringsförsöket lyckades   markeringsfasen hoppas över och   [`navigateToUrl:`](#nav2url)-återanropet aktiveras. The   programmet använder det här återanropet för att instansiera WebView-kontrollen som visar MVPD inloggningssida. **[Obs! Från och med Access Enabler 1.5 är den här funktionen inte tillgänglig på grund av en begränsning i SDK].**
+* om det senaste autentiseringsförsöket misslyckades eller om användaren uttryckligen loggade ut, är återanropet [`displayProviderDialog:`](#dispProvDialog)   utlöses. Programmet använder det här återanropet för att visa användargränssnittet för val i MVPD. Ditt program måste också återuppta autentiseringsflödet genom att informera AccessEnabler-biblioteket om användarens val av MVPD via metoden [`setSelectedProvider:`](#setSelProv).
 
-När inloggningsuppgifterna för användaren verifieras på MVPD-inloggningssidan måste programmet övervaka de omdirigeringsåtgärder som utförs medan användaren autentiserar sig på MVPD-inloggningssidan. När rätt autentiseringsuppgifter anges omdirigeras WebView-kontrollen till en anpassad URL som definieras av konstanten `ADOBEPASS_REDIRECT_URL`. Denna URL är inte avsedd att läsas in av WebView. Programmet måste tolka denna URL och tolka händelsen som en signal om att inloggningsfasen är slutförd. Den bör sedan lämna över kontrollen till AccessEnabler för att slutföra autentiseringsflödet (genom att anropa metoden [handleExternalURL](#handleExternalURL) ).
+När användarens inloggningsuppgifter verifieras på MVPD inloggningssida måste ditt program övervaka de omdirigeringsåtgärder som utförs medan användaren autentiseras på inloggningssidan för MVPD. När rätt autentiseringsuppgifter anges omdirigeras WebView-kontrollen till en anpassad URL som definieras av konstanten `ADOBEPASS_REDIRECT_URL`. Denna URL är inte avsedd att läsas in av WebView. Programmet måste tolka denna URL och tolka händelsen som en signal om att inloggningsfasen är slutförd. Den bör sedan lämna över kontrollen till AccessEnabler för att slutföra autentiseringsflödet (genom att anropa metoden [handleExternalURL](#handleExternalURL) ).
 
 Slutligen kommuniceras autentiseringsstatusen till programmet via återanropet [`setAuthenticationStatus:errorCode:`](#setAuthNStatus).
 
@@ -475,7 +475,7 @@ Slutligen kommuniceras autentiseringsstatusen till programmet via återanropet [
 
 **Beskrivning:** Startar det fullständiga autentiseringsarbetsflödet. Det börjar med att kontrollera autentiseringsstatusen. Om autentiseringen inte redan har autentiserats startas tillståndsdatorn för autentiseringsflödet:
 
-* [presentTvProviderDialog()](#presentTvDialog) anropas om den aktuella begäraren har minst ett MVPD som stöder enkel inloggning. Om inget MVPD har stöd för enkel inloggning, kommer det klassiska autentiseringsflödet att börja och filterparametern ignoreras.
+* [presentTvProviderDialog()](#presentTvDialog) anropas om den aktuella begäraren har minst en MVPD som stöder enkel inloggning. Om ingen MVPD stöder enkel inloggning, kommer det klassiska autentiseringsflödet att börja och filterparametern ignoreras.
 * När användaren har slutfört Apple SSO-flödet aktiveras [`dismissTvProviderDialog()`](#dismissTvDialog) och autentiseringsprocessen slutförs.
 
 Slutligen kommuniceras autentiseringsstatusen till programmet via återanropet [`setAuthenticationStatus:errorCode:`](#setAuthNStatus).
@@ -526,7 +526,7 @@ Slutligen kommuniceras autentiseringsstatusen till programmet via återanropet [
 
 * *forceAuthn*: En flagga som anger om autentiseringsflödet ska startas, oavsett om användaren redan är autentiserad eller inte.
 * *data*: En ordlista som består av nyckelvärdepar som ska skickas till Pay-TV-pass-tjänsten. Adobe kan använda dessa data för att aktivera framtida funktioner utan att ändra SDK.
-* filter: En ordlista med två listor med MVPD-ID:n som ska visas i Apple SSO-dialogrutan. Alla MVPD som inte stöder enkel inloggning ignoreras, men ordningen respekteras. Ordlistan måste ha två nycklar:
+* filter: En ordlista med två listor med MVPD-id:n som ska visas i Apple SSO-dialogrutan. Alla MVPD som inte har stöd för enkel inloggning ignoreras, men ordningen respekteras. Ordlistan måste ha två nycklar:
    * TV\_PROVIDERS: En lista med alla MVPD-filer som ska visas i väljaren
    * FEATURED\_TV\_PROVIDERS: En lista med alla MVPD-filer som ska markeras som aktuella i väljaren. MVPD-värden i den här listan måste också anges i listan TV\_PROVIDERS.
 
@@ -578,7 +578,7 @@ Slutligen kommuniceras autentiseringsstatusen till programmet via återanropet [
 
 * *forceAuthn*: En flagga som anger om autentiseringsflödet ska startas, oavsett om användaren redan är autentiserad eller inte.
 * *data*: En ordlista som består av nyckelvärdepar som ska skickas till Pay-TV-pass-tjänsten. Adobe kan använda dessa data för att aktivera framtida funktioner utan att ändra SDK.
-* filter: En lista med MVPD-ID:n som ska visas i Apple SSO-dialogrutan. Alla MVPD som inte stöder enkel inloggning ignoreras, men ordningen respekteras.
+* filter: En lista med MVPD-id:n som ska visas i Apple SSO-dialogrutan. Alla MVPD som inte har stöd för enkel inloggning ignoreras, men ordningen respekteras.
 
 **Återanrop har utlösts:** `setAuthenticationStatus:errorCode:, presentTvProviderDialog, dismissTvProviderDialog`
 
@@ -591,9 +591,9 @@ Slutligen kommuniceras autentiseringsstatusen till programmet via återanropet [
 
 **Fil:** AccessEnabler/headers/EntitlementDelegate.h
 
-**Beskrivning** Återanrop som utlöses av AccessEnabler för att informera programmet om att lämpliga gränssnittselement måste instansieras så att användaren kan välja önskat MVPD. I återanropet finns en lista med MVPD-objekt med ytterligare information som kan hjälpa dig att skapa den valda gränssnittspanelen korrekt (t.ex. URL:en som pekar på MVPD:s logotyp, visningsnamn osv.)
+**Beskrivning** Återanrop som utlöses av AccessEnabler för att informera programmet om att lämpliga gränssnittselement måste initieras så att användaren kan välja önskad MVPD. I återanropet finns en lista med MVPD-objekt med ytterligare information som kan hjälpa dig att skapa den valda gränssnittspanelen korrekt (t.ex. URL:en som pekar på MVPD logotyp, visningsnamn osv.)
 
-När användaren har valt önskat MVPD måste programmet i det övre lagret återuppta autentiseringsflödet genom att anropa `setSelectedProvider:` och skicka det ID för MVPD som motsvarar användarens val.
+När användaren har valt önskad MVPD måste programmet i det övre lagret återuppta autentiseringsflödet genom att anropa `setSelectedProvider:` och skicka det ID för MVPD som motsvarar användarens val.
 
 **Avbryter autentiseringsflödet** - Detta är en punkt där användaren kan trycka på knappen &quot;Bakåt&quot;, vilket motsvarar att avbryta autentiseringsflödet. I så fall måste ditt program anropa metoden [setSelectedProvider:](#setSelProv) och skicka null som parameter för att ge AccessEnabler möjlighet att återställa sin autentiseringstillståndsdator.
 
@@ -603,7 +603,7 @@ När användaren har valt önskat MVPD måste programmet i det övre lagret åte
 </colgroup>
 <thead>
 <tr class="header">
-<th>Återanrop: visa användargränssnittet för MVPD-markering</th>
+<th>Återanrop: visa användargränssnittet för val av MVPD</th>
 </tr>
 </thead>
 <tbody>
@@ -618,7 +618,7 @@ När användaren har valt önskat MVPD måste programmet i det övre lagret åte
 
 **Parametrar**:
 
-* *mvpds*: lista över MVPD-objekt som innehåller MVPD-relaterad information som programmet kan använda för att skapa gränssnittselement för MVPD-val.
+* *mvpds*: lista över MVPD-objekt som innehåller MVPD-relaterad information som programmet kan använda för att skapa MVPD-element för markeringsgränssnitt.
 
 **Utlöses av:** `getAuthentication`, [`getAuthentication:withData:`](#getAuthN),`getAuthorization:`, [`getAuthorization:withData:`](#getAuthZ)
 
@@ -631,9 +631,9 @@ När användaren har valt önskat MVPD måste programmet i det övre lagret åte
 
 **Fil:** AccessEnabler/headers/AccessEnabler.h
 
-**Beskrivning:** Den här metoden anropas av ditt program för att informera åtkomstaktiveraren om användarens MVPD-val. Programmet kan använda den här metoden för att välja eller ändra tjänsteleverantören som används för autentisering.
+**Beskrivning:** Den här metoden anropas av ditt program för att informera Access Enabler om användarens val i MVPD. Programmet kan använda den här metoden för att välja eller ändra tjänsteleverantören som används för autentisering.
 
-Om det valda MVPD-programmet är ett TempPass MVPD autentiseras det automatiskt med det MVPD-programmet utan att du behöver anropa getAuthentication() efteråt.
+Om den valda MVPD är en TempPass MVPD autentiseras den automatiskt med den MVPD-versionen utan att du behöver anropa getAuthentication() efteråt.
 
 Observera att detta inte är möjligt för kampanjtillfälligt pass där extra parametrar anges för getAuthentication()-metoden.
 
@@ -681,7 +681,7 @@ När kontrollenheten UIWebView/WKWebView` `går igenom flera omdirigeringar mås
 </colgroup>
 <thead>
 <tr class="header">
-<th>Återanrop: visa inloggningssida för MVPD</th>
+<th>Återanrop: visa MVPD inloggningssida</th>
 </tr>
 </thead>
 <tbody>
@@ -695,7 +695,7 @@ När kontrollenheten UIWebView/WKWebView` `går igenom flera omdirigeringar mås
 
 **Parametrar**:
 
-* *url*: URL:en som pekar på MVPD:s inloggningssida
+* *url*: URL:en som pekar på MVPD inloggningssida
 
 **Utlöses av:** [setSelectedProvider:](#setSelProv)
 
@@ -709,7 +709,7 @@ När kontrollenheten UIWebView/WKWebView` `går igenom flera omdirigeringar mås
 
 **Fil:** AccessEnabler/headers/EntitlementDelegate.h
 
-**Beskrivning:** Återanrop utlöses av AccessEnabler i stället för `navigateToUrl:` återanrop om ditt program tidigare aktiverade manuell Safari View Controller (SVC)-hantering via anropet [ setOptions(\[&quot;handleSVC&quot;:true&quot;\])](#setOptions) och endast för MVPD-program som kräver Safari View Controller (SVC). För alla andra MVPD-filer anropas motringningen `navigateToUrl:`. Mer information om hur Safari View Controller (SVC) ska hanteras finns i [Stöd för SFSafariViewController (SVC) i iOS SDK 3.2+](/help/authentication/notes-technical/sfsafariviewcontroller-support-on-ios-sdk-32.md).
+**Beskrivning:** Återanrop utlöses av AccessEnabler i stället för `navigateToUrl:` återanrop om ditt program tidigare aktiverade manuell Safari View Controller (SVC)-hantering via anropet [ setOptions(\[&quot;handleSVC&quot;:true&quot;\])](#setOptions) och endast för MVPD-program som kräver Safari View Controller (SVC). För alla andra MVPD-filer anropas motringningen `navigateToUrl:`. Mer information om hur Safari View Controller (SVC) ska hanteras finns i [Stöd för SFSafariViewController (SVC) i iOS SDK 3.2+](/help/authentication/integration-guide-programmers/legacy/notes-technical/sfsafariviewcontroller-support-on-ios-sdk-32.md).
 
 Ungefär som för `navigateToUrl:`-återanropet aktiveras `navigateToUrl:useSVC:` av AccessEnabler för att begära att programmet instansierar en `SFSafariViewController`-kontrollant och för att läsa in URL:en som anges i återanropets **`url`**-parameter. Återanropet skickar parametern **`url`** som representerar URL:en för autentiseringsslutpunkten eller URL:en för utloggningsslutpunkten, och parametern **`useSVC`** som anger att programmet måste använda `SFSafariViewController`.
 
@@ -723,7 +723,7 @@ När kontrollenheten `SFSafariViewController` går igenom flera omdirigeringar m
 </colgroup>
 <thead>
 <tr class="header">
-<th>Återanrop: visa inloggningssidan för MVPD i SFSafariViewController</th>
+<th>Återanrop: visa MVPD inloggningssida i SFSafariViewController</th>
 </tr>
 </thead>
 <tbody>
@@ -738,7 +738,7 @@ När kontrollenheten `SFSafariViewController` går igenom flera omdirigeringar m
 
 **Parametrar**:
 
-* *url:* den URL som pekar på MVPD:s inloggningssida
+* *url:* den URL som pekar på MVPD inloggningssida
 * *useSVC:* Anger om URL:en ska läsas in i SFSafariViewController.
 
 **Utlöses av:**[ setOptions:](#setOptions) före [setSelectedProvider:](#setSelProv)
@@ -788,7 +788,7 @@ Om autentiseringsflödet är aktiverat slutför AccessEnabler flödet genom att 
 
 **Fil:** AccessEnabler/headers/AccessEnabler.h
 
-**Beskrivning:** Slutför autentiseringsflödet genom att begära en autentiseringstoken från backend-servern. Den här metoden ska bara anropas av programmet som svar på en händelse där WebView-kontrollen som är värd för MVPD-inloggningssidan omdirigeras till den anpassade URL som definieras av konstanten `ADOBEPASS_REDIRECT_URL`.
+**Beskrivning:** Slutför autentiseringsflödet genom att begära en autentiseringstoken från backend-servern. Den här metoden ska bara anropas av ditt program som svar på en händelse där WebView-kontrollen som är värd för MVPD inloggningssida omdirigeras till den anpassade URL som definieras av konstanten `ADOBEPASS_REDIRECT_URL`.
 
 
 <table class="pass_api_table">
@@ -886,7 +886,7 @@ Om autentiseringsflödet är aktiverat slutför AccessEnabler flödet genom att 
 
 **Parametrar:**
 
-* *resurser:*-matris med resurser som auktoriseringen ska kontrolleras för. Varje element i listan ska vara en sträng som representerar resurs-ID:t. The     Resurs-ID har samma begränsningar som resurs-ID:t i anropet, det vill säga det ska fastställas ett avtalat värde mellan Programmer och MVPD eller ett mediets RSS-fragment.
+* *resurser:*-matris med resurser som auktoriseringen ska kontrolleras för. Varje element i listan ska vara en sträng som representerar resurs-ID:t. The     Resurs-ID har samma begränsningar som resurs-ID:t i samtalet, det vill säga det ska fastställas ett avtalat värde mellan Programmer och MVPD eller ett mediets RSS-fragment.
 
 **Återanropet har utlösts:** [`preauthorizedResources:`](#preauthResources)
 
@@ -1159,7 +1159,7 @@ Den här metoden kan även utlösa följande återanrop (om autentiseringsflöde
    * `USER_NOT_AUTHORIZED_ERROR` - användaren kunde inte auktorisera
 för angiven resurs
 * *description*: Ytterligare information om felscenariot. Om den här beskrivande strängen inte är tillgänglig av någon anledning skickar Adobe Pass Authentication en tom sträng **(&quot;&quot;)**.\
-  Strängen kan användas av ett MVPD-program för att skicka anpassade felmeddelanden eller försäljningsrelaterade meddelanden. Om en prenumerant nekas behörighet för en resurs kan MVPD skicka ett meddelande som:&quot;Du har för närvarande inte åtkomst till den här kanalen i ditt paket. Om du vill uppgradera ditt paket klickar du **här**.&quot; Meddelandet skickas av Adobe Pass Authentication via det här återanropet till programmeraren, som har möjlighet att visa eller ignorera det. Adobe Pass Authentication kan också använda den här parametern för att ge ett meddelande om det tillstånd som kan ha orsakat ett fel. Exempel:&quot;Ett nätverksfel uppstod vid kommunikation med leverantörens auktoriseringstjänst&quot;.
+  Strängen kan användas av en MVPD för att skicka anpassade felmeddelanden eller försäljningsrelaterade meddelanden. Om en prenumerant nekas behörighet för en resurs kan MVPD skicka ett meddelande som:&quot;Du har för närvarande inte åtkomst till den här kanalen i ditt paket. Om du vill uppgradera ditt paket klickar du **här**.&quot; Meddelandet skickas av Adobe Pass Authentication via det här återanropet till programmeraren, som har möjlighet att visa eller ignorera det. Adobe Pass Authentication kan också använda den här parametern för att ge ett meddelande om det tillstånd som kan ha orsakat ett fel. Exempel:&quot;Ett nätverksfel uppstod vid kommunikation med leverantörens auktoriseringstjänst&quot;.
 
 **Utlöses av:** `checkAuthorization:`, [`checkAuthorization:withData:`](#checkAuthZ), `getAuthorization:`, [`getAuthorization:withData:`](#getAuthZ)
 
@@ -1171,7 +1171,7 @@ för angiven resurs
 
 **Fil:** AccessEnabler/headers/AccessEnabler.h
 
-**Beskrivning:** Den här metoden anropas av programmet för att initiera utloggningsflödet. Utloggningen är resultatet av en serie HTTP-omdirigeringsåtgärder på grund av att användaren måste loggas ut både från Adobe Pass autentiseringsservrar och från MVPD-servrarna. Eftersom det här flödet inte kan slutföras med en enkel HTTP-begäran som utfärdas av AccessEnabler-biblioteket, måste en `UIWebView/WKWebView or SFSafariViewController`-styrenhet instansieras för att kunna följa HTTP-omdirigeringsåtgärderna.
+**Beskrivning:** Den här metoden anropas av programmet för att initiera utloggningsflödet. Utloggningen är resultatet av en serie HTTP-omdirigeringsåtgärder på grund av att användaren måste loggas ut både från Adobe Pass autentiseringsservrar och från MVPD servrar. Eftersom det här flödet inte kan slutföras med en enkel HTTP-begäran som utfärdas av AccessEnabler-biblioteket, måste en `UIWebView/WKWebView or SFSafariViewController`-styrenhet instansieras för att kunna följa HTTP-omdirigeringsåtgärderna.
 
 Utloggningsflödet skiljer sig från autentiseringsflödet på så sätt att användaren inte behöver interagera med `UIWebView/WKWebView or SFSafariViewController`-styrenheten på något sätt. Därför rekommenderar Adobe att du gör kontrollen osynlig (dvs. dold) under utloggningsprocessen.
 
@@ -1224,7 +1224,7 @@ I slutet anropar AccessEnabler återanropet [`setAuthenticationStatus()`](#setAu
 </colgroup>
 <thead>
 <tr class="header">
-<th>API-anrop: avgöra vilket MVPD som är valt</th>
+<th>API-anrop: fastställa vilken MVPD som är vald</th>
 </tr>
 </thead>
 <tbody>
@@ -1248,7 +1248,7 @@ I slutet anropar AccessEnabler återanropet [`setAuthenticationStatus()`](#setAu
 
 **Fil:** AccessEnabler/headers/EntitlementDelegate.h
 
-**Beskrivning** Återanrop som utlöses av AccessEnabler som skickar information om det aktuella MVPD-värdet till programmet.
+**Beskrivning** Återanrop som utlöses av AccessEnabler som ger information om den MVPD som är vald till programmet.
 
 <table class="pass_api_table">
 <colgroup>
@@ -1256,7 +1256,7 @@ I slutet anropar AccessEnabler återanropet [`setAuthenticationStatus()`](#setAu
 </colgroup>
 <thead>
 <tr class="header">
-<th>Återanrop: information om det aktuella MVPD-värdet</th>
+<th>Återanrop: information om den valda MVPD</th>
 </tr>
 </thead>
 <tbody>
@@ -1270,7 +1270,7 @@ I slutet anropar AccessEnabler återanropet [`setAuthenticationStatus()`](#setAu
 
 **Parametrar**:
 
-* *mvpd*: objekt som innehåller information om det MVPD som är valt
+* *mvpd*: objekt som innehåller information om den valda MVPD
 
 **Utlöses av:** [`getSelectedProvider`](#getSelProv)
 
@@ -1287,7 +1287,7 @@ I slutet anropar AccessEnabler återanropet [`setAuthenticationStatus()`](#setAu
 Programmerarna har två typer av metadata:
 
 * Statiska metadata (autentiseringstoken TTL, auktoriseringstoken TTL och enhets-ID)
-* Användarmetadata (användarspecifik information, t.ex. användar-ID, postnummer; kan skickas från ett MVPD till en användares enhet under autentiserings- och auktoriseringsflödena)
+* Användarmetadata (användarspecifik information, t.ex. användar-ID, postnummer; kan skickas från en MVPD till en användares enhet under autentiserings- och auktoriseringsflödena)
 
 <table class="pass_api_table">
 <colgroup>
@@ -1317,14 +1317,14 @@ format:
    * Om nyckeln är `METADATA_OPCODE_KEY` och värdet är `METADATA_DEVICE_ID` ställs frågan för att hämta aktuellt enhets-ID. Observera att den här funktionen är inaktiverad som standard och programmerare bör kontakta Adobe för att få information om aktivering och avgifter.
    * Om nyckeln är `METADATA_OPCODE_KEY` och värdet är `METADATA_USER_META` **och** nyckeln är `METADATA_USER_META_KEY` och värdet är namnet på metadata, görs frågan för användarens metadata. Listan över tillgängliga metadatatyper för användare:
       * `zip` - Lista med postnummer
-      * `householdID` - Hushållsidentifierare. Om ett MVPD inte stöder underkonton är detta identiskt med `userID`.
+      * `householdID` - Hushållsidentifierare. Om en MVPD inte stöder underkonton är detta identiskt med `userID`.
       * `maxRating` - En samling med maximala föräldraklassificeringar för användaren
-      * `userID` - användaridentifieraren. Om ett MVPD-program stöder underkonton och användaren inte är huvudkontot, kommer `userID` att vara annorlunda än `householdID.`
+      * `userID` - användaridentifieraren. Om en MVPD stöder underkonton och användaren inte är huvudkontot, kommer `userID` att vara annorlunda än `householdID.`
       * `channelID` - En lista över kanaler som en användare har rätt att visa.
 
   >[!NOTE]
   >
-  >Vilka faktiska användarmetadata som är tillgängliga för en programmerare beror på vad ett separat programmeringsdokument (MVPD) erbjuder. Listan utökas när nya metadata blir tillgängliga och läggs till i Adobe Pass autentiseringssystem.
+  >Vilka användarmetadata som är tillgängliga för en programmerare beror på vad en MVPD gör tillgänglig. Listan utökas när nya metadata blir tillgängliga och läggs till i Adobe Pass autentiseringssystem.
 
 **Återanrop har utlösts:** [`setMetadataStatus:encrypted:forKey:andArguments:`](#setMetaStatus)
 
@@ -1338,7 +1338,7 @@ format:
 
 **Fil:** AccessEnabler/headers/EntitlementDelegate.h
 
-**Beskrivning** Återanrop som utlöses av AccessEnabler efter anrop av [getAuthentication()](#getAuthN) om den aktuella begäraren har stöd för minst ett MVPD med SSO-stöd.
+**Beskrivning** Återanrop som utlöses av AccessEnabler efter anrop av [getAuthentication()](#getAuthN) om den aktuella begäraren stöder minst en MVPD med SSO-stöd.
 
 <table class="pass_api_table">
 <colgroup>
@@ -1473,7 +1473,7 @@ format:
 
 **Fil:** AccessEnabler/headers/model/MVPD.h
 
-**Beskrivning** Beskriver MVPD-objektet. Kan användas för att få information om MVPD:s egenskaper.
+**Beskrivning** Beskriver MVPD-objektet. Kan användas för att få information om MVPD egenskaper.
 
 **Tillgänglighet:** v1.0+ [egenskapen boardingStatus är tillgänglig från v2.2]
 
@@ -1481,12 +1481,12 @@ format:
 
 * (NSString) ID - MVPD-ID.
 * (NSString) displayName - MVPD-namnet. [Det här bör användas för att visa i väljaren]
-* (NSString) logoURL - MVPD-logotypadressen.
+* (NSString) logoURL - MVPD logotypadress.
 * (BOOL) enablePlatformServices - Om värdet är true stöder MVPD SSO-tjänster som [Apple SSO](#presentTvDialog).
 * (NSString) boardingStatus - kan ha tre värden:
    * nil - MVPD stöder inte Apple SSO.
-   * PICKER - MVPD kan visas i Apple-väljaren, men autentiseringsflödet görs av Adobe.
-   * STÖDS - MVPD stöds fullt ut av Apple och kommer att använda Apple SSO-token.
+   * PICKER - MVPD kan visas i Apple-väljaren men autentiseringsflödet görs av Adobe.
+   * STÖD - MVPD stöds fullt ut av Apple och kommer att använda Apple SSO-token.
 
 [Till början...](#apis)
 
@@ -1532,7 +1532,7 @@ AccessEnabler utlöser en extra återanrop som inte nödvändigtvis är relatera
 * *event*: koden för händelsen som spåras. Det finns tre typer av spårningshändelser:
    * **permissionDetection:** när en auktoriseringstokenbegäran returnerar (händelsen är `TRACKING_AUTHORIZATION`)
    * **authenticationDetection:** när en autentiseringskontroll inträffar (händelsen är `TRACKING_AUTHENTICATION`)
-   * **mvpdSelection:** när användaren väljer ett MVPD i MVPD-markeringsformuläret (händelsen är `TRACKING_GET_SELECTED_PROVIDER`)
+   * **mvpdSelection:** när användaren väljer en MVPD i MVPD-markeringsformuläret (händelsen är `TRACKING_GET_SELECTED_PROVIDER`)
 * *data*: ytterligare data som är associerade med den rapporterade händelsen. Dessa data presenteras i form av en lista med värden.
 
 **Utlöses av:** `checkAuthentication`, `getAuthentication`, [`getAuthentication:withData:`](#getAuthN), `checkAuthorization:`, [`checkAuthorization:withData:`](#checkAuthZ), `getAuthorization:`, [`getAuthorization:withData:`](#getAuthZ), `setSelectedProvider:`
@@ -1559,7 +1559,7 @@ Instruktioner för tolkning av värdena i *data* -arrayen:
    * **7** - klienttypen AccessEnabler
    * **8** - Operativsystemtyp
 * För trackingEventType `TRACKING_GET_SELECTED_PROVIDER:`
-   * **0** - ID för det MVPD som är markerat
+   * **0** - ID för den valda MVPD
    * **1** - Enhetstyp
    * **2** - klienttypen AccessEnabler
    * **3** - Operativsystemtyp

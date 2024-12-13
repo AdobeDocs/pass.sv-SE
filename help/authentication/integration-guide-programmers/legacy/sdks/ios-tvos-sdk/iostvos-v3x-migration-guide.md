@@ -2,14 +2,14 @@
 title: Migreringshandbok för iOS/tvOS v3.x
 description: Migreringshandbok för iOS/tvOS v3.x
 exl-id: 4c43013c-40af-48b7-af26-0bd7f8df2bdb
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '559'
+source-wordcount: '560'
 ht-degree: 0%
 
 ---
 
-# Migreringshandbok för iOS/tvOS v3.x {#iostvos-v3x-migration-guide}
+# (Äldre) Migreringshandbok för iOS/tvOS v3.x {#iostvos-v3x-migration-guide}
 
 >[!NOTE]
 >
@@ -89,7 +89,7 @@ Lägg till följande metod i `AppDelegate`:
 
 ## Uppdatera signaturen för metoden setRequestor {#update-setreq}
 
-Eftersom den nya SDK:n använder en ny autentiseringsmekanism behövs inte parametern signedRequestId eller den offentliga nyckeln och hemligheten (för tvOS). Metoden `setRequestor` är förenklad och behöver bara begärandeID.
+Eftersom den nya SDK använder en ny autentiseringsmekanism behövs inte parametern signedRequestId eller den offentliga nyckeln och hemligheten (för tvOS). Metoden `setRequestor` är förenklad och behöver bara begärandeID.
 
 ### iOS
 

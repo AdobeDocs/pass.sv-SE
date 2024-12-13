@@ -2,7 +2,7 @@
 title: Välkommen till Adobe&reg; Pass Authentication!
 description: Välkommen till Adobe&reg; autentiseringsöversikt för pass
 exl-id: a8b01469-3d5f-4a44-9ae8-06a68c29d56d
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
 source-wordcount: '331'
 ht-degree: 0%
@@ -33,9 +33,9 @@ Dina synpunkter är alltid tacksamma!
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | <ul><li>[Programmer Kickstart Guide](/help/authentication/kickstart/programmer-kickstart-guide.md)</li><li>[Användarmetadata](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/user-metadata.md)</li></ul> | <ul><li>[MVPD Kickstart Guide](/help/authentication/kickstart/mvpd-kickstart-guide.md)</li><li>[Autentisering](/help/authentication/integration-guide-mvpds/authn-usecase.md)</li><li>[Behörighet](/help/authentication/integration-guide-mvpds/authz-usecase.md)</li><li>[Logga ut](/help/authentication/integration-guide-mvpds/usecase-mvpd-logout.md)</li></ul> |
 | **För inbyggda appklienter** | **För alla** |
-| <ul><li>[iOS Technical Overview](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-overview.md)</li><li>[Android Technical Overview](/help/authentication/integration-guide-programmers/legacy/sdks/android-sdk/android-sdk-overview.md)</li></ul> | <ul><li>[Tekniskt papper](/help/authentication/kickstart/technical-paper.md)</li><li>[Eskaleringsprocedurer](/help/authentication/notes-technical/escalation-procedures.md)</li><li>[Ordlista](/help/authentication/kickstart/glossary.md)</li></ul> |
+| <ul><li>[iOS Technical Overview](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-overview.md)</li><li>[Android Technical Overview](/help/authentication/integration-guide-programmers/legacy/sdks/android-sdk/android-sdk-overview.md)</li></ul> | <ul><li>[Tekniskt papper](/help/authentication/kickstart/technical-paper.md)</li><li>[Eskaleringsprocedurer](/help/authentication/kickstart/escalation-procedures.md)</li><li>[Ordlista](/help/authentication/kickstart/glossary.md)</li></ul> |
 | **För smarta enheter** |                                                                                                                                                                                                                                                                                                                                                                       |
-| <ul><li>[Kundlös teknisk översikt](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/rest-api-overview.md)</li><li>[Klientlöst API](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/rest-api-reference.md)</li></ul> |                                                                                                                                                                                                                                                                                                                                                                       |
+| <ul><li>[Kundlös teknisk översikt](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/rest-api-overview.md)</li><li>[Klientlöst API](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/rest-api-reference.md)</li></ul> |                                                                                                                                                                                                                                                                                                                                                                       |
 
 >[!IMPORTANT]
 >
@@ -43,7 +43,7 @@ Dina synpunkter är alltid tacksamma!
 >
 >[Att skicka e-post till vårt supportteam](mailto:tve-support@adobe.com) är också det första steget i en utgåva eller incidentrapport.
 >
->Om du har ett [SEVERITY 1 LIVE](/help/authentication/notes-technical/escalation-procedures.md) -problem och du har skickat e-post till oss och 30 minuter har gått ut utan svar kan du läsa dokumentet [Escalation Procedures](/help/authentication/notes-technical/escalation-procedures.md) för att få telefonnummer att ringa.
+>Om du har ett [SEVERITY 1 LIVE](/help/authentication/kickstart/escalation-procedures.md) -problem och du har skickat e-post till oss och 30 minuter har gått ut utan svar kan du läsa dokumentet [Escalation Procedures](/help/authentication/kickstart/escalation-procedures.md) för att få telefonnummer att ringa.
 >
 
 

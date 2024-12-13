@@ -1,15 +1,15 @@
 ---
-title: API-referens för JavaScript SDK
-description: API-referens för JavaScript SDK
+title: JavaScript SDK API Reference
+description: JavaScript SDK API Reference
 exl-id: 48d48327-14e6-46f3-9e80-557f161acd8a
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '2860'
+source-wordcount: '2861'
 ht-degree: 0%
 
 ---
 
-# API-referens för JavaScript SDK {#javascript-sdk-api-reference}
+# (Äldre) JavaScript SDK API Reference {#javascript-sdk-api-reference}
 
 >[!NOTE]
 >
@@ -17,7 +17,7 @@ ht-degree: 0%
 
 ## API-referens {#api-reference}
 
-Dessa funktioner initierar förfrågningar om interaktion med ett MVPD. Alla anrop är asynkrona. Du måste implementera [callback](#callbacks) för att kunna hantera svaren:
+Dessa funktioner startar förfrågningar om interaktion med en MVPD. Alla anrop är asynkrona. Du måste implementera [callback](#callbacks) för att kunna hantera svaren:
 
 - [setRequestor()](#setReq)
 - [getAuthorization()](#getAuthZ)
@@ -40,12 +40,12 @@ Dessa funktioner initierar förfrågningar om interaktion med ett MVPD. Alla anr
 
 - *slutpunkter* - Den här parametern är valfri. Det kan vara något av följande värden:
 
-   - En array som gör att du kan ange slutpunkter för autentisering och auktoriseringstjänster som tillhandahålls av Adobe (olika instanser kan användas i felsökningssyfte). Om flera URL:er anges består MVPD-listan av slutpunkterna från alla tjänsteleverantörer. Varje MVPD är kopplat till den snabbaste tjänsteleverantören, dvs. den leverantör som svarade först och som stöder det MVPD. Som standard (om inget värde anges) används Adobes tjänstleverantör (<http://sp.auth.adobe.com/>).
+   - En array som gör att du kan ange slutpunkter för autentisering och auktoriseringstjänster som tillhandahålls av Adobe (olika instanser kan användas i felsökningssyfte). Om flera URL:er anges består MVPD-listan av slutpunkterna från alla tjänsteleverantörer. Varje MVPD är kopplat till den snabbaste tjänsteleverantören, dvs. den leverantör som svarade först och som stöder MVPD. Som standard (om inget värde anges) används Adobes tjänstleverantör (<http://sp.auth.adobe.com/>).
 
   Exempel:
    - `setRequestor("IFC", ["http://sp.auth-dev.adobe.com/adobe-services"])`
 
-- *options* - Ett JSON-objekt som innehåller värdet för program-ID, uppdateringslösa inställningar för besökar-ID (inloggning i bakgrunden) och MVPD-inställningar (iFrame). Alla värden är valfria.
+- *options* - Ett JSON-objekt som innehåller programmets ID-värde, inställningar för att uppdatera besökar-ID-värde (inloggning i bakgrunden) och MVPD-inställningar (iFrame). Alla värden är valfria.
    1. Om detta anges rapporteras Experience Cloud visitorID för alla nätverksanrop som utförs av biblioteket. Värdet kan användas senare för avancerade analysrapporter.
    2. Om den unika identifieraren för programmet anges -`applicationId` - läggs värdet till i alla efterföljande anrop som görs av programmet som en del av HTTP-huvudet X-Device-Info. Det här värdet kan senare hämtas från [ESM](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md)-rapporter med rätt fråga.
 
@@ -60,7 +60,7 @@ Dessa funktioner initierar förfrågningar om interaktion med ett MVPD. Alla anr
   })
 ```
 
-- Programmeraren kan åsidosätta de MVPD-inställningar som har konfigurerats i Adobe Pass Authentication genom att ange om en iFrame krävs eller inte för inloggning (*iFrameRequired* -tangenten) och iFrame-dimensionerna (*iFrameWidth* och *iFrameHeight* -tangenterna). JSON-objektet har följande mall:
+- Programmeraren kan åsidosätta MVPD-inställningarna som är konfigurerade i Adobe Pass-autentisering genom att ange om en iFrame krävs eller inte för inloggning (*iFrameRequired* -tangenten) och iFrame-dimensionerna (*iFrameWidth* och *iFrameHeight* -tangenterna). JSON-objektet har följande mall:
 
 ```JSON
     {  
@@ -120,14 +120,14 @@ Här är ett exempel på konfiguration för följande scenario: aktivera uppdate
 
 ## getAuthorization(inResourceID, redirect_url) {#getauthorization(inresourceid,redirect_url)}
 
-**Beskrivning:** Begär auktorisering för den angivna resursen. Varje gång en kund försöker få åtkomst till en auktoriserbar resurs anropar du den här funktionen för att få en kort åtkomsttoken från Access Enabler. Resurs-ID:n avtalas med det sidodokument som tillhandahåller auktorisering.
+**Beskrivning:** Begär auktorisering för den angivna resursen. Varje gång en kund försöker få åtkomst till en auktoriserbar resurs anropar du den här funktionen för att få en kort åtkomsttoken från Access Enabler. Resurs-ID:n avtalas med den MVPD som ger behörighet.
 
 Använder den cachelagrade autentiseringstoken för den aktuella kunden. Om ingen sådan token hittas initierar autentiseringsprocessen först och fortsätter sedan med auktoriseringen.
 
 **Parametrar:**
 
 - `inResourceID` - ID:t för resursen som användaren begär auktorisering för.
-- `redirect_url` - Ange en omdirigerings-URL om du vill, så att MVPD:s auktoriseringsprocess återgår till den sidan i stället för den sida som auktoriseringen initierades från.
+- `redirect_url` - Ange en omdirigerings-URL om du vill, så att MVPD auktoriseringsprocess återgår till den sidan i stället för den sida som auktoriseringen initierades från.
 
 
 **Återanrop har utlösts:** [setToken()](#settokeninrequestedresourceid-intoken-settokeninrequestedresourceidintoken) vid lyckad, [tokenRequestFailed](#tokenrequestfailedinrequestedresourceid-inrequesterrorcode-inrequestdetailederrormessage-tokenrequestfailedinrequestedresourceidinrequesterrorcodeinrequestdetailederrormessage) vid fel
@@ -144,13 +144,13 @@ Använder den cachelagrade autentiseringstoken för den aktuella kunden. Om inge
 
 ## getAuthentication(redirect_url) {#getauthentication(redirect_url}
 
-**Beskrivning:** Begär autentisering för den aktuella kunden. Anropas vanligtvis som svar på en klickning på en inloggningsknapp. Söker efter en cachelagrad autentiseringstoken för den aktuella kunden. Om ingen sådan token hittas initierar autentiseringsprocessen. Detta anropar standarddialogrutan eller den anpassade dialogrutan för val av leverantör och använder sedan den valda providern för att dirigera om till inloggningsgränssnittet för MVPD.
+**Beskrivning:** Begär autentisering för den aktuella kunden. Anropas vanligtvis som svar på en klickning på en inloggningsknapp. Söker efter en cachelagrad autentiseringstoken för den aktuella kunden. Om ingen sådan token hittas initierar autentiseringsprocessen. Detta aktiverar standarddialogrutan eller den anpassade dialogrutan för val av leverantör och använder sedan den valda providern för att dirigera om till MVPD inloggningsgränssnitt.
 
 När det är klart skapar och sparar en autentiseringstoken för användaren. Om autentiseringen misslyckas returnerar providern ett felmeddelande till ditt [setAuthenticationStatus()](#setauthenticationstatusisauthenticated-errorcode) -återanrop.
 
 **Parametrar:**
 
-- redirect_url - Ange en omdirigerings-URL om du vill, så att MVPD:s autentiseringsprocess returnerar användaren till den sidan i stället för till den sida som autentiseringen initierades från.
+- redirect_url - Ange en omdirigerings-URL om du vill, så att MVPD autentiseringsprocess återgår till den sidan i stället för den sida som autentiseringen initierades från.
 
 **Återanrop har utlösts:** [setAuthenticationStatus()](#setauthenticationstatusisauthenticated-errorcode), [displayProviderDialog()](#displayproviderdialogproviders-displayproviderdialogproviders), [sendTrackingData()](#sendtrackingdatatrackingeventtype-trackingdata-sendtrackingdatatrackingeventtypetrackingdata)
 
@@ -245,11 +245,11 @@ Det finns två typer av metadata:
 
    - `"encryptedZip"` - Krypterat postnummer
 
-   - `"householdID"` - Hushållsidentifierare. Om ett MVPD inte stöder underkonton är detta identiskt med userID.
+   - `"householdID"` - Hushållsidentifierare. Om en MVPD inte har stöd för underkonton är detta identiskt med userID.
 
    - `"maxRating"` - Högsta föräldraklassificering för användaren
 
-   - `"userID"` - användaridentifieraren. Om ett MVPD-dokument har stöd för underkonton och användaren inte är huvudkontot, kommer userID att vara ett annat än houseID.
+   - `"userID"` - användaridentifieraren. Om ett MVPD har stöd för underkonton och användaren inte är huvudkontot, kommer userID att vara ett annat än houseID.
 
    - `"channelID"` - En lista över kanaler som användaren har rätt att visa
 
@@ -267,7 +267,7 @@ Det finns två typer av metadata:
 
    - `"acctParentID"` - överordnat konto-ID
 
-  **Obs!** De faktiska användarmetadata som är tillgängliga för en programmerare beror på vad ett MVPD-program gör tillgängligt.  I [Användarmetadata](#UserMetadata) finns en aktuell lista över tillgängliga användarmetadata.
+  **Obs!** De faktiska användarmetadata som är tillgängliga för en programmerare beror på vad en MVPD gör tillgänglig.  I [Användarmetadata](#UserMetadata) finns en aktuell lista över tillgängliga användarmetadata.
 
 
 Exempel:
@@ -302,7 +302,7 @@ Exempel:
 
 ## setSelectedProvider(providerid) {#setSelectedProvider}
 
-**Beskrivning:** Anropa den här funktionen när användaren har valt ett MVPD-program i användargränssnittet för val av leverantör för att skicka providervalet till åtkomstaktiveringen eller anropa den här funktionen med en null-parameter om användaren har stängt användargränssnittet för val av leverantör utan att välja någon leverantör.
+**Beskrivning:** Anropa den här funktionen när användaren har valt en MVPD i användargränssnittet för val av leverantör för att skicka providervalet till åtkomstaktiveringen eller anropa den här funktionen med en null-parameter om användaren har avvisat användargränssnittet för val av leverantör utan att välja någon leverantör.
 
 **Återanrop
 utlöses:**[ setAuthationStatus()](#setauthenticationstatusisauthenticated-errorcode), [sendTrackingData()](#sendtrackingdatatrackingeventtype-trackingdata-sendtrackingdatatrackingeventtypetrackingdata)
@@ -319,7 +319,7 @@ utlöses:**[ setAuthationStatus()](#setauthenticationstatusisauthenticated-error
 
 Den här funktionen är asynkron och returnerar resultatet till callback-funktionen `selectedProvider()`.
 
-- **MVPD** Det aktuella MVPD-värdet eller null om inget MVPD-värde har valts.
+- **MVPD** Den markerade MVPD eller null om ingen MVPD har valts.
 - **AE_State** Resultatet av autentiseringen för den aktuella kunden är Ny användare, Användare ej autentiserad eller Användare autentiserad
 
 **Återanrop har utlösts:** [selectedProvider()](#getselectedprovider-getselectedprovider)
@@ -409,7 +409,7 @@ Du måste implementera dessa återanrop för att kunna hantera svaren på dina a
 
 ## createIFrame(inWidth, inHeight) {#createIFrame(inWidth,inHeight)}
 
-**Beskrivning:** Implementera det här återanropet om användaren har valt ett MVPD som kräver en iFrame där användargränssnittet för inloggningssidan för autentisering ska visas.
+**Beskrivning:** Implementera det här återanropet om användaren har valt en MVPD som kräver en iFrame där användargränssnittet för inloggningssidan för autentisering ska visas.
 
 **Utlöses av:**[ setSelectedProvider()](#setselectedproviderproviderid-setselectedprovider)
 
@@ -423,7 +423,7 @@ Du måste implementera dessa återanrop för att kunna hantera svaren på dina a
 
 >[!NOTE]
 > 
->Om du använder det aktuella [avancerade felrapporteringssystemet](/help/authentication/integration-guide-programmers/features-standard/error-reporting/error-reporting.md) kan du ignorera parametern errorCode som skickas till den här funktionen.  Flaggan isAuthenticated används dock fortfarande för att spåra autentiseringsstatusen för en användare i berättigandeflödet
+>Om du använder det aktuella [avancerade felrapporteringssystemet](/help/authentication/integration-guide-programmers/legacy/error-reporting/error-reporting.md) kan du ignorera parametern errorCode som skickas till den här funktionen.  Flaggan isAuthenticated används dock fortfarande för att spåra autentiseringsstatusen för en användare i berättigandeflödet
 
 
 **Parametrar:**
@@ -463,7 +463,7 @@ Du måste implementera dessa återanrop för att kunna hantera svaren på dina a
 
 Skickar händelsetypen och en array med associerad information. Händelsetyper är:
 
-| mvpdSelection | Användaren valde ett MVPD-dokument i en dialogruta där han/hon valde leverantör. |
+| mvpdSelection | Användaren har valt en MVPD i en dialogruta där han/hon kan välja leverantör. |
 | ----------------------- | --------------------------------------------------------- |
 | authenticationDetection | En verifieringskontroll har slutförts. |
 | permissionDetection | En auktoriseringsbegäran har slutförts. |
@@ -474,7 +474,7 @@ Data är specifika för varje händelsetyp:
 
 | Händelsetyp (String) | Data (matris) |
 |:--- | :--- |
-| mvpdSelection | 0: Markerat MVPD |
+| mvpdSelection | 0: Vald MVPD |
 |  | 1: Enhetstyp |
 |  | 2: Klienttyp för åtkomstaktivering |
 |  | 3: OS |
@@ -517,7 +517,7 @@ Data är specifika för varje händelsetyp:
 
 ## tokenRequestFailed(inRequestedResourceID, inRequestErrorCode, inRequestDetailedErrorMessage) {#token-request-failed-error-msg}
 
-**Beskrivning:** Implementera det här återanropet som ska signaleras när en auktorisering eller en begäran om kontrollauktorisering har misslyckats. Kan även användas av en MVPD för att ge ett anpassat meddelande som ska visas av programmeraren.
+**Beskrivning:** Implementera det här återanropet som ska signaleras när en auktorisering eller en begäran om kontrollauktorisering har misslyckats. Kan även användas av en MVPD för att skapa ett anpassat meddelande som ska visas av programmeraren.
 
 >[!IMPORTANT]
 >
@@ -527,7 +527,7 @@ Data är specifika för varje händelsetyp:
 
 - *inRequestedResourceID* - en sträng som anger det resurs-ID som användes i auktoriseringsbegäran.
 - *inRequestErrorCode* - En sträng som visar felkoden för Adobe Pass-autentiseringen och anger orsaken till felet. Möjliga värden är &quot;User Not Authenticated Error&quot; och &quot;User Not Authorized Error&quot;. Mer information finns i &quot;Callback error codes&quot; nedan.
-- *inRequestDetailedErrorMessage* - En extra beskrivande sträng som är lämplig för visning. Om den här beskrivande strängen inte är tillgänglig av någon anledning skickar Adobe Pass Authentication en tom sträng **(&quot;&quot;)**.  Detta kan användas av en MVPD för att skicka anpassade felmeddelanden eller försäljningsrelaterade meddelanden. Om en prenumerant nekas auktorisering för en resurs kan MVPD svara med en `*inRequestDetailedErrorMessage*` som: **. Du har för närvarande inte åtkomst till den här kanalen i paketet. Om du vill uppgradera ditt paket klickar du \*här\*.&quot;** Meddelandet skickas av Adobe Pass Authentication via det här återanropet till programmerarens webbplats. Programmeraren kan sedan välja att visa eller ignorera den. Adobe Pass-autentisering kan också använda `*inRequestDetailedErrorMessage*` för att meddela programmeraren om det tillstånd som kan ha orsakat ett fel. **&quot;Ett nätverksfel uppstod t.ex. vid kommunikation med providerns auktoriseringstjänst&quot;.**
+- *inRequestDetailedErrorMessage* - En extra beskrivande sträng som är lämplig för visning. Om den här beskrivande strängen inte är tillgänglig av någon anledning skickar Adobe Pass Authentication en tom sträng **(&quot;&quot;)**.  Detta kan användas av en MVPD för att skicka anpassade felmeddelanden eller försäljningsrelaterade meddelanden. Om en prenumerant nekas auktorisering för en resurs kan MVPD svara med en `*inRequestDetailedErrorMessage*` som: **. Du har för närvarande inte åtkomst till den här kanalen i ditt paket. Om du vill uppgradera ditt paket klickar du \*här\*.&quot;** Meddelandet skickas av Adobe Pass Authentication via det här återanropet till programmerarens webbplats. Programmeraren kan sedan välja att visa eller ignorera den. Adobe Pass-autentisering kan också använda `*inRequestDetailedErrorMessage*` för att meddela programmeraren om det tillstånd som kan ha orsakat ett fel. **&quot;Ett nätverksfel uppstod t.ex. vid kommunikation med providerns auktoriseringstjänst&quot;.**
 
 
 
@@ -607,9 +607,9 @@ Exempel:
 
 ## selectedProvider(result) {#selectedProvider(result)}
 
-**Beskrivning:** Implementera det här återanropet för att ta emot det aktuella MVPD-värdet och resultatet av autentiseringen av den aktuella användaren som har kapslats in i parametern `result`. Parametern `result` är ett objekt med följande egenskaper:
+**Beskrivning:** Implementera det här återanropet för att ta emot den valda MVPD-filen och resultatet av autentiseringen av den aktuella användaren inkapslat i parametern `result`. Parametern `result` är ett objekt med följande egenskaper:
 
-- **MVPD** Det aktuella MVPD-värdet eller null om inget MVPD-värde har valts.
+- **MVPD** Den markerade MVPD eller null om ingen MVPD har valts.
 - **AE\_State** Resultat av autentisering för den aktuella användaren, en av Ny användare, Användare ej autentiserad eller Användare autentiserad
 
 **Utlöses av:** [getSelectedProvider()](#getSelProv)

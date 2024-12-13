@@ -2,14 +2,14 @@
 title: Amazon FireOS - programregistrering
 description: Amazon FireOS - programregistrering
 exl-id: 650fd4a2-dfc3-4c74-9b5b-6bea832a28ca
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '515'
+source-wordcount: '516'
 ht-degree: 0%
 
 ---
 
-# Amazon FireOS - programregistrering {#amazon-fireos-application-registration}
+# (Äldre) Amazon FireOS-programregistrering {#amazon-fireos-application-registration}
 
 >[!NOTE]
 >
@@ -19,13 +19,13 @@ ht-degree: 0%
 
 ## Introduktion {#intro}
 
-Från och med version 3.0 av FireOS AccessEnabler SDK ändrar vi autentiseringsmekanismen med Adobe-servrar. I stället för att använda en offentlig nyckel och ett hemligt system för att signera begärande-ID introducerar vi begreppet programsatssträng som kan användas för att få en åtkomsttoken som senare används för alla anrop som SDK gör till våra servrar. Förutom en programsats måste du också skapa en djup länk till programmet.
+Från och med version 3.0 av FireOS AccessEnabler SDK ändrar vi autentiseringsmekanismen med Adobe-servrar. Istället för att använda en offentlig nyckel och ett hemligt system för att signera beställar-ID introducerar vi konceptet med en programsatssträng som kan användas för att få en åtkomsttoken som senare används för alla anrop som SDK gör till våra servrar. Förutom en programsats måste du också skapa en djup länk till programmet.
 
 Mer information finns i [Översikt över registrering av dynamisk klient](../../../rest-apis/rest-api-dcr/dynamic-client-registration-overview.md).
 
 ## Vad är en programsats? {#what}
 
-En programsats är en JWT-token som innehåller information om programmet. Alla program ska ha en unik programvarubeskrivning som används av våra servrar för att identifiera programmet i Adobe system. Programsatsen måste skickas när du initierar AccessEnabler SDK och den används för att registrera programmet hos Adobe. Vid registreringen får SDK ett klient-ID och en klienthemlighet som används för att hämta en åtkomsttoken. Alla anrop som SDK gör till våra servrar kräver en giltig åtkomsttoken. SDK:n ansvarar för att registrera programmet, hämta och uppdatera åtkomsttoken.
+En programsats är en JWT-token som innehåller information om programmet. Alla program ska ha en unik programvarubeskrivning som används av våra servrar för att identifiera programmet i Adobe system. Programsatsen måste skickas när du initierar AccessEnabler SDK och den kommer att användas för att registrera programmet hos Adobe. Vid registreringen får SDK ett klient-ID och en klienthemlighet som används för att erhålla en åtkomsttoken. Alla samtal som SDK gör till våra servrar kräver en giltig åtkomsttoken. SDK ansvarar för att registrera programmet, hämta och uppdatera åtkomsttoken.
 
 **Obs!** Programsatser är programspecifika och en enskild programsats kan inte användas för mer än ett program. Observera att detta även gäller program som erbjuder åtkomst till flera kanaler.
 

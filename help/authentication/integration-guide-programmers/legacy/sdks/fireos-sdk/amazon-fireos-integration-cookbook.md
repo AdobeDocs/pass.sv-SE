@@ -2,14 +2,14 @@
 title: Amazon FireOS Integration Cookbook
 description: Amazon FireOS Integration Cookbook
 exl-id: 1982c485-f0ed-4df3-9a20-9c6a928500c2
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '1424'
+source-wordcount: '1425'
 ht-degree: 0%
 
 ---
 
-# Amazon FireOS Integration Cookbook {#amazon-fireos-integration-cookbook}
+# (Äldre) Amazon FireOS Integration Cookbook {#amazon-fireos-integration-cookbook}
 
 >[!NOTE]
 >
@@ -60,7 +60,7 @@ Nätverksaktiviteten för `AccessEnabler` äger rum i en annan tråd, så gräns
 
    - [displayProviderDialog(mvpds)](#$displayProviderDialog)
 
-      - Utlöses endast av `getAuthentication()` om användaren inte har valt en leverantör (MVPD) och ännu inte är autentiserad. Parametern `mvpds` är en matris med providers som är tillgängliga för användaren.
+      - Utlöses endast av `getAuthentication()` om användaren inte har valt någon leverantör (MVPD) och ännu inte är autentiserad. Parametern `mvpds` är en matris med providers som är tillgängliga för användaren.
 
    - [`setAuthenticationStatus(status, orsak)`](#$setAuthNStatus)
 
@@ -70,7 +70,7 @@ Nätverksaktiviteten för `AccessEnabler` äger rum i en annan tråd, så gräns
 
    - [navigateToUrl(url)](#$navigateToUrl)
 
-      - Metoden ignoreras i AmazonFireOS SDK och används på Android-plattformar där utlöses av `getAuthentication()` efter att användaren har valt en MVPD.  Parametern `url` anger platsen för MVPD:s inloggningssida.
+      - Metoden ignoreras i AmazonFireOS SDK och används på Android-plattformar där den aktiveras av `getAuthentication()` efter att användaren har valt en MVPD.  Parametern `url` anger platsen för MVPD inloggningssida.
 
    - [`sendTrackingData(event, data)`](#$sendTrackingData)
 
@@ -164,7 +164,7 @@ Parametern `event` anger vilken berättigandehändelse som inträffade. Paramete
 
 1. Anropa [`getAuthorization()`](#$getAuthZ) för att initiera auktoriseringsflödet.
 
-   Beroende: Giltiga resurs-ID:n som har avtalats med MVPD:n.
+   Beroende: Giltiga resurs-ID:n som avtalats med MVPD(n).
 
    **Obs!** Resurs-ID:n ska vara samma som de som används på andra enheter eller plattformar och ska vara samma för alla flerkanalsprogram.
 
@@ -194,6 +194,6 @@ Parametern `event` anger vilken berättigandehändelse som inträffade. Paramete
 
 ### F. Utloggningsflöde {#logout_flow}
 
-1. Ring [`logout()`](#$logout) för att logga ut användaren. `AccessEnabler` rensar bort alla cachelagrade värden och token som har hämtats av användaren för det aktuella MVPD-värdet på alla begärande som delar inloggningen via enkel inloggning. När cacheminnet har rensats gör `AccessEnabler` ett serveranrop för att rensa sessionerna på serversidan.  Observera, att eftersom serveranropet kan resultera i en SAML-omdirigering till IdP (detta tillåter sessionsrensning på IdP-sidan), måste det här anropet följa alla omdirigeringar. Därför hanteras det här anropet inuti en WebView-kontroll, som inte är synlig för användaren.
+1. Ring [`logout()`](#$logout) för att logga ut användaren. `AccessEnabler` raderar alla cachelagrade värden och token som har hämtats av användaren för det aktuella MVPD-programmet för alla begärande som delar inloggningen via enkel inloggning. När cacheminnet har rensats gör `AccessEnabler` ett serveranrop för att rensa sessionerna på serversidan.  Observera, att eftersom serveranropet kan resultera i en SAML-omdirigering till IdP (detta tillåter sessionsrensning på IdP-sidan), måste det här anropet följa alla omdirigeringar. Därför hanteras det här anropet inuti en WebView-kontroll, som inte är synlig för användaren.
 
    **Obs!** Loggoutflödet skiljer sig från autentiseringsflödet på så sätt att användaren inte behöver interagera med WebView på något sätt. Det är därför möjligt (och rekommenderas) att göra WebView-kontrollen osynlig (dvs. dold) under utloggningsprocessen.

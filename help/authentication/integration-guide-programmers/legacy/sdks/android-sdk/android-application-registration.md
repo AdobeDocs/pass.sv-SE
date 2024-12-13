@@ -2,14 +2,14 @@
 title: Registrering av Android
 description: Registrering av Android
 exl-id: 6238bd87-ac97-4a5c-9d92-3631f7b2d46a
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '586'
+source-wordcount: '587'
 ht-degree: 0%
 
 ---
 
-# Registrering av Android {#android-application-registration}
+# (Äldre) Android Application Registration {#android-application-registration}
 
 >[!NOTE]
 >
@@ -17,7 +17,7 @@ ht-degree: 0%
 
 ## Introduktion {#intro}
 
-Från och med version 3.0 av Android AccessEnabler SDK ändrar vi autentiseringsmekanismen med Adobe-servrar. I stället för att använda en offentlig nyckel och ett hemligt system för att signera begärande-ID introducerar vi begreppet programsatssträng som kan användas för att få en åtkomsttoken som senare används för alla anrop som SDK gör till våra servrar. Förutom en programsats måste du också skapa en djup länk till programmet.
+Från och med version 3.0 av Android AccessEnabler SDK ändrar vi autentiseringsmekanismen med Adobe-servrar. Istället för att använda en offentlig nyckel och ett hemligt system för att signera beställar-ID introducerar vi konceptet med en programsatssträng som kan användas för att få en åtkomsttoken som senare används för alla anrop som SDK gör till våra servrar. Förutom en programsats måste du också skapa en djup länk till programmet.
 
 Mer information finns i [Översikt över registrering av dynamisk klient](../../../rest-apis/rest-api-dcr/dynamic-client-registration-overview.md).
 
@@ -25,7 +25,7 @@ Mer information finns i [Översikt över registrering av dynamisk klient](../../
 
 En programsats är en JWT-token som innehåller information om programmet. Alla program ska ha en unik programvarusats som används av våra servrar för att identifiera programmet i Adobe-systemet.
 
-Programsatsen måste skickas när du initierar SDK:n `AccessEnabler`. Den används för att registrera programmet hos Adobe. Vid registrering får SDK ett klient-ID och en klienthemlighet, som används för att hämta en åtkomsttoken. Alla anrop som SDK gör till Adobe-servrar kräver en giltig åtkomsttoken. SDK:n ansvarar för att registrera programmet, hämta och uppdatera åtkomsttoken.
+Programsatsen måste skickas när du initierar SDK för `AccessEnabler`. Den används för att registrera programmet hos Adobe. Vid registreringen får SDK ett klient-ID och en klienthemlighet som används för att hämta en åtkomsttoken. Alla anrop som SDK gör till Adobe-servrar kräver en giltig åtkomsttoken. SDK ansvarar för att registrera programmet, hämta och uppdatera åtkomsttoken.
 
 >[!NOTE]
 >

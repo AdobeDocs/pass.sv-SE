@@ -2,9 +2,9 @@
 title: Förbättrade felkoder
 description: Förbättrade felkoder
 exl-id: 2b0a9095-206b-4dc7-ab9e-e34abf4d359c
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '2606'
+source-wordcount: '2610'
 ht-degree: 2%
 
 ---
@@ -18,14 +18,14 @@ ht-degree: 2%
 Förbättrade felkoder är en Adobe Pass-autentiseringsfunktion som ger ytterligare felinformation till klientprogram som är integrerade med:
 
 * Adobe Pass Authentication REST API:er:
-   * [REST API v1](../../legacy/rest-api-v1/apis/rest-api-overview.md)
    * [REST API v2](../../rest-apis/rest-api-v2/apis/rest-api-v2-apis-overview.md)
+   * [(Äldre) REST API v1](../../legacy/rest-api-v1/rest-api-overview.md)
 * Adobe Pass Authentication SDKs Förauktorisera API:
-   * [JavaScript SDK (förauktorisera API)](../../legacy/sdks/javascript-sdk/preauthorize-api-javascript-sdk.md)
-   * [iOS/tvOS SDK (förauktorisera API)](../../legacy/sdks/ios-tvos-sdk/preauthorize-api-ios-tvos-sdk.md)
-   * [Android SDK (förauktorisera API)](../../legacy/sdks/android-sdk/preauthorize-api-android-sdk.md)
+   * [(Äldre) JavaScript SDK (förauktorisera API)](../../legacy/sdks/javascript-sdk/preauthorize-api-javascript-sdk.md)
+   * [(Äldre) iOS/tvOS SDK (förauktorisera API)](../../legacy/sdks/ios-tvos-sdk/preauthorize-api-ios-tvos-sdk.md)
+   * [(Äldre) Android SDK (förauktorisera API)](../../legacy/sdks/android-sdk/preauthorize-api-android-sdk.md)
 
-  _(*) API för förauktorisering är det enda Adobe Pass Authentication SDK API som har stöd för förbättrade felkoder._
+  _(*) API för förauktorisering är det enda Adobe Pass Authentication SDK-API som har stöd för Enhanced Error Codes._
 
 >[!IMPORTANT]
 >
@@ -256,42 +256,6 @@ Möjliga värden för kodfältet slås samman [nedan](#enhanced-error-codes-list
 
 ## Listor {#enhanced-error-codes-lists}
 
-### REST API v1 {#enhanced-error-codes-lists-rest-api-v1}
-
-Tabellen nedan visar möjliga felkoder som ett klientprogram kan stöta på när det är integrerat med Adobe Pass Authentication REST API v1.
-
-| Åtgärd | Code | Status | Meddelande |
-|--------------------|---------------------------------------------------|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **ingen** | *invalid_requested* | 400 | Parametern för begärande saknas eller är ogiltig. |
-|                    | *invalid_device_info* | 400 | Enhetsinformationen saknas eller är ogiltig. |
-|                    | *invalid_device_id* | 400 | Enhetsidentifieraren saknas eller är ogiltig. |
-|                    | *missing_resource* | 400, 412 | Resursparametern saknas. |
-|                    | *malformed_authz_request* | 400, 412 | Auktoriseringsbegäran är null eller ogiltig. |
-|                    | *preauthentication_deny_by_mvpd* | 403 | MVPD har returnerat ett beslut om att neka vid begäran om förauktorisering för den angivna resursen. |
-|                    | *authentication_deny_by_mvpd* | 403 | MVPD har returnerat ett beslut om att neka när den angivna resursen begärdes. |
-|                    | *authentication_deny_by_parental_controls* | 403 | MVPD har returnerat ett beslut om att neka, på grund av inställningar för föräldrakontroll för den angivna resursen. |
-|                    | *internal_error* | 400, 405, 500 | Begäran misslyckades på grund av ett internt serverfel. |
-| **konfiguration** | *unknown_integration* | 400, 412 | Integrationen mellan den angivna programmeraren och identitetsleverantören finns inte. Använd TVE Dashboard för att skapa den nödvändiga integreringen. |
-|                    | *för_många_resurser* | 403 | Begäran om auktorisering eller förauktorisering misslyckades eftersom för många resurser efterfrågades. Kontakta supportteamet för att konfigurera begränsningarna för auktorisering och förhandsauktorisering. |
-| **autentisering** | *authentication_session_utfärdare_mismatch* | 400 | Auktoriseringsbegäran misslyckades på grund av att det angivna MVPD-värdet för auktoriseringsflödet skiljer sig från det som utfärdade autentiseringssessionen. Användaren måste autentisera på nytt med önskat MVPD för att kunna fortsätta. |
-|                    | *authentication_deny_by_hba_policies* | 403 | MVPD har returnerat ett beslut om att neka, på grund av hembaserade autentiseringsprinciper. Den aktuella autentiseringen erhölls med ett hembaserat autentiseringsflöde (HBA), men enheten är inte längre hemma när den begär auktorisering för den angivna resursen. Användaren måste autentisera på nytt med en MVPD som stöds för att kunna fortsätta. |
-|                    | *authentication_deny_by_session_invalidated* | 403 | Autentiseringssessionen ogiltigförklarades av identitetsleverantören. Användaren måste autentisera på nytt med en MVPD som stöds för att kunna fortsätta. |
-|                    | *identity_not_recognized_by_mvpd* | 403 | Auktoriseringsbegäran misslyckades på grund av att användaridentiteten inte kändes igen av MVPD. |
-|                    | *authentication_session_invalidated* | 403 | Autentiseringssessionen ogiltigförklarades av identitetsleverantören. Användaren måste autentisera på nytt med en MVPD som stöds för att kunna fortsätta. |
-|                    | *authentication_session_missing* | 403, 412 | Autentiseringssessionen som är associerad med denna begäran kunde inte hämtas. Användaren måste autentisera på nytt med en MVPD som stöds för att kunna fortsätta. |
-|                    | *authentication_session_utgången* | 403, 412 | Den aktuella autentiseringssessionen har gått ut. Användaren måste autentisera på nytt med en MVPD som stöds för att kunna fortsätta. |
-|                    | *preauthentication_authentication_session_missing* | 412 | Autentiseringssessionen som är associerad med denna begäran kunde inte hämtas. Användaren måste autentisera på nytt med en MVPD som stöds för att kunna fortsätta. |
-|                    | *preauthentication_authentication_session_utgången* | 412 | Den aktuella autentiseringssessionen har gått ut. Användaren måste autentisera på nytt med en MVPD som stöds för att kunna fortsätta. |
-| **auktorisering** | *authentication_not_found* | 403, 404 | Det gick inte att hitta någon auktorisering för den angivna resursen. Användaren måste skaffa en ny auktorisering för att kunna fortsätta. |
-|                    | *authentication_utgången* | 410 | Den tidigare auktoriseringen för den angivna resursen har gått ut. Användaren måste skaffa en ny auktorisering för att kunna fortsätta. |
-| **försök igen** | *network_receive_error* | 403 | Det uppstod ett läsfel när svaret skulle hämtas från den associerade partnertjänsten. Ett nytt försök att utföra begäran kan lösa problemet. |
-|                    | *network_connection_timeout* | 403 | En timeout uppstod för anslutningen till den associerade partnertjänsten. Ett nytt försök att utföra begäran kan lösa problemet. |
-|                    | *maximum_execution_time_pped* | 403 | Begäran slutfördes inte inom den tillåtna maxtiden. Ett nytt försök att utföra begäran kan lösa problemet. |
-
-### SDK Förauktorisera API {#enhanced-error-codes-lists-sdks-preauthorize-api}
-
-I föregående [avsnitt](#enhanced-error-codes-list-rest-api-v1) finns information om möjliga felkoder som ett klientprogram kan stöta på när det är integrerat med Adobe Pass Authentication SDKs PreAuthze API.
-
 ### REST API v2 {#enhanced-error-codes-lists-rest-api-v2}
 
 Tabellen nedan visar möjliga felkoder som ett klientprogram kan stöta på när det är integrerat med Adobe Pass Authentication REST API v2.
@@ -316,9 +280,9 @@ Tabellen nedan visar möjliga felkoder som ett klientprogram kan stöta på när
 |                              | *invalid_header_pfs_provider_info_utgången* | 400 | Providerinformationen från statusrubriken för partnerramverket har upphört att gälla. |
 |                              | *invalid_integration* | 400 | Integrationen mellan den angivna tjänstprovidern och mvpd finns inte eller är inaktiverad. |
 |                              | *invalid_authentication_session* | 400 | Autentiseringssessionen som är associerad med denna begäran saknas eller är ogiltig. |
-|                              | *preauthentication_deny_by_mvpd* | 403 | MVPD har returnerat ett beslut om att neka vid begäran om förauktorisering för den angivna resursen. |
-|                              | *authentication_deny_by_mvpd* | 403 | MVPD har returnerat ett beslut om att neka när den angivna resursen begärdes. |
-|                              | *authentication_deny_by_parental_controls* | 403 | MVPD har returnerat ett beslut om att neka, på grund av inställningar för föräldrakontroll för den angivna resursen. |
+|                              | *preauthentication_deny_by_mvpd* | 403 | MVPD har returnerat ett&quot;Neka&quot;-beslut när förauktorisering begärdes för den angivna resursen. |
+|                              | *authentication_deny_by_mvpd* | 403 | MVPD har returnerat ett&quot;Neka&quot;-beslut vid begäran om auktorisering för den angivna resursen. |
+|                              | *authentication_deny_by_parental_controls* | 403 | MVPD har returnerat ett&quot;Neka&quot;-beslut på grund av inställningar för föräldrakontroll för den angivna resursen. |
 |                              | *permission_deny_by_Nedbrytningsregel* | 403 | Integrationen mellan den angivna tjänstleverantören och mvpd har en distributionsregel som inte tillåter auktorisering för de begärda resurserna. |
 |                              | *internal_server_error* | 500 | Begäran misslyckades på grund av ett internt serverfel. |
 | **konfiguration** | *för_många_resurser* | 403 | Begäran om auktorisering eller förauktorisering misslyckades eftersom för många resurser efterfrågades. Kontakta supportteamet för att konfigurera begränsningarna för auktorisering och förhandsauktorisering. |
@@ -339,12 +303,48 @@ Tabellen nedan visar möjliga felkoder som ett klientprogram kan stöta på när
 |                              | *authenticated_profile_invalidated* | 403 | Den autentiserade profil som är associerad med denna begäran har ogiltigförklarats. |
 |                              | *temporary_access_duration_limit_Over* | 403 | Tidsgränsen för temporär åtkomst har överskridits. |
 |                              | *temporary_access_resources_limit_Over* | 403 | Resursgränsen för temporär åtkomst har överskridits. |
-|                              | *authentication_deny_by_hba_policies* | 403 | MVPD har returnerat ett beslut om att neka, på grund av hembaserade autentiseringsprinciper. Den aktuella autentiseringen erhölls via ett hembaserat autentiseringsflöde, men enheten är inte längre hemma när den begär auktorisering för den angivna resursen. Användaren måste autentisera på nytt med en MVPD som stöds för att kunna fortsätta. |
+|                              | *authentication_deny_by_hba_policies* | 403 | MVPD har returnerat ett&quot;Neka&quot;-beslut på grund av hembaserade autentiseringsprinciper. Den aktuella autentiseringen erhölls via ett hembaserat autentiseringsflöde, men enheten är inte längre hemma när den begär auktorisering för den angivna resursen. Användaren måste autentisera på nytt med en MVPD som stöds för att kunna fortsätta. |
 |                              | *authentication_deny_by_session_invalidated* | 403 | Autentiseringssessionen ogiltigförklarades av identitetsleverantören. Användaren måste autentisera på nytt med en MVPD som stöds för att kunna fortsätta. |
 |                              | *identity_not_recognized_by_mvpd* | 403 | Auktoriseringsbegäran misslyckades på grund av att användaridentiteten inte kändes igen av MVPD. |
 | **försök igen** | *network_receive_error* | 403 | Det uppstod ett läsfel när svaret skulle hämtas från den associerade partnertjänsten. Ett nytt försök att utföra begäran kan lösa problemet. |
 |                              | *network_connection_timeout* | 403 | En timeout uppstod för anslutningen till den associerade partnertjänsten. Ett nytt försök att utföra begäran kan lösa problemet. |
 |                              | *maximum_execution_time_pped* | 403 | Begäran slutfördes inte inom den tillåtna maxtiden. Ett nytt försök att utföra begäran kan lösa problemet. |
+
+### REST API v1 {#enhanced-error-codes-lists-rest-api-v1}
+
+Tabellen nedan visar möjliga felkoder som ett klientprogram kan stöta på när det är integrerat med Adobe Pass Authentication REST API v1.
+
+| Åtgärd | Code | Status | Meddelande |
+|--------------------|---------------------------------------------------|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **ingen** | *invalid_requested* | 400 | Parametern för begärande saknas eller är ogiltig. |
+|                    | *invalid_device_info* | 400 | Enhetsinformationen saknas eller är ogiltig. |
+|                    | *invalid_device_id* | 400 | Enhetsidentifieraren saknas eller är ogiltig. |
+|                    | *missing_resource* | 400, 412 | Resursparametern saknas. |
+|                    | *malformed_authz_request* | 400, 412 | Auktoriseringsbegäran är null eller ogiltig. |
+|                    | *preauthentication_deny_by_mvpd* | 403 | MVPD har returnerat ett&quot;Neka&quot;-beslut när förauktorisering begärdes för den angivna resursen. |
+|                    | *authentication_deny_by_mvpd* | 403 | MVPD har returnerat ett&quot;Neka&quot;-beslut vid begäran om auktorisering för den angivna resursen. |
+|                    | *authentication_deny_by_parental_controls* | 403 | MVPD har returnerat ett&quot;Neka&quot;-beslut på grund av inställningar för föräldrakontroll för den angivna resursen. |
+|                    | *internal_error* | 400, 405, 500 | Begäran misslyckades på grund av ett internt serverfel. |
+| **konfiguration** | *unknown_integration* | 400, 412 | Integrationen mellan den angivna programmeraren och identitetsleverantören finns inte. Använd TVE Dashboard för att skapa den nödvändiga integreringen. |
+|                    | *för_många_resurser* | 403 | Begäran om auktorisering eller förauktorisering misslyckades eftersom för många resurser efterfrågades. Kontakta supportteamet för att konfigurera begränsningarna för auktorisering och förhandsauktorisering. |
+| **autentisering** | *authentication_session_utfärdare_mismatch* | 400 | Auktoriseringsbegäran misslyckades på grund av att det angivna MVPD för auktoriseringsflödet skiljer sig från det som utfärdade autentiseringssessionen. Användaren måste autentisera på nytt med önskad MVPD för att kunna fortsätta. |
+|                    | *authentication_deny_by_hba_policies* | 403 | MVPD har returnerat ett&quot;Neka&quot;-beslut på grund av hembaserade autentiseringsprinciper. Den aktuella autentiseringen erhölls med ett hembaserat autentiseringsflöde (HBA), men enheten är inte längre hemma när den begär auktorisering för den angivna resursen. Användaren måste autentisera på nytt med en MVPD som stöds för att kunna fortsätta. |
+|                    | *authentication_deny_by_session_invalidated* | 403 | Autentiseringssessionen ogiltigförklarades av identitetsleverantören. Användaren måste autentisera på nytt med en MVPD som stöds för att kunna fortsätta. |
+|                    | *identity_not_recognized_by_mvpd* | 403 | Auktoriseringsbegäran misslyckades på grund av att användaridentiteten inte kändes igen av MVPD. |
+|                    | *authentication_session_invalidated* | 403 | Autentiseringssessionen ogiltigförklarades av identitetsleverantören. Användaren måste autentisera på nytt med en MVPD som stöds för att kunna fortsätta. |
+|                    | *authentication_session_missing* | 403, 412 | Autentiseringssessionen som är associerad med denna begäran kunde inte hämtas. Användaren måste autentisera på nytt med en MVPD som stöds för att kunna fortsätta. |
+|                    | *authentication_session_utgången* | 403, 412 | Den aktuella autentiseringssessionen har gått ut. Användaren måste autentisera på nytt med en MVPD som stöds för att kunna fortsätta. |
+|                    | *preauthentication_authentication_session_missing* | 412 | Autentiseringssessionen som är associerad med denna begäran kunde inte hämtas. Användaren måste autentisera på nytt med en MVPD som stöds för att kunna fortsätta. |
+|                    | *preauthentication_authentication_session_utgången* | 412 | Den aktuella autentiseringssessionen har gått ut. Användaren måste autentisera på nytt med en MVPD som stöds för att kunna fortsätta. |
+| **auktorisering** | *authentication_not_found* | 403, 404 | Det gick inte att hitta någon auktorisering för den angivna resursen. Användaren måste skaffa en ny auktorisering för att kunna fortsätta. |
+|                    | *authentication_utgången* | 410 | Den tidigare auktoriseringen för den angivna resursen har gått ut. Användaren måste skaffa en ny auktorisering för att kunna fortsätta. |
+| **försök igen** | *network_receive_error* | 403 | Det uppstod ett läsfel när svaret skulle hämtas från den associerade partnertjänsten. Ett nytt försök att utföra begäran kan lösa problemet. |
+|                    | *network_connection_timeout* | 403 | En timeout uppstod för anslutningen till den associerade partnertjänsten. Ett nytt försök att utföra begäran kan lösa problemet. |
+|                    | *maximum_execution_time_pped* | 403 | Begäran slutfördes inte inom den tillåtna maxtiden. Ett nytt försök att utföra begäran kan lösa problemet. |
+
+### SDK Förauktorisera API {#enhanced-error-codes-lists-sdks-preauthorize-api}
+
+I föregående [avsnitt](#enhanced-error-codes-list-rest-api-v1) finns information om möjliga felkoder som ett klientprogram kan stöta på när det är integrerat med Adobe Pass Authentication SDKs PreAuthze API.
 
 ## Svarshantering {#enhanced-error-codes-response-handling}
 
@@ -368,4 +368,4 @@ Sammanfattningsvis bör du tänka på följande när du hanterar svar som inneh�
 
 1. **Autentisering och auktorisering**: För fel som rör autentisering och auktorisering måste du uppmana användaren att autentisera igen eller skaffa ny auktorisering efter behov.
 
-1. **Användarfeedback**: Om du vill kan du använda de läsbara fälten &quot;message&quot; och (potentiella) &quot;details&quot; för att informera användaren om problemet. Textmeddelandet &quot;details&quot; kan skickas från MVPD-slutpunkterna för förauktorisering eller auktorisering eller från Programmeraren när reglerna för nedbrytning tillämpas.
+1. **Användarfeedback**: Om du vill kan du använda de läsbara fälten &quot;message&quot; och (potentiella) &quot;details&quot; för att informera användaren om problemet. Textmeddelandet &quot;details&quot; kan skickas från MVPD-slutpunkter för förauktorisering eller auktorisering eller från Programmeraren när reglerna för nedbrytning tillämpas.

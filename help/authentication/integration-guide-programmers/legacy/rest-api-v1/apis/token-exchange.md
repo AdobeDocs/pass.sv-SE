@@ -2,14 +2,14 @@
 title: Exchange a Platform SSO token for an Adobe token
 description: Exchange a Platform SSO token for an Adobe token
 exl-id: 5ab60268-8f97-4755-8281-be45e812ed7f
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '228'
+source-wordcount: '229'
 ht-degree: 0%
 
 ---
 
-# Exchange a Platform SSO token for an Adobe token {#exchange-a-platform-sso-token-for-an-adobe-token}
+# (Äldre) Exchange a Platform SSO token for an Adobe token {#exchange-a-platform-sso-token-for-an-adobe-token}
 
 >[!NOTE]
 >
@@ -46,7 +46,7 @@ Tillåter att en plattforms-SSO-profil&quot;utbyts&quot; för en Adobe-token.
 | --- | --- |
 | begärande | Programmerarens requestId som den här åtgärden är giltig för. |
 | deviceId | Byte för enhets-ID. |
-| mvpd | Det MVPD-ID som den här åtgärden är giltig för. |
+| mvpd | Det MVPD-ID som den här åtgärden gäller för. |
 | deviceType | Den Apple-plattform som vi försöker få en profilbegäran för.  Antingen **iOS** eller **tvOS**. |
 | SAMLResponse | Den faktiska profilen som returneras av enkel inloggning för plattformen. |
 | _deviceUser_ | Enhetens användaridentifierare. |

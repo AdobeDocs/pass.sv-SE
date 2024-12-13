@@ -4,9 +4,9 @@ audience: end-user
 feature: Authentication
 user-guide-title: Adobe Pass-autentisering
 user-guide-description: Adobe Pass-autentisering är en berättigandelösning för TV Everywhere, som tillhandahåller ett modulärt ramverk för att avgöra om någon som begär åtkomst till en resurs är berättigad till den.
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '1154'
+source-wordcount: '1258'
 ht-degree: 2%
 
 ---
@@ -20,8 +20,8 @@ ht-degree: 2%
    + [Programmerare - översikt](kickstart/programmer-overview.md)
    + [MVPD - översikt](kickstart/mvpd-overview.md)
    + [Programmeraren kickstart](kickstart/programmer-kickstart-guide.md)
-   + [MVPD - startguide](kickstart/mvpd-kickstart-guide.md)
-   + [Eskaleringsprocedurer](notes-technical/escalation-procedures.md)
+   + [MVPD kickstart guide](kickstart/mvpd-kickstart-guide.md)
+   + [Eskaleringsprocedurer](kickstart/escalation-procedures.md)
    + [Ordlista](kickstart/glossary.md)
 + Integreringsguide för programmerare {#integration-guide-programmers}
    + REST API:er {#rest-apis}
@@ -97,22 +97,16 @@ ht-degree: 2%
          + [Användarmetadatacertifikat för kryptering](integration-guide-programmers/features-standard/entitlements/user-metadata-certificate.md)
       + Felrapportering {#error-reporting}
          + [Förbättrade felkoder](integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md)
-         + [Felrapportering](integration-guide-programmers/features-standard/error-reporting/error-reporting.md)
       + Enkel inloggningsåtkomst {#sso-access}
          + Enkel inloggning för partner {#partner-sso}
             + Apple enkel inloggning {#apple-sso}
                + [Apple SSO - översikt](integration-guide-programmers/features-standard/sso-access/partner-sso/apple-sso/apple-sso-overview.md)
                + [Apple SSO Cookbook (REST API V2)](integration-guide-programmers/features-standard/sso-access/partner-sso/apple-sso/apple-sso-cookbook-rest-api-v2.md)
-               + [Apple SSO Cookbook (REST API V1)](integration-guide-programmers/features-standard/sso-access/partner-sso/apple-sso/apple-sso-cookbook-rest-api-v1.md)
-               + [Apple SSO Cookbook (iOS/tvOS SDK)](integration-guide-programmers/features-standard/sso-access/partner-sso/apple-sso/apple-sso-cookbook-iostvos-sdk.md)
          + Plattform enkel inloggning {#platform-sso}
             + Amazon enkel inloggning {#amazon-sso}
                + [Amazon SSO Cookbook (REST API V2)](integration-guide-programmers/features-standard/sso-access/platform-sso/amazon-single-sign-on/amazon-sso-cookbook-rest-api-v2.md)
-               + [Amazon SSO Cookbook (REST API V1)](integration-guide-programmers/features-standard/sso-access/platform-sso/amazon-single-sign-on/amazon-sso-cookbook-rest-api-v1.md)
             + Kör enkel inloggning {#roku-sso}
                + [Roku SSO-översikt](integration-guide-programmers/features-standard/sso-access/platform-sso/roku-single-sign-on/roku-sso-overview.md)
-         + [Stöd för enkel inloggning](integration-guide-programmers/features-standard/sso-access/sso-support.md)
-         + [Enkel inloggning via passiv autentisering](integration-guide-programmers/features-standard/sso-access/sso-passive-authn.md)
       + Hembaserad autentiseringsåtkomst {#hba-access}
          + [Hembaserad autentisering för TV Everywhere](integration-guide-programmers/features-standard/hba-access/home-based-authn-tve.md)
          + [HBA-status för MVPD](integration-guide-programmers/features-standard/hba-access/hba-status-mvpds.md)
@@ -135,81 +129,127 @@ ht-degree: 2%
          + [Använda Experience Cloud-ID i Adobe Pass-autentisering](integration-guide-programmers/features-premium/analytics/exp-cloud-id-authn.md)
    + Äldre {#legacy}
       + (Äldre) REST API V1 {#rest-api-v1}
-         + [REST API V1 - översikt](integration-guide-programmers/legacy/rest-api-v1/apis/rest-api-overview.md)
-         + [REST API V1 Reference](integration-guide-programmers/legacy/rest-api-v1/rest-api-reference.md)
+         + [(Äldre) REST API V1 - översikt](integration-guide-programmers/legacy/rest-api-v1/rest-api-overview.md)
+         + [(Äldre) REST API V1-referens](integration-guide-programmers/legacy/rest-api-v1/rest-api-reference.md)
          + (Äldre) API:er {#rest-api-v1-apis}
-            + [Registreringskodförfrågan](integration-guide-programmers/legacy/rest-api-v1/apis/registration-code-request.md)
-            + [Returregistreringspost](integration-guide-programmers/legacy/rest-api-v1/apis/return-registration-record.md)
-            + [Ta bort registreringspost](integration-guide-programmers/legacy/rest-api-v1/apis/delete-registration-record.md)
-            + [Ange MVPD-lista](integration-guide-programmers/legacy/rest-api-v1/apis/provide-mvpd-list.md)
-            + [Initiera autentisering](integration-guide-programmers/legacy/rest-api-v1/apis/initiate-authentication.md)
-            + [Kontrollera autentiseringstoken](integration-guide-programmers/legacy/rest-api-v1/apis/check-authentication-token.md)
-            + [Hämta autentiseringstoken](integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-authentication-token.md)
-            + [Initiera auktorisering](integration-guide-programmers/legacy/rest-api-v1/apis/initiate-authorization.md)
-            + [Hämta auktoriseringstoken](integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-authorization-token.md)
-            + [Hämta kort medietoken](integration-guide-programmers/legacy/rest-api-v1/apis/obtain-short-media-token.md)
-            + [Kontrollera autentiseringsflöde med andra skärmens webbapp](integration-guide-programmers/legacy/rest-api-v1/apis/check-authentication-flow-by-second-screen-web-app.md)
-            + [Hämta lista över förauktoriserade resurser](integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-list-of-preauthorized-resources.md)
-            + [Hämta lista över förauktoriserade resurser per webbapp för sekundär skärm](integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-list-of-preauthorized-resources-by-second-screen-web-app.md)
-            + [Initiera utloggning](integration-guide-programmers/legacy/rest-api-v1/apis/initiate-logout.md)
-            + [Användarmetadata](integration-guide-programmers/legacy/rest-api-v1/apis/user-metadata.md)
-            + [Hämta profilbegäran](integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-profilerequest.md)
-            + [Tokenutbyte](integration-guide-programmers/legacy/rest-api-v1/apis/token-exchange.md)
-            + [Kostnadsfri förhandsgranskning för tillfälligt pass och tillfälligt kampanjpass](integration-guide-programmers/legacy/rest-api-v1/apis/free-preview-for-temp-pass-and-promotional-temp-pass.md)
+            + [(Äldre) Registreringskodbegäran](integration-guide-programmers/legacy/rest-api-v1/apis/registration-code-request.md)
+            + [(Äldre) Returregistreringspost](integration-guide-programmers/legacy/rest-api-v1/apis/return-registration-record.md)
+            + [(Äldre) Ta bort registreringspost](integration-guide-programmers/legacy/rest-api-v1/apis/delete-registration-record.md)
+            + [(Äldre) Ange MVPD-lista](integration-guide-programmers/legacy/rest-api-v1/apis/provide-mvpd-list.md)
+            + [(Äldre) Initiera autentisering](integration-guide-programmers/legacy/rest-api-v1/apis/initiate-authentication.md)
+            + [(Äldre) Kontrollera autentiseringstoken](integration-guide-programmers/legacy/rest-api-v1/apis/check-authentication-token.md)
+            + [(Äldre) Hämta autentiseringstoken](integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-authentication-token.md)
+            + [(Äldre) Initiera auktorisering](integration-guide-programmers/legacy/rest-api-v1/apis/initiate-authorization.md)
+            + [(Äldre) Hämta auktoriseringstoken](integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-authorization-token.md)
+            + [(Äldre) Hämta kort medietoken](integration-guide-programmers/legacy/rest-api-v1/apis/obtain-short-media-token.md)
+            + [(Äldre) Kontrollera autentiseringsflöde med andra skärmens webbapp](integration-guide-programmers/legacy/rest-api-v1/apis/check-authentication-flow-by-second-screen-web-app.md)
+            + [(Äldre) Hämta lista över förauktoriserade resurser](integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-list-of-preauthorized-resources.md)
+            + [(Äldre) Hämta lista över förauktoriserade resurser via webbappen för sekundär skärm](integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-list-of-preauthorized-resources-by-second-screen-web-app.md)
+            + [(Äldre) Initiera utloggning](integration-guide-programmers/legacy/rest-api-v1/apis/initiate-logout.md)
+            + [(Äldre) Användarmetadata](integration-guide-programmers/legacy/rest-api-v1/apis/user-metadata.md)
+            + [(Äldre) Hämta profilbegäran](integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-profilerequest.md)
+            + [(Äldre) Tokenutbyte](integration-guide-programmers/legacy/rest-api-v1/apis/token-exchange.md)
+            + [(Äldre) Kostnadsfri förhandsvisning för tillfälligt pass och kampanjtillfälligt pass](integration-guide-programmers/legacy/rest-api-v1/apis/free-preview-for-temp-pass-and-promotional-temp-pass.md)
          + (Äldre) Cookbooks {#rest-api-v1-cookbooks}
-            + [REST API V1 Cookbook (klient-till-server)](integration-guide-programmers/legacy/rest-api-v1/cookbooks/rest-api-cookbook-clienttoserver.md)
-            + [REST API V1 Cookbook (Server-to-Server)](integration-guide-programmers/legacy/rest-api-v1/cookbooks/rest-api-cookbook-servertoserver.md)
+            + [(Äldre) REST API V1-kokbok (klient-till-server)](integration-guide-programmers/legacy/rest-api-v1/cookbooks/rest-api-cookbook-clienttoserver.md)
+            + [(Äldre) REST API V1-kokbok (server till server)](integration-guide-programmers/legacy/rest-api-v1/cookbooks/rest-api-cookbook-servertoserver.md)
       + (Äldre) SDK:er {#sdks}
          + (Äldre) JavaScript SDK {#javascript-sdk}
-            + [JavaScript SDK - översikt](integration-guide-programmers/legacy/sdks/javascript-sdk/javascript-sdk-overview.md)
-            + [JavaScript SDK Cookbook](integration-guide-programmers/legacy/sdks/javascript-sdk/javascript-sdk-cookbook.md)
-            + [API-referens för JavaScript SDK](integration-guide-programmers/legacy/sdks/javascript-sdk/javascript-sdk-api-reference.md)
-            + [JavaScript SDK API-förauktorisering](integration-guide-programmers/legacy/sdks/javascript-sdk/preauthorize-api-javascript-sdk.md)
+            + [(Äldre) JavaScript SDK - översikt](integration-guide-programmers/legacy/sdks/javascript-sdk/javascript-sdk-overview.md)
+            + [(Äldre) JavaScript SDK Cookbook](integration-guide-programmers/legacy/sdks/javascript-sdk/javascript-sdk-cookbook.md)
+            + [(Äldre) JavaScript SDK API Reference](integration-guide-programmers/legacy/sdks/javascript-sdk/javascript-sdk-api-reference.md)
+            + [(Äldre) JavaScript SDK API PreAuthorize](integration-guide-programmers/legacy/sdks/javascript-sdk/preauthorize-api-javascript-sdk.md)
             + (Äldre) Riktlinjer {#javascript-sdk-guidelines}
-               + [Inloggning och utloggning utan uppdatering](integration-guide-programmers/legacy/sdks/javascript-sdk/refreshless-login-and-logout.md)
+               + [(Äldre) Uppdatera utan inloggning och utloggning](integration-guide-programmers/legacy/sdks/javascript-sdk/refreshless-login-and-logout.md)
          + (Äldre) iOS/tvOS SDK {#ios-tvos-sdk}
-            + [iOS/tvOS SDK - översikt](integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-overview.md)
-            + [iOS/tvOS SDK Cookbook](integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-cookbook.md)
-            + [API-referens för iOS/tvOS SDK](integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md)
-            + [iOS/tvOS SDK API-förauktorisering](integration-guide-programmers/legacy/sdks/ios-tvos-sdk/preauthorize-api-ios-tvos-sdk.md)
+            + [(Äldre) iOS/tvOS SDK - översikt](integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-overview.md)
+            + [(Äldre) iOS/tvOS SDK Cookbook](integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-cookbook.md)
+            + [(Äldre) API-referens för iOS/tvOS SDK](integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md)
+            + [(Äldre) iOS/tvOS SDK API-förhandsauktorisering](integration-guide-programmers/legacy/sdks/ios-tvos-sdk/preauthorize-api-ios-tvos-sdk.md)
             + (Äldre) Riktlinjer {#ios-tvos-sdk-guidelines}
-               + [iOS/tvOS - programregistrering](integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-application-registration.md)
-               + [Migreringshandbok för iOS/tvOS v3.x](integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-v3x-migration-guide.md)
-               + [iOS/tvOS Storage Integrity Checks](integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-storage-integrity-checks.md)
+               + [(Äldre) iOS/tvOS-programregistrering](integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-application-registration.md)
+               + [(Äldre) Migreringshandbok för iOS/tvOS v3.x](integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-v3x-migration-guide.md)
+               + [(Äldre) iOS/tvOS Storage Integrity Checks](integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-storage-integrity-checks.md)
          + (Äldre) Android SDK {#android-sdk}
-            + [Android SDK - översikt](integration-guide-programmers/legacy/sdks/android-sdk/android-sdk-overview.md)
-            + [Android SDK Cookbook](integration-guide-programmers/legacy/sdks/android-sdk/android-sdk-cookbook.md)
-            + [API-referens för Android SDK](integration-guide-programmers/legacy/sdks/android-sdk/android-sdk-api-reference.md)
-            + [Android SDK API-förauktorisering](integration-guide-programmers/legacy/sdks/android-sdk/preauthorize-api-android-sdk.md)
+            + [(Äldre) Android SDK - översikt](integration-guide-programmers/legacy/sdks/android-sdk/android-sdk-overview.md)
+            + [(Äldre) Android SDK Cookbook](integration-guide-programmers/legacy/sdks/android-sdk/android-sdk-cookbook.md)
+            + [(Äldre) Android SDK API Reference](integration-guide-programmers/legacy/sdks/android-sdk/android-sdk-api-reference.md)
+            + [(Äldre) Android SDK API PreAuthorize](integration-guide-programmers/legacy/sdks/android-sdk/preauthorize-api-android-sdk.md)
             + (Äldre) Riktlinjer {#android-sdk-guidelines}
-               + [Registrering av Android](integration-guide-programmers/legacy/sdks/android-sdk/android-application-registration.md)
-               + [Android SDK med dynamisk klientregistrering](integration-guide-programmers/legacy/sdks/android-sdk/android-sdk-with-dynamic-client-registration.md)
+               + [(Äldre) Android Application Registration](integration-guide-programmers/legacy/sdks/android-sdk/android-application-registration.md)
+               + [(Äldre) Android SDK med registrering av dynamisk klient](integration-guide-programmers/legacy/sdks/android-sdk/android-sdk-with-dynamic-client-registration.md)
          + (Äldre) FireOS SDK {#fireos-sdk}
-            + [Amazon FireOS Technical Overview](integration-guide-programmers/legacy/sdks/fireos-sdk/amazon-fireos-technical-overview.md)
-            + [Amazon FireOS Integration Cookbook](integration-guide-programmers/legacy/sdks/fireos-sdk/amazon-fireos-integration-cookbook.md)
-            + [API-referens för Amazon FireOS](integration-guide-programmers/legacy/sdks/fireos-sdk/amazon-fireos-native-client-api-reference.md)
-            + [Amazon FireOS - programregistrering](integration-guide-programmers/legacy/sdks/fireos-sdk/amazon-fireos-application-registration.md)
-            + [FireOS SDK med dynamisk klientregistrering](integration-guide-programmers/legacy/sdks/fireos-sdk/fireos-sdk-with-dynamic-client-registration.md)
-            + [Amazon FireOS SSO - startguide för programmerare](integration-guide-programmers/legacy/sdks/fireos-sdk/amazon-firetv-sso-programmer-kickoff-guide.md)
+            + [(Äldre) Amazon FireOS Technical Overview](integration-guide-programmers/legacy/sdks/fireos-sdk/amazon-fireos-technical-overview.md)
+            + [(Äldre) Amazon FireOS Integration Cookbook](integration-guide-programmers/legacy/sdks/fireos-sdk/amazon-fireos-integration-cookbook.md)
+            + [(Äldre) API-referens för Amazon FireOS](integration-guide-programmers/legacy/sdks/fireos-sdk/amazon-fireos-native-client-api-reference.md)
+            + [(Äldre) Amazon FireOS-programregistrering](integration-guide-programmers/legacy/sdks/fireos-sdk/amazon-fireos-application-registration.md)
+            + [(Äldre) FireOS SDK med registrering av dynamisk klient](integration-guide-programmers/legacy/sdks/fireos-sdk/fireos-sdk-with-dynamic-client-registration.md)
+            + [(Äldre) Amazon FireOS SSO - startguide för programmerare](integration-guide-programmers/legacy/sdks/fireos-sdk/amazon-firetv-sso-programmer-kickoff-guide.md)
+      + (Äldre) Klientinformation {#client-information}
+         + [(Äldre) Skicka klientinformation (enhet, anslutning och program)](integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md)
+      + (Äldre) Felrapportering {#error-reporting}
+         + [(Äldre) Felrapportering](integration-guide-programmers/legacy/error-reporting/error-reporting.md)
+      + (Äldre) Enkel inloggningsåtkomst {#sso-access}
+         + [(Äldre) Stöd för enkel inloggning](integration-guide-programmers/legacy/sso-access/sso-support.md)
+         + [(Äldre) enkel inloggning via passiv autentisering](integration-guide-programmers/legacy/sso-access/sso-passive-authn.md)
+         + [(Äldre) Amazon SSO Cookbook (REST API V1)](integration-guide-programmers/legacy/sso-access/amazon-sso-cookbook-rest-api-v1.md)
+         + [(Äldre) Apple SSO Cookbook (REST API V1)](integration-guide-programmers/legacy/sso-access/apple-sso-cookbook-rest-api-v1.md)
+         + [(Äldre) Apple SSO Cookbook (iOS/tvOS SDK)](integration-guide-programmers/legacy/sso-access/apple-sso-cookbook-iostvos-sdk.md)
+      + (Äldre) TVE-instrumentpanel {#tve-dashboard}
+         + [(Äldre) Användarhandbok för TVE Dashboard](integration-guide-programmers/legacy/tve-dashboard/tve-dashboard-user-guide.md)
+      + (Äldre) Tech Notes {#tech-notes}
+         + (Äldre) REST API V1 {#rest-api-v1}
+            + [(Äldre) API-implementering utan klient - Felkoder/meddelanden med trolig orsak/orsak](integration-guide-programmers/legacy/notes-technical/clientless-api-implementation-error-codes-messages-with-probable-reason-cause.md)
+            + [(Äldre) Klientlöst API-flöde i frånvaro av enhets-ID](integration-guide-programmers/legacy/notes-technical/clientless-api-flow-in-the-absence-of-device-id.md)
+            + [(Äldre) Klientlös: Undvik att använda &#39;&amp;&#39;reg_code i /authenticate Request](integration-guide-programmers/legacy/notes-technical/clientless-avoid-using-reg-code-in-authenticate-request.md)
+            + [(Äldre) Aktivera Adobe Pass Entitlement Services för en programmerare på Xbox 360 och XboxOne Clientless](integration-guide-programmers/legacy/notes-technical/enabling-primetime-entitlement-services-for-a-programmer-on-xbox-360-and-xboxone-clientless-solution.md)
+            + [(Äldre) Typ och mått av klientlös enhet](integration-guide-programmers/legacy/notes-technical/benefits-of-using-the-clientless-devicetype-parameter-in-pass-metrics.md)
+         + (Äldre) SDK:er {#sdks}
+            + [(Äldre) certifikatfrågor och svar](integration-guide-programmers/legacy/notes-technical/certificates-qa.md)
+            + [(Äldre) Förstå användar-ID](integration-guide-programmers/legacy/notes-technical/understanding-user-ids.md)
+            + (Äldre) JavaScript SDK {#javascript-sdk}
+               + [(Äldre) Tracking Prevention Assessment - Apple Safari](integration-guide-programmers/legacy/notes-technical/tracking-prevention-assessment-apple-safari.md)
+               + [(Äldre) Tracking Prevention Assessment - Google Chrome](integration-guide-programmers/legacy/notes-technical/tracking-prevention-assessment-google-chrome.md)
+               + [(Äldre) Cookies Updates - SameSite and Secure flags](integration-guide-programmers/legacy/notes-technical/cookies-updates-samesite-and-secure-flags.md)
+               + [(Äldre) Felsökningstips](integration-guide-programmers/legacy/notes-technical/appendix-b-debugging-tips.md)
+            + (Äldre) Android SDK {#android-sdk}
+               + [(Äldre) Åtkomst Aktivera Android SDK enkel inloggning (SSO) i Android 10-program](integration-guide-programmers/legacy/notes-technical/access-enabler-android-sdk-single-signon-sso-on-android-10-devices.md)
+               + [(Äldre) Adobe Pass Authentication and the Android 6 &quot;Marshmallow&quot; New Permissions Model](integration-guide-programmers/legacy/notes-technical/adobe-primetime-authentication-and-the-android-6-marshmallow-new-permissions-model.md)
+            + (Äldre) iOS/tvOS SDK {#ios-tvos-sdk}
+               + [(Äldre) Stöd för WKWebView i iOS SDK 3.1+](integration-guide-programmers/legacy/notes-technical/wkwebview-support-on-ios-sdk-31.md)
+               + [(Äldre) Stöd för SFSafariViewController i iOS SDK 3.2+](integration-guide-programmers/legacy/notes-technical/sfsafariviewcontroller-support-on-ios-sdk-32.md)
+               + [(Äldre) enkel inloggning på iOS när Adobe Pass Authentication Access Enabler används](integration-guide-programmers/legacy/notes-technical/sso-on-ios-when-using-the-primetime-authentication-access-enabler.md)
+               + [(Äldre) iOS-autentiseringsfel - adobepass.ios.app kan inte hittas](integration-guide-programmers/legacy/notes-technical/ios-authentication-error-adobepassiosapp-cannot-be-found.md)
+               + [(Äldre) Återställ tillfälligt pass på iOS](integration-guide-programmers/legacy/notes-technical/reset-temp-pass-on-ios.md)
+               + [(Äldre) Felsöka AccessEnabler iOS/tvOS SDK med hjälp av apploggar för konsolen](integration-guide-programmers/legacy/notes-technical/debugging-the-accessenabler-iostvos-sdk-using-console-app-logs.md)
+               + [(Äldre) AccessEnabler iOS/tvOS 3.7.0 - uppgraderingssökväg](integration-guide-programmers/legacy/notes-technical/accessenabler-iostvos-370-upgrade-path.md)
+         + (Äldre) Användarupplevelse {#user-experience}
+            + [(Äldre) Så här migrerar du MVPD inloggningssida från iFrame till popup-fönster](integration-guide-programmers/legacy/notes-technical/migr-mvpd-login-iframe-popup.md)
+            + [(Äldre) Preflight-funktion: Så här aktiverar, felsöker eller identifierar du problemet](integration-guide-programmers/legacy/notes-technical/preflight-feature.md)
+            + [(Äldre) Tillåt PDF-filer i urvalsdialogrutan](integration-guide-programmers/legacy/notes-technical/allow-mvpd-selectn-dialog.md)
+            + [(Äldre) Förhindra att PDF-filer visas i urvalsdialogrutan](integration-guide-programmers/legacy/notes-technical/prevent-mvpd-selectn-dialog.md)
+         + (Äldre) Felsökning {#troubleshooting}
+            + [(Äldre) Använda Charles Proxy](integration-guide-programmers/legacy/notes-technical/using-charles-proxy.md)
+            + [(Äldre) Övervaka Adobe Pass Adobe PayTV-pass](integration-guide-programmers/legacy/notes-technical/monitoring-adobe-pay-tv-pass.md)
+            + [(Äldre) Så här testar du autentiserings- och auktoriseringsflöden med Adobe API-testwebbplats](integration-guide-programmers/legacy/notes-technical/test-authn-authz-flows-using-adobes-api-test-site.md)
    + [Översikt över guiden Integrering av programmerare](integration-guide-programmers/programmer-integration-guide-overview.md)
-   + [Begränsningsmekanism](integration-guide-programmers/throttling-mechanism.md)
-   + [Systemkrav](integration-guide-programmers/minimum-system-requirements.md)
    + [Flöde för programmerartillstånd](integration-guide-programmers/entitlement-flow.md)
    + [Användningsexempel för programmerare](integration-guide-programmers/programmer-use-cases.md)
-   + [Skicka klientinformation (enhet, anslutning och program)](integration-guide-programmers/passing-client-information-device-connection-and-application.md)
+   + [Begränsningsmekanism](integration-guide-programmers/throttling-mechanism.md)
+   + [Systemkrav](integration-guide-programmers/minimum-system-requirements.md)
 + Integreringsguide för MVPD:er {#integration-guide-mvpds}
    + [Integreringsfunktioner](integration-guide-mvpds/mvpd-integr-features.md)
    + [Autentisering](integration-guide-mvpds/authn-usecase.md)
    + [Autentisering med OAuth 2.0-protokollet](integration-guide-mvpds/authn-oauth2-protocol.md)
    + [Behörighet](integration-guide-mvpds/authz-usecase.md)
    + [Preflight-behörighet](integration-guide-mvpds/mvpd-preflight-authz.md)
-   + [MVPD-utloggning](integration-guide-mvpds/usecase-mvpd-logout.md)
+   + [MVPD Logout](integration-guide-mvpds/usecase-mvpd-logout.md)
    + [Utbyte av metadata](integration-guide-mvpds/mvpd-content-metadata-exchange.md)
    + [Utbyte av användarmetadata](integration-guide-mvpds/mvpd-user-metadata-exchng.md)
-   + [Proxy MVPD-webbtjänst](integration-guide-mvpds/proxy-mvpd-webserv.md)
-   + [Integrering av MVPD SAML-proxy](integration-guide-mvpds/proxy-mvpd-saml-int.md)
+   + [Proxy MVPD webbtjänst](integration-guide-mvpds/proxy-mvpd-webserv.md)
+   + [Proxy MVPD SAML-integrering](integration-guide-mvpds/proxy-mvpd-saml-int.md)
    + [Tjänstleverantörsomfång](integration-guide-mvpds/serv-provider-scoping.md)
-   + [MVPD tillåter IP-adresser](integration-guide-mvpds/mvpd-listing-ip-addres.md)
+   + [MVPD tillåt IP-adresser](integration-guide-mvpds/mvpd-listing-ip-addres.md)
 + Användarhandbok för TVE Dashboard {#user-guide-tve-dashboard}
    + [Översikt över TVE Dashboard](/help/authentication/user-guide-tve-dashboard/tve-dashboard-overview.md)
    + [Miljö](/help/authentication/user-guide-tve-dashboard/tve-dashboard-environments.md)
@@ -221,7 +261,6 @@ ht-degree: 2%
    + [Integreringar](/help/authentication/user-guide-tve-dashboard/tve-dashboard-integrations.md)
    + [Rapporter](/help/authentication/user-guide-tve-dashboard/tve-dashboard-reports.md)
    + [Ändringslogg](/help/authentication/user-guide-tve-dashboard/tve-dashboard-changes-log.md)
-   + [Användarhandbok för TVE Dashboard](user-guide-tve-dashboard/tve-dashboard-user-guide.md)
 + Versionsinformation {#release-notes}
    + 2024 {#release-notes-2024}
       + [Versionsinformation om Adobe Pass Authentication 3.0.3](notes-releases/auth-rn-303.md)
@@ -251,40 +290,6 @@ ht-degree: 2%
       + [Adobe Pass Authentication JavaScript 4.4.0 Release Notes](notes-releases/authn-rn-javascript-440.md)
       + [Adobe Pass Authentication iOS / tvOS 3.7.0 Release Notes](notes-releases/authn-rn-ios-tvos-370.md)
 + Tech Notes {#tech-notes}
-   + Miljöer {#tech-notes-environments}
-      + [Förstå Adobe-miljöer](notes-technical/understanding-the-adobe-environments.md)
-      + [Konfigurera din miljö och testning i Pre-Qual](notes-technical/setting-up-your-environment-and-testing-in-prequal.md)
-      + [Testa autentiserings- och auktoriseringsflöden med Adobe API-testwebbplats](notes-technical/test-authn-authz-flows-using-adobes-api-test-site.md)
-   + Användarupplevelse {#tech-notes-user-experience}
-      + [Migrera inloggningssidan för MVPD från iFrame till popup-fönster](notes-technical/migr-mvpd-login-iframe-popup.md)
-      + [Preflight-funktion: Så här aktiverar, felsöker eller fastställer du problemet](notes-technical/preflight-feature.md)
-      + [Tillåt PDF-filer i urvalsdialogrutan](notes-technical/allow-mvpd-selectn-dialog.md)
-      + [Förhindra att PDF-filer visas i urvalsdialogrutan](notes-technical/prevent-mvpd-selectn-dialog.md)
-   + REST API V1 {#tech-notes-rest-api-v1}
-      + [Kundfri API-implementering - felkoder/meddelanden med trolig orsak/orsak](notes-technical/clientless-api-implementation-error-codes-messages-with-probable-reason-cause.md)
-      + [Klientlöst API-flöde i frånvaro av enhets-ID](notes-technical/clientless-api-flow-in-the-absence-of-device-id.md)
-      + [Klientlös: Undvik att använda &#39;&amp;&#39;reg_code i /authenticate Request](notes-technical/clientless-avoid-using-reg-code-in-authenticate-request.md)
-      + [Aktivera Adobe Pass Entitlement Services för en programmerare på Xbox 360 och XboxOne ClientCloud](notes-technical/enabling-primetime-entitlement-services-for-a-programmer-on-xbox-360-and-xboxone-clientless-solution.md)
-      + [Typ och mått av klientlös enhet](notes-technical/benefits-of-using-the-clientless-devicetype-parameter-in-pass-metrics.md)
-   + SDK:er {#tech-notes-sdks}
-      + [Frågor och svar om certifikat](notes-technical/certificates-qa.md)
-      + [Förstå användar-ID:n](notes-technical/understanding-user-ids.md)
-      + JavaScript SDK {#tech-notes-javascript-sdk}
-         + [Utvärdering av förebyggande av spårning - Apple Safari](notes-technical/tracking-prevention-assessment-apple-safari.md)
-         + [Utvärdering av förebyggande av spårning - Google Chrome](notes-technical/tracking-prevention-assessment-google-chrome.md)
-         + [Cookies Updates - SameSite and Secure flags](notes-technical/cookies-updates-samesite-and-secure-flags.md)
-         + [Felsökningstips](notes-technical/appendix-b-debugging-tips.md)
-      + Android SDK {#tech-notes-android-sdk}
-         + [Aktivera Android SDK enkel inloggning (SSO) i Android 10-appar](notes-technical/access-enabler-android-sdk-single-signon-sso-on-android-10-devices.md)
-         + [Adobe Pass Authentication and the Android 6 &quot;Marshmallow&quot; New Permissions Model](notes-technical/adobe-primetime-authentication-and-the-android-6-marshmallow-new-permissions-model.md)
-      + iOS/tvOS SDK {#tech-notes-ios-tvos-sdk}
-         + [Stöd för WKWebView i iOS SDK 3.1+](notes-technical/wkwebview-support-on-ios-sdk-31.md)
-         + [Stöd för SFSafariViewController i iOS SDK 3.2+](notes-technical/sfsafariviewcontroller-support-on-ios-sdk-32.md)
-         + [enkel inloggning på iOS när Adobe Pass Authentication Access Enabler används](notes-technical/sso-on-ios-when-using-the-primetime-authentication-access-enabler.md)
-         + [iOS-autentiseringsfel - adobepass.ios.app hittades inte](notes-technical/ios-authentication-error-adobepassiosapp-cannot-be-found.md)
-         + [Återställ tillfälligt pass i iOS](notes-technical/reset-temp-pass-on-ios.md)
-         + [Felsöka AccessEnabler iOS/tvOS SDK med hjälp av apploggarna i konsolen](notes-technical/debugging-the-accessenabler-iostvos-sdk-using-console-app-logs.md)
-         + [AccessEnabler iOS/tvOS 3.7.0 - uppgraderingssökväg](notes-technical/accessenabler-iostvos-370-upgrade-path.md)
-   + Felsökning av {#tech-notes-troubleshooting}
-      + [Använda Charles Proxy](notes-technical/using-charles-proxy.md)
-      + [Övervaka Adobe Pass Adobe PayTV Pass](notes-technical/monitoring-adobe-pay-tv-pass.md)
+   + Miljöer {#environments}
+      + [Förstå Adobe-miljöer](notes-technical/environments/understanding-the-adobe-environments.md)
+      + [Konfigurera din miljö och testning i Pre-Qual](notes-technical/environments/setting-up-your-environment-and-testing-in-prequal.md)

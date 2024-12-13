@@ -2,14 +2,14 @@
 title: Android SDK Cookbook
 description: Android SDK Cookbook
 exl-id: 7f66ab92-f52c-4dae-8016-c93464dd5254
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '1681'
+source-wordcount: '1682'
 ht-degree: 0%
 
 ---
 
-# Android SDK Cookbook {#android-sdk-cookbook}
+# (Äldre) Android SDK Cookbook {#android-sdk-cookbook}
 
 >[!NOTE]
 >
@@ -64,7 +64,7 @@ Nätverksaktiviteten för AccessEnabler sker i en annan tråd så att gränssnit
 
    - [displayProviderDialog(mvpds)](#$displayProviderDialog)
 
-     Utlöses endast av `getAuthentication()` om användaren inte har valt en leverantör (MVPD) och ännu inte är autentiserad.\
+     Utlöses endast av `getAuthentication()` om användaren inte har valt någon leverantör (MVPD) och ännu inte är autentiserad.\
      Parametern `mvpds` är en matris med providers som är tillgängliga för användaren.
 
    - [`setAuthenticationStatus(status, felkod)`](#$setAuthNStatus)
@@ -76,7 +76,7 @@ Nätverksaktiviteten för AccessEnabler sker i en annan tråd så att gränssnit
 
    - [navigateToUrl(url)](#$navigateToUrl)
 
-     Utlöses av `getAuthentication()` efter att användaren har valt ett MVPD. Parametern `url` anger platsen för MVPD:s inloggningssida.
+     Utlöses av `getAuthentication()` efter att användaren har valt en MVPD. Parametern `url` anger platsen för MVPD inloggningssida.
 
    - [`sendTrackingData(event, data)`](#$sendTrackingData)
 
@@ -150,7 +150,7 @@ Android Library (AccessEnabler)
 
 1. När användaren har valt en provider hämtar du URL:en för användarens MVPD från `navigateToUrl()`-återanropet.  Öppna en WebView och dirigera WebView-kontrollen till URL:en.
 
-1. Via den WebView-vy som skapades i föregående steg, loggar användaren in på MVPD:s inloggningssida och inloggningsuppgifter. Flera omdirigeringsåtgärder utförs i WebView.
+1. Via den WebView-vy som skapades i det föregående steget markeras användaren på MVPD inloggningssida och inloggningsuppgifter. Flera omdirigeringsåtgärder utförs i WebView.
 
    **Obs!** Nu har användaren möjlighet att avbryta autentiseringsflödet. Om detta inträffar ansvarar ditt UI-lager för att informera AccessEnabler om den här händelsen genom att anropa `setSelectedProvider()` med `null` som en parameter. Detta gör att AccessEnabler kan rensa upp dess interna tillstånd och återställa autentiseringsflödet.
 
@@ -171,7 +171,7 @@ Android Library (AccessEnabler)
 1. Anropa [getAuthorization()](#$getAuthZ) för att initiera auktoriseringen
 flöde.
 
-   Beroende: Giltiga resurs-ID:n som har avtalats med MVPD:n.
+   Beroende: Giltiga resurs-ID:n som avtalats med MVPD(n).
 
    **Obs!** Resurs-ID:n ska vara samma som de som används på andra enheter eller plattformar och ska vara samma för alla flerkanalsprogram.
 
@@ -203,7 +203,7 @@ flöde.
 ### F. Utloggningsflöde {#logout_flow}
 
 1. Ring [`logout()`](#$logout) för att logga ut användaren.\
-   AccessEnabler rensar bort alla cachelagrade värden och token för det aktuella MVPD för den aktuella begäraren och även för beställare med enkel inloggning. När cacheminnet har rensats gör AccessEnabler ett serveranrop för att rensa sessionerna på serversidan.  Observera, att eftersom serveranropet kan resultera i en SAML-omdirigering till IdP (detta tillåter sessionsrensning på IdP-sidan), måste det här anropet följa alla omdirigeringar. Därför måste anropet hanteras i en WebView-kontroll.
+   AccessEnabler rensar bort alla cachelagrade värden och token för den aktuella MVPD-begäran och även för beställare med enkel inloggning. När cacheminnet har rensats gör AccessEnabler ett serveranrop för att rensa sessionerna på serversidan.  Observera, att eftersom serveranropet kan resultera i en SAML-omdirigering till IdP (detta tillåter sessionsrensning på IdP-sidan), måste det här anropet följa alla omdirigeringar. Därför måste anropet hanteras i en WebView-kontroll.
 
    a. I samma mönster som autentiseringsarbetsflödet gör AccessEnabler-domänen en en begäran till gränssnittets programlager (via `navigateToUrl()`-återanropet) om att skapa en WebView-kontroll och instruera den kontrollen att läsa in URL:en för utloggningsslutpunkten på serverdelen.
 

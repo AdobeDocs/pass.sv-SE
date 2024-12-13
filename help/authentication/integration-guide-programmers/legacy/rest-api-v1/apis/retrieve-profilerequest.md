@@ -2,14 +2,14 @@
 title: Hämta plattformens SSO-profilbegäran
 description: Hämta plattformens SSO-profilbegäran
 exl-id: 44fd4e26-4d9a-4607-ac2c-b85d848f5fc6
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '189'
+source-wordcount: '190'
 ht-degree: 0%
 
 ---
 
-# Hämta plattformens SSO-profilbegäran {#retrieve-platform-sso-profile-request}
+# (Äldre) Hämta plattformens SSO-profilbegäran {#retrieve-platform-sso-profile-request}
 
 >[!NOTE]
 >
@@ -35,7 +35,7 @@ ht-degree: 0%
 
 ## Beskrivning {#description}
 
-Den här resursen skapar profilförfrågningar för begärande-ID och MVPD-tuppel.
+Den här resursen skapar profilförfrågningar för begärande-ID och MVPD tuppel.
 
 
 | Slutpunkt | Anropat </br>av | Indata   </br>Parametrar | HTTP </br>Metod | Svar | HTTP </br>Response |
@@ -46,5 +46,5 @@ Den här resursen skapar profilförfrågningar för begärande-ID och MVPD-tuppe
 | Indataparameter | Beskrivning |
 | --------------- | -------------------------------------------------------------------------------------------------------- |
 | begärande | Programmerarens requestId som den här åtgärden är giltig för. |
-| mvpd | Det MVPD-ID som den här åtgärden är giltig för. |
+| mvpd | Det MVPD-ID som den här åtgärden gäller för. |
 | deviceType | Den Apple-plattform som vi försöker få en profilbegäran för.  Antingen **iOS** eller **tvOS**. |

@@ -2,14 +2,14 @@
 title: Initiera autentisering
 description: Initiera autentisering
 exl-id: 55dddd29-68d6-4aae-8744-307fea285e29
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '291'
+source-wordcount: '292'
 ht-degree: 0%
 
 ---
 
-# Initiera autentisering {#initiate-authentication}
+# (Äldre) Initiera autentisering {#initiate-authentication}
 
 >[!NOTE]
 >
@@ -36,7 +36,7 @@ ht-degree: 0%
 
 ## Beskrivning {#description}
 
-Initierar autentiseringsprocessen genom att informera om en MVPD-markeringshändelse. Skapar en post i Adobe Pass-autentiseringsdatabasen, som avstäms när ett godkänt svar tas emot från MVPD.
+Initierar autentiseringsprocessen genom att informera om en MVPD-markeringshändelse. Skapar en post i Adobe Pass-autentiseringsdatabasen, som sammanställs när ett svar tas emot från MVPD.
 
 
 
@@ -93,7 +93,7 @@ Initierar autentiseringsprocessen genom att informera om en MVPD-markeringshänd
 
 * Värdet för parametern `domain_name` måste anges till ett av de domännamn som är registrerade med Adobe Pass-autentisering. Mer information finns i [Registrering och initiering](/help/authentication/kickstart/programmer-overview.md).
 
-* [Undvik att använda &#39;&amp;&#39;reg\_code i /authenticate request (Tech Note)](/help/authentication/notes-technical/clientless-avoid-using-reg-code-in-authenticate-request.md)
+* [Undvik att använda &#39;&amp;&#39;reg\_code i /authenticate request (Tech Note)](/help/authentication/integration-guide-programmers/legacy/notes-technical/clientless-avoid-using-reg-code-in-authenticate-request.md)
 
 * Parametern `redirect_url` måste vara den sista i ordningen
 

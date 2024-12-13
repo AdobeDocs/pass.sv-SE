@@ -2,14 +2,14 @@
 title: JavaScript SDK Cookbook
 description: JavaScript SDK Cookbook
 exl-id: d57f7a4a-ac77-4f3c-8008-0cccf8839f7c
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '934'
+source-wordcount: '935'
 ht-degree: 0%
 
 ---
 
-# JavaScript SDK Cookbook {#javascript-sdk-cookbook}
+# (Äldre) JavaScript SDK Cookbook {#javascript-sdk-cookbook}
 
 >[!NOTE]
 >
@@ -51,7 +51,7 @@ Skapa callback-funktioner:
 
 - `displayProviderDialog(mvpds)`
 
-  **Utlös:** `getAuthentication(),` endast om användaren inte har valt en leverantör (ett MVPD) och inte har autentiserats ännu
+  **Utlös:** `getAuthentication(),` endast om användaren inte har valt en leverantör (MVPD) och inte har autentiserats ännu
 Parametern mvpds är en array med providers som är tillgängliga för användaren.
 
 - `setAuthenticationStatus(status, errorcode)`
@@ -152,7 +152,7 @@ Autentiseringsflödet har slutförts när AccessEnabler anropar `setAuthenticati
 **Beroenden:**
 
 - Ett lyckat anrop till `setRequestor()` (det här beroendet gäller även för alla efterföljande anrop).
-- Giltiga resurs-ID:n som avtalats med MVPD:n. Observera att resurs-ID:n ska vara samma som de som används på andra enheter eller plattformar och ska vara samma för alla programmeringsgränssnitten.
+- Giltiga resurs-ID:n som avtalats med MVPD(n). Observera att resurs-ID:n ska vara samma som de som används på andra enheter eller plattformar och ska vara samma för alla programmeringsgränssnitten.
 
 Anropa `getAuthorization()` och skicka ResourceID för det begärda mediet. Ett lyckat anrop returnerar en kort medietoken, som bekräftar att användaren har behörighet att visa det begärda mediet.
 
@@ -182,7 +182,7 @@ AccessEnabler-bibliotek)
 
 ## Konfigurera besökar-ID {#visitorID}
 
-Det är mycket viktigt att konfigurera ett [Experience Cloud-besökar-ID](https://experienceleague.adobe.com/docs/id-service/using/home.html) från analysens synvinkel. När ett EC-besökarID-värde har angetts skickar SDK den här informationen tillsammans med varje nätverksanrop och Adobe Pass Authentication-tjänsten samlar in den här informationen. På så sätt kan du korrelera analysdata från tjänsten Adobe Pass Authentication med andra analysrapporter som du kan ha från andra program eller webbplatser. Information om hur du konfigurerar EC visitorID finns [här](https://experienceleague.adobe.com/docs/id-service/using/home.html?lang=en).
+Det är mycket viktigt att konfigurera ett [Experience Cloud-besökar-ID](https://experienceleague.adobe.com/docs/id-service/using/home.html) från analysens synvinkel. När ett EC-besökarID-värde har angetts skickar SDK den här informationen tillsammans med alla nätverksanrop och Adobe Pass Authentication-tjänsten samlar in den här informationen. På så sätt kan du korrelera analysdata från tjänsten Adobe Pass Authentication med andra analysrapporter som du kan ha från andra program eller webbplatser. Information om hur du konfigurerar EC visitorID finns [här](https://experienceleague.adobe.com/docs/id-service/using/home.html?lang=en).
 
 
 >[!NOTE]

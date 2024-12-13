@@ -2,14 +2,14 @@
 title: REST API-referens
 description: Rest api reference
 exl-id: 67e4639e-db0b-4400-bb81-e214263e8395
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '653'
+source-wordcount: '654'
 ht-degree: 2%
 
 ---
 
-# REST API-referens {#rest-api-reference}
+# (Äldre) REST API-referens {#rest-api-reference}
 
 >[!NOTE]
 >
@@ -57,7 +57,7 @@ Tabellen nedan visar de tillgängliga webbtjänsterna för kundlösa metoder. Kl
 | 1. | [&lt;REGGIE_FQDN>/reggie/v1/ </br> {requestorId}/regcode](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/registration-code-request.md) | Returnerar slumpmässigt genererad registreringskod och inloggningssidans URI | 2 | Adobe </br>Reg Code Service | Smart enhet |
 | 2. | [&lt;REGGIE_FQDN>/reggie/v1/ </br> {requestorId}/regcode/ </br> {registrationCode}](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/return-registration-record.md) | Returnerar registreringskodposten som innehåller registreringskoden UUID, registreringskoden och hash-enhets-ID | 8 | Adobe </br>Reg Code Service | Adobe Pass-autentisering |
 | 3. | [&lt;SP_FQDN>/api/v1/config/ </br> {requestorId}](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/provide-mvpd-list.md) | Returnerar en lista över konfigurerade MVPD-filer för den som gjorde begäran | 5 | Adobe </br>Adobe Pass </br>authentication </br>Service | Logga in </br>på webben </br> |
-| 4. | [&lt;SP_FQDN>/api/v1/authenticate](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/initiate-authentication.md) | Initierar AuthN-processen genom att informera MVPD-markeringshändelsen. Skapar en post i autentiseringsdatabasen som är avstämd när ett godkänt svar tas emot från MVPD (steg 13) | 7 | Adobe </br>Adobe Pass </br>authentication </br>Service | Logga in </br>på webben </br> |
+| 4. | [&lt;SP_FQDN>/api/v1/authenticate](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/initiate-authentication.md) | Initierar AuthN-processen genom att informera MVPD-markeringshändelsen. Skapar en post i autentiseringsdatabasen, som avstäms när ett svar tas emot från MVPD (steg 13) | 7 | Adobe </br>Adobe Pass </br>authentication </br>Service | Logga in </br>på webben </br> |
 | 5. | SAML Assertion Consumer | Befintligt SAML-arbetsflöde mellan Adobe Pass Authentication och MVPD | 13 | Tjänsten Adobe Pass </br>authentication </br>Service | Adobe Pass-autentisering |
 | 6. | [&lt;SP_FQDN>/api/v1/checkauthn/ </br> {registrationCode}](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/check-authentication-flow-by-second-screen-web-app.md) | Inloggningswebbappen kan kontrollera om inloggningsflödet lyckades |                                                                                             | Adobe Pass </br>autentisering   </br> Service | Inloggning   </br>Webben   </br> App |
 | 7. | [&lt;SP_FQDN>/api/v1/tokens/authn](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-authentication-token.md) | Hämtar AuthN-tokenrelaterade metadata | 15 | Tjänsten Adobe Pass </br>authentication </br>Service | Smart enhet |
@@ -66,7 +66,7 @@ Tabellen nedan visar de tillgängliga webbtjänsterna för kundlösa metoder. Kl
 | 10. | [&lt;SP_FQDN>/api/v1/checkauthn](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/check-authentication-token.md) | Anger om enheten har en AuthN-token som inte har gått ut. |                                                                                             | Tjänsten Adobe Pass </br>authentication </br>Service | Smart enhet |
 | 11. | [&lt;SP_FQDN>/api/v1/tokens/authn](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-authentication-token.md) | Returnerar AuthN-token om den hittas. |                                                                                             | Tjänsten Adobe Pass </br>authentication </br>Service | Smart enhet |
 | 12. | [&lt;SP_FQDN>/api/v1/tokens/authz](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-authorization-token.md) | Returnerar AuthZ-token om den hittas. |                                                                                             | Tjänsten Adobe Pass </br>authentication </br>Service | Smart enhet |
-| 13. | [&lt;SP_FQDN>/api/v1/tokens/media](/help/authentication/integration-guide-programmer/rest-apis/rest-api-v1/apis/obtain-short-media-token.md | Returnerar Short Media Token om den hittas - samma som /api/v1/mediatoken |                                                                                             | Tjänsten Adobe Pass </br>authentication </br>Service | Smart enhet |
+| 13. | [&lt;SP_FQDN>/api/v1/tokens/media](/help/authentication/integration-guide-programmer/rest-apis/rest-api-v1/apis/obtain-short-media-token.md) | Returnerar Short Media Token om den hittas - samma som /api/v1/mediatoken |                                                                                             | Tjänsten Adobe Pass </br>authentication </br>Service | Smart enhet |
 | 14. | [&lt;SP_FQDN>/api/v1/mediatoken](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/obtain-short-media-token.md) | Hämtar kort mediatoken |                                                                                             | Tjänsten Adobe Pass </br>authentication </br>Service | Smart enhet |
 | 15. | [&lt;SP_FQDN>/api/v1/preauthorized](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-list-of-preauthorized-resources.md) | Hämtar listan över förauktoriserade resurser |                                                                                             | Tjänsten Adobe Pass </br>authentication </br>Service | Smart enhet |
 | 16. | [&lt;SP_FQDN>/api/v1/preauthorized/{code}](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-list-of-preauthorized-resources-by-second-screen-web-app.md) | Hämtar listan över förauktoriserade resurser |                                                                                             | Tjänsten Adobe Pass </br>authentication </br>Service | Inloggningswebbapp |

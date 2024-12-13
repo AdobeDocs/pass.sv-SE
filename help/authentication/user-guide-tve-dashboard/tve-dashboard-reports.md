@@ -2,7 +2,7 @@
 title: Rapporter
 description: Lär dig hur data aggregeras i TVE Dashboard-rapporter.
 exl-id: d8ba48de-d743-4dc2-866c-7d6e3ff94773
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
 source-wordcount: '976'
 ht-degree: 0%
@@ -35,7 +35,7 @@ Följ de här stegen för att visa en specifik rapport.
 
 ### AuthN TTL-rapporter {#authn-ttl-reports}
 
-I AuthN TTL-rapporterna, som även kallas TTL (Authentication Time-To-Live), visas hur länge autentiseringstoken konfigureras för kanalintegreringar med olika MVPD:er på alla [plattformar](#platforms). Med hjälp av dessa rapporter kan du kontrollera hur lång tid en användare förblir autentiserad för en viss plattform och plattform. Varaktighetsvärdena visas i användarvänliga format som **dagar**, **timmar**, **minuter** och **sekunder**. Tabellen AuthN TTL Reports innehåller vågrät och lodrät rullning för att passa olika skärmstorlekar.
+I AuthN TTL-rapporterna, som även kallas TTL (Authentication Time-To-Live), visas hur länge autentiseringstoken konfigureras för kanalintegreringar med olika MVPD:er på alla [plattformar](#platforms). Med hjälp av dessa rapporter kan du kontrollera hur länge en användare är autentiserad för en viss MVPD och plattform. Varaktighetsvärdena visas i användarvänliga format som **dagar**, **timmar**, **minuter** och **sekunder**. Tabellen AuthN TTL Reports innehåller vågrät och lodrät rullning för att passa olika skärmstorlekar.
 
 Du kan också visa och hämta data för [specifika kanaler eller MVPD-program](#selecting-specific-channels-mvpds).
 
@@ -45,13 +45,13 @@ Du kan också visa och hämta data för [specifika kanaler eller MVPD-program](#
 
 >[!IMPORTANT]
 >
-> Platshållaren **Set by MVPD** används när MVPD använder AuthN TTL-värdet i stället för Adobe Pass Authentication-konfigurationen.
+> Platshållaren **Set by MVPD** används när MVPD tvingar AuthN TTL-värdet i stället för Adobe Pass Authentication-konfigurationen.
 
 Välj **Exportera rapporter** om du vill spara data som en CSV-fil på den lokala datorn.
 
 ### AuthZ TTL-rapporter {#authz-ttl-reports}
 
-I AuthZ TTL-rapporterna, som även kallas TTL (Authorization Time-To-Live), visas varaktigheten för den auktoriseringstoken som konfigurerats för kanalintegreringar med olika MVPD:er på alla [plattformar](#platforms). Med hjälp av dessa rapporter kan du kontrollera hur lång tid en användare har på sig att bevaka innehållet för en viss plattform och plattform. Varaktighetsvärdena visas i användarvänliga format som **dagar**, **timmar**, **minuter** och **sekunder**. Tabellen AuthZ TTL Reports innehåller vågrät och lodrät rullning för olika skärmstorlekar.
+I AuthZ TTL-rapporterna, som även kallas TTL (Authorization Time-To-Live), visas varaktigheten för den auktoriseringstoken som konfigurerats för kanalintegreringar med olika MVPD:er på alla [plattformar](#platforms). Med hjälp av dessa rapporter kan du kontrollera hur lång tid en användare har på sig att bevaka innehåll för en viss MVPD och plattform. Varaktighetsvärdena visas i användarvänliga format som **dagar**, **timmar**, **minuter** och **sekunder**. Tabellen AuthZ TTL Reports innehåller vågrät och lodrät rullning för olika skärmstorlekar.
 
 Du kan också visa och hämta data för [specifika kanaler eller MVPD](#selecting-specific-channels-mvpds).
 
@@ -61,7 +61,7 @@ Du kan också visa och hämta data för [specifika kanaler eller MVPD](#selectin
 
 >[!IMPORTANT]
 >
-> Platshållaren **Set by MVPD** används när MVPD använder AuthZ TTL-värdet i stället för Adobe Pass Authentication-konfigurationen.
+> Platshållaren **Set by MVPD** används när MVPD tvingar AuthZ TTL-värdet i stället för Adobe Pass Authentication-konfigurationen.
 
 Välj **Exportera rapporter** om du vill spara data som en CSV-fil på den lokala datorn.
 
@@ -89,7 +89,7 @@ Välj **Exportera rapporter** om du vill spara data som en CSV-fil på den lokal
 
 [AuthN TTL-rapporter](#authn-ttl-reports), [AuthZ TTL-rapporter](#authz-ttl-reports) och [SSO-rapporter](#sso-reports) visar data på olika plattformar, till exempel:
 
-* **Skrivbord**: Visar värden som används för programmeringsimplementeringar via JavaScript SDK för Adobe Pass-autentisering.
+* **Skrivbord**: Visar värden som används för programmeringsimplementeringar via Adobe Pass Authentication JavaScript SDK.
 
 * **Mobil**
 
@@ -111,7 +111,7 @@ Välj **Exportera rapporter** om du vill spara data som en CSV-fil på den lokal
 
 * **Oidentifierad plattform**: Visar värden som används för programmeringsimplementeringar när Adobe Pass Authentication Services identifierar en okänd enhetstyp.
 
-Om du vill veta mer om hur du delar önskad enhetstyp, till exempel **Roku** med Adobe Pass Authentication REST API:er eller SDK:er, kan du visa mekanismen för att [skicka klientinformation](/help/authentication/integration-guide-programmers/passing-client-information-device-connection-and-application.md).
+Om du vill veta mer om hur du delar önskad enhetstyp, till exempel **Roku** med Adobe Pass Authentication REST API:er eller SDK:er, kan du visa mekanismen för att [skicka klientinformation](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md).
 
 >[!IMPORTANT]
 >

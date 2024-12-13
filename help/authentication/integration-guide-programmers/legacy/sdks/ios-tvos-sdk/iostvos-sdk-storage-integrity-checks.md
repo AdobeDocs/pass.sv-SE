@@ -2,14 +2,14 @@
 title: Kontrollmekanism för lagringsintegritet för iOS/tvOS
 description: Kontrollmekanism för integritetskontroll för iOS/tvOS
 exl-id: 5d7cdc46-3e51-4e14-9e30-d7f48bc87506
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '323'
+source-wordcount: '324'
 ht-degree: 0%
 
 ---
 
-# Kontrollmekanism för integritetskontroll för iOS/tvOS {#iostvos-sdk-storage-integrity-checks}
+# (Äldre) Kompatibilitetskontrollmekanism för iOS/tvOS {#iostvos-sdk-storage-integrity-checks}
 
 >[!NOTE]
 >
@@ -69,5 +69,5 @@ Uppräkningen IntegrityCheckType visas för klientprogrammet och har följande v
 | Värde | Utförda kontroller | Lagring rensad | Beskrivning | Rekommenderat användningsfall |
 |-----------------------|-----------------------------------------------------|-----------------|------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
 | INTEGRITY_CHECK_NONE | Ingen | Aldrig | Inga integritetskontroller utförs vid lagringsinitiering | När SDK-flödena fungerar som förväntat |
-| INTEGRITY_CHECK_ALL | Lagringsoperabilitet <br/> Giltighet för lagrade värden | Vid check misslyckas | Alla tillgängliga integritetskontroller utförs vid lagringsinitiering | När SDK-lagring misstänks vara skadad. <br/> Om någon av integritetskontrollerna misslyckas loggas användaren ut |
+| INTEGRITY_CHECK_ALL | Lagringsoperabilitet <br/> Giltighet för lagrade värden | Vid check misslyckas | Alla tillgängliga integritetskontroller utförs vid lagringsinitiering | När det misstänks att SDK-lagring är skadad. <br/> Om någon av integritetskontrollerna misslyckas loggas användaren ut |
 | INTEGRITY_CHECK_CLEAR | Ingen | Alltid | Lagringsutrymmet rensas vid lagringsinitiering | När SDK-flödena inte kan slutföras som förväntat |

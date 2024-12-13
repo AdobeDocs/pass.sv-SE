@@ -2,14 +2,14 @@
 title: iOS/tvOS SDK - översikt
 description: iOS/tvOS SDK - översikt
 exl-id: b02a6234-d763-46c0-bc69-9cfd65917a19
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '3731'
+source-wordcount: '3732'
 ht-degree: 0%
 
 ---
 
-# iOS/tvOS SDK - översikt {#iostvos-sdk-overview}
+# (Äldre) iOS/tvOS SDK - översikt {#iostvos-sdk-overview}
 
 >[!NOTE]
 >
@@ -25,7 +25,7 @@ iOS AccessEnabler är ett målinriktat iOS/tvOS-bibliotek som gör att mobilappa
 
 ## Krav för iOS och tvOS {#reqs}
 
-Aktuella tekniska krav för iOS och tvOS-plattformen och Adobe Pass-autentisering finns i [Plattform/Enhet/Verktygskrav](#ios) och i versionsinformationen som ingår i SDK-nedladdningen. Under resten av den här sidan ser du avsnitt som innehåller ändringar som gäller vissa SDK-versioner och senare. Följande är till exempel en giltig anmärkning om 1.7.5 SDK:
+Aktuella tekniska krav för iOS och tvOS-plattformen och Adobe Pass-autentisering finns i [Plattform/Enhet/Verktygskrav](#ios) och i versionsinformationen som medföljer vid hämtningen av SDK. Under resten av den här sidan ser du avsnitt som innehåller ändringar som gäller vissa versioner av SDK och senare. Följande är till exempel en giltig anmärkning om SDK 1.7.5:
 
 ## Understanding Native Client Workflows {#flows}
 
@@ -55,17 +55,17 @@ Du kan antingen låta din app vänta på att meddelandet om att [`setRequestor()
 
 ### Allmänt inledande autentiseringsarbetsflöde {#generic}
 
-Syftet med det här arbetsflödet är att logga in en användare med sitt MVPD-program. När inloggningen är klar utfärdar backend-servern en autentiseringstoken till användaren. Autentisering sker vanligtvis som en del av auktoriseringsprocessen, men följande beskriver hur autentisering kan fungera fristående och inkluderar inga auktoriseringssteg.
+Syftet med det här arbetsflödet är att logga in en användare med sin MVPD. När inloggningen är klar utfärdar backend-servern en autentiseringstoken till användaren. Autentisering sker vanligtvis som en del av auktoriseringsprocessen, men följande beskriver hur autentisering kan fungera fristående och inkluderar inga auktoriseringssteg.
 
 Observera att även om det här arbetsflödet skiljer sig åt för inbyggda klienter från det vanliga webbläsarbaserade autentiseringsarbetsflödet, är steg 1-5 samma för både inbyggda klienter och webbläsarbaserade klienter.
 
 1. Ditt program initierar autentiseringsarbetsflödet med ett anrop till AccessEnablers `getAuthentication() `API-metod, som söker efter en giltig cachelagrad autentiseringstoken.
 1. Om användaren är autentiserad, anropar AccessEnabler din [`setAuthenticationStatus()`](#setAuthNStatus)-callback-funktion och skickar en autentiseringsstatus som anger att processen lyckades och att flödet avslutas.
-1. Om användaren inte är autentiserad för tillfället fortsätter AccessEnabler autentiseringsflödet genom att avgöra om användarens senaste autentiseringsförsök lyckades med ett givet MVPD. Om ett MVPD ID cachelagras OCH flaggan `canAuthenticate` är true ELLER om ett MVPD valdes med [`setSelectedProvider()`](#setSelProv), visas ingen dialogruta för MVPD-val. Autentiseringsflödet fortsätter med det cachelagrade värdet för MVPD (det vill säga samma MVPD som användes vid den senaste autentiseringen). Ett nätverksanrop görs till serverdelen och användaren omdirigeras till inloggningssidan för MVPD (steg 6 nedan).
-1. Om inget MVPD ID cache-lagras OCH inget MVPD har valts med [`setSelectedProvider()`](#setSelProv) ELLER om flaggan `canAuthenticate` har värdet false anropas [`displayProviderDialog()`](#dispProvDialog)-återanropet. Det här återanropet instruerar programmet att skapa användargränssnittet som visar användaren en lista över MVPD som du kan välja mellan. En array med MVPD-objekt tillhandahålls, som innehåller den information som krävs för att du ska kunna skapa MVPD-väljaren. Varje MVPD-objekt beskriver en MVPD-enhet och innehåller information som MVPD-filens ID (t.ex. XFINITY, AT\&amp;T osv.) och den URL där MVPD-logotypen finns.
-1. När ett visst MVPD har valts måste programmet informera AccessEnabler om användarens val. När användaren har valt önskat MVPD informerar du AccessEnabler om användarvalet via ett anrop till metoden [`setSelectedProvider()`](#setSelProv).
-1. IOS AccessEnabler anropar ditt `navigateToUrl:`-återanrop eller `navigateToUrl:useSVC:`-återanrop för att dirigera om användaren till MVPD-inloggningssidan. Genom att aktivera någon av dem, skickar AccessEnabler en begäran till ditt program om att skapa en `UIWebView/WKWebView or SFSafariViewController`-kontrollant och att läsa in URL:en som anges i callback-objektets `url`-parameter. Detta är URL:en för autentiseringsslutpunkten på backend-servern. För tvOS AccessEnabler anropas callback-funktionen [status()](#status_callback_implementation) med en `statusDictionary` -parameter och avsökningen för den andra skärmautentiseringen påbörjas omedelbart. `statusDictionary` innehåller `registration code` som behöver användas för den andra skärmautentiseringen.
-1. Om det gäller iOS AccessEnabler låser sig användaren på MVPD:s inloggningssida för att ange sina inloggningsuppgifter via programkontrollanten `UIWebView/WKWebView or SFSafariViewController `. Observera att flera omdirigeringsåtgärder utförs under den här överföringen och att programmet måste övervaka de URL:er som läses in av kontrollenheten under de flera omdirigeringsåtgärderna.
+1. Om användaren inte är autentiserad för tillfället fortsätter AccessEnabler autentiseringsflödet genom att fastställa om användarens senaste autentiseringsförsök lyckades med en viss MVPD. Om ett MVPD-ID cachelagras OCH flaggan `canAuthenticate` är true ELLER om en MVPD valdes med [`setSelectedProvider()`](#setSelProv) visas ingen dialogruta för val av MVPD. Autentiseringsflödet fortsätter med det cachelagrade värdet för MVPD (det vill säga samma MVPD som användes vid den senaste autentiseringen). Ett nätverksanrop görs till backend-servern och användaren omdirigeras till inloggningssidan för MVPD (steg 6 nedan).
+1. Om inget MVPD-ID cachelagras OCH ingen MVPD har valts med [`setSelectedProvider()`](#setSelProv) ELLER om flaggan `canAuthenticate` har värdet false anropas [`displayProviderDialog()`](#dispProvDialog)-återanropet. Det här återanropet instruerar programmet att skapa användargränssnittet som visar användaren en lista över MVPD som du kan välja mellan. En array med MVPD-objekt som innehåller den information som krävs för att du ska kunna skapa MVPD-väljaren. Varje MVPD-objekt beskriver en MVPD-enhet och innehåller information som t.ex. MVPD-ID (t.ex. XFINITY, AT\&amp;T) och den URL där MVPD-logotypen finns.
+1. När du har valt en viss MVPD måste programmet informera AccessEnabler om vad användaren har valt. När användaren har valt önskad MVPD informerar du AccessEnabler om användarvalet via ett anrop till metoden [`setSelectedProvider()`](#setSelProv).
+1. IOS AccessEnabler anropar ditt `navigateToUrl:`-återanrop eller `navigateToUrl:useSVC:`-återanrop för att dirigera om användaren till inloggningssidan för MVPD. Genom att aktivera någon av dem, skickar AccessEnabler en begäran till ditt program om att skapa en `UIWebView/WKWebView or SFSafariViewController`-kontrollant och att läsa in URL:en som anges i callback-objektets `url`-parameter. Detta är URL:en för autentiseringsslutpunkten på backend-servern. För tvOS AccessEnabler anropas callback-funktionen [status()](#status_callback_implementation) med en `statusDictionary` -parameter och avsökningen för den andra skärmautentiseringen påbörjas omedelbart. `statusDictionary` innehåller `registration code` som behöver användas för den andra skärmautentiseringen.
+1. Om iOS AccessEnabler används, kommer användaren till inloggningssidan för MVPD att ange sina inloggningsuppgifter via programstyrenheten `UIWebView/WKWebView or SFSafariViewController `. Observera att flera omdirigeringsåtgärder utförs under den här överföringen och att programmet måste övervaka de URL:er som läses in av kontrollenheten under de flera omdirigeringsåtgärderna.
 1. Om iOS AccessEnabler används måste programmet stänga kontrollenheten när `UIWebView/WKWebView or SFSafariViewController`-kontrollenheten läser in en anpassad URL och anropa AccessEnablers `handleExternalURL:url ` -API-metod. Observera att den här anpassade URL:en är ogiltig och inte avsedd för att styrenheten ska läsa in den. Det får endast tolkas av ditt program som en signal om att autentiseringsflödet har slutförts och att det är säkert att stänga `UIWebView/WKWebView or SFSafariViewController`-styrenheten. Om ditt program måste använda en `SFSafariViewController `kontrollant definieras den anpassade URL:en av `application's custom scheme` (t.ex.: `adbe.u-XFXJeTSDuJiIQs0HVRAg://adobe.com`), annars definieras den här anpassade URL:en av konstanten `ADOBEPASS_REDIRECT_URL` (t.ex. `adobepass://ios.app`).
 1. När programmet stänger `UIWebView/WKWebView or SFSafariViewController`-kontrollanten och anropar AccessEnabler-API-metoden `handleExternalURL:url ` hämtar AccessEnabler autentiseringstoken från backend-servern och informerar programmet om att autentiseringsflödet är slutfört. AccessEnabler anropar återanropet [`setAuthenticationStatus()`](#setAuthNStatus) med statuskoden 1, vilket anger att åtgärden lyckades. Om det uppstår ett fel under körningen av de här stegen aktiveras [`setAuthenticationStatus()`](#setAuthNStatus)-återanropet med statuskoden 0, vilket anger autentiseringsfel och en motsvarande felkod.
 
@@ -79,7 +79,7 @@ Observera att även om det här arbetsflödet skiljer sig åt för inbyggda klie
 
 För inbyggda klienter hanteras utloggningen på liknande sätt som autentiseringsprocessen som beskrivs ovan.
 
-1. Ditt program initierar utloggningsarbetsflödet med ett anrop till AccessEnablers `logout() `API-metod. Utloggningen är resultatet av en serie HTTP-omdirigeringsåtgärder på grund av att användaren måste loggas ut både från Adobe Pass autentiseringsservrar och från MVPD-servrarna. Eftersom det här flödet inte kan slutföras med en enkel HTTP-begäran som utfärdas av AccessEnabler-biblioteket, måste en `UIWebView/WKWebView or SFSafariViewController`-styrenhet instansieras för att kunna följa HTTP-omdirigeringsåtgärderna.
+1. Ditt program initierar utloggningsarbetsflödet med ett anrop till AccessEnablers `logout() `API-metod. Utloggningen är resultatet av en serie HTTP-omdirigeringsåtgärder på grund av att användaren måste loggas ut både från Adobe Pass autentiseringsservrar och från MVPD servrar. Eftersom det här flödet inte kan slutföras med en enkel HTTP-begäran som utfärdas av AccessEnabler-biblioteket, måste en `UIWebView/WKWebView or SFSafariViewController`-styrenhet instansieras för att kunna följa HTTP-omdirigeringsåtgärderna.
 
 1. Ett mönster som liknar autentiseringsflödet används. IOS AccessEnabler utlöser återanropet `navigateToUrl:` eller `navigateToUrl:useSVC:` för att skapa en `UIWebView/WKWebView or SFSafariViewController`-kontrollant och för att läsa in URL:en som anges i återanropets `url`-parameter. Det här är URL:en för utloggningsslutpunkten på backend-servern. För tvOS AccessEnabler anropas varken callback-funktionen `navigateToUrl:` eller callback-funktionen `navigateToUrl:useSVC:`.
 
@@ -127,13 +127,13 @@ När autentiseringen och auktoriseringen är klar kommer Adobe Pass Authenticati
 
 #### Autentiseringstoken
 
-- **AccessEnabler 1.7:** Detta SDK introducerar en ny metod för tokenlagring, som aktiverar flera programmerings-MVPD-bucket och därmed flera autentiseringstoken. Nu används samma lagringslayout både för scenariot Autentisering per begärande och för det normala autentiseringsflödet. Den enda skillnaden mellan de två är hur autentiseringen utförs: &quot;Authentication per Requestor&quot; innehåller en ny förbättring (Passiv Authentication) som gör det möjligt för AccessEnabler att utföra autentisering i bakkanalen baserat på att det finns en autentiseringstoken i lagringen (för en annan programmerare). Användaren behöver bara autentisera en gång, och den här sessionen kommer att användas för att hämta autentiseringstoken i ytterligare appar. Det här bakkanalsflödet äger rum under [`setRequestor()`](#setReq)-anropet och är för det mesta genomskinligt för programmeraren. **Det finns dock ett viktigt krav här: Programmeraren MÅSTE anropa setRequestor() från huvudgränssnittstråden.**
-- **AccessEnabler 1.6 och äldre:** Hur autentiseringstoken cachas på enheten beror på flaggan **Authentication per Requestor** som är associerad med det aktuella MVPD:
+- **AccessEnabler 1.7:** SDK introducerar en ny metod för tokenlagring, vilket aktiverar flera programmerings-MVPD-bucket och därmed flera autentiseringstoken. Nu används samma lagringslayout både för scenariot Autentisering per begärande och för det normala autentiseringsflödet. Den enda skillnaden mellan de två är hur autentiseringen utförs: &quot;Authentication per Requestor&quot; innehåller en ny förbättring (Passiv Authentication) som gör det möjligt för AccessEnabler att utföra autentisering i bakkanalen baserat på att det finns en autentiseringstoken i lagringen (för en annan programmerare). Användaren behöver bara autentisera en gång, och den här sessionen kommer att användas för att hämta autentiseringstoken i ytterligare appar. Det här bakkanalsflödet äger rum under [`setRequestor()`](#setReq)-anropet och är för det mesta genomskinligt för programmeraren. **Det finns dock ett viktigt krav här: Programmeraren MÅSTE anropa setRequestor() från huvudgränssnittstråden.**
+- **AccessEnabler 1.6 och äldre:** Hur autentiseringstoken cachas på enheten beror på flaggan **Authentication per Requestor** som är associerad med den aktuella MVPD:
 
 <!-- end list -->
 
-1. Om funktionen &quot;Autentisering per begärande&quot; är inaktiverad, kommer en enda autentiseringstoken att lagras lokalt på det globala monteringsbordet. Denna token delas mellan alla program som är integrerade med det aktuella MVPD-programmet.
-1. Om funktionen &quot;Autentisering per begärande&quot; är aktiverad, kommer en token att uttryckligen kopplas till den programmerare som utförde autentiseringsflödet (denna token kommer inte att lagras på det globala monteringsbordet, utan i en privat fil som bara är synlig för programmerarens program). Mer specifikt kommer enkel inloggning (SSO) mellan olika program att inaktiveras. Användaren måste utföra autentiseringsflödet explicit när han/hon byter till en ny app (förutsatt att programmeraren för den andra appen är integrerad med det aktuella MVPD-programmet och att det inte finns någon autentiseringstoken för den programmeraren i det lokala cacheminnet).
+1. Om funktionen &quot;Autentisering per begärande&quot; är inaktiverad, kommer en enda autentiseringstoken att lagras lokalt på det globala monteringsbordet. Denna token delas mellan alla program som är integrerade med det aktuella MVPD.
+1. Om funktionen &quot;Autentisering per begärande&quot; är aktiverad, kommer en token att uttryckligen kopplas till den programmerare som utförde autentiseringsflödet (denna token kommer inte att lagras på det globala monteringsbordet, utan i en privat fil som bara är synlig för programmerarens program). Mer specifikt kommer enkel inloggning (SSO) mellan olika program att inaktiveras. Användaren måste utföra autentiseringsflödet explicit när han/hon byter till en ny app (förutsatt att programmeraren för den andra appen är integrerad med den aktuella MVPD och att det inte finns någon autentiseringstoken för den programmeraren i det lokala cacheminnet).
 
 
 
@@ -194,11 +194,11 @@ Läs den här TechNote-artikeln om du vill ha mer information om hur du konfigur
 
 ### Tokenlagring (AccessEnabler 1.7)
 
-Från och med AccessEnabler 1.7 kan tokenlagringen ha stöd för flera programmerings-MVPD-kombinationer, beroende på en kapslad mappningsstruktur på flera nivåer som kan innehålla flera autentiseringstoken. Det nya lagringsutrymmet påverkar inte det offentliga API:t för AccessEnabler på något sätt och kräver inga ändringar från programmerarens sida. Här är ett exempel på att
+Från och med AccessEnabler 1.7 kan tokenlagringen ha stöd för flera programmerare-MVPD-kombinationer, beroende på en kapslad mappningsstruktur på flera nivåer som kan innehålla flera autentiseringstoken. Det nya lagringsutrymmet påverkar inte det offentliga API:t för AccessEnabler på något sätt och kräver inga ändringar från programmerarens sida. Här är ett exempel på att
 visar den här nya funktionen:
 
 1. Öppna App1 (utvecklad av Programmer1).
-1. Autentisera med MVPD1 (som är integrerad med Programmer1).
+1. Autentisera med MVPD1 (som är integrerat med Programmer1).
 1. Skjut upp/stäng det aktuella programmet och öppna App2 (utvecklad av Programmer2).
 1. Låt oss anta att Programmer2 inte är integrerat med MVPD2. Därför kommer användaren INTE att autentiseras i App2.
 1. Autentisera med MVPD2 (som är integrerat med Programmer2) i App2.
@@ -208,7 +208,7 @@ I äldre versioner av AccessEnabler återges användaren som icke-autentiserad i
 
 
 
-Om du loggar ut från en programmerare/MVPD-session rensas hela det underliggande lagringsutrymmet, inklusive alla andra autentiseringstoken för programmerare/MVPD på enheten. Om du däremot avbryter autentiseringsflödet (anropar [`setSelectedProvider(null)`](#setSelProv)) rensas inte det underliggande lagringsutrymmet, men det påverkar bara det aktuella autentiseringsförsöket för Programmer/MVPD (genom att ta bort MVPD för den aktuella programmeraren).
+Om du loggar ut från en Programmer-/MVPD-session rensas hela det underliggande lagringsutrymmet, inklusive alla andra autentiseringstoken för Programmer/MVPD på enheten. Om du däremot avbryter autentiseringsflödet (anropar [`setSelectedProvider(null)`](#setSelProv)) rensas inte det underliggande lagringsutrymmet, men det påverkar bara det aktuella autentiseringsförsöket för Programmer/MVPD (genom att MVPD raderas för den aktuella Programmeraren).
 
 
 
@@ -318,7 +318,7 @@ Eftersom detta är en uppenbart säkerhetsrelaterad funktion är denna informati
 
 
 
-**Kommentar om enhetsbindning i AccessEnabler 1.7.5:** Från och med AccessEnabler 1.7.5 ändras hur enhets-ID beräknas för att ange personaliseringsinformation för en iOS-enhet. Ändringen återspeglar en förändring i iOS 7: Från och med iOS 7 tillhandahåller Apple inte längre WiFi MAC-adressen som ett spårningsalternativ, till förmån för IDFA (Identifier for Advertisers). Eftersom personaliseringsinformation för en app som körs på iOS 7 baseras på IDFA och den informationen är inbäddad i tillståndsflödestoken innebär detta att det finns ett antal olika möjliga effekter på användarupplevelsen som följer av den här ändringen. Olika effekter baseras på vilken version av iOS som användaren uppgraderar från och vilken version av AccessEnabler som programmeraren uppgraderar från. Mer information om den här ändringen finns i versionsinformationen som ingår i AccessEnabler SDK 1.7.5.
+**Kommentar om enhetsbindning i AccessEnabler 1.7.5:** Från och med AccessEnabler 1.7.5 ändras hur enhets-ID beräknas för att ange personaliseringsinformation för en iOS-enhet. Ändringen återspeglar en förändring i iOS 7: Från och med iOS 7 tillhandahåller Apple inte längre WiFi MAC-adressen som ett spårningsalternativ, till förmån för IDFA (Identifier for Advertisers). Eftersom personaliseringsinformation för en app som körs på iOS 7 baseras på IDFA och den informationen är inbäddad i tillståndsflödestoken innebär detta att det finns ett antal olika möjliga effekter på användarupplevelsen som följer av den här ändringen. Olika effekter baseras på vilken version av iOS som användaren uppgraderar från och vilken version av AccessEnabler som programmeraren uppgraderar från. Mer information om den här ändringen finns i versionsinformationen för AccessEnabler SDK 1.7.5.
 
 <!--
 ## Related Information {#related}

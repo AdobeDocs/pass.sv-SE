@@ -2,14 +2,14 @@
 title: Kontrollera autentiseringstoken
 description: Kontrollera autentiseringstoken
 exl-id: 9020f261-44d8-4bd5-b85b-a8667679f563
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
 workflow-type: tm+mt
-source-wordcount: '269'
+source-wordcount: '270'
 ht-degree: 0%
 
 ---
 
-# Kontrollera autentiseringstoken {#check-authentication-token}
+# (Äldre) Kontrollera autentiseringstoken {#check-authentication-token}
 
 >[!NOTE]
 >
@@ -49,7 +49,7 @@ Anger om enheten har en autentiseringstoken som inte har gått ut.
 | begärande | Programmerarens requestId som den här åtgärden är giltig för. |
 | deviceId | Byte för enhets-ID. |
 | device_info/</br></br>X-Device-Info | Information om direktuppspelningsenhet.</br></br>**Obs!**: Det här kan skickas device_info som en URL-parameter, men på grund av parameterns potentiella storlek och begränsningar i längden på en GET-URL, bör det skickas som X-Device-Info i http-huvudet. </br></br><!--See the full details in [Passing Device and Connection Information](/help/authentication/passing-client-information-device-connection-and-application.md)(/help/authentication/passing-client-information-device-connection-and-application.md)-->. |
-| _deviceType_ | Enhetstypen (t.ex. Roku, PC).</br></br>Om den här parametern är korrekt har ESM värden som är [nedbrutna per enhetstyp](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md#clientless_device_type) när Clientless används, så att olika typer av analyser kan utföras för t.ex. Roku, AppleTV, Xbox osv.</br></br>Mer information finns i [Fördelar med att använda parametern deviceType utan klient i Adobe Pass-autentiseringsmått ](/help/authentication/notes-technical/benefits-of-using-the-clientless-devicetype-parameter-in-pass-metrics.md)</br>**Obs!** Parametern kommer att ersättas av device_info. |
+| _deviceType_ | Enhetstypen (t.ex. Roku, PC).</br></br>Om den här parametern är korrekt har ESM värden som är [nedbrutna per enhetstyp](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md#clientless_device_type) när Clientless används, så att olika typer av analyser kan utföras för t.ex. Roku, AppleTV, Xbox osv.</br></br>Mer information finns i [Fördelar med att använda parametern deviceType utan klient i Adobe Pass-autentiseringsmått ](/help/authentication/integration-guide-programmers/legacy/notes-technical/benefits-of-using-the-clientless-devicetype-parameter-in-pass-metrics.md)</br>**Obs!** Parametern kommer att ersättas av device_info. |
 | _deviceUser_ | Enhetens användaridentifierare. |
 | _appId_ | Program-ID/namn.</br>**Obs!**: device_info ersätter den här parametern. |
 
