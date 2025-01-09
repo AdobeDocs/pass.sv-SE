@@ -2,7 +2,7 @@
 title: Programmerare
 description: Lär dig mer om programmerare och dess konfigurationer på TVE-kontrollpanelen.
 exl-id: b450d7cc-d5b5-4454-8f95-8047856bfb98
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 5622cad15383560e19e8111f12a1460e9b118efe
 workflow-type: tm+mt
 source-wordcount: '1139'
 ht-degree: 0%
@@ -15,7 +15,7 @@ ht-degree: 0%
 >
 >Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användningen av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
 
-Med avsnittet **Programmerare** i TVE Dashboard kan du visa och hantera inställningar för de [programmerare](/help/authentication/kickstart/glossary.md#programmer) som är länkade till dina kontoberättiganden. Du kan även [lägga till en ny programmerare](#add-new-programmer) efter dina behov.
+Med avsnittet **Programmerare** i TVE Dashboard kan du visa och hantera inställningar för de [programmerare](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#programmer) som är länkade till dina kontoberättiganden. Du kan även [lägga till en ny programmerare](#add-new-programmer) efter dina behov.
 
 Fliken **Programmerare** i den vänstra panelen visar en lista med befintliga programmerare med följande information:
 

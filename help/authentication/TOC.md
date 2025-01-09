@@ -4,9 +4,9 @@ audience: end-user
 feature: Authentication
 user-guide-title: Adobe Pass-autentisering
 user-guide-description: Adobe Pass-autentisering är en berättigandelösning för TV Everywhere, som tillhandahåller ett modulärt ramverk för att avgöra om någon som begär åtkomst till en resurs är berättigad till den.
-source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
+source-git-commit: 5622cad15383560e19e8111f12a1460e9b118efe
 workflow-type: tm+mt
-source-wordcount: '1260'
+source-wordcount: '1267'
 ht-degree: 2%
 
 ---
@@ -51,11 +51,12 @@ ht-degree: 2%
    + [Programmeraren kickstart](kickstart/programmer-kickstart-guide.md)
    + [MVPD kickstart guide](kickstart/mvpd-kickstart-guide.md)
    + [Eskaleringsprocedurer](kickstart/escalation-procedures.md)
-   + [Ordlista](kickstart/glossary.md)
 + Integreringsguide för programmerare {#integration-guide-programmers}
    + REST API:er {#rest-apis}
       + REST API DCR {#rest-api-dcr}
-         + [Översikt över dynamisk klientregistrering](integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md)
+         + [Översikt över registrering av dynamisk klient](integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md)
+         + [Ordlista för registrering av dynamisk klient](integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-glossary.md)
+         + [Vanliga frågor om registrering av dynamiska klienter](integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-faqs.md)
          + API:er {#rest-api-dcr-apis}
             + [Hämta klientautentiseringsuppgifter](integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-client-credentials.md)
             + [Hämta åtkomsttoken](integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md)

@@ -2,7 +2,7 @@
 title: Kanaler
 description: Lär dig mer om kanaler och deras olika konfigurationer i TVE Dashboard.
 exl-id: bbddeccb-6b6f-4a8f-87ab-d4af538eee1d
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 5622cad15383560e19e8111f12a1460e9b118efe
 workflow-type: tm+mt
 source-wordcount: '1556'
 ht-degree: 0%
@@ -21,7 +21,7 @@ På fliken **Kanaler** i den vänstra panelen visas en lista med länkade kanale
 
 * **Visningsnamn**: Namnet på den kanal som används för kommersiella ändamål.
 * **Kanal-ID**: En unik identifierare som även kallas begärande-ID.
-* **Integrationer**: Antalet anslutningar som upprättats med [MVPD-filer](/help/authentication/kickstart/glossary.md#mvpd).
+* **Integrationer**: Antalet anslutningar som upprättats med [MVPD-filer](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#mvpd).
 
 ![Lista över befintliga kanaler](../assets/tve-dashboard/new-tve-dashboard/channels/channels-list-view.png)
 

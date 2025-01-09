@@ -2,9 +2,9 @@
 title: REST API Cookbook (Server-to-Server)
 description: Återställ API-cookbook-servern till servern.
 exl-id: 36ad4a64-dde8-4a5f-b0fe-64b6c0ddcbee
-source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
+source-git-commit: 5622cad15383560e19e8111f12a1460e9b118efe
 workflow-type: tm+mt
-source-wordcount: '1867'
+source-wordcount: '1856'
 ht-degree: 0%
 
 ---
@@ -42,10 +42,6 @@ I en fungerande Server-till-Server-lösning ingår följande komponenter:
 | Adobe infrastruktur | Adobe Pass Service | En tjänst som integreras med MVPD IdP- och AuthZ-tjänsten och som ger autentiserings- och auktoriseringsbeslut. |
 | MVPD Infrastructure | MVPD IdP | En MVPD-slutpunkt som tillhandahåller autentiseringsbaserad autentisering för att validera användarens identitet. |
 | | MVPD AuthZ-tjänst | En MVPD-slutpunkt som ger auktoriseringsbeslut baserat på användarens prenumerationer, föräldrakontroll osv. |
-
-
-Ytterligare termer som används i flödet definieras i
-[Ordlista](/help/authentication/kickstart/glossary.md).
 
 ## Flöden {#flows}
 
@@ -197,10 +193,3 @@ Programmerartjänsten ska skicka data och formatering som krävs av enskilda MVP
 Programmeringstjänsten måste respektera åtkomstkontrollistan authN och authZ vid cachelagring och ogiltigförklara authN- eller authZ-sessionerna när de meddelas.
 
 Programmeraren måste behålla certifikat som delas med Adobe.
-
-<!--
-## Related Information {#related}
-
-* [REST API Reference](/help/authentication/rest-api-reference.md)
-* [Glossary of Terms](/help/authentication/adobe-pass-glossary.md)
--->

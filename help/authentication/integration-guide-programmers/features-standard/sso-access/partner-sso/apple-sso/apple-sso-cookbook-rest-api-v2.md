@@ -2,9 +2,9 @@
 title: Apple SSO Cookbook (REST API V2)
 description: Apple SSO Cookbook (REST API V2)
 exl-id: 81476312-9ba4-47a0-a4f7-9a557608cfd6
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 5622cad15383560e19e8111f12a1460e9b118efe
 workflow-type: tm+mt
-source-wordcount: '3442'
+source-wordcount: '3443'
 ht-degree: 0%
 
 ---
@@ -189,13 +189,13 @@ Utför de angivna stegen för att implementera enkel inloggning från Apple med 
    >
    > <br/>
    >
-   > Om valideringen misslyckas genereras ett felsvar som ger ytterligare information som följer de [förbättrade felkoderna](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md)
+   > Om valideringen misslyckas genereras ett felsvar som ger ytterligare information som följer dokumentationen för [Förbättrade felkoder](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md).
 
    >[!IMPORTANT]
    >
-   > Strömningsprogrammet måste se till att följande information för varje MVPD-fil bearbetas när du fortsätter:
+   > Strömningsprogrammet måste se till att följande information för varje MVPD bearbetas när du fortsätter:
    >
-   > * `enablePlatformServices`: Anger om MVPD för närvarande stöder enkel inloggning från Apple.
+   > * `enablePlatformServices`: Anger om MVPD har stöd för enkel inloggning från Apple.
    > * `displayInPlatformPicker`: Anger om MVPD kan visas i Apple-väljaren.
    > * `boardingStatus`: Anger om MVPD har registrerats i Apple Single Sign-on.
 
@@ -271,7 +271,7 @@ Utför de angivna stegen för att implementera enkel inloggning från Apple med 
    * Attributet `actionName` är inställt på&quot;auktorisera&quot;.
    * Attributet `actionType` är inställt på&quot;direct&quot;.
 
-   Om Adobe Pass serverdel identifierar en giltig profil behöver direktuppspelningsprogrammet inte autentisera igen med det valda MVPD-programmet, eftersom det redan finns en profil som kan användas för efterföljande beslutsflöden.
+   Om Adobe Pass serverdel identifierar en giltig profil behöver direktuppspelningsprogrammet inte autentisera igen med den valda MVPD eftersom det redan finns en profil som kan användas för efterföljande beslutsflöden.
 
 1. **Fortsätt med grundläggande autentiseringsflöde:** Sessions-partnerns slutpunktssvar innehåller följande data:
    * Attributet `actionName` är inställt på antingen &quot;authenticate&quot; eller &quot;resume&quot;.

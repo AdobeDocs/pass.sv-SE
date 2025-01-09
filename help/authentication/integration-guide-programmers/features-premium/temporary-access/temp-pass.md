@@ -2,7 +2,7 @@
 title: Tillfälligt pass
 description: Tillfälligt pass
 exl-id: 1df14090-8e71-4e3e-82d8-f441d07c6f64
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 5622cad15383560e19e8111f12a1460e9b118efe
 workflow-type: tm+mt
 source-wordcount: '2243'
 ht-degree: 0%
@@ -17,7 +17,7 @@ ht-degree: 0%
 
 ## Sammanfattning av funktioner {#tempass-featur-summary}
 
-Med Temp Pass kan programmerare ge temporär åtkomst till sitt skyddade innehåll för användare som inte har kontoautentiseringsuppgifter med ett MVPD.  Temporärt pass innehåller följande funktioner:
+Med Temp Pass kan programmerare ge tillfälligt åtkomst till sitt skyddade innehåll för användare som inte har kontoautentiseringsuppgifter med en MVPD.  Temporärt pass innehåller följande funktioner:
 
 * Tillfälligt pass kan konfigureras för att ge temporär åtkomst för att täcka ett antal olika scenarier, bland annat följande:
    * En programmerare kan erbjuda en daglig, kort (t.ex. en 10-minuters förhandsgranskning) av en av sina webbplatser.
@@ -25,8 +25,8 @@ Med Temp Pass kan programmerare ge temporär åtkomst till sitt skyddade innehå
    * En programmerare kan innehålla en kombination av de två föregående scenarierna, till exempel en inledande, längre visningsperiod en dag, följt av en serie korta perioder som upprepas dagligen under ett antal efterföljande dagar.
 * Programmerarna anger varaktigheten (Time-To-Live eller TTL) för sitt temporära pass.
 * Temporärt pass utförs per begärande.  NBC kan till exempel konfigurera ett 4-timmars tillfälligt pass för begäraren&quot;NBCOlyics&quot;.
-* Programmerare kan återställa alla token som har tilldelats en viss begärare.  Det tillfälliga MVPD-program som används för att implementera det tillfälliga lösenordet måste konfigureras med alternativet Autentisering per begärande aktiverat.
-* **Tillfällig genomströmningsåtkomst beviljas enskilda användare på specifika enheter**. När tidsbegränsad åtkomst för en användare har upphört att gälla, kommer den användaren inte att kunna få temporär åtkomst på samma enhet förrän användarens [auktoriseringstoken](/help/authentication/kickstart/glossary.md#authz-token) har upphört att gälla rensas från Adobe Pass autentiseringsserver.
+* Programmerare kan återställa alla token som har tilldelats en viss begärare.  Den temporära MVPD som används för att implementera det temporära tillståndet måste konfigureras med Autentisering per begärande aktiverat.
+* **Tillfällig genomströmningsåtkomst beviljas enskilda användare på specifika enheter**. När tidsbegränsad åtkomst för en användare har upphört att gälla, kan den användaren inte få temporär åtkomst på samma enhet förrän användarens utgångna auktoriseringstoken har rensats från Adobe Pass autentiseringsserver.
 
 
 >[!NOTE]
@@ -37,13 +37,13 @@ Med Temp Pass kan programmerare ge temporär åtkomst till sitt skyddade innehå
 
 * **Hur visningstiden beräknas** - Den tid som ett tillfälligt pass är giltigt motsvarar inte den tid som en användare tillbringar med att visa innehåll i programmerarens program.  Efter den första användarbegäran för auktorisering via tillfälligt godkännande beräknas en förfallotid genom att den inledande aktuella begärandetiden läggs till i TTL-värdet som anges av programmeraren. Den här förfallotiden är kopplad till användarens enhets-ID och programmerarens begärande-ID, och lagras i Adobe Pass autentiseringsdatabas. Varje gång användaren försöker få åtkomst till innehåll med hjälp av ett tillfälligt pass från samma enhet, kommer Adobe Pass Authentication att jämföra serverns begärandetid med den förfallotid som är kopplad till användarens enhets-ID och programmerarens begärande-ID. Om serverns begärandetid är kortare än förfallotiden beviljas auktoriseringen. I annat fall nekas auktoriseringen.
 * **Konfigurationsparametrar** - Följande parametrar för tillfälligt pass kan anges av en programmerare för att skapa en regel för tillfälligt pass:
-   * **Token TTL** - Den tid som en användare kan bevaka utan att logga in på ett MVPD. Den här tiden är tidsbaserad och upphör att gälla oavsett om användaren tittar på innehåll eller inte.
+   * **Token TTL** - Den tid som en användare kan bevaka utan att logga in på en MVPD. Den här tiden är tidsbaserad och upphör att gälla oavsett om användaren tittar på innehåll eller inte.
   >[!NOTE]
   >Ett begärande-ID kan inte ha mer än en temporär lösenordsregel kopplad till sig.
-* **Autentisering/auktorisering** - I det tillfälliga genomströmningsflödet anger du MVPD som &quot;Temp Pass&quot;.  Adobe Pass Authentication kommunicerar inte med ett faktiskt MVPD i Temp Pass-flödet, så MVPD för Temp Pass godkänner alla resurser. Programmerare kan ange en resurs som är tillgänglig med Temp-pass på samma sätt som de gör för resten av resurserna på deras plats. Mediekontrollantbiblioteket kan användas som vanligt för att verifiera den korta medietoken som används för temporärt pass och framtvinga resurskontroll före uppspelning.
+* **Autentisering/auktorisering** - I det temporära lösenordsflödet anger du MVPD som &quot;Temp Pass&quot;.  Adobe Pass Authentication kommunicerar inte med en faktisk MVPD i Temp Pass-flödet, vilket innebär att MVPD Temp Pass godkänner alla resurser. Programmerare kan ange en resurs som är tillgänglig med Temp-pass på samma sätt som de gör för resten av resurserna på deras plats. Mediekontrollantbiblioteket kan användas som vanligt för att verifiera den korta medietoken som används för temporärt pass och framtvinga resurskontroll före uppspelning.
 * **Spårningsdata i tillfälligt genomströmningsflöde** - Två punkter gällande spårningsdata under ett tillfälligt genomströmningsberättigandeflöde:
    * Spårnings-ID:t som skickas från Adobe Pass-autentisering till ditt **sendTrackingData()**-återanrop är en hash-tagg för enhets-ID.
-   * Eftersom det MVPD-ID som används i det temporära genomströmningsflödet är &quot;Temp Pass&quot;, skickas samma MVPD-ID tillbaka till **sendTrackingData()**. De flesta programmerare vill troligtvis behandla Temp Pass-värden annorlunda än faktiska MVPD-värden. Detta kräver ytterligare arbete i er analysimplementering.
+   * Eftersom det MVPD-ID som används i Temp Pass-flödet är &quot;Temp Pass&quot;, skickas samma MVPD-ID tillbaka till **sendTrackingData()**. De flesta programmerare vill förmodligen behandla Temp Pass-statistik annorlunda än MVPD-statistik. Detta kräver ytterligare arbete i er analysimplementering.
 
 Följande bild visar flödet för tillfälligt pass:
 
@@ -53,18 +53,18 @@ Följande bild visar flödet för tillfälligt pass:
 
 ## Implementera tillfälligt pass {#implement-tempass}
 
-Temp Pass implementeras på sidan Adobe Pass Authentication med tillägget pseudo-MVPD med namnet&quot;TempPass&quot; i den deltagande programmerarens serverkonfiguration.  Detta pseudo-MVPD fungerar som ett faktiskt MVPD som tillfälligt ger åtkomst till programmerarens skyddade innehåll.
+Temp Pass implementeras på sidan Adobe Pass Authentication med tillägget pseudo-MVPD med namnet&quot;TempPass&quot; i den deltagande programmerarens serverkonfiguration.  Denna pseudo-MVPD fungerar som en riktig MVPD som tillfälligt ger åtkomst till programmerarens skyddade innehåll.
 
 På programmerarsidan implementeras Temp Pass enligt följande för de två scenarier som MVPD använder för autentisering:
 
-* **iFrame på programmerarens sida**. Tillfälligt pass fungerar oavsett vilken autentiseringstyp en MVPD har, men för iFrame-scenariot krävs ytterligare steg för att avbryta det aktuella autentiseringsflödet och autentisera med Temp Pass. De här stegen visas i [iFrame-inloggningen](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass.md) nedan.
-* **Omdirigering till MVPD-inloggningssidan**. I det mer traditionella fallet, där användargränssnittet för att aktivera det temporära passet presenteras innan autentiseringen med ett MVPD-dokument påbörjas, finns det inga särskilda åtgärder att vidta. Temporärt genomströmningstillstånd ska behandlas på samma sätt som ett vanligt MVPD.
+* **iFrame på programmerarens sida**. Tillfälligt omgångar fungerar oavsett autentiseringstyp för MVPD, men för iFrame-scenariot krävs ytterligare steg för att avbryta det aktuella autentiseringsflödet och autentisera med tillfälligt omgångar. De här stegen visas i [iFrame-inloggningen](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass.md) nedan.
+* **Dirigera om till MVPD inloggningssida**. I det mer traditionella fallet, där användargränssnittet för att aktivera det tillfälliga tillståndet presenteras innan autentiseringen med en MVPD startas, finns det inga särskilda åtgärder att vidta. Temp Pass ska behandlas på samma sätt som vanliga MVPD.
 
 Följande punkter gäller båda implementeringsscenarierna:
 
-* &quot;Temporärt pass&quot; ska endast visas i MVPD-väljaren för användare som ännu inte begärt en tillfällig godkännande. Du kan blockera visningen för efterföljande förfrågningar genom att ha en flagga på cookies. Detta fungerar så länge användaren inte rensar webbläsarens cache. Om användaren rensar sina webbläsarcacheminnen visas&quot;Temporärt pass&quot; igen i väljaren och användaren kan begära det igen. Åtkomst beviljas endast om tiden för tillfälligt pass inte har löpt ut ännu.
+* &quot;Temporärt pass&quot; ska endast visas i MVPD-väljaren för användare som ännu inte begärt en Temp Pass-auktorisering. Du kan blockera visningen för efterföljande förfrågningar genom att ha en flagga på cookies. Detta fungerar så länge användaren inte rensar webbläsarens cache. Om användaren rensar sina webbläsarcacheminnen visas&quot;Temporärt pass&quot; igen i väljaren och användaren kan begära det igen. Åtkomst beviljas endast om tiden för tillfälligt pass inte har löpt ut ännu.
 * När en användare begär åtkomst via ett tillfälligt pass kommer Adobe Pass Authentication Server inte att utföra sin vanliga SAML-begäran (Security Assertion Markup Language) under autentiseringsprocessen. I stället returneras autentiseringsslutpunkten varje gång den anropas medan tokens är giltiga för enheten.
-* När ett tillfälligt pass förfaller autentiseras inte användaren längre, eftersom autentiseringstoken och auktoriseringstoken har samma förfallodatum i Temp Pass-flödet. För att förklara för användarna att deras Temp-pass har upphört att gälla måste programmerare hämta det valda MVPD-programmet direkt efter att ha anropat `setRequestor()` och sedan ringa `checkAuthentication()` som vanligt. I återanropet `setAuthenticationStatus()` kan en kontroll göras för att avgöra om autentiseringsstatusen är 0, så om det valda MVPD var TempPass kan ett meddelande visas för användarna att deras Temp Pass-session har gått ut.
+* När ett tillfälligt pass förfaller autentiseras inte användaren längre, eftersom autentiseringstoken och auktoriseringstoken har samma förfallodatum i Temp Pass-flödet. För att förklara för användarna att deras Temp-pass har upphört att gälla måste programmerare hämta den valda MVPD-filen direkt efter att ha ringt `setRequestor()` och sedan ringa `checkAuthentication()` som vanligt. I återanropet `setAuthenticationStatus()` kan en kontroll göras för att avgöra om autentiseringsstatusen är 0, så om den valda MVPD var &quot;TempPass&quot; kan ett meddelande visas för användarna att deras Temp Pass-session har gått ut.
 * Om en användare tar bort den temporära passtoken innan den upphör att gälla, kommer efterföljande tillståndskontroller att generera en token som har en TTL som motsvarar den återstående tiden.
 * Om användaren tar bort den temporära passtoken efter förfallodatum returnerar de efterföljande behörighetskontrollerna &quot;användare ej auktoriserad&quot;.
 
@@ -215,7 +215,7 @@ I det här exemplet visas hur du implementerar Temp Pass för de fall där MVPD-
 **Om du vill begära ett tillfälligt pass för första gången:**
 
 1. En användare öppnar programmerarens sida och klickar på inloggningslänken.
-1. MVPD-väljaren öppnas och användaren väljer ett MVPD-dokument i listan.
+1. MVPD-väljaren öppnas och användaren väljer en MVPD i listan.
 1. Autentiseringsramen iFrame visas. Den här iFrame innehåller länken Temp Pass.
 1. Användaren klickar på&quot;Tillfälligt pass&quot;, så programmeraren lägger till en flagga i en cookie för att hindra användaren från att se länken&quot;Tillfälligt pass&quot; vid efterföljande besök på sidan.
 1. Autentiseringsbegäran för tillfälligt pass når Adobe Pass autentiseringsservrar och genererar en autentiseringstoken. TTL är lika med den tidsperiod som anges av programmeraren för det tillfälliga passet.
@@ -227,7 +227,7 @@ I det här exemplet visas hur du implementerar Temp Pass för de fall där MVPD-
 **Om du vill begära ett tillfälligt pass igen efter att en återkommande användare för tillfälligt pass har tagit bort webbläsarens cookies:**
 
 1. Användaren öppnar programmerarens sida och klickar på inloggningslänken.
-1. MVPD-väljaren öppnas och användaren väljer ett MVPD-dokument i listan.
+1. MVPD-väljaren öppnas och användaren väljer en MVPD i listan.
 1. Autentiseringsramen iFrame visas. Den här iFrame innehåller länken Temp Pass (användaren tog bort den ursprungliga cookien, så programmeraren vet inte om användaren har klickat på länken Temp Pass (Tillfälligt pass) tidigare.
 1. Användaren klickar på&quot;Tillfälligt pass&quot; igen, så programmeraren lägger till en flagga i en cookie igen för att förhindra att användaren ser länken&quot;Tillfälligt pass&quot; vid efterföljande besök på sidan.
 1. Begäran om temporär autentisering når Adobe Pass autentiseringsservrar, som genererar en autentiseringstoken. TTL är nu den återstående tiden för det tillfälliga passet (skillnaden mellan den aktuella tiden och den förfallotid som är kopplad till enhets-ID).
@@ -238,7 +238,7 @@ I det här exemplet visas hur du implementerar Temp Pass för de fall där MVPD-
 
 ### Exempel på automatisk inloggning {#auto-login-sample}
 
-Följande exempel visar ett fall där en användare automatiskt loggas in med TempPass när han/hon besöker en webbplats. Användaren kan när som helst välja att logga in med ett vanligt MVPD och får ett varningsmeddelande om TempPass har gått ut:
+Följande exempel visar ett fall där en användare automatiskt loggas in med TempPass när han/hon besöker en webbplats. Användaren kan välja att logga in med en vanlig MVPD när som helst och får en varning om TempPass har gått ut:
 
 ```HTML
 <html>
@@ -476,16 +476,16 @@ Följande exempel visar ett fall där en användare automatiskt loggas in med Te
 
 För vissa händelser krävs kostnadsfri tillgång till innehåll i faser, t.ex. ett initialt intervall med kostnadsfri åtkomst (t.ex. 4 timmar), följt av kostnadsfri åtkomst varje dag (t.ex. 10 minuter på varje efterföljande dag).  För att en programmerare ska kunna implementera det här scenariot måste de ordna det med sin Adobe-kontakt för att konfigurera två tillfälliga programmeringsskyltar för programmeraren.
 
-I det här scenariot (en inledande 4 timmars kostnadsfri session, följt av dagliga 10 minuters kostnadsfria sessioner) konfigurerar Adobe ett MVPD som kallas TempPass1 med en TTL på 4 timmar och ett TempPass2 med en TTL på 10 minuter för efterföljande period.  Båda är kopplade till programmerarens begärande-ID.
+I det här scenariot (en inledande 4 timmars kostnadsfri session, följt av 10 minuters kostnadsfria sessioner) konfigurerar Adobe en MVPD som heter TempPass1 med en TTL på 4 timmar och en TempPass2 med en TTL på 10 minuter för efterföljande period.  Båda är kopplade till programmerarens begärande-ID.
 
 ### Programmeringsimplementering {#mult-tempass-prog-impl}
 
 När Adobe har konfigurerat de två TempPass-instanserna visas de två ytterligare MVPD-filerna (TempPass1 och TempPass2) i programmerarens MVPD-lista.  Programmeraren måste utföra följande steg för att implementera de flera tillfälliga passeren:
 
 1. Vid användarens första besök på webbplatsen loggar du in dem automatiskt med TempPass1. Du kan använda exemplet för automatisk inloggning ovan som utgångspunkt för den här uppgiften.
-1. När du upptäcker att TempPass1 har upphört att gälla, ska du lagra uppgiften (i en cookie/lokal lagring) och visa användaren med standardväljaren för MVPD. **Se till att filtrera bort TempPass1 och TempPass2 från den listan**.
+1. När du upptäcker att TempPass1 har upphört att gälla, ska du lagra detta (i en cookie/lokal lagring) och presentera användaren med din vanliga MVPD-väljare. **Se till att filtrera bort TempPass1 och TempPass2 från den listan**.
 1. Om TempPass1 har gått ut följande dag loggar du automatiskt in den användaren med TempPass2.
-1. När TempPass2 har upphört att gälla, lagra detta (i en cookie/lokal lagring) för dagen och ge användaren en MVPD-standardväljare. Se även till att filtrera bort TempPass1 och TempPass2 från den listan.
+1. När TempPass2 har gått ut kan du lagra detta (i en cookie/lokal lagring) för dagen och visa MVPD-väljaren för användaren. Se även till att filtrera bort TempPass1 och TempPass2 från den listan.
 1. För varje ny dag, kl. 00:00 timmar, återställer du alla tillfälliga pass för TempPass2 med [Reset TempPass web API](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass.md#reset-all-tempass).
 
 >[!NOTE]
@@ -545,6 +545,6 @@ Stöd för tillfälligt pass- och återställningsverktyg per plattform:
 
 I det här avsnittet beskrivs de begränsningar som gäller för den aktuella implementeringen av Temp Pass.
 
-**JavaScript SDK**: har stöd för att återställa funktioner för temporär överföring från version **3.X och senare**.
+**JavaScript SDK**: har stöd för att återställa funktioner för temporära pass från version ****.X och senare.
 
 <!--For Customers migrating from the 2.X JavaScript AccessEnabler to the 3.X JavaScript AccessEnabler, see [AccessEnabler JS 2.x to JS 3.x migration guide](https://tve.helpdocsonline.com/accessenabler-js-to-js-migration-guide).-->

@@ -2,7 +2,7 @@
 title: REST API V2 Cookbook (Server-to-Server)
 description: REST API V2 Cookbook (Server-to-Server)
 exl-id: 3160c03c-849d-4d39-95e5-9a9cbb46174d
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 5622cad15383560e19e8111f12a1460e9b118efe
 workflow-type: tm+mt
 source-wordcount: '1578'
 ht-degree: 0%
@@ -32,10 +32,10 @@ I en fungerande server-till-server-lösning ingår följande komponenter:
 | \[Valfritt\] AuthN-enhet | AuthN-app | Om direktuppspelningsenheten inte har någon användaragent (t.ex. webbläsare) är AuthN-programmet ett webbprogram för programmerare som nås från en separat användares enhet via en webbläsare. |
 | Programmeringsinfrastruktur | Programmerartjänst | En tjänst som länkar direktuppspelningsenheten till Adobe Pass-tjänsten för att få autentiserings- och auktoriseringsbeslut. |
 | Adobe infrastruktur | Adobe Pass Service | En tjänst som integreras med MVPD IdP- och AuthZ-tjänsten och som ger autentiserings- och auktoriseringsbeslut. |
-| MVPD-infrastruktur | MVPD IdP | En MVPD-slutpunkt som tillhandahåller autentiseringsbaserad autentisering för att validera användarens identitet. |
+| MVPD Infrastructure | MVPD IdP | En MVPD-slutpunkt som tillhandahåller autentiseringsbaserad autentisering för att validera användarens identitet. |
 |                           | MVPD AuthZ-tjänst | En MVPD-slutpunkt som ger auktoriseringsbeslut baserat på användarens prenumerationer, föräldrakontroll osv. |
 
-Ytterligare termer som används i flödet definieras i [ordlistan](/help/authentication/kickstart/glossary.md).
+Ytterligare termer som används i flödet definieras i [ordlistan](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md).
 
 I följande diagram visas hela flödet:
 
@@ -89,7 +89,7 @@ Programmerartjänsten söker efter befintliga autentiserade profiler för direkt
 
 Använda en webbläsare eller ett webbaserat program för sekundär skärm:
 
-* Alternativ 1. Direktuppspelningsappen kan öppna en webbläsare eller webbvy, läsa in den URL som ska autentiseras och användaren går till inloggningssidan för MVPD där inloggningsuppgifter måste skickas
+* Alternativ 1. Strömmande app kan öppna en webbläsare eller webbvy, läsa in den URL som ska autentiseras och användaren loggar in på MVPD inloggningssida där inloggningsuppgifter måste skickas
    * Användaren anger inloggning/lösenord, den slutliga omdirigeringen visar en sida om slutförd åtgärd
 * Alternativ 2. Direktuppspelningsappen kan inte öppna en webbläsare och bara visa CODE. <b>Ett separat webbprogram, AuthN_APP, måste utvecklas</b> för att användaren ska kunna ange CODE, skapa och öppna URL: <b>/api/v2/authenticate/{serviceProvider}/{CODE}</b>
    * Användaren anger inloggning/lösenord, den slutliga omdirigeringen visar en sida om slutförd åtgärd
@@ -99,8 +99,8 @@ Använda en webbläsare eller ett webbaserat program för sekundär skärm:
 Programmerartjänsten söker efter autentisering med MVPD som ska slutföras i webbläsaren eller på andra skärmen
 
 * Avsökning var femtonde sekund rekommenderas för <b>/api/v2/{serviceProvider}/profiles/{mvpd}</b><br>
-([Hämta autentiserade profiler för specifikt MVPD](../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md))
-   * Om MVPD-valet inte görs i direktuppspelningsprogrammet eftersom MVPD-väljaren presenteras i programmet för sekundär skärm, ska avsökningen göras med CODE <b>/api/v2/{serviceProvider}/profiles/code/{CODE}</b><br>
+([Hämta autentiserade profiler för specifika MVPD](../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md))
+   * Om MVPD-val inte görs i direktuppspelningsprogrammet eftersom MVPD-väljaren presenteras i programmet för sekundär skärm, ska avsökningen göras med CODE <b>/api/v2/{serviceProvider}/profiles/code/{CODE}</b><br>
 ([Hämta autentiserade profiler för specifik KOD ](../apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md))
 * Avsökningen bör inte överstiga 30 minuter, om 30 minuter har uppnåtts och direktuppspelningsprogrammet fortfarande är aktivt, en ny session måste initieras och en ny CODE och URL returneras
 * När autentiseringen är klar är returen 200 med autentiserad profil
@@ -114,7 +114,7 @@ Med en giltig autentiseringsprofil för en användare kan programmeringstjänste
 
 * Steget är valfritt och körs om programmet vill filtrera bort resurser som inte är tillgängliga i det autentiserade användarpaketet
 * Anrop till <b>/api/v2/{serviceProvider}/Decision/preauthorized/{mvpd}</b><br>
-([Hämta förauktoriseringsbeslut med hjälp av specifikt MVPD ](../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md))
+([Hämta förauktoriseringsbeslut med specifika MVPD](../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md))
 
 ## D. Auktoriseringsfas {#authorization-phase}
 
@@ -125,7 +125,7 @@ Direktuppspelningsappen förbereds för uppspelning av en video/resurs/resurs so
 * Steg krävs för varje uppspelningsstart
 * Direktuppspelningsappen skickar informationen till programmeringstjänsten
 * Programmeringstjänsten för direktuppspelningsappen, anropa <b>/api/v2/{serviceProvider}/Decision/authorized/{mvpd}</b><br>
-([Hämta auktoriseringsbeslut med specifikt MVPD](../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md))
+([Hämta auktoriseringsbeslut med specifika MVPD](../apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md))
    * beslut = &#39;Permit&#39;, Programmer Service instruerar Streaming App att starta direktuppspelning
    * beslut = &#39;Neka&#39;, Programmeringstjänsten instruerar direktuppspelningsappen att informera användaren om att den inte har åtkomst till den videon
    * under processen kan Programmeringstjänsten utvärdera andra affärsregler och returnera lämpliga beslut till Streaming App
@@ -134,15 +134,15 @@ Direktuppspelningsappen förbereds för uppspelning av en video/resurs/resurs so
 
 ### Steg 7: Logga ut {#step-7-logout}
 
-Strömmande app: Användaren vill logga ut från MVPD
+Direktuppspelningsapp: Användaren vill logga ut från MVPD
 
 * Direktuppspelningsappen informerar programmeringstjänsten om att den behöver logga ut från MVPD för den här specifika appen.
 * Programmeringstjänsten kan rensa upp den information som lagras om den autentiserade användaren
 * Programmerartjänsten anropar <b>/api/v2/{serviceProvider}/logOut/{mvpd}</b><br>
-([Initiera utloggning för specifikt MVPD ](../apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md))
+([Initiera utloggning för specifik MVPD](../apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md))
 * Om response actionType=&#39;interactive&#39; och url finns med, kommer programmerartjänsten att returnera till Streaming App på webbadressen
 * Baserat på befintliga funktioner kan Streaming App öppna URL:en i webbläsaren (vanligtvis samma som används för autentisering)
-* Om direktuppspelningsappen inte har någon webbläsare, eller om den är en annan instans än den vid autentiseringen, kan flödet stoppas eftersom MVPD-sessionen inte sparades i webbläsarens cache.
+* Om direktuppspelningsappen inte har någon webbläsare, eller om den är en annan instans än den vid autentiseringen, kan flödet stoppas eftersom MVPD-sessionen inte sparades i webbläsarcachen.
 
 ## Miljö och funktionskrav{#environments}
 

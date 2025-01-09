@@ -2,9 +2,9 @@
 title: Välkommen till Adobe&reg; Pass Authentication!
 description: Välkommen till Adobe&reg; autentiseringsöversikt för pass
 exl-id: a8b01469-3d5f-4a44-9ae8-06a68c29d56d
-source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
+source-git-commit: 5622cad15383560e19e8111f12a1460e9b118efe
 workflow-type: tm+mt
-source-wordcount: '296'
+source-wordcount: '295'
 ht-degree: 0%
 
 ---
@@ -27,7 +27,7 @@ Adobe Pass Authentication är en berättigandelösning för TV Everywhere, som t
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | <ul><li>[Programmer Kickstart Guide](/help/authentication/kickstart/programmer-kickstart-guide.md)</li><li>[Användarmetadata](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/user-metadata.md)</li></ul> | <ul><li>[MVPD Kickstart Guide](/help/authentication/kickstart/mvpd-kickstart-guide.md)</li><li>[Autentisering](/help/authentication/integration-guide-mvpds/authn-usecase.md)</li><li>[Behörighet](/help/authentication/integration-guide-mvpds/authz-usecase.md)</li><li>[Logga ut](/help/authentication/integration-guide-mvpds/usecase-mvpd-logout.md)</li></ul> |
 | **För inbyggda appklienter** | **För alla** |
-| <ul><li>[iOS Technical Overview](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-overview.md)</li><li>[Android Technical Overview](/help/authentication/integration-guide-programmers/legacy/sdks/android-sdk/android-sdk-overview.md)</li></ul> | <ul><li>[Tekniskt papper](/help/authentication/kickstart/technical-paper.md)</li><li>[Eskaleringsprocedurer](/help/authentication/kickstart/escalation-procedures.md)</li><li>[Ordlista](/help/authentication/kickstart/glossary.md)</li></ul> |
+| <ul><li>[iOS Technical Overview](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-overview.md)</li><li>[Android Technical Overview](/help/authentication/integration-guide-programmers/legacy/sdks/android-sdk/android-sdk-overview.md)</li></ul> | <ul><li>[Tekniskt papper](/help/authentication/kickstart/technical-paper.md)</li><li>[Eskaleringsprocedurer](/help/authentication/kickstart/escalation-procedures.md)</li></ul> |
 | **För smarta enheter** |                                                                                                                                                                                                                                                                                                                                                                       |
 | <ul><li>[Kundlös teknisk översikt](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/rest-api-overview.md)</li><li>[Klientlöst API](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/rest-api-reference.md)</li></ul> |                                                                                                                                                                                                                                                                                                                                                                       |
 
