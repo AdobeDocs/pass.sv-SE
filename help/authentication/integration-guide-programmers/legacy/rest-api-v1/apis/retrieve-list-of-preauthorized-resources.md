@@ -2,9 +2,9 @@
 title: Hämta lista över förauktoriserade resurser
 description: Hämta lista över förauktoriserade resurser
 exl-id: 3821378c-bab5-4dc9-abd7-328df4b60cc3
-source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
+source-git-commit: 1c357b918fa4f6d4b92a9055de018c55ee5861e0
 workflow-type: tm+mt
-source-wordcount: '392'
+source-wordcount: '390'
 ht-degree: 0%
 
 ---
@@ -46,14 +46,14 @@ Det finns två uppsättningar API:er: en uppsättning för Streaming App eller P
 
 | Slutpunkt | Anropat </br>av | Indata   </br>Parametrar | HTTP </br>Metod | Svar | HTTP </br>Response |
 | --- | --- | --- | --- | --- | --- |
-| &lt;SP_FQDN>/api/v1/förauktorisera | Direktuppspelande app</br></br>eller</br></br>Programmeringtjänst | 1. beställare (obligatoriskt)</br>2.  deviceId (obligatoriskt)</br>3.  resurslista (obligatoriskt)</br>4.  device_info/X-Device-Info (obligatoriskt)</br>5.  _deviceType_</br> 6.  _deviceUser_ (utgått)</br>7.  _appId_ (inaktuellt) | GET | XML eller JSON som innehåller individuella beslut före auktorisering eller felinformation. Se exemplen nedan. | 200 - Lyckades</br></br>400 - Felaktig begäran</br></br>401 - Obehörig</br></br>405 - Metoden tillåts inte </br></br> 412 - Förhandsvillkoret misslyckades</br></br>500 - Internt serverfel |
+| &lt;SP_FQDN>/api/v1/förauktorisera | Direktuppspelande app</br></br>eller</br></br>Programmeringtjänst | 1. beställare (obligatoriskt)</br>2.  deviceId (obligatoriskt)</br>3.  resurs (obligatoriskt)</br>4.  device_info/X-Device-Info (obligatoriskt)</br>5.  _deviceType_</br> 6.  _deviceUser_ (utgått)</br>7.  _appId_ (inaktuellt) | GET | XML eller JSON som innehåller individuella beslut före auktorisering eller felinformation. Se exemplen nedan. | 200 - Lyckades</br></br>400 - Felaktig begäran</br></br>401 - Obehörig</br></br>405 - Metoden tillåts inte </br></br> 412 - Förhandsvillkoret misslyckades</br></br>500 - Internt serverfel |
 
 
 | Indataparameter | Beskrivning |
 | --- | --- |
 | begärande | Programmerarens requestId som den här åtgärden är giltig för. |
 | deviceId | Byte för enhets-ID. |
-| resurslista | En sträng som innehåller en kommaavgränsad lista med resourceIds som identifierar det innehåll som kan vara tillgängligt för en användare och som känns igen av MVPD slutpunkter för auktorisering. |
+| resurs | En sträng som innehåller en kommaavgränsad lista med resourceIds som identifierar det innehåll som kan vara tillgängligt för en användare och som känns igen av MVPD slutpunkter för auktorisering. |
 | device_info/</br></br>X-Device-Info | Information om direktuppspelningsenhet.</br></br>**Obs!**: Detta kan skickas som device_info som URL-parameter, men på grund av parameterns potentiella storlek och begränsningar i längden på en GET-URL, bör det skickas som X-Device-Info i http-huvudet. </br></br>Mer information finns i [Skicka information om enheter och anslutningar](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md). |
 | _deviceType_ | Enhetstypen (till exempel Roku, PC).</br></br>Om den här parametern är korrekt har ESM värden som är [nedbrutna per enhetstyp](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md#clientless_device_type) när klientlösa används, så att olika typer av analyser kan utföras, till exempel Roku, AppleTV och Xbox.</br></br>Se [fördelarna med att använda en enhetstypparameter utan klient i pass-mått ](/help/authentication/integration-guide-programmers/legacy/notes-technical/benefits-of-using-the-clientless-devicetype-parameter-in-pass-metrics.md)</br></br>**Obs!** `device_info` ersätter den här parametern. |
 | _deviceUser_ | Enhetens användaridentifierare. |

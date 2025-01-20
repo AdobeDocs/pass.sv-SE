@@ -2,9 +2,9 @@
 title: Hämta lista över förauktoriserade resurser per webbapp för sekundär skärm
 description: Hämta lista över förauktoriserade resurser per webbapp för sekundär skärm
 exl-id: 78eeaf24-4cc1-4523-8298-999c9effdb7a
-source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
+source-git-commit: 1c357b918fa4f6d4b92a9055de018c55ee5861e0
 workflow-type: tm+mt
-source-wordcount: '277'
+source-wordcount: '275'
 ht-degree: 0%
 
 ---
@@ -46,15 +46,15 @@ Det finns två uppsättningar API:er: en uppsättning för Streaming App eller P
 
 | Slutpunkt | Anropat </br>av | Indata   </br>Parametrar | HTTP </br>Metod | Svar | HTTP </br>Response |
 | --- | --- | --- | --- | --- | --- |
-| &lt;SP_FQDN>/api/v1/preauthorized/{registration code} | AuthN-modul | 1. Registreringskod </br>    (Bankomponent)</br>2.  begärande (obligatoriskt)</br>3.  resurslista (obligatoriskt) | GET | XML eller JSON som innehåller individuella beslut före auktorisering eller felinformation. Se exemplen nedan. | 200 - Lyckades</br></br>400 - Felaktig begäran</br></br>401 - Obehörig</br></br>405 - Metoden tillåts inte </br></br> 412 - Förhandsvillkoret misslyckades</br></br>500 - Internt serverfel |
+| &lt;SP_FQDN>/api/v1/preauthorized/{registration code} | AuthN-modul | 1. Registreringskod </br>    (Bankomponent)</br>2.  begärande (obligatoriskt)</br>3.  resurs (obligatoriskt) | GET | XML eller JSON som innehåller individuella beslut före auktorisering eller felinformation. Se exemplen nedan. | 200 - Lyckades</br></br>400 - Felaktig begäran</br></br>401 - Obehörig</br></br>405 - Metoden tillåts inte </br></br> 412 - Förhandsvillkoret misslyckades</br></br>500 - Internt serverfel |
 
 
 
 | Indataparameter | Beskrivning |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | registreringskod | Registreringskodvärdet som anges av användaren i början av autentiseringsflödet. |
 | begärande | Programmerarens requestId som den här åtgärden är giltig för. |
-| resurslista | En sträng som innehåller en kommaavgränsad lista med resourceIds som identifierar det innehåll som kan vara tillgängligt för en användare och som känns igen av MVPD slutpunkter för auktorisering. |
+| resurs | En sträng som innehåller en kommaavgränsad lista med resourceIds som identifierar det innehåll som kan vara tillgängligt för en användare och som känns igen av MVPD slutpunkter för auktorisering. |
 
 
 ### Exempelsvar {#sample-response}
