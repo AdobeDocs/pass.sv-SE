@@ -2,9 +2,9 @@
 title: Konfigurera din miljö och testning i Pre-Qual
 description: Konfigurera din miljö och testning i Pre-Qual
 exl-id: f822c0a1-045a-401f-a44f-742ed25bfcdc
-source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
+source-git-commit: ca95bc45027410becf8987154c7c9f8bb8c2d5f8
 workflow-type: tm+mt
-source-wordcount: '477'
+source-wordcount: '478'
 ht-degree: 0%
 
 ---
@@ -41,6 +41,16 @@ Steg 1 och 2 är att sätta upp testmiljön på en av testmaskinerna, steg 3 är
 
 ```Choose any IP from **addresses** section (e.g. `52.13.71.11)```
 
+```cmd
+C:\>nslookup entitlement-prequal.auth.adobe.com 
+...
+Addresses:  52.26.79.43
+            54.190.212.171
+```
+
+```Choose any IP from **addresses** section (e.g. `54.190.212.171)```
+
+
 * **På Linux/Mac**
 
 ```sh
@@ -53,6 +63,17 @@ Steg 1 och 2 är att sätta upp testmiljön på en av testmaskinerna, steg 3 är
 ```
 
 ```Choose any IP from **A records (**e.g `52.13.71.11)```
+
+```sh
+    $ dig entitlement-prequal.auth.adobe.com
+    
+    ;; ANSWER SECTION:
+    ...
+    ............ 60 IN A      52.26.79.43
+    ............ 60 IN A      54.190.212.171
+```
+
+```Choose any IP from **A records (**e.g `54.190.212.171)```
 
 >[!NOTE]
 >
@@ -68,14 +89,15 @@ Steg 1 och 2 är att sätta upp testmiljön på en av testmaskinerna, steg 3 är
 * *Redigera filen c:\\windows\\System32\\drivers\\etc\\hosts* (i Windows) eller */etc/hosts* filen (på Macintosh/Linux/Android) och lägg till följande:
 
 * Produktionsprofil för förfalskning
-   * 52.13.71.11 entitlement.auth.adobe.com sp.auth.adobe.com api.auth.adobe.com
+   * 52.13.71.11 sp.auth.adobe.com api.auth.adobe.com
+   * 54.190.212.171 entitlement.auth.adobe.com
 
 **Spofing på Android:** Om du vill göra en buffring på Android måste du använda en Android-emulator.
 
 * När denna funktion är på plats kan du helt enkelt använda de vanliga URL:erna för produktions- och staging-profilerna: (d.v.s. `http://sp.auth-staging.adobe.com` och `http://entitlement.auth-staging.adobe.com`, och du kommer att träffa *förkvalificeringsmiljön/ produktionen* i den nya*-versionen.
 
 
-## STEG 3.  Kontrollera att du pekar mot rätt miljö {#Verify-you-are-pointing-to-the-right-environment}
+## STEG 3.  Kontrollera att du pekar på rätt miljö {#Verify-you-are-pointing-to-the-right-environment}
 
 **Detta är ett enkelt steg:**
 
@@ -86,13 +108,13 @@ Steg 1 och 2 är att sätta upp testmiljön på en av testmaskinerna, steg 3 är
 
 * Det här steget kräver programmerarens webbadress och några giltiga MVPD-autentiseringsuppgifter (en användare som den är autentiserad och auktoriserad).
 
-## STEG 5.  Utför scenariotestning med hjälp av programmerarens webbplatser {#perform-scenario-testing-using-programmer-website}
+## STEG 5.  Testa scenarier med programmerarens webbplatser {#perform-scenario-testing-using-programmer-website}
 
-* När du har slutfört miljökonfigurationen och sett till att det grundläggande autentiseringsauktoriseringsflödet fungerar kan du fortsätta med testningen av mer komplexa scenarier.
+* När du är klar med miljökonfigurationen och ser till att det grundläggande autentiserings-/auktoriseringsflödet fungerar kan du fortsätta med testningen av mer komplexa scenarier.
 
 
 ## STEG 6.  Testa med API-testwebbplatsen {#perform-testing-using-api-testing-site}
 
 * Om du vill gå djupare i testningen av Adobe Pass-autentisering rekommenderar vi att du använder [API-testwebbplatsen](http://entitlement-prequal.auth.adobe.com/apitest/api.html).
 
-Mer information om API-testwebbplatsen finns på [Så här testar du autentiserings- och auktoriseringsflöden med Adobe API-testplats](/help/authentication/integration-guide-programmers/legacy/notes-technical/test-authn-authz-flows-using-adobes-api-test-site.md).
+Du hittar mer information på API-testwebbplatsen på [How to test Authentication and Authorization flows using Adobe&#39;s API-test site](/help/authentication/integration-guide-programmers/legacy/notes-technical/test-authn-authz-flows-using-adobes-api-test-site.md).
