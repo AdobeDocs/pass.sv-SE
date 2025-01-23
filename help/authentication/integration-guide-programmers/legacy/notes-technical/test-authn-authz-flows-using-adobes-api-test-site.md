@@ -2,9 +2,9 @@
 title: Testa autentiserings- och auktoriseringsflöden med Adobe API test site
 description: Testa autentiserings- och auktoriseringsflöden med Adobe API test site
 exl-id: 04af4aed-35e4-44cb-98ce-7643165a8869
-source-git-commit: 811feba1f2476bdfacb20e332e33df7f7ae8ac00
+source-git-commit: 65475d6da7a1b25cb2d8ebd6229a7cb360c7ab4a
 workflow-type: tm+mt
-source-wordcount: '380'
+source-wordcount: '368'
 ht-degree: 0%
 
 ---
@@ -33,8 +33,8 @@ Utför följande steg efter att ha slutfört del I:
 
 1. Öppna webbsida: [Testa mellanlagrings-API](https://sp.auth-staging.adobe.com/apitest/api.html).
 1. Läs in åtkomstaktivering med:
-   * Välj i listrutan vilken version av AccessEnabler som behövs (v3 eller v4), varifrån du vill komma åt den (testning eller produktion) och om den ska vara i felsökningsläge
-   * Ange programsatsen som du vill testa med v4
+   * Välja i listrutan var du vill få åtkomst till den (mellanlagring eller produktion) och om den ska vara i felsökningsläge
+   * Ange programsatsen som du vill testa med
    * Klicka sedan på knappen **Läs in åtkomstaktivering**.
 1. Ställ nu in beställar-ID-värdet till **beställar-ID** och klicka på knappen setRequestor.
 1. Tryck sedan på knappen &quot;getAuthentication&quot; och vänta tills visningsväljaren visas.
