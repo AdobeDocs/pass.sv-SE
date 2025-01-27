@@ -2,9 +2,9 @@
 title: Skapa autentiseringssession
 description: REST API V2 - Skapa autentiseringssession
 exl-id: bb2a6bb4-0778-4748-a674-df9d0e8242c8
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 5cb14959d6e9af91252316fbdd14ff33d813089b
 workflow-type: tm+mt
-source-wordcount: '954'
+source-wordcount: '1000'
 ht-degree: 0%
 
 ---
@@ -64,7 +64,7 @@ ht-degree: 0%
    <tr>
       <td style="background-color: #DEEBFF;">domainName</td>
       <td>
-        Den ursprungliga domänen för det program som utför MVPD-inloggning.
+        Den ursprungliga domänen för det program som kör MVPD-inloggning.
         <br/><br/>
         Om plattformen för direktuppspelningsenheten har begränsningar för att tillhandahålla ett värde, måste ett program återuppta autentiseringssessionen och ange ett giltigt värde.
       </td>
@@ -73,7 +73,7 @@ ht-degree: 0%
    <tr>
       <td style="background-color: #DEEBFF;">redirectUrl</td>
       <td>
-        Den slutliga omdirigerings-URL som användaragenten navigerar till när autentiseringsflödet för det virtuella dokumentfönstret är slutfört.
+        Den slutliga omdirigerings-URL som användaragenten navigerar till när autentiseringsflödet för MVPD är slutfört.
         <br/><br/>
         Värdet måste vara URL-kodat.
         <br/><br/>
@@ -266,6 +266,23 @@ ht-degree: 0%
                <td><i>obligatoriskt</i></td>
             </tr>
             <tr>
+               <td style="background-color: #DEEBFF;">reasonType</td>
+               <td>
+                  Den typ av orsak som används som förklarar actionName.
+                  <br/><br/>
+                  Möjliga värden är:
+                  <ul>
+                    <li><b>ingen</b></li>
+                    <li><b>autentiserad</b></li>
+                    <li><b>tillfällig</b></li>
+                    <li><b>nedtonad</b></li>
+                    <li><b>authenticatedSSO</b></li>
+                    <li><b>pfs_fallback</b></li>
+                    <li><b>configuration_fallback</b></li>
+                  </ul>
+               <td><i>obligatoriskt</i></td>
+            </tr>
+            <tr>
                <td style="background-color: #DEEBFF;">missingParameters</td>
                <td>De saknade parametrar som måste anges för att det grundläggande autentiseringsflödet ska kunna slutföras.</td>
                <td>valfri</td>
@@ -295,7 +312,17 @@ ht-degree: 0%
                <td>Den interna unika identifierare som är associerad med tjänsteleverantören under introduktionsprocessen.</td>
                <td><i>obligatoriskt</i></td>
             </tr>
-         </table>
+            <tr>
+               <td style="background-color: #DEEBFF;">notBefore</td>
+               <td>Tidsstämpeln före vilken autentiseringskoden inte är giltig.</td>
+               <td>valfri</td>
+            </tr>
+            <tr>
+               <td style="background-color: #DEEBFF;">notAfter</td>
+               <td>Tidsstämpeln efter vilken autentiseringskoden inte är giltig.</td>
+               <td>valfri</td>
+            </tr>
+</table>
       </td>
       <td><i>obligatoriskt</i></td>
 </table>
@@ -363,11 +390,14 @@ Content-Type: application/json;charset=UTF-8
 {
     "actionName": "authenticate",
     "actionType": "interactive",
+    "reasonType": "none",
     "url": "/api/v2/authenticate/REF30/8ER640M",
     "code": "8ER640M",
     "sessionId": "1b614390-6610-4d14-9421-6565f6e75958",
     "mvpd": "Cablevision",
-    "serviceProvider": "REF30"
+    "serviceProvider": "REF30",
+    "notBefore": "1733735289035",
+    "notAfter": "1733737089035"
 }
 ```
 
@@ -402,11 +432,14 @@ Content-Type: application/json;charset=UTF-8
 {
     "actionName": "resume",
     "actionType": "direct",
+    "reasonType": "none",
     "url": "/api/v2/REF30/sessions/8ER640M",
     "missingParameters": ["mvpd", "domain", "redirectUrl"],
     "code": "8ER640M",
     "sessionId": "1b614390-6610-4d14-9421-6565f6e75958",
-    "serviceProvider": "REF30"
+    "serviceProvider": "REF30",
+    "notBefore": "1733735289035",
+    "notAfter": "1733737089035"
 }
 ```
 
@@ -443,6 +476,7 @@ Content-Type: application/json;charset=UTF-8
 {
     "actionName": "authorize",
     "actionType": "direct",
+    "reasonType": "authenticated",
     "url": "/api/v2/REF30/decisions/authorize/Cablevision",
     "sessionId": "1b614390-6610-4d14-9421-6565f6e75958",
     "mvpd": "Cablevision",
@@ -481,6 +515,7 @@ Content-Type: application/json;charset=UTF-8
 {
     "actionName": "authorize",
     "actionType": "direct",
+    "reasonType": "temporary",
     "url": "/api/v2/REF30/decisions/authorize/TempPass_TEST40",
     "sessionId": "1b614390-6610-4d14-9421-6565f6e75958",
     "mvpd": "TempPass_TEST40",
@@ -521,6 +556,7 @@ Content-Type: application/json;charset=UTF-8
 {
     "actionName": "authorize",
     "actionType": "direct",
+    "reasonType": "degraded",
     "url": "/api/v2/REF30/decisions/authorize/Cablevision",
     "sessionId": "1b614390-6610-4d14-9421-6565f6e75958",
     "mvpd": "Cablevision",

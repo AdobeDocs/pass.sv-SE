@@ -2,7 +2,7 @@
 title: Hämta partnerautentiseringsbegäran
 description: REST API V2 - Hämta begäran om partnerautentisering
 exl-id: 52d8a8e9-c176-410f-92bc-e83449278943
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 5cb14959d6e9af91252316fbdd14ff33d813089b
 workflow-type: tm+mt
 source-wordcount: '1136'
 ht-degree: 0%
@@ -60,7 +60,7 @@ ht-degree: 0%
    <tr>
       <td style="background-color: #DEEBFF;">domainName</td>
       <td>
-        Den ursprungliga domänen för det program som utför MVPD-inloggning.
+        Den ursprungliga domänen för det program som kör MVPD-inloggning.
         <br/><br/>
         Om plattformen för direktuppspelningsenheten har begränsningar för att tillhandahålla ett värde, måste ett program återuppta autentiseringssessionen och ange ett giltigt värde.
         <br/><br/>
@@ -71,7 +71,7 @@ ht-degree: 0%
     <tr>
       <td style="background-color: #DEEBFF;">redirectUrl</td>
       <td>
-        Den slutliga omdirigerings-URL som användaragenten navigerar till när autentiseringsflödet för det virtuella dokumentfönstret är slutfört.
+        Den slutliga omdirigerings-URL som användaragenten navigerar till när autentiseringsflödet för MVPD är slutfört.
         <br/><br/>
         Värdet måste vara URL-kodat.
         <br/><br/>
@@ -289,7 +289,7 @@ ht-degree: 0%
                     <br/><br/>
                     JSON-objekt med följande attribut:
                     <ul>
-                        <li><b>typ</b><br/>Anger vilken typ av protokoll som stöds av MVPD (endast SAML).</li>
+                        <li><b>type</b><br/>Anger vilken typ av protokoll som stöds av MVPD (endast SAML).</li>
                         <li><b>request</b><br/>SAML-begäran.</li>
                         <li><b>attribut</b><br/>SAML-attributen begär.</li>
                     </ul>
@@ -425,6 +425,7 @@ Content-Type: application/json;charset=UTF-8
 {
     "actionName": "authorize",
     "actionType": "direct",
+    "reasonType": "degraded",
     "url": "/api/v2/REF30/decisions/authorize/${degradedMvpd}",
     "sessionId": "14d4f239-e3b1-4a4a-b8b3-6395b968a260",
     "mvpd": "${degradedMvpd}",
@@ -474,11 +475,14 @@ Content-Type: application/json;charset=UTF-8
 {
     "actionName": "authenticate",
     "actionType": "interactive",
+    "reasonType": "none",
     "url": "/api/v2/authenticate/REF30/OKTWW2W",
     "code": "OKTWW2W",
     "sessionId": "748f0b9e-a2ae-46d5-acd9-4b4e6d71add7",
     "mvpd": "Cablevision",
-    "serviceProvider": "REF30"
+    "serviceProvider": "REF30",
+    "notBefore": "1733735289035",
+    "notAfter": "1733737089035"
 }
 ```
 
@@ -524,6 +528,7 @@ Content-Type: application/json;charset=UTF-8
 {
     "actionName": "resume",
     "actionType": "direct",
+    "reasonType": "none",
     "missingParameters": [
           "redirectUrl"
     ],
@@ -531,7 +536,9 @@ Content-Type: application/json;charset=UTF-8
     "code": "SB7ZRIO",
     "sessionId": "1476173f-5088-43b8-b7c3-8cf3a185de0a",
     "mvpd": "Cablevision",
-    "serviceProvider": "REF30"
+    "serviceProvider": "REF30",
+    "notBefore": "1733735289035",
+    "notAfter": "1733737089035"
 }
 ```
 
