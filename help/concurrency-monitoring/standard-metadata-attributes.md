@@ -2,7 +2,7 @@
 title: Standardmetadataattribut
 description: Standardmetadataattribut
 exl-id: 99ffa98c-213f-47a5-a6e7-fbacb77875d0
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: ae2e61152695b738b0bb08d1dcd81417f3bbdfb5
 workflow-type: tm+mt
 source-wordcount: '1053'
 ht-degree: 0%
@@ -21,10 +21,10 @@ Den här sidan innehåller en fullständig lista över metadataattribut som tjä
 API:t för övervakning av samtidig användning tvingar klienter att skicka följande värden som en del av ett giltigt initieringsanrop: [initieringsanrop för session](/help/concurrency-monitoring/restrict-concurr-usage-mult-apps.md#api-calls-descr).
 
 | Fältnamn | Exempelvärde | Var den ska användas | Hämtat från |
-|-------------|---------------------------|--------------------|------------------------------------------------------------------------------------------------------------------------------------|
+|---------------|-----------------------------|----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | applicationId | 75b4-431b-adb2-eb6b9e546013 | Rubrik för auktorisering | Zendesk-biljett vid integration |
 | mvpdName | Sample_MVPD | URI-sökväg | Adobe Pass Authentication från config endpoint när användaren väljer MVPD |
-| accountId | 12345 | URI-sökväg | Adobe Pass Authentication upstreamUserID metadata after user login [User Metadata upstreamUserID - Adobe Pass Authentication](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata-feature.md) |
+| accountId | 12345 | URI-sökväg | Adobe Pass Authentication upstreamUserID metadata after user login [User Metadata upstreamUserID - Adobe Pass Authentication](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md) |
 
 
 ## Metadataattribut {#metadata-attr}
@@ -55,7 +55,7 @@ Om något av dessa attribut krävs för de definierade profilerna med [API v2.0]
 |                 | applicationId | string | Program-ID som unikt identifierar ett klientprogram. | Ej tillämpligt | de305d54-75b4-431b-adb2-eb6b9e546013 |                                                                                   |
 |                 | applicationPlatform | string | Programmets interna plattform | Ej tillämpligt | ios, android |                                                                                   |
 |                 | applicationVersion | string | Det här värdet kan användas i analyssyfte | Ej tillämpligt | 1.0, 2.0 |                                                                                   |
-| Ämne | accountId | string | Konto-ID för objektet för övervakning av samtidig användning (i det enhetliga dokumentationsfönstret) | Ej tillämpligt | test-account |                                                                                   |
+| Ämne | accountId | string | Konto-ID för Concurrency Monitoring-ämnet (i MVPD-området) | Ej tillämpligt | test-account |                                                                                   |
 |                 | contractType | string | Premium, grundläggande. Kunderna kan själva lägga till detta som anpassade metadata och använda det i sina egna domäner | Ej tillämpligt | premie, grundläggande |                                                                                   |
 | Användare | name | string | Vissa MVPD-program tillhandahåller information om den specifika användaren som spelar upp innehåll. | Ej tillämpligt |                                                                                                                                                         |                                                                                   |
 |                 | hba | boolesk | Identifierar om användaren försöker initiera strömmen från sin hemplats | Ej tillämpligt | true, false | true eller false |

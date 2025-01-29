@@ -4,9 +4,9 @@ audience: end-user
 feature: Authentication
 user-guide-title: Adobe Pass-autentisering
 user-guide-description: Adobe Pass-autentisering är en berättigandelösning för TV Everywhere, som tillhandahåller ett modulärt ramverk för att avgöra om någon som begär åtkomst till en resurs är berättigad till den.
-source-git-commit: 5622cad15383560e19e8111f12a1460e9b118efe
+source-git-commit: ae2e61152695b738b0bb08d1dcd81417f3bbdfb5
 workflow-type: tm+mt
-source-wordcount: '1267'
+source-wordcount: '1262'
 ht-degree: 2%
 
 ---
@@ -123,8 +123,7 @@ ht-degree: 2%
          + [Identifierar skyddad resurs](integration-guide-programmers/features-standard/entitlements/identify-protected-resources.md)
          + [Preflight-behörighet](integration-guide-programmers/features-standard/entitlements/preflight-authz.md)
          + [Integrera Media Token Verifier](integration-guide-programmers/features-standard/entitlements/media-token-verifier-int.md)
-         + [Användarmetadata](integration-guide-programmers/features-standard/entitlements/user-metadata-feature.md)
-         + [Användarmetadatacertifikat för kryptering](integration-guide-programmers/features-standard/entitlements/user-metadata-certificate.md)
+         + [Användarmetadata](integration-guide-programmers/features-standard/entitlements/user-metadata.md)
       + Felrapportering {#error-reporting}
          + [Förbättrade felkoder](integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md)
       + Enkel inloggningsåtkomst {#sso-access}

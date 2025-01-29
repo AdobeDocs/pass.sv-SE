@@ -2,7 +2,7 @@
 title: REST API V2-ordlista
 description: REST API V2-ordlista
 exl-id: 8b3bd2de-1ff8-4c57-b18d-27ecdf2b0de2
-source-git-commit: 5622cad15383560e19e8111f12a1460e9b118efe
+source-git-commit: ae2e61152695b738b0bb08d1dcd81417f3bbdfb5
 workflow-type: tm+mt
 source-wordcount: '1747'
 ht-degree: 0%
@@ -275,7 +275,7 @@ Användar-ID är en unik identifierare som är bunden till användaren och härs
 
 Användarens metadata refererar till användarspecifika attribut (t.ex. postnummer, föräldraklassificering, användar-ID:n) som underhålls av [MVPD](#mvpd) och tillhandahålls av Adobe Pass Authentication som en del av en [profil](#profile).
 
-Mer information finns i dokumentationen för [Användarmetadata](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata-feature.md).
+Mer information finns i dokumentationen för [Användarmetadata](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md).
 
 ### V {#v}
 

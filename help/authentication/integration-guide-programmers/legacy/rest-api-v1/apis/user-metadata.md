@@ -2,7 +2,7 @@
 title: Användarmetadata
 description: Användarmetadata
 exl-id: 3d7b6429-972f-4ccb-80fd-a99870a02f65
-source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
+source-git-commit: ae2e61152695b738b0bb08d1dcd81417f3bbdfb5
 workflow-type: tm+mt
 source-wordcount: '518'
 ht-degree: 0%
@@ -48,7 +48,7 @@ Hämta metadata som MVPD delat om den autentiserade användaren.
 
 
 | Indataparameter | Beskrivning |
-|------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | begärande | Programmerarens requestId som den här åtgärden är giltig för. |
 | deviceId | Byte för enhets-ID. |
 | device_info/<p>X-Device-Info | Information om direktuppspelningsenhet.</br></br> **Obs!** Det här kan skickas device_info som en URL-parameter, men på grund av parameterns potentiella storlek och begränsningar i längden på en GET-URL, bör det skickas som X-Device-Info i http-huvudet. </br></br> Se de fullständiga detaljerna i [Skicka information om enheter och anslutningar](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md). |
@@ -94,6 +94,6 @@ I objektets rot finns det tre noder:
 
 Om ett fel inträffar returnerar servern ett XML- eller JSON-objekt som anger ett detaljerat felmeddelande.
 
-Mer information finns i [Användarmetadata](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata-feature.md).
+Mer information finns i [Användarmetadata](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md).
 
 [Tillbaka till REST API-referens](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/rest-api-reference.md)

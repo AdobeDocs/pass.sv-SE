@@ -2,7 +2,7 @@
 title: Android SDK API Reference
 description: Android SDK API Reference
 exl-id: f932e9a1-2dbe-4e35-bd60-a4737407942d
-source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
+source-git-commit: ae2e61152695b738b0bb08d1dcd81417f3bbdfb5
 workflow-type: tm+mt
 source-wordcount: '4560'
 ht-degree: 0%
@@ -614,7 +614,7 @@ Programmerarna har två typer av metadata:
 
 **Återanrop har utlösts:** [`setMetadataStatus()`](#setMetadaStatus)
 
-**Mer information:** [Användarmetadata](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata-feature.md)
+**Mer information:** [Användarmetadata](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md)
 
 [Tillbaka till Android API...](#api)
 
@@ -676,7 +676,7 @@ Det här värdet är null när begäran gjordes för enkla metadata (Authenticat
 
 **Utlöses av:** [`getMetadata()`](#getMetadata)
 
-**Mer information:** [Användarmetadata](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata-feature.md)
+**Mer information:** [Användarmetadata](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md)
 
 
 [Tillbaka till Android API...](#api)
