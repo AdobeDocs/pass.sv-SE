@@ -4,9 +4,9 @@ audience: end-user
 feature: Authentication
 user-guide-title: Adobe Pass-autentisering
 user-guide-description: Adobe Pass-autentisering är en berättigandelösning för TV Everywhere, som tillhandahåller ett modulärt ramverk för att avgöra om någon som begär åtkomst till en resurs är berättigad till den.
-source-git-commit: ae2e61152695b738b0bb08d1dcd81417f3bbdfb5
+source-git-commit: dbca6c630fcbfcc5b50ccb34f6193a35888490a3
 workflow-type: tm+mt
-source-wordcount: '1262'
+source-wordcount: '1256'
 ht-degree: 2%
 
 ---
@@ -120,9 +120,9 @@ ht-degree: 2%
                + [Header - AP-TempPass-Identity](integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-temppass-identity.md)
    + Standardfunktioner {#standard-features}
       + Tillstånd {#entitlements}
-         + [Identifierar skyddad resurs](integration-guide-programmers/features-standard/entitlements/identify-protected-resources.md)
          + [Preflight-behörighet](integration-guide-programmers/features-standard/entitlements/preflight-authz.md)
-         + [Integrera Media Token Verifier](integration-guide-programmers/features-standard/entitlements/media-token-verifier-int.md)
+         + [Skyddad resurs](integration-guide-programmers/features-standard/entitlements/protected-resources.md)
+         + [Medietoken](integration-guide-programmers/features-standard/entitlements/media-tokens.md)
          + [Användarmetadata](integration-guide-programmers/features-standard/entitlements/user-metadata.md)
       + Felrapportering {#error-reporting}
          + [Förbättrade felkoder](integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md)

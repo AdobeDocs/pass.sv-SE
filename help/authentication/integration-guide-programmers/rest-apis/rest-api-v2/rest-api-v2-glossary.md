@@ -2,9 +2,9 @@
 title: REST API V2-ordlista
 description: REST API V2-ordlista
 exl-id: 8b3bd2de-1ff8-4c57-b18d-27ecdf2b0de2
-source-git-commit: ae2e61152695b738b0bb08d1dcd81417f3bbdfb5
+source-git-commit: dbca6c630fcbfcc5b50ccb34f6193a35888490a3
 workflow-type: tm+mt
-source-wordcount: '1747'
+source-wordcount: '1744'
 ht-degree: 0%
 
 ---
@@ -115,7 +115,7 @@ Synonym med den tidigare termen använde kort auktoriseringstoken.
 
 Verifieraren för medietoken är ett bibliotek som distribueras av Adobe Pass Authentication och som ansvarar för att verifiera äktheten för en [medietoken](#media-token).
 
-Mer information finns i dokumentationen för [Integrating the Media Token Verifier](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-token-verifier-int.md).
+Mer information finns i dokumentationen för [Media Token Verifier](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md#media-token-verifier).
 
 #### MVPD {#mvpd}
 
@@ -183,7 +183,7 @@ Resursen är ett skyddat innehåll som en användare försöker få åtkomst til
 
 Resursen identifieras av ett unikt värde som överenskommits mellan Programmer och MVPD.
 
-Mer information finns i dokumentationen för [Identifiera skyddade resurser](/help/authentication/integration-guide-programmers/features-standard/entitlements/identify-protected-resources.md).
+Mer information finns i dokumentationen för [Skyddade resurser](/help/authentication/integration-guide-programmers/features-standard/entitlements/protected-resources.md#identifiers).
 
 ### S {#s}
 

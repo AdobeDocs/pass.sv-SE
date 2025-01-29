@@ -2,9 +2,9 @@
 title: REST API V2 - frågor och svar
 description: REST API V2 - frågor och svar
 exl-id: 2dd74b47-126e-487b-b467-c16fa8cc14c1
-source-git-commit: ae2e61152695b738b0bb08d1dcd81417f3bbdfb5
+source-git-commit: dbca6c630fcbfcc5b50ccb34f6193a35888490a3
 workflow-type: tm+mt
-source-wordcount: '6668'
+source-wordcount: '6664'
 ht-degree: 0%
 
 ---
@@ -245,7 +245,7 @@ Den unika identifieraren för resursen kan ha två format:
 * Ett enkelt strängformat, till exempel en unik identifierare för en kanal (varumärke).
 * Ett medie-RSS-format (MRSS) som innehåller ytterligare information som titel, gradering och metadata för föräldrakontroll.
 
-Mer information finns i dokumentationen för [Identifiera skyddade resurser](/help/authentication/integration-guide-programmers/features-standard/entitlements/identify-protected-resources.md).
+Mer information finns i dokumentationen för [Skyddade resurser](/help/authentication/integration-guide-programmers/features-standard/entitlements/protected-resources.md#identifiers).
 
 #### 6. För hur många resurser kan klientprogrammet få ett beslut om förauktorisering åt gången? {#preauthorization-phase-faq6}
 
@@ -294,7 +294,7 @@ Medietoken är en term som definieras i dokumentationen för [ordlistan](/help/a
 
 Medietoken består av en signerad sträng som skickas i klartext och som kan hämtas från slutpunkten Beslutsauktorisering.
 
-Mer information finns i dokumentationen för [Integrating the Media Token Verifier](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-token-verifier-int.md).
+Mer information finns i dokumentationen för [Media Token Verifier](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md#media-token-verifier).
 
 Medietoken är giltig under en begränsad och kort tidsperiod som anges vid tidpunkten för utfärdandet, vilket anger hur lång tid det måste användas av klientprogrammet innan det krävs att fråga slutpunkten för beslutsauktorisering igen.
 
@@ -316,7 +316,7 @@ Den unika identifieraren för resursen kan ha två format:
 * Ett enkelt strängformat, till exempel en unik identifierare för en kanal (varumärke).
 * Ett medie-RSS-format (MRSS) som innehåller ytterligare information som titel, gradering och metadata för föräldrakontroll.
 
-Mer information finns i dokumentationen för [Identifiera skyddade resurser](/help/authentication/integration-guide-programmers/features-standard/entitlements/identify-protected-resources.md).
+Mer information finns i dokumentationen för [Skyddade resurser](/help/authentication/integration-guide-programmers/features-standard/entitlements/protected-resources.md#identifiers).
 
 #### 6. För hur många resurser kan klientprogrammet få ett auktoriseringsbeslut åt gången? {#authorization-phase-faq6}
 
