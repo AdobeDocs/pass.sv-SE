@@ -2,7 +2,7 @@
 title: Utvärdering av förebyggande av spårning Apple Safari
 description: Utvärdering av förebyggande av spårning Apple Safari
 exl-id: a3362020-92ff-4232-b923-e462868730d5
-source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
+source-git-commit: c1f891fabd47954dc6cf76a575c3376ed0f5cd3d
 workflow-type: tm+mt
 source-wordcount: '1849'
 ht-degree: 0%
@@ -133,7 +133,7 @@ I nuläget uppfyller dessa Safari-krav/-uppmaningar inte våra UX-krav och vi ha
 
 **Tillfälligt pass**
 
-För att minska personaliseringsproblemen och för att få en användarinteraktion rekommenderar vi att du använder **[Befordrad licens](/help/authentication/integration-guide-programmers/features-premium/temporary-access/promotional-temp-pass.md)** på ett interaktivt sätt och tillhandahåller minst en ytterligare information om användaren (till exempel e-postadress).
+För att minska personaliseringsproblemen och för att få en användarinteraktion rekommenderar vi att du använder **[Befordrad befordran](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md#promotional-temp-pass)** på ett interaktivt sätt och tillhandahåller minst en ytterligare information om användaren (till exempel e-postadress).
 
 ## Safari 13 {#safari13}
 

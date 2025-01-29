@@ -2,9 +2,9 @@
 title: Versionsinformation om Adobe Pass Authentication 2.69
 description: Versionsinformation om Adobe Pass Authentication 2.69
 exl-id: d031c4c5-dbd5-4a77-b298-a53b992cc4c5
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: c1f891fabd47954dc6cf76a575c3376ed0f5cd3d
 workflow-type: tm+mt
-source-wordcount: '215'
+source-wordcount: '214'
 ht-degree: 0%
 
 ---
@@ -33,7 +33,7 @@ Releasedatum: **02/27/2024 - 02/29/2024**
 
 * Patched security vulnerabilities.
 * Förbättringar av Återställ säkerhetslager för tillfälligt pass med DCR (Dynamic Client Registration).
-   * Du hittar mer information här: [Återställ tillfälligt pass](../integration-guide-programmers/features-premium/temporary-access/reset-temp-pass.md)
+   * Du hittar mer information här: [TempPass-funktion](../integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md)
 * Förbättringar av rapporter om plattformsidentifiering.
 
 #### REST API:er {#rest-apis}

@@ -2,7 +2,7 @@
 title: Initiera auktorisering
 description: Initiera auktorisering
 exl-id: 2f8a5499-e94f-40dd-9fb0-aac8e080de66
-source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
+source-git-commit: c1f891fabd47954dc6cf76a575c3376ed0f5cd3d
 workflow-type: tm+mt
 source-wordcount: '446'
 ht-degree: 0%
@@ -51,7 +51,7 @@ Hämtar auktoriseringssvar.
 
 
 | Indataparameter | Beskrivning |
-| --- | --- |
+| --- |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | begärande | Programmerarens requestId som den här åtgärden är giltig för. |
 | deviceId | Byte för enhets-ID. |
 | resurs | En sträng som innehåller ett resourceId (eller MRSS-fragment), identifierar det innehåll som begärts av en användare och känns igen av MVPD auktoriseringsslutpunkter. |
@@ -59,7 +59,7 @@ Hämtar auktoriseringssvar.
 | _deviceType_ | Enhetstypen (t.ex. Roku, PC).</br></br>Om den här parametern är korrekt har ESM värden som är [nedbrutna per enhetstyp](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md#clientless_device_type) när Clientless används, så att olika typer av analyser kan utföras för t.ex. Roku, AppleTV, Xbox osv.</br></br>Se [Fördelar med parameter för klientlös enhetstyp i passningsmått ](/help/authentication/integration-guide-programmers/legacy/notes-technical/benefits-of-using-the-clientless-devicetype-parameter-in-pass-metrics.md)</br></br>**Obs!** Parametern device_info kommer att ersättas. |
 | _deviceUser_ | Enhetens användaridentifierare. |
 | _appId_ | Program-ID/namn. </br></br>**Obs!**: device_info ersätter den här parametern. |
-| extra parametrar | Anropet kan även innehålla valfria parametrar som aktiverar andra funktioner som:</br></br>* generic_data - aktiverar användningen av [Promotional TempPass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/promotional-temp-pass.md)</br></br>Exempel: `generic_data=("email":"email@domain.com")` |
+| extra parametrar | Anropet kan även innehålla valfria parametrar som aktiverar andra funktioner som:</br></br>* generic_data - aktiverar användningen av [Promotional TempPass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md#promotional-temp-pass)</br></br>Exempel: `generic_data=("email":"email@domain.com")` |
 
 {style="table-layout:auto"}
 

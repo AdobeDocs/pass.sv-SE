@@ -2,7 +2,7 @@
 title: Tillfälliga åtkomstflöden
 description: REST API V2 - Tillfälliga åtkomstflöden
 exl-id: 387fcdb0-3a42-4893-ba83-e809426f92be
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: c1f891fabd47954dc6cf76a575c3376ed0f5cd3d
 workflow-type: tm+mt
 source-wordcount: '3215'
 ht-degree: 0%
@@ -21,7 +21,7 @@ ht-degree: 0%
 
 Med TempPass kan programmerare ge temporär åtkomst till sitt skyddade innehåll utan att be användarna autentisera med ett giltigt MVPD-konto.
 
-Mer information om TempPass-funktionen finns i [TempPass](../../../../features-premium/temporary-access/temp-pass.md) -dokumentationen.
+Mer information om TempPass-funktionen finns i [TempPass](../../../../features-premium/temporary-access/temp-pass-feature.md) -dokumentationen.
 
 Med tillfälliga åtkomstflöden kan du fråga efter följande scenarier:
 
@@ -351,7 +351,7 @@ Följ de angivna stegen för att implementera auktoriseringsflödet när du anv�
 
    >[!TIP]
    >
-   > Förslag: Direktuppspelningsprogrammet kan informera användarna om att det maximala antalet resurser har överskridits och råda dem att starta ett grundläggande autentiseringsflöde med ett regelbundet MVPD-program för att fortsätta titta.
+   > Förslag: Strömningsprogrammet kan informera användare om att det maximala antalet resurser har överskridits och råda dem att starta ett grundläggande autentiseringsflöde med en vanlig MVPD för att fortsätta titta.
 
 ## Hämta auktoriseringsbeslut när grundläggande eller kampanjtillagda TempPass upphör att gälla {#retrieve-authorization-decisions-when-basic-or-promotional-temppass-expires}
 
@@ -431,7 +431,7 @@ Följ de angivna stegen för att implementera auktoriseringsflödet när det gru
 
    >[!TIP]
    >
-   > Förslag: Direktuppspelningsprogrammet kan informera användare om att den tillfälliga åtkomsten har upphört att gälla och råda dem att starta ett grundläggande autentiseringsflöde med ett regelbundet MVPD-program för att fortsätta titta.
+   > Förslag: Strömningsprogrammet kan informera användare om att den tillfälliga åtkomsten har upphört att gälla och råda dem att starta ett grundläggande autentiseringsflöde med en vanlig MVPD för att fortsätta titta.
 
 ## Hämta profil för grundläggande TempPass {#retrieve-profile-for-basic-temppass}
 

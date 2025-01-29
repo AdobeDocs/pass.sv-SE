@@ -2,9 +2,9 @@
 title: REST API V2-ordlista
 description: REST API V2-ordlista
 exl-id: 8b3bd2de-1ff8-4c57-b18d-27ecdf2b0de2
-source-git-commit: dbca6c630fcbfcc5b50ccb34f6193a35888490a3
+source-git-commit: c1f891fabd47954dc6cf76a575c3376ed0f5cd3d
 workflow-type: tm+mt
-source-wordcount: '1744'
+source-wordcount: '1743'
 ht-degree: 0%
 
 ---
@@ -229,13 +229,13 @@ enkel inloggning (SSO) är en process som gör att en användare kan autentisera
 
 Grundläggande TempPass är en Adobe Pass-autentiseringsfunktion som gör att en användare kan komma åt skyddat innehåll under en begränsad tid utan att behöva autentisera med en [MVPD](#mvpd).
 
-Mer information finns i dokumentationen för [Tillfälligt pass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass.md).
+Mer information finns i dokumentationen för [Basic TempPass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md#basic-temp-pass).
 
 #### TempPass-kampanj {#temp-pass-promotional}
 
 Kampanjen TempPass är en Adobe Pass-autentiseringsfunktion som gör att en användare kan få åtkomst till skyddat innehåll för ett maximalt antal resurser och en begränsad tid utan att behöva autentisera med en [MVPD](#mvpd).
 
-Mer information finns i dokumentationen för [Kampanjtillfälligt pass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/promotional-temp-pass.md).
+Mer information finns i dokumentationen för [Promotional TempPass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md#promotional-temp-pass).
 
 #### TTL {#ttl}
 
