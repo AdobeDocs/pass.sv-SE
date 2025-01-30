@@ -2,7 +2,7 @@
 title: Supportprocedurer Frågor och svar
 description: Supportprocedurer Frågor och svar
 exl-id: 1d754e5a-d5fa-4411-8932-2a36294da6eb
-source-git-commit: 1b9847d8dcb078755fd68a6363972f8973290e52
+source-git-commit: 0ab1fc212752dd4a4d6e12a4ab1287ef74e4a282
 workflow-type: tm+mt
 source-wordcount: '777'
 ht-degree: 0%
@@ -61,7 +61,7 @@ Incidenter på nivå SEVERITY 1 kan initieras av Adobe eller en Adobe Pass-auten
    * HTTP-spårning eller enhetsloggar som visar problemet
    * (valfritt) Alla skärmbilder eller videoklipp som visar problemet
 
-1. Om Adobe inte svarar på biljetten inom en period kan partnern ringa följande nummer: **1-205-693-9813**.
+1. Om Adobe inte svarar på biljetten inom en period kan partnern ringa följande nummer: **1-657-312-4623**.
 
 >[!IMPORTANT]
 >
