@@ -4,9 +4,9 @@ audience: end-user
 feature: Authentication
 user-guide-title: Adobe Pass-autentisering
 user-guide-description: Adobe Pass-autentisering är en berättigandelösning för TV Everywhere, som tillhandahåller ett modulärt ramverk för att avgöra om någon som begär åtkomst till en resurs är berättigad till den.
-source-git-commit: 9dc25b66d12b05a8afe16d1a866707880b5d6a51
+source-git-commit: 2b9a8ce374f7a73cd815e9735d672e5c9ba285cc
 workflow-type: tm+mt
-source-wordcount: '1231'
+source-wordcount: '1230'
 ht-degree: 2%
 
 ---
@@ -48,7 +48,6 @@ ht-degree: 2%
    + [Tekniskt papper](kickstart/technical-paper.md)
    + [Programmeraren kickstart](kickstart/programmer-kickstart-guide.md)
    + [MVPD kickstart guide](kickstart/mvpd-kickstart-guide.md)
-   + [MVPD - översikt](kickstart/mvpd-overview.md)
    + [Supportprocedurer Frågor och svar](kickstart/support-procedures-faqs.md)
 + Integreringsguide för programmerare {#integration-guide-programmers}
    + [Integreringsguide för programmerare](integration-guide-programmers/programmer-integration-guide-overview.md)
@@ -260,7 +259,7 @@ ht-degree: 2%
             + [(Äldre) Övervaka Adobe Pass Adobe PayTV-pass](integration-guide-programmers/legacy/notes-technical/monitoring-adobe-pay-tv-pass.md)
             + [(Äldre) Så här testar du autentiserings- och auktoriseringsflöden med Adobe API-testwebbplats](integration-guide-programmers/legacy/notes-technical/test-authn-authz-flows-using-adobes-api-test-site.md)
 + Integreringsguide för MVPD:er {#integration-guide-mvpds}
-   + [Integreringsfunktioner](integration-guide-mvpds/mvpd-integr-features.md)
+   + [Integreringsguide för MVPD](integration-guide-mvpds/mvpd-integration-guide-overview.md)
    + [Autentisering](integration-guide-mvpds/authn-usecase.md)
    + [Autentisering med OAuth 2.0-protokollet](integration-guide-mvpds/authn-oauth2-protocol.md)
    + [Behörighet](integration-guide-mvpds/authz-usecase.md)

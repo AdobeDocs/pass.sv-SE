@@ -2,7 +2,7 @@
 title: MVPD kickstart guide
 description: MVPD kickstart guide
 exl-id: 6423cc9a-a45a-4cde-b562-4cb72c98e505
-source-git-commit: 936c1cda465dd3a9fc3f16381edb24a2b3e41779
+source-git-commit: 2b9a8ce374f7a73cd815e9735d672e5c9ba285cc
 workflow-type: tm+mt
 source-wordcount: '934'
 ht-degree: 0%
@@ -137,7 +137,7 @@ Adobe Pass Authentication-teamet är tillgängligt för att beskriva eventuella 
 
 **Adobe ger** åtkomst till vår offentliga dokumentation via [Adobe Experience League](https://experienceleague.adobe.com/en/docs/pass/authentication/home).
 
-Adobe Pass-autentiseringsteamet tillhandahåller omfattande dokumentation om tillgängliga funktioner och arbetsflöden i avsnittet [Integreringsguide för MVPD-program](/help/authentication/kickstart/mvpd-overview.md). I innehållsförteckningen under det här avsnittet finns länkar till detaljerad information om varje ämne.
+Adobe Pass-autentiseringsteamet tillhandahåller omfattande dokumentation om tillgängliga funktioner och arbetsflöden i avsnittet [Integreringsguide för MVPD-program](/help/authentication/integration-guide-mvpds/mvpd-integration-guide-overview.md). I innehållsförteckningen under det här avsnittet finns länkar till detaljerad information om varje ämne.
 
 ## Tillgång till testverktyget {#access-testing-tool}
 
