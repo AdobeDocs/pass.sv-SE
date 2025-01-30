@@ -4,9 +4,9 @@ audience: end-user
 feature: Authentication
 user-guide-title: Adobe Pass-autentisering
 user-guide-description: Adobe Pass-autentisering är en berättigandelösning för TV Everywhere, som tillhandahåller ett modulärt ramverk för att avgöra om någon som begär åtkomst till en resurs är berättigad till den.
-source-git-commit: 1b9847d8dcb078755fd68a6363972f8973290e52
+source-git-commit: ffedb5db269644c8d9c81480d27dff43bd4eb5d6
 workflow-type: tm+mt
-source-wordcount: '1250'
+source-wordcount: '1240'
 ht-degree: 2%
 
 ---
@@ -120,8 +120,7 @@ ht-degree: 2%
                + [Header - AP-TempPass-Identity](integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-temppass-identity.md)
    + Standardfunktioner {#standard-features}
       + Tillstånd {#entitlements}
-         + [Preflight-behörighet](integration-guide-programmers/features-standard/entitlements/preflight-authz.md)
-         + [Skyddad resurs](integration-guide-programmers/features-standard/entitlements/protected-resources.md)
+         + [Beslut](integration-guide-programmers/features-standard/entitlements/decisions.md)
          + [Medietoken](integration-guide-programmers/features-standard/entitlements/media-tokens.md)
          + [Användarmetadata](integration-guide-programmers/features-standard/entitlements/user-metadata.md)
       + Felrapportering {#error-reporting}
@@ -137,8 +136,7 @@ ht-degree: 2%
             + Kör enkel inloggning {#roku-sso}
                + [Roku SSO-översikt](integration-guide-programmers/features-standard/sso-access/platform-sso/roku-single-sign-on/roku-sso-overview.md)
       + Hembaserad autentiseringsåtkomst {#hba-access}
-         + [Hembaserad autentisering för TV Everywhere](integration-guide-programmers/features-standard/hba-access/home-based-authn-tve.md)
-         + [HBA-status för MVPD](integration-guide-programmers/features-standard/hba-access/hba-status-mvpds.md)
+         + [Hembaserad autentisering (HBA)](integration-guide-programmers/features-standard/hba-access/home-based-authentication.md)
       + Sekretesssupport {#privacy-support}
          + [Översikt över stöd för Privecy](integration-guide-programmers/features-premium/privacy-support/privacy-supp-overview.md)
          + [Hur man gör en sekretessförfrågan](integration-guide-programmers/features-premium/privacy-support/make-privacy-req.md)
