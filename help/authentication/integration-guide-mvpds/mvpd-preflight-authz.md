@@ -2,7 +2,7 @@
 title: MVPD Preflight-auktorisering
 description: MVPD Preflight-auktorisering
 exl-id: da2e7150-b6a8-42f3-9930-4bc846c7eee9
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: e448427ae4a36c4c6cb9f9c1cb4d0cc5c6d564ed
 workflow-type: tm+mt
 source-wordcount: '750'
 ht-degree: 0%
@@ -22,7 +22,7 @@ ht-degree: 0%
 Adobe Pass Authentication har för närvarande stöd för Preflight Authorization på två sätt för MVPD, antingen via AuthN-svarsattribut eller via en AuthZ-begäran i flera kanaler.  I följande scenarier beskrivs kostnaden/nyttan av olika sätt att implementera preflight-auktorisering:
 
 * **Best Case Scenario** - MVPD tillhandahåller en lista över förauktoriserade resurser under auktoriseringsfasen (Multi-channel AuthZ).
-* **Sämsta scenariot** - Om ett MVPD-dokument inte stöder någon form av auktorisering för flera resurser, utför Adobe Pass autentiseringsserver ett auktoriseringsanrop till MVPD för varje resurs i resurslistan. Det här scenariot påverkar svarstiden för preflight-auktoriseringsbegäran (i förhållande till antalet resurser). Det kan öka belastningen på både Adobe- och MVPD-servrar, vilket kan orsaka prestandaproblem. Dessutom genereras auktoriseringsförfrågningar/svarshändelser utan behov av en uppspelning.
+* **Sämsta scenariot** - Om en MVPD inte har stöd för någon form av auktorisering med flera resurser, utför Adobe Pass autentiseringsserver ett auktoriseringsanrop till MVPD för varje resurs i resurslistan. Det här scenariot påverkar svarstiden för preflight-auktoriseringsbegäran (i förhållande till antalet resurser). Det kan öka belastningen på både Adobe- och MVPD-servrar vilket kan orsaka prestandaproblem. Dessutom genereras auktoriseringsförfrågningar/svarshändelser utan behov av en uppspelning.
 * **Föråldrat** - MVPD tillhandahåller en lista med förauktoriserade resurser under autentiseringsfasen, så det behövs inga nätverksanrop, inte ens preflight-begäran, eftersom listan cachelagras på klienten.
 
 Även om programmeringsgränssnitten inte behöver stödja preflight-auktorisering, beskriver följande avsnitt några metoder för preflight-auktorisering som Adobe Pass Authentication kan stödja, innan de återgår till det värsta scenariot ovan.
@@ -33,7 +33,7 @@ Det här preflight-scenariot är OLCA-kompatibelt (Cableabs). I avsnitt 7.5.2 i 
 
 ### Anpassad resurslista i SAML-attribututtryck {#custom-res-saml-attr}
 
-IdP:s SAML-autentiseringssvar ska innehålla en AttributeStatement som innehåller resursnamn som AdobePass ska godkänna.  Vissa MVPD-program har följande format:
+IdP:s SAML-autentiseringssvar ska innehålla en AttributeStatement som innehåller resursnamn som AdobePass ska godkänna.  Vissa MVPD har följande format:
 
 ```XML
 <saml:AttributeStatement>
@@ -50,13 +50,13 @@ Detta uppnår det bästa scenariot och inga nätverksanrop utförs när programm
 
 ## Preflight för flera kanaler i AuthZ {#preflight-multich-authz}
 
-Den här preflight-implementeringen är även kompatibel med OLCA (Cablelabs).  I specifikationen för Authentication and Authorization Interface 1.0 (avsnitten 7.5.3 och 7.5.4) beskrivs metoder för att begära auktoriseringsinformation från ett MVPD med antingen SAML Assertions eller XACML. Det här är det rekommenderade sättet att fråga efter auktoriseringsstatus för MVPD som inte stöder detta som en del av autentiseringsflödet. Adobe Pass Authentication utfärdar ett enda nätverksanrop till MVPD för att hämta listan över auktoriserade resurser.
+Den här preflight-implementeringen är även kompatibel med OLCA (Cablelabs).  I specifikationen för Authentication and Authorization Interface 1.0 (avsnitten 7.5.3 och 7.5.4) beskrivs metoder för att begära auktoriseringsinformation från en MVPD med antingen SAML Assertions eller XACML. Det här är det rekommenderade sättet att fråga efter auktoriseringsstatus för MVPD som inte stöder detta som en del av autentiseringsflödet. Adobe Pass Authentication utfärdar ett enda nätverksanrop till MVPD för att hämta listan över auktoriserade resurser.
 
 
-Adobe Pass Authentication tar emot listan över resurser från programmerarens program. Adobe Pass Authentications MVPD-integrering kan sedan göra ett AuthZ-anrop med alla dessa resurser, analysera svaret och extrahera de olika besluten om tillstånd/neka.  Flödet för preflight med AuthZ-scenario med flera kanaler fungerar enligt följande:
+Adobe Pass Authentication tar emot listan över resurser från programmerarens program. Integreringen av Adobe Pass Authentication med MVPD kan sedan göra ett AuthZ-anrop med alla dessa resurser, analysera svaret och extrahera de olika besluten om tillstånd/neka.  Flödet för preflight med AuthZ-scenario med flera kanaler fungerar enligt följande:
 
 1. Programmerarens app skickar en kommaavgränsad lista med resurser via preflight-klientens API, t.ex. &quot;TestChannel1,TestChannel2,TestChannel3&quot;.
-1. MVPD-anropet för preflight-AuthZ-begäran innehåller flera resurser och har följande struktur:
+1. MVPD preflight AuthZ-begäran innehåller flera resurser och har följande struktur:
 
 ```XML
 <?xml version="1.0" encoding="UTF-8"?><soap11:Envelope xmlns:soap11="http://schemas.xmlsoap.org/soap/envelope/"> 
@@ -117,7 +117,7 @@ Adobe Pass Authentication tar emot listan över resurser från programmerarens p
 
 Vissa MVPD-filer har auktoriseringsslutpunkter som stöder auktorisering för flera resurser i en begäran, men de omfattas inte av scenariot som beskrivs i AuthZ för flera kanaler. Dessa specifika PDF-filer kräver anpassat arbete.
 
-Adobe kan även stödja flerkanalsauktorisering utan ändringar i den befintliga implementeringen.  Denna strategi måste ses över mellan Adobe och MVPD:s tekniska team för att se till att den fungerar som förväntat.
+Adobe kan även stödja flerkanalsauktorisering utan ändringar i den befintliga implementeringen.  Detta tillvägagångssätt måste ses över mellan Adobe och MVPD tekniska team för att se till att det fungerar som förväntat.
 
 ## MVPD-filer som stöder Preflight-auktorisering {#mvpds-supp-preflight-authz}
 
@@ -129,12 +129,3 @@ I följande tabell visas de MVPD-filer som stöder Preflight-auktorisering, till
 | Kanalindelning i användarmetadata | Suddenlink HTC | Alla Synacor Direct-integreringar har även stöd för den här metoden. |
 | Förgrening | Alla andra som inte listas ovan | Det högsta tillåtna standardantalet resurser som kontrollerats = 5. |
 
-<!--
-![RelatedInformation]
->* [Logout](/help/authentication/usecase-mvpd-logout.md)
->* [Authorization](/help/authentication/authz-usecase.md)
->* [MVPD Integration Features](/help/authentication/mvpd-integr-features.md)
->* [MVPD User Metadata Exchange](/help/authentication/mvpd-user-metadata-exchng.md)
->* [Preflight Authorization - Programmer Integration Guide](/help/authentication/preflight-authz.md)
->* [AuthN and AuthZ Interface 1.0 Specification](https://www.cablelabs.com/specifications/CL-SP-AUTH1.0-I04-120621.pdf){target=_blank} 
--->

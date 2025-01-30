@@ -2,7 +2,7 @@
 title: Användarmetadata
 description: Användarmetadata
 exl-id: 9fd68885-7b3a-4af0-a090-6f1f16efd2a1
-source-git-commit: ae2e61152695b738b0bb08d1dcd81417f3bbdfb5
+source-git-commit: e448427ae4a36c4c6cb9f9c1cb4d0cc5c6d564ed
 workflow-type: tm+mt
 source-wordcount: '1793'
 ht-degree: 0%
@@ -13,7 +13,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
->Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
+> Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
 
 Användarmetadata refererar till användarspecifika [attribut](#attributes) (t.ex. postnummer, klassificeringar av föräldrar, användar-ID:n) som underhålls av programmeringsprogram och tillhandahålls programmerare via Adobe Pass Authentication [REST API V2](#apis).
 

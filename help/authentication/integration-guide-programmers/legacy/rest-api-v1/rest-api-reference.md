@@ -2,7 +2,7 @@
 title: REST API-referens
 description: Rest api reference
 exl-id: 67e4639e-db0b-4400-bb81-e214263e8395
-source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
+source-git-commit: e448427ae4a36c4c6cb9f9c1cb4d0cc5c6d564ed
 workflow-type: tm+mt
 source-wordcount: '669'
 ht-degree: 2%
@@ -57,7 +57,7 @@ Tabellen nedan visar de tillgängliga webbtjänsterna för kundlösa metoder. Kl
 
 
 | Sr | Slutpunkt för webbtjänst | Beskrivning | <!--[Diag.  </br>Ref](http://tve.helpdocsonline.com/api-reference-v2-test#illustration)-->. | Hosted At | Anropat av |
-|-----|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|-----------------------------------------------------------|-----------------------------|
+|-----|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|-----------------------------------------------------------|-----------------------------|
 | 1. | [&lt;REGGIE_FQDN>/reggie/v1/ </br> {requestorId}/regcode](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/registration-code-request.md) | Returnerar slumpmässigt genererad registreringskod och inloggningssidans URI | 2 | Adobe </br>Reg Code Service | Smart enhet |
 | 2. | [&lt;REGGIE_FQDN>/reggie/v1/ </br> {requestorId}/regcode/ </br> {registrationCode}](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/return-registration-record.md) | Returnerar registreringskodposten som innehåller registreringskoden UUID, registreringskoden och hash-enhets-ID | 8 | Adobe </br>Reg Code Service | Adobe Pass-autentisering |
 | 3. | [&lt;SP_FQDN>/api/v1/config/ </br> {requestorId}](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/provide-mvpd-list.md) | Returnerar en lista över konfigurerade MVPD-filer för den som gjorde begäran | 5 | Adobe </br>Adobe Pass </br>authentication </br>Service | Logga in </br>på webben </br> |

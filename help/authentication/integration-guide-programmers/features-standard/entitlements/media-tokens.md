@@ -1,9 +1,10 @@
 ---
 title: Medietoken
 description: Medietoken
-source-git-commit: dbca6c630fcbfcc5b50ccb34f6193a35888490a3
+exl-id: 7e486d2c-e078-464d-90b1-14e2cfb4d20a
+source-git-commit: e448427ae4a36c4c6cb9f9c1cb4d0cc5c6d564ed
 workflow-type: tm+mt
-source-wordcount: '654'
+source-wordcount: '653'
 ht-degree: 0%
 
 ---
@@ -12,9 +13,9 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
->Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
+> Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
 
-Medietoken är en token som genereras av Adobe Pass Authentication som ett resultat av ett auktoriseringsbeslut som är avsett att ge åtkomst till skyddat innehåll (resurs). Medietoken är giltig under en begränsad och kort tidsperiod (några minuter) som anges vid tidpunkten för utfärdandet, vilket anger hur lång tid det måste användas av klientprogrammet innan det går att hämta en ny.
+Medietoken är en token som genereras av Adobe Pass Authentication [REST API V2](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md) som ett resultat av ett auktoriseringsbeslut som ska ge visningsåtkomst till skyddat innehåll (resurs). Medietoken är giltig under en begränsad och kort tidsperiod (några minuter) som anges vid utfärdandetillfället, vilket anger hur lång tid det måste verifieras och användas av klientprogrammet.
 
 Medietoken består av en signerad sträng baserad på PKI (Public Key Infrastructure) som skickas i klartext. Med det PKI-baserade skyddet signeras token med en asymmetrisk nyckel som utfärdats till Adobe av en certifikatutfärdare (CA).
 
@@ -49,7 +50,7 @@ Biblioteket för verifiering av medietoken som representeras av Java-arkivet `me
 
 Klassen `ITokenVerifier` definierar följande metoder:
 
-* Metoden `isValid()` som används för att validera medietoken. Det accepterar ett enskilt argument, [resurs-ID](/help/authentication/integration-guide-programmers/features-standard/entitlements/protected-resources.md). Om den angivna resursidentifieraren är `null` validerar metoden endast medietokenens autentiserings- och giltighetsperiod.
+* Metoden `isValid()` som används för att validera medietoken. Det accepterar ett enskilt argument, [resurs-ID](/help/authentication/integration-guide-programmers/features-standard/entitlements/decisions.md#resource-identifier). Om den angivna resursidentifieraren är `null` validerar metoden endast medietokenens autentiserings- och giltighetsperiod.
 
   Metoden `isValid()` returnerar ett av följande statusvärden:
 
@@ -193,7 +194,7 @@ Medietoken kan hämtas med följande API:
 
 * [Hämta auktoriseringsbeslut med hjälp av specifik mvpd](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md)
 
-Läs avsnitten **Svar** och **Exempel** i ovanstående API för att förstå auktoriseringsbeslut och medietokenmodeller.
+Se avsnitten **Svar** och **Exempel** i API:t ovan för att förstå strukturen för auktoriseringsbeslut och medietokens.
 
 Mer information om hur och när ovanstående API ska integreras finns i följande dokument:
 
