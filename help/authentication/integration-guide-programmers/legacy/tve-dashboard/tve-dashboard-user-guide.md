@@ -2,9 +2,9 @@
 title: Användarhandbok för Primetime TVE Dashboard
 description: Användarhandbok för Primetime TVE Dashboard
 exl-id: 6f7f7901-db3a-4c68-ac6a-27082db9240a
-source-git-commit: 5622cad15383560e19e8111f12a1460e9b118efe
+source-git-commit: 9dc25b66d12b05a8afe16d1a866707880b5d6a51
 workflow-type: tm+mt
-source-wordcount: '5526'
+source-wordcount: '5524'
 ht-degree: 0%
 
 ---
@@ -33,7 +33,6 @@ Innan du börjar gå in på den här användarhandboken rekommenderar vi att du 
 
 * [TVE Technical Paper](/help/authentication/kickstart/technical-paper.md)
 * [Programmer Kickstart Guide](/help/authentication/kickstart/programmer-kickstart-guide.md)
-* [Tillståndsflöde](/help/authentication/integration-guide-programmers/entitlement-flow.md)
 
 Om du fortsätter till nästa avsnitt i den här användarhandboken kommer du att upptäcka sätt att administrera olika inställningar för företagets kanaler, programmerare eller integreringar mellan kanaler och distributörer av videoprogram (Multichannel Video Program Distributors).
 

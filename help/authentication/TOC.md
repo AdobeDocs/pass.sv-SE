@@ -4,9 +4,9 @@ audience: end-user
 feature: Authentication
 user-guide-title: Adobe Pass-autentisering
 user-guide-description: Adobe Pass-autentisering är en berättigandelösning för TV Everywhere, som tillhandahåller ett modulärt ramverk för att avgöra om någon som begär åtkomst till en resurs är berättigad till den.
-source-git-commit: ffedb5db269644c8d9c81480d27dff43bd4eb5d6
+source-git-commit: 9dc25b66d12b05a8afe16d1a866707880b5d6a51
 workflow-type: tm+mt
-source-wordcount: '1240'
+source-wordcount: '1231'
 ht-degree: 2%
 
 ---
@@ -46,12 +46,14 @@ ht-degree: 2%
       + [Adobe Pass Authentication iOS / tvOS 3.7.0 versionsinformation](notes-releases/authn-rn-ios-tvos-370.md)
 + Kickstart {#kickstart}
    + [Tekniskt papper](kickstart/technical-paper.md)
-   + [Programmerare - översikt](kickstart/programmer-overview.md)
-   + [MVPD - översikt](kickstart/mvpd-overview.md)
    + [Programmeraren kickstart](kickstart/programmer-kickstart-guide.md)
    + [MVPD kickstart guide](kickstart/mvpd-kickstart-guide.md)
+   + [MVPD - översikt](kickstart/mvpd-overview.md)
    + [Supportprocedurer Frågor och svar](kickstart/support-procedures-faqs.md)
 + Integreringsguide för programmerare {#integration-guide-programmers}
+   + [Integreringsguide för programmerare](integration-guide-programmers/programmer-integration-guide-overview.md)
+   + [Systemkrav](integration-guide-programmers/minimum-system-requirements.md)
+   + [Begränsningsmekanism](integration-guide-programmers/throttling-mechanism.md)
    + REST API:er {#rest-apis}
       + REST API DCR {#rest-api-dcr}
          + [Översikt över registrering av dynamisk klient](integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md)
@@ -120,9 +122,9 @@ ht-degree: 2%
                + [Header - AP-TempPass-Identity](integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-temppass-identity.md)
    + Standardfunktioner {#standard-features}
       + Tillstånd {#entitlements}
+         + [Användarmetadata](integration-guide-programmers/features-standard/entitlements/user-metadata.md)
          + [Beslut](integration-guide-programmers/features-standard/entitlements/decisions.md)
          + [Medietoken](integration-guide-programmers/features-standard/entitlements/media-tokens.md)
-         + [Användarmetadata](integration-guide-programmers/features-standard/entitlements/user-metadata.md)
       + Felrapportering {#error-reporting}
          + [Förbättrade felkoder](integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md)
       + Enkel inloggningsåtkomst {#sso-access}
@@ -257,11 +259,6 @@ ht-degree: 2%
             + [(Äldre) Använda Charles Proxy](integration-guide-programmers/legacy/notes-technical/using-charles-proxy.md)
             + [(Äldre) Övervaka Adobe Pass Adobe PayTV-pass](integration-guide-programmers/legacy/notes-technical/monitoring-adobe-pay-tv-pass.md)
             + [(Äldre) Så här testar du autentiserings- och auktoriseringsflöden med Adobe API-testwebbplats](integration-guide-programmers/legacy/notes-technical/test-authn-authz-flows-using-adobes-api-test-site.md)
-   + [Översikt över guiden Integrering av programmerare](integration-guide-programmers/programmer-integration-guide-overview.md)
-   + [Flöde för programmerartillstånd](integration-guide-programmers/entitlement-flow.md)
-   + [Användningsexempel för programmerare](integration-guide-programmers/programmer-use-cases.md)
-   + [Begränsningsmekanism](integration-guide-programmers/throttling-mechanism.md)
-   + [Systemkrav](integration-guide-programmers/minimum-system-requirements.md)
 + Integreringsguide för MVPD:er {#integration-guide-mvpds}
    + [Integreringsfunktioner](integration-guide-mvpds/mvpd-integr-features.md)
    + [Autentisering](integration-guide-mvpds/authn-usecase.md)

@@ -2,9 +2,9 @@
 title: JavaScript SDK - översikt
 description: JavaScript SDK - översikt
 exl-id: 8756c804-a4c1-4ee3-b2b9-be45f38bdf94
-source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
+source-git-commit: 9dc25b66d12b05a8afe16d1a866707880b5d6a51
 workflow-type: tm+mt
-source-wordcount: '533'
+source-wordcount: '510'
 ht-degree: 0%
 
 ---
@@ -25,7 +25,7 @@ Adobe rekommenderar att du migrerar till den senaste JS v4.x-versionen av Access
 
 Integrationen med Adobe Pass Authentication JavaScript ger programmerare en TV-Everywhere-lösning i den välbekanta utvecklingsmiljön för JS-webbapplikationer. De viktigaste komponenterna i integreringen är ditt högnivåprogram (användarinteraktion, videopresentation) och det lågnivåbibliotek för AccessEnabler som tillhandahålls av Adobe som ger dig tillgång till tillståndsflödena och hanterar kommunikationen med Adobe Pass autentiseringsservrar.
 
-Det allmänna berättigandeflödet för Adobe Pass-autentisering beskrivs i [Tillståndsflöde för programmerare](/help/authentication/integration-guide-programmers/entitlement-flow.md) och JavaScript Integration Cookbook visar dig hur implementeringen görs. I följande avsnitt finns beskrivningar och exempel som är specifika för integreringen av JavaScript AccessEnabler.
+I följande avsnitt finns beskrivningar och exempel som är specifika för integreringen av JavaScript AccessEnabler.
 
 >[!IMPORTANT]
 >

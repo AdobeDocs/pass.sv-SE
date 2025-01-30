@@ -2,9 +2,9 @@
 title: Programmeraren kickstart
 description: Programmeraren kickstart
 exl-id: 0aecdb81-9b97-4475-b0b0-654d916b2374
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 9dc25b66d12b05a8afe16d1a866707880b5d6a51
 workflow-type: tm+mt
-source-wordcount: '972'
+source-wordcount: '969'
 ht-degree: 0%
 
 ---
@@ -21,7 +21,7 @@ Välkommen till Adobe Pass Authentication for TV Everywhere. Vi ser fram emot at
 
 >[!NOTE]
 >
->Detta är Kickstart Guide for Programmers (innehållsleverantörer). Om du använder en distributör av flerkanalsvideo-programmering (MVPD) ska du se [guiden för MVPD-start](/help/authentication/kickstart/mvpd-kickstart-guide.md).
+>Detta är Kickstart Guide for Programmers (innehållsleverantörer). Om du använder en distributör av flerkanalsvideo-programmering (MVPD) ska du se [MVPD kickstart-guiden](/help/authentication/kickstart/mvpd-kickstart-guide.md).
 
 
 Kontakter för Adobe Pass-autentisering:
@@ -31,7 +31,7 @@ Kontakter för Adobe Pass-autentisering:
 
 I följande information beskrivs några viktiga första steg för att komma vidare till en stabil och effektiv start. Målet är att ge en förklaring och förväntan om hur vi kommer att samarbeta med partners för att uppnå integreringar. Observera avsnitten &quot;du kommer att ange&quot; / &quot;Adobe kommer att tillhandahålla&quot; nedan för varje objekt. De listas som en checklista eller guide när vi arbetar med projektet.
 
-I det här dokumentet förutsätts att programmerare är registrerade att arbeta med en vald MVPD-partner.
+I det här dokumentet förutsätts att programmerare är registrerade att arbeta med en utvald MVPD-partner.
 
 ## Frigör schema {#release-schedule}
 
@@ -51,12 +51,11 @@ Adobe kommer att tillhandahålla
 
 * Distributionshandbok: **`https://tve.zendesk.com/entries/498741-tve-deployment-guide`**
 * Tillgång till vårt Zendesk-system för kundsupport. Här hittar du också exempel, information och videokurser om några av processerna. För att få tillgång till det här dokumentet på Zendesk, tillsammans med andra dokument som publicerats där, måste du registrera och skapa ett konto på `https://tve.zendesk.com/home`. Det finns ingen gräns för hur många användare du kan registrera.  Du kan se och dela kommentarer på alla arkiverade biljetter. Alla supportfrågor ska adresseras till `tve-support@adobe.com`.
-* [Integreringshandbok för programmerare](/help/authentication/integration-guide-programmers/programmer-integration-guide-overview.md)
 * Verifieringsbibliotek för medietoken: `https://tve.zendesk.com/entries/471323-media-token-validator-library`.
 
 ## Konfigurera testmiljö {#test-env-setup}
 
-Adobe ska först ställa in dig på testplatsen Adobe, där Adobe fungerar som ett sidoskydd för teständamål. Teamet kan sedan skapa en testwebbplats som anropar Adobe API:t. Använd MVPD-standardväljaren och välj Adobe som idP.
+Adobe ska först ställa upp dig på testsajten Adobe, där Adobe fungerar som MVPD för teständamål. Teamet kan sedan skapa en testwebbplats som anropar Adobe API:t. Använd MVPD standardväljare och välj&quot;Adobe&quot; som idP.
 
 Du kommer att ange:
 
@@ -68,28 +67,28 @@ Adobe kommer att upprätta kontot och Adobe kommer att tillhandahålla följande
 
 * Inloggning och lösenord för att komma åt testwebbplatsen
 
-## Konfigurera med MVPD {#setup-mvpd}
+## Installera med MVPD {#setup-mvpd}
 
-I det här avsnittet beskrivs vad du behöver när du migrerar från testwebbplatsen i Adobe för att arbeta med ett PDF-dokument.
+I det här avsnittet beskrivs vad du behöver när du migrerar från testwebbplatsen Adobe för att arbeta med en MVPD.
 
 Du kommer att tillhandahålla (via MVPD):
 
 * **Två uppsättningar autentiseringsuppgifter**:
    * AuthN + AuthZ : inloggning/lösenord för en användare som är autentiserad och auktoriserad
    * AuthN + Non-AuthZ: inloggning/lösenord för en användare som är autentiserad men inte auktoriserad
-* **Resurs-ID**. Detta är en specifik innehållsidentifierare som valideras med ett MVPD-protokoll över AuthZ-protokollet. Detta kan vara på kanal-, show-, avsnitt- eller tillgångsnivå; det ska överenskommas med ditt MVPD.
+* **Resurs-ID**. Detta är en specifik innehållsidentifierare som valideras med en MVPD via AuthZ-protokollet. Detta kan vara på kanal-, show-, avsnitt- eller resursnivå; det ska avtalas med din MVPD.
 
-Adobe Pass Authentication har stöd för ett MRSS-baserat metadatamatchema, vilket innebär att resurs-ID:n kan vara så specifika som behövs, och kan innehålla identifierare som kan vara unika för ett specifikt MVPD.
+Adobe Pass Authentication har stöd för ett MRSS-baserat metadatamatchema, vilket innebär att resurs-ID:n kan vara så specifika som behövs och kan innehålla identifierare som kan vara unika för en viss MVPD.
 
-**NY MVPD-integrering**: Det är viktigt att komma ihåg att ditt valda MVPD spelar en viktig roll när det gäller att slutföra integreringen. Adobe måste skriva kod för varje MVPD enligt sina specifikationer. Innan dessa steg är slutförda kan du inte välja det MVPD-programmet i dialogrutan eller slutföra produkttestningen. Adobe måste schemalägga detta arbete i förväg för att passa nästa tillgängliga sprint. (Aktuell schemainformation finns i Release Calendar.)
+**NY integrering med MVPD**: Det är viktigt att komma ihåg att din valda MVPD spelar en viktig roll när det gäller att slutföra integreringen. Adobe måste skriva kod för varje MVPD enligt sina specifikationer. Du kan inte välja MVPD i dialogrutan eller slutföra produkttestningen förrän dessa steg är klara. Adobe måste schemalägga detta arbete i förväg för att passa nästa tillgängliga sprint. (Aktuell schemainformation finns i Release Calendar.)
 
-**Befintliga MVPD-integreringar**: Om ditt valda MVPD redan har konfigurerats med Adobe bör anslutningsstegen vara mycket enklare (snabbare) och anslutningen kan ofta uppnås genom konfigurationsändringar.
+**Befintliga MVPD-integreringar**: Om din valda MVPD redan har konfigurerats med Adobe bör anslutningsstegen vara mycket enklare (snabbare) och anslutningen kan ofta göras med hjälp av konfigurationsändringar.
 
 >[!NOTE]
 >
 >MVPD måste FORTFARANDE aktivera Programmeraren och teckna avtal.
 
-**QE med MVPD:er**: Alla integreringar kommer att innebära en gemensam QE, och eftersom slutanvändaren i slutändan är kund av MVPD har många testcykler innan live-push körs. Eftersom detta innebär schemaläggning av MVPD-resurser kan detta försenas.
+**QE med MVPD:er**: Alla integreringar kommer att innebära en gemensam QE, och eftersom slutanvändaren i slutändan är kund till MVPD har många testcykler ställts in innan live-push-teknik används. Eftersom detta innebär schemaläggning av MVPD resurser kan detta försenas.
 
 <!--
 >[RELATEDINFORMATION]

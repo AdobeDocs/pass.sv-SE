@@ -2,9 +2,9 @@
 title: Medietoken
 description: Medietoken
 exl-id: 7e486d2c-e078-464d-90b1-14e2cfb4d20a
-source-git-commit: e448427ae4a36c4c6cb9f9c1cb4d0cc5c6d564ed
+source-git-commit: 9dc25b66d12b05a8afe16d1a866707880b5d6a51
 workflow-type: tm+mt
-source-wordcount: '653'
+source-wordcount: '667'
 ht-degree: 0%
 
 ---
@@ -15,7 +15,9 @@ ht-degree: 0%
 >
 > Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
 
-Medietoken är en token som genereras av Adobe Pass Authentication [REST API V2](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md) som ett resultat av ett auktoriseringsbeslut som ska ge visningsåtkomst till skyddat innehåll (resurs). Medietoken är giltig under en begränsad och kort tidsperiod (några minuter) som anges vid utfärdandetillfället, vilket anger hur lång tid det måste verifieras och användas av klientprogrammet.
+Medietoken är en token som genereras av Adobe Pass Authentication [REST API V2](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-overview.md) som ett resultat av ett auktoriseringsbeslut som ska ge visningsåtkomst till skyddat innehåll (resurs).
+
+Medietoken är giltig under en begränsad och kort tidsperiod (standardtid 7 minuter) som anges vid tidpunkten för utfärdandet, vilket anger tidsgränsen innan den måste verifieras och användas av klientprogrammet. Medietoken är begränsad till engångsbruk och får aldrig cachelagras.
 
 Medietoken består av en signerad sträng baserad på PKI (Public Key Infrastructure) som skickas i klartext. Med det PKI-baserade skyddet signeras token med en asymmetrisk nyckel som utfärdats till Adobe av en certifikatutfärdare (CA).
 
@@ -25,7 +27,7 @@ Verifieraren för medietoken är ett bibliotek som distribueras av Adobe Pass Au
 
 ## Media Token Verifier {#media-token-verifier}
 
-Adobe Pass Authentication rekommenderar att programmerare skickar medietoken till en backend-tjänst som integrerar biblioteket Media Token Verifier för att säkerställa säker åtkomst innan videoströmmen initieras. Medietokenens TTL (time-to-live) är utformad för att ta hänsyn till potentiella klocksynkroniseringsproblem mellan den tokengenererande servern och den validerande servern.
+Adobe Pass Authentication rekommenderar att programmerare skickar medietoken till sin egen backend-tjänst som integrerar biblioteket för verifiering av medietoken för att säkerställa säker åtkomst innan videoströmmen initieras. Medietokenens TTL (time-to-live) är utformad för att ta hänsyn till potentiella klocksynkroniseringsproblem mellan den tokengenererande servern och den validerande servern.
 
 Adobe Pass Authentication ger starkt stöd för att parsa medietoken och extrahera data direkt eftersom tokenformatet inte är garanterat och kan ändras i framtiden. Media Token Verifier-biblioteket bör vara det enda verktyget som används för att analysera tokeninnehållet.
 
