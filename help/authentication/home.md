@@ -1,48 +1,76 @@
 ---
-title: Välkommen till Adobe&reg; Pass Authentication!
-description: Välkommen till Adobe&reg; autentiseringsöversikt för pass
+title: Välkommen till Adobe&reg; autentisering av pass
+description: Välkommen till Adobe&reg; autentisering av pass
 exl-id: a8b01469-3d5f-4a44-9ae8-06a68c29d56d
-source-git-commit: ffedb5db269644c8d9c81480d27dff43bd4eb5d6
+source-git-commit: c9e31a036a0300fabd9f75dd85d472c390d9053e
 workflow-type: tm+mt
-source-wordcount: '293'
+source-wordcount: '419'
 ht-degree: 0%
 
 ---
 
-# Välkommen till autentisering med Adobe® Pass {#pt-auth-overview}
+# Välkommen till autentisering med Adobe® Pass {#welcome}
 
 >[!IMPORTANT]
 >
 > Se till att du håller dig informerad om de senaste produktmeddelandena för Adobe Pass-autentisering och tidslinjer för avveckling som sammanställts på sidan [Produktmeddelanden](/help/authentication/product-announcements.md).
 
-Adobe Pass Authentication är en berättigandelösning för TV Everywhere, som tillhandahåller ett modulärt ramverk för att avgöra om någon som begär åtkomst till en resurs är berättigad till den. För att kunna delta i Adobe Pass Authentication-berättigandelösning integrerar Content Providers (programmerare) och Pay TV Providers (MVPD) sina tillståndssystem med Adobe Pass Authentication-arbetsflödena. Denna dokumentationswebbplats innehåller information om integrationsprocessen samt tips för befintliga partners.
+Adobe Pass Authentication är en kraftfull lösning för tillstånd för TV Everywhere (TVE), som är utformad för att effektivisera och säkra processen att verifiera om tittarna har rätt att få tillgång till skyddat innehåll. Det här modulära ramverket kopplar ihop innehållsleverantörer (programmerare) med Pay TV Providers (MVPD), vilket underlättar berättigandetransaktioner med hastighet, konsekvens och tillförlitlighet.
 
-## Populär hjälp och vanliga frågor {#help-faqs}
+I TVE-ekosystemet tillhandahåller programmerare innehåll medan programmerare hanterar prenumerationsdata. Denna dynamik kan vara en utmaning, särskilt när man navigerar i de olika systemen i ett antal olika programmeringsskyltar. Adobe Pass Authentication eliminerar dessa problem genom att tillhandahålla en enda integreringspunkt som kopplar båda parter till det bredare TVE-landskapet.
 
-| **Aktuella objekt** |
-|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <ul><li>[Enkel inloggning för iOS](/help/authentication/integration-guide-programmers/features-standard/sso-access/partner-sso/apple-sso/apple-sso-overview.md)</li><li>[Hembaserad autentisering (HBA)](/help/authentication/integration-guide-programmers/features-standard/hba-access/home-based-authentication.md)</li><li>[HBA-grafik](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/files/AdobeNewsletterHBA.pdf)</li><li>[Användarhandbok för Adobe Pass TVE Dashboard](/help/authentication/user-guide-tve-dashboard/tve-dashboard-overview.md)</li></ul> |
+För programmerare säkerställer Adobe Pass Authentication säker åtkomst till berättigade tittare samtidigt som den tekniska bördan vid verifiering av tillstånd minskar. För distributörer av videoprogrammeringstjänster erbjuder programmet en skalbar lösning för att kommunicera med flera innehållsleverantörer via ett enhetligt gränssnitt, stärka kundrelationerna och förbättra tittarupplevelsen.
 
-| **För programmerare** | **För MVPD** |
-|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <ul><li>[Programmer Kickstart Guide](/help/authentication/kickstart/programmer-kickstart-guide.md)</li><li>[Användarmetadata](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/user-metadata.md)</li></ul> | <ul><li>[MVPD Kickstart Guide](/help/authentication/kickstart/mvpd-kickstart-guide.md)</li><li>[Autentisering](/help/authentication/integration-guide-mvpds/authn-usecase.md)</li><li>[Behörighet](/help/authentication/integration-guide-mvpds/authz-usecase.md)</li><li>[Logga ut](/help/authentication/integration-guide-mvpds/usecase-mvpd-logout.md)</li></ul> |
-| **För inbyggda appklienter** | **För alla** |
-| <ul><li>[iOS Technical Overview](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-overview.md)</li><li>[Android Technical Overview](/help/authentication/integration-guide-programmers/legacy/sdks/android-sdk/android-sdk-overview.md)</li></ul> | <ul><li>[Tekniskt papper](/help/authentication/kickstart/technical-paper.md)</li><li>[Vanliga frågor och svar om supportprocedurer](/help/authentication/kickstart/support-procedures-faqs.md)</li></ul> |
-| **För smarta enheter** |                                                                                                                                                                                                                                                                                                                                                                       |
-| <ul><li>[Kundlös teknisk översikt](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/rest-api-overview.md)</li><li>[Klientlöst API](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/rest-api-reference.md)</li></ul> |                                                                                                                                                                                                                                                                                                                                                                       |
+Adobe Pass Authentication är en SaaS-lösning (Software as a Service) som snabbar upp time-to-market, minskar risken för bedrägerier och möjliggör smidig åtkomst till material för olika plattformar, vilket säkerställer att rätt tittare får rätt innehåll utan problem.
 
->[!IMPORTANT]
->
-> [**Skicka e-post till oss**](mailto:tve-support@adobe.com) om du inte hittar något svar.
->
-> [Att skicka e-post till vårt supportteam](mailto:tve-support@adobe.com) är också det första steget i en utgåva eller incidentrapport.
->
-> Om du har ett [SEVERITY 1 LIVE](/help/authentication/kickstart/support-procedures-faqs.md)-problem, och du har e-postat till oss och 30 minuter har gått ut utan svar, kan du läsa dokumentet [Escalation Procedures](/help/authentication/kickstart/support-procedures-faqs.md) för att få telefonnummer att ringa.
+## ? Community och uppdateringar
 
-## För att hitta det du behöver {#how-to-search}
+* [Produktmeddelanden](/help/authentication/product-announcements.md)\
+  Håll dig informerad om de senaste produktmeddelandena för Adobe Pass Authentication och tidsplanerna för avveckling.
 
-* **Sök** var som helst i Adobe Pass Authentication Helpdesk efter resultat som innehåller detta
-dokumentation.
-* **Bläddra** i all dokumentation för Adobe Pass-autentisering, via mapphierarkin i navigeringsrutan till vänster.
-* **Filtrera** mapphierarkin genom att ange termer i fältet högst upp i navigeringsrutan.
-* **Bokmärke** &quot;djuplänkar&quot; till intressanta sidor med din webbläsare.
+## ❓ och felsökning
+
+* [Zendesk kundsupportportal](https://tve.zendesk.com/home)\
+  Logga in för att få tillgång till biljetter, skicka frågor eller visa kunskapsbasen.
+
+* [Vanliga frågor och svar om supportprocedurer](/help/authentication/kickstart/support-procedures-faqs.md)
+Vanliga frågor om supportprocedurer för Adobe Pass-autentisering.
+
+* [Vanliga frågor om registrering av dynamisk klient (DCR)](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-faqs.md)\
+  Vanliga frågor om Adobe Pass Authentication Dynamic Client Registration (DCR).
+
+* [REST API V2 - frågor och svar](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md)\
+  Vanliga frågor om Adobe Pass Authentication REST API V2.
+
+## ? Dokumentation
+
+**För programmerare:**
+
+* [Programmer Kickstart Guide](/help/authentication/kickstart/programmer-kickstart-guide.md)\
+  Kom igång med Adobe Pass-autentisering.
+
+* [Integreringshandbok för programmerare](/help/authentication/integration-guide-programmers/programmer-integration-guide-overview.md)\
+  Lär dig hur du integrerar Adobe Pass Authentication med din programmerare.
+
+**För MVPD:**
+
+* [MVPD Kickstart Guide](/help/authentication/kickstart/mvpd-kickstart-guide.md)\
+  Kom igång med Adobe Pass-autentisering.
+
+* [Integreringsguide för MVPD:er](/help/authentication/integration-guide-mvpds/mvpd-integration-guide-overview.md)\
+  Lär dig hur du integrerar Adobe Pass Authentication med din MVPD.
+
+*Sök efter specifika ämnen med sökfältet längst upp på sidan eller navigera i den vänstra menyn.*
+
+## ? ?️ verktyg och bibliotek
+
+* [Adobe Developer webbplats](https://developer.adobe.com/adobe-pass/)\
+  Gå till Adobe Developer webbplats och prova Adobe Pass Authentication REST API:er.
+
+* [Verifierare för medietoken](https://tve.zendesk.com/hc/en-us/articles/204963159-Media-Token-Verifier-library)\
+  Integrera det bibliotek som validerar medietoken som genereras av Adobe Pass Authentication.
+
+## ? Kontakt
+
+* [Kontakta Adobe support](mailto:tve-support@adobe.com)\
+  Om du vill ha mer hjälp eller få affärsfrågor kan du skicka ett e-postmeddelande till supportteamet på Adobe.
