@@ -2,9 +2,9 @@
 title: Versionsinformation om Adobe Pass Authentication 2.70
 description: Versionsinformation om Adobe Pass Authentication 2.70
 exl-id: 81713f8e-bc51-4057-9b00-6a2d6c83cd02
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 49a6a75944549dbfb062b1be8a053e6c99c90dc9
 workflow-type: tm+mt
-source-wordcount: '141'
+source-wordcount: '140'
 ht-degree: 0%
 
 ---
@@ -34,7 +34,7 @@ Releasedatum: **04/23/2024 - 04/25/2024**
 * Patched security vulnerabilities.
 * Förbättringar av API-tjänsten för degradering.
    * Använd DCR som säkerhetsmekanism för API för nedgradering.
-   * Mer information finns här: [Översikt över API:t för nedgradering](../integration-guide-programmers/features-premium/degraded-access/degradation-api-overview.md)
+   * Mer information finns här: [Försämringsfunktion](../integration-guide-programmers/features-premium/degraded-access/degradation-feature.md)
 
 #### REST API:er {#rest-apis}
 

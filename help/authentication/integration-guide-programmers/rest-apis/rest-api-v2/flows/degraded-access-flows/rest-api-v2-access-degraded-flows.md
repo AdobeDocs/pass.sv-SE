@@ -2,7 +2,7 @@
 title: Försämrade åtkomstflöden
 description: REST API V2 - Åtkomstflöden med degradering
 exl-id: 9276f5d9-8b1a-4282-8458-0c1e1e06bcf5
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 49a6a75944549dbfb062b1be8a053e6c99c90dc9
 workflow-type: tm+mt
 source-wordcount: '1605'
 ht-degree: 0%
@@ -19,9 +19,9 @@ ht-degree: 0%
 >
 > REST API V2-implementeringen begränsas av dokumentationen för [begränsningsmekanismen](/help/authentication/integration-guide-programmers/throttling-mechanism.md).
 
-Försämring innebär att specifika MVPD-autentiserings- och auktoriseringsslutpunkter tillfälligt kringgås. Oftast initierar programmeraren den här åtgärden, men oavsett vem som utlöser en nedbrytningshändelse beror åtgärden på tidigare arrangemang som gjorts med de berörda programmeringsversionerna.
+Genom att dekryptera kan du tillfälligt kringgå specifika slutpunkter för autentisering och behörighet från MVPD. Oftast initierar programmeraren den här åtgärden, men oavsett vem som utlöser en nedbrytningshändelse beror åtgärden på tidigare arrangemang som gjorts med de berörda programmeringsversionerna.
 
-Mer information om degraderingsfunktionen finns i dokumentationen för [Försämring](../../../../features-premium/degraded-access/degradation-api-overview.md).
+Mer information om degraderingsfunktionen finns i dokumentationen för [Försämring](../../../../features-premium/degraded-access/degradation-feature.md).
 
 Med de försämrade åtkomstflödena kan du fråga efter följande scenarier:
 
@@ -44,7 +44,7 @@ Innan du utför autentiseringsflödet när nedgraderingen tillämpas ska du kont
 > 
 > <br/>
 > 
-> * Direktuppspelningsprogrammet har ingen giltig profil för just det MVPD som sparats i Adobe Pass backend.
+> * Strömningsprogrammet har ingen giltig profil för just den MVPD som sparats i Adobe Pass backend.
 > * Det finns en AuthNAll-nedbrytningsregel som används för integreringen mellan angiven `serviceProvider` och `mvpd`.
 
 ### Arbetsflöde {#workflow-perform-authentication-while-degradation-is-applied}
@@ -112,7 +112,7 @@ Innan du hämtar auktoriseringsbeslut när nedgradering används, ska du kontrol
 > 
 > <br/>
 > 
-> * Strömningsprogrammet har ingen giltig profil för det specifika MVPD-programmet.
+> * Strömningsprogrammet har ingen giltig profil för just den MVPD.
 > * Det finns en AuthZAll- eller AuthNAll-nedbrytningsregel som tillämpas på integreringen mellan angiven `serviceProvider` och `mvpd`.
 
 ### Arbetsflöde {#workflow-retrieve-authorization-decisions-while-degradation-is-applied}
@@ -178,7 +178,7 @@ Innan du hämtar beslut om förauktorisering när nedgradering används, måste 
 >
 > <br/>
 > 
-> * Strömningsprogrammet har ingen giltig profil för det specifika MVPD-programmet.
+> * Strömningsprogrammet har ingen giltig profil för just den MVPD.
 > * Det finns en AuthZAll- eller AuthNAll-nedbrytningsregel som tillämpas på integreringen mellan angiven `serviceProvider` och `mvpd`.
 
 ### Arbetsflöde {#workflow-retrieve-preauthorization-decisions-while-degradation-is-applied}
@@ -242,9 +242,9 @@ Följ de angivna stegen för att implementera förauktoriseringsflödet när ned
 
 ### Förutsättningar {#prerequisites-retrieve-profile-while-degradation-is-applied}
 
-Innan du hämtar profilen för ett specifikt MVPD-dokument när det har ändrats måste du kontrollera att följande krav uppfylls:
+Innan du hämtar profilen för en viss MVPD när nedgradering används, måste du kontrollera att följande krav är uppfyllda:
 
-* Strömningsprogrammet, som har en markerad eller cachelagrad `mvpd`-identifierare, vill hämta profilen för ett specifikt MVPD.
+* Strömningsprogrammet, som har en markerad eller cachelagrad `mvpd`-identifierare, vill hämta profilen för en specifik MVPD.
 
 >[!IMPORTANT]
 >
@@ -252,12 +252,12 @@ Innan du hämtar profilen för ett specifikt MVPD-dokument när det har ändrats
 >
 > <br/>
 > 
-> * Strömningsprogrammet har ingen giltig profil för det specifika MVPD-programmet.
+> * Strömningsprogrammet har ingen giltig profil för just den MVPD.
 > * Det finns en AuthNAll-nedbrytningsregel som används för integreringen mellan angiven `serviceProvider` och `mvpd`.
 
 ### Arbetsflöde {#workflow-retrieve-profile-while-degradation-is-applied}
 
-Följ de angivna stegen för att implementera flödet för hämtning av profiler för ett specifikt MVPD-värde när nedgradering används, vilket visas i följande diagram.
+Följ de angivna stegen för att implementera flödet för hämtning av profiler för en viss MVPD när nedgradering används, vilket visas i följande diagram.
 
 ![Hämta profil när nedgradering används](../../../../../assets/rest-api-v2/flows/degraded-access-flows/rest-api-v2-retrieve-profile-while-degradation-is-applied-flow.png)
 

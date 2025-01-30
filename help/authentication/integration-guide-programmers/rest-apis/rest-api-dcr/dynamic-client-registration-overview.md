@@ -2,7 +2,7 @@
 title: Översikt över registrering av dynamisk klient
 description: Översikt över registrering av dynamisk klient
 exl-id: 9f98dfcd-4375-48c3-beff-259dfb1d3a26
-source-git-commit: c1f891fabd47954dc6cf76a575c3376ed0f5cd3d
+source-git-commit: 49a6a75944549dbfb062b1be8a053e6c99c90dc9
 workflow-type: tm+mt
 source-wordcount: '813'
 ht-degree: 0%
@@ -20,8 +20,8 @@ Dynamisk klientregistrering representerar en auktoriseringsmekanism som definier
 Adobe Pass erbjuder en dynamisk klientregistreringstjänst som ger åtkomst till följande skyddade API:er:
 
 * API:er för hantering av Adobe Pass-autentisering:
-   * [Återställ API för tillfälligt pass](../../features-premium/temporary-access/temp-pass-feature.md)
-   * [Försämring av API](../../features-premium/degraded-access/degradation-api-overview.md)
+   * [Återställ API för tillfälligt pass](../../features-premium/temporary-access/temp-pass-feature.md#reset-tempass-api-access)
+   * [Försämring av API](../../features-premium/degraded-access/degradation-feature.md#degradation-api-access)
    * [Proxy MVPD API](../../../integration-guide-mvpds/proxy-mvpd-webserv.md)
    * [API för tillståndsövervaknings-API](../../features-premium/esm/entitlement-service-monitoring-api.md)
 * Adobe Pass Authentication REST API:er:
@@ -102,7 +102,7 @@ Programsatsen är en JSON-webbtoken (`JWT`) som innehåller information om klien
 
 Mer detaljerad information om vilka programsatser som är och hur de fungerar finns i [RFC 7591](https://tools.ietf.org/html/rfc7591) -dokumentationen.
 
-## Dynamiskt klientregistreringsflöde  {#dynamic-client-registration-flow}
+## Dynamiskt klientregistreringsflöde {#dynamic-client-registration-flow}
 
 Sammanfattningsvis omfattar den dynamiska auktoriseringsmekanismen för klientregistrering flera steg:
 
