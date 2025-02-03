@@ -2,9 +2,9 @@
 title: Använda Charles Proxy
 description: Använda Charles Proxy
 exl-id: bb38543f-f6bc-4b5a-91b8-41bc51ee4c56
-source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
+source-git-commit: 175755aa7463257487b29c5f4da989cf34e91bfd
 workflow-type: tm+mt
-source-wordcount: '392'
+source-wordcount: '376'
 ht-degree: 0%
 
 ---
@@ -43,10 +43,9 @@ Aktivera SSL-proxy `\[ *Proxy -\> Proxy Settings... -\> SSL* \]`
 
 Markera kryssrutan Aktivera SSL-proxy och lägg till alla HTTPS-platser.
 
-
+<!-- NOTE TO WRITER - THESE IMAGES LINKS ARE BROKEN
 ![](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/images/ProxySettings.PNG) ![](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/images/SSLSettings.PNG) ![](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/images/AddHttpsLocations.PNG)
-
-
+-->
 
 - SSL-proxy - <http://www.charlesproxy.com/documentation/proxying/ssl-proxying/>
 - SSL-certifikat - <http://www.charlesproxy.com/documentation/using-charles/ssl-certificates/>
@@ -69,7 +68,9 @@ Om dina utdata blir för röriga kan du välja att ignorera eller exkludera plat
 
 DNS-förfalskning är mycket användbart när du försöker dirigera om en begäran till en annan IP-adress, särskilt när du arbetar med mobila enheter:
 
+<!-- NOTE TO WRITER - THESE IMAGES LINKS ARE BROKEN
 ![](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/images/DNSSpoofing.PNG)
+-->
 
 <http://www.charlesproxy.com/documentation/tools/dns-spoofing/>
 
@@ -82,7 +83,9 @@ DNS-förfalskning är mycket användbart när du försöker dirigera om en begä
 
 Med kartfjärrkontrollen kan du dirigera om en inkommande begäran till en annan slutpunkt. Det vanligaste användningsexemplet för den här funktionen är &quot;Mappa&quot; `AccessEnabler.swf` till `AccessEnablerDebug.swf:`
 
+<!-- NOTE TO WRITER - THESE IMAGES LINKS ARE BROKEN
 ![](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/images/MapRemote.PNG) ![](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/images/MapRemoteAdd.PNG)
+-->
 
 <http://www.charlesproxy.com/documentation/tools/map-remote/>
 
@@ -100,7 +103,9 @@ Med kartfjärrkontrollen kan du dirigera om en inkommande begäran till en annan
 
 Bläddra till <http://charlesproxy.com/charles.crt> från din iOS-enhet.  Dialogrutan för certifikatinstallation startas:
 
+<!-- NOTE TO WRITER - THESE IMAGES LINKS ARE BROKEN
 ![](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/images/iOSDeviceSSLCertificate1\(1\).PNG)![](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/images/iOSDeviceSSLCertificate2\(1\).PNG)![](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/images/iOSDeviceSSLCertificate3.PNG)
+-->
 
 </br>
 
@@ -117,15 +122,18 @@ På din iOS-enhet väljer du `\[ *Settings* -\> *Wi-FI* -\> (*YOUR\_WIFI\_NETWOR
 
 </br>
 
+<!-- NOTE TO WRITER - THESE IMAGES LINKS ARE BROKEN
 ![](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/images/iOSDeviceManualProxy1.png)![](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/images/iOSDeviceManualProxy2.PNG)
-
+-->
 
 </br>
 Här måste du ange IP-adress och port för datorn där du kör Charles. <span style="line-height: 1.6em;">Om du nu öppnar Safari på din iOS-enhet och försöker öppna en webbsida bör du få följande popup-fönster på datorn som kör Charles:
 
 </br>
 
+<!-- NOTE TO WRITER - THESE IMAGES LINKS ARE BROKEN
 ![](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/images/iOSDeviceManualProxy3.PNG)
+-->
 
 </br>
 Klicka på"Tillåt" för att tillåta att enheten använder Charles för att proxyvisa alla dess
