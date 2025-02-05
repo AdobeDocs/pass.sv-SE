@@ -2,14 +2,39 @@
 title: Produktmeddelanden
 description: Produktmeddelanden
 exl-id: 3c9c66e1-d31d-4af3-8ab2-eb32492f42ca
-source-git-commit: 49a6a75944549dbfb062b1be8a053e6c99c90dc9
+source-git-commit: 9dcc649b4216cccc9be35cd6553308bfc345b5f4
 workflow-type: tm+mt
-source-wordcount: '670'
+source-wordcount: '859'
 ht-degree: 1%
 
 ---
 
 # Produktmeddelanden {#product-announcements}
+
+<a href="https://experienceleague.adobe.com/en/docs/pass/authentication/product-announcements">![Live Webinar Series](/help/authentication/assets/rest-api-v2/live-webinar-series-banner.png)</a>
+
+Vi är en värdefull partner inom Adobe Pass Authentication och vill bjuda in dig till vårt kommande webbinarium om det nya REST API:t. Det nya API:t lanserades förra året för att förbättra användarupplevelsen och förenkla integreringen med Adobe Pass tjänster. 
+
+Vi kommer att genomföra en serie med två webbinarier för att ge en översikt över det nya API:t, fördelar och ytterligare användningsfall som kan aktiveras genom migrering till det nya API:t.
+
+Registrera dig för det webbinarium som passar dig och ditt team bäst.
+
+* [Webbinarium 1-19 februari 2025](https://events.teams.microsoft.com/event/83c6ec1e-2522-4918-910f-c529b4fb0574@fa7b1b5a-7b34-4387-94ae-d2c178decee1)
+* [Webbinarium 2-5 mars 2025](https://events.teams.microsoft.com/event/6f673689-e848-4c00-93d9-4f5d8f108977@fa7b1b5a-7b34-4387-94ae-d2c178decee1)
+
+Under sessionen kommer du att lära dig mer om:
+
+* Översikt över REST API v2 och fördelar
+* Genomgång av grundläggande flöden
+* Tidslinjer och nästa steg
+
+Webbseminariet är användbart om du:
+
+* En ny kundplanering för att starta en ny TVE-app
+* Befintliga kunder som behöver migrera till de nya API:erna
+* Implementeringspartners som implementerar API:er för kunder
+
+Teknisk dokumentation om det nya API:t [finns här](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/rest-api-v2-apis-overview.md). Vi rekommenderar att du och ditt team fyller i eventuella frågor som du vill diskutera under sessionen [här](https://forms.office.com/r/sJea78tUy3).
 
 ## Slutet av livscykeln (EOL) {#eol}
 
