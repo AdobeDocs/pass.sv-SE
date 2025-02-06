@@ -2,9 +2,9 @@
 title: API-översikt
 description: API-översikt över övervakning av samtidig användning
 exl-id: eb232926-9c68-4874-b76d-4c458d059f0d
-source-git-commit: dd370b231acc08ea0544c0dedaa1bdb0683e378f
+source-git-commit: b30d9217e70f48bf8b8d8b5eaaa98fea257f3fc5
 workflow-type: tm+mt
-source-wordcount: '1556'
+source-wordcount: '2102'
 ht-degree: 0%
 
 ---
@@ -73,12 +73,27 @@ Anropa sessionsinitieringen. Du får följande svar:
 
 Alla data vi behöver finns i svarsrubrikerna. Rubriken **Plats** representerar ID:t för den nya skapade sessionen och rubrikerna **Datum** och **Förfaller** representerar de värden som används för att schemalägga programmet så att nästa pulsslag kan hållas vid liv.
 
+Med varje anrop får du skicka alla metadata du behöver, inte bara de metadata som är obligatoriska för ditt program. Du kan skicka metadata på två sätt:
+* med **query** **parameters**:
+
+  ```sh
+  curl -i -XPOST -u "user:pass" "https://streams-stage.adobeprimetime.com/v2/sessions/some_idp/some_user?metadata1=value1&metadata2=value2"
+  ```
+
+* med **request** **body**:
+
+  ```sh
+  curl -i -XPOST -u "user:pass" https://streams-stage.adobeprimetime.com/v2/sessions/some_idp/some_user -d "metadata1=value1" -d "metadata2=value2" -H "Content-Type=application/x-www-form-urlencoded"
+  ```
+
 #### Hjärtslag {#heartbeat}
 
 Ring ett hjärtslag. Ange det **sessions-ID** som hämtats i sessionens initieringsanrop, tillsammans med parametrarna **subject** och **idp** som används.
 
 ![](assets/heartbeat.png)
 
+För hjärtslagsanrop får du skicka metadata på samma sätt som du gör för sessionsinitiering. Du kan när som helst lägga till nya metadata och uppdatera tidigare skickade värden med några **undantag**. Följande värden kan inte ändras när de väl har angetts: **package**, **channel**, **platform**, **assetId**, **idp**, **mvpd**, **hba_status**, **hba**
+**mobileDevice**
 
 Om sessionen fortfarande är giltig (den har inte gått ut eller tagits bort manuellt) får du ett resultat:
 
@@ -111,8 +126,11 @@ När du ringer får du följande svar:
 
 ![](assets/get-all-running-streams-success.png)
 
-Observera rubriken **Förfaller**. Det är den tidpunkt då den första sessionen ska förfalla om inte ett pulsslag skickas. OtherStreams har värdet 0 eftersom det inte finns några andra strömmar som körs för den här användaren i andra klientprogram.
+För varje session hämtas **terminateCode** och fullständiga metadata.
+
+Observera rubriken **Förfaller**. Det är den tidpunkt då den första sessionen ska förfalla om inte ett pulsslag skickas.
 Metadatafältet fylls i med alla metadata som skickades när sessionen startades. Vi filtrerar inte den, du får allt som du har skickat.
+Svaret inkluderar alla strömmar som körs på andra innehavares appar så länge apparna delar samma policy.
 Om det inte finns några sessioner som körs för en viss användare när du ringer får du det här svaret:
 
 ![](assets/get-all-running-streams-empty.png)
@@ -126,8 +144,13 @@ För att simulera beteendet hos programmet när den 3-strömningspolicy som är 
 
 ![](assets/breaking-policy-frstapp.png)
 
+Vi får ett 409 CONFLICT-svar tillsammans med ett utvärderingsresultatobjekt i nyttolasten. Detta anger att serversidans principer inte tillåter att den här sessionen skapas eller fortsätter. Svarstexten innehåller ett EvaluationResult-objekt med en AssociatedAdvice som inte är tom, vilket är en lista med Advice-objekt som innehåller förklaringar för varje regelöverträdelse.
 
-Vi får ett 409 CONFLICT-svar tillsammans med ett utvärderingsresultatobjekt i nyttolasten. Läs en fullständig beskrivning av utvärderingsresultatet i [Swagger API-specifikationen](http://docs.adobeptime.io/cm-api-v2/#evaluation-result).
+Programmet ska uppmana användaren med felmeddelanden som medföljer varje Advice-instans. Alla råd indikerar också regeldetaljer som attribut, tröskelvärde, regel- och principnamn. Dessutom kommer de värden som står i konflikt att tas med i listan över aktiva sessioner för varje värde.
+
+Den här informationen är avsedd för avancerad felmeddelandeformatering och för att användaren ska kunna vidta åtgärder för sessionerna som står i konflikt.
+
+Varje session som står i konflikt har en **terminateCode** som kan användas för att **döda** den strömmen. På så sätt kan programmet tillåta användaren att välja vilka sessioner som ska avslutas för att försöka få åtkomst till den aktuella sessionen.
 
 Programmet kan använda informationen från utvärderingsresultatet för att visa ett visst meddelande för användaren när videon stoppas och vidta ytterligare åtgärder om det behövs. Ett exempel kan vara att stoppa andra befintliga strömmar för att starta en ny. Detta görs genom att använda värdet **terminateCode** som finns i fältet **Confacts** för ett specifikt attribut i konflikt. Värdet anges som X-Terminate HTTP-huvud i anropet till en ny sessionsinitiering.
 
@@ -136,6 +159,30 @@ Programmet kan använda informationen från utvärderingsresultatet för att vis
 När du anger en eller flera avslutningskoder vid sessionsinitieringen lyckas anropet och en ny session genereras. Om vi sedan försöker skapa ett pulsslag med en av sessionerna som har fjärrstoppats får vi tillbaka ett 410 GONE-svar med en nyttolast som beskriver att sessionen har fjärravslutats, som i exemplet:
 
 ![](assets/remote-termination.png)
+
+410 kan returneras med eller utan en brödtext, baserat på vad som orsakade att den aktuella sessionen avslutades.
+
+När svaret inte har något innehåll innebär 410 att ett hjärtslag (eller avslutande)-anrop görs för en session som inte längre är aktiv (på grund av timeout eller en tidigare konflikt eller något annat). Det enda sättet att återskapa från det här läget är att programmet initierar en ny session. Eftersom det inte finns något innehåll ska programmet hantera det här felet utan att användaren vet om det.
+
+När en svarstext tillhandahålls måste programmet däremot söka i attributet **associatedAdvice** för att hitta en **fjärrtermineringsrådgivning** som anger fjärrsessionen som startades med en explicit avsikt att **döda** den aktuella. Detta bör resultera i ett felmeddelande som&quot;Din session har sparats ut av enhet/program&quot;.
+
+### Svarstext {#response-body}
+
+För alla API-anrop för sessionens livscykel är svarstexten (om sådan finns) ett JSON-objekt som innehåller följande fält:
+
+![](assets/body_small.png)
+
+**Råd**
+**EvaluationResult** innehåller en array med Advice-objekt under **associatedAdvice** . Enheterna är avsedda för programmet att visa ett omfattande felmeddelande för användaren och (eventuellt) tillåta användaren att vidta åtgärder.
+
+Det finns för närvarande två typer av enheter (anges av deras **type** -attributvärde): **rule-violett** och **remote-terminate**. Den första innehåller information om en regel som har brutits och sessionerna som är i konflikt med den aktuella regeln (inklusive attributet terminate som kan användas för att fjärravsluta den sessionen). Det andra är bara att det står att den aktuella sessionen avslutades avsiktligt av en fjärranvändare, så att användarna vet vem som sparkade ut dem när gränserna nåddes.
+
+![](assets/advices.png)
+
+**Skyldighet**
+Utvärderingen kan också innehålla en eller flera fördefinierade åtgärder som måste utlösas av programmet till följd av utvärderingen.
+
+![](assets/obligation.png)
 
 ### Andra programmet {#second-application}
 
