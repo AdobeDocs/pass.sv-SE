@@ -2,9 +2,9 @@
 title: Om Adobe Pass Authentication and TV Everywhere
 description: Om Adobe Pass Authentication and TV Everywhere
 exl-id: 5edeaccb-f9fa-4395-83b4-706c518d5a03
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 95e750b5c0efe5850a3ff8130f5b4bb6c5b35f57
 workflow-type: tm+mt
-source-wordcount: '6288'
+source-wordcount: '6287'
 ht-degree: 0%
 
 ---
@@ -112,7 +112,11 @@ Resten av detta dokument innehåller en teknisk introduktion till Adobe Pass Aut
 
 ## Arkitekturbyggstenar {#arch-building-blocks}
 
-![](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/images/import-pc7mz3dfnv/check.gif) Följande beskriver de centrala berättigandetransaktionerna för autentisering och auktorisering. Autentisering är processen att med en Pay TV-leverantör bekräfta att en viss användare är en känd kund. Auktorisering är den process där en Pay TV-leverantör bekräftar att en autentiserad användare har en giltig prenumeration på en viss resurs.
+<!-- BROKEN LINK
+![](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/images/import-pc7mz3dfnv/check.gif) 
+-->
+
+Nedan beskrivs de centrala berättigandetransaktionerna för autentisering och auktorisering. Autentisering är processen att med en Pay TV-leverantör bekräfta att en viss användare är en känd kund. Auktorisering är den process där en Pay TV-leverantör bekräftar att en autentiserad användare har en giltig prenumeration på en viss resurs.
 Adobe Pass Authentication består av följande grundläggande komponenter:
 
 * Klientkomponent (något av följande):
@@ -352,7 +356,7 @@ De grundläggande tillståndsflödena är Start, Autentisering, Autentisering oc
 
 * **Användarmetadata** - Beroende på avtal mellan MVPD och programmerare kan MVPD-program på ett säkert sätt utbyta metadata som Zipcode, maximum rating, channel ID med mera. Metadata möjliggör olika användningsområden, t.ex. föräldrakontroll, regionala frysperioder för idrottsevenemang m.m.
 * **Tillfällig kostnadsfri åtkomst** - Programmerare kan ge temporär kostnadsfri tillgång till sitt skyddade innehåll (t.ex. korta exempel på daglig programmering eller kostnadsfri presentation av en stor händelse).
-* **Proxy-MVPD** - Ett MVPD-program kan hantera sin egen integrering med Adobe Pass Authentication och även hantera tillståndsprocessen för en grupp med associerade ProxiedMVPD-program.
+* **Proxy MVPD** - En MVPD kan hantera sin egen integrering med Adobe Pass Authentication och även hantera tillståndsprocessen för en grupp med associerade ProxiedMVPD:er.
 
 ## Säkerhet {#security}
 
