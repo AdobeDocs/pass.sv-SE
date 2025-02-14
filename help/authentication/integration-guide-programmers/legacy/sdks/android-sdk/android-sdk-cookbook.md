@@ -2,9 +2,9 @@
 title: Android SDK Cookbook
 description: Android SDK Cookbook
 exl-id: 7f66ab92-f52c-4dae-8016-c93464dd5254
-source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
+source-git-commit: 79b3856e3ab2755cc95c3fcd34121171912a5273
 workflow-type: tm+mt
-source-wordcount: '1704'
+source-wordcount: '1703'
 ht-degree: 0%
 
 ---
@@ -30,7 +30,7 @@ Adobe Pass Authentication-berättigandelösningen för Android är uppdelad i tv
 
 - Användargränssnittets domän - det här är det övre programlagret som implementerar användargränssnittet och använder tjänsterna som tillhandahålls av AccessEnabler-biblioteket för att ge åtkomst till begränsat innehåll.
 - Domänen AccessEnabler - det är här som berättigandearbetsflödena implementeras i form av:
-   - Nätverksanrop gjorda till Adobe serverdel
+   - Nätverksanrop till Adobe serverdelsservrar
    - Affärslogik för arbetsflödena för autentisering och auktorisering
    - Hantering av olika resurser och bearbetning av arbetsflödestillstånd (t.ex. tokencache)
 
@@ -135,7 +135,9 @@ Android Library (AccessEnabler)
 
    | ANMÄRKNING |     |
    | --- | --- |  
-   | ![](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/images/icons/1313859077_lightbulb.png) | Inga berättigandebegäranden kan slutföras förrän identiteten för den som gjorde begäran har etablerats fullständigt. Detta innebär att när setRequestor() fortfarande körs blockeras alla efterföljande berättigandebegäranden (till exempel `checkAuthentication()`).<br><br>Du har två implementeringsalternativ: När begärarens identifieringsinformation har skickats till backend-servern kan gränssnittets programlager välja en av följande två metoder:<br><br>1.  Vänta på att återanropet `setRequestorComplete()` aktiveras (ingår i AccessEnabler-delegaten).  Det här alternativet ger den största säkerheten för att `setRequestor()` har slutförts, så det rekommenderas för de flesta implementeringar.<br>2.  Fortsätt utan att vänta på att återanropet `setRequestorComplete()` ska utlösas och börja utfärda tillståndsbegäranden. Dessa anrop (checkAuthentication, checkAuthorization, getAuthentication, getAuthorization, checkPreauthorizedResource, getMetadata, logout) köas av AccessEnabler-biblioteket, vilket gör att de faktiska nätverksanropen efter `setRequestor(). `Det här alternativet kan avbrytas ibland om nätverksanslutningen till exempel är instabil. |
+   |  | Inga berättigandebegäranden kan slutföras förrän identiteten för den som gjorde begäran har etablerats fullständigt. Detta innebär att när setRequestor() fortfarande körs blockeras alla efterföljande berättigandebegäranden (till exempel `checkAuthentication()`).<br><br>Du har två implementeringsalternativ: När begärarens identifieringsinformation har skickats till backend-servern kan gränssnittets programlager välja en av följande två metoder:<br><br>1.  Vänta på att återanropet `setRequestorComplete()` aktiveras (ingår i AccessEnabler-delegaten).  Det här alternativet ger den största säkerheten för att `setRequestor()` har slutförts, så det rekommenderas för de flesta implementeringar.<br>2.  Fortsätt utan att vänta på att återanropet `setRequestorComplete()` ska utlösas och börja utfärda tillståndsbegäranden. Dessa anrop (checkAuthentication, checkAuthorization, getAuthentication, getAuthorization, checkPreauthorizedResource, getMetadata, logout) köas av AccessEnabler-biblioteket, vilket gör att de faktiska nätverksanropen efter `setRequestor(). `Det här alternativet kan avbrytas ibland om nätverksanslutningen till exempel är instabil. |
+
+   <!--Removed bad image link from first note cell above. ![](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/images/icons/1313859077_lightbulb.png) -->
 
 1. Anropa [checkAuthentication()](#$checkAuthN) om du vill söka efter en befintlig autentisering utan att initiera det fullständiga autentiseringsflödet.   Om samtalet lyckas kan du gå direkt till auktoriseringsflödet.  Om inte, fortsätter du till autentiseringsflödet.
 
