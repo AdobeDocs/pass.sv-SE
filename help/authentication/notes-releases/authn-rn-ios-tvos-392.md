@@ -2,14 +2,14 @@
 title: Adobe Pass Authentication iOS / tvOS 3.9.2 Release Notes
 description: Adobe Pass Authentication iOS / tvOS 3.9.2 Release Notes
 exl-id: 5c3f6138-f727-499b-bc73-816444849c1b
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 134a9a13373717ff7772a9d765bbd7b3b4943a85
 workflow-type: tm+mt
 source-wordcount: '136'
 ht-degree: 0%
 
 ---
 
-# Adobe Pass Authentication iOS / tvOS 3.9.2 Release Notes {#ios-tvos-sdk-392-release-notes}
+# Adobe Pass Authentication iOS / tvOS 3.9.2 Release Notes {#ios-tvos-sdk-392-rn}
 
 >[!NOTE]
 >
@@ -17,20 +17,18 @@ ht-degree: 0%
 
 Den här sidan beskriver nya funktioner, ändringar och kända fel i den här versionen:
 
-## Byggnummer {#build-no-ios-tvos-sdk-392}
+## Byggnummer {#build-number-392}
 
 Adobe Pass-autentisering: iOS/tvOS 3.9.2
 
-Releasedatum: 2024-03-26
+Releasedatum: **03/26/2024**
 
+## Versionsöversikt {#relaese-overview-392}
 
-## Versionsöversikt {#overview-ios-tvos-sdk-392}
-
-* Uppdaterar SDK Privacy Manifest i enlighet med iOS 17 sekretesskrav.
+* Uppdaterar SDK sekretessmanifest i enlighet med iOS 17 sekretesskrav.
 * Korrigerar ett problem som i vissa fall orsakade att användare inte var på skärmen under autentiseringsflödet.
 * Lägger till enhetsloggning och serverloggning för att få insikter om tillståndet för nyckelkedjan.
 
-
-## Versionspaket {#rel-pkg-iostvos392}
+## Versionspaket {#release-package-392}
 
 Du kan hämta iOS/tvOS SDK v3.9.2 från [här](https://tve.zendesk.com/hc/en-us/articles/204963209-iOS-tvOS-Native-AccessEnabler-Library).

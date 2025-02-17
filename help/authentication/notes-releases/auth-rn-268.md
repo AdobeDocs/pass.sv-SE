@@ -2,9 +2,9 @@
 title: Versionsinformation om Adobe Pass Authentication 2.68
 description: Versionsinformation om Adobe Pass Authentication 2.68
 exl-id: 88628696-448e-4afa-91f0-d3767d68d2f4
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 134a9a13373717ff7772a9d765bbd7b3b4943a85
 workflow-type: tm+mt
-source-wordcount: '148'
+source-wordcount: '146'
 ht-degree: 0%
 
 ---
@@ -20,20 +20,20 @@ Den här sidan beskriver nya funktioner, ändringar och kända fel i den här ve
 ## Klienter på serversidan och webben {#server-side-web-clients-268}
 
 * [Byggnummer](#build-number-268)
-* [Nya funktioner](#new-features-268)
-* [Felkorrigeringar](#bug-fixes-268)
+* [Versionsöversikt](#release-overview-268)
 
 ### Byggnummer {#build-number-268}
 
 Adobe Pass-autentisering: adobe-pass-**2.68.0.5**
+
 Releasedatum: **12/05/2023 - 12/07/2023**
 
-### Nya funktioner {#new-features-268}
+### Versionsöversikt {#release-overview-268}
 
 * Fortsatt utveckling till nya REST APIS. De nya slutpunkterna och flödena som planeras bli tillgängliga i en kommande dedikerad version. Dokumentationen för användning av dessa nya APIS håller på att uppdateras.
 * Fortsatt förbättring av arkitekturen.
 * Biblioteket för enhetskartan uppdaterades till den senaste versionen för att förbättra enhetsidentifieringen.
 
-#### Felkorrigeringar {#bug-fixes-268}
+#### Felkorrigeringar
 
-* Ett problem med Vidgo MVPD har korrigerats så att flera beslut inte kan returneras för samma resurs.
+* Korrigerade ett problem med Vidgo MVPD så att flera beslut inte kan returneras för samma resurs.

@@ -2,14 +2,14 @@
 title: Versionsinformation om Adobe Pass Authentication 2.63
 description: Versionsinformation om Adobe Pass Authentication 2.63
 exl-id: 40987328-6d41-4948-aa4a-bab31f98a18a
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 134a9a13373717ff7772a9d765bbd7b3b4943a85
 workflow-type: tm+mt
 source-wordcount: '304'
 ht-degree: 0%
 
 ---
 
-# Versionsinformation om Adobe Pass Authentication 2.63 {#pt-authn-263-rn}
+# Versionsinformation om Adobe Pass Authentication 2.63 {#authn-263-rn}
 
 >[!NOTE]
 >
@@ -19,17 +19,18 @@ Den här sidan beskriver nya funktioner, ändringar och kända fel i den här ve
 
 ## Klienter på serversidan och webben {#server-side-web-clients-263}
 
-* [Byggnummer](#build-number)
-* [Nya funktioner](#new-features)
+* [Byggnummer](#build-number-263)
+* [Versionsöversikt](#release-overview-263)
 
 ### Byggnummer {#build-number-263}
 
 Adobe Pass-autentisering: adobe-pass-**2.63**
+
 Releasedatum: **09/20/2022 - 09/22/2022**
 
-### Nya funktioner {#new-features-263}
+### Versionsöversikt {#release-overview-263}
 
-#### Förbättra plattformsidentifieringsmekanismen {#pf-identification-mech}
+#### Förbättra plattformsidentifieringsmekanismen
 
 * Från och med den här versionen har vi förbättrat den mekanism som används för att identifiera en enhet och den kommer inte längre att vara beroende av implementeringen på klientsidan. Detta ger en exaktare detaljrikedom vid tillämpning av affärsregler på plattformsnivå och en bättre förståelse för trafikvärden i ESM-rapporter.
 
@@ -37,22 +38,19 @@ Releasedatum: **09/20/2022 - 09/22/2022**
 
 * Mer information om de planerade ändringarna får du av din Adobe TAM.
 
-#### Självnedbrytning av MVPD {#mvpd-self-degradation}
+#### MVPD självförsämring
 
 Den här funktionen ger distributörer av videoprogrammeringstjänster möjlighet att tillfälligt kringgå sina egna autentiserings- och auktoriseringsslutpunkter för högtrafikscenarier när belastningen på dessa respektive slutpunkter blir för hög.
 
+#### Lägg till proxyID i huvudet för auktoriseringsanrop
 
-#### Lägg till proxyID i huvudet för auktoriseringsanrop {#add-proxied-id}
+Den här funktionen lägger till ID:t för en proxyserver-MVPD i auktoriseringssamtalets huvud. Det gör att Synacor kan ställa in affärsregler för varje enskild proxiderad (t.ex. dirigering till olika domäner per proxiderad MVPD).
 
-Den här funktionen lägger till ID:t för en MVPD som proxyeras av Synacor i auktoriseringssamtalets huvud. Det gör att Synacor kan ställa in affärsregler för varje enskild proxiderad (t.ex. dirigering till olika domäner per proxiderat MVPD).
+#### TVE Dashboard
 
+I den här versionen har ett problem korrigerats där authN eller authZ TTL som angetts på MVPD-nivå inte beräknades korrekt i konfigurationsrapporterna.
 
-#### TVE Dashboard {#tve-dashboard}
+#### JavaScript SDK 4.6.0
 
-I den här versionen har ett problem korrigerats där authN eller authZ TTL inställt på MVPD-nivå inte beräknades korrekt i konfigurationsrapporterna.
-
-
-#### JavaScript SDK 4.6.0 {#js-sdk}
-
-* Användning av funktionen `eval` har tagits bort, vilket gör att SDK-funktionen är kompatibel med säkerhetsprincipen för innehåll.
+* Användning av funktionen `eval` har tagits bort, vilket gör att SDK följer Content Security Policy.
 * Korrigerade ett problem som förhindrade autentiseringsflödet från att slutföras när webbläsarens lokala lagring rensades explicit av ett partnerprogram.

@@ -2,14 +2,14 @@
 title: Adobe Pass Authentication JavaScript 4.4.0 Release Notes
 description: Adobe Pass Authentication JavaScript 4.4.0 Release Notes
 exl-id: 28cc0ccc-7a1d-45bd-8455-26cfde25c5c5
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 134a9a13373717ff7772a9d765bbd7b3b4943a85
 workflow-type: tm+mt
 source-wordcount: '245'
 ht-degree: 0%
 
 ---
 
-# Adobe Pass Authentication JavaScript 4.4.0 Release Notes {#javascript-sdk-440-release-notes}
+# Adobe Pass Authentication JavaScript 4.4.0 Release Notes {#javascript-sdk-440-rn}
 
 >[!NOTE]
 >
@@ -17,16 +17,15 @@ ht-degree: 0%
 
 Den här sidan beskriver nya funktioner, ändringar och kända fel i den här versionen:
 
-## Byggnummer {#build-no-javascript-sdk-440}
+## Byggnummer {#build-number-440}
 
 Adobe Pass-autentisering: JavaScript 4.4.0
 
 Releasedatum: **06/22/2021**
 
+## Versionsöversikt {#release-overview-440}
 
-## Versionsöversikt {#overview-javascript-sdk-440}
-
-### Nya funktioner {#new-features-javascript-sdk-440}
+### Nya funktioner
 
 Preflight-behörighet
 
@@ -36,20 +35,19 @@ Preflight-behörighet
 
 Plattformsidentifiering
 
-* Lägger till AP-SDK-Identifier-huvud i alla SDK-anrop för att bättre identifiera SDK-typ och version.
+* Lägger till rubriker för AP-SDK-ID i alla SDK-anrop för att bättre identifiera SDK-typ och -version.
 
 Övriga
 
 * Interna förbättringar av arkitekturen.
 
-
-### Felkorrigeringar {#bug-fixes-javascript-sdk-440}
+### Felkorrigeringar
 
 * Åtgärda konkurrensvillkor som uppstår när setRequestor och getAuthentication anropas samtidigt.
 * Korrigerade ett problem som förhindrade att berättiganden lästes in korrekt i mellanlagringsmiljöer.
-* Ett problem som hindrade inloggningsflödet i bakgrunden att slutföras i Safari-webbläsare har åtgärdats, vilket innebär att användaren fortfarande verkade autentiserad tills en uppdatering av sidan gjordes. En timeout uppstod, som för närvarande är inställd på 30 sekunder, så om det inte finns något svar från Primetime Authentication-servern under den här perioden kommer SDK att anropa setAuthenticationStatus-återanropet.
+* Ett problem som hindrade inloggningsflödet i bakgrunden att slutföras i Safari-webbläsare har åtgärdats, vilket innebär att användaren fortfarande verkade autentiserad tills en uppdatering av sidan gjordes. En timeout uppstod, som för närvarande är inställd på 30 sekunder, så om det inte kommer något svar från Primetime Authentication-servern under den här perioden, kommer SDK att anropa setAuthenticationStatus-återanropet.
 
-## Versionspaket {#rel-pkg-javascript-sdk-440}
+## Versionspaket {#release-package-440}
 
 Produktions-URL:en: https://entitlement.auth.adobe.com/entitlement/v4/AccessEnabler.js
 

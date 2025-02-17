@@ -2,14 +2,14 @@
 title: Versionsinformation om Adobe Pass Authentication 3.0
 description: Versionsinformation om Adobe Pass Authentication 3.0
 exl-id: 9284151a-8458-44a3-937b-35f379ca0e4e
-source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
+source-git-commit: 134a9a13373717ff7772a9d765bbd7b3b4943a85
 workflow-type: tm+mt
 source-wordcount: '199'
 ht-degree: 0%
 
 ---
 
-# Versionsinformation om Adobe Pass Authentication 3.0 {#pt-authn-300-rn}
+# Versionsinformation om Adobe Pass Authentication 3.0 {#authn-300-rn}
 
 >[!NOTE]
 >
@@ -22,14 +22,15 @@ Den här sidan beskriver nya funktioner, ändringar och kända fel i den här ve
 * [Byggnummer](#build-number-300)
 * [Versionsöversikt](#release-overview-300)
 
-### Byggnummer {#build-number-2651}
+### Byggnummer {#build-number-300}
 
 Adobe Pass-autentisering: adobe-pass-**3.0**
+
 Releasedatum: **09/10/2024 - 09/12/2024**
 
-### Nya funktioner {#new-features-300}
+### Versionsöversikt {#release-overview-300}
 
-#### REST API v2 {#rest-apis}
+#### REST API v2
 
 ##### Code
 
@@ -48,6 +49,6 @@ Releasedatum: **09/10/2024 - 09/12/2024**
 
 * Om du vill testa det nya REST API v2 kan du gå till den nya Adobe Pass-autentiseringssidan från webbplatsen [Adobe Developer](https://developer.adobe.com/adobe-pass).
 
-### Felkorrigeringar {#bug-fixes-300}
+#### Felkorrigeringar
 
 * Korrigerade ett problem med att parametern för omdirigerings-URL inte användes när den fanns i utloggningsbegäran.

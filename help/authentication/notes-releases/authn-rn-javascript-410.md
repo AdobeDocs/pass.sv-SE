@@ -2,14 +2,14 @@
 title: Adobe Pass Authentication JavaScript 4.1.0 Release Notes
 description: Adobe Pass Authentication JavaScript 4.1.0 Release Notes
 exl-id: aaee88cb-a9b9-4474-9860-a527a47768b9
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 134a9a13373717ff7772a9d765bbd7b3b4943a85
 workflow-type: tm+mt
-source-wordcount: '116'
+source-wordcount: '115'
 ht-degree: 0%
 
 ---
 
-# Adobe Pass Authentication JavaScript 4.1.0 Release Notes {#javascript-sdk-410-release-notes}
+# Adobe Pass Authentication JavaScript 4.1.0 Release Notes {#javascript-sdk-410-rn}
 
 >[!NOTE]
 >
@@ -17,19 +17,17 @@ ht-degree: 0%
 
 Den här sidan beskriver nya funktioner, ändringar och kända fel i den här versionen:
 
-## Byggnummer {#build-no-javascript-sdk-410}
+## Byggnummer {#build-number-410}
 
 Adobe Pass-autentisering: JavaScript 4.1.0
 
 Releasedatum: **10/04/2018**
 
+## Versionsöversikt {#release-overview-410}
 
-## Versionsöversikt {#overview-javascript-sdk-410}
+* AccessEnabler JS v4.1.0 är nu kompatibelt med Safaris tredjeparts cookie-policy och Intelligent Tracking Prevention-mekanism. Alla autentiseringsflöden fungerar nu i alla webbläsarversioner av Safari.
 
-* JS v4.1.0 för Access Enabler är nu kompatibelt med Safaris tredjeparts cookie-policy och Intelligent Tracking Prevention-mekanism. Alla autentiseringsflöden fungerar nu i alla webbläsarversioner av Safari.
-
-
-## Versionspaket {#rel-pkg-javascript-sdk-410}
+## Versionspaket {#release-package-410}
 
 Produktions-URL:en: https://entitlement.auth.adobe.com/entitlement/v4/AccessEnabler.js
 

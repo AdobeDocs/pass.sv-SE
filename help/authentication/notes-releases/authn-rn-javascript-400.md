@@ -2,14 +2,14 @@
 title: Adobe Pass Authentication JavaScript 4.0.0 Release Notes
 description: Adobe Pass Authentication JavaScript 4.0.0 Release Notes
 exl-id: 2ded9ad8-56f7-44b5-87a2-12a195cd0829
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 134a9a13373717ff7772a9d765bbd7b3b4943a85
 workflow-type: tm+mt
 source-wordcount: '262'
 ht-degree: 0%
 
 ---
 
-# Adobe Pass Authentication JavaScript 4.0.0 Release Notes {#javascript-sdk-400-release-notes}
+# Adobe Pass Authentication JavaScript 4.0.0 Release Notes {#javascript-sdk-400-rn}
 
 >[!NOTE]
 >
@@ -17,22 +17,20 @@ ht-degree: 0%
 
 Den här sidan beskriver nya funktioner, ändringar och kända fel i den här versionen:
 
-## Byggnummer {#build-no-javascript-sdk-400}
+## Byggnummer {#build-number-400}
 
 Adobe Pass-autentisering: JavaScript 4.0.0
 
 Releasedatum: **07/05/2018**
 
-
-## Versionsöversikt {#overview-javascript-sdk-400}
+## Versionsöversikt {#release-overview-400}
 
 * Implementerat stöd för dynamisk klientregistreringsmekanism, en enhetlig säkerhetsmekanism på olika plattformar. Det går att hantera säkerhetsåtkomsten på olika plattformar via TVE-kontrollpanelen, via själva programmeraren.
 * Eliminerar användningen av alla cookies från tredje part och nästan alla cookies från första part för alla funktioner (förutom individualisering där en cookie från första part fortfarande används - kommer att tas bort i framtiden), vilket gör den mer kompatibel och framtidssäker med nya webbläsarprinciper kring cookies från tredje part, eller cookies i allmänhet (t.ex. Safaris ITP). Observera att den tidigare 3.x-versionen fungerar som väntat för det lyckliga flödet endast med cookies från första part, men detta kan ändras i och med att nya webbläsarversioner släpps.
 * Stöd för att inaktivera cachelagring för preflight-auktoriseringskontroller.
-* Den här versionen är INTE bakåtkompatibel och finns under en ny sökväg: https://entitlement.auth.adobe.com/entitlement/v4/AccessEnabler.js . För att dra nytta av denna nya JS SDK krävs en migreringsprocess från programmerare för att registrera sina webbprogram med den nya dynamiska klientregistreringsfunktionen och för att peka på den nya JS SDK-URL:en.
+* Den här versionen är INTE bakåtkompatibel och finns under en ny sökväg: https://entitlement.auth.adobe.com/entitlement/v4/AccessEnabler.js . För att kunna dra nytta av denna nya JS SDK behöver programmerare en migreringsprocess för att registrera sina webbapplikationer med den nya dynamiska klientregistreringsfunktionen och hänvisa till den nya JS SDK-adressen.
 
-
-## Versionspaket {#rel-pkg-javascript-sdk-400}
+## Versionspaket {#release-package-400}
 
 Produktions-URL:en: https://entitlement.auth.adobe.com/entitlement/v4/AccessEnabler.js
 
