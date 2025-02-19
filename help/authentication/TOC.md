@@ -4,9 +4,9 @@ audience: end-user
 feature: Authentication
 user-guide-title: Adobe Pass-autentisering
 user-guide-description: Adobe Pass-autentisering är en berättigandelösning för TV Everywhere, som tillhandahåller ett modulärt ramverk för att avgöra om någon som begär åtkomst till en resurs är berättigad till den.
-source-git-commit: 2b9a8ce374f7a73cd815e9735d672e5c9ba285cc
+source-git-commit: 4ad5ea619f64a78a72f69228c9ae3c83a7b66f24
 workflow-type: tm+mt
-source-wordcount: '1230'
+source-wordcount: '1246'
 ht-degree: 2%
 
 ---
@@ -17,6 +17,9 @@ ht-degree: 2%
 + [Adobe Pass-autentisering](home.md)
 + [Produktmeddelanden](product-announcements.md)
 + Produktreleaser {#product-releases}
+   + 2025 {#2025}
+      + [Versionsinformation om Adobe Pass Authentication 3.1.0](notes-releases/auth-rn-310.md)
+      + [Versionsinformation om Adobe Pass Authentication JavaScript 4.7.1](notes-releases/authn-rn-javascript-471.md)
    + 2024 {#2024}
       + [Versionsinformation om Adobe Pass Authentication 3.0.3](notes-releases/auth-rn-303.md)
       + [Versionskommentarer för Adobe Pass Authentication 3.0](notes-releases/auth-rn-300.md)
@@ -152,7 +155,7 @@ ht-degree: 2%
          + [Mätvärden på serversidan](integration-guide-programmers/features-premium/esm/understanding-serverside-metrics.md)
       + Analyser {#analytics}
          + [Integrera data på serversidan för Adobe Pass Authentication i Adobe Analytics](integration-guide-programmers/features-premium/analytics/integrate-authn-servr-data-analytics.md)
-         + [Använda Experience Cloud-ID i Adobe Pass-autentisering](integration-guide-programmers/features-premium/analytics/exp-cloud-id-authn.md)
+         + [Använda Experience Cloud ID i Adobe Pass-autentisering](integration-guide-programmers/features-premium/analytics/exp-cloud-id-authn.md)
    + Äldre {#legacy}
       + (Äldre) REST API V1 {#rest-api-v1}
          + [(Äldre) REST API V1 - översikt](integration-guide-programmers/legacy/rest-api-v1/rest-api-overview.md)
@@ -256,8 +259,8 @@ ht-degree: 2%
             + [(Äldre) Förhindra att PDF-filer visas i urvalsdialogrutan](integration-guide-programmers/legacy/notes-technical/prevent-mvpd-selectn-dialog.md)
          + (Äldre) Felsökning {#troubleshooting}
             + [(Äldre) Använda Charles Proxy](integration-guide-programmers/legacy/notes-technical/using-charles-proxy.md)
-            + [(Äldre) Övervaka Adobe Pass Adobe PayTV-pass](integration-guide-programmers/legacy/notes-technical/monitoring-adobe-pay-tv-pass.md)
-            + [(Äldre) Så här testar du autentiserings- och auktoriseringsflöden med Adobe API-testwebbplats](integration-guide-programmers/legacy/notes-technical/test-authn-authz-flows-using-adobes-api-test-site.md)
+            + [(Äldre) Övervaka Adobe Pass Adobe PayTV Pass](integration-guide-programmers/legacy/notes-technical/monitoring-adobe-pay-tv-pass.md)
+            + [(Äldre) Så här testar du autentiserings- och auktoriseringsflöden med hjälp av testwebbplatsen för Adobe API](integration-guide-programmers/legacy/notes-technical/test-authn-authz-flows-using-adobes-api-test-site.md)
 + Integreringsguide för MVPD:er {#integration-guide-mvpds}
    + [Integreringsguide för MVPD](integration-guide-mvpds/mvpd-integration-guide-overview.md)
    + [Autentisering](integration-guide-mvpds/authn-usecase.md)
