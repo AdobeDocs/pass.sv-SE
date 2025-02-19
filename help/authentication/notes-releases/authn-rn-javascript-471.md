@@ -1,18 +1,18 @@
 ---
 title: Adobe Pass Authentication JavaScript 4.7.1 Release Notes
 description: Adobe Pass Authentication JavaScript 4.7.1 Release Notes
-source-git-commit: 4ad5ea619f64a78a72f69228c9ae3c83a7b66f24
+source-git-commit: ecafc3a92f691203d8113a741f0b6cd00a134e80
 workflow-type: tm+mt
-source-wordcount: '113'
+source-wordcount: '109'
 ht-degree: 0%
 
 ---
 
 # Adobe Pass Authentication JavaScript 4.7.1 Release Notes {#javascript-sdk-471-rn}
 
->[!NOTE]
+>[!IMPORTANT]
 >
->Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
+> Se till att du håller dig informerad om de senaste produktmeddelandena för Adobe Pass-autentisering och tidslinjer för avveckling som sammanställts på sidan [Produktmeddelanden](/help/authentication/product-announcements.md).
 
 Den här sidan beskriver nya funktioner, ändringar och kända fel i den här versionen:
 

@@ -2,18 +2,18 @@
 title: Versionsinformation om Adobe Pass Authentication 2.65
 description: Versionsinformation om Adobe Pass Authentication 2.65
 exl-id: 12a1578f-e990-4b3b-ac3d-e356ecd20810
-source-git-commit: 134a9a13373717ff7772a9d765bbd7b3b4943a85
+source-git-commit: ecafc3a92f691203d8113a741f0b6cd00a134e80
 workflow-type: tm+mt
-source-wordcount: '89'
+source-wordcount: '85'
 ht-degree: 0%
 
 ---
 
 # Versionsinformation om Adobe Pass Authentication 2.65 {#authn-265-rn}
 
->[!NOTE]
+>[!IMPORTANT]
 >
->Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
+> Se till att du håller dig informerad om de senaste produktmeddelandena för Adobe Pass-autentisering och tidslinjer för avveckling som sammanställts på sidan [Produktmeddelanden](/help/authentication/product-announcements.md).
 
 Den här sidan beskriver nya funktioner, ändringar och kända fel i den här versionen:
 
