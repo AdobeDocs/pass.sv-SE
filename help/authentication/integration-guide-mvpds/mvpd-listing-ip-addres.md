@@ -1,21 +1,21 @@
 ---
-title: MVPD-lista över IP-adresser
-description: MVPD-lista över IP-adresser
+title: MVPD lista över IP-adresser
+description: MVPD lista över IP-adresser
 exl-id: be18084c-22f5-47b5-b088-d9032681113d
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 1f04f0c60d404d8ae1056a8610e76c07d0c6505e
 workflow-type: tm+mt
-source-wordcount: '147'
+source-wordcount: '127'
 ht-degree: 0%
 
 ---
 
-# MVPD-lista över IP-adresser
+# MVPD lista över IP-adresser
 
 >[!NOTE]
 >
 >Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
 
-För en integrering av MVPD/Adobe Pass Authentication måste vissa IP-adresser tillåtas i en MVPD-brandvägg. Detta är IP-adresser för utgångar:
+För en MVPD-/Adobe Pass-autentiseringsintegrering måste vissa IP-adresser vara tillåtna i en MVPD brandvägg. Detta är IP-adresser för utgångar:
 
 | IP | Miljö | Län |
 | :-------------: | :---------: | :-----: |
@@ -25,14 +25,18 @@ För en integrering av MVPD/Adobe Pass Authentication måste vissa IP-adresser t
 | 34.198.39.14 | Produktion | us-east |
 | 35.162.207.100 | Produktion | us-west |
 | 34.212.224.47 | Produktion | us-west |
+| 52.37.19.205 | Mellanlagring | us-west |
+| 44.225.108.111 | Mellanlagring | us-west |
+| 52.34.62.16 | Mellanlagring | us-west |
 | 52.27.200.183 | Mellanlagring | us-west |
-| 52.37.19.205 | Mellanlagring | us-wst |
-| 34.193.92.8 | Mellanlagring | us-east |
-| 35.174.195.14 | Mellanlagring | us-east |
 | 52.41.27.220 | Mellanlagring | us-west |
 | 52.43.250.32 | Mellanlagring | us-west |
 | 54.70.252.231 | Mellanlagring | us-west |
+| 54.205.118.100 | Mellanlagring | us-east |
+| 35.174.195.14 | Mellanlagring | us-east |
 | 54.146.175.174 | Mellanlagring | us-east |
+| 54.83.175.243 | Mellanlagring | us-east |
+| 34.193.92.8 | Mellanlagring | us-east |
 | 18.215.135.17 | Mellanlagring | us-east |
 | 193.105.140.131 | VPN | eu-öst |
 | 192.150.10.0/24 | VPN | us-west |

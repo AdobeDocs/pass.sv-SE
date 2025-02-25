@@ -2,9 +2,9 @@
 title: Återuppta autentiseringssession
 description: REST API V2 - Återuppta autentiseringssession
 exl-id: 66c33546-2be0-473f-9623-90499d1c13eb
-source-git-commit: 5cb14959d6e9af91252316fbdd14ff33d813089b
+source-git-commit: 5e5bb6a52a4629056fd52c7e79a11dba2b9a45db
 workflow-type: tm+mt
-source-wordcount: '841'
+source-wordcount: '876'
 ht-degree: 0%
 
 ---
@@ -233,17 +233,14 @@ ht-degree: 0%
             <tr>
                <td style="background-color: #DEEBFF;">reasonType</td>
                <td>
-                  Den typ av orsak som används som förklarar actionName.
+                  Den typ av orsak som förklarar actionName.
                   <br/><br/>
                   Möjliga värden är:
                   <ul>
-                    <li><b>ingen</b></li>
-                    <li><b>autentiserad</b></li>
-                    <li><b>tillfällig</b></li>
-                    <li><b>nedtonad</b></li>
-                    <li><b>authenticatedSSO</b></li>
-                    <li><b>pfs_fallback</b></li>
-                    <li><b>configuration_fallback</b></li>
+                    <li><b>ingen</b><br/>Klientprogrammet krävs för att fortsätta autentisera.</li>
+                    <li><b>autentiserad</b><br/>Klientprogrammet har redan autentiserats via grundläggande åtkomstflöden.</li>
+                    <li><b>tillfällig</b><br/>Klientprogrammet har redan autentiserats via temporära åtkomstflöden.</li>
+                    <li><b>degraderad</b><br/>Klientprogrammet har redan autentiserats via degraderade åtkomstflöden.</li>
                   </ul>
                <td><i>obligatoriskt</i></td>
             </tr>
@@ -353,6 +350,7 @@ Content-Type: application/json;charset=UTF-8
 {
     "actionName": "authenticate",
     "actionType": "interactive",
+    "reasonType": "none",
     "url": "/api/v2/authenticate/REF30/8ER640M",
     "code": "8ER640M",
     "sessionId": "1b614390-6610-4d14-9421-6565f6e75958",
@@ -444,6 +442,8 @@ Content-Type: application/json;charset=UTF-8
     "serviceProvider": "REF30"
 }
 ```
+
+>[!ENDTABS]
 
 ### 4. Återuppta autentiseringssessionen med grundläggande eller kampanjtillagda TempPass (krävs inte)
 

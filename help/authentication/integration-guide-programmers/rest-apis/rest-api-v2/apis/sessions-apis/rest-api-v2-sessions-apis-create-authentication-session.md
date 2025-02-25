@@ -2,9 +2,9 @@
 title: Skapa autentiseringssession
 description: REST API V2 - Skapa autentiseringssession
 exl-id: bb2a6bb4-0778-4748-a674-df9d0e8242c8
-source-git-commit: 5cb14959d6e9af91252316fbdd14ff33d813089b
+source-git-commit: 5e5bb6a52a4629056fd52c7e79a11dba2b9a45db
 workflow-type: tm+mt
-source-wordcount: '1000'
+source-wordcount: '1047'
 ht-degree: 0%
 
 ---
@@ -132,7 +132,7 @@ ht-degree: 0%
    <tr>
       <td style="background-color: #DEEBFF;">Adobe-Subject-Token</td>
       <td>
-        Genereringen av nyttolasten för enkel inloggning för plattformsidentitetsmetoden beskrivs i rubrikdokumentationen för <a href="../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md">Adobe-Subject-Token</a>.
+        Genereringen av nyttolasten för enkel inloggning för metoden Platform Identity beskrivs i rubrikdokumentationen för <a href="../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md">Adobe-Subject-Token</a>.
         <br/><br/>
         Mer information om enkla inloggningsaktiverade flöden med en plattformsidentitet finns i dokumentationen för <a href="../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-platform-identity-flows.md"> enkel inloggning med plattformsidentitetsflöden </a> .
       </td>
@@ -268,17 +268,15 @@ ht-degree: 0%
             <tr>
                <td style="background-color: #DEEBFF;">reasonType</td>
                <td>
-                  Den typ av orsak som används som förklarar actionName.
+                  Den typ av orsak som förklarar actionName.
                   <br/><br/>
                   Möjliga värden är:
                   <ul>
-                    <li><b>ingen</b></li>
-                    <li><b>autentiserad</b></li>
-                    <li><b>tillfällig</b></li>
-                    <li><b>nedtonad</b></li>
-                    <li><b>authenticatedSSO</b></li>
-                    <li><b>pfs_fallback</b></li>
-                    <li><b>configuration_fallback</b></li>
+                    <li><b>ingen</b><br/>Klientprogrammet krävs för att fortsätta autentisera.</li>
+                    <li><b>autentiserad</b><br/>Klientprogrammet har redan autentiserats via grundläggande åtkomstflöden.</li>
+                    <li><b>tillfällig</b><br/>Klientprogrammet har redan autentiserats via temporära åtkomstflöden.</li>
+                    <li><b>degraderad</b><br/>Klientprogrammet har redan autentiserats via degraderade åtkomstflöden.</li>
+                    <li><b>authenticatedSSO</b><br/>Klientprogrammet autentiseras redan via åtkomstflöden för enkel inloggning.</li>
                   </ul>
                <td><i>obligatoriskt</i></td>
             </tr>
@@ -483,6 +481,8 @@ Content-Type: application/json;charset=UTF-8
     "serviceProvider": "REF30"
 }
 ```
+
+>[!ENDTABS]
 
 ### 4. Skapa en autentiseringssession med grundläggande eller kampanjtillagd TempPass (krävs inte)
 
