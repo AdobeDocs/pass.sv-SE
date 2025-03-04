@@ -2,9 +2,9 @@
 title: API-översikt
 description: API-översikt över övervakning av samtidig användning
 exl-id: eb232926-9c68-4874-b76d-4c458d059f0d
-source-git-commit: b30d9217e70f48bf8b8d8b5eaaa98fea257f3fc5
+source-git-commit: 0cabb090e3c0282f9bcd097719d52374f2d991dd
 workflow-type: tm+mt
-source-wordcount: '2102'
+source-wordcount: '2155'
 ht-degree: 0%
 
 ---
@@ -22,7 +22,7 @@ Det här dokumentet hjälper programutvecklare att använda specifikationen för
 
 Under utvecklingsprocessen utgör den offentliga dokumentationen för Swagger referensriktlinjerna för att förstå och testa API-flödena. Det här är en bra startpunkt för att ha en praktisk strategi och bekanta dig med hur verkliga program fungerar i olika scenarier för användarinteraktion.
 
-Skicka en biljett i [Zendesk](mailto:tve-support@adobe.com) för att registrera ditt företag och dina program i Concurrency Monitoring. Adobe tilldelar ett program-ID till varje enhet. I den här guiden använder vi två referensprogram med ID:n **demo-app** och **demo-app-2** som kommer att finnas under klientorganisationen Adobe.
+Skicka en biljett i [Zendesk](mailto:tve-support@adobe.com) för att registrera ditt företag och dina program i Concurrency Monitoring. Adobe tilldelar varje enhet ett program-ID. I den här guiden använder vi två referensprogram med ID:n **demo-app** och **demo-app-2** som kommer att finnas under klientens Adobe.
 
 
 ## Användningsexempel {#api-use-case}
@@ -36,7 +36,7 @@ Därefter trycker vi på **Utforska** för att ange det ID som ska användas i a
 
 ### Första programmet {#first-app-use-cases}
 
-Program med ID **demo-app** har av Adobe team tilldelats en princip med en regel som begränsar antalet samtidiga strömmar till 3. En profil tilldelas till ett specifikt program baserat på den begäran som skickas in i Zendesk.
+Program med ID **demo-app** har av Adobe-teamet tilldelats en princip med en regel som begränsar antalet samtidiga strömmar till 3. En profil tilldelas till ett specifikt program baserat på den begäran som skickas in i Zendesk.
 
 
 #### Hämtar metadata {#retrieve-metadata-use-case}
@@ -137,6 +137,10 @@ Om det inte finns några sessioner som körs för en viss användare när du rin
 
 Observera också att i det här fallet är rubriken **Expires** inte tillgänglig.
 
+Om en session skapades och en annan session togs bort, med rubriken **X-Terminate**, hittar du fältet **ersatt** under metadata. Värdet är en indikator på den session som avbrutits för att ge plats åt den aktuella sessionen.
+
+![](assets/get-all-running-streams-superseded.png)
+
 #### Bryter principen {#breaking-policy-app-first}
 
 
@@ -175,7 +179,7 @@ För alla API-anrop för sessionens livscykel är svarstexten (om sådan finns) 
 **Råd**
 **EvaluationResult** innehåller en array med Advice-objekt under **associatedAdvice** . Enheterna är avsedda för programmet att visa ett omfattande felmeddelande för användaren och (eventuellt) tillåta användaren att vidta åtgärder.
 
-Det finns för närvarande två typer av enheter (anges av deras **type** -attributvärde): **rule-violett** och **remote-terminate**. Den första innehåller information om en regel som har brutits och sessionerna som är i konflikt med den aktuella regeln (inklusive attributet terminate som kan användas för att fjärravsluta den sessionen). Det andra är bara att det står att den aktuella sessionen avslutades avsiktligt av en fjärranvändare, så att användarna vet vem som sparkade ut dem när gränserna nåddes.
+Det finns för närvarande två typer av enheter (anges av deras **type** -attributvärde): **rule-violett** och **remote-terminate**. Den första innehåller information om en regel som har brutits och sessionerna som är i konflikt med den aktuella regeln (inklusive attributet terminate som kan användas för att fjärravsluta den sessionen). Det andra är bara att det står att den aktuella sessionen avslutades avsiktligt av en fjärranvändare, så att användarna vet vem som sparkade ut dem när gränserna nåddes. Om **ersatt** inkluderas i metadata skapades sessionen i fråga med rubriken **X-Terminate**.
 
 ![](assets/advices.png)
 
