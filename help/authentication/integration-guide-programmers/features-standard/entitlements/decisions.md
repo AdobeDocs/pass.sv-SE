@@ -1,9 +1,10 @@
 ---
 title: Beslut
 description: Beslut
-source-git-commit: e448427ae4a36c4c6cb9f9c1cb4d0cc5c6d564ed
+exl-id: 1efd70af-8c1d-43c4-87fc-14488d42b23d
+source-git-commit: a19f4fd40c9cd851a00f05f82adbabb85edd8422
 workflow-type: tm+mt
-source-wordcount: '886'
+source-wordcount: '988'
 ht-degree: 0%
 
 ---
@@ -69,6 +70,17 @@ Det är viktigt att komma ihåg att auktoriseringsbeslut bara kan erhållas för
 >
 > Det maximala antalet resurser kan bara ökas efter att ett avtal har träffats med representanterna för distributörer av videoprogrammeringstjänster och Adobe Pass-autentisering.
 
+## TTL-hantering (Time-to-Live) för auktorisering {#authorization-ttl-management}
+
+TTL (Time-to-Live) för auktorisering anger hur länge en resurs förblir auktoriserad innan den behöver auktoriseras igen. Denna tidsram är begränsad och måste avtalas med MVPD representanter. TTL-värdena kan variera beroende på:
+
+* Plattformskategori (t.ex. dator, mobil, tv-anslutna enheter)
+* Specifik plattform (t.ex. iOS, Android, tvOS, Roku, FireTV)
+
+TTL för auktorisering (authZ) kan visas och ändras via Adobe Pass [TVE Dashboard](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#tve-dashboard) av en av dina företagsadministratörer eller av en Adobe Pass-autentiseringsrepresentant som agerar för din räkning.
+
+Mer information finns i dokumentationen för [TVE Dashboard Integrations User Guide](/help/authentication/user-guide-tve-dashboard/tve-dashboard-integrations.md#most-used-flows) .
+
 ## Skyddade resurser {#protected-resources}
 
 Skyddade resurser avser strömlinjeformat innehåll, som identifieras av unika värden som definieras genom avtal mellan distributörer av videoprogrammeringstjänster och deltagande programmerare.
@@ -133,3 +145,8 @@ Mer information om hur och när ovanstående API:er ska integreras finns i följ
 
 * [Grundläggande förauktoriseringsflöde som utförs i det primära programmet](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-preauthorization-primary-application-flow.md)
 * [Grundläggande auktoriseringsflöde som utförs i primärt program](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authorization-primary-application-flow.md)
+
+>[!MORELIKETHIS]
+>
+> [Vanliga frågor om förauktoriseringsfasen](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#preauthorization-phase-faqs-general)
+> [Vanliga frågor om auktoriseringsfasen ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#authorization-phase-faqs-general)

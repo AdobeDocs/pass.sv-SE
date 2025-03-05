@@ -2,9 +2,9 @@
 title: Medietoken
 description: Medietoken
 exl-id: 7e486d2c-e078-464d-90b1-14e2cfb4d20a
-source-git-commit: 9dc25b66d12b05a8afe16d1a866707880b5d6a51
+source-git-commit: a19f4fd40c9cd851a00f05f82adbabb85edd8422
 workflow-type: tm+mt
-source-wordcount: '667'
+source-wordcount: '682'
 ht-degree: 0%
 
 ---
@@ -198,10 +198,14 @@ Medietoken kan hämtas med följande API:
 
 Se avsnitten **Svar** och **Exempel** i API:t ovan för att förstå strukturen för auktoriseringsbeslut och medietokens.
 
+>[!IMPORTANT]
+>
+> Klientprogrammet behöver inte fråga en separat slutpunkt för att hämta [medietoken](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md), eftersom de redan ingår i auktoriseringsbesluten som tillåter användaråtkomst.
+
 Mer information om hur och när ovanstående API ska integreras finns i följande dokument:
 
 * [Grundläggande auktoriseringsflöde som utförs i primärt program](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authorization-primary-application-flow.md)
 
->[!IMPORTANT]
+>[!MORELIKETHIS]
 >
-> Klientprogrammet måste skicka värdet `serializedToken` från returnerad `token` till [Media Token Verifier](#media-token-verifier) för validering.
+> [Vanliga frågor om auktoriseringsfasen](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#authorization-phase-faqs-general)
