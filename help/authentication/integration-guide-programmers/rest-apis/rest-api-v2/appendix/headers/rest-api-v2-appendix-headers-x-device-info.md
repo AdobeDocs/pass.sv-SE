@@ -2,9 +2,9 @@
 title: Header - X-Device-Info
 description: REST API V2 - Header - X-Device-Info
 exl-id: 0ef25e06-86de-427a-a938-7ba3817f0d5e
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 81d3c3835d2e97e28c2ddb9c72d1a048a25ad433
 workflow-type: tm+mt
-source-wordcount: '1085'
+source-wordcount: '1122'
 ht-degree: 1%
 
 ---
@@ -21,7 +21,7 @@ Huvudet <b>X-Device-Info</b> innehåller klientinformationen (enhet, anslutning 
 
 ## Syntax {#syntax}
 
-<table>
+<table style="table-layout:auto">
    <tr>
       <td style="background-color: #DEEBFF;" colspan="2"><b>X-Device-Info</b>: &lt;enhetsinformation&gt;</td>
    </tr>
@@ -41,7 +41,7 @@ Huvudet <b>X-Device-Info</b> innehåller klientinformationen (enhet, anslutning 
 
 Värdet `Base64-encoded` för JSON-elementet som innehåller minst de attribut som markerats enligt följande tabell.
 
-<table>
+<table style="table-layout:auto">
     <tr>
         <th style="background-color: #EFF2F7; width: 15%;">Närvaro</th>
         <th style="background-color: #EFF2F7; width: 15%;">Nyckel</th>
@@ -721,3 +721,7 @@ Programinformationen kan utformas på följande sätt:
 | Nyckel | Source | Värde (exempel) |
 |---------------|-----------|-----------------|
 | applicationId | hårdkodad | REF30 |
+
+### Övriga {#others}
+
+För enhetsplattformar som inte omfattas av dokumentationen bör klientinformationen (enhet, anslutning och program) länkas till alla tillgängliga maskinvaru- och operativsystemattribut (OS), som vanligtvis anges i enhetens maskinvaru- och OS-handböcker.

@@ -2,9 +2,9 @@
 title: Header - AP-Device-Identifier
 description: REST API V2 - huvud - AP-enhets-ID
 exl-id: 90a5882b-2e6d-4e67-994a-050465cac6c6
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 81d3c3835d2e97e28c2ddb9c72d1a048a25ad433
 workflow-type: tm+mt
-source-wordcount: '413'
+source-wordcount: '485'
 ht-degree: 0%
 
 ---
@@ -21,7 +21,7 @@ Huvudet för begäran <b>AP-Device-Identifier</b> innehåller identifieraren fö
 
 ## Syntax {#syntax}
 
-<table>
+<table style="table-layout:auto">
    <tr>
       <td style="background-color: #DEEBFF;" colspan="2"><b>AP-Device-Identifier</b>: &lt;typ&gt; &lt;identifierare&gt;</td>
    </tr>
@@ -43,7 +43,7 @@ Enhetsidentifierartypen.
 
 Det finns bara en typ som stöds enligt nedan.
 
-<table>
+<table style="table-layout:auto">
    <tr>
       <th style="background-color: #EFF2F7; width: 15%;">Typ</th>
       <th style="background-color: #EFF2F7;"></th>
@@ -51,9 +51,9 @@ Det finns bara en typ som stöds enligt nedan.
    <tr>
       <td>fingeravtryck</td>
       <td>
-            Enhetsidentifieraren består av en stabil och unik identifierare som skapas och hanteras av klientprogrammet.
+            Enhetsidentifieraren består av en stabil och unik identifierare som skapas och hanteras av klientprogrammet för varje enhet.
             <br/>
-            Klientprogrammet måste förhindra värdeförändringar som orsakas av användaråtgärder som avinstallation, ominstallation eller uppgraderingar av program.
+            Klientprogrammet bör cachelagra enhetsidentifieraren i beständigt lagringsutrymme, eftersom en förlust eller ändring gör autentiseringen ogiltig. Klientprogrammet bör förhindra värdeförändringar som orsakas av användaråtgärder som programavinstallation, ominstallation eller uppgraderingar.
       </td>
    </tr>
 </table>
@@ -134,3 +134,9 @@ Om du vill skapa `AP-Device-Identifier`-rubriken för enheter som kör [Roku OS]
 * Dokumentation för Roku-utvecklare för [GetChannelClientId](https://developer.roku.com/docs/references/brightscript/interfaces/ifdeviceinfo.md#getchannelclientid-as-string).
 
 _(*) Vi rekommenderar att du använder en SHA-256-hash-funktion över det angivna värdet för operativsystemet._
+
+### Övriga {#others}
+
+För enhetsplattformar som inte omfattas av dokumentationen bör enhetsidentifieraren länkas till en tillgänglig maskinvaruidentifiering, som vanligtvis anges i enhetens maskinvaruhandbok.
+
+Om det inte finns några maskinvaruidentifierare tillgängliga bör en unikt genererad identifierare som baseras på klientprogramattribut användas och cachelagras i beständig lagring.

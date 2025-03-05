@@ -2,9 +2,9 @@
 title: REST API V2 - frågor och svar
 description: REST API V2 - frågor och svar
 exl-id: 2dd74b47-126e-487b-b467-c16fa8cc14c1
-source-git-commit: 747c3d9b6de537be5e7e0a0244b2b301603d9b18
+source-git-commit: 81d3c3835d2e97e28c2ddb9c72d1a048a25ad433
 workflow-type: tm+mt
-source-wordcount: '6460'
+source-wordcount: '6744'
 ht-degree: 0%
 
 ---
@@ -24,10 +24,6 @@ Mer information om REST API V2 som helhet finns i [REST API V2 Overview](/help/a
 Börja med det här avsnittet om du arbetar med ett program som behöver integrera REST API V2, oavsett om det är ett nytt program eller ett befintligt som migreras från [REST API V1](#migration-rest-api-v1-to-rest-api-v2) eller [SDK](#migration-sdk-to-rest-api-v2).
 
 Mer information om migreringsinformation och -steg finns även i nästa avsnitt.
-
->[!MORELIKETHIS]
->
-> * [Vanliga frågor om registrering av dynamisk klient (DCR)](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-faqs.md#general-faqs)
 
 ### Vanliga frågor om registreringsfasen {#registration-phase-faqs-general}
 
@@ -340,6 +336,10 @@ Syftet med utloggningsfasen är att ge klientprogrammet möjlighet att avsluta a
 
 #### 1. Hur beräknar man värdet för auktoriseringshuvudet? {#headers-faq1}
 
+>[!IMPORTANT]
+>
+> Om klientprogrammet migrerar från REST API V1 till REST API V2, kan klientprogrammet fortsätta använda samma metod för att hämta `Bearer`-åtkomsttokenvärdet som tidigare.
+
 Huvudet [Authorization](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-authorization.md) innehåller åtkomsttoken `Bearer` som krävs för att klientprogrammet ska få åtkomst till Adobe Pass-skyddade API:er.
 
 Huvudvärdet för auktorisering måste hämtas från Adobe Pass-autentisering under registreringsfasen.
@@ -351,23 +351,70 @@ Mer information finns i följande dokument:
 * [Hämta API för åtkomsttoken](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md)
 * [Dynamiskt klientregistreringsflöde](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/flows/dynamic-client-registration-flow.md)
 
-Om klientprogrammet migrerar från REST API V1 till REST API V2 kan klientprogrammet fortsätta använda samma metod för att hämta åtkomsttoken för `Bearer` som tidigare.
-
 #### 2. Hur beräknas värdet för rubriken AP-Device-Identifier? {#headers-faq2}
+
+>[!IMPORTANT]
+>
+> Om klientprogrammet migrerar från REST API V1 till REST API V2 kan klientprogrammet fortsätta att använda samma metod för att beräkna enhetsidentifierarvärdet som tidigare.
 
 Huvudet för begäran [AP-Device-Identifier](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-device-identifier.md) innehåller identifieraren för direktuppspelningsenheten som den skapades av klientprogrammet.
 
-Huvuddokumentationen för [AP-Device-Identifier](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-device-identifier.md) innehåller exempel på hur du beräknar värdet för olika plattformar, men klientprogrammet kan välja att använda en annan metod baserat på sin egen affärslogik och sina egna krav.
-
-Om klientprogrammet migrerar från REST API V1 till REST API V2 kan klientprogrammet fortsätta att använda samma metod för att beräkna enhetsidentifieraren som tidigare.
+Huvuddokumentationen för [AP-Device-Identifier](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-device-identifier.md) innehåller exempel på större plattformar för hur värdet beräknas, men klientprogrammet kan välja att använda en annan metod baserat på sin egen affärslogik och sina egna krav.
 
 #### 3. Hur beräknar man värdet för X-Device-Info-huvudet? {#headers-faq3}
 
+>[!IMPORTANT]
+>
+> Om klientprogrammet migrerar från REST API V1 till REST API V2 kan klientprogrammet fortsätta att använda samma metod för att beräkna enhetsinformationsvärdet som tidigare.
+
 Huvudet [X-Device-Info](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-x-device-info.md) innehåller klientinformationen (enhet, anslutning och program) som hör till den faktiska direktuppspelningsenheten.
 
-I rubrikdokumentationen för [X-Device-Info](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-x-device-info.md) finns exempel på hur du beräknar värdet för olika plattformar, men klientprogrammet kan välja att använda en annan metod baserat på sin egen affärslogik och sina egna krav.
+Huvuddokumentationen för [X-Device-Info](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-x-device-info.md) innehåller exempel på större plattformar för hur värdet beräknas, men klientprogrammet kan välja att använda en annan metod baserat på sin egen affärslogik och sina egna krav.
 
-Om klientprogrammet migrerar från REST API V1 till REST API V2 kan klientprogrammet fortsätta att använda samma metod för att beräkna enhetsinformationen som tidigare.
++++
+
+### Vanliga frågor och svar {#misc-faqs-general}
+
++++Diverse Frågor och svar
+
+#### 1. Kan jag utforska REST API V2-begäranden och -svar och testa API:t? {#misc-faq1}
+
+Ja.
+
+Du kan utforska REST API V2 via vår dedikerade [Adobe Developer](https://developer.adobe.com/adobe-pass/)-webbplats. Adobe Developer webbplats ger obegränsad tillgång till
+
+* [DCR API](https://developer.adobe.com/adobe-pass/api/dcr_api/interactive/)
+* [REST API V2](https://developer.adobe.com/adobe-pass/api/rest_api_v2/interactive/)
+
+Om du vill interagera med [REST API V2](https://developer.adobe.com/adobe-pass/api/rest_api_v2/interactive/) måste du inkludera rubriken [Authorization](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-authorization.md) med en `Bearer` åtkomsttoken som hämtas via [DCR API](https://developer.adobe.com/adobe-pass/api/dcr_api/interactive/).
+
+Om du vill använda [DCR API](https://developer.adobe.com/adobe-pass/api/dcr_api/interactive/) krävs en programsats med REST API V2-scope. Mer information finns i dokumentet [Dynamic Client Registration (DCR) - frågor och svar](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-faqs.md).
+
+#### 2. Kan jag utforska REST API V2-begäranden och svar med ett API-utvecklingsverktyg med stöd för OpenAPI? {#misc-faq2}
+
+Ja.
+
+Du kan hämta OpenAPI-specifikationsfiler för [DCR API](https://developer.adobe.com/adobe-pass/api/dcr_api/interactive/) och [REST API V2](https://developer.adobe.com/adobe-pass/api/rest_api_v2/interactive/) från webbplatsen [Adobe Developer](https://developer.adobe.com/adobe-pass/).
+
+Om du vill hämta OpenAPI-specifikationsfilerna klickar du på hämtningsknapparna och sparar följande filer på den lokala datorn:
+
+* [DCR API JSON](https://developer.adobe.com/adobe-pass/dcrApi.json)
+* [REST API V2 JSON](https://developer.adobe.com/adobe-pass/restApiV2.json)
+
+Du kan sedan importera dessa filer till det API-utvecklingsverktyg du föredrar för att utforska REST API V2-begäranden och -svar och testa API:t.
+
+#### 3. Kan jag fortfarande använda det befintliga API-testverktyget på https://sp.auth-staging.adobe.com/apitest/api.html? {#misc-faq3}
+
+Nej.
+
+Klientprogrammen som migrerar till REST API V2 bör använda det nya testverktyget som finns på https://developer.adobe.com/adobe-pass/. Adobe Developer webbplats ger obegränsad tillgång till
+
+* [DCR API](https://developer.adobe.com/adobe-pass/api/dcr_api/interactive/)
+* [REST API V2](https://developer.adobe.com/adobe-pass/api/rest_api_v2/interactive/)
+
+Om du vill interagera med [REST API V2](https://developer.adobe.com/adobe-pass/api/rest_api_v2/interactive/) måste du inkludera rubriken [Authorization](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-authorization.md) med en `Bearer` åtkomsttoken som hämtas via [DCR API](https://developer.adobe.com/adobe-pass/api/dcr_api/interactive/).
+
+Om du vill använda [DCR API](https://developer.adobe.com/adobe-pass/api/dcr_api/interactive/) krävs en programsats med REST API V2-scope. Mer information finns i dokumentet [Dynamic Client Registration (DCR) - frågor och svar](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-faqs.md).
 
 +++
 

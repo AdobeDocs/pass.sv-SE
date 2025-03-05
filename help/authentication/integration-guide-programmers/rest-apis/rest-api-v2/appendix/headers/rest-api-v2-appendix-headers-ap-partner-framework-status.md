@@ -2,7 +2,7 @@
 title: Header - AP-Partner-Framework-Status
 description: REST API V2 - Header - AP-Partner-Framework-Status
 exl-id: f589d948-e23e-43d4-81c2-8db0e7a40e93
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 81d3c3835d2e97e28c2ddb9c72d1a048a25ad433
 workflow-type: tm+mt
 source-wordcount: '388'
 ht-degree: 0%
@@ -21,7 +21,7 @@ Rubriken <b>AP-Partner-Framework-Status</b> innehåller statusinformation som h�
 
 ## Syntax {#syntax}
 
-<table>
+<table style="table-layout:auto">
    <tr>
       <td style="background-color: #DEEBFF;" colspan="2"><b>AP-Partner-Framework-Status</b>: &lt;partner_framework_status_information&gt;</td>
    </tr>
@@ -41,7 +41,7 @@ Rubriken <b>AP-Partner-Framework-Status</b> innehåller statusinformation som h�
 
 Värdet `Base64-encoded` för JSON-elementet som innehåller följande attribut:
 
-<table>
+<table style="table-layout:auto">
    <tr>
       <th style="background-color: #EFF2F7; width: 15%;">Attribut</th>
       <th style="background-color: #EFF2F7;"></th>
@@ -68,10 +68,10 @@ Värdet `Base64-encoded` för JSON-elementet som innehåller följande attribut:
                   Detta är en uppräkning med följande möjliga värden:
                   <br/>
                   <ul>
-                     <li>given - Användaren tillät programmet att få åtkomst till prenumerationsinformation.</li>
-                     <li>nekad - användaren nekade programmet åtkomst till prenumerationsinformation.</li>
-                     <li>väntande - Användaren har ännu inte valt att tillåta programmet att få åtkomst till prenumerationsinformation.</li>
-                     <li>notDetermined - Programmet har inte åtkomst till prenumerationsinformation.</li>
+                     <li><b>beviljad</b><br/>Användaren tillät programmet att komma åt prenumerationsinformation.</li>
+                     <li><b>nekades</b><br/>Användaren nekade programmet åtkomst till prenumerationsinformation.</li>
+                     <li><b>Väntande</b><br/>Användaren har ännu inte valt att ge programmet åtkomst till prenumerationsinformation.</li>
+                     <li><b>notDetermined</b><br/>Programmet har inte åtkomst till prenumerationsinformation.</li>
                   </ul>
                </td>
             </tr>
@@ -122,7 +122,7 @@ Värdet `Base64-encoded` för JSON-elementet som innehåller följande attribut:
                <td>
                   Det här är ett obligatoriskt attribut.
                   <br/><br/>
-                  Detta är det mappingId som identifierar det MVPD som används under autentiseringsflödet på partnerramverksnivå.
+                  Detta är det mappingId som identifierar den MVPD som används under autentiseringsflödet på partnerramverksnivå.
                </td>
             </tr>
             <tr>
@@ -130,7 +130,7 @@ Värdet `Base64-encoded` för JSON-elementet som innehåller följande attribut:
                <td>
                   Det här är ett obligatoriskt attribut.
                   <br/><br/>
-                  Detta är förfallodatumet för den autentiserade användarprofilen om användaren har loggat med ett MVPD som stöds på partnerramverksnivån.
+                  Detta är förfallodatumet för den autentiserade användarprofilen om användaren har loggat med en MVPD som stöds på partnerramverksnivå.
                </td>
             </tr>
             <tr>

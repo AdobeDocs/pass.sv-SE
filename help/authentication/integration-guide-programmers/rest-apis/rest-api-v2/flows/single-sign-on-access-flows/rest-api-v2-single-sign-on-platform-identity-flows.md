@@ -2,9 +2,9 @@
 title: Enkel inloggning - plattformsidentitet - flöden
 description: REST API V2 - enkel inloggning - plattformsidentitet - flöden
 exl-id: 5200e851-84e8-4cb4-b068-63b91a2a8945
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 81d3c3835d2e97e28c2ddb9c72d1a048a25ad433
 workflow-type: tm+mt
-source-wordcount: '1830'
+source-wordcount: '1836'
 ht-degree: 0%
 
 ---
@@ -25,7 +25,12 @@ Programmen hämtar den unika plattformsidentifierarnyttolasten med enhetsspecifi
 
 Programmen ansvarar för att inkludera den här unika plattforms-ID-nyttolasten som en del av `Adobe-Subject-Token`-huvudet för alla begäranden som anger den.
 
-Mer information om rubriken `Adobe-Subject-Token` finns i [Adobe-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md) -dokumentationen.
+Mer information om rubriken `Adobe-Subject-Token` finns i dokumentationen för [Adobe-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md).
+
+>[!MORELIKETHIS]
+> 
+> * [Amazon SSO Cookbook](/help/authentication/integration-guide-programmers/features-standard/sso-access/platform-sso/amazon-single-sign-on/amazon-sso-cookbook-rest-api-v2.md)
+> * [Roku SSO-kokbok](/help/authentication/integration-guide-programmers/features-standard/sso-access/platform-sso/roku-single-sign-on/roku-sso-overview.md)
 
 ## Utför autentisering genom enkel inloggning med plattformsidentitet {#perform-authentication-through-single-sign-on-using-platform-identity}
 
@@ -37,7 +42,7 @@ Innan du utför autentiseringsflödet genom enkel inloggning med en plattformsid
 * Det första direktuppspelningsprogrammet måste hämta den unika plattforms-ID:t och inkludera `JWS`- eller `JWE`-nyttolasten som en del av [Adobe-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md)-huvudet för alla begäranden som anger det.
 * Det första direktuppspelningsprogrammet måste välja en MVPD.
 * Det första direktuppspelningsprogrammet måste initiera en autentiseringssession för att kunna logga in med det valda MVPD-programmet.
-* Det första direktuppspelningsprogrammet måste autentisera med det valda MVPD-programmet i en användaragent.
+* Det första direktuppspelningsprogrammet måste autentiseras med den valda MVPD i en användaragent.
 * Det andra direktuppspelningsprogrammet måste hämta den unika plattforms-ID:t och inkludera `JWS`- eller `JWE`-nyttolasten som en del av [Adobe-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md)-huvudet för alla begäranden som anger det.
 
 >[!IMPORTANT]
@@ -46,8 +51,8 @@ Innan du utför autentiseringsflödet genom enkel inloggning med en plattformsid
 >
 > <br/>
 > 
-> * Det första direktuppspelningsprogrammet stöder användarinteraktion för att välja ett MVPD.
-> * Det första direktuppspelningsprogrammet stöder användarinteraktion för att autentisera med det valda MVPD-programmet i en användaragent.
+> * Det första direktuppspelningsprogrammet stöder användarinteraktion för att välja en MVPD.
+> * Det första direktuppspelningsprogrammet har stöd för användarinteraktion för autentisering med den valda MVPD i en användaragent.
 
 ### Arbetsflöde {#workflow-perform-authentication-through-single-sign-on-using-platform-identity}
 
@@ -79,7 +84,7 @@ Utför de angivna stegen för att implementera autentiseringsflödet genom enkel
    >
    > <br/>
    > 
-   > Mer information om rubriken `Adobe-Subject-Token` finns i [Adobe-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md) -dokumentationen.
+   > Mer information om rubriken `Adobe-Subject-Token` finns i dokumentationen för [Adobe-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md).
 
 1. **Ange nästa åtgärd:** Sessionernas slutpunktssvar innehåller de data som krävs för att vägleda det första direktuppspelningsprogrammet angående nästa åtgärd.
 
@@ -99,13 +104,13 @@ Utför de angivna stegen för att implementera autentiseringsflödet genom enkel
    > Om valideringen misslyckas genereras ett felsvar som ger ytterligare information som följer dokumentationen för [Förbättrade felkoder](../../../../features-standard/error-reporting/enhanced-error-codes.md).
 
 1. **Öppna URL i användaragent:** Sessionernas slutpunktssvar innehåller följande data:
-   * `url` som kan användas för att initiera den interaktiva autentiseringen på MVPD-inloggningssidan.
+   * `url` som kan användas för att initiera den interaktiva autentiseringen på inloggningssidan för MVPD.
    * Attributet `actionName` är inställt på &quot;authenticate&quot;.
    * Attributet `actionType` är inställt på &quot;interactive&quot;.
 
-   Om Adobe Pass serverdel inte identifierar en giltig profil, öppnar det första direktuppspelningsprogrammet en användaragent för att läsa in `url`, vilket gör en begäran till slutpunkten för autentisering. Det här flödet kan innehålla flera omdirigeringar, vilket i slutänden leder användaren till MVPD-inloggningssidan och anger giltiga inloggningsuppgifter.
+   Om Adobe Pass serverdel inte identifierar en giltig profil, öppnar det första direktuppspelningsprogrammet en användaragent för att läsa in `url`, vilket gör en begäran till slutpunkten för autentisering. Det här flödet kan innehålla flera omdirigeringar, vilket i slutänden leder till inloggningssidan för MVPD och anger giltiga inloggningsuppgifter.
 
-1. **Fullständig MVPD-autentisering:** Om autentiseringsflödet lyckas sparar användaragentinteraktionen en vanlig profil i Adobe Pass-serverdelen och når den angivna `redirectUrl`.
+1. **Fullständig MVPD-autentisering:** Om autentiseringsflödet lyckas sparar användaragentinteraktionen en vanlig profil i Adobe Pass serverdel och når den angivna `redirectUrl`.
 
 1. **Hämta profil för specifik kod:** Det första direktuppspelningsprogrammet samlar in alla nödvändiga data för att hämta profilinformation genom att skicka en begäran till profilslutpunkten.
 
@@ -147,7 +152,7 @@ Utför de angivna stegen för att implementera autentiseringsflödet genom enkel
    >
    > <br/>
    > 
-   > Mer information om rubriken `Adobe-Subject-Token` finns i [Adobe-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md) -dokumentationen.
+   > Mer information om rubriken `Adobe-Subject-Token` finns i dokumentationen för [Adobe-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md).
 
 1. **Hämta plattformsidentifierare:** Det andra direktuppspelningsprogrammet anropar identitetstjänsten eller -biblioteket utanför Adobe Pass-systemen för att hämta `JWS`- eller `JWE`-nyttolasten som är associerad med den unika plattforms-ID:t.
 
@@ -171,7 +176,7 @@ Utför de angivna stegen för att implementera autentiseringsflödet genom enkel
    >
    > <br/>
    > 
-   > Mer information om rubriken `Adobe-Subject-Token` finns i [Adobe-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md) -dokumentationen.
+   > Mer information om rubriken `Adobe-Subject-Token` finns i dokumentationen för [Adobe-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md).
 
 1. **Sök efter en enkel inloggningsprofil:** Adobe Pass-servern identifierar en giltig enkel inloggningsprofil baserat på mottagna parametrar och rubriker.
 
@@ -199,7 +204,7 @@ Utför de angivna stegen för att implementera autentiseringsflödet genom enkel
    >
    > <br/>
    > 
-   > Mer information om rubriken `Adobe-Subject-Token` finns i [Adobe-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md) -dokumentationen.
+   > Mer information om rubriken `Adobe-Subject-Token` finns i dokumentationen för [Adobe-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md).
 
 ## Hämta auktoriseringsbeslut via enkel inloggning med plattformsidentitet{#performing-authorization-flow-using-platform-identity-single-sign-on-method}
 
@@ -249,7 +254,7 @@ Utför de angivna stegen för att implementera auktoriseringsflödet genom enkel
    >
    > <br/>
    > 
-   > Mer information om rubriken `Adobe-Subject-Token` finns i [Adobe-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md) -dokumentationen.
+   > Mer information om rubriken `Adobe-Subject-Token` finns i dokumentationen för [Adobe-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md).
 
 1. **Sök efter en enkel inloggningsprofil:** Adobe Pass-servern identifierar en giltig enkel inloggningsprofil baserat på mottagna parametrar och rubriker.
 

@@ -1,8 +1,8 @@
 ---
 title: Header - Adobe-Subject-Token
-description: REST API V2 - rubrik - Adobe-Subject-token
+description: REST API V2 - Header - Adobe-Subject-Token
 exl-id: 906d88f4-3b8f-491a-ab58-8e63d3b958d8
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 81d3c3835d2e97e28c2ddb9c72d1a048a25ad433
 workflow-type: tm+mt
 source-wordcount: '166'
 ht-degree: 0%
@@ -17,7 +17,7 @@ ht-degree: 0%
 
 ## Ökning {#overview}
 
-Begärandehuvudet <b>Adobe-Subject-Token</b> innehåller den unika plattformsidentifieraren som `JWS` eller `JWE` som hämtats från en identitetstjänst eller ett bibliotek som körs utanför Adobe Pass autentiseringssystem.
+Huvudet för <b>Adobe-Subject-Token</b>-begäran innehåller den unika plattforms-ID:t `JWS` eller `JWE` som hämtats från en identitetstjänst eller ett bibliotek som körs utanför Adobe Pass autentiseringssystem.
 
 Det här huvudet är utformat för att användas i enkla inloggningsflöden (SSO) som utnyttjar plattformsidentitetsmetoden.
 
@@ -25,7 +25,7 @@ Mer information om enkel inloggning (SSO)-aktiverade flöden som utnyttjar metod
 
 ## Syntax {#syntax}
 
-<table>
+<table style="table-layout:auto">
    <tr>
       <td style="background-color: #DEEBFF;" colspan="2"><b>Adobe-Subject-Token</b>: &lt;unique_platform_identifier&gt;</td>
    </tr>

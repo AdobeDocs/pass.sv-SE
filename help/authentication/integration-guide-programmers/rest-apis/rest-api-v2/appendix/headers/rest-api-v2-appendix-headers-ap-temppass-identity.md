@@ -2,7 +2,7 @@
 title: Header - AP-TempPass-Identity
 description: REST API V2 - Header - AP-TempPass-Identity
 exl-id: a6238a58-a3f1-495d-a9d1-82475f5ffc60
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 81d3c3835d2e97e28c2ddb9c72d1a048a25ad433
 workflow-type: tm+mt
 source-wordcount: '84'
 ht-degree: 0%
@@ -21,7 +21,7 @@ Huvudet för begäran <b>AP-TempPass-Identity</b> innehåller den användarident
 
 ## Syntax {#syntax}
 
-<table>
+<table style="table-layout:auto">
    <tr>
       <td style="background-color: #DEEBFF;" colspan="2"><b>AP-TempPass-Identity</b>: &lt;user_identity_information&gt;</td>
    </tr>
