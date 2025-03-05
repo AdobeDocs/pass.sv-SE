@@ -2,9 +2,9 @@
 title: Grundläggande profiler - primärt program - flöde
 description: REST API V2 - Grundläggande profiler - Primärt program - Flöde
 exl-id: 19ddf382-9a32-4b94-aa84-7611c0e1780e
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 6b803eb0037e347d6ce147c565983c5a26de9978
 workflow-type: tm+mt
-source-wordcount: '964'
+source-wordcount: '974'
 ht-degree: 0%
 
 ---
@@ -18,6 +18,10 @@ ht-degree: 0%
 >[!IMPORTANT]
 >
 > REST API V2-implementeringen begränsas av dokumentationen för [begränsningsmekanismen](/help/authentication/integration-guide-programmers/throttling-mechanism.md).
+
+>[!MORELIKETHIS]
+>
+> Gå även till [REST API V2 FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#authentication-phase-faqs-general).
 
 **Profilerna flödar** inom Adobe Pass-autentiseringsberättigande vilket gör att direktuppspelningsprogrammet kan komma åt information om aktiva användarinloggningar.
 
@@ -79,19 +83,19 @@ Följ de angivna stegen för att implementera det grundläggande återgivningsfl
 
 ### Förutsättningar {#prerequisites-retrieve-profile-for-specific-mvpd}
 
-Innan du hämtar profilen för ett specifikt MVPD måste du kontrollera att följande krav är uppfyllda:
+Innan du hämtar profilen för en viss MVPD måste följande krav vara uppfyllda:
 
-* Strömningsprogrammet, som har en markerad eller cachelagrad `mvpd`-identifierare, vill hämta den vanliga profilen för ett specifikt MVPD.
+* Strömningsprogrammet, som har en markerad eller cachelagrad `mvpd`-identifierare, vill hämta den vanliga profilen för en specifik MVPD.
 
 ### Arbetsflöde {#workflow-retrieve-profile-for-specific-mvpd}
 
-Följ de angivna stegen för att implementera det grundläggande flödet för hämtning av profiler för ett specifikt MVPD som utförs i ett primärt program, vilket visas i följande diagram.
+Följ de angivna stegen för att implementera det grundläggande flödet för hämtning av profiler för en viss MVPD som utförs i ett primärt program enligt bilden nedan.
 
 ![Hämta profil för specifik mvpd](../../../../../assets/rest-api-v2/flows/basic-access-flows/rest-api-v2-retrieve-profile-within-primary-application-for-specific-mvpd.png)
 
 *Hämta profil för specifik mvpd*
 
-1. **Hämta profil för specifik mvpd:** Direktuppspelningsprogrammet samlar in alla nödvändiga data för att hämta profilinformation för den specifika MVPD-filen genom att skicka en begäran till profilslutpunkten.
+1. **Hämta profil för specifik mvpd:** Direktuppspelningsprogrammet samlar in alla data som behövs för att hämta profilinformation för den specifika MVPD-filen genom att skicka en begäran till profilslutpunkten.
 
    >[!IMPORTANT]
    >

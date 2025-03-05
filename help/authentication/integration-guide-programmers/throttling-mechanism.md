@@ -2,7 +2,7 @@
 title: Begränsningsmekanism
 description: Ta reda på vilken begränsningsmekanism som används vid Adobe Pass-autentisering. Utforska en översikt över den här funktionen på den här sidan.
 exl-id: f00f6c8e-2281-45f3-b592-5bbc004897f7
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 6b803eb0037e347d6ce147c565983c5a26de9978
 workflow-type: tm+mt
 source-wordcount: '1141'
 ht-degree: 0%
@@ -42,7 +42,7 @@ Implementeringar från server till server måste vidarebefordra klientens IP-adr
 
 Du hittar mer information om hur du skickar rubriken [här](legacy/rest-api-v1/cookbooks/rest-api-cookbook-servertoserver.md) för X-Forwarded-For.
 
-### Faktiska gränser och slutpunkter
+### Faktiska gränser och slutpunkter {#throttling-mechanism-limits}
 
 För närvarande tillåter standardgränsen högst 1 begäran per sekund, med en inledande sekvens på 10 begäranden (engångsavdrag vid den första interaktionen med den identifierade klienten, som bör tillåta initieringen att slutföras). Detta bör inte påverka alla vanliga affärstillfällen för alla våra kunder.
 
@@ -71,33 +71,33 @@ Begränsningsmekanismen aktiveras för följande slutpunkter:
 - /reggie/v1/.+/regcode
 - /reggie/v1/.+/regcode/.+
 
-### SDK-implementeringssätt
+### SDK implementeringssätt
 
 Eftersom klienter som använder den angivna SDK:n för Adobe Pass-autentisering inte uttryckligen interagerar med några slutpunkter, kommer det här avsnittet att visa de kända funktionerna, hur de beter sig när de stöter på ett strypningssvar och vilka åtgärder som bör vidtas.
 
 #### setRequestor
 
-SDK returnerar en CFG429-felkod genom `errorHandler`-återanrop när begränsningsgränsen nås med funktionen `setRequestor` från SDK.
+När begränsningen har uppnåtts med funktionen `setRequestor` från SDK, returnerar SDK en CFG429-felkod via `errorHandler`-återanrop.
 
 #### getAuthorization
 
-SDK returnerar en Z100-felkod genom `errorHandler`-återanrop när begränsningen nås med funktionen `getAuthorization` från SDK.
+När begränsningen har uppnåtts med funktionen `getAuthorization` från SDK, returnerar SDK en Z100-felkod via `errorHandler`-återanrop.
 
 #### checkPreauthorizedResources
 
-SDK returnerar en P100-felkod genom `errorHandler`-återanrop när begränsningen nås med funktionen `checkPreauthorizedResources` från SDK.
+När begränsningen har uppnåtts med funktionen `checkPreauthorizedResources` från SDK, returnerar SDK en P100-felkod via `errorHandler`-återanrop.
 
 #### getMetadata
 
-När begränsningen har uppnåtts med funktionen `getMetadata` från SDK returnerar SDK ett tomt svar via `setMetadataStatus`-återanropet.
+När begränsningen har uppnåtts med funktionen `getMetadata` från SDK, returnerar SDK ett tomt svar via `setMetadataStatus`-återanrop.
 
-För varje specifik implementeringsinformation, se den specifika SDK-dokumentationen.
+Mer information om respektive implementering finns i SDK-dokumentationen.
 
-- [API-referens för JavaScript SDK](legacy/sdks/javascript-sdk/javascript-sdk-api-reference.md)
-- [API-referens för Android SDK](legacy/sdks/android-sdk/android-sdk-api-reference.md)
+- [JavaScript SDK API Reference](legacy/sdks/javascript-sdk/javascript-sdk-api-reference.md)
+- [Android SDK API Reference](legacy/sdks/android-sdk/android-sdk-api-reference.md)
 - [API-referens för iOS/tvOS](legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md)
 
-### Ändringar av API-svar och svar
+### Ändringar av API-svar och svar {#throttling-mechanism-response}
 
 När vi identifierar att gränsen överskrids, markerar vi den här begäran med en specifik svarsstatus (HTTP 429 för många begäranden), vilket anger att du har förbrukat alla token som tilldelats användarenheten (IP-adressen) för tidsintervallet.
 

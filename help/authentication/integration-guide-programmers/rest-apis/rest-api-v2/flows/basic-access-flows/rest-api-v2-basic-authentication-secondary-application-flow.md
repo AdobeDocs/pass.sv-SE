@@ -2,9 +2,9 @@
 title: Grundläggande autentisering - sekundärt program - flöde
 description: REST API V2 - grundläggande autentisering - sekundärt program - flöde
 exl-id: 83bf592e-c679-4cfe-984d-710a9598c620
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 6b803eb0037e347d6ce147c565983c5a26de9978
 workflow-type: tm+mt
-source-wordcount: '2000'
+source-wordcount: '2010'
 ht-degree: 0%
 
 ---
@@ -19,20 +19,24 @@ ht-degree: 0%
 >
 > REST API V2-implementeringen begränsas av dokumentationen för [begränsningsmekanismen](/help/authentication/integration-guide-programmers/throttling-mechanism.md).
 
-**Autentiseringsflödet** i Adobe Pass-autentiseringsberättigandet gör att direktuppspelningsprogrammet kan verifiera att en användare har ett giltigt MVPD-konto. Denna process kräver att användaren har ett aktivt MVPD-konto och anger giltiga inloggningsuppgifter på MVPD-inloggningssidan.
+>[!MORELIKETHIS]
+>
+> Gå även till [REST API V2 FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#authentication-phase-faqs-general).
+
+**Autentiseringsflödet** i Adobe Pass-autentiseringsberättigandet gör att direktuppspelningsprogrammet kan verifiera att en användare har ett giltigt MVPD-konto. Den här processen kräver att användaren har ett aktivt MVPD-konto och anger giltiga inloggningsuppgifter på inloggningssidan för MVPD.
 
 Autentiseringsflöde krävs i följande fall:
 
 * När användaren öppnar ett program för första gången.
 * När användarens tidigare autentisering har upphört att gälla.
 * När användaren loggar ut från MVPD-kontot.
-* När användaren vill autentisera med ett annat MVPD.
+* När användaren vill autentisera med en annan MVPD.
 
 I alla dessa fall får programmet som anropar någon av profilslutpunkterna ett tomt svar eller en eller flera profiler, men för olika programmeringsvideofilmsprogram.
 
-**Autentiseringsflödet** kräver att en användaragent (webbläsare) slutför en serie samtal från programmet till Adobe Pass-servern, sedan till inloggningssidan för MVPD och slutligen tillbaka till programmet. Detta flöde kan omfatta flera omdirigeringar till MVPD-system och hantering av cookies eller sessioner som lagras för varje domän, vilket kan vara en utmaning att uppnå och skydda utan användaragent.
+**Autentiseringsflödet** kräver att en användaragent (webbläsare) slutför en serie samtal från programmet till Adobe Pass, sedan till inloggningssidan för MVPD och slutligen tillbaka till programmet. Det här flödet kan omfatta flera omdirigeringar till MVPD-system och hantering av cookies eller sessioner som lagras för varje domän, vilket kan vara en utmaning att uppnå och skydda utan användaragent.
 
-Autentiseringsscenarierna är följande:
+Autentiseringsscenarierna är följande, baserat på de primära funktionerna (för direktuppspelning av program) som stöder användarinteraktion för att välja en MVPD och autentisera med den valda MVPD i en användaragent:
 
 * [Utför autentisering i det primära programmet](rest-api-v2-basic-authentication-primary-application-flow.md)
 * [Utför autentisering i det sekundära programmet med förvald mvpd](./rest-api-v2-basic-authentication-secondary-application-flow.md)
@@ -44,9 +48,9 @@ Autentiseringsscenarierna är följande:
 
 Innan du startar autentiseringsflödet i ett primärt program och avslutar det via användarinteraktion i ett sekundärt program måste du se till att följande krav uppfylls:
 
-* Strömningsprogrammet måste välja ett MVPD.
-* Strömningsprogrammet måste initiera en autentiseringssession för att kunna logga in med det valda MVPD-programmet.
-* Det sekundära programmet måste autentisera med det valda MVPD-programmet i en användaragent.
+* Strömningsprogrammet måste välja en MVPD.
+* Strömningsprogrammet måste initiera en autentiseringssession för att kunna logga in med den valda MVPD.
+* Det sekundära programmet måste autentiseras med den valda MVPD i en användaragent.
 
 >[!IMPORTANT]
 >
@@ -54,12 +58,12 @@ Innan du startar autentiseringsflödet i ett primärt program och avslutar det v
 >
 > <br/>
 > 
-> * Strömningsprogrammet stöder användarinteraktion för att välja ett MVPD.
-> * Det sekundära programmet (vanligtvis på en sekundär enhet) stöder användarinteraktion för att autentisera med det valda MVPD-programmet i en användaragent.
+> * Strömningsprogrammet stöder användarinteraktion för att välja en MVPD.
+> * Det sekundära programmet (vanligtvis på en sekundär enhet) stöder användarinteraktion för att autentisera med den valda MVPD i en användaragent.
 
 ### Arbetsflöde {#workflow-perform-authentication-within-secondary-application-with-preselected-mvpd}
 
-Följ de angivna stegen för att implementera det grundläggande autentiseringsflödet som utförs i ett sekundärt program med ett förvalt MVPD enligt bilden nedan.
+Följ de angivna stegen för att implementera det grundläggande autentiseringsflödet som utförs i ett sekundärt program med en förinställd MVPD enligt bilden nedan.
 
 ![Utför autentisering i det sekundära programmet med förvald mvpd](../../../../../assets/rest-api-v2/flows/basic-access-flows/rest-api-v2-perform-authentication-within-secondary-application-with-preselected-mvpd.png)
 
@@ -100,7 +104,7 @@ Följ de angivna stegen för att implementera det grundläggande autentiseringsf
    * Attributet `actionName` är inställt på&quot;auktorisera&quot;.
    * Attributet `actionType` är inställt på&quot;direct&quot;.
 
-   Om Adobe Pass serverdel identifierar en giltig profil behöver direktuppspelningsprogrammet inte autentisera igen med det valda MVPD-programmet, eftersom det redan finns en profil som kan användas för efterföljande beslutsflöden.
+   Om Adobe Pass serverdel identifierar en giltig profil behöver direktuppspelningsprogrammet inte autentisera igen med den valda MVPD eftersom det redan finns en profil som kan användas för efterföljande beslutsflöden.
 
 1. **Visa autentiseringskod:** Sessionernas slutpunktssvar innehåller följande data:
    * `code` som kan användas för att återuppta autentiseringssessionen i ett sekundärt program.
@@ -141,7 +145,7 @@ Följ de angivna stegen för att implementera det grundläggande autentiseringsf
    >
    > Förslag: Det sekundära programmet kan informera användare om att `code` som används är ogiltig om ett felsvar indikerar en saknad autentiseringssession och råda dem att försöka igen med en ny.
 
-1. **Öppna URL i användaragent:** Det sekundära programmet öppnar en användaragent för inläsning av den självberäknade `url`, vilket gör en begäran till slutpunkten för autentisering. Det här flödet kan innehålla flera omdirigeringar, vilket i slutänden leder användaren till MVPD-inloggningssidan och anger giltiga inloggningsuppgifter.
+1. **Öppna URL i användaragent:** Det sekundära programmet öppnar en användaragent för inläsning av den självberäknade `url`, vilket gör en begäran till slutpunkten för autentisering. Det här flödet kan innehålla flera omdirigeringar, vilket i slutänden leder till inloggningssidan för MVPD och anger giltiga inloggningsuppgifter.
 
    >[!IMPORTANT]
    >
@@ -150,7 +154,7 @@ Följ de angivna stegen för att implementera det grundläggande autentiseringsf
    > * Alla _obligatoriska_-parametrar, som `serviceProvider` och `code`
    > * Alla _valfria_ parametrar och rubriker
 
-1. **Fullständig MVPD-autentisering:** Om autentiseringsflödet lyckas sparar användaragentinteraktionen en vanlig profil i Adobe Pass-serverdelen och når den angivna `redirectUrl`.
+1. **Fullständig MVPD-autentisering:** Om autentiseringsflödet lyckas sparar användaragentinteraktionen en vanlig profil i Adobe Pass serverdel och når den angivna `redirectUrl`.
 
 1. **Hämta profil för specifik kod:** Direktuppspelningsprogrammet samlar in alla nödvändiga data för att hämta profilinformation genom att skicka en begäran till profilslutpunkten.
 
@@ -190,7 +194,7 @@ Innan du startar autentiseringsflödet i ett primärt program och avslutar det v
 
 * Direktuppspelningsprogrammet måste initiera en autentiseringssession när det behöver logga in.
 * Det sekundära programmet måste välja en MVPD.
-* Det sekundära programmet måste autentisera med det valda MVPD-programmet i en användaragent.
+* Det sekundära programmet måste autentiseras med den valda MVPD i en användaragent.
 
 >[!IMPORTANT]
 >
@@ -198,12 +202,12 @@ Innan du startar autentiseringsflödet i ett primärt program och avslutar det v
 >
 > <br/>
 > 
-> * Det sekundära programmet (vanligtvis på en sekundär enhet) stöder användarinteraktion för att välja ett MVPD.
-> * Det sekundära programmet (vanligtvis på en sekundär enhet) stöder användarinteraktion för att autentisera med det valda MVPD-programmet i en användaragent.
+> * Det sekundära programmet (vanligtvis på en sekundär enhet) stöder användarinteraktion för att välja en MVPD.
+> * Det sekundära programmet (vanligtvis på en sekundär enhet) stöder användarinteraktion för att autentisera med den valda MVPD i en användaragent.
 
 ### Arbetsflöde {#workflow-perform-authentication-within-secondary-application-without-preselected-mvpd}
 
-Följ de angivna stegen för att implementera det grundläggande autentiseringsflödet som utförs i ett sekundärt program utan ett förvalt MVPD enligt bilden nedan.
+Följ de angivna stegen för att implementera det grundläggande autentiseringsflödet som utförs i ett sekundärt program utan en förinställd MVPD, vilket visas i följande diagram.
 
 ![Utför autentisering i det sekundära programmet utan förvald mvpd](../../../../../assets/rest-api-v2/flows/basic-access-flows/rest-api-v2-perform-authentication-within-secondary-application-without-preselected-mvpd.png)
 
@@ -279,16 +283,16 @@ Följ de angivna stegen för att implementera det grundläggande autentiseringsf
    * Attributet `actionName` är inställt på&quot;auktorisera&quot;.
    * Attributet `actionType` är inställt på&quot;direct&quot;.
 
-   Om Adobe Pass serverdel identifierar en giltig profil behöver direktuppspelningsprogrammet inte autentisera igen med det valda MVPD-programmet, eftersom det redan finns en profil som kan användas för efterföljande beslutsflöden.
+   Om Adobe Pass serverdel identifierar en giltig profil behöver direktuppspelningsprogrammet inte autentisera igen med den valda MVPD eftersom det redan finns en profil som kan användas för efterföljande beslutsflöden.
 
 1. **Öppna URL i användaragent:** Sessionernas slutpunktssvar innehåller följande data:
-   * `url` som kan användas för att initiera den interaktiva autentiseringen på MVPD-inloggningssidan.
+   * `url` som kan användas för att initiera den interaktiva autentiseringen på inloggningssidan för MVPD.
    * Attributet `actionName` är inställt på &quot;authenticate&quot;.
    * Attributet `actionType` är inställt på &quot;interactive&quot;.
 
-   Om Adobe Pass serverdel inte identifierar en giltig profil, öppnar det sekundära programmet en användaragent för att läsa in `url`, vilket gör en begäran till slutpunkten för autentisering. Det här flödet kan innehålla flera omdirigeringar, vilket i slutänden leder användaren till MVPD-inloggningssidan och anger giltiga inloggningsuppgifter.
+   Om Adobe Pass serverdel inte identifierar en giltig profil, öppnar det sekundära programmet en användaragent för att läsa in `url`, vilket gör en begäran till slutpunkten för autentisering. Det här flödet kan innehålla flera omdirigeringar, vilket i slutänden leder till inloggningssidan för MVPD och anger giltiga inloggningsuppgifter.
 
-1. **Fullständig MVPD-autentisering:** Om autentiseringsflödet lyckas sparar användaragentinteraktionen en vanlig profil i Adobe Pass-serverdelen och når den angivna `redirectUrl`.
+1. **Fullständig MVPD-autentisering:** Om autentiseringsflödet lyckas sparar användaragentinteraktionen en vanlig profil i Adobe Pass serverdel och når den angivna `redirectUrl`.
 
 1. **Hämta profil för specifik kod:** Direktuppspelningsprogrammet samlar in alla nödvändiga data för att hämta profilinformation genom att skicka en begäran till profilslutpunkten.
 

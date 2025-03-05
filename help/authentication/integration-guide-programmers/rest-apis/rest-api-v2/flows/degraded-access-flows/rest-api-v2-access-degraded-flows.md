@@ -2,9 +2,9 @@
 title: Försämrade åtkomstflöden
 description: REST API V2 - Åtkomstflöden med degradering
 exl-id: 9276f5d9-8b1a-4282-8458-0c1e1e06bcf5
-source-git-commit: 49a6a75944549dbfb062b1be8a053e6c99c90dc9
+source-git-commit: 6b803eb0037e347d6ce147c565983c5a26de9978
 workflow-type: tm+mt
-source-wordcount: '1605'
+source-wordcount: '1615'
 ht-degree: 0%
 
 ---
@@ -18,6 +18,10 @@ ht-degree: 0%
 >[!IMPORTANT]
 >
 > REST API V2-implementeringen begränsas av dokumentationen för [begränsningsmekanismen](/help/authentication/integration-guide-programmers/throttling-mechanism.md).
+
+>[!MORELIKETHIS]
+>
+> Gå även till [REST API V2 FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#authentication-phase-faqs-general).
 
 Genom att dekryptera kan du tillfälligt kringgå specifika slutpunkter för autentisering och behörighet från MVPD. Oftast initierar programmeraren den här åtgärden, men oavsett vem som utlöser en nedbrytningshändelse beror åtgärden på tidigare arrangemang som gjorts med de berörda programmeringsversionerna.
 

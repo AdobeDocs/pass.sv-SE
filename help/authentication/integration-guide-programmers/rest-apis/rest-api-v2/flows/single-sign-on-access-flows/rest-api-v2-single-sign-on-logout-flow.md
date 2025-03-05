@@ -2,9 +2,9 @@
 title: Enkel utloggning - flöde
 description: REST API V2 - enkel utloggning - flöde
 exl-id: d7092ca7-ea7b-4e92-b45f-e373a6d673d6
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 6b803eb0037e347d6ce147c565983c5a26de9978
 workflow-type: tm+mt
-source-wordcount: '577'
+source-wordcount: '587'
 ht-degree: 0%
 
 ---
@@ -19,13 +19,17 @@ ht-degree: 0%
 >
 > REST API V2-implementeringen begränsas av dokumentationen för [begränsningsmekanismen](/help/authentication/integration-guide-programmers/throttling-mechanism.md).
 
+>[!MORELIKETHIS]
+>
+> Gå även till [REST API V2 FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#authentication-phase-faqs-general).
+
 ## Initiera enkel utloggning för specifik mvpd {#initiate-single-logout-for-specific-mvpd}
 
 ### Förutsättningar {#prerequisites-initiate-single-logout-for-specific-mvpd}
 
-Innan du startar en enda utloggning för ett specifikt MVPD måste du kontrollera att följande krav är uppfyllda:
+Innan du startar en enda utloggning för en viss MVPD måste du kontrollera att följande krav är uppfyllda:
 
-* Det andra direktuppspelningsprogrammet måste ha en giltig enkel inloggningsprofil som har skapats för MVPD med ett av autentiseringsflödena för enkel inloggning:
+* Det andra direktuppspelningsprogrammet måste ha en giltig enkel inloggningsprofil som har skapats för MVPD med något av autentiseringsflödena för enkel inloggning:
    * [Utför autentisering genom enkel inloggning med plattformsidentitet](rest-api-v2-single-sign-on-platform-identity-flows.md)
    * [Utför autentisering med enkel inloggning med tjänsttoken](rest-api-v2-single-sign-on-service-token-flows.md)
 * Det andra direktuppspelningsprogrammet måste initiera ett enda utloggningsflöde när det behöver logga ut från MVPD.
@@ -40,7 +44,7 @@ Innan du startar en enda utloggning för ett specifikt MVPD måste du kontroller
 
 ### Arbetsflöde {#workflow-initiate-single-logout-for-specific-mvpd}
 
-Utför de angivna stegen för att implementera ett enda utloggningsflöde för ett specifikt MVPD enligt bilden nedan.
+Utför de angivna stegen för att implementera ett enda utloggningsflöde för en specifik MVPD enligt bilden nedan.
 
 ![Initiera enkel utloggning för specifik mvpd](../../../../../assets/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-initiate-single-logout-for-specific-mvpd-flow.png)
 
@@ -62,7 +66,7 @@ Utför de angivna stegen för att implementera ett enda utloggningsflöde för e
    >
    > <br/>
    > 
-   > Mer information om rubriken `Adobe-Subject-Token` finns i [Adobe-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md) -dokumentationen.
+   > Mer information om rubriken `Adobe-Subject-Token` finns i dokumentationen för [Adobe-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md).
    > 
    > <br/>
    > 
@@ -91,7 +95,7 @@ Utför de angivna stegen för att implementera ett enda utloggningsflöde för e
 
 1. **Ange att utloggningen är slutförd:** Om MVPD inte stöder utloggningsflödet bearbetar direktuppspelningsprogrammet svaret och kan använda det för att visa ett specifikt meddelande i användargränssnittet.
 
-1. **Initiera MVPD-utloggning:** Om MVPD saknar stöd för utloggningsflödet bearbetar direktuppspelningsprogrammet svaret och använder en användaragent för att initiera utloggningsflödet med MVPD. Flödet kan innehålla flera omdirigeringar till MVPD-system. Resultatet är dock att MVPD utför sin interna rensning och skickar den slutliga utloggningsbekräftelsen tillbaka till Adobe Pass backend.
+1. **Initiera MVPD-utloggning:** Om MVPD stöder utloggningsflödet bearbetar direktuppspelningsprogrammet svaret och använder en användaragent för att initiera utloggningsflödet med MVPD. Flödet kan omfatta flera omdirigeringar till MVPD-system. Resultatet är dock att MVPD utför sin interna rensning och skickar den slutliga utloggningsbekräftelsen tillbaka till Adobe Pass backend.
 
 1. **Ange att utloggningen är slutförd:** Strömningsprogrammet kan vänta på att användaragenten ska nå den angivna `redirectUrl` och kan använda den som en signal för att visa ett specifikt meddelande i användargränssnittet.
 

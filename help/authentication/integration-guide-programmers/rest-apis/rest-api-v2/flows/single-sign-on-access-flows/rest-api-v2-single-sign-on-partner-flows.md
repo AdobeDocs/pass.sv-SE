@@ -2,9 +2,9 @@
 title: Enkel inloggning - partner - flöden
 description: REST API V2 - enkel inloggning - partner - flöden
 exl-id: 5735d67f-a311-4d03-ad48-93c0fcbcace5
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 6b803eb0037e347d6ce147c565983c5a26de9978
 workflow-type: tm+mt
-source-wordcount: '1444'
+source-wordcount: '1454'
 ht-degree: 0%
 
 ---
@@ -18,6 +18,10 @@ ht-degree: 0%
 >[!IMPORTANT]
 >
 > REST API V2-implementeringen begränsas av dokumentationen för [begränsningsmekanismen](/help/authentication/integration-guide-programmers/throttling-mechanism.md).
+
+>[!MORELIKETHIS]
+>
+> Gå även till [REST API V2 FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#authentication-phase-faqs-general).
 
 Med partnermetoden kan flera program använda en statusnyttolast för partnerramverket för att uppnå enkel inloggning (SSO) på enhetsnivå när Adobe Pass-tjänster används.
 
@@ -47,8 +51,8 @@ Innan du hämtar partnerautentiseringsbegäran ska du kontrollera att följande 
 > 
 > <br/>
 > 
-> * Partnerramverket stöder användarinteraktion för att välja ett MVPD.
-> * Partnerramverket stöder användarinteraktion för autentisering med det valda MVPD-programmet.
+> * Partnerramverket stöder användarinteraktion för att välja en MVPD.
+> * Partnerramverket stöder användarinteraktion för autentisering med den valda MVPD.
 > * Partnerramverket tillhandahåller användarbehörighet och providerinformation.
 
 ### Arbetsflöde {#workflow-retrieve-partner-authentication-request}
@@ -138,7 +142,7 @@ Utför de angivna stegen för att hämta partnerautentiseringsbegäran enligt bi
    * Attributet `actionName` är inställt på&quot;auktorisera&quot;.
    * Attributet `actionType` är inställt på&quot;direct&quot;.
 
-   Om Adobe Pass serverdel identifierar en giltig profil behöver direktuppspelningsprogrammet inte autentisera igen med det valda MVPD-programmet, eftersom det redan finns en profil som kan användas för efterföljande beslutsflöden.
+   Om Adobe Pass serverdel identifierar en giltig profil behöver direktuppspelningsprogrammet inte autentisera igen med den valda MVPD eftersom det redan finns en profil som kan användas för efterföljande beslutsflöden.
 
    >[!IMPORTANT]
    >
@@ -154,15 +158,15 @@ Utför de angivna stegen för att hämta partnerautentiseringsbegäran enligt bi
 
 Innan du hämtar profilen med ett partnerautentiseringssvar måste du kontrollera att följande krav är uppfyllda:
 
-* Partnerramverket måste utföra autentisering med det valda MVPD.
+* Partnerramverket måste utföra autentisering med den valda MVPD.
 * Direktuppspelningsprogrammet måste få partnerautentiseringssvaret tillsammans med partnerramverkets statusinformation från partnerramverket och skicka det till Adobe Pass-servern.
 
 >[!IMPORTANT]
 >
 > Förutsättning
 >
-> * Partnerramverket stöder användarinteraktion för att välja ett MVPD.
-> * Partnerramverket stöder användarinteraktion för autentisering med det valda MVPD-programmet.
+> * Partnerramverket stöder användarinteraktion för att välja en MVPD.
+> * Partnerramverket stöder användarinteraktion för autentisering med den valda MVPD.
 > * Partnerramverket tillhandahåller användarbehörighet och providerinformation.
 
 ### Arbetsflöde {#workflow-retrieve-profile-using-partner-authentication-response}

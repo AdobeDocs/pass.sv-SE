@@ -2,9 +2,9 @@
 title: Hämta profiler
 description: REST API V2 - Hämta profiler
 exl-id: 72922aa8-95ca-48dc-8523-e335802fc366
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 6b803eb0037e347d6ce147c565983c5a26de9978
 workflow-type: tm+mt
-source-wordcount: '814'
+source-wordcount: '824'
 ht-degree: 0%
 
 ---
@@ -18,6 +18,10 @@ ht-degree: 0%
 >[!IMPORTANT]
 >
 > REST API V2-implementeringen begränsas av dokumentationen för [begränsningsmekanismen](/help/authentication/integration-guide-programmers/throttling-mechanism.md).
+
+>[!MORELIKETHIS]
+>
+> Gå även till [REST API V2 FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#authentication-phase-faqs-general).
 
 ## Begäran {#request}
 
@@ -89,7 +93,7 @@ ht-degree: 0%
    <tr>
       <td style="background-color: #DEEBFF;">Adobe-Subject-Token</td>
       <td>
-        Genereringen av nyttolasten för enkel inloggning för plattformsidentitetsmetoden beskrivs i rubrikdokumentationen för <a href="../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md">Adobe-Subject-Token</a>.
+        Genereringen av nyttolasten för enkel inloggning för metoden Platform Identity beskrivs i rubrikdokumentationen för <a href="../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md">Adobe-Subject-Token</a>.
         <br/><br/>
         Mer information om enkla inloggningsaktiverade flöden med en plattformsidentitet finns i dokumentationen för <a href="../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-platform-identity-flows.md"> enkel inloggning med plattformsidentitetsflöden </a> .
       </td>

@@ -2,9 +2,9 @@
 title: REST API V2 - frågor och svar
 description: REST API V2 - frågor och svar
 exl-id: 2dd74b47-126e-487b-b467-c16fa8cc14c1
-source-git-commit: 871afc4e7ec04d62590dd574bf4e28122afc01b6
+source-git-commit: 6b803eb0037e347d6ce147c565983c5a26de9978
 workflow-type: tm+mt
-source-wordcount: '6963'
+source-wordcount: '8198'
 ht-degree: 0%
 
 ---
@@ -123,7 +123,51 @@ Syftet med autentiseringsfasen är att ge klientprogrammet möjlighet att verifi
 
 Autentiseringsfasen fungerar som ett nödvändigt steg för förauktoriseringsfasen eller auktoriseringsfasen när klientprogrammet behöver spela upp innehåll.
 
-#### 2. Hur vet klientprogrammet om användaren redan är autentiserad? {#authentication-phase-faq2}
+#### 2. Vad är en autentiseringssession och hur länge gäller den? {#authentication-phase-faq2}
+
+Autentiseringssessionen är en term som definieras i dokumentationen för [ordlistan](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#session).
+
+Autentiseringssessionen lagrar information om den initierade autentiseringsprocessen som kan hämtas från sessionens slutpunkt.
+
+Autentiseringssessionen är giltig under en begränsad och kort tidsram som anges vid utfärdandetillfället av tidsstämpeln `notAfter`, vilket anger hur lång tid användaren måste slutföra autentiseringsprocessen innan flödet måste startas om.
+
+Klientprogrammet kan använda autentiseringssessionssvaret för att veta hur autentiseringsprocessen ska fortsätta. Observera att det finns fall där användaren inte behöver autentisera, till exempel temporär åtkomst, begränsad åtkomst eller när användaren redan är autentiserad.
+
+Mer information finns i följande dokument:
+
+* [Skapa API för autentiseringssession](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md)
+* [Återuppta autentiseringssessions-API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-resume-authentication-session.md)
+* [Grundläggande autentiseringsflöde som utförs i det primära programmet](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-primary-application-flow.md)
+* [Grundläggande autentiseringsflöde som utförs i sekundärt program](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-secondary-application-flow.md)
+
+#### 3. Vad är en autentiseringskod och hur länge gäller den? {#authentication-phase-faq3}
+
+Autentiseringskoden är en term som definieras i dokumentationen för [ordlistan](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#code).
+
+Autentiseringskoden lagrar ett unikt värde som genereras när en användare initierar autentiseringsprocessen och identifierar unikt användarens autentiseringssession tills processen är slutförd eller tills autentiseringssessionen upphör.
+
+Autentiseringskoden är giltig under en begränsad och kort tidsperiod som anges när autentiseringssessionen initieras av tidsstämpeln `notAfter`, vilket anger hur lång tid användaren måste slutföra autentiseringsprocessen innan flödet måste startas om.
+
+Klientprogrammet kan använda autentiseringskoden för att verifiera om användaren har slutfört autentiseringen och hämta användarens profilinformation, vanligtvis via en avsökningsmekanism.
+
+Klientprogrammet kan också använda autentiseringskoden för att tillåta användaren att slutföra eller återuppta autentiseringsprocessen antingen på samma enhet eller på en andra (skärm), med tanke på att autentiseringssessionen inte gick ut.
+
+Mer information finns i följande dokument:
+
+* [Skapa API för autentiseringssession](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md)
+* [Återuppta autentiseringssessions-API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-resume-authentication-session.md)
+* [Grundläggande autentiseringsflöde som utförs i det primära programmet](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-primary-application-flow.md)
+* [Grundläggande autentiseringsflöde som utförs i sekundärt program](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-secondary-application-flow.md)
+
+#### 4. Hur vet klientprogrammet om användaren har skrivit en giltig autentiseringskod och att autentiseringssessionen inte har gått ut än? {#authentication-phase-faq4}
+
+Klientprogrammet kan validera den autentiseringskod som användaren skriver i ett sekundärt (skärm) program genom att skicka en begäran till någon av sessionens slutpunkter som ansvarar för att återuppta autentiseringssessionen eller hämta autentiseringssessionsinformation som är kopplad till autentiseringskoden.
+
+Klientprogrammet skulle få ett [fel](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md#enhanced-error-codes-lists-rest-api-v2) om den angivna autentiseringskoden skrivits fel eller om autentiseringssessionen skulle gå ut.
+
+Mer information finns i dokumenten för [Återuppta autentiseringssessionen](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-resume-authentication-session.md) och [Hämta autentiseringssessionen](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-retrieve-authentication-session-information-using-code.md).
+
+#### 5. Hur vet klientprogrammet om användaren redan är autentiserad? {#authentication-phase-faq5}
 
 Klientprogrammet kan fråga någon av följande slutpunkter som kan verifiera om en användare redan är autentiserad och returnera profilinformation:
 
@@ -136,7 +180,128 @@ Mer information finns i följande dokument:
 * [Grundläggande profilflöden som utförs i det primära programmet](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-primary-application-flow.md)
 * [Grundläggande profiler som körs i sekundärt program](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-secondary-application-flow.md)
 
-#### 3. Hur kan klientprogrammet hämta användarens metadatainformation? {#authentication-phase-faq3}
+#### 6. Vad är en profil och hur länge gäller den? {#authentication-phase-faq6}
+
+Profilen är en term som definieras i dokumentationen för [ordlistan](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#profile).
+
+Profilen lagrar information om användarens autentiseringsgiltighet, metadatainformation och mycket mer som kan hämtas från profilslutpunkten.
+
+Klientprogrammet kan använda profilen för att känna till användarens autentiseringsstatus, komma åt användarens metadatainformation, hitta den metod som används för att autentisera eller enheten som används för att ange identitet.
+
+Mer information finns i följande dokument:
+
+* [API för profilslutpunkt](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md)
+* [Profilslutpunkt för specifikt MVPD API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md)
+* [Profilslutpunkt för specifik (autentisering) kod-API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md)
+* [Grundläggande profilflöden som utförs i det primära programmet](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-primary-application-flow.md)
+* [Grundläggande profiler som körs i sekundärt program](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-secondary-application-flow.md)
+
+Profilen är giltig under en begränsad tidsperiod som anges när den efterfrågas av tidsstämpeln `notAfter`, vilket anger hur lång tid användaren har en giltig autentisering innan han eller hon måste gå igenom autentiseringsfasen igen.
+
+Den här begränsade tidsramen som kallas autentisering (authN) [TTL](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#ttl) kan visas och ändras via Adobe Pass [TVE Dashboard](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#tve-dashboard) av en av dina företagsadministratörer eller av en Adobe Pass-autentiseringsrepresentant som agerar för din räkning.
+
+Mer information finns i dokumentationen för [TVE Dashboard Integrations User Guide](/help/authentication/user-guide-tve-dashboard/tve-dashboard-integrations.md#most-used-flows) .
+
+#### 7. Ska klientprogrammet cachelagra användarens profilinformation i ett beständigt lagringsutrymme? {#authentication-phase-faq7}
+
+Klientprogrammet bör cachelagra användarens profilinformation i en beständig lagring för att undvika onödiga begäranden och förbättra användarupplevelsen med tanke på följande aspekter:
+
+| Attribut | Användarupplevelse |
+|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `attributes` | Klientprogrammet kan använda detta för att anpassa användarupplevelsen baserat på olika [användarmetadata](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md)-nycklar (t.ex. `zip`, `maxRating` osv.). |
+| `mvpd` | Klientprogrammet kan använda detta för att hålla reda på användarens valda TV-leverantör.<br/><br/>När den aktuella användarprofilen förfaller kan klientprogrammet använda det sparade MVPD-valet och be användaren bekräfta. |
+| `notAfter` | Klientprogrammet kan använda detta för att hålla reda på användarprofilens förfallodatum och utlösa autentiseringsprocessen när den upphör, vilket undviker fel under förauktoriserings- eller auktoriseringsfaserna.<br/><br/>Felhanteringen i klientprogrammet måste kunna hantera felkoden [ authenticated_profile_utgången](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md#enhanced-error-codes-lists-rest-api-v2) , vilket anger att klientprogrammet kräver att användaren autentiserar sig på nytt. |
+
+#### 8. Kan klientprogrammet utöka användarens profil utan att omautentisering krävs? {#authentication-phase-faq8}
+
+Nej.
+
+Användarprofilen kan inte förlängas utanför sin giltighet utan användarinteraktion, eftersom dess förfallotid bestäms av autentiserings-TTL:en som upprättats med MVPD:er.
+
+Klientprogrammet måste därför uppmana användaren att autentisera igen och interagera med MVPD inloggningssida för att uppdatera sin profil på vårt system.
+
+För MVPD-program som stöder [hembaserad autentisering](/help/authentication/integration-guide-programmers/features-standard/hba-access/home-based-authentication.md) (HBA) behöver användaren inte ange några autentiseringsuppgifter.
+
+#### 9. Vilka är användningsexemplen för de tillgängliga profilslutpunkterna? {#authentication-phase-faq9}
+
+Profilslutpunkterna är utformade för att ge klientprogrammet möjlighet att känna till användarens autentiseringsstatus, få åtkomst till användarens metadatainformation, hitta den metod som används för att autentisera eller den enhet som används för att ange identitet.
+
+Varje slutpunkt passar ett specifikt användningsfall, enligt följande:
+
+| API | Beskrivning | Använd skiftläge |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Profilslutpunkts-API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md) | Hämta alla användarprofiler. | **Användaren öppnar klientprogrammet för första gången**<br/><br/> I det här scenariot har klientprogrammet inte användarens valda MVPD-identifierare cachelagrad i beständig lagring.<br/><br/>Det innebär att programmet skickar en begäran om att hämta alla tillgängliga användarprofiler. |
+| [Profilslutpunkt för specifikt MVPD API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md) | Hämta användarprofilen som är kopplad till en viss MVPD. | **Användaren återgår till klientprogrammet efter att ha autentiserats vid ett tidigare besök**<br/><br/> I det här fallet måste användarens tidigare valda MVPD-identifierare cachelagras i det beständiga lagringsutrymmet.<br/><br/>Det innebär att programmet skickar en enda begäran om att hämta användarens profil för den specifika MVPD:n. |
+| [Profilslutpunkt för specifikt (autentisering) kods-API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md) | Hämta användarprofilen som är associerad med en viss autentiseringskod. | **Användaren initierar autentiseringsprocessen**<br/><br/> I det här scenariot måste klientprogrammet avgöra om användaren har slutfört autentiseringen och hämta profilinformationen.<br/><br/>Detta resulterar i att en avsökningsmekanism startas för att hämta användarens profil som är associerad med autentiseringskoden. |
+
+#### 10. Vad ska klientprogrammet göra om användaren har flera MVPD-profiler? {#authentication-phase-faq10}
+
+När användaren har flera MVPD-profiler är klientprogrammet ansvarigt för att fastställa det bästa sättet att hantera detta scenario.
+
+Klientprogrammet kan välja att uppmana användaren att välja önskad MVPD-profil eller göra urvalet automatiskt, till exempel välja den första användarprofilen i svaret eller den som har längst giltighetsperiod.
+
+#### 11. Vad händer när användarprofiler upphör att gälla? {#authentication-phase-faq11}
+
+När användarprofiler förfaller inkluderas de inte längre i svaret från profilslutpunkten.
+
+Om slutpunkten för profiler returnerar ett tomt profilmappningssvar måste klientprogrammet skapa en ny autentiseringssession och uppmana användaren att autentisera igen.
+
+Mer information finns i dokumentationen för [Skapa autentiseringssessions-API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md).
+
+#### 12. När blir användarprofiler ogiltiga? {#authentication-phase-faq12}
+
+Användarprofiler blir ogiltiga i följande scenarier:
+
+* När autentiserings-TTL upphör att gälla, vilket anges av tidsstämpeln `notAfter` i slutpunktssvaret för profiler.
+* När klientprogrammet ändrar rubrikvärdet [AP-Device-Identifier](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-device-identifier.md).
+* När klientprogrammet uppdaterar klientautentiseringsuppgifterna som används för att hämta rubrikvärdet [Authorization](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-authorization.md).
+* När klientprogrammet återkallar eller uppdaterar programsatsen som används för att hämta klientautentiseringsuppgifter.
+
+#### 13. När ska klientprogrammet starta avsökningsmekanismen? {#authentication-phase-faq13}
+
+För att säkerställa effektivitet och undvika onödiga förfrågningar måste klientprogrammet starta avsökningsfunktionen på följande villkor:
+
+**Autentisering utförd i det primära (skärm) programmet**
+
+Det primära (direktuppspelande) programmet ska starta avsökningen när användaren kommer till den sista målsidan, efter att webbläsarkomponenten har läst in den URL som angetts för parametern `redirectUrl` i [ Sessions](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) -slutpunktsbegäran.
+
+**Autentisering utförd i ett sekundärt (skärm) program**
+
+Det primära (direktuppspelande) programmet bör starta avsökningen så snart användaren initierar autentiseringsprocessen, direkt efter att ha tagit emot slutpunktssvaret för [sessionerna](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) och visat autentiseringskoden för användaren.
+
+#### 14. När ska klientprogrammet stoppa avsökningsmekanismen? {#authentication-phase-faq14}
+
+För att säkerställa effektivitet och undvika onödiga förfrågningar måste klientprogrammet stoppa avsökningsfunktionen under följande förhållanden:
+
+**Autentiseringen har slutförts**
+
+Användarens profilinformation har hämtats och verifierar autentiseringsstatusen. I nuläget behövs ingen avsökning längre.
+
+**Autentiseringssession och kodutgång**
+
+Autentiseringssessionen och koden upphör att gälla, vilket anges av tidsstämpeln `notAfter` i slutpunktssvaret för [sessioner](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md). Om detta inträffar måste användaren starta om autentiseringsprocessen och avsökningen med den tidigare autentiseringskoden ska stoppas omedelbart.
+
+**Ny autentiseringskod genererad**
+
+Om användaren begär en ny autentiseringskod på den primära (skärm) enheten är den befintliga sessionen inte längre giltig och avsökningen med den föregående autentiseringskoden bör stoppas omedelbart.
+
+#### 15. Vilket intervall mellan anrop ska klientprogrammet använda för avsökningsmekanismen? {#authentication-phase-faq15}
+
+För att säkerställa effektivitet och undvika onödiga förfrågningar måste klientprogrammet konfigurera avsökningsmekanismens frekvens enligt följande villkor:
+
+| **Autentisering utförd i det primära (skärm) programmet** | **Autentisering utförd i ett sekundärt (skärm) program** |
+|----------------------------------------------------------------------|----------------------------------------------------------------------|
+| Det primära programmet (direktuppspelning) ska avsöka var 1-5:e sekund. | Det primära programmet (direktuppspelning) ska avsöka var 3:e till 5:e sekund. |
+
+#### 16. Hur många avsökningsbegäranden kan klientprogrammet skicka? {#authentication-phase-faq16}
+
+Klientprogrammet måste följa de aktuella gränserna som definieras av Adobe Pass-autentiseringsmekanismen [Throttling Mechanism](/help/authentication/integration-guide-programmers/throttling-mechanism.md#throttling-mechanism-limits).
+
+Felhanteringen i klientprogrammet måste kunna hantera felkoden [429 för många begäranden](/help/authentication/integration-guide-programmers/throttling-mechanism.md#throttling-mechanism-response) , vilket anger att klientprogrammet har överskridit det högsta antalet tillåtna begäranden.
+
+Mer information finns i dokumentationen för [Begränsningsmekanismen](/help/authentication/integration-guide-programmers/throttling-mechanism.md).
+
+#### 17. Hur kan klientprogrammet hämta användarens metadatainformation? {#authentication-phase-faq17}
 
 Klientprogrammet kan fråga någon av följande slutpunkter som kan returnera [användarmetadata](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md) som en del av profilinformationen:
 
@@ -144,74 +309,18 @@ Klientprogrammet kan fråga någon av följande slutpunkter som kan returnera [a
 * [Profilslutpunkt för specifikt MVPD API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md)
 * [Profilslutpunkt för specifik (autentisering) kod-API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md)
 
+Klientprogrammet behöver inte fråga en separat slutpunkt för att hämta användarens metadatainformation, eftersom den redan ingår i profilinformationen som erhålls vid verifiering av om användaren är autentiserad.
+
 Mer information finns i följande dokument:
 
 * [Grundläggande profilflöden som utförs i det primära programmet](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-primary-application-flow.md)
 * [Grundläggande profiler som körs i sekundärt program](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-secondary-application-flow.md)
 
-#### 4. Vad är en autentiseringssession och hur länge gäller den? {#authentication-phase-faq4}
+#### 18. Hur ska klientprogrammet hantera försämrad åtkomst? {#authentication-phase-faq18}
 
-Autentiseringssessionen är en term som definieras i dokumentationen för [ordlistan](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#session).
+Med tanke på att din organisation har för avsikt att använda funktionen [degradering](/help/authentication/integration-guide-programmers/features-premium/degraded-access/degradation-feature.md) måste klientprogrammet hantera försämrade åtkomstflöden, som beskriver hur REST API v2-slutpunkter fungerar i sådana scenarier.
 
-Autentiseringssessionen lagrar information om den initierade autentiseringsprocessen som kan hämtas från sessionens slutpunkt.
-
-Autentiseringssessionen är giltig under en begränsad och kort tidsram som anges vid tidpunkten för utfärdandet, vilket anger hur lång tid användaren måste slutföra autentiseringsprocessen innan flödet måste startas om.
-
-Klientprogrammet kan använda autentiseringssessionssvaret för att veta hur autentiseringsprocessen ska fortsätta. Observera att det finns fall där användaren inte behöver autentisera, till exempel temporär åtkomst, begränsad åtkomst eller när användaren redan är autentiserad.
-
-Mer information finns i följande dokument:
-
-* [Skapa API för autentiseringssession](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md)
-* [Återuppta autentiseringssessions-API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-resume-authentication-session.md)
-* [Grundläggande autentiseringsflöde som utförs i det primära programmet](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-primary-application-flow.md)
-* [Grundläggande autentiseringsflöde som utförs i sekundärt program](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-secondary-application-flow.md)
-
-#### 5. Vad är en autentiseringskod och hur länge gäller den? {#authentication-phase-faq5}
-
-Autentiseringskoden är en term som definieras i dokumentationen för [ordlistan](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#code).
-
-Autentiseringskoden lagrar ett unikt värde som genereras när en användare initierar autentiseringsprocessen och identifierar unikt användarens autentiseringssession tills processen är slutförd eller tills autentiseringssessionen upphör.
-
-Autentiseringskoden gäller under en begränsad och kort tidsperiod som anges när autentiseringssessionen initieras, vilket anger hur lång tid användaren måste slutföra autentiseringsprocessen innan flödet måste startas om.
-
-Klientprogrammet kan använda autentiseringskoden för att tillåta användaren att slutföra eller återuppta autentiseringsprocessen antingen på samma enhet eller på en andra, med tanke på att autentiseringssessionen inte gick ut.
-
-Mer information finns i följande dokument:
-
-* [Skapa API för autentiseringssession](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md)
-* [Återuppta autentiseringssessions-API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-resume-authentication-session.md)
-* [Grundläggande autentiseringsflöde som utförs i det primära programmet](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-primary-application-flow.md)
-* [Grundläggande autentiseringsflöde som utförs i sekundärt program](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-secondary-application-flow.md)
-
-#### 6. Hur vet klientprogrammet om användaren har skrivit en giltig autentiseringskod och att autentiseringssessionen inte har gått ut än? {#authentication-phase-faq6}
-
-Klientprogrammet kan validera den autentiseringskod som användaren skriver i ett sekundärt (skärm) program genom att skicka en begäran till sessionens slutpunkt som ansvarar för att hämta autentiseringssessionsinformation som är kopplad till autentiseringskoden.
-
-Klientprogrammet skulle få ett [fel](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) om den angivna autentiseringskoden skulle skrivas in fel eller om autentiseringssessionen skulle gå ut.
-
-Mer information finns i dokumentationen för [Hämta autentiseringssession](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-retrieve-authentication-session-information-using-code.md).
-
-#### 7. Vad är en profil och hur länge gäller den? {#authentication-phase-faq7}
-
-Profilen är en term som definieras i dokumentationen för [ordlistan](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#profile).
-
-Profilen lagrar information om användarens autentiseringsgiltighet, metadatainformation och mycket mer som kan hämtas från profilslutpunkten.
-
-Klientprogrammet kan använda profilen för att känna till användarens autentiseringsstatus, komma åt användarens metadatainformation eller hitta den metod som används för att autentisera.
-
-Mer information finns i följande dokument:
-
-* [API för profilslutpunkt](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md)
-* [Profilslutpunkt för specifikt MVPD API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md)
-* [Profilslutpunkt för specifik (autentisering) kod-API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md)
-* [Grundläggande profilflöden som utförs i det primära programmet](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-primary-application-flow.md)
-* [Grundläggande profiler som körs i sekundärt program](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-secondary-application-flow.md)
-
-Profilen gäller under en begränsad tidsperiod som anges när användaren tillfrågas, vilket anger hur lång tid användaren har en giltig autentisering innan han eller hon måste gå igenom autentiseringsfasen igen.
-
-Den här begränsade tidsramen som kallas autentisering (authN) [TTL](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#ttl) kan visas och ändras via Adobe Pass [TVE Dashboard](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#tve-dashboard) av en av dina företagsadministratörer eller av en Adobe Pass-autentiseringsrepresentant som agerar för din räkning.
-
-Mer information finns i dokumentationen för [TVE Dashboard Integrations User Guide](/help/authentication/user-guide-tve-dashboard/tve-dashboard-integrations.md#most-used-flows) .
+Mer information finns i dokumentationen för [Försämrade åtkomstflöden](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/degraded-access-flows/rest-api-v2-access-degraded-flows.md).
 
 +++
 
@@ -476,9 +585,17 @@ Därför måste användaren autentisera igen i det nya klientprogrammet som migr
 
 Ja.
 
-Klientprogrammen som integrerar REST API V2 drar nytta av den förbättrade felkodsfunktionen som är aktiverad som standard.
+Klientprogrammen som migrerar till REST API V2 drar automatiskt nytta av den här funktionen som standard, vilket ger mer detaljerad och exakt felinformation.
 
 Mer information finns i dokumentationen för [Förbättrade felkoder](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md#enhanced-error-codes-lists-rest-api-v2).
+
+#### 5. Kräver befintliga integreringar konfigurationsändringar vid migrering till REST API V2? {#migration-faq5}
+
+Nej.
+
+Klientprogrammen som migreras till REST API V2 kräver inga konfigurationsändringar för befintliga MVPD-integreringar. De kommer även fortsättningsvis att använda samma identifierare för befintliga [tjänstleverantörer](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#service-provider) och [MVPD](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#mvpd).
+
+Dessutom ändras inte de protokoll som används av Adobe Pass Authentication för att kommunicera med MVPD slutpunkter.
 
 +++
 

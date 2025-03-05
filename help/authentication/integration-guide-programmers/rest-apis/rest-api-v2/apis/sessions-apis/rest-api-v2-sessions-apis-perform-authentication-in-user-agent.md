@@ -2,9 +2,9 @@
 title: Utför autentisering i användaragent
 description: REST API V2 - Utför autentisering i användaragent
 exl-id: d615dde0-71a8-4b6c-a12e-1e3b5e20728c
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 6b803eb0037e347d6ce147c565983c5a26de9978
 workflow-type: tm+mt
-source-wordcount: '230'
+source-wordcount: '240'
 ht-degree: 1%
 
 ---
@@ -18,6 +18,10 @@ ht-degree: 1%
 >[!IMPORTANT]
 >
 > REST API V2-implementeringen begränsas av dokumentationen för [begränsningsmekanismen](/help/authentication/integration-guide-programmers/throttling-mechanism.md).
+
+>[!MORELIKETHIS]
+>
+> Gå även till [REST API V2 FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#authentication-phase-faqs-general).
 
 ## Begäran {#request}
 
@@ -76,7 +80,7 @@ ht-degree: 1%
       <td>302</td>
       <td>Hittade</td>
       <td>
-        Svarstexten innehåller en platsomdirigering som fortsätter flödet tills inloggningssidan för MVPD nås
+        Svarstexten innehåller en omdirigeringsplats för att fortsätta flödet tills inloggningssidan för MVPD nås
       </td>
    </tr>
    <tr>
@@ -104,7 +108,7 @@ ht-degree: 1%
 
 ### Lyckades {#success}
 
-Svaret är en serie med en eller flera omdirigeringar tills inloggningssidan för MVPD nås.
+Svaret är en serie med en eller flera omdirigeringar tills MVPD inloggningssida nås.
 
 ### Fel {#error}
 

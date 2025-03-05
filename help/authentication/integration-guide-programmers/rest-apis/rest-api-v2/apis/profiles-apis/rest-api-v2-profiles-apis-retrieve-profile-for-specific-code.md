@@ -2,9 +2,9 @@
 title: Hämta profil för specifik kod
 description: REST API V2 - Hämta profil för specifik kod
 exl-id: d6ead7d5-de5f-4033-8115-980953a370c0
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 6b803eb0037e347d6ce147c565983c5a26de9978
 workflow-type: tm+mt
-source-wordcount: '701'
+source-wordcount: '711'
 ht-degree: 0%
 
 ---
@@ -18,6 +18,10 @@ ht-degree: 0%
 >[!IMPORTANT]
 >
 > REST API V2-implementeringen begränsas av dokumentationen för [begränsningsmekanismen](/help/authentication/integration-guide-programmers/throttling-mechanism.md).
+
+>[!MORELIKETHIS]
+>
+> Gå även till [REST API V2 FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#authentication-phase-faqs-general).
 
 ## Begäran {#request}
 
@@ -127,7 +131,7 @@ ht-degree: 0%
       <td>403</td>
       <td>Förbjuden</td>
       <td>
-        TTL (time-to-live) för temporär åtkomst har upphört att gälla eller det maximala antalet resurser har överskridits. Klienten måste ange att användaren ska initiera ett grundläggande autentiseringsflöde med ett regelbundet MVPD. Svarstexten kan innehålla felinformation som följer dokumentationen för <a href="../../../../features-standard/error-reporting/enhanced-error-codes.md">Förbättrade felkoder</a>.
+        TTL (time-to-live) för temporär åtkomst har gått ut eller så har det maximala antalet resurser överskridits. Klienten måste ange att användaren ska initiera ett grundläggande autentiseringsflöde med en vanlig MVPD. Svarstexten kan innehålla felinformation som följer dokumentationen för <a href="../../../../features-standard/error-reporting/enhanced-error-codes.md">Förbättrade felkoder</a>.
       </td>
    </tr> 
    <tr>

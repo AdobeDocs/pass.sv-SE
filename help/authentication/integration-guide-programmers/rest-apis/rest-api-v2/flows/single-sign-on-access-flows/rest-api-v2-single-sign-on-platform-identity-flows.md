@@ -2,9 +2,9 @@
 title: Enkel inloggning - plattformsidentitet - flöden
 description: REST API V2 - enkel inloggning - plattformsidentitet - flöden
 exl-id: 5200e851-84e8-4cb4-b068-63b91a2a8945
-source-git-commit: 81d3c3835d2e97e28c2ddb9c72d1a048a25ad433
+source-git-commit: 6b803eb0037e347d6ce147c565983c5a26de9978
 workflow-type: tm+mt
-source-wordcount: '1836'
+source-wordcount: '1846'
 ht-degree: 0%
 
 ---
@@ -18,6 +18,10 @@ ht-degree: 0%
 >[!IMPORTANT]
 >
 > REST API V2-implementeringen begränsas av dokumentationen för [begränsningsmekanismen](/help/authentication/integration-guide-programmers/throttling-mechanism.md).
+
+>[!MORELIKETHIS]
+>
+> Gå även till [REST API V2 FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#authentication-phase-faqs-general).
 
 Metoden Platform Identity gör det möjligt för flera program att använda en unik plattformsidentifierare för att uppnå enkel inloggning (SSO) på enhets- eller plattformsnivå när Adobe Pass-tjänster används.
 
