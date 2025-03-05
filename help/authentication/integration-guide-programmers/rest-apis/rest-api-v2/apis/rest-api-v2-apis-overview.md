@@ -2,9 +2,9 @@
 title: Översikt över REST API V2-API:er
 description: Översikt över REST API V2-API:er
 exl-id: 62b48bf0-d200-4949-b268-8f8ea2daabfa
-source-git-commit: 9dcc649b4216cccc9be35cd6553308bfc345b5f4
+source-git-commit: d8097b8419aa36140e6ff550714730059555fd14
 workflow-type: tm+mt
-source-wordcount: '149'
+source-wordcount: '151'
 ht-degree: 0%
 
 ---
@@ -48,7 +48,7 @@ Kom igång genom att gå till den offentliga dokumentationen för de API:er som 
 ## Enkel inloggning för partner {#rest-api-v2-apis-partner-single-sign-on}
 
 * [Hämta partnerautentiseringsbegäran](partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-partner-authentication-request.md)
-* [Hämta profil med partnerautentiseringssvar](partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-profile-using-partner-authentication-response.md)
+* [Skapa och hämta profil med partnerautentiseringssvar](partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-profile-using-partner-authentication-response.md)
 
 ## Vill du prova REST API V2?
 

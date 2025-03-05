@@ -2,9 +2,9 @@
 title: Apple SSO Cookbook (REST API V2)
 description: Apple SSO Cookbook (REST API V2)
 exl-id: 81476312-9ba4-47a0-a4f7-9a557608cfd6
-source-git-commit: 5622cad15383560e19e8111f12a1460e9b118efe
+source-git-commit: d8097b8419aa36140e6ff550714730059555fd14
 workflow-type: tm+mt
-source-wordcount: '3443'
+source-wordcount: '3615'
 ht-degree: 0%
 
 ---
@@ -284,7 +284,7 @@ Utför de angivna stegen för att implementera enkel inloggning från Apple med 
    * [Utför autentisering i det sekundära programmet med förvald mvpd](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-secondary-application-flow.md)
    * [Utför autentisering i det sekundära programmet utan förvald mvpd](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-secondary-application-flow.md)
 
-1. **Fortsätt med att hämta profil med hjälp av svarsflöde för partnerautentisering:** Sessionernas partnersvar innehåller följande data:
+1. **Fortsätt med att skapa och hämta profil med hjälp av svarsflöde för partnerautentisering:** Sessionernas partnersvar innehåller följande data:
    * Attributet `actionName` är inställt på &quot;partner_profile&quot;.
    * Attributet `actionType` är inställt på&quot;direct&quot;.
    * Attributet `authenticationRequest - type` innehåller säkerhetsprotokollet som används av partnerramverket för MVPD-inloggning (som för närvarande endast är inställt på SAML).
@@ -316,11 +316,11 @@ Utför de angivna stegen för att implementera enkel inloggning från Apple med 
    * Användarleverantörsprofilens förfallodatum (om tillgängligt) är giltigt.
    * SAML-svar (Partner Authentication Response) finns och är giltigt.
 
-1. **Hämta profil med partnerautentiseringssvar:** Direktuppspelningsprogrammet samlar in alla nödvändiga data för att skapa och hämta en profil genom att anropa slutpunkten för profilpartnern.
+1. **Skapa och hämta profil med partnerautentiseringssvar:** Direktuppspelningsprogrammet samlar in alla nödvändiga data för att skapa och hämta en profil genom att anropa slutpunkten för Profiles Partner.
 
    >[!IMPORTANT]
    >
-   > Mer information om hur du gör det finns i [Hämta profil med API-dokumentationen för partnerautentiseringssvar](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-profile-using-partner-authentication-response.md#Request):
+   > Mer information om hur du gör det finns i [Skapa och hämta profil med API-dokumentationen för partnerautentiseringssvar](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-profile-using-partner-authentication-response.md#Request):
    >
    > * Alla _obligatoriska_-parametrar, som `serviceProvider`, `partner` och `SAMLResponse`
    > * Alla _obligatoriska_-huvuden, som `Authorization`, `AP-Device-Identifier`, `Content-Type`, `X-Device-Info` och `AP-Partner-Framework-Status`
@@ -338,7 +338,7 @@ Utför de angivna stegen för att implementera enkel inloggning från Apple med 
 
    >[!IMPORTANT]
    >
-   > Mer information om vilken information som ges i ett profilsvar finns i [Hämta profil med API-dokumentationen för partnerautentiseringssvar](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-profile-using-partner-authentication-response.md#Response).
+   > Mer information om vilken information som ges i ett profilsvar finns i [Skapa och hämta profil med API-dokumentationen för partnerautentiseringssvar](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-profile-using-partner-authentication-response.md#Response).
    >
    > <br/>
    >
@@ -371,6 +371,10 @@ Utför de angivna stegen för att implementera enkel inloggning från Apple med 
 1. **Hämta partnerramverkets status:** Direktuppspelningsprogrammet anropar [Video Subscriber Account Framework](https://developer.apple.com/documentation/videosubscriberaccount) som utvecklats av Apple för att få användarbehörighet och providerinformation.
 
    >[!IMPORTANT]
+   > 
+   > Strömningsprogrammet kan hoppa över det här steget om den valda användarprofiltypen inte är &quot;appleSSO&quot;.
+
+   >[!IMPORTANT]
    >
    > Mer information finns i dokumentationen för [Video Subscriber Account Framework](https://developer.apple.com/documentation/videosubscriberaccount):
    >
@@ -386,13 +390,17 @@ Utför de angivna stegen för att implementera enkel inloggning från Apple med 
    > Strömningsprogrammet måste se till att det anger ett booleskt värde som är lika med `false` för egenskapen [`isInterruptionAllowed`](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadatarequest/1771708-isinterruptionallowed) i objektet `VSAccountMetadataRequest`, vilket anger att användaren inte kan avbrytas i den här fasen.
 
    >[!TIP]
-   > 
-   > Förslag: Direktuppspelningsprogrammet kan använda ett cachelagrat värde för statusinformationen för partnerramverket, som vi rekommenderar att du uppdaterar när programmet övergår från bakgrund till förgrundstillstånd.
+   >
+   > Förslag: Direktuppspelningsprogrammet kan i stället använda ett cachelagrat värde för partnerramverkets statusinformation, som vi rekommenderar att du uppdaterar när programmet övergår från bakgrund till förgrundsläge. I så fall måste direktuppspelningsprogrammet se till att det cachelagrar och endast använder giltiga värden för partnerramverkets status enligt beskrivningen i steget&quot;Returnera partnerramverkets statusinformation&quot;.
 
 1. **Returnera statusinformation för partnerramverket:** Direktuppspelningsprogrammet validerar svarsdata för att säkerställa att grundläggande villkor uppfylls:
    * Åtkomststatus för användarbehörighet beviljas.
    * Mappningsidentifieraren för användarprovidern finns och är giltig.
-   * Användarleverantörsprofilens förfallodatum (om tillgängligt) är giltigt.
+   * Användarleverantörsprofilens förfallodatum är giltigt.
+
+   >[!IMPORTANT]
+   >
+   > Strömningsprogrammet kan hoppa över det här steget om den valda användarprofiltypen inte är &quot;appleSSO&quot;.
 
 1. **Hämta förauktoriseringsbeslut:** Direktuppspelningsprogrammet samlar in alla nödvändiga data för att erhålla förauktoriseringsbeslut för en lista med resurser genom att anropa slutpunkten för förauktorisering av beslut.
 
@@ -406,7 +414,7 @@ Utför de angivna stegen för att implementera enkel inloggning från Apple med 
    >
    > <br/>
    >
-   > Direktuppspelningsprogrammet måste se till att det innehåller ett giltigt värde för partnerramverkets status innan en begäran görs vidare, när den valda profilen är en AppleSSO-typprofil.
+   > Direktuppspelningsprogrammet måste se till att det innehåller ett giltigt värde för partnerramverkets status innan en begäran görs vidare, när den valda profilen är en AppleSSO-typprofil. Det här steget kan dock hoppas över om den valda användarprofiltypen inte är &quot;appleSSO&quot;.
    >
    > <br/>
    >
@@ -435,6 +443,10 @@ Utför de angivna stegen för att implementera enkel inloggning från Apple med 
 
    >[!IMPORTANT]
    >
+   > Strömningsprogrammet kan hoppa över det här steget om den valda användarprofiltypen inte är &quot;appleSSO&quot;.
+
+   >[!IMPORTANT]
+   >
    > Mer information finns i dokumentationen för [Video Subscriber Account Framework](https://developer.apple.com/documentation/videosubscriberaccount):
    >
    > <br/>
@@ -450,12 +462,16 @@ Utför de angivna stegen för att implementera enkel inloggning från Apple med 
 
    >[!TIP]
    >
-   > Förslag: Direktuppspelningsprogrammet kan använda ett cachelagrat värde för statusinformationen för partnerramverket, som vi rekommenderar att du uppdaterar när programmet övergår från bakgrund till förgrundstillstånd.
+   > Förslag: Direktuppspelningsprogrammet kan i stället använda ett cachelagrat värde för partnerramverkets statusinformation, som vi rekommenderar att du uppdaterar när programmet övergår från bakgrund till förgrundsläge. I så fall måste direktuppspelningsprogrammet se till att det cachelagrar och endast använder giltiga värden för partnerramverkets status enligt beskrivningen i steget&quot;Returnera partnerramverkets statusinformation&quot;.
 
 1. **Returnera statusinformation för partnerramverket:** Direktuppspelningsprogrammet validerar svarsdata för att säkerställa att grundläggande villkor uppfylls:
    * Åtkomststatus för användarbehörighet beviljas.
    * Mappningsidentifieraren för användarprovidern finns och är giltig.
-   * Användarleverantörsprofilens förfallodatum (om tillgängligt) är giltigt.
+   * Användarleverantörsprofilens förfallodatum är giltigt.
+
+   >[!IMPORTANT]
+   >
+   > Strömningsprogrammet kan hoppa över det här steget om den valda användarprofiltypen inte är &quot;appleSSO&quot;.
 
 1. **Hämta auktoriseringsbeslut:** Direktuppspelningsprogrammet samlar in alla nödvändiga data för att erhålla ett auktoriseringsbeslut för en specifik resurs genom att anropa auktoriseringsslutpunkten för beslut.
 
@@ -469,7 +485,7 @@ Utför de angivna stegen för att implementera enkel inloggning från Apple med 
    >
    > <br/>
    >
-   > Direktuppspelningsprogrammet måste se till att det innehåller ett giltigt värde för partnerramverkets status innan en begäran görs vidare, när den valda profilen är en AppleSSO-typprofil.
+   > Direktuppspelningsprogrammet måste se till att det innehåller ett giltigt värde för partnerramverkets status innan en begäran görs vidare, när den valda profilen är en AppleSSO-typprofil. Det här steget kan dock hoppas över om den valda användarprofiltypen inte är &quot;appleSSO&quot;.
    >
    > <br/>
    >
@@ -515,6 +531,10 @@ Utför de angivna stegen för att implementera enkel inloggning från Apple med 
 
    >[!IMPORTANT]
    >
+   > Strömningsprogrammet måste uppmana användaren att slutföra utloggningsprocessen på partnernivå, enligt attributen `actionName` och `actionType`, när den borttagna användarprofiltypen är AppleSSO.
+
+   >[!IMPORTANT]
+   >
    > Mer information om vilken information som ges i ett utloggningssvar finns i [Initiera utloggning för specifik mvpd](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md#response) API-dokumentation.
    >
    > <br/>
@@ -527,9 +547,5 @@ Utför de angivna stegen för att implementera enkel inloggning från Apple med 
    > <br/>
    >
    > Om valideringen misslyckas genereras ett felsvar som ger ytterligare information som följer dokumentationen för [Förbättrade felkoder](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md).
-
-   >[!IMPORTANT]
-   > 
-   > Strömningsprogrammet måste se till att det anger för användaren att fortsätta logga ut från partnernivå.
 
 +++

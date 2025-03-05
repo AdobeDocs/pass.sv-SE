@@ -1,15 +1,15 @@
 ---
-title: Hämta profil med partnerautentiseringssvar
-description: REST API V2 - Hämta profil med partnerautentiseringssvar
+title: Skapa och hämta profil med partnerautentiseringssvar
+description: REST API V2 - Skapa och hämta profil med partnerautentiseringssvar
 exl-id: cae260ff-a229-4df7-bbf9-4cdf300c0f9a
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: d8097b8419aa36140e6ff550714730059555fd14
 workflow-type: tm+mt
-source-wordcount: '724'
+source-wordcount: '734'
 ht-degree: 0%
 
 ---
 
-# Hämta profil med partnerautentiseringssvar {#retrieve-profile-using-partner-authentication-response}
+# Skapa och hämta profil med partnerautentiseringssvar {#create-and-retrieve-profile-using-partner-authentication-response}
 
 >[!IMPORTANT]
 >
@@ -321,7 +321,7 @@ ht-degree: 0%
 
 ## Exempel {#samples}
 
-### 1. Hämta profil med partnerautentiseringssvar
+### 1. Skapa och hämta profil med partnerautentiseringssvar
 
 >[!BEGINTABS]
 
@@ -378,7 +378,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### 2. Hämta profil med partnerautentiseringssvar, men en försämring tillämpas
+### 2. Skapa och hämta profil med partnerautentiseringssvar, men en försämring tillämpas
 
 >[!BEGINTABS]
 

@@ -2,9 +2,9 @@
 title: REST API V2 - frågor och svar
 description: REST API V2 - frågor och svar
 exl-id: 2dd74b47-126e-487b-b467-c16fa8cc14c1
-source-git-commit: 6b803eb0037e347d6ce147c565983c5a26de9978
+source-git-commit: d8097b8419aa36140e6ff550714730059555fd14
 workflow-type: tm+mt
-source-wordcount: '8198'
+source-wordcount: '9072'
 ht-degree: 0%
 
 ---
@@ -224,7 +224,7 @@ För MVPD-program som stöder [hembaserad autentisering](/help/authentication/in
 
 #### 9. Vilka är användningsexemplen för de tillgängliga profilslutpunkterna? {#authentication-phase-faq9}
 
-Profilslutpunkterna är utformade för att ge klientprogrammet möjlighet att känna till användarens autentiseringsstatus, få åtkomst till användarens metadatainformation, hitta den metod som används för att autentisera eller den enhet som används för att ange identitet.
+De grundläggande profilslutpunkterna är utformade för att ge klientprogrammet möjlighet att känna till användarens autentiseringsstatus, få åtkomst till användarens metadatainformation, hitta den metod som används för att autentisera eller den enhet som används för att ange identitet.
 
 Varje slutpunkt passar ett specifikt användningsfall, enligt följande:
 
@@ -233,6 +233,18 @@ Varje slutpunkt passar ett specifikt användningsfall, enligt följande:
 | [Profilslutpunkts-API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md) | Hämta alla användarprofiler. | **Användaren öppnar klientprogrammet för första gången**<br/><br/> I det här scenariot har klientprogrammet inte användarens valda MVPD-identifierare cachelagrad i beständig lagring.<br/><br/>Det innebär att programmet skickar en begäran om att hämta alla tillgängliga användarprofiler. |
 | [Profilslutpunkt för specifikt MVPD API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md) | Hämta användarprofilen som är kopplad till en viss MVPD. | **Användaren återgår till klientprogrammet efter att ha autentiserats vid ett tidigare besök**<br/><br/> I det här fallet måste användarens tidigare valda MVPD-identifierare cachelagras i det beständiga lagringsutrymmet.<br/><br/>Det innebär att programmet skickar en enda begäran om att hämta användarens profil för den specifika MVPD:n. |
 | [Profilslutpunkt för specifikt (autentisering) kods-API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md) | Hämta användarprofilen som är associerad med en viss autentiseringskod. | **Användaren initierar autentiseringsprocessen**<br/><br/> I det här scenariot måste klientprogrammet avgöra om användaren har slutfört autentiseringen och hämta profilinformationen.<br/><br/>Detta resulterar i att en avsökningsmekanism startas för att hämta användarens profil som är associerad med autentiseringskoden. |
+
+Mer information finns i det [grundläggande profilflödet som utförs i det primära programmet](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-primary-application-flow.md) och i det [grundläggande profilflödet som utförs i det sekundära programmet](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-secondary-application-flow.md).
+
+Profilens SSO-slutpunkt har ett annat syfte och ger klientprogrammet möjlighet att skapa en användarprofil med partnerautentiseringssvaret och hämta den i en enda engångsåtgärd.
+
+| API | Beskrivning | Använd skiftläge |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Profiler för SSO-slutpunkts-API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-profile-using-partner-authentication-response.md) | Skapa och hämta användarprofil med partnerautentiseringssvar. | **Användaren tillåter programmet att använda enkel inloggning från partner för att autentisera**<br/><br/> I det här scenariot måste klientprogrammet skapa en användarprofil efter att ha tagit emot partnerautentiseringssvaret och hämta den i en enda engångsåtgärd. |
+
+För efterföljande frågor måste de grundläggande profilslutpunkterna användas för att fastställa användarens autentiseringsstatus, få åtkomst till användarens metadatainformation, hitta den metod som används för att autentisera eller den enhet som används för att ange identitet.
+
+Mer information finns i dokumenten [Single sign-on med partnerflöden](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-partner-flows.md) och [Apple SSO Cookbook (REST API V2)](/help/authentication/integration-guide-programmers/features-standard/sso-access/partner-sso/apple-sso/apple-sso-cookbook-rest-api-v2.md).
 
 #### 10. Vad ska klientprogrammet göra om användaren har flera MVPD-profiler? {#authentication-phase-faq10}
 
@@ -351,11 +363,29 @@ Mer information finns i följande dokument:
 * [Hämta API för förauktoriseringsbeslut](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md)
 * [Grundläggande förauktoriseringsflöde som utförs i det primära programmet](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-preauthorization-primary-application-flow.md)
 
-#### 4. Varför saknas en medietoken i beslutet om förhandsauktorisering? {#preauthorization-phase-faq4}
+#### 4. Ska klientprogrammet cachelagra förauktoriseringsbesluten i en beständig lagring? {#preauthorization-phase-faq4}
+
+Klientprogrammet behövs inte för att lagra förauktoriseringsbeslut i beständig lagring. Vi rekommenderar dock att du cachelagrar tillståndsbeslut i minnet för att förbättra användarupplevelsen. Detta bidrar till att undvika onödiga anrop till slutpunkten för beslut Förauktorisera för resurser som redan har förauktoriserats, vilket minskar latensen och förbättrar prestandan.
+
+#### 5. Hur kan klientprogrammet avgöra varför ett beslut om förauktorisering nekades? {#preauthorization-phase-faq5}
+
+Klientprogrammet kan fastställa orsaken till ett beslut om förauktorisering som nekas genom att granska [felkoden och meddelandet](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) som ingår i svaret från slutpunkten för förauktorisering av beslut. Dessa detaljer ger insikt i den specifika anledningen till att förauktoriseringsbegäran nekades, vilket kan hjälpa användaren att informera om användarupplevelsen eller utlösa nödvändig hantering i programmet.
+
+Se till att alla återförsöksmetoder som implementeras för att hämta beslut om förauktorisering inte resulterar i en oändlig slinga om beslutet om förauktorisering nekas.
+
+Överväg att begränsa antalet försök till ett rimligt antal och hantera nekanden på ett enkelt sätt genom att ge användaren tydlig feedback.
+
+#### 6. Varför saknas en medietoken i beslutet om förhandsauktorisering? {#preauthorization-phase-faq6}
 
 Förauktoriseringsbeslutet saknar en medietoken eftersom förauktoriseringsfasen inte får användas för att spela upp resurser, eftersom det är syftet med auktoriseringsfasen.
 
-#### 5. Vad är en resurs och vilka format stöds? {#preauthorization-phase-faq5}
+#### 7. Kan auktoriseringsfasen hoppas över om det redan finns ett beslut om förhandsgodkännande? {#preauthorization-phase-faq7}
+
+Nej.
+
+Auktoriseringsfasen kan inte hoppas över även om ett beslut om förhandsgodkännande finns tillgängligt. Besluten om förhandsgodkännande är endast informativa och ger inte faktisk uppspelningsbehörighet. Förhandsauktoriseringsfasen är avsedd att ge tidig vägledning, men auktoriseringsfasen krävs fortfarande innan något innehåll spelas upp.
+
+#### 8. Vad är en resurs och vilka format stöds? {#preauthorization-phase-faq8}
 
 Resursen är en term som definieras i dokumentationen för [ordlistan](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#resource).
 
@@ -368,7 +398,7 @@ Den unika identifieraren för resursen kan ha två format:
 
 Mer information finns i dokumentationen för [Skyddade resurser](/help/authentication/integration-guide-programmers/features-standard/entitlements/decisions.md#protected-resources).
 
-#### 6. För hur många resurser kan klientprogrammet få ett beslut om förauktorisering åt gången? {#preauthorization-phase-faq6}
+#### 9. För hur många resurser kan klientprogrammet få ett beslut om förauktorisering åt gången? {#preauthorization-phase-faq9}
 
 Klientprogrammet kan få ett beslut om förhandsauktorisering för ett begränsat antal resurser i en enda API-begäran, vanligtvis upp till 5, på grund av villkor som anges av distributörer av videoprogrammeringstjänster.
 
@@ -409,7 +439,19 @@ Den här begränsade tidsramen som kallas auktorisering (authZ) [TTL](/help/auth
 
 Mer information finns i dokumentationen för [TVE Dashboard Integrations User Guide](/help/authentication/user-guide-tve-dashboard/tve-dashboard-integrations.md#most-used-flows) .
 
-#### 4. Vad är en medietoken och hur länge gäller den? {#authorization-phase-faq4}
+#### 4. Ska klientprogrammet cachelagra auktoriseringsbesluten i en beständig lagring? {#authorization-phase-faq4}
+
+Klientprogrammet behövs inte för att lagra auktoriseringsbeslut i beständig lagring.
+
+#### 5. Hur kan klientprogrammet avgöra varför ett auktoriseringsbeslut nekades? {#authorization-phase-faq5}
+
+Klientprogrammet kan fastställa orsaken till ett beslut om nekad auktorisering genom att granska [felkoden och meddelandet ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) som ingår i svaret från slutpunkten för auktorisering av beslut. Dessa uppgifter ger insikt i varför auktoriseringsbegäran nekades, vilket kan bidra till att informera användaren eller utlösa nödvändig hantering i programmet.
+
+Se till att alla återförsöksmetoder som implementeras för att hämta auktoriseringsbeslut inte resulterar i en oändlig slinga om auktoriseringsbeslutet nekas.
+
+Överväg att begränsa antalet försök till ett rimligt antal och hantera nekanden på ett enkelt sätt genom att ge användaren tydlig feedback.
+
+#### 6. Vad är en medietoken och hur länge gäller den? {#authorization-phase-faq6}
 
 Medietoken är en term som definieras i dokumentationen för [ordlistan](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#media-token).
 
@@ -417,7 +459,7 @@ Medietoken består av en signerad sträng som skickas i klartext och som kan hä
 
 Mer information finns i dokumentationen för [Media Token Verifier](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md#media-token-verifier).
 
-Medietoken är giltig under en begränsad och kort tidsperiod som anges vid tidpunkten för utfärdandet, vilket anger hur lång tid det måste användas av klientprogrammet innan det krävs att fråga slutpunkten för beslutsauktorisering igen.
+Medietoken är giltig under en begränsad och kort tidsperiod som anges vid tidpunkten för utfärdandet, vilket anger tidsgränsen innan den måste verifieras och användas av klientprogrammet.
 
 Klientprogrammet kan använda medietoken för att spela upp en resursström om TV-providerns (auktoritativa) beslut skulle tillåta användaren att komma åt den.
 
@@ -426,7 +468,41 @@ Mer information finns i följande dokument:
 * [Hämta API för auktoriseringsbeslut](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md)
 * [Grundläggande auktoriseringsflöde som utförs i primärt program](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authorization-primary-application-flow.md)
 
-#### 5. Vad är en resurs och vilka format stöds? {#authorization-phase-faq5}
+#### 7. Ska klientprogrammet validera medietoken innan resursströmmen spelas upp? {#authorization-phase-faq7}
+
+Ja.
+
+Klientprogrammet måste validera medietoken innan uppspelningen av resursströmmen startar. Verifieringen bör utföras med [Media Token Verifier](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md#media-token-verifier). Genom att verifiera `serializedToken` från `token` som returnerats hjälper klientprogrammet till att förhindra obehörig åtkomst, som strömrippning, och ser till att endast korrekt auktoriserade användare kan spela upp innehållet.
+
+#### 8. Ska klientprogrammet uppdatera en medietoken som har gått ut under uppspelningen? {#authorization-phase-faq8}
+
+Nej.
+
+Klientprogrammet behöver inte uppdatera en medietoken som har gått ut när strömmen spelas upp. Om medietoken upphör att gälla under uppspelning bör strömmen kunna fortsätta utan avbrott. Klienten måste dock begära ett nytt auktoriseringsbeslut - och få en ny medietoken - nästa gång användaren försöker spela upp samma resurs.
+
+#### 9. Vad är syftet med varje tidsstämpelattribut i auktoriseringsbeslutet? {#authorization-phase-faq9}
+
+Auktoriseringsbeslutet innehåller flera tidsstämpelattribut som ger ett viktigt sammanhang när det gäller giltighetsperioden för själva auktoriseringen och tillhörande medietoken. Dessa tidsstämplar har olika syften, beroende på om de avser auktoriseringsbeslutet eller medietoken.
+
+**Tidsstämplar på beslutsnivå**
+
+Dessa tidsstämplar beskriver giltighetsperioden för det övergripande beslutet om godkännande:
+
+| Attribut | Beskrivning | Anteckningar |
+|-------------|------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `notBefore` | Tidpunkten då auktoriseringsbeslutet utfärdades. | Detta är början på giltighetsfönstret för auktoriseringen. |
+| `notAfter` | Den tidpunkt då auktoriseringsbeslutet upphör att gälla. | [TTL (Time-to-Live)](/help/authentication/integration-guide-programmers/features-standard/entitlements/decisions.md#authorization-ttl-management) för auktorisering avgör hur länge auktoriseringen ska vara giltig innan omauktorisering krävs. Denna TTL förhandlas fram med MVPD representanter. |
+
+**Tidsstämplar på tokennivå**
+
+Dessa tidsstämplar beskriver giltighetsperioden för den medietoken som är knuten till auktoriseringsbeslutet:
+
+| Attribut | Beskrivning | Anteckningar |
+|-------------|-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `notBefore` | Den tid då medietoken utfärdades. | Detta anger när token blir giltig för uppspelning. |
+| `notAfter` | Den tidpunkt då medietoken upphör att gälla. | Medietoken har en avsiktligt kort livslängd (vanligtvis 7 minuter) för att minimera risken för missbruk och ta hänsyn till potentiella klockskillnader mellan den tokengenererande servern och den tokenverifierande servern. |
+
+#### 10. Vad är en resurs och vilka format stöds? {#authorization-phase-faq10}
 
 Resursen är en term som definieras i dokumentationen för [ordlistan](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#resource).
 
@@ -439,7 +515,7 @@ Den unika identifieraren för resursen kan ha två format:
 
 Mer information finns i dokumentationen för [Skyddade resurser](/help/authentication/integration-guide-programmers/features-standard/entitlements/decisions.md#protected-resources).
 
-#### 6. För hur många resurser kan klientprogrammet få ett auktoriseringsbeslut åt gången? {#authorization-phase-faq6}
+#### 11. För hur många resurser kan klientprogrammet få ett auktoriseringsbeslut åt gången? {#authorization-phase-faq11}
 
 Klientprogrammet kan få ett auktoriseringsbeslut för ett begränsat antal resurser i en enda API-begäran, vanligtvis upp till 1, på grund av villkor som anges av distributörerna.
 
@@ -452,6 +528,10 @@ Klientprogrammet kan få ett auktoriseringsbeslut för ett begränsat antal resu
 #### 1. Vad är syftet med utloggningsfasen? {#logout-phase-faq1}
 
 Syftet med utloggningsfasen är att ge klientprogrammet möjlighet att avsluta användarens autentiserade profil inom Adobe Pass-autentisering på användarens begäran.
+
+#### 2. Är utloggningsfasen obligatorisk? {#logout-phase-faq2}
+
+Utloggningsfasen är obligatorisk. Klientprogrammet måste ge användaren möjlighet att logga ut.
 
 +++
 

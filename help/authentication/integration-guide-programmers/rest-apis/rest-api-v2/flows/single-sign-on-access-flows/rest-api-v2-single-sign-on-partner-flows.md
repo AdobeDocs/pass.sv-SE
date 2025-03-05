@@ -2,9 +2,9 @@
 title: Enkel inloggning - partner - flöden
 description: REST API V2 - enkel inloggning - partner - flöden
 exl-id: 5735d67f-a311-4d03-ad48-93c0fcbcace5
-source-git-commit: 6b803eb0037e347d6ce147c565983c5a26de9978
+source-git-commit: d8097b8419aa36140e6ff550714730059555fd14
 workflow-type: tm+mt
-source-wordcount: '1454'
+source-wordcount: '1468'
 ht-degree: 0%
 
 ---
@@ -125,7 +125,7 @@ Utför de angivna stegen för att hämta partnerautentiseringsbegäran enligt bi
 
    Om Adobe Pass-serverdelen inte identifierar en giltig profil och partnervalideringen för enkel inloggning godkänns, får direktuppspelningsprogrammet ett svar med åtgärder och data som skickas till partnerramverket för att starta autentiseringsflödet med MVPD.
 
-   Mer information om hur du hämtar profiler med hjälp av ett partnerautentiseringssvar finns i avsnittet [Hämta profil med partnerautentiseringssvar](#retrieve-profile-using-partner-authentication-response).
+   Mer information om hur du hämtar profiler med hjälp av ett partnerautentiseringssvar finns i avsnittet [Skapa och hämta profil med partnerautentiseringssvar](#create-and-retrieve-profile-using-partner-authentication-response).
 
 1. **Fortsätt med grundläggande autentiseringsflöde:** Sessions-partnerns slutpunktssvar innehåller följande data:
    * Attributet `actionName` är inställt på antingen &quot;authenticate&quot; eller &quot;resume&quot;.
@@ -152,9 +152,9 @@ Utför de angivna stegen för att hämta partnerautentiseringsbegäran enligt bi
    > 
    > Mer information om rubriken `AP-Partner-Framework-Status` finns i dokumentationen för [AP-Partner-Framework-Status](../../appendix/headers/rest-api-v2-appendix-headers-ap-partner-framework-status.md).
 
-## Hämta profil med partnerautentiseringssvar {#retrieve-profile-using-partner-authentication-response}
+## Skapa och hämta profil med partnerautentiseringssvar {#create-and-retrieve-profile-using-partner-authentication-response}
 
-### Förutsättningar {#prerequisites-retrieve-profile-using-partner-authentication-response}
+### Förutsättningar {#prerequisites-create-and-retrieve-profile-using-partner-authentication-response}
 
 Innan du hämtar profilen med ett partnerautentiseringssvar måste du kontrollera att följande krav är uppfyllda:
 
@@ -169,13 +169,13 @@ Innan du hämtar profilen med ett partnerautentiseringssvar måste du kontroller
 > * Partnerramverket stöder användarinteraktion för autentisering med den valda MVPD.
 > * Partnerramverket tillhandahåller användarbehörighet och providerinformation.
 
-### Arbetsflöde {#workflow-retrieve-profile-using-partner-authentication-response}
+### Arbetsflöde {#workflow-create-and-retrieve-profile-using-partner-authentication-response}
 
 Utför de angivna stegen för att implementera flödet för hämtning av profiler med hjälp av ett partnerautentiseringssvar, vilket visas i följande diagram.
 
-![Hämta profil med partnerautentiseringssvar](../../../../../assets/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-retrieve-profile-using-partner-authentication-response-flow.png)
+![Skapa och hämta profil med partnerautentiseringssvaret](../../../../../assets/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-retrieve-profile-using-partner-authentication-response-flow.png)
 
-*Hämta autentiserad profil med partnerautentiseringssvar*
+*Skapa och hämta autentiserad profil med partnerautentiseringssvaret*
 
 1. **Fullständig MVPD-autentisering med partnerramverket:** Om autentiseringsflödet lyckas skapar partnerramverkets interaktion med MVPD ett partnerautentiseringssvar (SAML-svar) som returneras tillsammans med partnerramverkets statusinformation.
 
@@ -184,11 +184,11 @@ Utför de angivna stegen för att implementera flödet för hämtning av profile
    * Mappningsidentifieraren för användarprovidern finns och är giltig.
    * Användarleverantörsprofilens förfallodatum (om tillgängligt) är giltigt.
 
-1. **Hämta profil med partnerautentiseringssvar:** Direktuppspelningsprogrammet samlar in alla nödvändiga data för att skapa och hämta en profil genom att anropa slutpunkten för profilpartnern.
+1. **Skapa och hämta profil med partnerautentiseringssvar:** Direktuppspelningsprogrammet samlar in alla nödvändiga data för att skapa och hämta en profil genom att anropa slutpunkten för Profiles Partner.
 
    >[!IMPORTANT]
    >
-   > Mer information om hur du gör det finns i [Hämta profil med API-dokumentationen för partnerautentiseringssvar](../../apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-profile-using-partner-authentication-response.md):
+   > Mer information om hur du gör det finns i [Skapa och hämta profil med API-dokumentationen för partnerautentiseringssvar](../../apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-profile-using-partner-authentication-response.md):
    >
    > * Alla _obligatoriska_-parametrar, som `serviceProvider`, `partner` och `SAMLResponse`
    > * Alla _obligatoriska_-huvuden, som `Authorization`, `AP-Device-Identifier`, `Content-Type`, `X-Device-Info` och `AP-Partner-Framework-Status`
@@ -208,7 +208,7 @@ Utför de angivna stegen för att implementera flödet för hämtning av profile
 
    >[!IMPORTANT]
    >
-   > Mer information om vilken information som ges i ett profilsvar finns i [Hämta profil med API-dokumentationen för partnerautentiseringssvar](../../apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-profile-using-partner-authentication-response.md).
+   > Mer information om vilken information som ges i ett profilsvar finns i [Skapa och hämta profil med API-dokumentationen för partnerautentiseringssvar](../../apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-profile-using-partner-authentication-response.md).
    > 
    > <br/>
    > 
