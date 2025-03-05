@@ -2,10 +2,10 @@
 title: Hämta konfiguration för en viss tjänsteleverantör
 description: REST API V2 - Hämta konfiguration för specifik tjänstleverantör
 exl-id: ad7e4c6d-ed96-4ae7-82a9-3c24e5fc9302
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 871afc4e7ec04d62590dd574bf4e28122afc01b6
 workflow-type: tm+mt
-source-wordcount: '515'
-ht-degree: 1%
+source-wordcount: '725'
+ht-degree: 0%
 
 ---
 
@@ -18,6 +18,10 @@ ht-degree: 1%
 >[!IMPORTANT]
 >
 > REST API V2-implementeringen begränsas av dokumentationen för [begränsningsmekanismen](/help/authentication/integration-guide-programmers/throttling-mechanism.md).
+
+>[!MORELIKETHIS]
+>
+> Gå även till [REST API V2 FAQ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#configuration-phase-faqs-general).
 
 ## Begäran {#request}
 
@@ -210,9 +214,9 @@ ht-degree: 1%
                 <td>
                     JSON-objekt med följande attribut:
                     <ul>
-                        <li><b>id</b></li>
-                        <li><b>name</b></li>
-                        <li><b>domäner</b></li>
+                        <li><b>id</b><br/>Den interna unika identifierare som är associerad med tjänstprovidern under introduktionsprocessen.</li>
+                        <li><b>name</b><br/>Det företagsnamn (varumärke) som är associerat med tjänsteleverantören under introduktionsprocessen.</li>
+                        <li><b>domäner</b><br/>Listan över domännamn som visas för Adobe Pass-autentisering som representerar tjänstprovidern.</li>
                     </ul>
                 </td>
                 <td><i>obligatoriskt</i></td>
@@ -222,16 +226,16 @@ ht-degree: 1%
                 <td>
                     JSON-objekt med följande attribut:
                     <ul>
-                        <li><b>id</b></li>
-                        <li><b>displayName</b></li>
-                        <li><b>logoUrl</b></li>
-                        <li><b>isTempPass</b></li>
-                        <li><b>isProxy</b></li>
-                        <li><b>boardingStatus</b></li>
-                        <li><b>platformMappingId</b></li>
-                        <li><b>enablePlatformServices</b></li>
-                        <li><b>displayInPlatformPicker</b></li>
-                        <li><b>enforcementPlatformPermissions</b></li>
+                        <li><b>id</b><br/>Den interna unika identifierare som är associerad med identitetsleverantören under introduktionsprocessen.</li>
+                        <li><b>displayName</b><br/>Det företagsnamn (varumärke) som är associerat med identitetsleverantören under introduktionsprocessen.</li>
+                        <li><b>logoUrl</b><br>URL:en som logotypen som är kopplad till identitetsleverantören ska hämtas från.</li>
+                        <li><b>isTempPass</b><br/>Den flagga som anger om MVPD är utformat för att tillhandahålla <a href="../../../../features-premium/temporary-access/temp-pass-feature.md">TempPass</a>-funktionalitet.</li>
+                        <li><b>isProxy</b><br/>Den flagga som anger om MVPD är en proxiderad MVPD.</li>
+                        <li><b>boardingStatus</b><br/>Statusen som anger om identitetsprovidern har anslutits av den strömmande enhetsplattformen för enkla inloggningsflöden.</li>
+                        <li><b>platformMappingId</b><br/>Den interna unika identifierare som är associerad med identitetsleverantören av den strömmande enhetsplattformen för enkla inloggningsflöden.</li>
+                        <li><b>enablePlatformServices</b><br/>Den flagga som anger om identitetsproviderkonfigurationen är aktiverad för den direktuppspelade enhetsplattformen för enkla inloggningsflöden.</li>
+                        <li><b>displayInPlatformPicker</b><br/>Den flagga som anger om identitetsleverantören kan visas i väljaren för direktuppspelningsplattform för enkla inloggningsflöden.</li>
+                        <li><b>enforcementPlatformPermissions</b><br/>Den flagga som anger om direktuppspelningsenheten måste tillämpa användarbehörigheterna som tillhandahålls av plattformen för enkla inloggningsflöden.</li>
                     </ul>
                 </td>
                 <td><i>obligatoriskt</i></td>

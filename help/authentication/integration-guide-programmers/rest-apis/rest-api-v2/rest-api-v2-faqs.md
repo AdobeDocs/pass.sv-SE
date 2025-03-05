@@ -2,9 +2,9 @@
 title: REST API V2 - frågor och svar
 description: REST API V2 - frågor och svar
 exl-id: 2dd74b47-126e-487b-b467-c16fa8cc14c1
-source-git-commit: 81d3c3835d2e97e28c2ddb9c72d1a048a25ad433
+source-git-commit: 871afc4e7ec04d62590dd574bf4e28122afc01b6
 workflow-type: tm+mt
-source-wordcount: '6744'
+source-wordcount: '6963'
 ht-degree: 0%
 
 ---
@@ -39,57 +39,73 @@ Se [DCR-dokumentationen ](/help/authentication/integration-guide-programmers/res
 
 #### 1. Vad är syftet med konfigurationsfasen? {#configuration-phase-faq1}
 
-Syftet med konfigurationsfasen är att ge klientprogrammet en lista över de MVPD-program som det är aktivt integrerat med tillsammans med konfigurationsinformation som sparats av Adobe Pass Authentication för varje MVPD.
+Syftet med konfigurationsfasen är att ge klientprogrammet en lista över de MVPD-filer som det är aktivt integrerat med konfigurationsinformation (t.ex. `id`, `displayName`, `logoUrl` osv.) som sparats av Adobe Pass Authentication för varje MVPD.
 
 Konfigurationsfasen fungerar som ett nödvändigt steg för autentiseringsfasen när klientprogrammet måste be användaren att välja sin TV-leverantör.
 
 #### 2. Är konfigurationsfasen obligatorisk? {#configuration-phase-faq2}
 
-Konfigurationsfasen är inte obligatorisk, klientprogrammet kan hoppa över den här fasen i följande scenarier:
+Konfigurationsfasen är inte obligatorisk. Klientprogrammet måste hämta konfigurationen först när användaren måste välja sin MVPD för att autentisera eller återautentisera.
+
+Klientprogrammet kan hoppa över den här fasen i följande scenarier:
 
 * Användaren är redan autentiserad.
-* Användaren erbjuds tillfällig åtkomst via en vanlig eller kampanjanpassad TempPass-funktion.
+* Användaren erbjuds tillfällig åtkomst via grundläggande eller kampanjanpassad [TempPass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md)-funktion.
 * Användarautentiseringen har upphört att gälla, men klientprogrammet har cachelagrat den tidigare valda MVPD som ett motiverat val av användarupplevelse och uppmanar bara användaren att bekräfta att han/hon fortfarande prenumererar på denna MVPD.
 
 #### 3. Vad är en konfiguration och hur länge gäller den? {#configuration-phase-faq3}
 
 Konfigurationen är en term som definieras i dokumentationen för [ordlistan](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#configuration).
 
-Konfigurationen består av en lista med MVPD-filer som kan hämtas från Configuration-slutpunkten.
+Konfigurationen innehåller en lista med MVPD-filer som definieras av följande attribut, `id`, `displayName`, `logoUrl` osv., som kan hämtas från [Configuration](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/configuration-apis/rest-api-v2-configuration-apis-retrieve-configuration-for-specific-service-provider.md)-slutpunkten.
 
-Klientprogrammet kan använda konfigurationen för att presentera en UI-komponent som kallas för&quot;väljaren&quot; när användaren måste välja sin MVPD.
+Klientprogrammet måste hämta konfigurationen först när användaren måste välja sin MVPD för att kunna autentisera eller autentisera igen.
 
-Klientprogrammet bör uppdatera konfigurationen innan användaren går igenom autentiseringsfasen.
+Klientprogrammet kan använda konfigurationssvaret för att visa en UI-väljare med tillgängliga MVPD-alternativ när användaren behöver välja sin TV-leverantör.
+
+Klientprogrammet måste lagra användarens valda MVPD-identifierare, enligt MVPD konfigurationsnivåattribut `id`, för att kunna fortsätta med autentiserings-, förauktoriserings-, auktoriserings- eller utloggningsfaserna.
 
 Mer information finns i dokumentationen för [Hämta konfiguration](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/configuration-apis/rest-api-v2-configuration-apis-retrieve-configuration-for-specific-service-provider.md).
 
-#### 4. Kan klientapplikationen hantera sin egen lista över MVPD? {#configuration-phase-faq4}
+#### 4. Ska klientprogrammet cachelagra konfigurationssvarsinformationen i en beständig lagring? {#configuration-phase-faq4}
 
-Klientprogrammet kan hantera sin egen lista över MVPD, men vi rekommenderar att du använder konfigurationen som tillhandahålls av Adobe Pass Authentication för att se till att listan är aktuell och korrekt.
+Klientprogrammet måste hämta konfigurationen först när användaren måste välja sin MVPD för att kunna autentisera eller autentisera igen.
 
-Klientprogrammet skulle få ett [error](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) från Adobe Pass Authentication REST API V2 om användaren valde MVPD inte har någon aktiv integrering med den angivna [tjänstprovidern](rest-api-v2-glossary.md#service-provider).
+Klientprogrammet bör cachelagra konfigurationssvarsinformationen i en minneslagring för att undvika onödiga begäranden och förbättra användarupplevelsen när:
 
-#### 5. Kan klientprogrammet filtrera listan över MVPD? {#configuration-phase-faq5}
+* Användaren är redan autentiserad.
+* Användaren erbjuds tillfällig åtkomst via grundläggande eller kampanjanpassad [TempPass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md)-funktion.
+* Användarautentiseringen har upphört att gälla, men klientprogrammet har cachelagrat den tidigare valda MVPD som ett motiverat val av användarupplevelse och uppmanar bara användaren att bekräfta att han/hon fortfarande prenumererar på denna MVPD.
 
-Klientprogrammet kan filtrera listan över MVPD-program som anges i konfigurationssvaret genom att implementera en anpassad mekanism som bygger på egen affärslogik och krav som användarplats eller användarhistorik för tidigare val.
+#### 5. Kan klientapplikationen hantera sin egen lista över MVPD? {#configuration-phase-faq5}
 
-#### 6. Vad händer om integreringen med en MVPD är inaktiverad och markerad som inaktiv? {#configuration-phase-faq6}
+Klientprogrammet kan hantera sin egen lista över MVPD-program, men det skulle kräva att MVPD-identifierarna hålls synkroniserade med Adobe Pass Authentication. Vi rekommenderar därför att du använder konfigurationen från Adobe Pass Authentication för att se till att listan är aktuell och korrekt.
 
-När integreringen med en MVPD är inaktiverad och markerad som inaktiv tas MVPD bort från listan över MVPD-program som finns i ytterligare konfigurationssvar och det finns två viktiga följder att tänka på:
+Klientprogrammet skulle få ett [error](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md#enhanced-error-codes-lists-rest-api-v2) från Adobe Pass Authentication REST API V2 om den angivna MVPD-identifieraren är ogiltig eller om den inte har en aktiv integrering med den angivna [tjänstprovidern](rest-api-v2-glossary.md#service-provider).
+
+#### 6. Kan klientprogrammet filtrera listan över MVPD? {#configuration-phase-faq6}
+
+Klientprogrammet kan filtrera listan över MVPD-program som anges i konfigurationssvaret genom att implementera en anpassad mekanism som bygger på dess egen affärslogik och krav som användarplats eller användarhistorik för det tidigare urvalet.
+
+Klientprogrammet kan filtrera listan över [TempPass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md)-MVPD-filer eller MVPD-filer som fortfarande är integrerade i utveckling eller testning.
+
+#### 7. Vad händer om integreringen med en MVPD är inaktiverad och markerad som inaktiv? {#configuration-phase-faq7}
+
+När integreringen med en MVPD är inaktiverad och markerad som inaktiv tas MVPD bort från listan över MVPD-program som finns i ytterligare konfigurationssvar, och det finns två viktiga följder att tänka på:
 
 * De oautentiserade användarna av denna MVPD kommer inte längre att kunna slutföra autentiseringsfasen med denna MVPD.
 * De autentiserade användarna av denna MVPD kommer inte längre att kunna slutföra förauktoriserings-, auktoriserings- eller utloggningsfaserna med denna MVPD.
 
-Klientprogrammet skulle få ett [error](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) från Adobe Pass Authentication REST API V2 om användaren valde MVPD inte längre har någon aktiv integrering med den angivna [tjänstprovidern](rest-api-v2-glossary.md#service-provider).
+Klientprogrammet skulle få ett [error](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md#enhanced-error-codes-lists-rest-api-v2) från Adobe Pass Authentication REST API V2 om användaren valde MVPD inte längre har någon aktiv integrering med den angivna [tjänstprovidern](rest-api-v2-glossary.md#service-provider).
 
-#### 7. Vad händer om integreringen med en MVPD är aktiverad och markerad som aktiv? {#configuration-phase-faq7}
+#### 8. Vad händer om integreringen med en MVPD är aktiverad och markerad som aktiv? {#configuration-phase-faq8}
 
-När integreringen med en MVPD är aktiverad och markerad som aktiv tas MVPD med i listan över distributörer av videoprogrammeringstjänster som finns i ytterligare konfigurationssvar och det finns två viktiga konsekvenser att tänka på:
+När integreringen med en MVPD är aktiverad och markerad som aktiv, tas MVPD med i listan över distributörer av videoprogrammeringstjänster som finns i ytterligare konfigurationssvar, och det finns två viktiga konsekvenser att tänka på:
 
 * De oautentiserade användarna av denna MVPD kan slutföra autentiseringsfasen igen med denna MVPD.
 * De autentiserade användarna av denna MVPD kommer att kunna slutföra förauktoriserings-, auktoriserings- eller utloggningsfaserna med denna MVPD.
 
-#### 8. Hur aktiverar eller inaktiverar man integreringen med MVPD? {#configuration-phase-faq8}
+#### 9. Hur aktiverar eller inaktiverar man integreringen med MVPD? {#configuration-phase-faq9}
 
 Den här åtgärden kan utföras via Adobe Pass [TVE Dashboard](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#tve-dashboard) av en av dina företagsadministratörer eller av en Adobe Pass-autentiseringsrepresentant som agerar för din räkning.
 
