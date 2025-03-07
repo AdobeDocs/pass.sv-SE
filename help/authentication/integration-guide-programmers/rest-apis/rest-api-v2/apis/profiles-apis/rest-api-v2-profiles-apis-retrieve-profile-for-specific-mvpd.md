@@ -2,7 +2,7 @@
 title: Hämta profil för specifik mvpd
 description: REST API V2 - Hämta profil för specifik mvpd
 exl-id: ed1abc33-c279-4465-b5a0-b4e5b892076e
-source-git-commit: 6b803eb0037e347d6ce147c565983c5a26de9978
+source-git-commit: 7fdfd28e2aba0d201f19dc25757bbe37cebd8ffe
 workflow-type: tm+mt
 source-wordcount: '1016'
 ht-degree: 0%
@@ -288,8 +288,8 @@ ht-degree: 0%
                     <br/><br/>
                     Dessa attribut kan vara:
                     <ul>
-                        <li>Obligatoriskt, till exempel 'userId'</li>
-                        <li>Icke-obligatoriskt, som"zip","houseId","maxRating" osv.</li>
+                        <li>Obligatoriskt, till exempel 'userID'</li>
+                        <li>Icke-obligatoriskt, t.ex. 'zip', 'houseID', 'maxRating'.</li>
                     </ul>
                     Värdena för attributen kan vara:
                     <ul>
@@ -368,21 +368,17 @@ Content-Type: application/json;charset=UTF-8
             "issuer": "Spectrum",
             "type": "regular",
             "attributes": {
-                "userId": {
+                "userID": {
                     "value": "BASE64_value_userId",
                     "state": "plain"
                 },
-                "householdId" : {
+                "householdID": {
                     "value": "BASE64_value_householdId",
                     "state": "plain"
                 },
-                "zip" : {
+                "zip": {
                     "value": "BASE64_value_zip",
                     "state": "enc"
-                },
-                "parental-controls" : {
-                    "value": BASE64_value_parental-controls,
-                    "state": "plain"
                 }
             }
         }

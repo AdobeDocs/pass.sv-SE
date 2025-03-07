@@ -2,7 +2,7 @@
 title: Skapa och hämta profil med partnerautentiseringssvar
 description: REST API V2 - Skapa och hämta profil med partnerautentiseringssvar
 exl-id: cae260ff-a229-4df7-bbf9-4cdf300c0f9a
-source-git-commit: d8097b8419aa36140e6ff550714730059555fd14
+source-git-commit: 7fdfd28e2aba0d201f19dc25757bbe37cebd8ffe
 workflow-type: tm+mt
 source-wordcount: '734'
 ht-degree: 0%
@@ -272,8 +272,8 @@ ht-degree: 0%
                     <br/><br/>
                     Dessa attribut kan vara:
                     <ul>
-                        <li>Obligatoriskt, till exempel 'userId'</li>
-                        <li>Icke-obligatoriskt, som"zip","houseId","maxRating" osv.</li>
+                        <li>Obligatoriskt, till exempel 'userID'</li>
+                        <li>Icke-obligatoriskt, t.ex. 'zip', 'houseID', 'maxRating'.</li>
                     </ul>
                     Värdena för attributen kan vara:
                     <ul>
@@ -358,11 +358,11 @@ Content-Type: application/json;charset=UTF-8
             "issuer": "Apple",
             "type": "appleSSO",
             "attributes": {
-                "userId": {
+                "userID": {
                     "value": "BASE64_value_userId",
                     "state": "plain"
                 },
-                "householdId": {
+                "householdID": {
                     "value": "BASE64_value_householdId",
                     "state": "plain"
                 },
