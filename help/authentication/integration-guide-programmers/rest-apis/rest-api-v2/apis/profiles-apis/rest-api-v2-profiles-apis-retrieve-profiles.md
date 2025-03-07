@@ -2,7 +2,7 @@
 title: Hämta profiler
 description: REST API V2 - Hämta profiler
 exl-id: 72922aa8-95ca-48dc-8523-e335802fc366
-source-git-commit: 7fdfd28e2aba0d201f19dc25757bbe37cebd8ffe
+source-git-commit: 751ebec3372145dda318c8415be5676adb3f13b5
 workflow-type: tm+mt
 source-wordcount: '824'
 ht-degree: 0%
@@ -369,7 +369,7 @@ Content-Type: application/json;charset=UTF-8
             "issuer": "Spectrum",
             "type": "regular",
             "attributes": {
-                "userId": {
+                "userID": {
                     "value": "BASE64_value_userId",
                     "state": "plain"
                 }
@@ -433,7 +433,7 @@ Content-Type: application/json;charset=UTF-8
          "issuer": "Spectrum",
          "type": "regular",
          "attributes": {
-            "userId": {
+            "userID": {
                "value": "BASE64_value_userId",
                "state": "plain"
             }
@@ -497,7 +497,7 @@ Content-Type: application/json;charset=UTF-8
          "issuer": "Spectrum",
          "type": "regular",
          "attributes": {
-            "userId": {
+            "userID": {
                "value": "BASE64_value_userId",
                "state": "plain"
             }
