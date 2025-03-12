@@ -2,7 +2,7 @@
 title: REST API V2 - frågor och svar
 description: REST API V2 - frågor och svar
 exl-id: 2dd74b47-126e-487b-b467-c16fa8cc14c1
-source-git-commit: d8097b8419aa36140e6ff550714730059555fd14
+source-git-commit: 1795b4aba2940879f2dcb575048d553db4f0bf35
 workflow-type: tm+mt
 source-wordcount: '9072'
 ht-degree: 0%
@@ -303,7 +303,7 @@ För att säkerställa effektivitet och undvika onödiga förfrågningar måste 
 
 | **Autentisering utförd i det primära (skärm) programmet** | **Autentisering utförd i ett sekundärt (skärm) program** |
 |----------------------------------------------------------------------|----------------------------------------------------------------------|
-| Det primära programmet (direktuppspelning) ska avsöka var 1-5:e sekund. | Det primära programmet (direktuppspelning) ska avsöka var 3:e till 5:e sekund. |
+| Det primära programmet (direktuppspelning) ska avsöka var 3:e till 5:e sekund. | Det primära programmet (direktuppspelning) ska avsöka var 3:e till 5:e sekund. |
 
 #### 16. Hur många avsökningsbegäranden kan klientprogrammet skicka? {#authentication-phase-faq16}
 
