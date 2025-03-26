@@ -2,9 +2,9 @@
 title: REST API V2 - frågor och svar
 description: REST API V2 - frågor och svar
 exl-id: 2dd74b47-126e-487b-b467-c16fa8cc14c1
-source-git-commit: 1795b4aba2940879f2dcb575048d553db4f0bf35
+source-git-commit: edfde4b463dd8b93dd770bc47353ee8ceb6f39d2
 workflow-type: tm+mt
-source-wordcount: '9072'
+source-wordcount: '9113'
 ht-degree: 0%
 
 ---
@@ -321,12 +321,14 @@ Klientprogrammet kan fråga någon av följande slutpunkter som kan returnera [a
 * [Profilslutpunkt för specifikt MVPD API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md)
 * [Profilslutpunkt för specifik (autentisering) kod-API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md)
 
-Klientprogrammet behöver inte fråga en separat slutpunkt för att hämta användarens metadatainformation, eftersom den redan ingår i profilinformationen som erhålls vid verifiering av om användaren är autentiserad.
+Användarmetadata blir tillgängliga när autentiseringsflödet har slutförts och klientprogrammet behöver därför inte fråga en separat slutpunkt för att hämta informationen för [användarens metadata](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md) eftersom den redan ingår i profilinformationen.
 
 Mer information finns i följande dokument:
 
 * [Grundläggande profilflöden som utförs i det primära programmet](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-primary-application-flow.md)
 * [Grundläggande profiler som körs i sekundärt program](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-secondary-application-flow.md)
+
+Vissa metadataattribut kan uppdateras under auktoriseringsflödet beroende på MVPD och det specifika metadataattributet. Därför kan klientprogrammet behöva fråga API:erna ovan igen för att hämta de senaste användarmetadata.
 
 #### 18. Hur ska klientprogrammet hantera försämrad åtkomst? {#authentication-phase-faq18}
 

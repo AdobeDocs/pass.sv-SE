@@ -2,9 +2,9 @@
 title: Hämta profil för specifik kod
 description: REST API V2 - Hämta profil för specifik kod
 exl-id: d6ead7d5-de5f-4033-8115-980953a370c0
-source-git-commit: 7fdfd28e2aba0d201f19dc25757bbe37cebd8ffe
+source-git-commit: edfde4b463dd8b93dd770bc47353ee8ceb6f39d2
 workflow-type: tm+mt
-source-wordcount: '711'
+source-wordcount: '752'
 ht-degree: 0%
 
 ---
@@ -236,9 +236,9 @@ ht-degree: 0%
             <tr>
                <td style="background-color: #DEEBFF;">attributes</td>
                <td>
-                    Listan med attribut för användarmetadata.
+                    JSON innehåller en karta över nyckel- och värdepar.
                     <br/><br/>
-                    Dessa attribut kan vara:
+                    Nyckelelementet definieras av användarens metadataattribut och kan vara:
                     <ul>
                         <li>Obligatoriskt, till exempel 'userID'</li>
                         <li>Icke-obligatoriskt, t.ex. 'zip', 'houseID', 'maxRating'.</li>
@@ -249,6 +249,7 @@ ht-degree: 0%
                         <li>list</li>
                         <li>map</li>
                     </ul>
+                    Användarmetadata blir tillgängliga när autentiseringsflödet har slutförts, men vissa metadataattribut kan uppdateras under auktoriseringsflödet, beroende på MVPD och det specifika metadataattributet i fråga.
                </td>
                <td><i>obligatoriskt</i></td>
             </tr>

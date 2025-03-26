@@ -2,9 +2,9 @@
 title: Hämta profiler
 description: REST API V2 - Hämta profiler
 exl-id: 72922aa8-95ca-48dc-8523-e335802fc366
-source-git-commit: 751ebec3372145dda318c8415be5676adb3f13b5
+source-git-commit: edfde4b463dd8b93dd770bc47353ee8ceb6f39d2
 workflow-type: tm+mt
-source-wordcount: '824'
+source-wordcount: '865'
 ht-degree: 0%
 
 ---
@@ -265,9 +265,9 @@ ht-degree: 0%
             <tr>
                <td style="background-color: #DEEBFF;">attributes</td>
                <td>
-                    Listan med attribut för användarmetadata.
+                    JSON innehåller en karta över nyckel- och värdepar.
                     <br/><br/>
-                    Dessa attribut kan vara:
+                    Nyckelelementet definieras av användarens metadataattribut och kan vara:
                     <ul>
                         <li>Obligatoriskt, till exempel 'userID'</li>
                         <li>Icke-obligatoriskt, t.ex. 'zip', 'houseID', 'maxRating'.</li>
@@ -278,6 +278,7 @@ ht-degree: 0%
                         <li>list</li>
                         <li>map</li>
                     </ul>
+                    Användarmetadata blir tillgängliga när autentiseringsflödet har slutförts, men vissa metadataattribut kan uppdateras under auktoriseringsflödet, beroende på MVPD och det specifika metadataattributet i fråga.
                </td>
                <td><i>obligatoriskt</i></td>
             </tr>

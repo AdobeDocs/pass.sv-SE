@@ -2,9 +2,9 @@
 title: Användarmetadata
 description: Användarmetadata
 exl-id: 9fd68885-7b3a-4af0-a090-6f1f16efd2a1
-source-git-commit: e448427ae4a36c4c6cb9f9c1cb4d0cc5c6d564ed
+source-git-commit: edfde4b463dd8b93dd770bc47353ee8ceb6f39d2
 workflow-type: tm+mt
-source-wordcount: '1793'
+source-wordcount: '1902'
 ht-degree: 0%
 
 ---
@@ -16,6 +16,8 @@ ht-degree: 0%
 > Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
 
 Användarmetadata refererar till användarspecifika [attribut](#attributes) (t.ex. postnummer, klassificeringar av föräldrar, användar-ID:n) som underhålls av programmeringsprogram och tillhandahålls programmerare via Adobe Pass Authentication [REST API V2](#apis).
+
+Användarmetadata blir tillgängliga när autentiseringsflödet har slutförts, men vissa metadataattribut kan uppdateras under auktoriseringsflödet, beroende på MVPD och det specifika metadataattributet i fråga.
 
 Användarmetadata kan användas för att förbättra personaliseringen för användare, men kan också användas för analys. En programmerare kan till exempel använda användarens postnummer för att leverera lokaliserade nyheter eller väderuppdateringar, eller för att framtvinga föräldrakontroll.
 
@@ -168,7 +170,17 @@ Attribut för användarmetadata kan hämtas med följande API:er:
 
 Se avsnitten **Svar** och **Exempel** i API:erna ovan för att förstå strukturen för attributen för användarmetadata.
 
+>[!IMPORTANT]
+>
+> Användarmetadata blir tillgängliga när autentiseringsflödet har slutförts och klientprogrammet behöver därför inte fråga en separat slutpunkt för att hämta informationen för [användarens metadata](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md) eftersom den redan ingår i profilinformationen.
+
 Mer information om hur och när ovanstående API:er ska integreras finns i följande dokument:
 
 * [Grundläggande profilflöden som utförs i det primära programmet](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-primary-application-flow.md)
 * [Grundläggande profiler som körs i sekundärt program](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-secondary-application-flow.md)
+
+Vissa metadataattribut kan uppdateras under auktoriseringsflödet beroende på MVPD och det specifika metadataattributet. Därför kan klientprogrammet behöva fråga API:erna ovan igen för att hämta de senaste användarmetadata.
+
+>[!MORELIKETHIS]
+>
+> [Vanliga frågor om autentiseringsfasen](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#authentication-phase-faqs-general)
