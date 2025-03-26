@@ -2,9 +2,9 @@
 title: Integreringsguide för programmerare
 description: Integreringsguide för programmerare
 exl-id: 51461caf-08ef-459e-b284-8f317f45e7b1
-source-git-commit: d8097b8419aa36140e6ff550714730059555fd14
+source-git-commit: 07bb12f7983f39b58e1b9795fdaa1bec4f68e674
 workflow-type: tm+mt
-source-wordcount: '2073'
+source-wordcount: '2119'
 ht-degree: 0%
 
 ---
@@ -48,7 +48,9 @@ För programmerare tillhandahåller Adobe Pass Authentication API:er som en del 
 
 * Premium-API:er för Adobe Pass-autentisering:
    * [Återställ API för tillfälligt pass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md#reset-tempass-api-access)
+      * [TempPass-funktion](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md)
    * [Försämring av API](/help/authentication/integration-guide-programmers/features-premium/degraded-access/degradation-feature.md#degradation-api-access)
+      * [Försämringsfunktion](/help/authentication/integration-guide-programmers/features-premium/degraded-access/degradation-feature.md)
    * [API för tillståndsövervaknings-API](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-api.md)
 
 ### Användningsexempel {#use-cases}
@@ -323,4 +325,6 @@ Mer information om berättiganden finns i följande dokument:
 
 * **[Medietoken](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md)**
 
-  När auktoriseringen är klar skapar Adobe Pass Authentication en medietoken (&quot;kortlivad&quot;) som är associerad med en begäran om att spela upp.
+  När auktoriseringen är klar skapar Adobe Pass Authentication en medietoken (&quot;kortlivad&quot;) som är associerad med en lyckad spelbegäran och ger stöd för branschens bästa metoder för att minska bedrägerier (t.ex. direktuppspelning).
+
+TTL-värdena (time-to-live) för profiler och beslut baseras på avtal mellan programmerare och leverantörer av betal-TV, som är överens om ett värde som passar alla bäst.

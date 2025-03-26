@@ -2,9 +2,9 @@
 title: Integreringsguide för MVPD
 description: Integreringsguide för MVPD
 exl-id: b918550b-96a8-4e80-af28-0a2f63a02396
-source-git-commit: 2b9a8ce374f7a73cd815e9735d672e5c9ba285cc
+source-git-commit: 07bb12f7983f39b58e1b9795fdaa1bec4f68e674
 workflow-type: tm+mt
-source-wordcount: '1265'
+source-wordcount: '1307'
 ht-degree: 0%
 
 ---
@@ -36,7 +36,7 @@ Adobe Pass Authentication är helt i linje med de nya standarderna och protokoll
 
 Adobe Pass Authentication har utformats för att stödja flera protokoll (t.ex. SAML, OAuth 2.0 osv.), som möjliggör framtida utbyggnadsmöjligheter, inklusive anpassade protokoll, baserat på behoven under utvecklingen.
 
-De flesta integreringar använder SAML-protokollet (Security Assertion Markup Language), en primär standard för autentisering. Adobe Pass Authentication fungerar som en proxytjänsteleverantör i SAML-ramverket och behåller SAML-autentiseringssvaret som en säker token i den gemensamma domänen Adobe.
+De flesta integreringar använder SAML-protokollet (Security Assertion Markup Language), en primär standard för autentisering. Adobe Pass Authentication fungerar som en proxytjänsteleverantör i SAML-ramverket och behåller SAML-autentiseringssvaret som en säker token i Adobe gemensamma domän.
 
 Sammanfattningsvis är Adobe Pass Authentication protokollagnostiker, som är utformade för att vara nära anpassade till OLCA-standarder. Dessa standarder utgör en gemensam ram för programmerare, distributörer av videoprogrammeringstjänster och tjänsteleverantörer och säkerställer en sammanhängande strategi för att implementera TVE-funktioner.
 
@@ -56,7 +56,7 @@ Adobe Pass Authentication stöder effektiv hantering av MVPD affärslogik enligt
   För affärslogik som genomdrivs helt av MVPD vid auktoriseringsbegäranden tillhandahåller Adobe nödvändiga data. Dessa data kan omfatta, men är inte begränsade till, det unika enhets-ID:t och IP-adressen för den användarens enhet som begär detta.
 
 * **Stöd för anpassade egenskaper**\
-  För affärslogik som kräver användaringripande eller Adobe-specifik hantering kan Adobe upprätthålla anpassade konfigurationer för varje MVPD. Dessa profiler möjliggör fördefinierade arbetsflöden som kan aktiveras vid specifika punkter i berättigandearbetsflödet. Kontakta din Adobe-representant om du vill ha mer information.
+  För affärslogik som kräver användaråtgärder eller Adobe-specifik hantering kan Adobe upprätthålla anpassade konfigurationer för varje MVPD. Dessa profiler möjliggör fördefinierade arbetsflöden som kan aktiveras vid specifika punkter i berättigandearbetsflödet. Kontakta Adobe om du vill ha mer information.
 
 ## Tillståndsflöde {#entitlement-flow}
 
@@ -139,4 +139,6 @@ Mer information om berättiganden finns i följande dokument:
 
 * **[Medietoken](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md)**
 
-  När auktoriseringen är klar skapar Adobe Pass Authentication en medietoken (&quot;kortlivad&quot;) som är associerad med en begäran om att spela upp.
+  När auktoriseringen är klar skapar Adobe Pass Authentication en medietoken (&quot;kortlivad&quot;) som är associerad med en lyckad spelbegäran och ger stöd för branschens bästa metoder för att minska bedrägerier (t.ex. direktuppspelning).
+
+TTL-värdena (time-to-live) för profiler och beslut baseras på avtal mellan programmerare och leverantörer av betal-TV, som är överens om ett värde som passar alla bäst.
