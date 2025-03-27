@@ -2,9 +2,9 @@
 title: REST API V2 - översikt
 description: REST API V2 - översikt
 exl-id: a5595193-82c4-4033-bd98-596b4908b401
-source-git-commit: 9dcc649b4216cccc9be35cd6553308bfc345b5f4
+source-git-commit: fab5964aeb832d419702b41a6d3bc5676cb3354f
 workflow-type: tm+mt
-source-wordcount: '496'
+source-wordcount: '492'
 ht-degree: 0%
 
 ---
@@ -14,8 +14,6 @@ ht-degree: 0%
 >[!IMPORTANT]
 >
 > Se till att du håller dig informerad om de senaste produktmeddelandena för Adobe Pass-autentisering och tidslinjer för avveckling som sammanställts på sidan [Produktmeddelanden](/help/authentication/product-announcements.md).
-
-<a href="https://experienceleague.adobe.com/en/docs/pass/authentication/product-announcements">![Live Webinar Series](/help/authentication/assets/rest-api-v2/live-webinar-series-banner.png)</a>
 
 Vill du förbättra kostnadseffektiviteten i TVE-programmen?
 
