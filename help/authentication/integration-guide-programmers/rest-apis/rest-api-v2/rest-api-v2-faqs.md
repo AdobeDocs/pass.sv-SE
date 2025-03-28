@@ -2,9 +2,9 @@
 title: REST API V2 - frågor och svar
 description: REST API V2 - frågor och svar
 exl-id: 2dd74b47-126e-487b-b467-c16fa8cc14c1
-source-git-commit: edfde4b463dd8b93dd770bc47353ee8ceb6f39d2
+source-git-commit: 42df16e34783807e1b5eb1a12ca9db92f4e4c161
 workflow-type: tm+mt
-source-wordcount: '9113'
+source-wordcount: '9537'
 ht-degree: 0%
 
 ---
@@ -248,9 +248,18 @@ Mer information finns i dokumenten [Single sign-on med partnerflöden](/help/aut
 
 #### 10. Vad ska klientprogrammet göra om användaren har flera MVPD-profiler? {#authentication-phase-faq10}
 
-När användaren har flera MVPD-profiler är klientprogrammet ansvarigt för att fastställa det bästa sättet att hantera detta scenario.
+Beslutet att ge stöd för flera profiler beror på klientprogrammets affärskrav.
+
+De flesta användare har bara en profil. I de fall där det finns flera profiler (som beskrivs nedan) ansvarar klientprogrammet för att fastställa den bästa användarupplevelsen för val av profil.
 
 Klientprogrammet kan välja att uppmana användaren att välja önskad MVPD-profil eller göra urvalet automatiskt, till exempel välja den första användarprofilen i svaret eller den som har längst giltighetsperiod.
+
+REST API v2 har stöd för flera profiler:
+
+* Användare som kan behöva välja mellan en vanlig MVPD-profil och en som skaffats via enkel inloggning (SSO).
+* Användare som erbjuds tillfällig åtkomst utan att behöva logga ut från sin vanliga MVPD.
+* Användare med MVPD prenumeration kombinerat med DTC-tjänster (Direct-to-Consumer).
+* Användare med flera MVPD-prenumerationer.
 
 #### 11. Vad händer när användarprofiler upphör att gälla? {#authentication-phase-faq11}
 
@@ -332,9 +341,35 @@ Vissa metadataattribut kan uppdateras under auktoriseringsflödet beroende på M
 
 #### 18. Hur ska klientprogrammet hantera försämrad åtkomst? {#authentication-phase-faq18}
 
-Med tanke på att din organisation har för avsikt att använda funktionen [degradering](/help/authentication/integration-guide-programmers/features-premium/degraded-access/degradation-feature.md) måste klientprogrammet hantera försämrade åtkomstflöden, som beskriver hur REST API v2-slutpunkter fungerar i sådana scenarier.
+[Försämringsfunktionen](/help/authentication/integration-guide-programmers/features-premium/degraded-access/degradation-feature.md) gör att klientprogrammet kan upprätthålla en sömlös direktuppspelning för användare, även när deras MVPD autentiserings- eller auktoriseringstjänster stöter på problem.
+
+Sammanfattningsvis kan detta säkerställa oavbruten åtkomst till innehåll trots att MVPD tillfälligt upphör med tjänsten.
+
+Med tanke på att din organisation har för avsikt att använda funktionen för premiumförsämring måste klientprogrammet hantera nedbrutna åtkomstflöden, som beskriver hur REST API v2-slutpunkter fungerar i sådana scenarier.
 
 Mer information finns i dokumentationen för [Försämrade åtkomstflöden](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/degraded-access-flows/rest-api-v2-access-degraded-flows.md).
+
+#### 19. Hur ska klientprogrammet hantera temporär åtkomst? {#authentication-phase-faq19}
+
+Med funktionen [TempPass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md) kan klientprogrammet ge användaren tillfällig åtkomst.
+
+Sammanfattningsvis kan detta engagera användarna genom att ge dem tidsbegränsad tillgång till materialet eller ett fördefinierat antal VOD-titlar under en viss tidsperiod.
+
+Med tanke på att din organisation har för avsikt att använda premiumfunktionen TempPass måste klientprogrammet hantera tillfälliga åtkomstflöden, som beskriver hur REST API v2-slutpunkter fungerar i sådana scenarier.
+
+I tidigare API-versioner var klientprogrammet tvunget att logga ut en användare som autentiserats med sin vanliga MVPD för att ge temporär åtkomst.
+
+Med REST API v2 kan klientprogrammet smidigt växla mellan en vanlig MVPD och en TempPass MVPD vid auktorisering av en direktuppspelning, vilket eliminerar behovet av utloggning.
+
+Mer information finns i dokumentationen för [Tillfälliga åtkomstflöden](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/temporary-access-flows/rest-api-v2-access-temporary-flows.md).
+
+#### 20. Hur ska klientprogrammet hantera åtkomst för enkel inloggning mellan olika enheter? {#authentication-phase-faq20}
+
+REST API v2 kan aktivera enkel inloggning på olika enheter om klientprogrammet ger en konsekvent unik användaridentifierare på olika enheter.
+
+Den här identifieraren, som kallas tjänsttoken, måste genereras av klientprogrammet genom implementering eller integrering av en extern identitetstjänst som du väljer.
+
+Mer information finns i dokumentationen för [enkel inloggning med tjänsttokenflöden](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-service-token-flows.md).
 
 +++
 
@@ -574,9 +609,15 @@ Huvuddokumentationen för [AP-Device-Identifier](/help/authentication/integratio
 >
 > Om klientprogrammet migrerar från REST API V1 till REST API V2 kan klientprogrammet fortsätta att använda samma metod för att beräkna enhetsinformationsvärdet som tidigare.
 
-Huvudet [X-Device-Info](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-x-device-info.md) innehåller klientinformationen (enhet, anslutning och program) som hör till den faktiska direktuppspelningsenheten.
+Huvudet [X-Device-Info](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-x-device-info.md) innehåller klientinformationen (enhet, anslutning och program) som är relaterad till den faktiska direktuppspelningsenheten och används för att fastställa plattformsspecifika regler som MVPD-program kan tillämpa.
 
 Huvuddokumentationen för [X-Device-Info](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-x-device-info.md) innehåller exempel på större plattformar för hur värdet beräknas, men klientprogrammet kan välja att använda en annan metod baserat på sin egen affärslogik och sina egna krav.
+
+Om rubriken [X-Device-Info](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-x-device-info.md) saknas eller innehåller felaktiga värden kan begäran klassificeras som om den kommer från en `unknown`-plattform.
+
+Detta kan leda till att begäran behandlas som osäker och omfattas av mer restriktiva regler, till exempel kortare autentiserings-TTL. Dessutom är vissa fält, till exempel direktuppspelningsenheten `connectionIp` och `connectionPort`, obligatoriska för funktioner som spektrumets [Home Base Authentication](/help/authentication/integration-guide-programmers/features-standard/hba-access/home-based-authentication.md).
+
+Även när begäran kommer från en server för en enhets räkning måste rubrikvärdet [X-Device-Info](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-x-device-info.md) återspegla den faktiska informationen om direktuppspelningsenheten.
 
 +++
 

@@ -2,9 +2,9 @@
 title: Header - X-Device-Info
 description: REST API V2 - Header - X-Device-Info
 exl-id: 0ef25e06-86de-427a-a938-7ba3817f0d5e
-source-git-commit: 81d3c3835d2e97e28c2ddb9c72d1a048a25ad433
+source-git-commit: 42df16e34783807e1b5eb1a12ca9db92f4e4c161
 workflow-type: tm+mt
-source-wordcount: '1122'
+source-wordcount: '1133'
 ht-degree: 1%
 
 ---
@@ -17,7 +17,7 @@ ht-degree: 1%
 
 ## Ökning {#overview}
 
-Huvudet <b>X-Device-Info</b> innehåller klientinformationen (enhet, anslutning och program) som hör till den faktiska direktuppspelningsenheten.
+Huvudet <b>X-Device-Info</b> innehåller klientinformationen (enhet, anslutning och program) som är relaterad till den faktiska direktuppspelningsenheten och används för att fastställa plattformsspecifika regler som MVPD-program kan tillämpa.
 
 ## Syntax {#syntax}
 
