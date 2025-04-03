@@ -2,9 +2,9 @@
 title: Förbättrade felkoder
 description: Förbättrade felkoder
 exl-id: 2b0a9095-206b-4dc7-ab9e-e34abf4d359c
-source-git-commit: b0d6c94148b2f9cb8a139685420a970671fce1f5
+source-git-commit: 27aaa0d3351577e60970a4035b02d814f0a17e2f
 workflow-type: tm+mt
-source-wordcount: '2610'
+source-wordcount: '2649'
 ht-degree: 2%
 
 ---
@@ -45,8 +45,8 @@ Förbättrade felkoder kan representeras i `JSON`- eller `XML`-format beroende p
 
 | Adobe Pass-autentiserings-API | JSON | XML |
 |-------------------------------|---------|---------|
-| REST API v1 | &amp;check; | &amp;check; |
 | REST API v2 | &amp;check; |         |
+| REST API v1 | &amp;check; | &amp;check; |
 | SDK Förauktorisera API | &amp;check; |         |
 
 >[!IMPORTANT]
@@ -62,9 +62,105 @@ Förbättrade felkoder kan representeras i `JSON`- eller `XML`-format beroende p
 >
 > Läs den offentliga dokumentationen för varje inbyggt Adobe Pass Authentication API för att fastställa informationen för den utökade felkodsrepresentationen.
 
-Se följande HTTP-svar som innehåller exempel på förbättrade felkoder som representeras av `JSON` eller `XML`.
+**REST API v2**
+
+Se följande HTTP-svar som innehåller exempel på förbättrade felkoder som `JSON` kan användas för REST API v2.
 
 >[!BEGINTABS]
+
+>[!TAB REST API v2 - Felinformation på artikelnivå (JSON)]
+
+```JSON
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "decisions": [
+    {
+      "resource": "REF30",
+      "serviceProvider": "REF30",
+      "mvpd": "Cablevision",
+      "source": "mvpd",
+      "authorized": true,
+      "token": {
+        "issuedAt": 1697094207324,
+        "notBefore": 1697094207324,
+        "notAfter": 1697094802367,
+        "serializedToken": "PHNpZ25hdHVyZUluZm8..."
+      }
+    },
+    {
+      "resource": "REF40",
+      "serviceProvider": "REF40",
+      "mvpd": "Cablevision",
+      "source": "mvpd",
+      "authorized": false,
+      "error" : {
+        "action": "none",
+        "status": 403,
+        "code": "authorization_denied_by_mvpd",
+        "message": "The MVPD has returned a \"Deny\" decision when requesting authorization for the specified resource",
+        "details": "Your subscription package does not include the \"Live\" channel",
+        "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
+        "trace": "12f6fef9-d2e0-422b-a9d7-60d799abe353"
+      }
+    }
+  ]
+}
+```
+
+>[!TAB REST API v2 - Felinformation på högsta nivån (JSON)]
+
+```JSON
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+  "action": "none",
+  "status": 400,
+  "code": "invalid_parameter_service_provider",
+  "message": "The service provider parameter value is missing or invalid.",
+  "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
+  "trace": "12f6fef9-d2e0-422b-a9d7-60d799abe353"
+}
+```
+
+>[!ENDTABS]
+
+**REST API v1**
+
+Se följande HTTP-svar som innehåller exempel på förbättrade felkoder som representeras av `JSON` eller `XML` som gäller för REST API v1.
+
+>[!BEGINTABS]
+
+>[!TAB REST API v1 - Felinformation på artikelnivå (JSON)]
+
+```JSON
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "resources": [
+    {
+      "id": "TestStream1",
+      "authorized": true
+    },
+    {
+      "id": "TestStream2",
+      "authorized": false,
+      "error": {
+        "action": "none",
+        "status": 403,
+        "code": "authorization_denied_by_mvpd",
+        "message": "The MVPD has returned a \"Deny\" decision when requesting authorization for the specified resource",
+        "details": "Your subscription package does not include the \"Live\" channel",
+        "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
+        "trace": "12f6fef9-d2e0-422b-a9d7-60d799abe353"
+      }
+    }
+  ]
+}
+```
 
 >[!TAB REST API v1 - Felinformation på högsta nivån (JSON)]
 
@@ -98,102 +194,18 @@ Content-Type: application/xml
 </error>
 ```
 
->[!TAB REST API v1 - Felinformation på artikelnivå (JSON)]
-
-```JSON
-HTTP/1.1 200 OK
-Content-Type: application/json
-
-{
-  "resources": [
-    {
-      "id": "TestStream1",
-      "authorized": true
-    },
-    {
-      "id": "TestStream2",
-      "authorized": false,
-      "error": {
-        "action": "retry",
-        "status": 403,
-        "code": "network_connection_failure",
-        "message": "Unable to contact your TV provider services",
-        "details": "Your subscription package does not include the \"Live\" channel",
-        "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
-        "trace": "12f6fef9-d2e0-422b-a9d7-60d799abe353"
-      }
-    }
-  ]
-}
-```
-
->[!TAB REST API v2 - Felinformation på högsta nivån (JSON)]
-
-```JSON
-HTTP/1.1 400 Bad Request
-Content-Type: application/json
-
-{
-  "action": "none",
-  "status": 400,
-  "code": "invalid_parameter_service_provider",
-  "message": "The service provider parameter value is missing or invalid.",
-  "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
-  "trace": "12f6fef9-d2e0-422b-a9d7-60d799abe353"
-}
-```
-
->[!TAB REST API v2 - Felinformation på artikelnivå (JSON)]
-
-```JSON
-HTTP/1.1 200 OK
-Content-Type: application/json
-
-{
-  "decisions": [
-    {
-      "resource": "REF30",
-      "serviceProvider": "REF30",
-      "mvpd": "Cablevision",
-      "source": "mvpd",
-      "authorized": true,
-      "token": {
-        "issuedAt": 1697094207324,
-        "notBefore": 1697094207324,
-        "notAfter": 1697094802367,
-        "serializedToken": "PHNpZ25hdHVyZUluZm8..."
-      }
-    },
-    {
-      "resource": "REF40",
-      "serviceProvider": "REF40",
-      "mvpd": "Cablevision",
-      "source": "mvpd",
-      "authorized": false,
-      "error" : {
-        "action": "retry",
-        "status": 403,
-        "code": "network_connection_failure",
-        "message": "Unable to contact your TV provider services",
-        "details": "Your subscription package does not include the \"Live\" channel",
-        "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
-        "trace": "12f6fef9-d2e0-422b-a9d7-60d799abe353"
-      }
-    }
-  ]
-}
-```
-
 >[!ENDTABS]
 
-Förbättrade felkoder innehåller följande `JSON`-fält eller `XML`-attribut:
+### Struktur {#enhanced-error-codes-representation-structure}
+
+Förbättrade felkoder innehåller följande `JSON`-fält eller `XML`-attribut med exempel:
 
 | Namn | Typ | Exempel | Begränsad | Beskrivning |
 |-----------|-----------|---------------------------------------------------------------------------------------------------------------------|:----------:|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| *åtgärd* | *sträng* | *försök igen* | &amp;check; | Adobe Pass-autentiseringen rekommenderade en åtgärd som kan åtgärda situationen enligt definitionen i det här dokumentet. <br/><br/> Mer information finns i avsnittet [Åtgärd](#enhanced-error-codes-action). |
+| *åtgärd* | *sträng* | *ingen* | &amp;check; | Adobe Pass-autentiseringen rekommenderade en åtgärd som kan åtgärda situationen enligt definitionen i det här dokumentet. <br/><br/> Mer information finns i avsnittet [Åtgärd](#enhanced-error-codes-action). |
 | *status* | *heltal* | *403* | &amp;check; | Statuskoden för HTTP-svar enligt definitionen i [RFC 7231](https://tools.ietf.org/html/rfc7231#section-6) -dokumentet. <br/><br/> Mer information finns i avsnittet [Status](#enhanced-error-codes-status). |
-| *kod* | *sträng* | *network_connection_error* | &amp;check; | Den unika identifierarkod för Adobe Pass-autentisering som är associerad med felet enligt definitionen i det här dokumentet. <br/><br/> Mer information finns i avsnittet [Kod](#enhanced-error-codes-code). |
-| *meddelande* | *sträng* | *Det går inte att kontakta din TV-leverantör* |            | Det läsbara meddelandet som kan visas för slutanvändaren i vissa fall. <br/><br/> Mer information finns i avsnittet [Svarshantering](#enhanced-error-codes-response-handling). |
+| *kod* | *sträng* | *authentication_deny_by_mvpd* | &amp;check; | Den unika identifierarkod för Adobe Pass-autentisering som är associerad med felet enligt definitionen i det här dokumentet. <br/><br/> Mer information finns i avsnittet [Kod](#enhanced-error-codes-code). |
+| *meddelande* | *sträng* | *MVPD har returnerat ett beslut om att neka vid begäran om auktorisering för den angivna resursen* |            | Det läsbara meddelandet som kan visas för slutanvändaren i vissa fall. <br/><br/> Mer information finns i avsnittet [Svarshantering](#enhanced-error-codes-response-handling). |
 | *information* | *sträng* | *Prenumerationspaketet innehåller inte &quot;Live&quot;-kanalen* |            | Det detaljerade meddelandet som kan tillhandahållas av en tjänstpartner i vissa fall, <br/><br/> Det här fältet kanske inte finns om tjänstpartnern inte tillhandahåller något anpassat meddelande. |
 | *helpUrl* | *url* | *https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html* |            | Den offentliga dokumentations-URL:en för Adobe Pass-autentisering som länkar till mer information om varför felet uppstod och möjliga lösningar. <br/><br/> Det här fältet innehåller en absolut URL-adress och bör inte härledas från felkoden, beroende på felkontexten kan en annan URL anges. |
 | *trace* | *sträng* | *12f6fef9-d2e0-422b-a9d7-60d799abe353* |            | Den unika identifieraren för det svar som kan användas när du kontaktar Adobe Pass Authentication support för att felsöka specifika problem. |
