@@ -2,9 +2,9 @@
 title: Initiera utloggning för specifik mvpd
 description: REST API V2 - Initiera utloggning för specifik mvpd
 exl-id: 2482de87-b3d4-4ea8-bd4a-25bf10017e01
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 32c3176fb4633acb60deb1db8fb5397bbf18e2d0
 workflow-type: tm+mt
-source-wordcount: '1006'
+source-wordcount: '1009'
 ht-degree: 0%
 
 ---
@@ -60,7 +60,7 @@ ht-degree: 0%
    <tr>
       <td style="background-color: #DEEBFF;">redirectUrl</td>
       <td>
-        Den slutliga omdirigerings-URL som användaragenten navigerar till när utloggningsflödet för det virtuella dokumentfönstret är slutfört.
+        Den slutliga omdirigerings-URL som användaragenten navigerar till när utloggningsflödet för MVPD är slutfört.
         <br/><br/>
         Värdet måste vara URL-kodat.
       </td>
@@ -106,9 +106,9 @@ ht-degree: 0%
       <td>valfri</td>
    </tr>
    <tr>
-      <td style="background-color: #DEEBFF;">Adobe-Subject-Token</td>
+      <td style="background-color: #DEEBFF;">Adobe-Subject-Token<br/>eller<br/>X-Roku-Reserved-Roku-Connect-Token</td>
       <td>
-        Genereringen av nyttolasten för enkel inloggning för plattformsidentitetsmetoden beskrivs i rubrikdokumentationen för <a href="../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md">Adobe-Subject-Token</a>.
+        Genereringen av nyttolasten för enkel inloggning för metoden Platform Identity beskrivs i rubrikdokumentationen för <a href="../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md">Adobe-Subject-Token</a> / <a href="../../appendix/headers/rest-api-v2-appendix-headers-x-roku-reserved-roku-connect-token.md">X-Roku-Reserved-Roku-Connect-Token</a>.
         <br/><br/>
         Mer information om enkla inloggningsaktiverade flöden med en plattformsidentitet finns i dokumentationen för <a href="../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-platform-identity-flows.md"> enkel inloggning med plattformsidentitetsflöden </a> .
       </td>
@@ -239,8 +239,8 @@ ht-degree: 0%
                   Möjliga värden är:
                   <ul>
                     <li><b>utloggning</b><br/>Direktuppspelningsenheten måste öppna den angivna URL:en i en användaragent.<br/>Den här åtgärden gäller för följande scenarier: logga ut från MVPD med en utloggningsslutpunkt.</li>
-                    <li><b>partner_log</b><br/>Direktuppspelningsenheten måste informera användaren om att även logga ut från partnernivån (systemnivån).<br/>Den här åtgärden gäller för följande scenarier: logga ut från MVPD när profiltypen är "appleSSO".</li>
-                    <li><b>complete</b><br/>Direktuppspelningsenheten behöver inte utföra några efterföljande åtgärder.<br/>Den här åtgärden gäller för följande scenarier: logga ut från MVPD utan en utloggningsslutpunkt (dummy-utloggningsfunktion), logga ut under försämrad åtkomst, logga ut under tillfällig åtkomst.</li>
+                    <li><b>partner_log</b><br/>Direktuppspelningsenheten måste informera användaren om att även logga ut från partnernivån (systemnivån).<br/>Den här åtgärden gäller för följande scenarier: logga ut från MVPD när profiltypen är AppleSSO.</li>
+                    <li><b>complete</b><br/>Direktuppspelningsenheten behöver inte utföra några efterföljande åtgärder.<br/>Den här åtgärden gäller för följande scenarier: logga ut från MVPD utan utloggningsslutpunkt (dummy-utloggningsfunktion), logga ut under försämrad åtkomst, logga ut under tillfällig åtkomst.</li>
                     <li><b>invalid</b><br/>Direktuppspelningsenheten behöver inte utföra några efterföljande åtgärder.<br/>Den här åtgärden gäller för följande scenarier: logga ut från MVPD när ingen giltig profil hittas.</li>
                   </ul>  
                <td><i>obligatoriskt</i></td>

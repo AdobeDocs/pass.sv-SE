@@ -2,9 +2,9 @@
 title: Hämta förauktoriseringsbeslut med hjälp av en specifik mvpd
 description: REST API V2 - Hämta förauktoriseringsbeslut med hjälp av specifik mvpd
 exl-id: 8647e4fb-00b6-45cd-b81b-d00618b2e08b
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 32c3176fb4633acb60deb1db8fb5397bbf18e2d0
 workflow-type: tm+mt
-source-wordcount: '789'
+source-wordcount: '792'
 ht-degree: 0%
 
 ---
@@ -111,9 +111,9 @@ ht-degree: 0%
       <td>valfri</td>
    </tr>
    <tr>
-      <td style="background-color: #DEEBFF;">Adobe-Subject-Token</td>
+      <td style="background-color: #DEEBFF;">Adobe-Subject-Token<br/>eller<br/>X-Roku-Reserved-Roku-Connect-Token</td>
       <td>
-        Genereringen av nyttolasten för enkel inloggning för plattformsidentitetsmetoden beskrivs i rubrikdokumentationen för <a href="../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md">Adobe-Subject-Token</a>.
+        Genereringen av nyttolasten för enkel inloggning för metoden Platform Identity beskrivs i rubrikdokumentationen för <a href="../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md">Adobe-Subject-Token</a> / <a href="../../appendix/headers/rest-api-v2-appendix-headers-x-roku-reserved-roku-connect-token.md">X-Roku-Reserved-Roku-Connect-Token</a>.
         <br/><br/>
         Mer information om enkla inloggningsaktiverade flöden med en plattformsidentitet finns i dokumentationen för <a href="../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-platform-identity-flows.md"> enkel inloggning med plattformsidentitetsflöden </a> .
       </td>
@@ -257,7 +257,7 @@ ht-degree: 0%
                   <br/><br/>
                   Möjliga värden är:
                   <ul>
-                    <li><b>mvpd</b><br/>Beslutet utfärdas av MVPD-slutpunkten för förhandsauktorisering.</li>
+                    <li><b>mvpd</b><br/>Beslut utfärdas av MVPD-slutpunkten för förauktorisering.</li>
                     <li><b>degradering</b><br/>Beslut utfärdas som ett resultat av försämrad åtkomst.</li>
                     <li><b>mall</b><br/>Beslut utfärdas som ett resultat av tillfällig åtkomst.</li>
                     <li><b>dummy</b><br/>Beslut utfärdas som ett resultat av en overksam förauktoriseringsfunktion.</li>
