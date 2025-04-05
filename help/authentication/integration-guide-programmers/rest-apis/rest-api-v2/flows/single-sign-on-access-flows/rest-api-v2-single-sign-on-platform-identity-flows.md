@@ -2,9 +2,9 @@
 title: Enkel inloggning - plattformsidentitet - flöden
 description: REST API V2 - enkel inloggning - plattformsidentitet - flöden
 exl-id: 5200e851-84e8-4cb4-b068-63b91a2a8945
-source-git-commit: 6b803eb0037e347d6ce147c565983c5a26de9978
+source-git-commit: 640ba7073f7f4639f980f17f1a59c4468bfebcf4
 workflow-type: tm+mt
-source-wordcount: '1846'
+source-wordcount: '1856'
 ht-degree: 0%
 
 ---
@@ -27,14 +27,14 @@ Metoden Platform Identity gör det möjligt för flera program att använda en u
 
 Programmen hämtar den unika plattformsidentifierarnyttolasten med enhetsspecifika identitetstjänster eller bibliotek utanför Adobe Pass-system.
 
-Programmen ansvarar för att inkludera den här unika plattforms-ID-nyttolasten som en del av `Adobe-Subject-Token`-huvudet för alla begäranden som anger den.
+Programmen ansvarar för att inkludera den här unika plattforms-ID-nyttolasten som en del av `Adobe-Subject-Token` / `X-Roku-Reserved-Roku-Connect-Token` -huvudet för alla begäranden som anger det.
 
-Mer information om rubriken `Adobe-Subject-Token` finns i dokumentationen för [Adobe-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md).
+Mer information om rubriken `Adobe-Subject-Token` / `X-Roku-Reserved-Roku-Connect-Token` finns i dokumentationen för [Adobe-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md) / [X-Roku-Reserved-Roku-Connect-Token](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-x-roku-reserved-roku-connect-token.md).
 
 >[!MORELIKETHIS]
 > 
 > * [Amazon SSO Cookbook](/help/authentication/integration-guide-programmers/features-standard/sso-access/platform-sso/amazon-single-sign-on/amazon-sso-cookbook-rest-api-v2.md)
-> * [Roku SSO-kokbok](/help/authentication/integration-guide-programmers/features-standard/sso-access/platform-sso/roku-single-sign-on/roku-sso-overview.md)
+> * [Roku SSO-kokbok](/help/authentication/integration-guide-programmers/features-standard/sso-access/platform-sso/roku-single-sign-on/roku-sso-cookbook-rest-api-v2.md)
 
 ## Utför autentisering genom enkel inloggning med plattformsidentitet {#perform-authentication-through-single-sign-on-using-platform-identity}
 
@@ -43,11 +43,11 @@ Mer information om rubriken `Adobe-Subject-Token` finns i dokumentationen för [
 Innan du utför autentiseringsflödet genom enkel inloggning med en plattformsidentitet måste du kontrollera att följande krav är uppfyllda:
 
 * Plattformen måste tillhandahålla en identitetstjänst eller ett bibliotek som returnerar konsekvent information som `JWS` eller `JWE` nyttolast för alla program på samma enhet eller plattform.
-* Det första direktuppspelningsprogrammet måste hämta den unika plattforms-ID:t och inkludera `JWS`- eller `JWE`-nyttolasten som en del av [Adobe-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md)-huvudet för alla begäranden som anger det.
+* Det första direktuppspelningsprogrammet måste hämta den unika plattforms-ID:t och inkludera nyttolasten `JWS` eller `JWE` som en del av rubriken [Adobe-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md) / [X-Roku-Reserved-Roku-Connect-Token](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-x-roku-reserved-roku-connect-token.md) för alla begäranden som anger det.
 * Det första direktuppspelningsprogrammet måste välja en MVPD.
 * Det första direktuppspelningsprogrammet måste initiera en autentiseringssession för att kunna logga in med det valda MVPD-programmet.
 * Det första direktuppspelningsprogrammet måste autentiseras med den valda MVPD i en användaragent.
-* Det andra direktuppspelningsprogrammet måste hämta den unika plattforms-ID:t och inkludera `JWS`- eller `JWE`-nyttolasten som en del av [Adobe-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md)-huvudet för alla begäranden som anger det.
+* Det andra direktuppspelningsprogrammet måste hämta den unika plattforms-ID:t och inkludera nyttolasten `JWS` eller `JWE` som en del av rubriken [Adobe-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md) / [X-Roku-Reserved-Roku-Connect-Token](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-x-roku-reserved-roku-connect-token.md) för alla begäranden som anger det.
 
 >[!IMPORTANT]
 >
@@ -88,7 +88,7 @@ Utför de angivna stegen för att implementera autentiseringsflödet genom enkel
    >
    > <br/>
    > 
-   > Mer information om rubriken `Adobe-Subject-Token` finns i dokumentationen för [Adobe-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md).
+   > Mer information om rubriken `Adobe-Subject-Token` / `X-Roku-Reserved-Roku-Connect-Token` finns i dokumentationen för [Adobe-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md) / [X-Roku-Reserved-Roku-Connect-Token](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-x-roku-reserved-roku-connect-token.md).
 
 1. **Ange nästa åtgärd:** Sessionernas slutpunktssvar innehåller de data som krävs för att vägleda det första direktuppspelningsprogrammet angående nästa åtgärd.
 
@@ -156,7 +156,7 @@ Utför de angivna stegen för att implementera autentiseringsflödet genom enkel
    >
    > <br/>
    > 
-   > Mer information om rubriken `Adobe-Subject-Token` finns i dokumentationen för [Adobe-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md).
+   > Mer information om rubriken `Adobe-Subject-Token` / `X-Roku-Reserved-Roku-Connect-Token` finns i dokumentationen för [Adobe-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md) / [X-Roku-Reserved-Roku-Connect-Token](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-x-roku-reserved-roku-connect-token.md).
 
 1. **Hämta plattformsidentifierare:** Det andra direktuppspelningsprogrammet anropar identitetstjänsten eller -biblioteket utanför Adobe Pass-systemen för att hämta `JWS`- eller `JWE`-nyttolasten som är associerad med den unika plattforms-ID:t.
 
@@ -180,7 +180,7 @@ Utför de angivna stegen för att implementera autentiseringsflödet genom enkel
    >
    > <br/>
    > 
-   > Mer information om rubriken `Adobe-Subject-Token` finns i dokumentationen för [Adobe-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md).
+   > Mer information om rubriken `Adobe-Subject-Token` / `X-Roku-Reserved-Roku-Connect-Token` finns i dokumentationen för [Adobe-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md) / [X-Roku-Reserved-Roku-Connect-Token](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-x-roku-reserved-roku-connect-token.md).
 
 1. **Sök efter en enkel inloggningsprofil:** Adobe Pass-servern identifierar en giltig enkel inloggningsprofil baserat på mottagna parametrar och rubriker.
 
@@ -208,7 +208,7 @@ Utför de angivna stegen för att implementera autentiseringsflödet genom enkel
    >
    > <br/>
    > 
-   > Mer information om rubriken `Adobe-Subject-Token` finns i dokumentationen för [Adobe-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md).
+   > Mer information om rubriken `Adobe-Subject-Token` / `X-Roku-Reserved-Roku-Connect-Token` finns i dokumentationen för [Adobe-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md) / [X-Roku-Reserved-Roku-Connect-Token](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-x-roku-reserved-roku-connect-token.md).
 
 ## Hämta auktoriseringsbeslut via enkel inloggning med plattformsidentitet{#performing-authorization-flow-using-platform-identity-single-sign-on-method}
 
@@ -217,7 +217,7 @@ Utför de angivna stegen för att implementera autentiseringsflödet genom enkel
 Innan du utför auktoriseringsflödet genom enkel inloggning med en plattformsidentitet måste du kontrollera att följande krav är uppfyllda:
 
 * Plattformen måste tillhandahålla en identitetstjänst eller ett bibliotek som returnerar konsekvent information som `JWS` eller `JWE` nyttolast för alla program på samma enhet eller plattform.
-* Det andra direktuppspelningsprogrammet måste hämta den unika plattforms-ID:t och inkludera `JWS`- eller `JWE`-nyttolasten som en del av [Adobe-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md)-huvudet för alla begäranden som anger det.
+* Det andra direktuppspelningsprogrammet måste hämta den unika plattforms-ID:t och inkludera nyttolasten `JWS` eller `JWE` som en del av rubriken [Adobe-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md) / [X-Roku-Reserved-Roku-Connect-Token](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-x-roku-reserved-roku-connect-token.md) för alla begäranden som anger det.
 * Det andra direktuppspelningsprogrammet måste hämta ett auktoriseringsbeslut innan en användarvald resurs spelas upp.
 
 >[!IMPORTANT]
@@ -226,7 +226,7 @@ Innan du utför auktoriseringsflödet genom enkel inloggning med en plattformsid
 > 
 > <br/>
 > 
-> * Det första direktuppspelningsprogrammet har utfört autentisering och har inkluderat ett giltigt värde för begärandehuvudet [Adobe-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md).
+> * Det första direktuppspelningsprogrammet har utfört autentisering och har inkluderat ett giltigt värde för begärandehuvudet [Adobe-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md) / [X-Roku-Reserved-Roku-Connect-Token](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-x-roku-reserved-roku-connect-token.md).
 
 ### Arbetsflöde {#workflow-scenario-performing-authorization-flow-using-platform-identity-single-sign-on-method}
 
@@ -258,7 +258,7 @@ Utför de angivna stegen för att implementera auktoriseringsflödet genom enkel
    >
    > <br/>
    > 
-   > Mer information om rubriken `Adobe-Subject-Token` finns i dokumentationen för [Adobe-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md).
+   > Mer information om rubriken `Adobe-Subject-Token` / `X-Roku-Reserved-Roku-Connect-Token` finns i dokumentationen för [Adobe-Subject-Token](../../appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md) / [X-Roku-Reserved-Roku-Connect-Token](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-x-roku-reserved-roku-connect-token.md).
 
 1. **Sök efter en enkel inloggningsprofil:** Adobe Pass-servern identifierar en giltig enkel inloggningsprofil baserat på mottagna parametrar och rubriker.
 

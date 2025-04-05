@@ -2,9 +2,9 @@
 title: Amazon SSO Cookbook (REST API V2)
 description: Amazon SSO Cookbook (REST API V2)
 exl-id: 63e4fa63-8ca3-40eb-b49a-84dd75c2ca1d
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 640ba7073f7f4639f980f17f1a59c4468bfebcf4
 workflow-type: tm+mt
-source-wordcount: '542'
+source-wordcount: '567'
 ht-degree: 0%
 
 ---
@@ -21,13 +21,15 @@ Det här dokumentet fungerar som ett tillägg till den befintliga [REST API V2-�
 
 ## Amazon samlad inloggning med plattformsidentitetsflöden {#cookbook}
 
+Adobe Pass Authentication samarbetar med Amazon för att förbättra användarupplevelsen vid inloggning och för att underlätta enkel inloggning (SSO) i TV Everywhere-program för TV-prenumeranter.
+
 ### Förutsättningar {#prerequisites}
 
 Innan du fortsätter med Amazon Single Sign-on med plattformsidentitetsflöden måste du kontrollera att följande krav uppfylls.
 
 #### Integrera Amazon SSO SDK {#integrate-amazon-sso-sdk}
 
-Direktuppspelningsprogrammet måste integrera biblioteket [Amazon SSO SDK](https://tve.zendesk.com/hc/en-us/article_attachments/360064368131/ottSSOTokenLib_v1.jar) för enkel inloggning (SSO) i sitt bygge.
+Direktuppspelningsprogrammet måste integrera [Amazon SSO SDK](https://tve.zendesk.com/hc/en-us/article_attachments/360064368131/ottSSOTokenLib_v1.jar)-biblioteket för enkel inloggning (SSO) i sitt bygge.
 
 * Hämta och kopiera det senaste Amazon SSO SDK-biblioteket till en `/SSOEnabler`-mapp parallellt med programmets katalog.
 
@@ -57,9 +59,9 @@ Direktuppspelningsprogrammet måste integrera biblioteket [Amazon SSO SDK](https
 
 #### Använd Amazon SSO SDK {#use-amazon-sso-sdk}
 
-Strömningsprogrammet måste använda Amazon SSO SDK för att hämta SSO-tokennyttolasten (platform identity).
+Strömningsprogrammet måste använda Amazon SSO SDK för att erhålla SSO-tokennyttolasten (platform identity).
 
-Amazon SSO SDK innehåller både synkrona och asynkrona API:er för att hämta SSO-tokennyttolasten (platform identity).
+Amazon SSO SDK tillhandahåller både synkrona och asynkrona API:er för att hämta SSO-tokennyttolasten (platform identity).
 
 Strömningsprogrammet kan välja ett av de två alternativen baserat på dess arkitektur.
 
@@ -135,7 +137,7 @@ Kontrollera att direktuppspelningsprogrammet hanterar:
    * Strömningsprogrammet kan stöta på `ClassNotFoundException` vid körning i följande klass `com.amazon.ottssotokenlib.SSOEnabler`.
 
 * Frånvaro av SSO-token (platform identity)-nyttolast som ska returneras av ovanstående API:er.
-   * Direktuppspelningsapplikationen kan kontakta Amazon och Adobe för att undersöka saken.
+   * Direktuppspelningsapplikationen kan kontakta Amazon och Adobe representanter för att undersöka saken.
 
 ### Arbetsflöde {#workflow}
 
@@ -151,7 +153,7 @@ Adobe Pass Authentication REST API V2 stöder följande metoder för att ta emot
 
 >[!IMPORTANT]
 > 
-> Mer information om rubriken `Adobe-Subject-Token` finns i [Adobe-Subject-Token](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md) -dokumentationen.
+> Mer information om rubriken `Adobe-Subject-Token` finns i dokumentationen för [Adobe-Subject-Token](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-adobe-subject-token.md).
 
 #### Exempel
 

@@ -2,9 +2,9 @@
 title: REST API V2 - frågor och svar
 description: REST API V2 - frågor och svar
 exl-id: 2dd74b47-126e-487b-b467-c16fa8cc14c1
-source-git-commit: 42df16e34783807e1b5eb1a12ca9db92f4e4c161
+source-git-commit: 640ba7073f7f4639f980f17f1a59c4468bfebcf4
 workflow-type: tm+mt
-source-wordcount: '9537'
+source-wordcount: '9697'
 ht-degree: 0%
 
 ---
@@ -123,7 +123,18 @@ Syftet med autentiseringsfasen är att ge klientprogrammet möjlighet att verifi
 
 Autentiseringsfasen fungerar som ett nödvändigt steg för förauktoriseringsfasen eller auktoriseringsfasen när klientprogrammet behöver spela upp innehåll.
 
-#### 2. Vad är en autentiseringssession och hur länge gäller den? {#authentication-phase-faq2}
+#### 2. Är autentiseringsfasen obligatorisk? {#authentication-phase-faq2}
+
+Autentiseringsfasen är obligatorisk. Klientprogrammet måste autentisera användaren när det inte har en giltig profil inom Adobe Pass-autentisering.
+
+Klientprogrammet kan hoppa över den här fasen i följande scenarier:
+
+* Användaren är redan autentiserad och profilen är fortfarande giltig.
+* Användaren erbjuds tillfällig åtkomst via grundläggande eller kampanjanpassad [TempPass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md)-funktion.
+
+Felhanteringen i klientprogrammet kräver att [error](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md#enhanced-error-codes-lists-rest-api-v2)-koderna (t.ex. `authenticated_profile_missing`, `authenticated_profile_expired`, `authenticated_profile_invalidated` osv.) hanteras, vilket anger att klientprogrammet kräver att användaren autentiserar.
+
+#### 3. Vad är en autentiseringssession och hur länge gäller den? {#authentication-phase-faq3}
 
 Autentiseringssessionen är en term som definieras i dokumentationen för [ordlistan](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#session).
 
@@ -140,7 +151,7 @@ Mer information finns i följande dokument:
 * [Grundläggande autentiseringsflöde som utförs i det primära programmet](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-primary-application-flow.md)
 * [Grundläggande autentiseringsflöde som utförs i sekundärt program](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-secondary-application-flow.md)
 
-#### 3. Vad är en autentiseringskod och hur länge gäller den? {#authentication-phase-faq3}
+#### 4. Vad är en autentiseringskod och hur länge gäller den? {#authentication-phase-faq4}
 
 Autentiseringskoden är en term som definieras i dokumentationen för [ordlistan](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#code).
 
@@ -159,7 +170,7 @@ Mer information finns i följande dokument:
 * [Grundläggande autentiseringsflöde som utförs i det primära programmet](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-primary-application-flow.md)
 * [Grundläggande autentiseringsflöde som utförs i sekundärt program](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-secondary-application-flow.md)
 
-#### 4. Hur vet klientprogrammet om användaren har skrivit en giltig autentiseringskod och att autentiseringssessionen inte har gått ut än? {#authentication-phase-faq4}
+#### 5. Hur vet klientprogrammet om användaren har skrivit en giltig autentiseringskod och att autentiseringssessionen inte har gått ut än? {#authentication-phase-faq5}
 
 Klientprogrammet kan validera den autentiseringskod som användaren skriver i ett sekundärt (skärm) program genom att skicka en begäran till någon av sessionens slutpunkter som ansvarar för att återuppta autentiseringssessionen eller hämta autentiseringssessionsinformation som är kopplad till autentiseringskoden.
 
@@ -167,7 +178,7 @@ Klientprogrammet skulle få ett [fel](/help/authentication/integration-guide-pro
 
 Mer information finns i dokumenten för [Återuppta autentiseringssessionen](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-resume-authentication-session.md) och [Hämta autentiseringssessionen](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-retrieve-authentication-session-information-using-code.md).
 
-#### 5. Hur vet klientprogrammet om användaren redan är autentiserad? {#authentication-phase-faq5}
+#### 6. Hur vet klientprogrammet om användaren redan är autentiserad? {#authentication-phase-faq6}
 
 Klientprogrammet kan fråga någon av följande slutpunkter som kan verifiera om en användare redan är autentiserad och returnera profilinformation:
 
@@ -180,7 +191,7 @@ Mer information finns i följande dokument:
 * [Grundläggande profilflöden som utförs i det primära programmet](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-primary-application-flow.md)
 * [Grundläggande profiler som körs i sekundärt program](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-secondary-application-flow.md)
 
-#### 6. Vad är en profil och hur länge gäller den? {#authentication-phase-faq6}
+#### 7. Vad är en profil och hur länge gäller den? {#authentication-phase-faq7}
 
 Profilen är en term som definieras i dokumentationen för [ordlistan](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#profile).
 
@@ -202,17 +213,17 @@ Den här begränsade tidsramen som kallas autentisering (authN) [TTL](/help/auth
 
 Mer information finns i dokumentationen för [TVE Dashboard Integrations User Guide](/help/authentication/user-guide-tve-dashboard/tve-dashboard-integrations.md#most-used-flows) .
 
-#### 7. Ska klientprogrammet cachelagra användarens profilinformation i ett beständigt lagringsutrymme? {#authentication-phase-faq7}
+#### 8. Ska klientprogrammet cachelagra användarens profilinformation i ett beständigt lagringsutrymme? {#authentication-phase-faq8}
 
-Klientprogrammet bör cachelagra användarens profilinformation i en beständig lagring för att undvika onödiga begäranden och förbättra användarupplevelsen med tanke på följande aspekter:
+Klientprogrammet bör cachelagra delar av användarens profilinformation i en beständig lagringsplats för att undvika onödiga begäranden och förbättra användarupplevelsen med tanke på följande:
 
 | Attribut | Användarupplevelse |
-|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `attributes` | Klientprogrammet kan använda detta för att anpassa användarupplevelsen baserat på olika [användarmetadata](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md)-nycklar (t.ex. `zip`, `maxRating` osv.). |
-| `mvpd` | Klientprogrammet kan använda detta för att hålla reda på användarens valda TV-leverantör.<br/><br/>När den aktuella användarprofilen förfaller kan klientprogrammet använda det sparade MVPD-valet och be användaren bekräfta. |
-| `notAfter` | Klientprogrammet kan använda detta för att hålla reda på användarprofilens förfallodatum och utlösa autentiseringsprocessen när den upphör, vilket undviker fel under förauktoriserings- eller auktoriseringsfaserna.<br/><br/>Felhanteringen i klientprogrammet måste kunna hantera felkoden [ authenticated_profile_utgången](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md#enhanced-error-codes-lists-rest-api-v2) , vilket anger att klientprogrammet kräver att användaren autentiserar sig på nytt. |
+|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `mvpd` | Klientprogrammet kan använda detta för att hålla reda på användarens valda TV-leverantör och fortsätta att använda det under förauktoriserings- eller auktoriseringsfaserna.<br/><br/>När den aktuella användarprofilen förfaller kan klientprogrammet använda det sparade MVPD-valet och be användaren bekräfta. |
+| `attributes` | Klientprogrammet kan använda detta för att anpassa användarupplevelsen baserat på olika [användarmetadata](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md)-nycklar (t.ex. `zip`, `maxRating` osv.).<br/><br/>Användarmetadata blir tillgängliga när autentiseringsflödet har slutförts. Klientprogrammet behöver därför inte fråga en separat slutpunkt för att hämta informationen för [användarens metadata](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md) eftersom den redan ingår i profilinformationen.<br/><br/>Vissa metadataattribut kan uppdateras under auktoriseringsflödet, beroende på MVPD och det specifika metadataattributet. Därför kan klientprogrammet behöva fråga Profiles-API:erna igen för att hämta de senaste användarens metadata. |
+| `notAfter` | Klientprogrammet kan använda detta för att hålla reda på utgångsdatumet för användarprofilen.<br/><br/>Felhanteringen i klientprogrammet kräver att [ error](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md#enhanced-error-codes-lists-rest-api-v2) -koderna (t.ex. `authenticated_profile_missing`, `authenticated_profile_expired`, `authenticated_profile_invalidated` osv.) hanteras, vilket anger att klientprogrammet kräver att användaren autentiserar. |
 
-#### 8. Kan klientprogrammet utöka användarens profil utan att omautentisering krävs? {#authentication-phase-faq8}
+#### 9. Kan klientprogrammet utöka användarens profil utan att omautentisering krävs? {#authentication-phase-faq9}
 
 Nej.
 
@@ -222,7 +233,7 @@ Klientprogrammet måste därför uppmana användaren att autentisera igen och in
 
 För MVPD-program som stöder [hembaserad autentisering](/help/authentication/integration-guide-programmers/features-standard/hba-access/home-based-authentication.md) (HBA) behöver användaren inte ange några autentiseringsuppgifter.
 
-#### 9. Vilka är användningsexemplen för de tillgängliga profilslutpunkterna? {#authentication-phase-faq9}
+#### 10. Vilka är användningsexemplen för de tillgängliga profilslutpunkterna? {#authentication-phase-faq10}
 
 De grundläggande profilslutpunkterna är utformade för att ge klientprogrammet möjlighet att känna till användarens autentiseringsstatus, få åtkomst till användarens metadatainformation, hitta den metod som används för att autentisera eller den enhet som används för att ange identitet.
 
@@ -246,7 +257,7 @@ För efterföljande frågor måste de grundläggande profilslutpunkterna använd
 
 Mer information finns i dokumenten [Single sign-on med partnerflöden](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-partner-flows.md) och [Apple SSO Cookbook (REST API V2)](/help/authentication/integration-guide-programmers/features-standard/sso-access/partner-sso/apple-sso/apple-sso-cookbook-rest-api-v2.md).
 
-#### 10. Vad ska klientprogrammet göra om användaren har flera MVPD-profiler? {#authentication-phase-faq10}
+#### 11. Vad ska klientprogrammet göra om användaren har flera MVPD-profiler? {#authentication-phase-faq11}
 
 Beslutet att ge stöd för flera profiler beror på klientprogrammets affärskrav.
 
@@ -261,7 +272,7 @@ REST API v2 har stöd för flera profiler:
 * Användare med MVPD prenumeration kombinerat med DTC-tjänster (Direct-to-Consumer).
 * Användare med flera MVPD-prenumerationer.
 
-#### 11. Vad händer när användarprofiler upphör att gälla? {#authentication-phase-faq11}
+#### 12. Vad händer när användarprofiler upphör att gälla? {#authentication-phase-faq12}
 
 När användarprofiler förfaller inkluderas de inte längre i svaret från profilslutpunkten.
 
@@ -269,7 +280,7 @@ Om slutpunkten för profiler returnerar ett tomt profilmappningssvar måste klie
 
 Mer information finns i dokumentationen för [Skapa autentiseringssessions-API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md).
 
-#### 12. När blir användarprofiler ogiltiga? {#authentication-phase-faq12}
+#### 13. När blir användarprofiler ogiltiga? {#authentication-phase-faq13}
 
 Användarprofiler blir ogiltiga i följande scenarier:
 
@@ -278,7 +289,7 @@ Användarprofiler blir ogiltiga i följande scenarier:
 * När klientprogrammet uppdaterar klientautentiseringsuppgifterna som används för att hämta rubrikvärdet [Authorization](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-authorization.md).
 * När klientprogrammet återkallar eller uppdaterar programsatsen som används för att hämta klientautentiseringsuppgifter.
 
-#### 13. När ska klientprogrammet starta avsökningsmekanismen? {#authentication-phase-faq13}
+#### 14. När ska klientprogrammet starta avsökningsmekanismen? {#authentication-phase-faq14}
 
 För att säkerställa effektivitet och undvika onödiga förfrågningar måste klientprogrammet starta avsökningsfunktionen på följande villkor:
 
@@ -290,7 +301,7 @@ Det primära (direktuppspelande) programmet ska starta avsökningen när använd
 
 Det primära (direktuppspelande) programmet bör starta avsökningen så snart användaren initierar autentiseringsprocessen, direkt efter att ha tagit emot slutpunktssvaret för [sessionerna](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) och visat autentiseringskoden för användaren.
 
-#### 14. När ska klientprogrammet stoppa avsökningsmekanismen? {#authentication-phase-faq14}
+#### 15. När ska klientprogrammet stoppa avsökningsmekanismen? {#authentication-phase-faq15}
 
 För att säkerställa effektivitet och undvika onödiga förfrågningar måste klientprogrammet stoppa avsökningsfunktionen under följande förhållanden:
 
@@ -306,7 +317,7 @@ Autentiseringssessionen och koden upphör att gälla, vilket anges av tidsstämp
 
 Om användaren begär en ny autentiseringskod på den primära (skärm) enheten är den befintliga sessionen inte längre giltig och avsökningen med den föregående autentiseringskoden bör stoppas omedelbart.
 
-#### 15. Vilket intervall mellan anrop ska klientprogrammet använda för avsökningsmekanismen? {#authentication-phase-faq15}
+#### 16. Vilket intervall mellan anrop ska klientprogrammet använda för avsökningsmekanismen? {#authentication-phase-faq16}
 
 För att säkerställa effektivitet och undvika onödiga förfrågningar måste klientprogrammet konfigurera avsökningsmekanismens frekvens enligt följande villkor:
 
@@ -314,7 +325,7 @@ För att säkerställa effektivitet och undvika onödiga förfrågningar måste 
 |----------------------------------------------------------------------|----------------------------------------------------------------------|
 | Det primära programmet (direktuppspelning) ska avsöka var 3:e till 5:e sekund. | Det primära programmet (direktuppspelning) ska avsöka var 3:e till 5:e sekund. |
 
-#### 16. Hur många avsökningsbegäranden kan klientprogrammet skicka? {#authentication-phase-faq16}
+#### 17. Hur många avsökningsbegäranden kan klientprogrammet skicka? {#authentication-phase-faq17}
 
 Klientprogrammet måste följa de aktuella gränserna som definieras av Adobe Pass-autentiseringsmekanismen [Throttling Mechanism](/help/authentication/integration-guide-programmers/throttling-mechanism.md#throttling-mechanism-limits).
 
@@ -322,7 +333,7 @@ Felhanteringen i klientprogrammet måste kunna hantera felkoden [429 för många
 
 Mer information finns i dokumentationen för [Begränsningsmekanismen](/help/authentication/integration-guide-programmers/throttling-mechanism.md).
 
-#### 17. Hur kan klientprogrammet hämta användarens metadatainformation? {#authentication-phase-faq17}
+#### 18. Hur kan klientprogrammet hämta användarens metadatainformation? {#authentication-phase-faq18}
 
 Klientprogrammet kan fråga någon av följande slutpunkter som kan returnera [användarmetadata](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md) som en del av profilinformationen:
 
@@ -339,7 +350,7 @@ Mer information finns i följande dokument:
 
 Vissa metadataattribut kan uppdateras under auktoriseringsflödet beroende på MVPD och det specifika metadataattributet. Därför kan klientprogrammet behöva fråga API:erna ovan igen för att hämta de senaste användarmetadata.
 
-#### 18. Hur ska klientprogrammet hantera försämrad åtkomst? {#authentication-phase-faq18}
+#### 19. Hur ska klientprogrammet hantera försämrad åtkomst? {#authentication-phase-faq19}
 
 [Försämringsfunktionen](/help/authentication/integration-guide-programmers/features-premium/degraded-access/degradation-feature.md) gör att klientprogrammet kan upprätthålla en sömlös direktuppspelning för användare, även när deras MVPD autentiserings- eller auktoriseringstjänster stöter på problem.
 
@@ -349,7 +360,7 @@ Med tanke på att din organisation har för avsikt att använda funktionen för 
 
 Mer information finns i dokumentationen för [Försämrade åtkomstflöden](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/degraded-access-flows/rest-api-v2-access-degraded-flows.md).
 
-#### 19. Hur ska klientprogrammet hantera temporär åtkomst? {#authentication-phase-faq19}
+#### 20. Hur ska klientprogrammet hantera temporär åtkomst? {#authentication-phase-faq20}
 
 Med funktionen [TempPass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md) kan klientprogrammet ge användaren tillfällig åtkomst.
 
@@ -363,7 +374,7 @@ Med REST API v2 kan klientprogrammet smidigt växla mellan en vanlig MVPD och en
 
 Mer information finns i dokumentationen för [Tillfälliga åtkomstflöden](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/temporary-access-flows/rest-api-v2-access-temporary-flows.md).
 
-#### 20. Hur ska klientprogrammet hantera åtkomst för enkel inloggning mellan olika enheter? {#authentication-phase-faq20}
+#### 21. Hur ska klientprogrammet hantera åtkomst för enkel inloggning mellan olika enheter? {#authentication-phase-faq21}
 
 REST API v2 kan aktivera enkel inloggning på olika enheter om klientprogrammet ger en konsekvent unik användaridentifierare på olika enheter.
 
