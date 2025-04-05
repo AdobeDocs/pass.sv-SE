@@ -2,9 +2,9 @@
 title: REST API V2 - översikt
 description: REST API V2 - översikt
 exl-id: a5595193-82c4-4033-bd98-596b4908b401
-source-git-commit: fab5964aeb832d419702b41a6d3bc5676cb3354f
+source-git-commit: f0001d86f595040f4be74f357c95bd2919dadf15
 workflow-type: tm+mt
-source-wordcount: '492'
+source-wordcount: '493'
 ht-degree: 0%
 
 ---
@@ -73,6 +73,7 @@ All framtida utveckling kommer dock att bygga på REST API V2. Vi rekommenderar 
 
 Gå till vår offentliga dokumentation för att komma igång:
 
+- [Checklista](rest-api-v2-checklist.md)
 - [Ordlista](rest-api-v2-glossary.md)
 - [Vanliga frågor](rest-api-v2-faqs.md)
 - [API:er](apis/rest-api-v2-apis-overview.md)
