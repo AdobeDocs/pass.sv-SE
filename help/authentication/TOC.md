@@ -4,9 +4,9 @@ audience: end-user
 feature: Authentication
 user-guide-title: Adobe Pass-autentisering
 user-guide-description: Adobe Pass-autentisering är en berättigandelösning för TV Everywhere, som tillhandahåller ett modulärt ramverk för att avgöra om någon som begär åtkomst till en resurs är berättigad till den.
-source-git-commit: 640ba7073f7f4639f980f17f1a59c4468bfebcf4
+source-git-commit: f054da9a4c35fa0715039e8e06e2d10737b91b57
 workflow-type: tm+mt
-source-wordcount: '1257'
+source-wordcount: '1251'
 ht-degree: 2%
 
 ---
@@ -251,7 +251,6 @@ ht-degree: 2%
                + [(Äldre) Stöd för SFSafariViewController i iOS SDK 3.2+](integration-guide-programmers/legacy/notes-technical/sfsafariviewcontroller-support-on-ios-sdk-32.md)
                + [(Äldre) enkel inloggning på iOS när Adobe Pass Authentication Access Enabler används](integration-guide-programmers/legacy/notes-technical/sso-on-ios-when-using-the-primetime-authentication-access-enabler.md)
                + [(Äldre) iOS-autentiseringsfel - adobepass.ios.app kan inte hittas](integration-guide-programmers/legacy/notes-technical/ios-authentication-error-adobepassiosapp-cannot-be-found.md)
-               + [(Äldre) Återställ tillfälligt pass på iOS](integration-guide-programmers/legacy/notes-technical/reset-temp-pass-on-ios.md)
                + [(Äldre) Felsöka AccessEnabler iOS/tvOS SDK med hjälp av apploggar för konsolen](integration-guide-programmers/legacy/notes-technical/debugging-the-accessenabler-iostvos-sdk-using-console-app-logs.md)
                + [(Äldre) AccessEnabler iOS/tvOS 3.7.0 - uppgraderingssökväg](integration-guide-programmers/legacy/notes-technical/accessenabler-iostvos-370-upgrade-path.md)
          + (Äldre) Användarupplevelse {#user-experience}
