@@ -1,9 +1,10 @@
 ---
 title: REST API V2-checklista
 description: REST API V2-checklista
-source-git-commit: f0001d86f595040f4be74f357c95bd2919dadf15
+exl-id: 9095d1dd-a90c-4431-9c58-9a900bfba1cf
+source-git-commit: b753c6a6bdfd8767e86cbe27327752620158cdbb
 workflow-type: tm+mt
-source-wordcount: '2535'
+source-wordcount: '2545'
 ht-degree: 0%
 
 ---
@@ -40,7 +41,7 @@ Följande dokument måste ingå i ditt acceptanskriterier när du implementerar 
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;"><i>Åtkomsttoken-cachelagring</i></td>
-      <td>Lagra åtkomsttoken i beständig lagring och återanvänd dem tills de upphör att gälla - begär inte en ny token för varje REST API v2-anrop.</td>
+      <td>Lagra åtkomsttokens i beständigt lagringsutrymme och återanvänd dem tills de förfaller.<br/><br/>Begär ingen ny token för varje REST API v2-anrop. Uppdatera bara åtkomsttoken när de upphör att gälla.</td>
       <td>Risker överbelastar systemresurser, ökar fördröjningen och kan utlösa HTTP 429-felsvar"För många begäranden".</td>
    </tr>
 </table>
@@ -85,7 +86,7 @@ Följande dokument måste ingå i ditt acceptanskriterier när du implementerar 
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;"><i>Konfigurering av avsökningsmekanism</i></td>
-      <td>Konfigurera avsökningsmekanismens frekvens under följande villkor:<br/><br/><b><a href="/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-primary-application-flow.md">Autentisering utförd i det primära (skärm) programmet</a></b><ul><li>Det primära programmet (direktuppspelning) ska avsöka var 3:e till 5:e sekund.</li></ul><br/><b><a href="/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-secondary-application-flow.md">Autentisering utförd i ett sekundärt (skärm) program</a></b><ul><li>Det primära programmet (direktuppspelning) ska avsöka var 3:e till 5:e sekund.</li></ul></td>
+      <td>Konfigurera avsökningsmekanismens frekvens under följande villkor:<br/><br/><b><a href="/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-primary-application-flow.md">Autentisering utförd i det primära (skärm) programmet</a></b><ul><li>Det primära programmet (direktuppspelning) ska avsöka var 3-5:e sekund eller mer.</li></ul><br/><b><a href="/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-secondary-application-flow.md">Autentisering utförd i ett sekundärt (skärm) program</a></b><ul><li>Det primära programmet (direktuppspelning) ska avsöka var 3:e till 5:e sekund.</li></ul></td>
       <td>Risker överbelastar systemresurser, ökar fördröjningen och kan utlösa HTTP 429-felsvar"För många begäranden".</td>
    </tr>
    <tr>
@@ -237,7 +238,7 @@ Följande dokument måste ingå i ditt acceptanskriterier när du implementerar 
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;"><i>Åtkomsttoken, validering</i></td>
-      <td>Kontrollera giltigheten för åtkomsttoken och uppdatera den när den har gått ut.<br/><br/>Kontrollera att alla återförsöksmetoder för hantering av HTTP 401-fel av typen "Obehörig" först uppdaterar åtkomsttoken innan du försöker utföra den ursprungliga begäran igen.</td>
+      <td>Kontrollera åtkomsttokenens giltighet proaktivt för att uppdatera den när den har gått ut.<br/><br/>Kontrollera att alla återförsöksmetoder för hantering av HTTP 401-fel av typen "Obehörig" först uppdaterar åtkomsttoken innan du försöker utföra den ursprungliga begäran igen.</td>
       <td>Risker som utlöser HTTP 401 "Obehöriga" felsvar, överbelastar systemresurser och ökar fördröjningen.</td>
    </tr>
 </table>

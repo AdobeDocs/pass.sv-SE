@@ -2,9 +2,9 @@
 title: Enkel inloggning - tjänsttoken - flöden
 description: REST API V2 - enkel inloggning - tjänsttoken - flöden
 exl-id: b0082d2a-e491-4cb5-bb40-35ba10db6b1a
-source-git-commit: 6b803eb0037e347d6ce147c565983c5a26de9978
+source-git-commit: b753c6a6bdfd8767e86cbe27327752620158cdbb
 workflow-type: tm+mt
-source-wordcount: '1858'
+source-wordcount: '1857'
 ht-degree: 0%
 
 ---
@@ -126,7 +126,7 @@ Utför de angivna stegen för att implementera autentiseringsflödet med enkel i
 
    >[!TIP]
    >
-   > Förslag: Direktuppspelningsprogrammet kan vänta på att användaragenten ska nå den angivna `redirectUrl` för att kontrollera om den vanliga profilen har genererats och sparats.
+   > Direktuppspelningsprogrammet måste vänta tills användaragenten når den angivna `redirectUrl` för att kontrollera om den reguljära profilen har genererats och sparats.
 
 1. **Hitta en vanlig profil:** Adobe Pass-servern identifierar en giltig profil baserat på mottagna parametrar och rubriker.
 

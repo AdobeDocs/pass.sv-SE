@@ -2,9 +2,9 @@
 title: Enkel inloggning - plattformsidentitet - flöden
 description: REST API V2 - enkel inloggning - plattformsidentitet - flöden
 exl-id: 5200e851-84e8-4cb4-b068-63b91a2a8945
-source-git-commit: 640ba7073f7f4639f980f17f1a59c4468bfebcf4
+source-git-commit: b753c6a6bdfd8767e86cbe27327752620158cdbb
 workflow-type: tm+mt
-source-wordcount: '1856'
+source-wordcount: '1855'
 ht-degree: 0%
 
 ---
@@ -128,7 +128,7 @@ Utför de angivna stegen för att implementera autentiseringsflödet genom enkel
 
    >[!TIP]
    >
-   > Förslag: Direktuppspelningsprogrammet kan vänta på att användaragenten ska nå den angivna `redirectUrl` för att kontrollera om den vanliga profilen har genererats och sparats.
+   > Direktuppspelningsprogrammet måste vänta tills användaragenten når den angivna `redirectUrl` för att kontrollera om den reguljära profilen har genererats och sparats.
 
 1. **Hitta en vanlig profil:** Adobe Pass-servern identifierar en giltig profil baserat på mottagna parametrar och rubriker.
 

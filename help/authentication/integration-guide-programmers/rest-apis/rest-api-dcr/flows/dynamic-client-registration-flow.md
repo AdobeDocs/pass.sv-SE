@@ -2,9 +2,9 @@
 title: Dynamiskt klientregistreringsflöde
 description: Dynamiskt klientregistreringsflöde
 exl-id: d881cf0a-de09-4b1d-a094-d5490f944796
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: b753c6a6bdfd8767e86cbe27327752620158cdbb
 workflow-type: tm+mt
-source-wordcount: '568'
+source-wordcount: '564'
 ht-degree: 0%
 
 ---
@@ -70,7 +70,7 @@ Följ de angivna stegen för att få åtkomst till Adobe Pass-skyddade API:er en
 
    >[!TIP]
    >
-   > Förslag: Klientens autentiseringsuppgifter måste cachelagras och kan användas på obestämd tid.
+   > Klientens autentiseringsuppgifter måste cachelagras och användas i oändlighet.
 
 1. **Hämta åtkomsttoken:** Klientprogrammet samlar in alla nödvändiga data för att hämta åtkomsttoken genom att anropa klienttokenslutpunkten.
 
@@ -100,7 +100,7 @@ Följ de angivna stegen för att få åtkomst till Adobe Pass-skyddade API:er en
 
    >[!TIP]
    >
-   > Förslag: Åtkomsttoken måste cachelagras och användas endast inom den angivna varaktigheten (t.ex. 24 timmars time-to-live). När det har gått ut måste klientprogrammet begära en ny åtkomsttoken.
+   > Åtkomsttoken måste cachelagras och användas endast inom den angivna varaktigheten (t.ex. 24 timmars time-to-live). När det har gått ut måste klientprogrammet begära en ny åtkomsttoken.
 
 1. **Fortsätt med åtkomst till skyddade API:er:** Klientprogrammet använder åtkomsttoken för åtkomst till andra Adobe Pass-skyddade API:er. Klientprogrammet måste inkludera åtkomsttoken i begärandehuvudet `Authorization` med autentiseringsschemat `Bearer` (d.v.s. `Authorization: Bearer <access_token>`).
 

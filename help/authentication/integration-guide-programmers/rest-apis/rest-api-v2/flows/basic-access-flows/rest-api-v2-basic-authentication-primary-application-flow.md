@@ -2,9 +2,9 @@
 title: Grundläggande autentisering - primärt program - flöde
 description: REST API V2 - grundläggande autentisering - primärt program - flöde
 exl-id: 8122108d-e9da-43c5-9abb-ab177cb21eb6
-source-git-commit: 6b803eb0037e347d6ce147c565983c5a26de9978
+source-git-commit: b753c6a6bdfd8767e86cbe27327752620158cdbb
 workflow-type: tm+mt
-source-wordcount: '904'
+source-wordcount: '903'
 ht-degree: 0%
 
 ---
@@ -127,7 +127,7 @@ Följ de angivna stegen för att implementera det grundläggande autentiseringsf
 
    >[!TIP]
    >
-   > Förslag: Direktuppspelningsprogrammet kan vänta på att användaragenten ska nå den angivna `redirectUrl` för att kontrollera om den vanliga profilen har genererats och sparats.
+   > Direktuppspelningsprogrammet måste vänta tills användaragenten når den angivna `redirectUrl` för att kontrollera om den reguljära profilen har genererats och sparats.
 
 1. **Returinformation om vanlig profil:** Profilernas slutpunktssvar innehåller information om den vanliga profil som är associerad med de mottagna parametrarna och rubrikerna.
 

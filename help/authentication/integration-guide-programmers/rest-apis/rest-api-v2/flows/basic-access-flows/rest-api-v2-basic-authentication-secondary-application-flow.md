@@ -2,9 +2,9 @@
 title: Grundläggande autentisering - sekundärt program - flöde
 description: REST API V2 - grundläggande autentisering - sekundärt program - flöde
 exl-id: 83bf592e-c679-4cfe-984d-710a9598c620
-source-git-commit: 6b803eb0037e347d6ce147c565983c5a26de9978
+source-git-commit: b753c6a6bdfd8767e86cbe27327752620158cdbb
 workflow-type: tm+mt
-source-wordcount: '2010'
+source-wordcount: '2006'
 ht-degree: 0%
 
 ---
@@ -143,7 +143,7 @@ Följ de angivna stegen för att implementera det grundläggande autentiseringsf
 
    >[!TIP]
    >
-   > Förslag: Det sekundära programmet kan informera användare om att `code` som används är ogiltig om ett felsvar indikerar en saknad autentiseringssession och råda dem att försöka igen med en ny.
+   > Det sekundära programmet kan informera användarna om att `code` som används är ogiltig om ett felsvar indikerar att en autentiseringssession saknas och råda dem att försöka igen med en ny.
 
 1. **Öppna URL i användaragent:** Det sekundära programmet öppnar en användaragent för inläsning av den självberäknade `url`, vilket gör en begäran till slutpunkten för autentisering. Det här flödet kan innehålla flera omdirigeringar, vilket i slutänden leder till inloggningssidan för MVPD och anger giltiga inloggningsuppgifter.
 
@@ -168,7 +168,7 @@ Följ de angivna stegen för att implementera det grundläggande autentiseringsf
 
    >[!TIP]
    >
-   > Förslag: Direktuppspelningsprogrammet kan implementera en avsökningsmekanism med `code` för att kontrollera om den reguljära profilen genererades och sparades.
+   > Direktuppspelningsprogrammet måste implementera en avsökningsmekanism med `code` för att kontrollera om den reguljära profilen genererades och sparades.
 
 1. **Returinformation om vanlig profil:** Profilernas slutpunktssvar innehåller information om den vanliga profil som är associerad med de mottagna parametrarna och rubrikerna.
 
@@ -277,7 +277,7 @@ Följ de angivna stegen för att implementera det grundläggande autentiseringsf
 
    >[!TIP]
    >
-   > Förslag: Det sekundära programmet kan informera användare om att `code` som används är ogiltig om ett felsvar indikerar en saknad autentiseringssession och råda dem att försöka igen med en ny.
+   > Det sekundära programmet kan informera användarna om att `code` som används är ogiltig om ett felsvar indikerar att en autentiseringssession saknas och råda dem att försöka igen med en ny.
 
 1. **Ange befintlig profil:** Sessionernas slutpunktssvar innehåller följande data:
    * Attributet `actionName` är inställt på&quot;auktorisera&quot;.
@@ -306,7 +306,7 @@ Följ de angivna stegen för att implementera det grundläggande autentiseringsf
 
    >[!TIP]
    >
-   > Förslag: Direktuppspelningsprogrammet kan implementera en avsökningsmekanism med `code` för att kontrollera om den reguljära profilen genererades och sparades.
+   > Direktuppspelningsprogrammet måste implementera en avsökningsmekanism med `code` för att kontrollera om den reguljära profilen genererades och sparades.
 
 1. **Returinformation om vanlig profil:** Profilernas slutpunktssvar innehåller information om den vanliga profil som är associerad med de mottagna parametrarna och rubrikerna.
 

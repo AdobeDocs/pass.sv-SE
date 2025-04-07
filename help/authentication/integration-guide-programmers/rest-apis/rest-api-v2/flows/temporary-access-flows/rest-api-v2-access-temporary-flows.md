@@ -2,9 +2,9 @@
 title: Tillfälliga åtkomstflöden
 description: REST API V2 - Tillfälliga åtkomstflöden
 exl-id: 387fcdb0-3a42-4893-ba83-e809426f92be
-source-git-commit: 6b803eb0037e347d6ce147c565983c5a26de9978
+source-git-commit: b753c6a6bdfd8767e86cbe27327752620158cdbb
 workflow-type: tm+mt
-source-wordcount: '3225'
+source-wordcount: '3223'
 ht-degree: 0%
 
 ---
@@ -355,7 +355,7 @@ Följ de angivna stegen för att implementera auktoriseringsflödet när du anv�
 
    >[!TIP]
    >
-   > Förslag: Strömningsprogrammet kan informera användare om att det maximala antalet resurser har överskridits och råda dem att starta ett grundläggande autentiseringsflöde med en vanlig MVPD för att fortsätta titta.
+   > Direktuppspelningsprogrammet kan informera användare om att det maximala antalet resurser har överskridits och råda dem att starta ett grundläggande autentiseringsflöde med en vanlig MVPD för att fortsätta titta.
 
 ## Hämta auktoriseringsbeslut när grundläggande eller kampanjtillagda TempPass upphör att gälla {#retrieve-authorization-decisions-when-basic-or-promotional-temppass-expires}
 
@@ -435,7 +435,7 @@ Följ de angivna stegen för att implementera auktoriseringsflödet när det gru
 
    >[!TIP]
    >
-   > Förslag: Strömningsprogrammet kan informera användare om att den tillfälliga åtkomsten har upphört att gälla och råda dem att starta ett grundläggande autentiseringsflöde med en vanlig MVPD för att fortsätta titta.
+   > Strömningsprogrammet kan informera användare om att den tillfälliga åtkomsten har upphört att gälla och råda dem att starta ett grundläggande autentiseringsflöde med ett vanligt MVPD för att fortsätta titta.
 
 ## Hämta profil för grundläggande TempPass {#retrieve-profile-for-basic-temppass}
 

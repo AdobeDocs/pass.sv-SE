@@ -2,9 +2,9 @@
 title: Apple SSO Cookbook (REST API V2)
 description: Apple SSO Cookbook (REST API V2)
 exl-id: 81476312-9ba4-47a0-a4f7-9a557608cfd6
-source-git-commit: d8097b8419aa36140e6ff550714730059555fd14
+source-git-commit: b753c6a6bdfd8767e86cbe27327752620158cdbb
 workflow-type: tm+mt
-source-wordcount: '3615'
+source-wordcount: '3609'
 ht-degree: 0%
 
 ---
@@ -79,7 +79,7 @@ Utför de angivna stegen för att implementera enkel inloggning från Apple med 
 
    >[!TIP]
    >
-   > Förslag: Klientens autentiseringsuppgifter måste cachelagras och kan användas på obestämd tid.
+   > Klientens autentiseringsuppgifter måste cachelagras och användas i oändlighet.
 
 1. **Hämta åtkomsttoken:** Direktuppspelningsprogrammet samlar in alla data som behövs för att hämta åtkomsttoken genom att anropa klienttokenslutpunkten.
 
@@ -109,7 +109,7 @@ Utför de angivna stegen för att implementera enkel inloggning från Apple med 
 
    >[!TIP]
    >
-   > Förslag: Åtkomsttoken måste cachelagras och användas endast inom den angivna varaktigheten (t.ex. 24 timmars time-to-live). När direktuppspelningsprogrammet har upphört att gälla måste det begära en ny åtkomsttoken.
+   > Åtkomsttoken måste cachelagras och användas endast inom den angivna varaktigheten (t.ex. 24 timmars time-to-live). När direktuppspelningsprogrammet har upphört att gälla måste det begära en ny åtkomsttoken.
 
 +++
 
@@ -391,7 +391,7 @@ Utför de angivna stegen för att implementera enkel inloggning från Apple med 
 
    >[!TIP]
    >
-   > Förslag: Direktuppspelningsprogrammet kan i stället använda ett cachelagrat värde för partnerramverkets statusinformation, som vi rekommenderar att du uppdaterar när programmet övergår från bakgrund till förgrundsläge. I så fall måste direktuppspelningsprogrammet se till att det cachelagrar och endast använder giltiga värden för partnerramverkets status enligt beskrivningen i steget&quot;Returnera partnerramverkets statusinformation&quot;.
+   > Direktuppspelningsprogrammet kan i stället använda ett cachelagrat värde för partnerramverkets statusinformation, som vi rekommenderar att du uppdaterar när programmet övergår från bakgrund till förgrundstillstånd. I så fall måste direktuppspelningsprogrammet se till att det cachelagrar och endast använder giltiga värden för partnerramverkets status enligt beskrivningen i steget&quot;Returnera partnerramverkets statusinformation&quot;.
 
 1. **Returnera statusinformation för partnerramverket:** Direktuppspelningsprogrammet validerar svarsdata för att säkerställa att grundläggande villkor uppfylls:
    * Åtkomststatus för användarbehörighet beviljas.
@@ -462,7 +462,7 @@ Utför de angivna stegen för att implementera enkel inloggning från Apple med 
 
    >[!TIP]
    >
-   > Förslag: Direktuppspelningsprogrammet kan i stället använda ett cachelagrat värde för partnerramverkets statusinformation, som vi rekommenderar att du uppdaterar när programmet övergår från bakgrund till förgrundsläge. I så fall måste direktuppspelningsprogrammet se till att det cachelagrar och endast använder giltiga värden för partnerramverkets status enligt beskrivningen i steget&quot;Returnera partnerramverkets statusinformation&quot;.
+   > Direktuppspelningsprogrammet kan i stället använda ett cachelagrat värde för partnerramverkets statusinformation, som vi rekommenderar att du uppdaterar när programmet övergår från bakgrund till förgrundstillstånd. I så fall måste direktuppspelningsprogrammet se till att det cachelagrar och endast använder giltiga värden för partnerramverkets status enligt beskrivningen i steget&quot;Returnera partnerramverkets statusinformation&quot;.
 
 1. **Returnera statusinformation för partnerramverket:** Direktuppspelningsprogrammet validerar svarsdata för att säkerställa att grundläggande villkor uppfylls:
    * Åtkomststatus för användarbehörighet beviljas.

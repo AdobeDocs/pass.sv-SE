@@ -2,9 +2,9 @@
 title: REST API V2 - frågor och svar
 description: REST API V2 - frågor och svar
 exl-id: 2dd74b47-126e-487b-b467-c16fa8cc14c1
-source-git-commit: 640ba7073f7f4639f980f17f1a59c4468bfebcf4
+source-git-commit: b753c6a6bdfd8767e86cbe27327752620158cdbb
 workflow-type: tm+mt
-source-wordcount: '9697'
+source-wordcount: '9703'
 ht-degree: 0%
 
 ---
@@ -311,7 +311,7 @@ Användarens profilinformation har hämtats och verifierar autentiseringsstatuse
 
 **Autentiseringssession och kodutgång**
 
-Autentiseringssessionen och koden upphör att gälla, vilket anges av tidsstämpeln `notAfter` i slutpunktssvaret för [sessioner](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md). Om detta inträffar måste användaren starta om autentiseringsprocessen och avsökningen med den tidigare autentiseringskoden ska stoppas omedelbart.
+Autentiseringssessionen och koden upphör att gälla, vilket anges av tidsstämpeln `notAfter` (t.ex. 30 minuter) i slutpunktssvaret för [sessionerna](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md). Om detta inträffar måste användaren starta om autentiseringsprocessen och avsökningen med den tidigare autentiseringskoden ska stoppas omedelbart.
 
 **Ny autentiseringskod genererad**
 
@@ -322,8 +322,8 @@ Om användaren begär en ny autentiseringskod på den primära (skärm) enheten 
 För att säkerställa effektivitet och undvika onödiga förfrågningar måste klientprogrammet konfigurera avsökningsmekanismens frekvens enligt följande villkor:
 
 | **Autentisering utförd i det primära (skärm) programmet** | **Autentisering utförd i ett sekundärt (skärm) program** |
-|----------------------------------------------------------------------|----------------------------------------------------------------------|
-| Det primära programmet (direktuppspelning) ska avsöka var 3:e till 5:e sekund. | Det primära programmet (direktuppspelning) ska avsöka var 3:e till 5:e sekund. |
+|----------------------------------------------------------------------------|----------------------------------------------------------------------------|
+| Det primära programmet (direktuppspelning) ska avsöka var 3-5:e sekund eller mer. | Det primära programmet (direktuppspelning) ska avsöka var 3-5:e sekund eller mer. |
 
 #### 17. Hur många avsökningsbegäranden kan klientprogrammet skicka? {#authentication-phase-faq17}
 
@@ -526,7 +526,7 @@ Klientprogrammet måste validera medietoken innan uppspelningen av resursströmm
 
 Nej.
 
-Klientprogrammet behöver inte uppdatera en medietoken som har gått ut när strömmen spelas upp. Om medietoken upphör att gälla under uppspelning bör strömmen kunna fortsätta utan avbrott. Klienten måste dock begära ett nytt auktoriseringsbeslut - och få en ny medietoken - nästa gång användaren försöker spela upp samma resurs.
+Klientprogrammet behöver inte uppdatera en medietoken som har gått ut när strömmen spelas upp. Om medietoken upphör att gälla under uppspelning bör strömmen kunna fortsätta utan avbrott. Klienten måste dock begära ett nytt auktoriseringsbeslut - och få en ny medietoken - nästa gång användaren försöker spela upp en resurs.
 
 #### 9. Vad är syftet med varje tidsstämpelattribut i auktoriseringsbeslutet? {#authorization-phase-faq9}
 
