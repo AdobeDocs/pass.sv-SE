@@ -94,7 +94,7 @@ ht-degree: 0%
 
 ## Ämne {#subj-defn}
 
-* Konsumenten av (video)-innehållet via internet. Vi undviker avsiktligt termen _**användare**_ eftersom övervakning av samtidig användning vanligtvis handlar om konton-ID:n för distributörer av videoprogrammeringstjänster (vilket inbegriper flera faktiska användare som delar samma kontrakt, till exempel familjemedlemmar för ett hushåll).
+* Konsumenten av (video)-innehållet via internet. Vi undviker avsiktligt termen _&#x200B;**användare**&#x200B;_ eftersom övervakning av samtidig användning vanligtvis handlar om konton-ID:n för distributörer av videoprogrammeringstjänster (vilket inbegriper flera faktiska användare som delar samma kontrakt, till exempel familjemedlemmar för ett hushåll).
 
 * För varje ström kan motivet förbättras med attribut som är kopplade till den person som använder tjänsten, den nätverksanslutna enheten och så vidare.
 

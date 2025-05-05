@@ -415,7 +415,7 @@ Du måste implementera dessa återanrop för att kunna hantera svaren på dina a
 
 **Beskrivning:** Implementera det här återanropet om användaren har valt en MVPD som kräver en iFrame där användargränssnittet för inloggningssidan för autentisering ska visas.
 
-**Utlöses av:**[ setSelectedProvider()](#setselectedproviderproviderid-setselectedprovider)
+**Utlöses av:**&#x200B;[ setSelectedProvider()](#setselectedproviderproviderid-setselectedprovider)
 
 </br> [Till början](#top)
 

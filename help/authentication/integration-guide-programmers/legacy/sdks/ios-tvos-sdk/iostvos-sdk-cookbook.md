@@ -136,6 +136,7 @@ har behörighet att se.
 Ansvarig för att ordna detta).
 
    * **Utlösare:**
+
      [setRequestorComplete()](#$setReqComplete)-återanrop.
 
    >[!NOTE]

@@ -34,6 +34,7 @@ Följ stegen nedan för att få åtkomst.
    3. Gå till fliken *Registrerade program*
    4. Välj program
    5. Klicka på Hämta på den registrerade programraden som du vill hämta en programsats för och spara den som en fil på den lokala datorn
+
       <figure>
           <img src="assets/programmer-download-software-statement-button.png"
                alt="Ladda ned programsats">
@@ -46,6 +47,7 @@ Följ stegen nedan för att få åtkomst.
 
 3. Hämta åtkomsttoken
    1. Hämta klientens inloggningsuppgifter med programsatsen ovan och utför anropet nedan. På så sätt hämtas ett client_id - client_secrets-par som kan användas för att hämta åtkomsttoken.
+
       *Det här steget ska inte utföras varje gång. Det bör bara göras igen när autentiseringsuppgifterna upphör att gälla.*
       <figure>
           <img src="assets/dcr_request_1_get_client_credentials.png"
@@ -53,6 +55,7 @@ Följ stegen nedan för att få åtkomst.
        </figure>
 
    2. Få åtkomsttoken genom att använda anropet nedan. Använd den här åtkomsttoken för att anropa ett CMU-API tills token upphör att gälla.
+
       *Det här steget bör endast utföras om den senast genererade token har gått ut.*
       <figure>
           <img src="assets/dcr_get_access_token_call.png"

@@ -47,7 +47,7 @@ autentiseringsberättigandeflödet med detta API finns i [iOS Integration Cookbo
 
 * [`setOptions:options:`](#setOptions) - Konfigurerar globala SDK-alternativ som profile eller visitorID.
 
-* [`setRequestor:`](#setReqV3)[`requestorID`](#setReqV3),[`setRequestor:requestorID:serviceProviders:`](#setReqV3) - Anger programmerarens identitet.
+* [`setRequestor:`](#setReqV3) [`requestorID`](#setReqV3),[`setRequestor:requestorID:serviceProviders:`](#setReqV3) - Anger programmerarens identitet.
 
 * **[DEPRECATED]** [`setRequestor:signedRequestorId:`](#setReq),[`setRequestor:signedRequestorId:serviceProviders:`](#setReq) - Fastställer programmerarens identitet.
 
@@ -59,7 +59,7 @@ autentiseringsberättigandeflödet med detta API finns i [iOS Integration Cookbo
 
 * [`getAuthentication`](#getAuthN), [`getAuthentication:withData:`](#getAuthN) - Startar det fullständiga autentiseringsarbetsflödet.
 
-* [`getAuthentication:filter`](#getAuthN_filter),[`getAuthentication:withData:`](#getAuthN)[andFilter](#getAuthN_filter) - Startar det fullständiga autentiseringsarbetsflödet.
+* [`getAuthentication:filter`](#getAuthN_filter),[`getAuthentication:withData:`](#getAuthN) [andFilter](#getAuthN_filter) - Startar det fullständiga autentiseringsarbetsflödet.
 
 * [`displayProviderDialog:`](#dispProvDialog) - Informerar ditt program om att initiera lämpliga gränssnittselement så att användaren kan välja en MVPD.
 
@@ -716,7 +716,7 @@ När kontrollenheten UIWebView/WKWebView` `går igenom flera omdirigeringar mås
 
 Ungefär som för `navigateToUrl:`-återanropet aktiveras `navigateToUrl:useSVC:` av AccessEnabler för att begära att programmet instansierar en `SFSafariViewController`-kontrollant och för att läsa in URL:en som anges i återanropets **`url`**-parameter. Återanropet skickar parametern **`url`** som representerar URL:en för autentiseringsslutpunkten eller URL:en för utloggningsslutpunkten, och parametern **`useSVC`** som anger att programmet måste använda `SFSafariViewController`.
 
-När kontrollenheten `SFSafariViewController` går igenom flera omdirigeringar måste programmet övervaka kontrollenhetsaktiviteten och identifiera tidpunkten när den läser in en specifik anpassad URL som definieras av din `application's custom scheme` (t.ex.** **`adbe.u-XFXJeTSDuJiIQs0HVRAg://adobe.com`). Observera att den här anpassade URL:en är ogiltig och inte avsedd för att styrenheten ska läsa in den. Det får endast tolkas av programmet som en signal om att autentiserings- eller utloggningsflödet har slutförts och att det är säkert att stänga kontrollenheten. När kontrollenheten läser in den här anpassade URL:en måste ditt program stänga `SFSafariViewController` och anropa AccessEnablers `handleExternalURL:url `API-metod.
+När kontrollenheten `SFSafariViewController` går igenom flera omdirigeringar måste programmet övervaka kontrollenhetsaktiviteten och identifiera tidpunkten när den läser in en specifik anpassad URL som definieras av din `application's custom scheme` (t.ex.**&#x200B; **`adbe.u-XFXJeTSDuJiIQs0HVRAg://adobe.com`). Observera att den här anpassade URL:en är ogiltig och inte avsedd för att styrenheten ska läsa in den. Det får endast tolkas av programmet som en signal om att autentiserings- eller utloggningsflödet har slutförts och att det är säkert att stänga kontrollenheten. När kontrollenheten läser in den här anpassade URL:en måste ditt program stänga `SFSafariViewController` och anropa AccessEnablers `handleExternalURL:url `API-metod.
 
 **Obs!** Observera att vid autentiseringsflödet är detta en punkt där användaren kan trycka på knappen &quot;Bakåt&quot;, vilket motsvarar att autentiseringsflödet avbryts. I ett sådant fall måste ditt program anropa metoden [setSelectedProvider:](#setSelProv) som skickar **`nil`** som parameter och ge AccessEnabler en chans att återställa sin autentiseringstillståndsdator.
 
@@ -732,19 +732,19 @@ När kontrollenheten `SFSafariViewController` går igenom flera omdirigeringar m
 <tbody>
 <tr class="odd">
 <td><pre><code>@optional
-- (void) navigateToUrl:(NSString *)url useSVC:(BOOL)useSVC; </code></pre></td>
+&#x200B;- (void) navigateToUrl:(NSString *)url useSVC:(BOOL)useSVC; </code></pre></td>
 </tr>
 </tbody>
 </table>
 
-**Tillgänglighet:**v 3.2+
+**Tillgänglighet:**&#x200B;v 3.2+
 
 **Parametrar**:
 
 * *url:* den URL som pekar på MVPD inloggningssida
 * *useSVC:* Anger om URL:en ska läsas in i SFSafariViewController.
 
-**Utlöses av:**[ setOptions:](#setOptions) före [setSelectedProvider:](#setSelProv)
+**Utlöses av:**&#x200B;[ setOptions:](#setOptions) före [setSelectedProvider:](#setSelProv)
 
 [Till början...](#apis)
 
@@ -1438,7 +1438,7 @@ format:
 
 **Parametrar**:
 
-* *metadata*: Begärda metadata. Det här värdet är ett `NSString` när det gäller statiska metadata (autentiserings-TTL, auktoriserings-TTL, enhets-ID).  Det är ett komplext objekt när användarspecifika metadata begärs. Det här komplexa objektet är vanligtvis mål-C-representationen av en JSON-nyttolast (t.ex. &#39;{&quot;street&quot;: &quot;Main Avenue&quot;, &quot;building&quot;: [&quot;150&quot;, &quot;320&quot;]&#39; översätts i mål-C som NSDictionary(&quot;street&quot; -> &quot;Main Avenue&quot;, &quot;building&quot; -> NSArray(&quot;15 0&quot;, &quot;320&quot;).   Exempelmetadata-JSON-objekt:
+* *metadata*: Begärda metadata. Det här värdet är ett `NSString` när det gäller statiska metadata (autentiserings-TTL, auktoriserings-TTL, enhets-ID).  Det är ett komplext objekt när användarspecifika metadata begärs. Det här komplexa objektet är vanligtvis mål-C-representationen av en JSON-nyttolast (t.ex. &#39;&lbrace;&quot;street&quot;: &quot;Main Avenue&quot;, &quot;building&quot;: [&quot;150&quot;, &quot;320&quot;]&#39; översätts i mål-C som NSDictionary(&quot;street&quot; -> &quot;Main Avenue&quot;, &quot;building&quot; -> NSArray(&quot;15 0&quot;, &quot;320&quot;).   Exempelmetadata-JSON-objekt:
 
 ```JSON
         {

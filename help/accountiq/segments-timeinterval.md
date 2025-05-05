@@ -18,7 +18,7 @@ När du loggar in på Account IQ kan du definiera [segmentet](product-concepts.m
 
 *Segment- och tidsintervallpanel med komprimerad segmentsammanfattning*
 
-**A.** Det valda segmentnamnet **B.** Öppna segmentlista **C.** Redigera segment **D.** Skapa nytt segment **E.** Kornighet och tidsintervallväljare **F.** Ikon för att expandera segmentsammanfattning **G.** Komprimerad segmentsammanfattning **}H.** Antal konton i segmentet för det valda intervallet
+**A.** Det valda segmentnamnet **B.** Öppna segmentlista **C.** Redigera segment **D.** Skapa nytt segment **E.** Kornighet och tidsintervallväljare **F.** Ikon för att expandera segmentsammanfattning **G.** Komprimerad segmentsammanfattning **&rbrace;H.** Antal konton i segmentet för det valda intervallet
 
 >[!NOTE]
 >

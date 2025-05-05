@@ -255,22 +255,22 @@ accessEnablerApi.preauthorize(request, callback);
 
     &quot;JavaScript
     
-    {
-    &quot;beslut&quot;: [
-    {
+    &lbrace;
+    &quot;beslut&quot;: &lbrack;
+    &lbrace;
     &quot;id&quot;: &quot;RES01&quot;,
     &quot;authorized&quot;: true
-    },
-    {
+    &rbrace;,
+    &lbrace;
     &quot;id&quot;: &quot;RES02&quot;,
     &quot;authorized&quot;: false
-    },
-    {
+    &rbrace;,
+    &lbrace;
     &quot;id&quot;: &quot;RES 03&quot;,
     &quot;authorized&quot;: true
-    }
-    ]
-    }
+    &rbrace;
+    &rbrack;
+    &rbrace;
     
     &quot;
 
@@ -282,13 +282,13 @@ accessEnablerApi.preauthorize(request, callback);
     <td>
 
     &quot;JavaScript
-    {
-    &quot;beslut&quot;: [
-    {
+    &lbrace;
+    &quot;beslut&quot;: &lbrack;
+    &lbrace;
     &quot;id&quot;: &quot;RES01&quot;,
     &quot;godkänd&quot;: true
-    },
-    {
+    &rbrace;,
+    &lbrace;
     &quot;id&quot;: &quot;RES02&quot;,
     &quot;godkänd&quot;: false,
     &quot;fel&quot;: 
@@ -297,14 +297,14 @@ accessEnablerApi.preauthorize(request, callback);
     &quot;message&quot;: &quot;MVPD har returnerat ett \&quot;Deny\&quot;-beslut när en förauktorisering begärdes för den angivna resursen.&quot;,
     &quot;helpUrl&quot;: &quot;https://experienceleague.adobe.com/docs/primetime/authentication/home.html&quot;,
     &quot;action&quot;: &quot;none&quot;
-    }
-    }, 
-    {
+    &rbrace;
+    &rbrace;, 
+    &lbrace;
     &quot;id&quot;: &quot;RES03&quot;,
     &quot;authorized&quot;: true
-    },
-    ]
-    }
+    &rbrace;,
+    &rbrack;
+    &rbrace;
     
     &quot;
 
@@ -329,22 +329,22 @@ accessEnablerApi.preauthorize(request, callback);
 
     &quot;JavaScript
     
-    {
-    &quot;beslut&quot;: [
-    {
+    &lbrace;
+    &quot;beslut&quot;: &lbrack;
+    &lbrace;
     &quot;id&quot;: &quot;RES01&quot;,
     &quot;godkänd&quot;: false
-    },
-    {
+    &rbrace;,
+    &lbrace;
     &quot;id&quot;: &quot;RES02&quot;,
     &quot;godkänd&quot;: false
-    },
-    {
+    &rbrace;,
+    &lbrace;
     &quot;id&quot;: &quot;RES 03&quot;,
     &quot;authorized&quot;: false
-    }
-    ]
-    }
+    &rbrace;
+    &rbrack;
+    &rbrace;
     
     &quot;
 
@@ -357,42 +357,42 @@ accessEnablerApi.preauthorize(request, callback);
 
     &quot;JavaScript
     
-    {
-    &quot;beslut&quot;: [
-    {
+    &lbrace;
+    &quot;beslut&quot;: &lbrack;
+    &lbrace;
     &quot;id&quot;: &quot;RES01&quot;,
     &quot;authorized&quot;: false,
-    &quot;error&quot;: {
+    &quot;error&quot;: &lbrace;
     &quot;status&quot;: 403,
     &quot;code&quot;: &quot;preauthentication_deny_by_mvpd&quot;,
     &quot;message&quot;: &quot;MVPD har returnerat \&quot;Neka\&quot;-beslut vid begäran om förauktorisering för den angivna resursen.&quot;,
     &quot;helpUrl&quot;: &quot;https://experienceleague.adobe.com/docs/primetime/authentication/home.html&quot;,
     &quot;åtgärd&quot;: &quot;ingen&quot;
-    }
-    },
-    {
+    &rbrace;
+    &rbrace;,
+    &lbrace;
     &quot;id&quot;: &quot;RES02&quot;,
     &quot;auktoriserad&quot;: false,
-    &quot; fel&quot;: {
+    &quot; fel&quot;: &lbrace;
     &quot;status&quot;: 403,
     &quot;code&quot;: &quot;preauthentication_deny_by_mvpd&quot;,
     &quot;message&quot;: &quot;MVPD har returnerat ett \&quot;Deny\&quot;-beslut när förauktorisering begärdes för den angivna resursen.&quot;,
     &quot;helpUrl&quot;: &quot;https://experienceleague.adobe.com/docs/primetime/authentication/home.html&quot;,
     &quot;action&quot;: &quot;none&quot;
-    }
-    },
-    {
+    &rbrace;
+    &rbrace;,
+    &lbrace;
     &quot;id&quot;: &quot;RES03&quot;,
     &quot;authorized&quot;: false,
-    &quot;error&quot;: {
+    &quot;error&quot;: &lbrace;
     &quot;status&quot;: 403,
     &quot;code&quot;: &quot;maximum_execution_time_exposure&quot;,
      &quot;message&quot;: &quot;Begäran slutfördes inte inom den tillåtna tiden. Ett nytt försök att utföra begäran kanske löser problemet.&quot;,
     &quot;helpUrl&quot;: &quot;https://experienceleague.adobe.com/docs/primetime/authentication/home.html&quot;,
     &quot;action&quot;: &quot;retry&quot;
-    }
+    &rbrace;
     
-    ]
+    &rbrack;
     
     
     &quot;
@@ -417,17 +417,17 @@ accessEnablerApi.preauthorize(request, callback);
     <td>
 
     &quot;JavaScript
-    {
-    &quot;status&quot;: {
+    &lbrace;
+    &quot;status&quot;: &lbrace;
     &quot;status&quot;: 400,
     &quot;code&quot;: &quot;internal_error&quot;,
     &quot;message&quot;: &quot;Begäran misslyckades på grund av ett internt fel.&quot;,
     &quot;details&quot;: &quot;Required String[] parameter &#39;resource&#39; is not present&quot;,
     &quot;helpUrl&quot;: &quot;https://experienceleague.adobe.com/docs/primetime/authentication/home.html&quot;, 
     &quot;action&quot;: &quot;none&quot;
-    },
+    &rbrace;,
     &quot;Decision&quot;: []
-    }
+    &rbrace;
     &quot;
 
 </td>
@@ -450,16 +450,16 @@ accessEnablerApi.preauthorize(request, callback);
     <td>
 
     &quot;JavaScript
-    {
-    &quot;status&quot;: {
+    &lbrace;
+    &quot;status&quot;: &lbrace;
     &quot;status&quot;: 412,
     &quot;code&quot;: &quot;missing_resource&quot;,
     &quot;message&quot;: &quot;Resursparametern saknas&quot;,
     &quot;helpUrl&quot;: &quot;https://experienceleague.adobe.com/docs/primetime/authentication/home.html&quot;,
     &quot;action&quot;: &quot;none&quot;
-    },
+    &rbrace;,
     &quot;Decision&quot;: []
-    }
+    &rbrace;
     &quot;
 
 </td>
@@ -482,20 +482,20 @@ accessEnablerApi.preauthorize(request, callback);
     <td>
 
     &quot;JavaScript
-    {
-    &quot;beslut&quot;: [
-    {
+    &lbrace;
+    &quot;beslut&quot;: &lbrack;
+    &lbrace;
     &quot;id&quot;: &quot;RES01&quot;,
     &quot;authorized&quot;: false,
-    &quot;error&quot;: {
+    &quot;error&quot;: &lbrace;
     &quot;status&quot;: 403,
     &quot;code&quot;: &quot;network_receive_error&quot;,
     &quot;message&quot;: &quot;Ett läsfel uppstod när svaret hämtades från den associerade partnertjänsten. Ett nytt försök att utföra begäran kanske löser problemet.&quot;,
     &quot;helpUrl&quot;: &quot;https://experienceleague.adobe.com/docs/primetime/authentication/home.html&quot;,
     &quot;action&quot;: &quot;retry&quot;
-    }
-    },
-    {
+    &rbrace;
+    &rbrace;,
+    &lbrace;
     &quot;id&quot;: &quot;RES02&quot;,
     &quot;authorized&quot;: false,
     &quot;error&quot;: 
@@ -504,9 +504,9 @@ accessEnablerApi.preauthorize(request, callback);
     &quot;message&quot;: &quot;Det uppstod ett läsfel när svaret hämtades från den associerade partnertjänsten. Ett nytt försök att utföra begäran kanske löser problemet.&quot;,
     &quot;helpUrl&quot;: &quot;https://experienceleague.adobe.com/docs/primetime/authentication/home.html&quot;,
     &quot;action&quot;: &quot;retry&quot;
-    }
+    &rbrace;
     
-    ]
+    &rbrack;
     
     &quot;
 
@@ -530,15 +530,15 @@ accessEnablerApi.preauthorize(request, callback);
     <td>
 
     &quot;JavaScript
-    {
-    &quot;status&quot;: {
+    &lbrace;
+    &quot;status&quot;: &lbrace;
     &quot;status&quot;: 0,
     &quot;code&quot;: &quot;authentication_session_missing&quot;,
     &quot;message&quot;: &quot;Det gick inte att hämta autentiseringssessionen som är associerad med denna begäran. Användaren måste autentisera igen med en MVPD som stöds för att kunna fortsätta.&quot;,
     &quot;åtgärd&quot;: &quot;autentisering&quot;
-    },
+    &rbrace;,
     &quot;beslut&quot;: []
-    }
+    &rbrace;
     
     &quot;
 
@@ -564,15 +564,15 @@ accessEnablerApi.preauthorize(request, callback);
     <td>
 
     &quot;JavaScript
-    {
-    &quot;status&quot;: {
+    &lbrace;
+    &quot;status&quot;: &lbrace;
     &quot;status&quot;: 0,
     &quot;kod&quot;: &quot;beställare_inte_konfigurerad&quot;,
     &quot;meddelande&quot;: &quot;Beställaren är inte konfigurerad än, vilket är en förutsättning för att använda ett API förutom setRequestor API.&quot;,
     &quot;åtgärd&quot;: &quot;återförsök&quot;
     ,
     &quot;beslut&quot;: []
-    }
+    &rbrace;
     &quot;
 
 </td>

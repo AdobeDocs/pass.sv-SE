@@ -164,7 +164,7 @@ Programinformationen kan utformas på följande sätt:
 
 >[!IMPORTANT]
 >
-Information om enheten, anslutningen och programmet måste läggas till i samma JSON-objekt. Efteråt måste det resulterande objektet vara **Base64-kodat**. För Adobe Pass Authentication REST API:er måste värdet dessutom vara **URL-kodat**.
+>Information om enheten, anslutningen och programmet måste läggas till i samma JSON-objekt. Efteråt måste det resulterande objektet vara **Base64-kodat**. För Adobe Pass Authentication REST API:er måste värdet dessutom vara **URL-kodat**.
 
 **Exempelkod**
 
@@ -243,8 +243,8 @@ private JSONObject computeClientInformation() {
 
 >[!NOTE]
 >
-**Resurser:**
-* den offentliga klassen [build](https://developer.android.com/reference/android/os/Build.html){target=_blank} i Java-utvecklarens dokumentation.
+>**Resurser:**
+>* den offentliga klassen [build](https://developer.android.com/reference/android/os/Build.html){target=_blank} i Java-utvecklarens dokumentation.
 
 ### FireTV {#fire-tv}
 
@@ -276,13 +276,13 @@ Programinformationen kan utformas på följande sätt:
 
 >[!IMPORTANT]
 >
-Information om enheten, anslutningen och programmet måste läggas till i samma JSON-objekt. Efteråt måste det resulterande objektet vara **Base64-kodat**. För Adobe Pass Authentication REST API:er måste värdet dessutom vara **URL-kodat**.
+>Information om enheten, anslutningen och programmet måste läggas till i samma JSON-objekt. Efteråt måste det resulterande objektet vara **Base64-kodat**. För Adobe Pass Authentication REST API:er måste värdet dessutom vara **URL-kodat**.
 
 >[!NOTE]
 >
-**Resurser:**
-* den offentliga klassen [Build](https://developer.android.com/reference/android/os/Build.html){target=_blank} i dokumentationen för Android-utvecklare.
-* [Identifiera FireTV-enheter](https://developer.amazon.com/docs/fire-tv/identify-amazon-fire-tv-devices.html){target=_blank}
+>**Resurser:**
+>* den offentliga klassen [Build](https://developer.android.com/reference/android/os/Build.html){target=_blank} i dokumentationen för Android-utvecklare.
+>* [Identifiera FireTV-enheter](https://developer.amazon.com/docs/fire-tv/identify-amazon-fire-tv-devices.html){target=_blank}
 
 ### iOS/tvOS {#ios-tvos}
 
@@ -315,7 +315,7 @@ Programinformationen kan utformas på följande sätt:
 
 >[!IMPORTANT]
 >
-Information om enheten, anslutningen och programmet måste läggas till i samma JSON-objekt. Efteråt måste det resulterande objektet vara Base64-kodat. För Adobe Pass Authentication REST API:er måste värdet också vara URL-kodat.
+>Information om enheten, anslutningen och programmet måste läggas till i samma JSON-objekt. Efteråt måste det resulterande objektet vara Base64-kodat. För Adobe Pass Authentication REST API:er måste värdet också vara URL-kodat.
 
 **Exempelkod**
 
@@ -387,10 +387,10 @@ Information om enheten, anslutningen och programmet måste läggas till i samma 
 
 >[!NOTE]
 >
-**Resurser:**
-* [UIDevice](https://developer.apple.com/documentation/uikit/uidevice#//apple_ref/occ/cl/UIDevice){target=_blank}
-* [uname](https://man7.org/linux/man-pages/man2/uname.2.html){target=_blank}
-* [Om nåbarhet](https://developer.apple.com/library/archive/samplecode/Reachability/Introduction/Intro.html){target=_blank}
+>**Resurser:**
+>* [UIDevice](https://developer.apple.com/documentation/uikit/uidevice#//apple_ref/occ/cl/UIDevice){target=_blank}
+>* [uname](https://man7.org/linux/man-pages/man2/uname.2.html){target=_blank}
+>* [Om nåbarhet](https://developer.apple.com/library/archive/samplecode/Reachability/Introduction/Intro.html){target=_blank}
 
 ### Roku {#roku}
 
@@ -422,11 +422,11 @@ Programinformationen kan utformas på följande sätt:
 
 >[!IMPORTANT]
 >
-Information om enheten, anslutningen och programmet måste läggas till i samma JSON-objekt. Efteråt måste det resulterande objektet vara **Base64-kodat**. För Adobe Pass Authentication REST API:er måste värdet också vara URL-kodat.
+>Information om enheten, anslutningen och programmet måste läggas till i samma JSON-objekt. Efteråt måste det resulterande objektet vara **Base64-kodat**. För Adobe Pass Authentication REST API:er måste värdet också vara URL-kodat.
 
 >[!NOTE]
 >
-Mer information finns i [ifDeviceInfo](https://developer.roku.com/docs/references/brightscript/interfaces/ifdeviceinfo.md)
+>Mer information finns i [ifDeviceInfo](https://developer.roku.com/docs/references/brightscript/interfaces/ifdeviceinfo.md)
 
 ### XBOX 1/360 {#xbox}
 
@@ -458,7 +458,7 @@ Programinformationen kan utformas på följande sätt:
 
 >[!IMPORTANT]
 >
-Information om enheten, anslutningen och programmet måste läggas till i samma JSON-objekt. Efteråt måste det resulterande objektet vara **Base64-kodat**. För Adobe Pass Authentication REST API:er måste värdet dessutom vara **URL-kodat**.
+>Information om enheten, anslutningen och programmet måste läggas till i samma JSON-objekt. Efteråt måste det resulterande objektet vara **Base64-kodat**. För Adobe Pass Authentication REST API:er måste värdet dessutom vara **URL-kodat**.
 
 **Resurser**
 

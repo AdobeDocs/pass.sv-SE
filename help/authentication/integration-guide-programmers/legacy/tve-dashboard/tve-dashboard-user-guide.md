@@ -466,9 +466,9 @@ Mer information om tillgängliga miljöer för Adobe Pass-autentisering finns i 
 
 I alla rapporter kan du använda filter genom att välja specifika kanaler eller välja specifika MVPD-filer som ska inkluderas i de resulterande rapporterna.
 
-Om du vill välja en eller flera kanaler använder du listrutan **** som placerats efter etiketten Kanaler som valts för rapport. Se Figur 8./9./10. bilder nedan.
+Om du vill välja en eller flera kanaler använder du listrutan **&#x200B;**&#x200B;som placerats efter etiketten Kanaler som valts för rapport. Se Figur 8./9./10. bilder nedan.
 
-Om du vill välja en eller flera MVPD/er använder du listrutan **** som placerats efter etiketten&quot;MVPDs selected for report&quot;. Se Figur 8./9./10. bilder nedan.
+Om du vill välja en eller flera MVPD/er använder du listrutan **&#x200B;**&#x200B;som placerats efter etiketten&quot;MVPDs selected for report&quot;. Se Figur 8./9./10. bilder nedan.
 
 Som standard sammanställs data i alla företagets kanaler (&quot;Alla kanaler&quot;) och de videoprogrammeringsprogram som de är integrerade med (&quot;Alla videoprogrammeringsprogram&quot;).
 

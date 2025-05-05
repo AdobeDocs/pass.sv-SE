@@ -86,7 +86,7 @@ Parametern mvpds är en array med providers som är tillgängliga för användar
 
 - `selectedProvider(mvpd)`
 
-  **Utlösare:** [`getSelectedProvider()`](#$getSelProv Parametern `mvpd` ger information om providern som valts av
+  **Utlösare:** [`getSelectedProvider()`] (#$getSelProv Parametern `mvpd` ger information om providern som valts av
 användaren.
 
 - `setMetadataStatus(metadata, key, arguments)`

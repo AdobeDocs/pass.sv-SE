@@ -152,7 +152,7 @@ Föråldrat:
    - inloggningen avbröts: återställa MVPD-markering
    - URL-schemat har etablerats som &quot;adobepass://android.app&quot; för hämtning när autentiseringen är klar
 
-- e. get/checkAuthorization: SDK inkluderar **access\_token **i header som Authorization: Bearer **access\_token**
+- e. get/checkAuthorization: SDK inkluderar **access\_token &#x200B;** i header som Authorization: Bearer **access\_token**
 
 - om auktoriseringen lyckas, kommer ett anrop att göras för att erhålla medietoken
 
