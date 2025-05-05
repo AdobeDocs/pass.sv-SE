@@ -21,7 +21,7 @@ Harman ansvarar för Primetimes reklam- och publiceringsprodukter, medan Adobe h
 
 | Guide | Beskrivning |
 |--- |--- |
-| [Primetime Dynamic Ad Insertion](https://experienceleague.adobe.com/docs/primetime/ad-insertion/home.html) | Hjälp om Adobe Pass Ad Insertion |
+| [Primetime Dynamic Ad Insertion](https://experienceleague.adobe.com/docs/primetime/ad-insertion/home.html?lang=sv-SE) | Hjälp om Adobe Pass Ad Insertion |
 
 ## Adobe Pass Guides
 

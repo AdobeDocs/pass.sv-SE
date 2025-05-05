@@ -75,7 +75,7 @@ Adobe Pass autentiseringsteam är tillgängliga för att hjälpa dig med eventue
 
 ## Åtkomst till dokumentation {#access-documentation}
 
-**Adobe ger** åtkomst till vår offentliga dokumentation via [Adobe Experience League](https://experienceleague.adobe.com/en/docs/pass/authentication/home).
+**Adobe ger** åtkomst till vår offentliga dokumentation via [Adobe Experience League](https://experienceleague.adobe.com/sv/docs/pass/authentication/home).
 
 Adobe Pass Authentication-teamet tillhandahåller omfattande dokumentation om tillgängliga funktioner och API:er i avsnittet [Integreringsguide för programmerare](/help/authentication/integration-guide-programmers/programmer-integration-guide-overview.md). I innehållsförteckningen under det här avsnittet finns länkar till detaljerad information om varje ämne.
 

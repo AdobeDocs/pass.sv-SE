@@ -48,7 +48,7 @@ Nätverksaktiviteten för AccessEnabler äger rum i en egen tråd, så gränssni
 
 ## Konfigurera Experience Cloud ID-tjänsten (besökar-ID) {#visitorIDSetup}
 
-Värdet [Experience Cloud ID](https://experienceleague.adobe.com/docs/id-service/using/home.html) måste konfigureras ur [!DNL Analytics]-synvinkel. När ett `visitorID`-värde har angetts skickar SDK den här informationen tillsammans med varje nätverksanrop och autentiseringsservern [!DNL Adobe Pass] samlar in den här informationen. Du kan korrelera analysen från Adobe Pass autentiseringstjänst med andra analysrapporter som du kan ha från andra program eller webbplatser. Information om hur du konfigurerar besökar-ID finns [här](#setOptions).
+Värdet [Experience Cloud ID](https://experienceleague.adobe.com/docs/id-service/using/home.html?lang=sv-SE) måste konfigureras ur [!DNL Analytics]-synvinkel. När ett `visitorID`-värde har angetts skickar SDK den här informationen tillsammans med varje nätverksanrop och autentiseringsservern [!DNL Adobe Pass] samlar in den här informationen. Du kan korrelera analysen från Adobe Pass autentiseringstjänst med andra analysrapporter som du kan ha från andra program eller webbplatser. Information om hur du konfigurerar besökar-ID finns [här](#setOptions).
 
 ## Tillståndsflöden {#entitlement}
 
