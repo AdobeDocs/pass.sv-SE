@@ -4,10 +4,10 @@ audience: end-user
 feature: Authentication
 user-guide-title: Adobe Pass-autentisering
 user-guide-description: Adobe Pass-autentisering är en berättigandelösning för TV Everywhere, som tillhandahåller ett modulärt ramverk för att avgöra om någon som begär åtkomst till en resurs är berättigad till den.
-source-git-commit: b753c6a6bdfd8767e86cbe27327752620158cdbb
+source-git-commit: 13b0bb640aa599109e8c2f68d1e16fbdc3840951
 workflow-type: tm+mt
-source-wordcount: '1251'
-ht-degree: 2%
+source-wordcount: '1258'
+ht-degree: 3%
 
 ---
 
@@ -18,6 +18,7 @@ ht-degree: 2%
 + [Produktmeddelanden](product-announcements.md)
 + Produktreleaser {#product-releases}
    + 2025 {#2025}
+      + [Versionsinformation om Adobe Pass Authentication 3.2.0](notes-releases/auth-rn-320.md)
       + [Versionsinformation om Adobe Pass Authentication 3.1.0](notes-releases/auth-rn-310.md)
       + [Versionsinformation om Adobe Pass Authentication JavaScript 4.7.1](notes-releases/authn-rn-javascript-471.md)
    + 2024 {#2024}
@@ -115,7 +116,7 @@ ht-degree: 2%
             + [REST API V2 Cookbook (klient-till-server)](integration-guide-programmers/rest-apis/rest-api-v2/cookbooks/rest-api-v2-cookbook-client-server.md)
             + [REST API V2 Cookbook (Server-to-Server)](integration-guide-programmers/rest-apis/rest-api-v2/cookbooks/rest-api-v2-cookbook-server-server.md)
          + Bilaga {#rest-api-v2-appendix}
-            + Rubriker {#rest-api-v2-appendix-headers}
+            + Sidhuvuden {#rest-api-v2-appendix-headers}
                + [Header - Authorization](integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-authorization.md)
                + [Header - AP-Device-Identifier](integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-device-identifier.md)
                + [Header - X-Device-Info](integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-x-device-info.md)
@@ -125,7 +126,7 @@ ht-degree: 2%
                + [Header - AP-Partner-Framework-Status](integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-partner-framework-status.md)
                + [Header - AP-TempPass-Identity](integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-temppass-identity.md)
    + Standardfunktioner {#standard-features}
-      + Tillstånd {#entitlements}
+      + Berättiganden {#entitlements}
          + [Användarmetadata](integration-guide-programmers/features-standard/entitlements/user-metadata.md)
          + [Beslut](integration-guide-programmers/features-standard/entitlements/decisions.md)
          + [Medietoken](integration-guide-programmers/features-standard/entitlements/media-tokens.md)
@@ -136,10 +137,10 @@ ht-degree: 2%
             + Apple enkel inloggning {#apple-sso}
                + [Apple SSO - översikt](integration-guide-programmers/features-standard/sso-access/partner-sso/apple-sso/apple-sso-overview.md)
                + [Apple SSO Cookbook (REST API V2)](integration-guide-programmers/features-standard/sso-access/partner-sso/apple-sso/apple-sso-cookbook-rest-api-v2.md)
-         + Plattform enkel inloggning {#platform-sso}
+         + Plattform för enkel inloggning {#platform-sso}
             + Amazon enkel inloggning {#amazon-sso}
                + [Amazon SSO Cookbook (REST API V2)](integration-guide-programmers/features-standard/sso-access/platform-sso/amazon-single-sign-on/amazon-sso-cookbook-rest-api-v2.md)
-            + Kör enkel inloggning {#roku-sso}
+            + Roku enkel inloggning {#roku-sso}
                + [Roku SSO Cookbook (REST API V2)](integration-guide-programmers/features-standard/sso-access/platform-sso/roku-single-sign-on/roku-sso-cookbook-rest-api-v2.md)
       + Hembaserad autentiseringsåtkomst {#hba-access}
          + [Hembaserad autentisering (HBA)](integration-guide-programmers/features-standard/hba-access/home-based-authentication.md)
@@ -181,23 +182,23 @@ ht-degree: 2%
             + [(Äldre) Hämta profilbegäran](integration-guide-programmers/legacy/rest-api-v1/apis/retrieve-profilerequest.md)
             + [(Äldre) Tokenutbyte](integration-guide-programmers/legacy/rest-api-v1/apis/token-exchange.md)
             + [(Äldre) Kostnadsfri förhandsvisning för tillfälligt pass och kampanjtillfälligt pass](integration-guide-programmers/legacy/rest-api-v1/apis/free-preview-for-temp-pass-and-promotional-temp-pass.md)
-         + (Äldre) Cookbooks {#rest-api-v1-cookbooks}
+         + (Äldre) kokböcker {#rest-api-v1-cookbooks}
             + [(Äldre) REST API V1-kokbok (klient-till-server)](integration-guide-programmers/legacy/rest-api-v1/cookbooks/rest-api-cookbook-clienttoserver.md)
             + [(Äldre) REST API V1-kokbok (server till server)](integration-guide-programmers/legacy/rest-api-v1/cookbooks/rest-api-cookbook-servertoserver.md)
-      + (Äldre) SDK:er {#sdks}
+      + (äldre) SDK:er {#sdks}
          + (Äldre) JavaScript SDK {#javascript-sdk}
             + [(Äldre) JavaScript SDK - översikt](integration-guide-programmers/legacy/sdks/javascript-sdk/javascript-sdk-overview.md)
             + [(Äldre) JavaScript SDK Cookbook](integration-guide-programmers/legacy/sdks/javascript-sdk/javascript-sdk-cookbook.md)
             + [(Äldre) JavaScript SDK API Reference](integration-guide-programmers/legacy/sdks/javascript-sdk/javascript-sdk-api-reference.md)
             + [(Äldre) JavaScript SDK API PreAuthorize](integration-guide-programmers/legacy/sdks/javascript-sdk/preauthorize-api-javascript-sdk.md)
-            + (Äldre) Riktlinjer {#javascript-sdk-guidelines}
+            + (Äldre) riktlinjer {#javascript-sdk-guidelines}
                + [(Äldre) Uppdatera utan inloggning och utloggning](integration-guide-programmers/legacy/sdks/javascript-sdk/refreshless-login-and-logout.md)
          + (Äldre) iOS/tvOS SDK {#ios-tvos-sdk}
             + [(Äldre) iOS/tvOS SDK - översikt](integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-overview.md)
             + [(Äldre) iOS/tvOS SDK Cookbook](integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-cookbook.md)
             + [(Äldre) API-referens för iOS/tvOS SDK](integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md)
             + [(Äldre) iOS/tvOS SDK API-förhandsauktorisering](integration-guide-programmers/legacy/sdks/ios-tvos-sdk/preauthorize-api-ios-tvos-sdk.md)
-            + (Äldre) Riktlinjer {#ios-tvos-sdk-guidelines}
+            + (Äldre) riktlinjer {#ios-tvos-sdk-guidelines}
                + [(Äldre) iOS/tvOS-programregistrering](integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-application-registration.md)
                + [(Äldre) Migreringshandbok för iOS/tvOS v3.x](integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-v3x-migration-guide.md)
                + [(Äldre) iOS/tvOS Storage Integrity Checks](integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-storage-integrity-checks.md)
@@ -206,7 +207,7 @@ ht-degree: 2%
             + [(Äldre) Android SDK Cookbook](integration-guide-programmers/legacy/sdks/android-sdk/android-sdk-cookbook.md)
             + [(Äldre) Android SDK API Reference](integration-guide-programmers/legacy/sdks/android-sdk/android-sdk-api-reference.md)
             + [(Äldre) Android SDK API PreAuthorize](integration-guide-programmers/legacy/sdks/android-sdk/preauthorize-api-android-sdk.md)
-            + (Äldre) Riktlinjer {#android-sdk-guidelines}
+            + (Äldre) riktlinjer {#android-sdk-guidelines}
                + [(Äldre) Android Application Registration](integration-guide-programmers/legacy/sdks/android-sdk/android-application-registration.md)
                + [(Äldre) Android SDK med registrering av dynamisk klient](integration-guide-programmers/legacy/sdks/android-sdk/android-sdk-with-dynamic-client-registration.md)
          + (Äldre) FireOS SDK {#fireos-sdk}
@@ -216,17 +217,17 @@ ht-degree: 2%
             + [(Äldre) Amazon FireOS-programregistrering](integration-guide-programmers/legacy/sdks/fireos-sdk/amazon-fireos-application-registration.md)
             + [(Äldre) FireOS SDK med registrering av dynamisk klient](integration-guide-programmers/legacy/sdks/fireos-sdk/fireos-sdk-with-dynamic-client-registration.md)
             + [(Äldre) Amazon FireOS SSO - startguide för programmerare](integration-guide-programmers/legacy/sdks/fireos-sdk/amazon-firetv-sso-programmer-kickoff-guide.md)
-      + (Äldre) Klientinformation {#client-information}
+      + (Äldre) klientinformation {#client-information}
          + [(Äldre) Skicka klientinformation (enhet, anslutning och program)](integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md)
       + (Äldre) Felrapportering {#error-reporting}
          + [(Äldre) Felrapportering](integration-guide-programmers/legacy/error-reporting/error-reporting.md)
-      + (Äldre) Enkel inloggningsåtkomst {#sso-access}
+      + (Äldre) åtkomst till enkel inloggning {#sso-access}
          + [(Äldre) Stöd för enkel inloggning](integration-guide-programmers/legacy/sso-access/sso-support.md)
          + [(Äldre) enkel inloggning via passiv autentisering](integration-guide-programmers/legacy/sso-access/sso-passive-authn.md)
          + [(Äldre) Amazon SSO Cookbook (REST API V1)](integration-guide-programmers/legacy/sso-access/amazon-sso-cookbook-rest-api-v1.md)
          + [(Äldre) Apple SSO Cookbook (REST API V1)](integration-guide-programmers/legacy/sso-access/apple-sso-cookbook-rest-api-v1.md)
          + [(Äldre) Apple SSO Cookbook (iOS/tvOS SDK)](integration-guide-programmers/legacy/sso-access/apple-sso-cookbook-iostvos-sdk.md)
-      + (Äldre) TVE-instrumentpanel {#tve-dashboard}
+      + (Äldre) TVE Dashboard {#tve-dashboard}
          + [(Äldre) Användarhandbok för TVE Dashboard](integration-guide-programmers/legacy/tve-dashboard/tve-dashboard-user-guide.md)
       + (Äldre) Tech Notes {#tech-notes}
          + (Äldre) REST API V1 {#rest-api-v1}
@@ -235,7 +236,7 @@ ht-degree: 2%
             + [(Äldre) Klientlös: Undvik att använda &#39;&amp;&#39;reg_code i /authenticate Request](integration-guide-programmers/legacy/notes-technical/clientless-avoid-using-reg-code-in-authenticate-request.md)
             + [(Äldre) Aktivera Adobe Pass Entitlement Services för en programmerare på Xbox 360 och XboxOne Clientless](integration-guide-programmers/legacy/notes-technical/enabling-primetime-entitlement-services-for-a-programmer-on-xbox-360-and-xboxone-clientless-solution.md)
             + [(Äldre) Typ och mått av klientlös enhet](integration-guide-programmers/legacy/notes-technical/benefits-of-using-the-clientless-devicetype-parameter-in-pass-metrics.md)
-         + (Äldre) SDK:er {#sdks}
+         + (äldre) SDK:er {#sdks}
             + [(Äldre) certifikatfrågor och svar](integration-guide-programmers/legacy/notes-technical/certificates-qa.md)
             + [(Äldre) Förstå användar-ID](integration-guide-programmers/legacy/notes-technical/understanding-user-ids.md)
             + (Äldre) JavaScript SDK {#javascript-sdk}
@@ -258,11 +259,11 @@ ht-degree: 2%
             + [(Äldre) Preflight-funktion: Så här aktiverar, felsöker eller identifierar du problemet](integration-guide-programmers/legacy/notes-technical/preflight-feature.md)
             + [(Äldre) Tillåt PDF-filer i urvalsdialogrutan](integration-guide-programmers/legacy/notes-technical/allow-mvpd-selectn-dialog.md)
             + [(Äldre) Förhindra att PDF-filer visas i urvalsdialogrutan](integration-guide-programmers/legacy/notes-technical/prevent-mvpd-selectn-dialog.md)
-         + (Äldre) Felsökning {#troubleshooting}
+         + (Äldre) felsökning {#troubleshooting}
             + [(Äldre) Använda Charles Proxy](integration-guide-programmers/legacy/notes-technical/using-charles-proxy.md)
             + [(Äldre) Övervaka Adobe Pass Adobe PayTV Pass](integration-guide-programmers/legacy/notes-technical/monitoring-adobe-pay-tv-pass.md)
             + [(Äldre) Så här testar du autentiserings- och auktoriseringsflöden med hjälp av testwebbplatsen för Adobe API](integration-guide-programmers/legacy/notes-technical/test-authn-authz-flows-using-adobes-api-test-site.md)
-+ Integreringsguide för MVPD:er {#integration-guide-mvpds}
++ Integreringshandbok för videoprogrammeringsprogram {#integration-guide-mvpds}
    + [Integreringsguide för MVPD](integration-guide-mvpds/mvpd-integration-guide-overview.md)
    + [Autentisering](integration-guide-mvpds/authn-usecase.md)
    + [Autentisering med OAuth 2.0-protokollet](integration-guide-mvpds/authn-oauth2-protocol.md)
@@ -286,7 +287,7 @@ ht-degree: 2%
    + [Integreringar](/help/authentication/user-guide-tve-dashboard/tve-dashboard-integrations.md)
    + [Rapporter](/help/authentication/user-guide-tve-dashboard/tve-dashboard-reports.md)
    + [Ändringslogg](/help/authentication/user-guide-tve-dashboard/tve-dashboard-changes-log.md)
-+ Tech Notes {#tech-notes}
-   + Miljöer {#environments}
++ Tekniska anteckningar {#tech-notes}
+   + Miljö {#environments}
       + [Förstå Adobe-miljöer](notes-technical/environments/understanding-the-adobe-environments.md)
       + [Konfigurera din miljö och testning i Pre-Qual](notes-technical/environments/setting-up-your-environment-and-testing-in-prequal.md)
