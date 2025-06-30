@@ -2,23 +2,26 @@
 title: MVPD lista över IP-adresser
 description: MVPD lista över IP-adresser
 exl-id: be18084c-22f5-47b5-b088-d9032681113d
-source-git-commit: 1f04f0c60d404d8ae1056a8610e76c07d0c6505e
+source-git-commit: 0fd11dbcc9072fd14fb06e76f60c15d7729c3876
 workflow-type: tm+mt
-source-wordcount: '127'
+source-wordcount: '139'
 ht-degree: 0%
 
 ---
 
+
 # MVPD lista över IP-adresser
 
->[!NOTE]
+> [!NOTE]
 >
->Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
+>Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av denna API kräver en aktuell licens från
+>> Adobe. Ingen obehörig användning är tillåten.
 
-För en MVPD-/Adobe Pass-autentiseringsintegrering måste vissa IP-adresser vara tillåtna i en MVPD brandvägg. Detta är IP-adresser för utgångar:
+För en MVPD-/Adobe Pass-autentiseringsintegrering måste vissa IP-adresser vara tillåtna i en MVPD brandvägg. De här är
+IP-adresser för utgångar:
 
 | IP | Miljö | Län |
-| :-------------: | :---------: | :-----: |
+|:---------------:|:-----------:|:-------:|
 | 34.233.60.171 | Produktion | us-east |
 | 34.233.163.243 | Produktion | us-east |
 | 34.206.195.149 | Produktion | us-east |
@@ -39,6 +42,12 @@ För en MVPD-/Adobe Pass-autentiseringsintegrering måste vissa IP-adresser vara
 | 34.193.92.8 | Mellanlagring | us-east |
 | 18.215.135.17 | Mellanlagring | us-east |
 | 193.105.140.131 | VPN | eu-öst |
+| 130.248.80.10 | VPN | eu-öst |
+| 130.248.81.10 | VPN | eu-öst |
+| 130.248.80.11 | VPN | eu-öst |
+| 130.248.81.11 | VPN | eu-öst |
+| 130.248.80.12 | VPN | eu-öst |
+| 130.248.81.12 | VPN | eu-öst |
 | 192.150.10.0/24 | VPN | us-west |
 | 192.150.11.4 | VPN | us-west |
 | 192.150.19.4 | VPN | us-west |
