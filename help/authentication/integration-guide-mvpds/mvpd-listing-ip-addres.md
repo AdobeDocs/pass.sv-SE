@@ -12,10 +12,10 @@ ht-degree: 0%
 
 # MVPD lista över IP-adresser
 
-> [!NOTE]
+&#x200B;> [!NOTE]
 >
 >Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av denna API kräver en aktuell licens från
->> Adobe. Ingen obehörig användning är tillåten.
+>&#x200B;> Adobe. Ingen obehörig användning är tillåten.
 
 För en MVPD-/Adobe Pass-autentiseringsintegrering måste vissa IP-adresser vara tillåtna i en MVPD brandvägg. De här är
 IP-adresser för utgångar:
