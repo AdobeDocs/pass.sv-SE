@@ -2,9 +2,9 @@
 title: Skapa och hämta profil med partnerautentiseringssvar
 description: REST API V2 - Skapa och hämta profil med partnerautentiseringssvar
 exl-id: cae260ff-a229-4df7-bbf9-4cdf300c0f9a
-source-git-commit: edfde4b463dd8b93dd770bc47353ee8ceb6f39d2
+source-git-commit: ebe0a53e3ba54c2effdef45c1143deea0e6e57d3
 workflow-type: tm+mt
-source-wordcount: '775'
+source-wordcount: '779'
 ht-degree: 0%
 
 ---
@@ -233,12 +233,12 @@ ht-degree: 0%
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">notBefore</td>
-               <td>Tidsstämpeln som profilen inte är giltig före.</td>
+               <td>Tidsstämpeln i millisekunder innan profilen är ogiltig.</td>
                <td><i>obligatoriskt</i></td>
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">notAfter</td>
-               <td>Tidsstämpeln efter vilken profilen är ogiltig.</td>
+               <td>Tidsstämpeln i millisekunder efter vilken profilen är ogiltig.</td>
                <td><i>obligatoriskt</i></td>
             </tr>
             <tr>
@@ -322,7 +322,7 @@ ht-degree: 0%
 
 ## Exempel {#samples}
 
-### 1. Skapa och hämta profil med partnerautentiseringssvar
+### &#x200B;1. Skapa och hämta profil med partnerautentiseringssvar
 
 >[!BEGINTABS]
 
@@ -379,7 +379,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### 2. Skapa och hämta profil med partnerautentiseringssvar, men en försämring tillämpas
+### &#x200B;2. Skapa och hämta profil med partnerautentiseringssvar, men en försämring tillämpas
 
 >[!BEGINTABS]
 

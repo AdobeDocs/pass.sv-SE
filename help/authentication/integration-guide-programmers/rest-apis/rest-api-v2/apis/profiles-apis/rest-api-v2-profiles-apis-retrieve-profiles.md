@@ -2,9 +2,9 @@
 title: Hämta profiler
 description: REST API V2 - Hämta profiler
 exl-id: 72922aa8-95ca-48dc-8523-e335802fc366
-source-git-commit: 32c3176fb4633acb60deb1db8fb5397bbf18e2d0
+source-git-commit: ebe0a53e3ba54c2effdef45c1143deea0e6e57d3
 workflow-type: tm+mt
-source-wordcount: '868'
+source-wordcount: '872'
 ht-degree: 0%
 
 ---
@@ -227,12 +227,12 @@ ht-degree: 0%
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">notBefore</td>
-               <td>Tidsstämpeln som profilen inte är giltig före.</td>
+               <td>Tidsstämpeln i millisekunder innan profilen är ogiltig.</td>
                <td><i>obligatoriskt</i></td>
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">notAfter</td>
-               <td>Tidsstämpeln efter vilken profilen är ogiltig.</td>
+               <td>Tidsstämpeln i millisekunder efter vilken profilen är ogiltig.</td>
                <td><i>obligatoriskt</i></td>
             </tr>
             <tr>
@@ -319,7 +319,7 @@ ht-degree: 0%
 
 ## Exempel {#samples}
 
-### 1. Hämta profiler som erhållits via grundläggande autentisering
+### &#x200B;1. Hämta profiler som erhållits via grundläggande autentisering
 
 >[!BEGINTABS]
 
@@ -382,7 +382,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### 2. Hämta profiler som erhållits via grundläggande autentisering eller enkel inloggning med Service Token-metoden
+### &#x200B;2. Hämta profiler som erhållits via grundläggande autentisering eller enkel inloggning med Service Token-metoden
 
 >[!BEGINTABS]
 
@@ -446,7 +446,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### 3. Hämta profiler som erhållits via grundläggande autentisering eller enkel inloggning med plattformsidentitetsmetoden
+### &#x200B;3. Hämta profiler som erhållits via grundläggande autentisering eller enkel inloggning med plattformsidentitetsmetoden
 
 >[!BEGINTABS]
 

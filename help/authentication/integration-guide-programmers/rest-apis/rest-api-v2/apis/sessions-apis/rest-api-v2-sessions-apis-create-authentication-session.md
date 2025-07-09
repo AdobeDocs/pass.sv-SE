@@ -2,9 +2,9 @@
 title: Skapa autentiseringssession
 description: REST API V2 - Skapa autentiseringssession
 exl-id: bb2a6bb4-0778-4748-a674-df9d0e8242c8
-source-git-commit: 32c3176fb4633acb60deb1db8fb5397bbf18e2d0
+source-git-commit: ebe0a53e3ba54c2effdef45c1143deea0e6e57d3
 workflow-type: tm+mt
-source-wordcount: '1060'
+source-wordcount: '1064'
 ht-degree: 0%
 
 ---
@@ -316,12 +316,12 @@ ht-degree: 0%
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">notBefore</td>
-               <td>Tidsstämpeln före vilken autentiseringskoden inte är giltig.</td>
+               <td>Tidsstämpeln i millisekunder innan autentiseringskoden är ogiltig.</td>
                <td>valfri</td>
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">notAfter</td>
-               <td>Tidsstämpeln efter vilken autentiseringskoden inte är giltig.</td>
+               <td>Tidsstämpeln i millisekunder efter vilken autentiseringskoden inte är giltig.</td>
                <td>valfri</td>
             </tr>
 </table>
@@ -361,7 +361,7 @@ ht-degree: 0%
 
 ## Exempel {#samples}
 
-### 1. Skapa en autentiseringssession utan att saknade parametrar.
+### &#x200B;1. Skapa en autentiseringssession utan att saknade parametrar.
 
 >[!BEGINTABS]
 
@@ -405,7 +405,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### 2. Skapa en autentiseringssession utan parametrar
+### &#x200B;2. Skapa en autentiseringssession utan parametrar
 
 >[!BEGINTABS]
 
@@ -447,7 +447,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### 3. Skapa en autentiseringssession när en giltig profil redan finns.
+### &#x200B;3. Skapa en autentiseringssession när en giltig profil redan finns.
 
 >[!BEGINTABS]
 
@@ -488,7 +488,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### 4. Skapa en autentiseringssession med grundläggande eller kampanjtillagd TempPass (krävs inte)
+### &#x200B;4. Skapa en autentiseringssession med grundläggande eller kampanjtillagd TempPass (krävs inte)
 
 >[!BEGINTABS]
 
@@ -529,7 +529,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### 5. Skapa en autentiseringssession när nedgradering tillämpas
+### &#x200B;5. Skapa en autentiseringssession när nedgradering tillämpas
 
 >[!BEGINTABS]
 

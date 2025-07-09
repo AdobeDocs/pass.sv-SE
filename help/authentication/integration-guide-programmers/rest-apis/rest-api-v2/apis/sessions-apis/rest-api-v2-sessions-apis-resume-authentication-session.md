@@ -2,9 +2,9 @@
 title: Återuppta autentiseringssession
 description: REST API V2 - Återuppta autentiseringssession
 exl-id: 66c33546-2be0-473f-9623-90499d1c13eb
-source-git-commit: 6b803eb0037e347d6ce147c565983c5a26de9978
+source-git-commit: ebe0a53e3ba54c2effdef45c1143deea0e6e57d3
 workflow-type: tm+mt
-source-wordcount: '886'
+source-wordcount: '890'
 ht-degree: 0%
 
 ---
@@ -280,12 +280,12 @@ ht-degree: 0%
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">notBefore</td>
-               <td>Tidsstämpeln före vilken autentiseringskoden inte är giltig.</td>
+               <td>Tidsstämpeln i millisekunder innan autentiseringskoden är ogiltig.</td>
                <td>valfri</td>
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">notAfter</td>
-               <td>Tidsstämpeln efter vilken autentiseringskoden inte är giltig.</td>
+               <td>Tidsstämpeln i millisekunder efter vilken autentiseringskoden inte är giltig.</td>
                <td>valfri</td>
             </tr>
          </table>
@@ -325,7 +325,7 @@ ht-degree: 0%
 
 ## Exempel {#samples}
 
-### 1. Återuppta autentiseringssessionen utan att parametrar saknas.
+### &#x200B;1. Återuppta autentiseringssessionen utan att parametrar saknas.
 
 >[!BEGINTABS]
 
@@ -367,7 +367,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### 2. Återuppta autentiseringssession med saknade parametrar
+### &#x200B;2. Återuppta autentiseringssession med saknade parametrar
 
 >[!BEGINTABS]
 
@@ -410,7 +410,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### 3. Återuppta autentiseringssessionen medan en giltig profil redan finns.
+### &#x200B;3. Återuppta autentiseringssessionen medan en giltig profil redan finns.
 
 >[!BEGINTABS]
 
@@ -449,7 +449,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### 4. Återuppta autentiseringssessionen med grundläggande eller kampanjtillagda TempPass (krävs inte)
+### &#x200B;4. Återuppta autentiseringssessionen med grundläggande eller kampanjtillagda TempPass (krävs inte)
 
 >[!BEGINTABS]
 
@@ -488,7 +488,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### 5. Återuppta autentiseringssessionen medan en försämring tillämpas
+### &#x200B;5. Återuppta autentiseringssessionen medan en försämring tillämpas
 
 >[!BEGINTABS]
 

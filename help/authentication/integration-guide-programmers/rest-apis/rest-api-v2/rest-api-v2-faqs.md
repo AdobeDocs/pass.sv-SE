@@ -2,9 +2,9 @@
 title: REST API V2 - frågor och svar
 description: REST API V2 - frågor och svar
 exl-id: 2dd74b47-126e-487b-b467-c16fa8cc14c1
-source-git-commit: b753c6a6bdfd8767e86cbe27327752620158cdbb
+source-git-commit: ebe0a53e3ba54c2effdef45c1143deea0e6e57d3
 workflow-type: tm+mt
-source-wordcount: '9703'
+source-wordcount: '9566'
 ht-degree: 0%
 
 ---
@@ -37,13 +37,13 @@ Se [DCR-dokumentationen ](/help/authentication/integration-guide-programmers/res
 
 +++Vanliga frågor om konfigurationsfasen
 
-#### 1. Vad är syftet med konfigurationsfasen? {#configuration-phase-faq1}
+#### &#x200B;1. Vad är syftet med konfigurationsfasen? {#configuration-phase-faq1}
 
 Syftet med konfigurationsfasen är att ge klientprogrammet en lista över de MVPD-filer som det är aktivt integrerat med konfigurationsinformation (t.ex. `id`, `displayName`, `logoUrl` osv.) som sparats av Adobe Pass Authentication för varje MVPD.
 
 Konfigurationsfasen fungerar som ett nödvändigt steg för autentiseringsfasen när klientprogrammet måste be användaren att välja sin TV-leverantör.
 
-#### 2. Är konfigurationsfasen obligatorisk? {#configuration-phase-faq2}
+#### &#x200B;2. Är konfigurationsfasen obligatorisk? {#configuration-phase-faq2}
 
 Konfigurationsfasen är inte obligatorisk. Klientprogrammet måste hämta konfigurationen först när användaren måste välja sin MVPD för att autentisera eller återautentisera.
 
@@ -53,7 +53,7 @@ Klientprogrammet kan hoppa över den här fasen i följande scenarier:
 * Användaren erbjuds tillfällig åtkomst via grundläggande eller kampanjanpassad [TempPass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md)-funktion.
 * Användarautentiseringen har upphört att gälla, men klientprogrammet har cachelagrat den tidigare valda MVPD som ett motiverat val av användarupplevelse och uppmanar bara användaren att bekräfta att han/hon fortfarande prenumererar på denna MVPD.
 
-#### 3. Vad är en konfiguration och hur länge gäller den? {#configuration-phase-faq3}
+#### &#x200B;3. Vad är en konfiguration och hur länge gäller den? {#configuration-phase-faq3}
 
 Konfigurationen är en term som definieras i dokumentationen för [ordlistan](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#configuration).
 
@@ -67,7 +67,7 @@ Klientprogrammet måste lagra användarens valda MVPD-identifierare, enligt MVPD
 
 Mer information finns i dokumentationen för [Hämta konfiguration](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/configuration-apis/rest-api-v2-configuration-apis-retrieve-configuration-for-specific-service-provider.md).
 
-#### 4. Ska klientprogrammet cachelagra konfigurationssvarsinformationen i en beständig lagring? {#configuration-phase-faq4}
+#### &#x200B;4. Ska klientprogrammet cachelagra konfigurationssvarsinformationen i en beständig lagring? {#configuration-phase-faq4}
 
 Klientprogrammet måste hämta konfigurationen först när användaren måste välja sin MVPD för att kunna autentisera eller autentisera igen.
 
@@ -77,19 +77,19 @@ Klientprogrammet bör cachelagra konfigurationssvarsinformationen i en minneslag
 * Användaren erbjuds tillfällig åtkomst via grundläggande eller kampanjanpassad [TempPass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md)-funktion.
 * Användarautentiseringen har upphört att gälla, men klientprogrammet har cachelagrat den tidigare valda MVPD som ett motiverat val av användarupplevelse och uppmanar bara användaren att bekräfta att han/hon fortfarande prenumererar på denna MVPD.
 
-#### 5. Kan klientapplikationen hantera sin egen lista över MVPD? {#configuration-phase-faq5}
+#### &#x200B;5. Kan klientapplikationen hantera sin egen lista över MVPD? {#configuration-phase-faq5}
 
 Klientprogrammet kan hantera sin egen lista över MVPD-program, men det skulle kräva att MVPD-identifierarna hålls synkroniserade med Adobe Pass Authentication. Vi rekommenderar därför att du använder konfigurationen från Adobe Pass Authentication för att se till att listan är aktuell och korrekt.
 
 Klientprogrammet skulle få ett [error](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md#enhanced-error-codes-lists-rest-api-v2) från Adobe Pass Authentication REST API V2 om den angivna MVPD-identifieraren är ogiltig eller om den inte har en aktiv integrering med den angivna [tjänstprovidern](rest-api-v2-glossary.md#service-provider).
 
-#### 6. Kan klientprogrammet filtrera listan över MVPD? {#configuration-phase-faq6}
+#### &#x200B;6. Kan klientprogrammet filtrera listan över MVPD? {#configuration-phase-faq6}
 
 Klientprogrammet kan filtrera listan över MVPD-program som anges i konfigurationssvaret genom att implementera en anpassad mekanism som bygger på dess egen affärslogik och krav som användarplats eller användarhistorik för det tidigare urvalet.
 
 Klientprogrammet kan filtrera listan över [TempPass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md)-MVPD-filer eller MVPD-filer som fortfarande är integrerade i utveckling eller testning.
 
-#### 7. Vad händer om integreringen med en MVPD är inaktiverad och markerad som inaktiv? {#configuration-phase-faq7}
+#### &#x200B;7. Vad händer om integreringen med en MVPD är inaktiverad och markerad som inaktiv? {#configuration-phase-faq7}
 
 När integreringen med en MVPD är inaktiverad och markerad som inaktiv tas MVPD bort från listan över MVPD-program som finns i ytterligare konfigurationssvar, och det finns två viktiga följder att tänka på:
 
@@ -98,14 +98,14 @@ När integreringen med en MVPD är inaktiverad och markerad som inaktiv tas MVPD
 
 Klientprogrammet skulle få ett [error](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md#enhanced-error-codes-lists-rest-api-v2) från Adobe Pass Authentication REST API V2 om användaren valde MVPD inte längre har någon aktiv integrering med den angivna [tjänstprovidern](rest-api-v2-glossary.md#service-provider).
 
-#### 8. Vad händer om integreringen med en MVPD är aktiverad och markerad som aktiv? {#configuration-phase-faq8}
+#### &#x200B;8. Vad händer om integreringen med en MVPD är aktiverad och markerad som aktiv? {#configuration-phase-faq8}
 
 När integreringen med en MVPD är aktiverad och markerad som aktiv, tas MVPD med i listan över distributörer av videoprogrammeringstjänster som finns i ytterligare konfigurationssvar, och det finns två viktiga konsekvenser att tänka på:
 
 * De oautentiserade användarna av denna MVPD kan slutföra autentiseringsfasen igen med denna MVPD.
 * De autentiserade användarna av denna MVPD kommer att kunna slutföra förauktoriserings-, auktoriserings- eller utloggningsfaserna med denna MVPD.
 
-#### 9. Hur aktiverar eller inaktiverar man integreringen med MVPD? {#configuration-phase-faq9}
+#### &#x200B;9. Hur aktiverar eller inaktiverar man integreringen med MVPD? {#configuration-phase-faq9}
 
 Den här åtgärden kan utföras via Adobe Pass [TVE Dashboard](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#tve-dashboard) av en av dina företagsadministratörer eller av en Adobe Pass-autentiseringsrepresentant som agerar för din räkning.
 
@@ -117,13 +117,13 @@ Mer information finns i dokumentationen för [TVE Dashboard Integrations User Gu
 
 +++Vanliga frågor om autentiseringsfasen
 
-#### 1. Vad är syftet med autentiseringsfasen? {#authentication-phase-faq1}
+#### &#x200B;1. Vad är syftet med autentiseringsfasen? {#authentication-phase-faq1}
 
 Syftet med autentiseringsfasen är att ge klientprogrammet möjlighet att verifiera användarens identitet och få information om användarens metadata.
 
 Autentiseringsfasen fungerar som ett nödvändigt steg för förauktoriseringsfasen eller auktoriseringsfasen när klientprogrammet behöver spela upp innehåll.
 
-#### 2. Är autentiseringsfasen obligatorisk? {#authentication-phase-faq2}
+#### &#x200B;2. Är autentiseringsfasen obligatorisk? {#authentication-phase-faq2}
 
 Autentiseringsfasen är obligatorisk. Klientprogrammet måste autentisera användaren när det inte har en giltig profil inom Adobe Pass-autentisering.
 
@@ -134,7 +134,7 @@ Klientprogrammet kan hoppa över den här fasen i följande scenarier:
 
 Felhanteringen i klientprogrammet kräver att [error](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md#enhanced-error-codes-lists-rest-api-v2)-koderna (t.ex. `authenticated_profile_missing`, `authenticated_profile_expired`, `authenticated_profile_invalidated` osv.) hanteras, vilket anger att klientprogrammet kräver att användaren autentiserar.
 
-#### 3. Vad är en autentiseringssession och hur länge gäller den? {#authentication-phase-faq3}
+#### &#x200B;3. Vad är en autentiseringssession och hur länge gäller den? {#authentication-phase-faq3}
 
 Autentiseringssessionen är en term som definieras i dokumentationen för [ordlistan](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#session).
 
@@ -151,7 +151,7 @@ Mer information finns i följande dokument:
 * [Grundläggande autentiseringsflöde som utförs i det primära programmet](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-primary-application-flow.md)
 * [Grundläggande autentiseringsflöde som utförs i sekundärt program](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-secondary-application-flow.md)
 
-#### 4. Vad är en autentiseringskod och hur länge gäller den? {#authentication-phase-faq4}
+#### &#x200B;4. Vad är en autentiseringskod och hur länge gäller den? {#authentication-phase-faq4}
 
 Autentiseringskoden är en term som definieras i dokumentationen för [ordlistan](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#code).
 
@@ -170,7 +170,7 @@ Mer information finns i följande dokument:
 * [Grundläggande autentiseringsflöde som utförs i det primära programmet](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-primary-application-flow.md)
 * [Grundläggande autentiseringsflöde som utförs i sekundärt program](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-secondary-application-flow.md)
 
-#### 5. Hur vet klientprogrammet om användaren har skrivit en giltig autentiseringskod och att autentiseringssessionen inte har gått ut än? {#authentication-phase-faq5}
+#### &#x200B;5. Hur vet klientprogrammet om användaren har skrivit en giltig autentiseringskod och att autentiseringssessionen inte har gått ut än? {#authentication-phase-faq5}
 
 Klientprogrammet kan validera den autentiseringskod som användaren skriver i ett sekundärt (skärm) program genom att skicka en begäran till någon av sessionens slutpunkter som ansvarar för att återuppta autentiseringssessionen eller hämta autentiseringssessionsinformation som är kopplad till autentiseringskoden.
 
@@ -178,7 +178,7 @@ Klientprogrammet skulle få ett [fel](/help/authentication/integration-guide-pro
 
 Mer information finns i dokumenten för [Återuppta autentiseringssessionen](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-resume-authentication-session.md) och [Hämta autentiseringssessionen](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-retrieve-authentication-session-information-using-code.md).
 
-#### 6. Hur vet klientprogrammet om användaren redan är autentiserad? {#authentication-phase-faq6}
+#### &#x200B;6. Hur vet klientprogrammet om användaren redan är autentiserad? {#authentication-phase-faq6}
 
 Klientprogrammet kan fråga någon av följande slutpunkter som kan verifiera om en användare redan är autentiserad och returnera profilinformation:
 
@@ -191,7 +191,7 @@ Mer information finns i följande dokument:
 * [Grundläggande profilflöden som utförs i det primära programmet](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-primary-application-flow.md)
 * [Grundläggande profiler som körs i sekundärt program](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-secondary-application-flow.md)
 
-#### 7. Vad är en profil och hur länge gäller den? {#authentication-phase-faq7}
+#### &#x200B;7. Vad är en profil och hur länge gäller den? {#authentication-phase-faq7}
 
 Profilen är en term som definieras i dokumentationen för [ordlistan](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#profile).
 
@@ -213,7 +213,7 @@ Den här begränsade tidsramen som kallas autentisering (authN) [TTL](/help/auth
 
 Mer information finns i dokumentationen för [TVE Dashboard Integrations User Guide](/help/authentication/user-guide-tve-dashboard/tve-dashboard-integrations.md#most-used-flows) .
 
-#### 8. Ska klientprogrammet cachelagra användarens profilinformation i ett beständigt lagringsutrymme? {#authentication-phase-faq8}
+#### &#x200B;8. Ska klientprogrammet cachelagra användarens profilinformation i ett beständigt lagringsutrymme? {#authentication-phase-faq8}
 
 Klientprogrammet bör cachelagra delar av användarens profilinformation i en beständig lagringsplats för att undvika onödiga begäranden och förbättra användarupplevelsen med tanke på följande:
 
@@ -223,7 +223,7 @@ Klientprogrammet bör cachelagra delar av användarens profilinformation i en be
 | `attributes` | Klientprogrammet kan använda detta för att anpassa användarupplevelsen baserat på olika [användarmetadata](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md)-nycklar (t.ex. `zip`, `maxRating` osv.).<br/><br/>Användarmetadata blir tillgängliga när autentiseringsflödet har slutförts. Klientprogrammet behöver därför inte fråga en separat slutpunkt för att hämta informationen för [användarens metadata](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md) eftersom den redan ingår i profilinformationen.<br/><br/>Vissa metadataattribut kan uppdateras under auktoriseringsflödet, beroende på MVPD och det specifika metadataattributet. Därför kan klientprogrammet behöva fråga Profiles-API:erna igen för att hämta de senaste användarens metadata. |
 | `notAfter` | Klientprogrammet kan använda detta för att hålla reda på utgångsdatumet för användarprofilen.<br/><br/>Felhanteringen i klientprogrammet kräver att [ error](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md#enhanced-error-codes-lists-rest-api-v2) -koderna (t.ex. `authenticated_profile_missing`, `authenticated_profile_expired`, `authenticated_profile_invalidated` osv.) hanteras, vilket anger att klientprogrammet kräver att användaren autentiserar. |
 
-#### 9. Kan klientprogrammet utöka användarens profil utan att omautentisering krävs? {#authentication-phase-faq9}
+#### &#x200B;9. Kan klientprogrammet utöka användarens profil utan att omautentisering krävs? {#authentication-phase-faq9}
 
 Nej.
 
@@ -233,7 +233,7 @@ Klientprogrammet måste därför uppmana användaren att autentisera igen och in
 
 För MVPD-program som stöder [hembaserad autentisering](/help/authentication/integration-guide-programmers/features-standard/hba-access/home-based-authentication.md) (HBA) behöver användaren inte ange några autentiseringsuppgifter.
 
-#### 10. Vilka är användningsexemplen för de tillgängliga profilslutpunkterna? {#authentication-phase-faq10}
+#### &#x200B;10. Vilka är användningsexemplen för de tillgängliga profilslutpunkterna? {#authentication-phase-faq10}
 
 De grundläggande profilslutpunkterna är utformade för att ge klientprogrammet möjlighet att känna till användarens autentiseringsstatus, få åtkomst till användarens metadatainformation, hitta den metod som används för att autentisera eller den enhet som används för att ange identitet.
 
@@ -257,7 +257,7 @@ För efterföljande frågor måste de grundläggande profilslutpunkterna använd
 
 Mer information finns i dokumenten [Single sign-on med partnerflöden](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-partner-flows.md) och [Apple SSO Cookbook (REST API V2)](/help/authentication/integration-guide-programmers/features-standard/sso-access/partner-sso/apple-sso/apple-sso-cookbook-rest-api-v2.md).
 
-#### 11. Vad ska klientprogrammet göra om användaren har flera MVPD-profiler? {#authentication-phase-faq11}
+#### &#x200B;11. Vad ska klientprogrammet göra om användaren har flera MVPD-profiler? {#authentication-phase-faq11}
 
 Beslutet att ge stöd för flera profiler beror på klientprogrammets affärskrav.
 
@@ -272,7 +272,7 @@ REST API v2 har stöd för flera profiler:
 * Användare med MVPD prenumeration kombinerat med DTC-tjänster (Direct-to-Consumer).
 * Användare med flera MVPD-prenumerationer.
 
-#### 12. Vad händer när användarprofiler upphör att gälla? {#authentication-phase-faq12}
+#### &#x200B;12. Vad händer när användarprofiler upphör att gälla? {#authentication-phase-faq12}
 
 När användarprofiler förfaller inkluderas de inte längre i svaret från profilslutpunkten.
 
@@ -280,7 +280,7 @@ Om slutpunkten för profiler returnerar ett tomt profilmappningssvar måste klie
 
 Mer information finns i dokumentationen för [Skapa autentiseringssessions-API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md).
 
-#### 13. När blir användarprofiler ogiltiga? {#authentication-phase-faq13}
+#### &#x200B;13. När blir användarprofiler ogiltiga? {#authentication-phase-faq13}
 
 Användarprofiler blir ogiltiga i följande scenarier:
 
@@ -289,7 +289,7 @@ Användarprofiler blir ogiltiga i följande scenarier:
 * När klientprogrammet uppdaterar klientautentiseringsuppgifterna som används för att hämta rubrikvärdet [Authorization](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-authorization.md).
 * När klientprogrammet återkallar eller uppdaterar programsatsen som används för att hämta klientautentiseringsuppgifter.
 
-#### 14. När ska klientprogrammet starta avsökningsmekanismen? {#authentication-phase-faq14}
+#### &#x200B;14. När ska klientprogrammet starta avsökningsmekanismen? {#authentication-phase-faq14}
 
 För att säkerställa effektivitet och undvika onödiga förfrågningar måste klientprogrammet starta avsökningsfunktionen på följande villkor:
 
@@ -301,7 +301,7 @@ Det primära (direktuppspelande) programmet ska starta avsökningen när använd
 
 Det primära (direktuppspelande) programmet bör starta avsökningen så snart användaren initierar autentiseringsprocessen, direkt efter att ha tagit emot slutpunktssvaret för [sessionerna](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) och visat autentiseringskoden för användaren.
 
-#### 15. När ska klientprogrammet stoppa avsökningsmekanismen? {#authentication-phase-faq15}
+#### &#x200B;15. När ska klientprogrammet stoppa avsökningsmekanismen? {#authentication-phase-faq15}
 
 För att säkerställa effektivitet och undvika onödiga förfrågningar måste klientprogrammet stoppa avsökningsfunktionen under följande förhållanden:
 
@@ -317,7 +317,7 @@ Autentiseringssessionen och koden upphör att gälla, vilket anges av tidsstämp
 
 Om användaren begär en ny autentiseringskod på den primära (skärm) enheten är den befintliga sessionen inte längre giltig och avsökningen med den föregående autentiseringskoden bör stoppas omedelbart.
 
-#### 16. Vilket intervall mellan anrop ska klientprogrammet använda för avsökningsmekanismen? {#authentication-phase-faq16}
+#### &#x200B;16. Vilket intervall mellan anrop ska klientprogrammet använda för avsökningsmekanismen? {#authentication-phase-faq16}
 
 För att säkerställa effektivitet och undvika onödiga förfrågningar måste klientprogrammet konfigurera avsökningsmekanismens frekvens enligt följande villkor:
 
@@ -325,7 +325,7 @@ För att säkerställa effektivitet och undvika onödiga förfrågningar måste 
 |----------------------------------------------------------------------------|----------------------------------------------------------------------------|
 | Det primära programmet (direktuppspelning) ska avsöka var 3-5:e sekund eller mer. | Det primära programmet (direktuppspelning) ska avsöka var 3-5:e sekund eller mer. |
 
-#### 17. Hur många avsökningsbegäranden kan klientprogrammet skicka? {#authentication-phase-faq17}
+#### &#x200B;17. Hur många avsökningsbegäranden kan klientprogrammet skicka? {#authentication-phase-faq17}
 
 Klientprogrammet måste följa de aktuella gränserna som definieras av Adobe Pass-autentiseringsmekanismen [Throttling Mechanism](/help/authentication/integration-guide-programmers/throttling-mechanism.md#throttling-mechanism-limits).
 
@@ -333,7 +333,7 @@ Felhanteringen i klientprogrammet måste kunna hantera felkoden [429 för många
 
 Mer information finns i dokumentationen för [Begränsningsmekanismen](/help/authentication/integration-guide-programmers/throttling-mechanism.md).
 
-#### 18. Hur kan klientprogrammet hämta användarens metadatainformation? {#authentication-phase-faq18}
+#### &#x200B;18. Hur kan klientprogrammet hämta användarens metadatainformation? {#authentication-phase-faq18}
 
 Klientprogrammet kan fråga någon av följande slutpunkter som kan returnera [användarmetadata](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md) som en del av profilinformationen:
 
@@ -350,7 +350,7 @@ Mer information finns i följande dokument:
 
 Vissa metadataattribut kan uppdateras under auktoriseringsflödet beroende på MVPD och det specifika metadataattributet. Därför kan klientprogrammet behöva fråga API:erna ovan igen för att hämta de senaste användarmetadata.
 
-#### 19. Hur ska klientprogrammet hantera försämrad åtkomst? {#authentication-phase-faq19}
+#### &#x200B;19. Hur ska klientprogrammet hantera försämrad åtkomst? {#authentication-phase-faq19}
 
 [Försämringsfunktionen](/help/authentication/integration-guide-programmers/features-premium/degraded-access/degradation-feature.md) gör att klientprogrammet kan upprätthålla en sömlös direktuppspelning för användare, även när deras MVPD autentiserings- eller auktoriseringstjänster stöter på problem.
 
@@ -360,7 +360,7 @@ Med tanke på att din organisation har för avsikt att använda funktionen för 
 
 Mer information finns i dokumentationen för [Försämrade åtkomstflöden](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/degraded-access-flows/rest-api-v2-access-degraded-flows.md).
 
-#### 20. Hur ska klientprogrammet hantera temporär åtkomst? {#authentication-phase-faq20}
+#### &#x200B;20. Hur ska klientprogrammet hantera temporär åtkomst? {#authentication-phase-faq20}
 
 Med funktionen [TempPass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md) kan klientprogrammet ge användaren tillfällig åtkomst.
 
@@ -374,7 +374,7 @@ Med REST API v2 kan klientprogrammet smidigt växla mellan en vanlig MVPD och en
 
 Mer information finns i dokumentationen för [Tillfälliga åtkomstflöden](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/temporary-access-flows/rest-api-v2-access-temporary-flows.md).
 
-#### 21. Hur ska klientprogrammet hantera åtkomst för enkel inloggning mellan olika enheter? {#authentication-phase-faq21}
+#### &#x200B;21. Hur ska klientprogrammet hantera åtkomst för enkel inloggning mellan olika enheter? {#authentication-phase-faq21}
 
 REST API v2 kan aktivera enkel inloggning på olika enheter om klientprogrammet ger en konsekvent unik användaridentifierare på olika enheter.
 
@@ -388,17 +388,17 @@ Mer information finns i dokumentationen för [enkel inloggning med tjänsttokenf
 
 +++Vanliga frågor om förauktoriseringsfasen
 
-#### 1. Vad är syftet med förauktoriseringsfasen? {#preauthorization-phase-faq1}
+#### &#x200B;1. Vad är syftet med förauktoriseringsfasen? {#preauthorization-phase-faq1}
 
 Syftet med förauktoriseringsfasen är att ge klientprogrammet möjlighet att presentera en delmängd av resurser från sin katalog som användaren skulle ha rätt till.
 
 Fas för förhandsauktorisering kan förbättra användarupplevelsen när användaren öppnar klientprogrammet för första gången eller navigerar till ett nytt avsnitt.
 
-#### 2. Är förhandsauktoriseringsfasen obligatorisk? {#preauthorization-phase-faq2}
+#### &#x200B;2. Är förhandsauktoriseringsfasen obligatorisk? {#preauthorization-phase-faq2}
 
 Förhandsauktoriseringsfasen är inte obligatorisk. Klientprogrammet kan hoppa över den här fasen om det vill visa en katalog med resurser utan att först filtrera dem baserat på användarens tillstånd.
 
-#### 3. Vad är ett beslut om förhandstillstånd? {#preauthorization-phase-faq3}
+#### &#x200B;3. Vad är ett beslut om förhandstillstånd? {#preauthorization-phase-faq3}
 
 Förhandsauktoriseringen är en term som definieras i [ordlistan](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#preauthorization) , medan beslutstermen också finns i [ordlistan](rest-api-v2-glossary.md#decision).
 
@@ -411,11 +411,11 @@ Mer information finns i följande dokument:
 * [Hämta API för förauktoriseringsbeslut](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md)
 * [Grundläggande förauktoriseringsflöde som utförs i det primära programmet](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-preauthorization-primary-application-flow.md)
 
-#### 4. Ska klientprogrammet cachelagra förauktoriseringsbesluten i en beständig lagring? {#preauthorization-phase-faq4}
+#### &#x200B;4. Ska klientprogrammet cachelagra förauktoriseringsbesluten i en beständig lagring? {#preauthorization-phase-faq4}
 
 Klientprogrammet behövs inte för att lagra förauktoriseringsbeslut i beständig lagring. Vi rekommenderar dock att du cachelagrar tillståndsbeslut i minnet för att förbättra användarupplevelsen. Detta bidrar till att undvika onödiga anrop till slutpunkten för beslut Förauktorisera för resurser som redan har förauktoriserats, vilket minskar latensen och förbättrar prestandan.
 
-#### 5. Hur kan klientprogrammet avgöra varför ett beslut om förauktorisering nekades? {#preauthorization-phase-faq5}
+#### &#x200B;5. Hur kan klientprogrammet avgöra varför ett beslut om förauktorisering nekades? {#preauthorization-phase-faq5}
 
 Klientprogrammet kan fastställa orsaken till ett beslut om förauktorisering som nekas genom att granska [felkoden och meddelandet](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) som ingår i svaret från slutpunkten för förauktorisering av beslut. Dessa detaljer ger insikt i den specifika anledningen till att förauktoriseringsbegäran nekades, vilket kan hjälpa användaren att informera om användarupplevelsen eller utlösa nödvändig hantering i programmet.
 
@@ -423,17 +423,17 @@ Se till att alla återförsöksmetoder som implementeras för att hämta beslut 
 
 Överväg att begränsa antalet försök till ett rimligt antal och hantera nekanden på ett enkelt sätt genom att ge användaren tydlig feedback.
 
-#### 6. Varför saknas en medietoken i beslutet om förhandsauktorisering? {#preauthorization-phase-faq6}
+#### &#x200B;6. Varför saknas en medietoken i beslutet om förhandsauktorisering? {#preauthorization-phase-faq6}
 
 Förauktoriseringsbeslutet saknar en medietoken eftersom förauktoriseringsfasen inte får användas för att spela upp resurser, eftersom det är syftet med auktoriseringsfasen.
 
-#### 7. Kan auktoriseringsfasen hoppas över om det redan finns ett beslut om förhandsgodkännande? {#preauthorization-phase-faq7}
+#### &#x200B;7. Kan auktoriseringsfasen hoppas över om det redan finns ett beslut om förhandsgodkännande? {#preauthorization-phase-faq7}
 
 Nej.
 
 Auktoriseringsfasen kan inte hoppas över även om ett beslut om förhandsgodkännande finns tillgängligt. Besluten om förhandsgodkännande är endast informativa och ger inte faktisk uppspelningsbehörighet. Förhandsauktoriseringsfasen är avsedd att ge tidig vägledning, men auktoriseringsfasen krävs fortfarande innan något innehåll spelas upp.
 
-#### 8. Vad är en resurs och vilka format stöds? {#preauthorization-phase-faq8}
+#### &#x200B;8. Vad är en resurs och vilka format stöds? {#preauthorization-phase-faq8}
 
 Resursen är en term som definieras i dokumentationen för [ordlistan](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#resource).
 
@@ -446,7 +446,7 @@ Den unika identifieraren för resursen kan ha två format:
 
 Mer information finns i dokumentationen för [Skyddade resurser](/help/authentication/integration-guide-programmers/features-standard/entitlements/decisions.md#protected-resources).
 
-#### 9. För hur många resurser kan klientprogrammet få ett beslut om förauktorisering åt gången? {#preauthorization-phase-faq9}
+#### &#x200B;9. För hur många resurser kan klientprogrammet få ett beslut om förauktorisering åt gången? {#preauthorization-phase-faq9}
 
 Klientprogrammet kan få ett beslut om förhandsauktorisering för ett begränsat antal resurser i en enda API-begäran, vanligtvis upp till 5, på grund av villkor som anges av distributörer av videoprogrammeringstjänster.
 
@@ -460,15 +460,15 @@ Mer information finns i dokumentationen för [TVE Dashboard Integrations User Gu
 
 +++Vanliga frågor om auktoriseringsfasen
 
-#### 1. Vad är syftet med auktoriseringsfasen? {#authorization-phase-faq1}
+#### &#x200B;1. Vad är syftet med auktoriseringsfasen? {#authorization-phase-faq1}
 
 Syftet med auktoriseringsfasen är att ge klientprogrammet möjlighet att spela upp resurser som användaren begär efter att ha verifierat sina rättigheter med MVPD.
 
-#### 2. Är auktoriseringsfasen obligatorisk? {#authorization-phase-faq2}
+#### &#x200B;2. Är auktoriseringsfasen obligatorisk? {#authorization-phase-faq2}
 
 Auktoriseringsfasen är obligatorisk. Klientprogrammet kan inte hoppa över den här fasen om det vill spela upp resurser som användaren begär, eftersom det kräver verifiering med MVPD att användaren har rätt innan strömmen släpps.
 
-#### 3. Vad är ett auktoriseringsbeslut och hur länge gäller det? {#authorization-phase-faq3}
+#### &#x200B;3. Vad är ett auktoriseringsbeslut och hur länge gäller det? {#authorization-phase-faq3}
 
 Auktoriseringen är en term som definieras i [ordlistan](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#authorization) , medan beslutstermen också finns i [ordlistan](rest-api-v2-glossary.md#decision).
 
@@ -487,11 +487,11 @@ Den här begränsade tidsramen som kallas auktorisering (authZ) [TTL](/help/auth
 
 Mer information finns i dokumentationen för [TVE Dashboard Integrations User Guide](/help/authentication/user-guide-tve-dashboard/tve-dashboard-integrations.md#most-used-flows) .
 
-#### 4. Ska klientprogrammet cachelagra auktoriseringsbesluten i en beständig lagring? {#authorization-phase-faq4}
+#### &#x200B;4. Ska klientprogrammet cachelagra auktoriseringsbesluten i en beständig lagring? {#authorization-phase-faq4}
 
 Klientprogrammet behövs inte för att lagra auktoriseringsbeslut i beständig lagring.
 
-#### 5. Hur kan klientprogrammet avgöra varför ett auktoriseringsbeslut nekades? {#authorization-phase-faq5}
+#### &#x200B;5. Hur kan klientprogrammet avgöra varför ett auktoriseringsbeslut nekades? {#authorization-phase-faq5}
 
 Klientprogrammet kan fastställa orsaken till ett beslut om nekad auktorisering genom att granska [felkoden och meddelandet ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) som ingår i svaret från slutpunkten för auktorisering av beslut. Dessa uppgifter ger insikt i varför auktoriseringsbegäran nekades, vilket kan bidra till att informera användaren eller utlösa nödvändig hantering i programmet.
 
@@ -499,7 +499,7 @@ Se till att alla återförsöksmetoder som implementeras för att hämta auktori
 
 Överväg att begränsa antalet försök till ett rimligt antal och hantera nekanden på ett enkelt sätt genom att ge användaren tydlig feedback.
 
-#### 6. Vad är en medietoken och hur länge gäller den? {#authorization-phase-faq6}
+#### &#x200B;6. Vad är en medietoken och hur länge gäller den? {#authorization-phase-faq6}
 
 Medietoken är en term som definieras i dokumentationen för [ordlistan](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#media-token).
 
@@ -516,19 +516,19 @@ Mer information finns i följande dokument:
 * [Hämta API för auktoriseringsbeslut](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md)
 * [Grundläggande auktoriseringsflöde som utförs i primärt program](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authorization-primary-application-flow.md)
 
-#### 7. Ska klientprogrammet validera medietoken innan resursströmmen spelas upp? {#authorization-phase-faq7}
+#### &#x200B;7. Ska klientprogrammet validera medietoken innan resursströmmen spelas upp? {#authorization-phase-faq7}
 
 Ja.
 
 Klientprogrammet måste validera medietoken innan uppspelningen av resursströmmen startar. Verifieringen bör utföras med [Media Token Verifier](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md#media-token-verifier). Genom att verifiera `serializedToken` från `token` som returnerats hjälper klientprogrammet till att förhindra obehörig åtkomst, som strömrippning, och ser till att endast korrekt auktoriserade användare kan spela upp innehållet.
 
-#### 8. Ska klientprogrammet uppdatera en medietoken som har gått ut under uppspelningen? {#authorization-phase-faq8}
+#### &#x200B;8. Ska klientprogrammet uppdatera en medietoken som har gått ut under uppspelningen? {#authorization-phase-faq8}
 
 Nej.
 
 Klientprogrammet behöver inte uppdatera en medietoken som har gått ut när strömmen spelas upp. Om medietoken upphör att gälla under uppspelning bör strömmen kunna fortsätta utan avbrott. Klienten måste dock begära ett nytt auktoriseringsbeslut - och få en ny medietoken - nästa gång användaren försöker spela upp en resurs.
 
-#### 9. Vad är syftet med varje tidsstämpelattribut i auktoriseringsbeslutet? {#authorization-phase-faq9}
+#### &#x200B;9. Vad är syftet med varje tidsstämpelattribut i auktoriseringsbeslutet? {#authorization-phase-faq9}
 
 Auktoriseringsbeslutet innehåller flera tidsstämpelattribut som ger ett viktigt sammanhang när det gäller giltighetsperioden för själva auktoriseringen och tillhörande medietoken. Dessa tidsstämplar har olika syften, beroende på om de avser auktoriseringsbeslutet eller medietoken.
 
@@ -537,20 +537,20 @@ Auktoriseringsbeslutet innehåller flera tidsstämpelattribut som ger ett viktig
 Dessa tidsstämplar beskriver giltighetsperioden för det övergripande beslutet om godkännande:
 
 | Attribut | Beskrivning | Anteckningar |
-|-------------|------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `notBefore` | Tidpunkten då auktoriseringsbeslutet utfärdades. | Detta är början på giltighetsfönstret för auktoriseringen. |
-| `notAfter` | Den tidpunkt då auktoriseringsbeslutet upphör att gälla. | [TTL (Time-to-Live)](/help/authentication/integration-guide-programmers/features-standard/entitlements/decisions.md#authorization-ttl-management) för auktorisering avgör hur länge auktoriseringen ska vara giltig innan omauktorisering krävs. Denna TTL förhandlas fram med MVPD representanter. |
+|-------------|----------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `notBefore` | Tiden i millisekunder då auktoriseringsbeslutet utfärdades. | Detta är början på giltighetsfönstret för auktoriseringen. |
+| `notAfter` | Tiden i millisekunder när auktoriseringsbeslutet upphör att gälla. | [TTL (Time-to-Live)](/help/authentication/integration-guide-programmers/features-standard/entitlements/decisions.md#authorization-ttl-management) för auktorisering avgör hur länge auktoriseringen ska vara giltig innan omauktorisering krävs. Denna TTL förhandlas fram med MVPD representanter. |
 
 **Tidsstämplar på tokennivå**
 
 Dessa tidsstämplar beskriver giltighetsperioden för den medietoken som är knuten till auktoriseringsbeslutet:
 
 | Attribut | Beskrivning | Anteckningar |
-|-------------|-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `notBefore` | Den tid då medietoken utfärdades. | Detta anger när token blir giltig för uppspelning. |
-| `notAfter` | Den tidpunkt då medietoken upphör att gälla. | Medietoken har en avsiktligt kort livslängd (vanligtvis 7 minuter) för att minimera risken för missbruk och ta hänsyn till potentiella klockskillnader mellan den tokengenererande servern och den tokenverifierande servern. |
+|-------------|-----------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `notBefore` | Tiden i millisekunder när medietoken utfärdades. | Detta anger när token blir giltig för uppspelning. |
+| `notAfter` | Tiden i millisekunder när medietoken upphör att gälla. | Medietoken har en avsiktligt kort livslängd (vanligtvis 7 minuter) för att minimera risken för missbruk och ta hänsyn till potentiella klockskillnader mellan den tokengenererande servern och den tokenverifierande servern. |
 
-#### 10. Vad är en resurs och vilka format stöds? {#authorization-phase-faq10}
+#### &#x200B;10. Vad är en resurs och vilka format stöds? {#authorization-phase-faq10}
 
 Resursen är en term som definieras i dokumentationen för [ordlistan](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#resource).
 
@@ -563,7 +563,7 @@ Den unika identifieraren för resursen kan ha två format:
 
 Mer information finns i dokumentationen för [Skyddade resurser](/help/authentication/integration-guide-programmers/features-standard/entitlements/decisions.md#protected-resources).
 
-#### 11. För hur många resurser kan klientprogrammet få ett auktoriseringsbeslut åt gången? {#authorization-phase-faq11}
+#### &#x200B;11. För hur många resurser kan klientprogrammet få ett auktoriseringsbeslut åt gången? {#authorization-phase-faq11}
 
 Klientprogrammet kan få ett auktoriseringsbeslut för ett begränsat antal resurser i en enda API-begäran, vanligtvis upp till 1, på grund av villkor som anges av distributörerna.
 
@@ -573,11 +573,11 @@ Klientprogrammet kan få ett auktoriseringsbeslut för ett begränsat antal resu
 
 +++Vanliga frågor om utloggningsfasen
 
-#### 1. Vad är syftet med utloggningsfasen? {#logout-phase-faq1}
+#### &#x200B;1. Vad är syftet med utloggningsfasen? {#logout-phase-faq1}
 
 Syftet med utloggningsfasen är att ge klientprogrammet möjlighet att avsluta användarens autentiserade profil inom Adobe Pass-autentisering på användarens begäran.
 
-#### 2. Är utloggningsfasen obligatorisk? {#logout-phase-faq2}
+#### &#x200B;2. Är utloggningsfasen obligatorisk? {#logout-phase-faq2}
 
 Utloggningsfasen är obligatorisk. Klientprogrammet måste ge användaren möjlighet att logga ut.
 
@@ -587,7 +587,7 @@ Utloggningsfasen är obligatorisk. Klientprogrammet måste ge användaren möjli
 
 +++Vanliga frågor om rubriker
 
-#### 1. Hur beräknar man värdet för auktoriseringshuvudet? {#headers-faq1}
+#### &#x200B;1. Hur beräknar man värdet för auktoriseringshuvudet? {#headers-faq1}
 
 >[!IMPORTANT]
 >
@@ -604,7 +604,7 @@ Mer information finns i följande dokument:
 * [Hämta API för åtkomsttoken](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md)
 * [Dynamiskt klientregistreringsflöde](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/flows/dynamic-client-registration-flow.md)
 
-#### 2. Hur beräknas värdet för rubriken AP-Device-Identifier? {#headers-faq2}
+#### &#x200B;2. Hur beräknas värdet för rubriken AP-Device-Identifier? {#headers-faq2}
 
 >[!IMPORTANT]
 >
@@ -614,7 +614,7 @@ Huvudet för begäran [AP-Device-Identifier](/help/authentication/integration-gu
 
 Huvuddokumentationen för [AP-Device-Identifier](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-device-identifier.md) innehåller exempel på större plattformar för hur värdet beräknas, men klientprogrammet kan välja att använda en annan metod baserat på sin egen affärslogik och sina egna krav.
 
-#### 3. Hur beräknar man värdet för X-Device-Info-huvudet? {#headers-faq3}
+#### &#x200B;3. Hur beräknar man värdet för X-Device-Info-huvudet? {#headers-faq3}
 
 >[!IMPORTANT]
 >
@@ -636,7 +636,7 @@ Detta kan leda till att begäran behandlas som osäker och omfattas av mer restr
 
 +++Diverse Frågor och svar
 
-#### 1. Kan jag utforska REST API V2-begäranden och -svar och testa API:t? {#misc-faq1}
+#### &#x200B;1. Kan jag utforska REST API V2-begäranden och -svar och testa API:t? {#misc-faq1}
 
 Ja.
 
@@ -649,7 +649,7 @@ Om du vill interagera med [REST API V2](https://developer.adobe.com/adobe-pass/a
 
 Om du vill använda [DCR API](https://developer.adobe.com/adobe-pass/api/dcr_api/interactive/) krävs en programsats med REST API V2-scope. Mer information finns i dokumentet [Dynamic Client Registration (DCR) - frågor och svar](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-faqs.md).
 
-#### 2. Kan jag utforska REST API V2-begäranden och svar med ett API-utvecklingsverktyg med stöd för OpenAPI? {#misc-faq2}
+#### &#x200B;2. Kan jag utforska REST API V2-begäranden och svar med ett API-utvecklingsverktyg med stöd för OpenAPI? {#misc-faq2}
 
 Ja.
 
@@ -662,7 +662,7 @@ Om du vill hämta OpenAPI-specifikationsfilerna klickar du på hämtningsknappar
 
 Du kan sedan importera dessa filer till det API-utvecklingsverktyg du föredrar för att utforska REST API V2-begäranden och -svar och testa API:t.
 
-#### 3. Kan jag fortfarande använda det befintliga API-testverktyget på https://sp.auth-staging.adobe.com/apitest/api.html? {#misc-faq3}
+#### &#x200B;3. Kan jag fortfarande använda det befintliga API-testverktyget på https://sp.auth-staging.adobe.com/apitest/api.html? {#misc-faq3}
 
 Nej.
 
@@ -689,7 +689,7 @@ Fortsätt med det här avsnittet om du arbetar med ett program som behöver migr
 
 +++Vanliga frågor om migrering
 
-#### 1. Måste jag köra ett nytt klientprogram som migrerats till REST API V2 för alla användare samtidigt? {#migration-faq1}
+#### &#x200B;1. Måste jag köra ett nytt klientprogram som migrerats till REST API V2 för alla användare samtidigt? {#migration-faq1}
 
 Nej.
 
@@ -697,7 +697,7 @@ Klientprogrammet behöver inte ha en ny version som integrerar REST API V2 för 
 
 Adobe Pass Authentication kommer att ha fortsatt stöd för äldre klientprogramversioner som integrerar REST API V1 eller SDK fram till slutet av 2025.
 
-#### 2. Måste jag köra ett nytt klientprogram som migrerats till REST API V2 för alla API:er och flöden samtidigt? {#migration-faq2}
+#### &#x200B;2. Måste jag köra ett nytt klientprogram som migrerats till REST API V2 för alla API:er och flöden samtidigt? {#migration-faq2}
 
 Ja.
 
@@ -707,7 +707,7 @@ Om autentiseringsflödet för den andra skärmen ska fungera måste klientprogra
 
 Adobe Pass Authentication stöder inte hybridimplementeringar som integrerar både REST API V2 och REST API V1/SDK mellan API:er och flöden.
 
-#### 3. Bevaras användarautentiseringen vid uppdatering till ett nytt klientprogram som migrerats till REST API V2? {#migration-faq3}
+#### &#x200B;3. Bevaras användarautentiseringen vid uppdatering till ett nytt klientprogram som migrerats till REST API V2? {#migration-faq3}
 
 Nej.
 
@@ -715,7 +715,7 @@ Användarautentiseringen som erhållits i äldre klientprogramversioner som inte
 
 Därför måste användaren autentisera igen i det nya klientprogrammet som migrerats till REST API V2.
 
-#### 4. Är de förbättrade felkoderna aktiverade som standard i REST API V2? {#migration-faq4}
+#### &#x200B;4. Är de förbättrade felkoderna aktiverade som standard i REST API V2? {#migration-faq4}
 
 Ja.
 
@@ -723,7 +723,7 @@ Klientprogrammen som migrerar till REST API V2 drar automatiskt nytta av den hä
 
 Mer information finns i dokumentationen för [Förbättrade felkoder](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md#enhanced-error-codes-lists-rest-api-v2).
 
-#### 5. Kräver befintliga integreringar konfigurationsändringar vid migrering till REST API V2? {#migration-faq5}
+#### &#x200B;5. Kräver befintliga integreringar konfigurationsändringar vid migrering till REST API V2? {#migration-faq5}
 
 Nej.
 
@@ -741,7 +741,7 @@ Fortsätt med det här underavsnittet om du arbetar med ett program som behöver
 
 +++Vanliga frågor om registreringsfasen
 
-##### 1. Vilka är de högnivåmigreringar av API:er som krävs för registreringsfasen? {#registration-phase-v1-to-v2-faq1}
+##### &#x200B;1. Vilka är de högnivåmigreringar av API:er som krävs för registreringsfasen? {#registration-phase-v1-to-v2-faq1}
 
 I övergången från REST API V1 till REST API V2 finns det inga omfattande förändringar i registreringsfasen.
 
@@ -760,7 +760,7 @@ Mer information finns i följande dokument:
 
 +++Vanliga frågor om konfigurationsfasen
 
-##### 1. Vilka är de högnivå-API-migreringar som krävs för konfigurationsfasen? {#configuration-phase-v1-to-v2-faq1}
+##### &#x200B;1. Vilka är de högnivå-API-migreringar som krävs för konfigurationsfasen? {#configuration-phase-v1-to-v2-faq1}
 
 I migreringen från REST API V1 till REST API V2 finns det stora förändringar som kan övervägas i följande tabell:
 
@@ -774,7 +774,7 @@ I migreringen från REST API V1 till REST API V2 finns det stora förändringar 
 
 +++Vanliga frågor om autentiseringsfasen
 
-##### 1. Vilka är de högnivåmigreringar av API som krävs för autentiseringsfasen? {#authentication-phase-v1-to-v2-faq1}
+##### &#x200B;1. Vilka är de högnivåmigreringar av API som krävs för autentiseringsfasen? {#authentication-phase-v1-to-v2-faq1}
 
 I migreringen från REST API V1 till REST API V2 finns det stora förändringar som kan övervägas i följande tabell:
 
@@ -794,7 +794,7 @@ I migreringen från REST API V1 till REST API V2 finns det stora förändringar 
 
 +++Vanliga frågor om förauktoriseringsfasen
 
-##### 1. Vilka är de högnivåmigreringar av API:er som krävs för fasen för förhandsauktorisering? {#preauthorization-phase-v1-to-v2-faq1}
+##### &#x200B;1. Vilka är de högnivåmigreringar av API:er som krävs för fasen för förhandsauktorisering? {#preauthorization-phase-v1-to-v2-faq1}
 
 I migreringen från REST API V1 till REST API V2 finns det stora förändringar som kan övervägas i följande tabell:
 
@@ -808,7 +808,7 @@ I migreringen från REST API V1 till REST API V2 finns det stora förändringar 
 
 +++Vanliga frågor om auktoriseringsfasen
 
-##### 1. Vilka är de högnivåmigreringar av API som krävs för auktoriseringsfasen? {#authorization-phase-v1-to-v2-faq1}
+##### &#x200B;1. Vilka är de högnivåmigreringar av API som krävs för auktoriseringsfasen? {#authorization-phase-v1-to-v2-faq1}
 
 I migreringen från REST API V1 till REST API V2 finns det stora förändringar som kan övervägas i följande tabell:
 
@@ -824,7 +824,7 @@ I migreringen från REST API V1 till REST API V2 finns det stora förändringar 
 
 +++Vanliga frågor om utloggningsfasen
 
-##### 1. Vilka är de högnivåmigreringar av API:er som krävs för utloggningsfasen? {#logout-phase-v1-to-v2-faq1}
+##### &#x200B;1. Vilka är de högnivåmigreringar av API:er som krävs för utloggningsfasen? {#logout-phase-v1-to-v2-faq1}
 
 I migreringen från REST API V1 till REST API V2 finns det stora förändringar som kan övervägas i följande tabell:
 
@@ -842,7 +842,7 @@ Fortsätt med det här underavsnittet om du arbetar med ett program som behöver
 
 +++Vanliga frågor om registreringsfasen
 
-##### 1. Vilka är de högnivåmigreringar av API:er som krävs för registreringsfasen? {#registration-phase-sdk-to-v2-faq1}
+##### &#x200B;1. Vilka är de högnivåmigreringar av API:er som krävs för registreringsfasen? {#registration-phase-sdk-to-v2-faq1}
 
 I migreringen från SDK:er till REST API V2 finns det stora förändringar som kan övervägas i följande tabeller:
 
@@ -876,7 +876,7 @@ I migreringen från SDK:er till REST API V2 finns det stora förändringar som k
 
 +++Vanliga frågor om konfigurationsfasen
 
-##### 1. Vilka är de högnivå-API-migreringar som krävs för konfigurationsfasen? {#configuration-phase-sdk-to-v2-faq1}
+##### &#x200B;1. Vilka är de högnivå-API-migreringar som krävs för konfigurationsfasen? {#configuration-phase-sdk-to-v2-faq1}
 
 I migreringen från SDK:er till REST API V2 finns det stora förändringar som kan övervägas i följande tabeller:
 
@@ -910,7 +910,7 @@ I migreringen från SDK:er till REST API V2 finns det stora förändringar som k
 
 +++Vanliga frågor om autentiseringsfasen
 
-##### 1. Vilka är de högnivåmigreringar av API som krävs för autentiseringsfasen? {#authentication-phase-sdk-to-v2-faq1}
+##### &#x200B;1. Vilka är de högnivåmigreringar av API som krävs för autentiseringsfasen? {#authentication-phase-sdk-to-v2-faq1}
 
 I migreringen från SDK:er till REST API V2 finns det stora förändringar som kan övervägas i följande tabeller:
 
@@ -966,7 +966,7 @@ I migreringen från SDK:er till REST API V2 finns det stora förändringar som k
 
 +++Vanliga frågor om förauktoriseringsfasen
 
-##### 1. Vilka är de högnivåmigreringar av API:er som krävs för fasen för förhandsauktorisering? {#preauthorization-phase-sdk-to-v2-faq1}
+##### &#x200B;1. Vilka är de högnivåmigreringar av API:er som krävs för fasen för förhandsauktorisering? {#preauthorization-phase-sdk-to-v2-faq1}
 
 I migreringen från SDK:er till REST API V2 finns det stora förändringar som kan övervägas i följande tabeller:
 
@@ -998,7 +998,7 @@ I migreringen från SDK:er till REST API V2 finns det stora förändringar som k
 
 +++Vanliga frågor om auktoriseringsfasen
 
-##### 1. Vilka är de högnivåmigreringar av API som krävs för auktoriseringsfasen? {#authorization-phase-sdk-to-v2-faq1}
+##### &#x200B;1. Vilka är de högnivåmigreringar av API som krävs för auktoriseringsfasen? {#authorization-phase-sdk-to-v2-faq1}
 
 I migreringen från SDK:er till REST API V2 finns det stora förändringar som kan övervägas i följande tabeller:
 
@@ -1032,7 +1032,7 @@ I migreringen från SDK:er till REST API V2 finns det stora förändringar som k
 
 +++Vanliga frågor om utloggningsfasen
 
-##### 1. Vilka är de högnivåmigreringar av API:er som krävs för utloggningsfasen? {#logout-phase-sdk-to-v2-faq1}
+##### &#x200B;1. Vilka är de högnivåmigreringar av API:er som krävs för utloggningsfasen? {#logout-phase-sdk-to-v2-faq1}
 
 I migreringen från SDK:er till REST API V2 finns det stora förändringar som kan övervägas i följande tabeller:
 

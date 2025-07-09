@@ -2,9 +2,9 @@
 title: Hämta auktoriseringsbeslut med hjälp av specifik mvpd
 description: REST API V2 - Hämta auktoriseringsbeslut med hjälp av specifik mvpd
 exl-id: e8889395-4434-4bec-a212-a8341bb9c310
-source-git-commit: 32c3176fb4633acb60deb1db8fb5397bbf18e2d0
+source-git-commit: ebe0a53e3ba54c2effdef45c1143deea0e6e57d3
 workflow-type: tm+mt
-source-wordcount: '927'
+source-wordcount: '935'
 ht-degree: 0%
 
 ---
@@ -276,20 +276,20 @@ ht-degree: 0%
                   <br/><br/>
                   JSON-objekt med följande attribut:
                   <ul>
-                    <li><b>notBefore</b><br/>Tidsstämpeln som medietoken inte är giltig före.</li>
-                    <li><b>notAfter</b><br/>Tidsstämpeln efter vilken medietoken inte är giltig.</li>
+                    <li><b>notBefore</b><br/>Tidsstämpeln i millisekunder innan medietoken är ogiltig.</li>
+                    <li><b>notAfter</b><br/>Tidsstämpeln i millisekunder efter vilken medietoken inte är giltig.</li>
                     <li><b>serializedToken</b><br/>Base64-kodad medietoken.</li>
                   </ul>
                <td>valfri</td>
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">notBefore</td>
-               <td>Tidsstämpeln innan vilket beslutet inte är giltigt.</td>
+               <td>Tidsstämpeln i millisekunder innan beslutet är giltigt.</td>
                <td>valfri</td>
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">notAfter</td>
-               <td>Tidsstämpeln efter vilken beslutet inte är giltigt.</td>
+               <td>Tidsstämpeln i millisekunder efter vilken beslutet inte är giltigt.</td>
                <td>valfri</td>
             </tr>
             <tr>
@@ -334,7 +334,7 @@ ht-degree: 0%
 
 ## Exempel {#samples}
 
-### 1. Hämta auktoriseringsbeslut med hjälp av specifik mvpd när beslut är tillstånd
+### &#x200B;1. Hämta auktoriseringsbeslut med hjälp av specifik mvpd när beslut är tillstånd
 
 >[!BEGINTABS]
 
@@ -386,7 +386,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### 2. Hämta auktoriseringsbeslut med hjälp av en specifik mvpd medan beslutet inte kan fattas
+### &#x200B;2. Hämta auktoriseringsbeslut med hjälp av en specifik mvpd medan beslutet inte kan fattas
 
 >[!BEGINTABS]
 
@@ -430,7 +430,7 @@ Content-Type: application/json;charset=UTF-8
                 "code": "authorization_denied_by_mvpd",
                 "message": "The MVPD has returned a "Deny" decision when requesting authorization for the specified resource",
                 "details": "Your subscription package does not include the "Live" channel",
-                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=sv-SE",
+                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
                 "trace": "12f6fef9-d2e0-422b-a9d7-60d799abe353"
             },
             "notBefore": 1697094207324,
@@ -442,7 +442,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### 3. Hämta auktoriseringsbeslut med hjälp av en specifik mvpd när nedbrytning tillämpas
+### &#x200B;3. Hämta auktoriseringsbeslut med hjälp av en specifik mvpd när nedbrytning tillämpas
 
 >[!BEGINTABS]
 
@@ -562,7 +562,7 @@ Content-Type: application/json;charset=UTF-8
                 "status": 403,
                 "code": "authorization_denied_by_degradation_rule",
                 "message": "The integration has an AuthZNone rule applied for the requested resources",
-                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=sv-SE",
+                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
                 "action": "none"
             }
         }
@@ -576,7 +576,7 @@ Content-Type: application/json;charset=UTF-8
                 "status": 403,
                 "code": "authorization_denied_by_degradation_rule",
                 "message": "The integration has an AuthZNone rule applied for the requested resources",
-                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=sv-SE",
+                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
                 "action": "none"
             }
         }
@@ -586,7 +586,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### 4. Hämta auktoriseringsbeslut med grundläggande TempPass
+### &#x200B;4. Hämta auktoriseringsbeslut med grundläggande TempPass
 
 >[!BEGINTABS]
 
@@ -655,7 +655,7 @@ Content-Type: application/json;charset=UTF-8
                 "status": 403,
                 "code": "temporary_access_duration_limit_exceeded",
                 "message": "The temporary access duration limit has been exceeded.",
-                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=sv-SE",
+                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
                 "action": "authentication"
             }
         }
@@ -682,7 +682,7 @@ Content-Type: application/json;charset=UTF-8
                 "status": 500,
                 "code": "invalid_configuration_temporary_access",
                 "message": "The temporary access configuration is invalid.",
-                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=sv-SE",
+                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
                 "action": "configuration"
             }
         }
@@ -692,7 +692,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### 5. Hämta auktoriseringsbeslut med hjälp av kampanjtempPass
+### &#x200B;5. Hämta auktoriseringsbeslut med hjälp av kampanjtempPass
 
 >[!BEGINTABS]
 
@@ -762,7 +762,7 @@ Content-Type: application/json;charset=UTF-8
                 "status": 403,
                 "code": "temporary_access_duration_limit_exceeded",
                 "message": "The temporary access duration limit has been exceeded.",
-                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=sv-SE",
+                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
                 "action": "authentication"
             }
         }
@@ -789,7 +789,7 @@ Content-Type: application/json;charset=UTF-8
                 "status": 403,
                 "code": "temporary_access_resources_limit_exceeded",
                 "message": "The temporary access resources limit has been exceeded.",
-                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=sv-SE",
+                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
                 "action": "authentication"
             }
         }
@@ -816,7 +816,7 @@ Content-Type: application/json;charset=UTF-8
                 "status": 500,
                 "code": "invalid_configuration_temporary_access",
                 "message": "The temporary access configuration is invalid.",
-                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=sv-SE",
+                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
                 "action": "configuration"
             }
         }
@@ -843,7 +843,7 @@ Content-Type: application/json;charset=UTF-8
                 "status": 400,
                 "code": "invalid_header_identity_for_temporary_access",
                 "message": "The identity for temporary access header value is missing or invalid.",
-                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=sv-SE",
+                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
                 "action": "none"
             }
         }
