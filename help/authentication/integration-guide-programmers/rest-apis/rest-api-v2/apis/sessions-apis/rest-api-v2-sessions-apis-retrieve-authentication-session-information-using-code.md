@@ -2,9 +2,9 @@
 title: Hämta autentiseringssession med kod
 description: REST API V2 - Hämta autentiseringssession med kod
 exl-id: 5cc209eb-ee6b-4bb9-9c04-3444408844b7
-source-git-commit: 6b803eb0037e347d6ce147c565983c5a26de9978
+source-git-commit: 26245e019afac2c0844ed64b222208cc821f9c6c
 workflow-type: tm+mt
-source-wordcount: '425'
+source-wordcount: '441'
 ht-degree: 1%
 
 ---
@@ -75,6 +75,12 @@ ht-degree: 1%
          <br/><br/>
          För implementeringar från klient till server skickas direktuppspelningsenhetens IP-adress implicit.
       </td> 
+      <td>valfri</td>
+   </tr>
+   <tr>
+      <td style="background-color: #DEEBFF;">AP-Visitor-Identifier</td>
+      <td>
+        Genereringen av nyttolasten för besökaridentifieraren beskrivs i rubrikdokumentationen för <a href="../../appendix/headers/rest-api-v2-appendix-headers-ap-visitor-identifier.md">AP-Visitor-Identifier</a>.
       <td>valfri</td>
    </tr>
    <tr>
@@ -200,7 +206,7 @@ ht-degree: 1%
 
 ## Exempel {#samples}
 
-### 1. Hämta autentiseringssession utan att parametrar saknas
+### &#x200B;1. Hämta autentiseringssession utan att parametrar saknas
 
 >[!BEGINTABS]
 
@@ -233,7 +239,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### 1. Hämta autentiseringssession med saknade parametrar
+### &#x200B;1. Hämta autentiseringssession med saknade parametrar
 
 >[!BEGINTABS]
 

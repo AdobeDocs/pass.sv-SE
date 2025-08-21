@@ -2,9 +2,9 @@
 title: Skapa autentiseringssession
 description: REST API V2 - Skapa autentiseringssession
 exl-id: bb2a6bb4-0778-4748-a674-df9d0e8242c8
-source-git-commit: ebe0a53e3ba54c2effdef45c1143deea0e6e57d3
+source-git-commit: 26245e019afac2c0844ed64b222208cc821f9c6c
 workflow-type: tm+mt
-source-wordcount: '1064'
+source-wordcount: '1080'
 ht-degree: 0%
 
 ---
@@ -148,6 +148,12 @@ ht-degree: 0%
         Genereringen av nyttolasten för enkel inloggning för Service Token-metoden beskrivs i rubrikdokumentationen för <a href="../../appendix/headers/rest-api-v2-appendix-headers-ad-service-token.md">AD-Service-Token</a>.
         <br/><br/>
         Mer information om enkla inloggningsaktiverade flöden med en tjänsttoken finns i dokumentationen för <a href="../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-service-token-flows.md"> enkel inloggning med tjänsttoken flows </a> .
+      <td>valfri</td>
+   </tr>
+   <tr>
+      <td style="background-color: #DEEBFF;">AP-Visitor-Identifier</td>
+      <td>
+        Genereringen av nyttolasten för besökaridentifieraren beskrivs i rubrikdokumentationen för <a href="../../appendix/headers/rest-api-v2-appendix-headers-ap-visitor-identifier.md">AP-Visitor-Identifier</a>.
       <td>valfri</td>
    </tr>
    <tr>

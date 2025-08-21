@@ -2,9 +2,9 @@
 title: Skapa och hämta profil med partnerautentiseringssvar
 description: REST API V2 - Skapa och hämta profil med partnerautentiseringssvar
 exl-id: cae260ff-a229-4df7-bbf9-4cdf300c0f9a
-source-git-commit: be2b75d3dcde92c0b83700705892403291dcab2e
+source-git-commit: 26245e019afac2c0844ed64b222208cc821f9c6c
 workflow-type: tm+mt
-source-wordcount: '779'
+source-wordcount: '795'
 ht-degree: 0%
 
 ---
@@ -120,6 +120,12 @@ ht-degree: 0%
          <br/><br/>
          För implementeringar från klient till server skickas direktuppspelningsenhetens IP-adress implicit.
       </td>
+      <td>valfri</td>
+   </tr>
+   <tr>
+      <td style="background-color: #DEEBFF;">AP-Visitor-Identifier</td>
+      <td>
+        Genereringen av nyttolasten för besökaridentifieraren beskrivs i rubrikdokumentationen för <a href="../../appendix/headers/rest-api-v2-appendix-headers-ap-visitor-identifier.md">AP-Visitor-Identifier</a>.
       <td>valfri</td>
    </tr>
    <tr>

@@ -2,9 +2,9 @@
 title: Hämta partnerautentiseringsbegäran
 description: REST API V2 - Hämta begäran om partnerautentisering
 exl-id: 52d8a8e9-c176-410f-92bc-e83449278943
-source-git-commit: 9f872ad94e0aaa0546c8fcac9f88c50f47e10f6e
+source-git-commit: 26245e019afac2c0844ed64b222208cc821f9c6c
 workflow-type: tm+mt
-source-wordcount: '1236'
+source-wordcount: '1252'
 ht-degree: 0%
 
 ---
@@ -135,6 +135,12 @@ ht-degree: 0%
          <br/><br/>
          För implementeringar från klient till server skickas direktuppspelningsenhetens IP-adress implicit.
       </td>
+      <td>valfri</td>
+   </tr>
+   <tr>
+      <td style="background-color: #DEEBFF;">AP-Visitor-Identifier</td>
+      <td>
+        Genereringen av nyttolasten för besökaridentifieraren beskrivs i rubrikdokumentationen för <a href="../../appendix/headers/rest-api-v2-appendix-headers-ap-visitor-identifier.md">AP-Visitor-Identifier</a>.
       <td>valfri</td>
    </tr>
    <tr>
@@ -364,7 +370,7 @@ ht-degree: 0%
 
 ## Exempel {#samples}
 
-### 1. Hämta begäran om partnerautentisering
+### &#x200B;1. Hämta begäran om partnerautentisering
 
 >[!BEGINTABS]
 
@@ -411,7 +417,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### 2. Hämta partnerautentiseringsbegäran, men nedgradering tillämpas
+### &#x200B;2. Hämta partnerautentiseringsbegäran, men nedgradering tillämpas
 
 >[!BEGINTABS]
 
@@ -453,7 +459,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### 3. Hämta begäran om partnerautentisering men återgå till grundläggande autentiseringsflöde på grund av att rubrikvärdet för AP-Partner-Framework-Status saknas eller är ogiltigt.
+### &#x200B;3. Hämta begäran om partnerautentisering men återgå till grundläggande autentiseringsflöde på grund av att rubrikvärdet för AP-Partner-Framework-Status saknas eller är ogiltigt.
 
 >[!BEGINTABS]
 
@@ -498,7 +504,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### 4. Hämta partnerautentiseringsbegäran, men återgå till grundläggande autentiseringsflöde på grund av partnerkonfigurationen för enkel inloggning på Adobe Pass-backend.
+### &#x200B;4. Hämta partnerautentiseringsbegäran, men återgå till grundläggande autentiseringsflöde på grund av partnerkonfigurationen för enkel inloggning på Adobe Pass-backend.
 
 >[!BEGINTABS]
 
@@ -543,7 +549,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### 5. Hämta partnerautentiseringsbegäran, men återgå till grundläggande autentiseringsflöde på grund av saknade parametrar.
+### &#x200B;5. Hämta partnerautentiseringsbegäran, men återgå till grundläggande autentiseringsflöde på grund av saknade parametrar.
 
 >[!BEGINTABS]
 

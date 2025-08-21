@@ -2,9 +2,9 @@
 title: Hämta profiler
 description: REST API V2 - Hämta profiler
 exl-id: 72922aa8-95ca-48dc-8523-e335802fc366
-source-git-commit: be2b75d3dcde92c0b83700705892403291dcab2e
+source-git-commit: 26245e019afac2c0844ed64b222208cc821f9c6c
 workflow-type: tm+mt
-source-wordcount: '872'
+source-wordcount: '888'
 ht-degree: 0%
 
 ---
@@ -114,6 +114,12 @@ ht-degree: 0%
         Genereringen av nyttolasten för enkel inloggning för partnermetoden beskrivs i rubrikdokumentationen för <a href="../../appendix/headers/rest-api-v2-appendix-headers-ap-partner-framework-status.md">AP-Partner-Framework-Status</a> .
         <br/><br/>
         Mer information om aktiverade flöden för enkel inloggning med en partner finns i dokumentationen för <a href="../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-partner-flows.md"> enkel inloggning med partnerflöden </a> .</td>
+      <td>valfri</td>
+   </tr>
+   <tr>
+      <td style="background-color: #DEEBFF;">AP-Visitor-Identifier</td>
+      <td>
+        Genereringen av nyttolasten för besökaridentifieraren beskrivs i rubrikdokumentationen för <a href="../../appendix/headers/rest-api-v2-appendix-headers-ap-visitor-identifier.md">AP-Visitor-Identifier</a>.
       <td>valfri</td>
    </tr>
    <tr>

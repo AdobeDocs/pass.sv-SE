@@ -2,9 +2,9 @@
 title: Initiera utloggning för specifik mvpd
 description: REST API V2 - Initiera utloggning för specifik mvpd
 exl-id: 2482de87-b3d4-4ea8-bd4a-25bf10017e01
-source-git-commit: 32c3176fb4633acb60deb1db8fb5397bbf18e2d0
+source-git-commit: 26245e019afac2c0844ed64b222208cc821f9c6c
 workflow-type: tm+mt
-source-wordcount: '1009'
+source-wordcount: '1025'
 ht-degree: 0%
 
 ---
@@ -121,6 +121,12 @@ ht-degree: 0%
         <br/><br/>
         Mer information om enkla inloggningsaktiverade flöden med en tjänsttoken finns i dokumentationen för <a href="../../flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-service-token-flows.md"> enkel inloggning med tjänsttoken flows </a> .
       </td>
+      <td>valfri</td>
+   </tr>
+   <tr>
+      <td style="background-color: #DEEBFF;">AP-Visitor-Identifier</td>
+      <td>
+        Genereringen av nyttolasten för besökaridentifieraren beskrivs i rubrikdokumentationen för <a href="../../appendix/headers/rest-api-v2-appendix-headers-ap-visitor-identifier.md">AP-Visitor-Identifier</a>.
       <td>valfri</td>
    </tr>
    <tr>
@@ -313,7 +319,7 @@ ht-degree: 0%
 
 ## Exempel {#samples}
 
-### 1. Initiera utloggning för specifik mvpd med utloggningsslutpunkt
+### &#x200B;1. Initiera utloggning för specifik mvpd med utloggningsslutpunkt
 
 >[!BEGINTABS]
 
@@ -350,7 +356,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### 2. Initiera utloggning för specifik mvpd utan utloggningsslutpunkt
+### &#x200B;2. Initiera utloggning för specifik mvpd utan utloggningsslutpunkt
 
 >[!BEGINTABS]
 
@@ -386,7 +392,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### 3. Initiera enkel utloggning för specifik mvpd inklusive profiler som erhållits via enkel inloggning med Service Token-metoden.
+### &#x200B;3. Initiera enkel utloggning för specifik mvpd inklusive profiler som erhållits via enkel inloggning med Service Token-metoden.
 
 >[!IMPORTANT]
 >
@@ -432,7 +438,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### 4. Initiera enkel utloggning för specifik mvpd, inklusive profiler som erhållits via enkel inloggning med plattformsidentitetsmetoden
+### &#x200B;4. Initiera enkel utloggning för specifik mvpd, inklusive profiler som erhållits via enkel inloggning med plattformsidentitetsmetoden
 
 >[!IMPORTANT]
 >
@@ -478,7 +484,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### 5. Initiera utloggning för specifik mvpd, inklusive profiler som erhållits via enkel inloggning med Partner (Apple)
+### &#x200B;5. Initiera utloggning för specifik mvpd, inklusive profiler som erhållits via enkel inloggning med Partner (Apple)
 
 >[!BEGINTABS]
 
@@ -514,7 +520,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### 6. Initiera utloggning för en specifik mvpd när nedbrytning används
+### &#x200B;6. Initiera utloggning för en specifik mvpd när nedbrytning används
 
 >[!BEGINTABS]
 
@@ -550,7 +556,7 @@ Content-Type: application/json;charset=UTF-8
 
 >[!ENDTABS]
 
-### 7. Initiera utloggning för standardpass eller kampanjtempPass (krävs inte)
+### &#x200B;7. Initiera utloggning för standardpass eller kampanjtempPass (krävs inte)
 
 >[!BEGINTABS]
 

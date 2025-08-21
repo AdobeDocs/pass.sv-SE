@@ -1,15 +1,15 @@
 ---
-title: Använda Experience Cloud-ID i Adobe Pass-autentisering
-description: Använda Experience Cloud-ID i Adobe Pass-autentisering
+title: Använda Experience Cloud ID i Adobe Pass-autentisering
+description: Använda Experience Cloud ID i Adobe Pass-autentisering
 exl-id: 03354c01-5aad-4d81-beee-1c3834599134
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 26245e019afac2c0844ed64b222208cc821f9c6c
 workflow-type: tm+mt
-source-wordcount: '396'
+source-wordcount: '426'
 ht-degree: 0%
 
 ---
 
-# Använda Experience Cloud-ID i Adobe Pass-autentisering
+# Använda Experience Cloud ID i Adobe Pass-autentisering
 
 >[!NOTE]
 >
@@ -17,19 +17,19 @@ ht-degree: 0%
 
 ## Vad är Experience Cloud ID och hur skaffar man det? {#what-exp-cloud-id-obtain}
 
-Experience Cloud ID (ECID för kort) är ett unikt ID som skapas av Adobe Experience Cloud för varje enskild användare i ditt program/på din webbplats. ECID används i stor utsträckning i alla Experience Cloud-rapporter som används för att länka samman information om en viss användare över flera program/webbplatser.
+Experience Cloud-id (ECID för kort) är ett unikt id som skapas av Adobe Experience Cloud för varje enskild användare i ditt program/på din webbplats. ECID används i stor utsträckning i alla Experience Cloud-rapporter som används för att länka samman information om en viss användare över flera program/webbplatser.
 
 Om du redan har ett system som tillhandahåller ett besökar-ID bör du använda samma ID för dokumentets omfång.
 
-Ett sätt att få ett ECID är att använda Experience Cloud ID-tjänsten. Du kan använda den implementeringstyp som du föredrar, antingen baserat på TDM, JS-bibliotek, serversidan, direktintegrering eller inbyggda bibliotek för mobila plattformar. En utförlig översikt över tillgängliga tjänster, bibliotek, SDK:er och implementeringsguider finns på: <https://experienceleague.adobe.com/docs/id-service/using/implementation/implementation-guides.html?lang=sv-SE>
+Ett sätt att få ett ECID är att använda Experience Cloud ID-tjänsten. Du kan använda den implementeringstyp som du föredrar, antingen baserat på TDM, JS-bibliotek, serversidan, direktintegrering eller inbyggda bibliotek för mobila plattformar. En utförlig översikt över tillgängliga tjänster, bibliotek, SDK och implementeringsguider finns på: <https://experienceleague.adobe.com/docs/id-service/using/implementation/implementation-guides.html>
 
-## Vilken är fördelen med att använda Experience Cloud-ID vid Adobe Pass-autentisering? {#benefit-ex-cloud-id}
+## Vilken är fördelen med att använda Experience Cloud ID i Adobe Pass Authentication? {#benefit-ex-cloud-id}
 
-Om du konfigurerar våra SDK:er och klientlösa REST API:er att använda ditt ECID kan du senare länka data som samlats in av Adobe Pass Authentication till dina befintliga Experience Cloud-lösningar. På så sätt kan ni bättre förstå era kunders resa och upplevelse i alla lösningar som Adobe tillhandahåller.
+Om du konfigurerar våra SDK:er och klientlösa REST API:er att använda ditt ECID, kommer du senare att kunna länka data som samlats in av Adobe Pass Authentication till dina befintliga Experience Cloud-lösningar. På så sätt kan ni bättre förstå era kunders resa och upplevelse i alla lösningar som Adobe tillhandahåller.
 
-## Hur använder man Experience Cloud ID i Adobe Pass Authentication? {#how-to-ex-cloud-id-authn}
+## Hur använder man Experience Cloud-id:t i Adobe Pass Authentication? {#how-to-ex-cloud-id-authn}
 
-När du har fått ett ECID (förklaras ovan) måste du skicka informationen till våra SDK:er och vårt klientlösa REST API. Den här informationen skickas senare till våra servrar vid varje nätverksanrop som SDK gör. Konfigurationsprocessen är annorlunda för varje SDK enligt följande:
+När du har fått ett ECID (förklaras ovan) måste du skicka informationen till våra SDK:er och vårt klientlösa REST API. Informationen skickas senare till våra servrar vid varje nätverksanrop som SDK gör. Konfigurationsprocessen är annorlunda för alla SDK:
 
 ### JS SDK {#js-sdk}
 
@@ -76,8 +76,19 @@ accessEnabler.setOptions(options);
 
 ### Klientlöst API {#clientless-api}
 
-När du använder Adobe Pass via dess REST API, ska värdet **ECID** skickas **för alla API:er** som en parameter med namnet **&#39;ap_vi&#39;**.
+När du använder Adobe Pass via dess REST API v1, ska värdet **ECID** skickas **för alla API:er** som en parameter med namnet **&#39;ap_vi&#39;**.
 
 **Användningsexempel:**
 
 `GET: https://api.auth.adobe.com/api/v1/authorize?...&ap_vi=THE_ECID_VALUE`
+
+### REST API V2 {#rest-api-v2}
+
+När du använder Adobe Pass via dess REST API v2, ska värdet **ECID** skickas **för alla API:er** som ett huvud med namnet **&#39;AP-Visitor-Identifier&#39;**.
+
+**Användningsexempel:**
+
+`POST: https://api.auth.adobe.com/api/v2/${serviceProvider}/sessions/`\
+Sidhuvuden:\
+`AP-Visitor-Identifier: THE_ECID_VALUE`
+
