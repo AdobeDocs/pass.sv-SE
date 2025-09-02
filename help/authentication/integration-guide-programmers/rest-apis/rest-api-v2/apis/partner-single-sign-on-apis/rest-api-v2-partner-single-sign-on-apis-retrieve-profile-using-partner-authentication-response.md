@@ -2,9 +2,9 @@
 title: Skapa och hämta profil med partnerautentiseringssvar
 description: REST API V2 - Skapa och hämta profil med partnerautentiseringssvar
 exl-id: cae260ff-a229-4df7-bbf9-4cdf300c0f9a
-source-git-commit: 26245e019afac2c0844ed64b222208cc821f9c6c
+source-git-commit: 7ac04991289c95ebb803d1fd804e9b497f821cda
 workflow-type: tm+mt
-source-wordcount: '795'
+source-wordcount: '847'
 ht-degree: 0%
 
 ---
@@ -321,7 +321,22 @@ ht-degree: 0%
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;"></td>
-      <td>Svarstexten kan innehålla ytterligare felinformation som följer dokumentationen för <a href="../../../../features-standard/error-reporting/enhanced-error-codes.md">Förbättrade felkoder</a>.</td>
+      <td>
+            Svarstexten kan innehålla ytterligare felinformation som följer dokumentationen för <a href="../../../../features-standard/error-reporting/enhanced-error-codes.md">Förbättrade felkoder</a>.
+            <br/><br/>
+            Klientprogrammet måste implementera en felhanteringsmekanism som kan hantera de felkoder som oftast returneras av denna API korrekt:
+            <ul>
+                <li>invalid_header_pfs_permission_access_not_present</li>
+                <li>invalid_header_pfs_permission_access_not_determine</li>
+                <li>invalid_header_pfs_permission_access_not_granted</li>
+                <li>invalid_header_pfs_provider_id_not_determine</li>
+                <li>invalid_header_pfs_provider_id_mismatch</li>
+                <li>invalid_header_pfs_provider_info_utgången</li>
+                <li>invalid_parameter_saml_response</li>
+                <li>osv.</li>
+            </ul>
+            Förteckningen ovan är inte uttömmande. Klientprogrammet måste kunna hantera alla utökade felkoder som definieras i <a href="../../../../features-standard/error-reporting/enhanced-error-codes.md">den offentliga dokumentationen</a>.
+      </td>
       <td><i>obligatoriskt</i></td>
    </tr>
 </table>

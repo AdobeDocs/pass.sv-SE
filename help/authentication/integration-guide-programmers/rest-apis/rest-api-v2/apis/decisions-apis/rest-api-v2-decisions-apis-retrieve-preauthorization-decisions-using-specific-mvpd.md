@@ -2,9 +2,9 @@
 title: Hämta förauktoriseringsbeslut med hjälp av en specifik mvpd
 description: REST API V2 - Hämta förauktoriseringsbeslut med hjälp av specifik mvpd
 exl-id: 8647e4fb-00b6-45cd-b81b-d00618b2e08b
-source-git-commit: 26245e019afac2c0844ed64b222208cc821f9c6c
+source-git-commit: 7ac04991289c95ebb803d1fd804e9b497f821cda
 workflow-type: tm+mt
-source-wordcount: '808'
+source-wordcount: '858'
 ht-degree: 0%
 
 ---
@@ -305,7 +305,20 @@ ht-degree: 0%
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;"></td>
-      <td>Svarstexten kan innehålla ytterligare felinformation som följer dokumentationen för <a href="../../../../features-standard/error-reporting/enhanced-error-codes.md">Förbättrade felkoder</a>.</td>
+      <td>
+            Svarstexten kan innehålla ytterligare felinformation som följer dokumentationen för <a href="../../../../features-standard/error-reporting/enhanced-error-codes.md">Förbättrade felkoder</a>.
+            <br/><br/>
+            Klientprogrammet måste implementera en felhanteringsmekanism som kan hantera de felkoder som oftast returneras av denna API korrekt:
+            <ul>
+                <li>authenticated_profile_missing</li>
+                <li>authenticated_profile_utgången</li>
+                <li>preauthentication_deny_by_mvpd</li>
+                <li>network_receive_error</li>
+                <li>för_många_resurser</li>
+                <li>osv.</li>
+            </ul>
+            Förteckningen ovan är inte uttömmande. Klientprogrammet måste kunna hantera alla utökade felkoder som definieras i <a href="../../../../features-standard/error-reporting/enhanced-error-codes.md">den offentliga dokumentationen</a>.
+      </td>
       <td><i>obligatoriskt</i></td>
    </tr>
 </table>
@@ -368,7 +381,7 @@ Content-Type: application/json;charset=UTF-8
             "status": 403,
             "code": "preauthorization_denied_by_mvpd",
             "message": "The MVPD has returned a \"Deny\" decision when requesting pre-authorization for the specified resource.",
-            "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=sv-SE",
+            "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
             "action": "none"
          }
       }
@@ -474,7 +487,7 @@ Content-Type: application/json;charset=UTF-8
                 "status": 403,
                 "code": "authorization_denied_by_degradation_rule",
                 "message": "The integration has an AuthZNone rule applied for the requested resources",
-                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=sv-SE",
+                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
                 "action": "none"
             }
         }
@@ -488,7 +501,7 @@ Content-Type: application/json;charset=UTF-8
                 "status": 403,
                 "code": "authorization_denied_by_degradation_rule",
                 "message": "The integration has an AuthZNone rule applied for the requested resources",
-                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=sv-SE",
+                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
                 "action": "none"
             }
         }

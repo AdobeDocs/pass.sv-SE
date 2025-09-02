@@ -2,9 +2,9 @@
 title: Hämta auktoriseringsbeslut med hjälp av specifik mvpd
 description: REST API V2 - Hämta auktoriseringsbeslut med hjälp av specifik mvpd
 exl-id: e8889395-4434-4bec-a212-a8341bb9c310
-source-git-commit: 26245e019afac2c0844ed64b222208cc821f9c6c
+source-git-commit: 7ac04991289c95ebb803d1fd804e9b497f821cda
 workflow-type: tm+mt
-source-wordcount: '951'
+source-wordcount: '1000'
 ht-degree: 0%
 
 ---
@@ -333,7 +333,19 @@ ht-degree: 0%
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;"></td>
-      <td>Svarstexten kan innehålla ytterligare felinformation som följer dokumentationen för <a href="../../../../features-standard/error-reporting/enhanced-error-codes.md">Förbättrade felkoder</a>.</td>
+      <td>
+            Svarstexten kan innehålla ytterligare felinformation som följer dokumentationen för <a href="../../../../features-standard/error-reporting/enhanced-error-codes.md">Förbättrade felkoder</a>.
+            <br/><br/>
+            Klientprogrammet måste implementera en felhanteringsmekanism som kan hantera de felkoder som oftast returneras av denna API korrekt:
+            <ul>
+                <li>authenticated_profile_missing</li>
+                <li>authenticated_profile_utgången</li>
+                <li>authentication_deny_by_mvpd</li>
+                <li>network_receive_error</li>
+                <li>osv.</li>
+            </ul>
+            Förteckningen ovan är inte uttömmande. Klientprogrammet måste kunna hantera alla utökade felkoder som definieras i <a href="../../../../features-standard/error-reporting/enhanced-error-codes.md">den offentliga dokumentationen</a>.
+      </td>
       <td><i>obligatoriskt</i></td>
    </tr>
 </table>
@@ -436,7 +448,7 @@ Content-Type: application/json;charset=UTF-8
                 "code": "authorization_denied_by_mvpd",
                 "message": "The MVPD has returned a "Deny" decision when requesting authorization for the specified resource",
                 "details": "Your subscription package does not include the "Live" channel",
-                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=sv-SE",
+                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
                 "trace": "12f6fef9-d2e0-422b-a9d7-60d799abe353"
             },
             "notBefore": 1697094207324,
@@ -568,7 +580,7 @@ Content-Type: application/json;charset=UTF-8
                 "status": 403,
                 "code": "authorization_denied_by_degradation_rule",
                 "message": "The integration has an AuthZNone rule applied for the requested resources",
-                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=sv-SE",
+                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
                 "action": "none"
             }
         }
@@ -582,7 +594,7 @@ Content-Type: application/json;charset=UTF-8
                 "status": 403,
                 "code": "authorization_denied_by_degradation_rule",
                 "message": "The integration has an AuthZNone rule applied for the requested resources",
-                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=sv-SE",
+                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
                 "action": "none"
             }
         }
@@ -661,7 +673,7 @@ Content-Type: application/json;charset=UTF-8
                 "status": 403,
                 "code": "temporary_access_duration_limit_exceeded",
                 "message": "The temporary access duration limit has been exceeded.",
-                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=sv-SE",
+                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
                 "action": "authentication"
             }
         }
@@ -688,7 +700,7 @@ Content-Type: application/json;charset=UTF-8
                 "status": 500,
                 "code": "invalid_configuration_temporary_access",
                 "message": "The temporary access configuration is invalid.",
-                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=sv-SE",
+                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
                 "action": "configuration"
             }
         }
@@ -768,7 +780,7 @@ Content-Type: application/json;charset=UTF-8
                 "status": 403,
                 "code": "temporary_access_duration_limit_exceeded",
                 "message": "The temporary access duration limit has been exceeded.",
-                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=sv-SE",
+                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
                 "action": "authentication"
             }
         }
@@ -795,7 +807,7 @@ Content-Type: application/json;charset=UTF-8
                 "status": 403,
                 "code": "temporary_access_resources_limit_exceeded",
                 "message": "The temporary access resources limit has been exceeded.",
-                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=sv-SE",
+                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
                 "action": "authentication"
             }
         }
@@ -822,7 +834,7 @@ Content-Type: application/json;charset=UTF-8
                 "status": 500,
                 "code": "invalid_configuration_temporary_access",
                 "message": "The temporary access configuration is invalid.",
-                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=sv-SE",
+                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
                 "action": "configuration"
             }
         }
@@ -849,7 +861,7 @@ Content-Type: application/json;charset=UTF-8
                 "status": 400,
                 "code": "invalid_header_identity_for_temporary_access",
                 "message": "The identity for temporary access header value is missing or invalid.",
-                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=sv-SE",
+                "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
                 "action": "none"
             }
         }

@@ -2,9 +2,9 @@
 title: Återuppta autentiseringssession
 description: REST API V2 - Återuppta autentiseringssession
 exl-id: 66c33546-2be0-473f-9623-90499d1c13eb
-source-git-commit: 26245e019afac2c0844ed64b222208cc821f9c6c
+source-git-commit: 7ac04991289c95ebb803d1fd804e9b497f821cda
 workflow-type: tm+mt
-source-wordcount: '906'
+source-wordcount: '953'
 ht-degree: 0%
 
 ---
@@ -324,7 +324,17 @@ ht-degree: 0%
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;"></td>
-      <td>Svarstexten kan innehålla ytterligare felinformation som följer dokumentationen för <a href="../../../../features-standard/error-reporting/enhanced-error-codes.md">Förbättrade felkoder</a>.</td>
+      <td>
+            Svarstexten kan innehålla ytterligare felinformation som följer dokumentationen för <a href="../../../../features-standard/error-reporting/enhanced-error-codes.md">Förbättrade felkoder</a>.
+            <br/><br/>
+            Klientprogrammet måste implementera en felhanteringsmekanism som kan hantera de felkoder som oftast returneras av denna API korrekt:
+            <ul>
+                <li>invalid_authentication_session</li>
+                <li>invalid_parameter_code</li>
+                <li>osv.</li>
+            </ul>
+            Förteckningen ovan är inte uttömmande. Klientprogrammet måste kunna hantera alla utökade felkoder som definieras i <a href="../../../../features-standard/error-reporting/enhanced-error-codes.md">den offentliga dokumentationen</a>.
+      </td>
       <td><i>obligatoriskt</i></td>
    </tr>
 </table>
