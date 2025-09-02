@@ -45,9 +45,9 @@ Förbättrade felkoder kan representeras i `JSON`- eller `XML`-format beroende p
 
 | Adobe Pass-autentiserings-API | JSON | XML |
 |-------------------------------|---------|---------|
-| REST API v2 | &amp;check; |         |
-| REST API v1 | &amp;check; | &amp;check; |
-| SDK Förauktorisera API | &amp;check; |         |
+| REST API v2 | &check; |         |
+| REST API v1 | &check; | &check; |
+| SDK Förauktorisera API | &check; |         |
 
 >[!IMPORTANT]
 >
@@ -202,9 +202,9 @@ Förbättrade felkoder innehåller följande `JSON`-fält eller `XML`-attribut m
 
 | Namn | Typ | Exempel | Begränsad | Beskrivning |
 |-----------|-----------|---------------------------------------------------------------------------------------------------------------------|:----------:|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| *åtgärd* | *sträng* | *ingen* | &amp;check; | Adobe Pass-autentiseringen rekommenderade en åtgärd som kan åtgärda situationen enligt definitionen i det här dokumentet. <br/><br/> Mer information finns i avsnittet [Åtgärd](#enhanced-error-codes-action). |
-| *status* | *heltal* | *403* | &amp;check; | Statuskoden för HTTP-svar enligt definitionen i [RFC 7231](https://tools.ietf.org/html/rfc7231#section-6) -dokumentet. <br/><br/> Mer information finns i avsnittet [Status](#enhanced-error-codes-status). |
-| *kod* | *sträng* | *authentication_deny_by_mvpd* | &amp;check; | Den unika identifierarkod för Adobe Pass-autentisering som är associerad med felet enligt definitionen i det här dokumentet. <br/><br/> Mer information finns i avsnittet [Kod](#enhanced-error-codes-code). |
+| *åtgärd* | *sträng* | *ingen* | &check; | Adobe Pass-autentiseringen rekommenderade en åtgärd som kan åtgärda situationen enligt definitionen i det här dokumentet. <br/><br/> Mer information finns i avsnittet [Åtgärd](#enhanced-error-codes-action). |
+| *status* | *heltal* | *403* | &check; | Statuskoden för HTTP-svar enligt definitionen i [RFC 7231](https://tools.ietf.org/html/rfc7231#section-6) -dokumentet. <br/><br/> Mer information finns i avsnittet [Status](#enhanced-error-codes-status). |
+| *kod* | *sträng* | *authentication_deny_by_mvpd* | &check; | Den unika identifierarkod för Adobe Pass-autentisering som är associerad med felet enligt definitionen i det här dokumentet. <br/><br/> Mer information finns i avsnittet [Kod](#enhanced-error-codes-code). |
 | *meddelande* | *sträng* | *MVPD har returnerat ett beslut om att neka vid begäran om auktorisering för den angivna resursen* |            | Det läsbara meddelandet som kan visas för slutanvändaren i vissa fall. <br/><br/> Mer information finns i avsnittet [Svarshantering](#enhanced-error-codes-response-handling). |
 | *information* | *sträng* | *Prenumerationspaketet innehåller inte &quot;Live&quot;-kanalen* |            | Det detaljerade meddelandet som kan tillhandahållas av en tjänstpartner i vissa fall, <br/><br/> Det här fältet kanske inte finns om tjänstpartnern inte tillhandahåller något anpassat meddelande. |
 | *helpUrl* | *url* | *https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html* |            | Den offentliga dokumentations-URL:en för Adobe Pass-autentisering som länkar till mer information om varför felet uppstod och möjliga lösningar. <br/><br/> Det här fältet innehåller en absolut URL-adress och bör inte härledas från felkoden, beroende på felkontexten kan en annan URL anges. |
