@@ -2,7 +2,7 @@
 title: Hämta konfiguration för en viss tjänsteleverantör
 description: REST API V2 - Hämta konfiguration för specifik tjänstleverantör
 exl-id: ad7e4c6d-ed96-4ae7-82a9-3c24e5fc9302
-source-git-commit: 871afc4e7ec04d62590dd574bf4e28122afc01b6
+source-git-commit: 8952283ccce38f70f4f504f07714c583fcb7e272
 workflow-type: tm+mt
 source-wordcount: '725'
 ht-degree: 0%
@@ -74,7 +74,7 @@ ht-degree: 0%
    <tr>
       <td style="background-color: #DEEBFF;">AP-Device-Identifier</td>
       <td>Genereringen av nyttolasten för enhetsidentifieraren beskrivs i rubrikdokumentationen för <a href="../../appendix/headers/rest-api-v2-appendix-headers-ap-device-identifier.md">AP-Device-Identifier</a>.</td>
-      <td><i>obligatoriskt</i></td>
+      <td>valfri</td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">X-Device-Info</td>
@@ -87,7 +87,7 @@ ht-degree: 0%
          <br/><br/>
          Om det inte anges kommer Adobe Pass Authentication-serverdelen att använda extraherade värden implicit (som standard).
       </td>
-      <td><i>obligatoriskt</i></td>
+      <td>valfri</td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">X-Forwarded-For</td>
@@ -282,7 +282,7 @@ ht-degree: 0%
 
 ## Exempel {#samples}
 
-### 1. Hämta konfiguration för en viss tjänsteleverantör
+### &#x200B;1. Hämta konfiguration för en viss tjänsteleverantör
 
 >[!BEGINTABS]
 
