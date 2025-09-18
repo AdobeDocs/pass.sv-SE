@@ -2,9 +2,9 @@
 title: Produktmeddelanden
 description: Produktmeddelanden
 exl-id: 3c9c66e1-d31d-4af3-8ab2-eb32492f42ca
-source-git-commit: 58da8137988f0146716b56ac7a960c683b204d53
+source-git-commit: 2276066d453701dc5e034da29cb971b090688afe
 workflow-type: tm+mt
-source-wordcount: '811'
+source-wordcount: '820'
 ht-degree: 1%
 
 ---
@@ -33,6 +33,7 @@ I det här avsnittet sammanställs referenser till versionshistoriken och motsva
 
 | Versionsinformation | Datum |
 |-----------------------------------------------------------------------------------------------------------|-------------------------|
+| [Versionsinformation för Adobe Pass Authentication Android 3.8.0](notes-releases/authn-rn-android-380.md) | 09/18/2025 |
 | [Versionsinformation för Adobe Pass Authentication 3.4.0](notes-releases/auth-rn-340.md) | 09/16/2025 - 09/18/2025 |
 | [Versionsinformation för Adobe Pass Authentication 3.3.0](notes-releases/auth-rn-330.md) | 07/22/2025 - 07/24/2025 |
 | [Versionsinformation för Adobe Pass Authentication 3.2.0](notes-releases/auth-rn-320.md) | 06/10/2025 - 12/06 |
