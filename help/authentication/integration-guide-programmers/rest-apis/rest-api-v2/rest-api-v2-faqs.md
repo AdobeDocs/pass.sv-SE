@@ -2,9 +2,9 @@
 title: REST API V2 - frågor och svar
 description: REST API V2 - frågor och svar
 exl-id: 2dd74b47-126e-487b-b467-c16fa8cc14c1
-source-git-commit: ebe0a53e3ba54c2effdef45c1143deea0e6e57d3
+source-git-commit: 0b8ef6c6b326d1a9de52b24823886c708c2aad33
 workflow-type: tm+mt
-source-wordcount: '9566'
+source-wordcount: '9682'
 ht-degree: 0%
 
 ---
@@ -67,7 +67,21 @@ Klientprogrammet måste lagra användarens valda MVPD-identifierare, enligt MVPD
 
 Mer information finns i dokumentationen för [Hämta konfiguration](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/configuration-apis/rest-api-v2-configuration-apis-retrieve-configuration-for-specific-service-provider.md).
 
-#### &#x200B;4. Ska klientprogrammet cachelagra konfigurationssvarsinformationen i en beständig lagring? {#configuration-phase-faq4}
+#### &#x200B;4. Är konfigurationen specifik för en tjänsteleverantör, plattform eller användare? {#configuration-phase-faq4}
+
+Konfigurationen är specifik för en [tjänstleverantör](rest-api-v2-glossary.md#service-provider).
+
+Konfigurationen är specifik för en plattformstyp.
+
+Konfigurationen är inte specifik för en användare.
+
+För klientprogram som använder en server-till-server-arkitektur rekommenderas att konfigurationssvaret cachelagras (t.ex. med en TTL på 2 minuter) för varje plattformstyp i minneslagring på serversidan. Detta minskar antalet onödiga förfrågningar för varje användare och förbättrar den övergripande användarupplevelsen.
+
+#### &#x200B;5. Ska klientprogrammet cachelagra konfigurationssvarsinformationen i en beständig lagring? {#configuration-phase-faq5}
+
+>[!IMPORTANT]
+> 
+> För klientprogram som använder en server-till-server-arkitektur rekommenderas att konfigurationssvaret cachelagras (t.ex. med en TTL på 2 minuter) för varje plattformstyp i minneslagring på serversidan. Detta minskar antalet onödiga förfrågningar för varje användare och förbättrar den övergripande användarupplevelsen.
 
 Klientprogrammet måste hämta konfigurationen först när användaren måste välja sin MVPD för att kunna autentisera eller autentisera igen.
 
@@ -77,19 +91,19 @@ Klientprogrammet bör cachelagra konfigurationssvarsinformationen i en minneslag
 * Användaren erbjuds tillfällig åtkomst via grundläggande eller kampanjanpassad [TempPass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md)-funktion.
 * Användarautentiseringen har upphört att gälla, men klientprogrammet har cachelagrat den tidigare valda MVPD som ett motiverat val av användarupplevelse och uppmanar bara användaren att bekräfta att han/hon fortfarande prenumererar på denna MVPD.
 
-#### &#x200B;5. Kan klientapplikationen hantera sin egen lista över MVPD? {#configuration-phase-faq5}
+#### &#x200B;6. Kan klientapplikationen hantera sin egen lista över MVPD? {#configuration-phase-faq6}
 
 Klientprogrammet kan hantera sin egen lista över MVPD-program, men det skulle kräva att MVPD-identifierarna hålls synkroniserade med Adobe Pass Authentication. Vi rekommenderar därför att du använder konfigurationen från Adobe Pass Authentication för att se till att listan är aktuell och korrekt.
 
 Klientprogrammet skulle få ett [error](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md#enhanced-error-codes-lists-rest-api-v2) från Adobe Pass Authentication REST API V2 om den angivna MVPD-identifieraren är ogiltig eller om den inte har en aktiv integrering med den angivna [tjänstprovidern](rest-api-v2-glossary.md#service-provider).
 
-#### &#x200B;6. Kan klientprogrammet filtrera listan över MVPD? {#configuration-phase-faq6}
+#### &#x200B;7. Kan klientprogrammet filtrera listan över MVPD? {#configuration-phase-faq7}
 
 Klientprogrammet kan filtrera listan över MVPD-program som anges i konfigurationssvaret genom att implementera en anpassad mekanism som bygger på dess egen affärslogik och krav som användarplats eller användarhistorik för det tidigare urvalet.
 
 Klientprogrammet kan filtrera listan över [TempPass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md)-MVPD-filer eller MVPD-filer som fortfarande är integrerade i utveckling eller testning.
 
-#### &#x200B;7. Vad händer om integreringen med en MVPD är inaktiverad och markerad som inaktiv? {#configuration-phase-faq7}
+#### &#x200B;8. Vad händer om integreringen med en MVPD är inaktiverad och markerad som inaktiv? {#configuration-phase-faq8}
 
 När integreringen med en MVPD är inaktiverad och markerad som inaktiv tas MVPD bort från listan över MVPD-program som finns i ytterligare konfigurationssvar, och det finns två viktiga följder att tänka på:
 
@@ -98,14 +112,14 @@ När integreringen med en MVPD är inaktiverad och markerad som inaktiv tas MVPD
 
 Klientprogrammet skulle få ett [error](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md#enhanced-error-codes-lists-rest-api-v2) från Adobe Pass Authentication REST API V2 om användaren valde MVPD inte längre har någon aktiv integrering med den angivna [tjänstprovidern](rest-api-v2-glossary.md#service-provider).
 
-#### &#x200B;8. Vad händer om integreringen med en MVPD är aktiverad och markerad som aktiv? {#configuration-phase-faq8}
+#### &#x200B;9. Vad händer om integreringen med en MVPD är aktiverad och markerad som aktiv? {#configuration-phase-faq9}
 
 När integreringen med en MVPD är aktiverad och markerad som aktiv, tas MVPD med i listan över distributörer av videoprogrammeringstjänster som finns i ytterligare konfigurationssvar, och det finns två viktiga konsekvenser att tänka på:
 
 * De oautentiserade användarna av denna MVPD kan slutföra autentiseringsfasen igen med denna MVPD.
 * De autentiserade användarna av denna MVPD kommer att kunna slutföra förauktoriserings-, auktoriserings- eller utloggningsfaserna med denna MVPD.
 
-#### &#x200B;9. Hur aktiverar eller inaktiverar man integreringen med MVPD? {#configuration-phase-faq9}
+#### &#x200B;10. Hur aktiverar eller inaktiverar jag integreringen med en MVPD? {#configuration-phase-faq10}
 
 Den här åtgärden kan utföras via Adobe Pass [TVE Dashboard](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#tve-dashboard) av en av dina företagsadministratörer eller av en Adobe Pass-autentiseringsrepresentant som agerar för din räkning.
 
@@ -634,7 +648,7 @@ Detta kan leda till att begäran behandlas som osäker och omfattas av mer restr
 
 ### Vanliga frågor och svar {#misc-faqs-general}
 
-+++Diverse Frågor och svar
++++Vanliga frågor och svar
 
 #### &#x200B;1. Kan jag utforska REST API V2-begäranden och -svar och testa API:t? {#misc-faq1}
 
