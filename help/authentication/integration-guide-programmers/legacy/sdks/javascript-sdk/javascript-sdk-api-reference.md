@@ -190,7 +190,7 @@ När det är klart skapar och sparar en autentiseringstoken för användaren. Om
 
 
 **Återanrop har utlösts:**
-[ setToken()](#settokeninrequestedresourceid-intoken-settokeninrequestedresourceidintoken), [ tokenRequestFailed()](#tokenrequestfailedinrequestedresourceid-inrequesterrorcode-inrequestdetailederrormessage-tokenrequestfailedinrequestedresourceidinrequesterrorcodeinrequestdetailederrormessage), [sendTrackingData()](#sendtrackingdatatrackingeventtype-trackingdata-sendtrackingdatatrackingeventtypetrackingdata), [setAuthenticationStatus()](#setauthenticationstatusisauthenticated-errorcode)
+[&#x200B; setToken()](#settokeninrequestedresourceid-intoken-settokeninrequestedresourceidintoken), [&#x200B; tokenRequestFailed()](#tokenrequestfailedinrequestedresourceid-inrequesterrorcode-inrequestdetailederrormessage-tokenrequestfailedinrequestedresourceidinrequesterrorcodeinrequestdetailederrormessage), [sendTrackingData()](#sendtrackingdatatrackingeventtype-trackingdata-sendtrackingdatatrackingeventtypetrackingdata), [setAuthenticationStatus()](#setauthenticationstatusisauthenticated-errorcode)
 
 </br>
 
@@ -309,7 +309,7 @@ Exempel:
 **Beskrivning:** Anropa den här funktionen när användaren har valt en MVPD i användargränssnittet för val av leverantör för att skicka providervalet till åtkomstaktiveringen eller anropa den här funktionen med en null-parameter om användaren har avvisat användargränssnittet för val av leverantör utan att välja någon leverantör.
 
 **Återanrop
-utlöses:**[ setAuthationStatus()](#setauthenticationstatusisauthenticated-errorcode), [sendTrackingData()](#sendtrackingdatatrackingeventtype-trackingdata-sendtrackingdatatrackingeventtypetrackingdata)
+utlöses:**[&#x200B; setAuthationStatus()](#setauthenticationstatusisauthenticated-errorcode), [sendTrackingData()](#sendtrackingdatatrackingeventtype-trackingdata-sendtrackingdatatrackingeventtypetrackingdata)
 
 </br>
 
@@ -415,7 +415,7 @@ Du måste implementera dessa återanrop för att kunna hantera svaren på dina a
 
 **Beskrivning:** Implementera det här återanropet om användaren har valt en MVPD som kräver en iFrame där användargränssnittet för inloggningssidan för autentisering ska visas.
 
-**Utlöses av:**&#x200B;[ setSelectedProvider()](#setselectedproviderproviderid-setselectedprovider)
+**Utlöses av:**&#x200B;[&#x200B; setSelectedProvider()](#setselectedproviderproviderid-setselectedprovider)
 
 </br> [Till början](#top)
 

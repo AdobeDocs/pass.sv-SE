@@ -31,7 +31,7 @@ Innan du fortsätter med Apple enkel inloggning med partnerflöden måste du kon
 
   Vi rekommenderar att du uppmuntrar användare som vägrar ge åtkomst till prenumerationsinformation genom att förklara fördelarna med Apple användarupplevelse med enkel inloggning, men tänk på att användaren kan ändra sitt beslut genom att gå till programinställningarna (behörighet för TV-leverantör) eller till *`Settings -> TV Provider`* på iOS och iPadOS eller *`Settings -> Accounts -> TV Provider`* på tvOS.
 
-  Strömningsprogrammet kan begära användarens tillstånd när programmet försätts i förgrundstillstånd, eftersom programmet när som helst kan kontrollera [behörighet att komma åt ](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanager/1949763-checkaccessstatus) användarens prenumerationsinformation innan användarautentisering krävs.
+  Strömningsprogrammet kan begära användarens tillstånd när programmet försätts i förgrundstillstånd, eftersom programmet när som helst kan kontrollera [behörighet att komma åt &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanager/1949763-checkaccessstatus) användarens prenumerationsinformation innan användarautentisering krävs.
 
 >[!IMPORTANT]
 >

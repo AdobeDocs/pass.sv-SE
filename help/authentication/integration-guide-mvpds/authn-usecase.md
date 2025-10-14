@@ -29,7 +29,7 @@ Stegen nedan visar händelseföljden, med hjälp av Adobe Pass-autentisering, n�
 
 Som framgår av stegen ovan måste ett MVPD under AuthN-flödet både acceptera en SAML-baserad AuthN-begäran och skicka ett SAML AuthN-svar.
 
-[OLCA-autentisering (Online Content Access) och gränssnittsspecifikationen ](https://www.cablelabs.com/specifications/search?query=&amp;category=&amp;subcat=&amp;doctype=&amp;content=false&amp;archives=false){target=_blanck} visar en standard-AuthN-begäran och -svar. Även om Adobe Pass Authentication inte kräver att PDF-dokument baserar sina tillståndsmeddelanden på den här standarden, kan en titt på specifikationen ge insikt i de nyckelattribut som krävs för en AuthN-transaktion.
+[OLCA-autentisering (Online Content Access) och gränssnittsspecifikationen &#x200B;](https://www.cablelabs.com/specifications/search?query=&category=&subcat=&doctype=&content=false&archives=false){target=_blanck} visar en standard-AuthN-begäran och -svar. Även om Adobe Pass Authentication inte kräver att PDF-dokument baserar sina tillståndsmeddelanden på den här standarden, kan en titt på specifikationen ge insikt i de nyckelattribut som krävs för en AuthN-transaktion.
 
 >[!NOTE]
 >

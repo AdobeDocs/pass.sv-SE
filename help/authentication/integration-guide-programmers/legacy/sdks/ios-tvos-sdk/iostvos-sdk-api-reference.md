@@ -712,11 +712,11 @@ När kontrollenheten UIWebView/WKWebView` `går igenom flera omdirigeringar mås
 
 **Fil:** AccessEnabler/headers/EntitlementDelegate.h
 
-**Beskrivning:** Återanrop utlöses av AccessEnabler i stället för `navigateToUrl:` återanrop om ditt program tidigare aktiverade manuell Safari View Controller (SVC)-hantering via anropet [ setOptions(\[&quot;handleSVC&quot;:true&quot;\])](#setOptions) och endast för MVPD-program som kräver Safari View Controller (SVC). För alla andra MVPD-filer anropas motringningen `navigateToUrl:`. Mer information om hur Safari View Controller (SVC) ska hanteras finns i [Stöd för SFSafariViewController (SVC) i iOS SDK 3.2+](/help/authentication/integration-guide-programmers/legacy/notes-technical/sfsafariviewcontroller-support-on-ios-sdk-32.md).
+**Beskrivning:** Återanrop utlöses av AccessEnabler i stället för `navigateToUrl:` återanrop om ditt program tidigare aktiverade manuell Safari View Controller (SVC)-hantering via anropet [&#x200B; setOptions(\[&quot;handleSVC&quot;:true&quot;\])](#setOptions) och endast för MVPD-program som kräver Safari View Controller (SVC). För alla andra MVPD-filer anropas motringningen `navigateToUrl:`. Mer information om hur Safari View Controller (SVC) ska hanteras finns i [Stöd för SFSafariViewController (SVC) i iOS SDK 3.2+](/help/authentication/integration-guide-programmers/legacy/notes-technical/sfsafariviewcontroller-support-on-ios-sdk-32.md).
 
 Ungefär som för `navigateToUrl:`-återanropet aktiveras `navigateToUrl:useSVC:` av AccessEnabler för att begära att programmet instansierar en `SFSafariViewController`-kontrollant och för att läsa in URL:en som anges i återanropets **`url`**-parameter. Återanropet skickar parametern **`url`** som representerar URL:en för autentiseringsslutpunkten eller URL:en för utloggningsslutpunkten, och parametern **`useSVC`** som anger att programmet måste använda `SFSafariViewController`.
 
-När kontrollenheten `SFSafariViewController` går igenom flera omdirigeringar måste programmet övervaka kontrollenhetsaktiviteten och identifiera tidpunkten när den läser in en specifik anpassad URL som definieras av din `application's custom scheme` (t.ex.**&#x200B; **`adbe.u-XFXJeTSDuJiIQs0HVRAg://adobe.com`). Observera att den här anpassade URL:en är ogiltig och inte avsedd för att styrenheten ska läsa in den. Det får endast tolkas av programmet som en signal om att autentiserings- eller utloggningsflödet har slutförts och att det är säkert att stänga kontrollenheten. När kontrollenheten läser in den här anpassade URL:en måste ditt program stänga `SFSafariViewController` och anropa AccessEnablers `handleExternalURL:url `API-metod.
+När kontrollenheten `SFSafariViewController` går igenom flera omdirigeringar måste programmet övervaka kontrollenhetsaktiviteten och identifiera tidpunkten när den läser in en specifik anpassad URL som definieras av din `application's custom scheme` (t.ex.**&#x200B; &#x200B;**`adbe.u-XFXJeTSDuJiIQs0HVRAg://adobe.com`). Observera att den här anpassade URL:en är ogiltig och inte avsedd för att styrenheten ska läsa in den. Det får endast tolkas av programmet som en signal om att autentiserings- eller utloggningsflödet har slutförts och att det är säkert att stänga kontrollenheten. När kontrollenheten läser in den här anpassade URL:en måste ditt program stänga `SFSafariViewController` och anropa AccessEnablers `handleExternalURL:url `API-metod.
 
 **Obs!** Observera att vid autentiseringsflödet är detta en punkt där användaren kan trycka på knappen &quot;Bakåt&quot;, vilket motsvarar att autentiseringsflödet avbryts. I ett sådant fall måste ditt program anropa metoden [setSelectedProvider:](#setSelProv) som skickar **`nil`** som parameter och ge AccessEnabler en chans att återställa sin autentiseringstillståndsdator.
 
@@ -744,7 +744,7 @@ När kontrollenheten `SFSafariViewController` går igenom flera omdirigeringar m
 * *url:* den URL som pekar på MVPD inloggningssida
 * *useSVC:* Anger om URL:en ska läsas in i SFSafariViewController.
 
-**Utlöses av:**&#x200B;[ setOptions:](#setOptions) före [setSelectedProvider:](#setSelProv)
+**Utlöses av:**&#x200B;[&#x200B; setOptions:](#setOptions) före [setSelectedProvider:](#setSelProv)
 
 [Till början...](#apis)
 

@@ -339,7 +339,7 @@ X-Device-Info: ewogICJwcmltYXJ5SGFyZHdhcmVUeXBlIiA6ICJNb2JpbGVQaG9uZSIsCiAgIm1vZ
 > 
 > Kodfragmenten är inte fullständiga och kan kräva ytterligare ändringar för att fungera i ditt projekt.
 >
-> Oavsett vilken implementering du har måste rubriken `X-Device-Info` innehålla ett värde som är formaterat enligt beskrivningen i avsnittet [ Direktiv ](#directives) .
+> Oavsett vilken implementering du har måste rubriken `X-Device-Info` innehålla ett värde som är formaterat enligt beskrivningen i avsnittet [&#x200B; Direktiv &#x200B;](#directives) .
 
 ### Webbläsare {#browsers}
 

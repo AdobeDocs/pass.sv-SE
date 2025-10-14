@@ -149,4 +149,4 @@ Mer information om hur och när ovanstående API:er ska integreras finns i följ
 >[!MORELIKETHIS]
 >
 > [Vanliga frågor om förauktoriseringsfasen](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#preauthorization-phase-faqs-general)
-> [Vanliga frågor om auktoriseringsfasen ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#authorization-phase-faqs-general)
+> [Vanliga frågor om auktoriseringsfasen &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md#authorization-phase-faqs-general)
