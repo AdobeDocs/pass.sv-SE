@@ -2,9 +2,9 @@
 title: REST API V2-checklista
 description: REST API V2-checklista
 exl-id: 9095d1dd-a90c-4431-9c58-9a900bfba1cf
-source-git-commit: b753c6a6bdfd8767e86cbe27327752620158cdbb
+source-git-commit: 63dc9636f74f8eee1af6205c4d31a01df4503050
 workflow-type: tm+mt
-source-wordcount: '2545'
+source-wordcount: '2563'
 ht-degree: 0%
 
 ---
@@ -19,9 +19,13 @@ Det här dokumentet samlar på ett ställe de obligatoriska kraven och rekommend
 
 Följande dokument måste ingå i ditt acceptanskriterier när du implementerar REST API V2 och måste användas som en checklista för att säkerställa att alla nödvändiga åtgärder har vidtagits för att uppnå en lyckad integrering.
 
+>[!TIP]
+>
+> För AI-assisterad utveckling kan du läsa våra [AI-regler](rest-api-v2-ai-rules.md) som omvandlar dessa krav till strukturerade regler för AI-kodningsassistenter.
+
 ## Obligatoriska krav {#mandatory-requirements}
 
-### 1. Registreringsfas {#mandatory-requirements-registration-phase}
+### &#x200B;1. Registreringsfas {#mandatory-requirements-registration-phase}
 
 <table style="table-layout:auto">
    <tr>
@@ -46,7 +50,7 @@ Följande dokument måste ingå i ditt acceptanskriterier när du implementerar 
    </tr>
 </table>
 
-### 2. Konfigurationsfas {#mandatory-requirements-configuration-phase}
+### &#x200B;2. Konfigurationsfas {#mandatory-requirements-configuration-phase}
 
 <table style="table-layout:auto">
    <tr>
@@ -66,7 +70,7 @@ Följande dokument måste ingå i ditt acceptanskriterier när du implementerar 
    </tr>
 </table>
 
-### 3. Autentiseringsfas {#mandatory-requirements-authentication-phase}
+### &#x200B;3. Autentiseringsfas {#mandatory-requirements-authentication-phase}
 
 <table style="table-layout:auto">
    <tr>
@@ -96,7 +100,7 @@ Följande dokument måste ingå i ditt acceptanskriterier när du implementerar 
    </tr>
 </table>
 
-### 4. (Valfritt) Förhandsauktoriseringsfas {#mandatory-requirements-preauthorization-phase}
+### &#x200B;4. (Valfritt) Förhandsauktoriseringsfas {#mandatory-requirements-preauthorization-phase}
 
 <table style="table-layout:auto">
    <tr>
@@ -121,7 +125,7 @@ Följande dokument måste ingå i ditt acceptanskriterier när du implementerar 
    </tr>
 </table>
 
-### 5. Auktoriseringsfas {#mandatory-requirements-authorization-phase}
+### &#x200B;5. Auktoriseringsfas {#mandatory-requirements-authorization-phase}
 
 <table style="table-layout:auto">
    <tr>
@@ -141,7 +145,7 @@ Följande dokument måste ingå i ditt acceptanskriterier när du implementerar 
    </tr>
 </table>
 
-### 6. Utloggningsfas {#mandatory-requirements-logout-phase}
+### &#x200B;6. Utloggningsfas {#mandatory-requirements-logout-phase}
 
 <table style="table-layout:auto">
    <tr>
@@ -156,7 +160,7 @@ Följande dokument måste ingå i ditt acceptanskriterier när du implementerar 
    </tr>
 </table>
 
-### 7. Parametrar och rubriker {#mandatory-requirements-parameters-headers}
+### &#x200B;7. Parametrar och rubriker {#mandatory-requirements-parameters-headers}
 
 <table style="table-layout:auto">
    <tr>
@@ -191,7 +195,7 @@ Följande dokument måste ingå i ditt acceptanskriterier när du implementerar 
    </tr>
 </table>
 
-### 8. Felhantering {#mandatory-requirements-error-handling}
+### &#x200B;8. Felhantering {#mandatory-requirements-error-handling}
 
 <table style="table-layout:auto">
    <tr>
@@ -211,7 +215,7 @@ Följande dokument måste ingå i ditt acceptanskriterier när du implementerar 
    </tr>
 </table>
 
-### 9. Testning {#mandatory-requirements-testing}
+### &#x200B;9. Testning {#mandatory-requirements-testing}
 
 <table style="table-layout:auto">
    <tr>
@@ -228,7 +232,7 @@ Följande dokument måste ingå i ditt acceptanskriterier när du implementerar 
 
 ## Rekommenderad praxis {#recommended-practices}
 
-### 1. Registreringsfas {#recommended-practices-registration-phase}
+### &#x200B;1. Registreringsfas {#recommended-practices-registration-phase}
 
 <table style="table-layout:auto">
    <tr>
@@ -243,7 +247,7 @@ Följande dokument måste ingå i ditt acceptanskriterier när du implementerar 
    </tr>
 </table>
 
-### 2. Konfigurationsfas {#recommended-practices-configuration-phase}
+### &#x200B;2. Konfigurationsfas {#recommended-practices-configuration-phase}
 
 <table style="table-layout:auto">
    <tr>
@@ -258,7 +262,7 @@ Följande dokument måste ingå i ditt acceptanskriterier när du implementerar 
    </tr>
 </table>
 
-### 3. Autentiseringsfas {#recommended-practices-authentication-phase}
+### &#x200B;3. Autentiseringsfas {#recommended-practices-authentication-phase}
 
 <table style="table-layout:auto">
    <tr>
@@ -283,7 +287,7 @@ Följande dokument måste ingå i ditt acceptanskriterier när du implementerar 
    </tr>
 </table>
 
-### 4. (Valfritt) Förhandsauktoriseringsfas {#recommended-practices-preauthorization-phase}
+### &#x200B;4. (Valfritt) Förhandsauktoriseringsfas {#recommended-practices-preauthorization-phase}
 
 <table style="table-layout:auto">
    <tr>
@@ -298,7 +302,7 @@ Följande dokument måste ingå i ditt acceptanskriterier när du implementerar 
    </tr>
 </table>
 
-### 5. Auktoriseringsfas {#recommended-practices-authorization-phase}
+### &#x200B;5. Auktoriseringsfas {#recommended-practices-authorization-phase}
 
 <table style="table-layout:auto">
    <tr>
@@ -318,7 +322,7 @@ Följande dokument måste ingå i ditt acceptanskriterier när du implementerar 
    </tr>
 </table>
 
-### 6. Utloggningsfas {#recommended-practices-logout-phase}
+### &#x200B;6. Utloggningsfas {#recommended-practices-logout-phase}
 
 <table style="table-layout:auto">
    <tr>
@@ -333,7 +337,7 @@ Följande dokument måste ingå i ditt acceptanskriterier när du implementerar 
    </tr>
 </table>
 
-### 7. Parametrar och rubriker {#recommended-practices-parameters-headers}
+### &#x200B;7. Parametrar och rubriker {#recommended-practices-parameters-headers}
 
 <table style="table-layout:auto">
    <tr>
@@ -348,7 +352,7 @@ Följande dokument måste ingå i ditt acceptanskriterier när du implementerar 
    </tr>
 </table>
 
-### 8. Testning {#recommended-practices-testing}
+### &#x200B;8. Testning {#recommended-practices-testing}
 
 <table style="table-layout:auto">
    <tr>
