@@ -2,7 +2,7 @@
 title: Skapa autentiseringssession
 description: REST API V2 - Skapa autentiseringssession
 exl-id: bb2a6bb4-0778-4748-a674-df9d0e8242c8
-source-git-commit: 26245e019afac2c0844ed64b222208cc821f9c6c
+source-git-commit: 3efe25ddde7dfd2562932f623a2c440d4a059672
 workflow-type: tm+mt
 source-wordcount: '1080'
 ht-degree: 0%
@@ -303,7 +303,7 @@ ht-degree: 0%
             <tr>
                <td style="background-color: #DEEBFF;">kod</td>
                <td>Autentiseringskoden som kan användas i ett sekundärt program för att återuppta autentiseringssessionen.</td>
-               <td><i>obligatoriskt</i></td>
+               <td>valfri</td>
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">sessionId</td>

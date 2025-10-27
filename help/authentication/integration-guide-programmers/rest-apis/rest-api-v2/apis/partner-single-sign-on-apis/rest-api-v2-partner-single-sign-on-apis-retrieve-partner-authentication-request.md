@@ -2,9 +2,9 @@
 title: Hämta partnerautentiseringsbegäran
 description: REST API V2 - Hämta begäran om partnerautentisering
 exl-id: 52d8a8e9-c176-410f-92bc-e83449278943
-source-git-commit: 26245e019afac2c0844ed64b222208cc821f9c6c
+source-git-commit: 3efe25ddde7dfd2562932f623a2c440d4a059672
 workflow-type: tm+mt
-source-wordcount: '1252'
+source-wordcount: '1280'
 ht-degree: 0%
 
 ---
@@ -292,7 +292,7 @@ ht-degree: 0%
             <tr>
                <td style="background-color: #DEEBFF;">url</td>
                <td>Den URL som klientprogrammet behöver för att navigera i.</td>
-               <td><i>obligatoriskt</i></td>
+               <td>valfri</td>
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">kod</td>
@@ -333,6 +333,16 @@ ht-degree: 0%
                <td style="background-color: #DEEBFF;">serviceProvider</td>
                <td>Den interna unika identifierare som är associerad med tjänsteleverantören under introduktionsprocessen.</td>
                <td><i>obligatoriskt</i></td>
+            </tr>
+            <tr>
+               <td style="background-color: #DEEBFF;">notBefore</td>
+               <td>Tidsstämpeln i millisekunder innan autentiseringskoden är ogiltig.</td>
+               <td>valfri</td>
+            </tr>
+            <tr>
+               <td style="background-color: #DEEBFF;">notAfter</td>
+               <td>Tidsstämpeln i millisekunder efter vilken autentiseringskoden inte är giltig.</td>
+               <td>valfri</td>
             </tr>
          </table>
       </td>
