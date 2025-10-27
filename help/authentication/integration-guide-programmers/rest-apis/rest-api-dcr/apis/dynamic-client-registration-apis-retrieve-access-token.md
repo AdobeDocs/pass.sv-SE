@@ -2,9 +2,9 @@
 title: Hämta åtkomsttoken
 description: API för registrering av dynamisk klient - Hämta åtkomsttoken
 exl-id: 23287acf-5d56-46f0-b65e-79bf7d667708
-source-git-commit: be2b75d3dcde92c0b83700705892403291dcab2e
+source-git-commit: f0969a692380af3d20df37c49c37f7d1e85c7cfd
 workflow-type: tm+mt
-source-wordcount: '456'
+source-wordcount: '474'
 ht-degree: 0%
 
 ---
@@ -230,7 +230,11 @@ ht-degree: 0%
             </tr>
             <tr>
                <td style="background-color: #DEEBFF;">unauthorized_client</td>
-               <td>Den anslagstyp som används är ogiltig.</td>
+               <td>Klientprogrammet har inte behörighet att använda den här auktoriseringsanslagstypen.</td>
+            </tr>
+            <tr>
+               <td style="background-color: #DEEBFF;">unsupported_grant_type</td>
+               <td>Auktoriseringsanslagstypen stöds inte av auktoriseringsservern.</td>
             </tr>
          </table>
       </td>
