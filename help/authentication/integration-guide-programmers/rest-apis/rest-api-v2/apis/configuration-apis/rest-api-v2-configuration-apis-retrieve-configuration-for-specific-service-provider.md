@@ -2,9 +2,9 @@
 title: Hämta konfiguration för en viss tjänsteleverantör
 description: REST API V2 - Hämta konfiguration för specifik tjänstleverantör
 exl-id: ad7e4c6d-ed96-4ae7-82a9-3c24e5fc9302
-source-git-commit: 8952283ccce38f70f4f504f07714c583fcb7e272
+source-git-commit: 110e8519d6c042cc38de3fbefcd34297b6edcfad
 workflow-type: tm+mt
-source-wordcount: '725'
+source-wordcount: '728'
 ht-degree: 0%
 
 ---
@@ -105,7 +105,7 @@ ht-degree: 0%
       <td>
          Medietypen som accepteras av klientprogrammet.
          <br/><br/>
-         Om det anges måste det vara application/json.
+         Om det anges måste det vara application/json;charset=utf-8.
       </td>
       <td>valfri</td>
    </tr>

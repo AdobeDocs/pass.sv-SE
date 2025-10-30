@@ -2,9 +2,9 @@
 title: Hämta autentiseringssession med kod
 description: REST API V2 - Hämta autentiseringssession med kod
 exl-id: 5cc209eb-ee6b-4bb9-9c04-3444408844b7
-source-git-commit: 92d2befd154b21abf743075c78ad617cff79b7e9
+source-git-commit: 110e8519d6c042cc38de3fbefcd34297b6edcfad
 workflow-type: tm+mt
-source-wordcount: '529'
+source-wordcount: '532'
 ht-degree: 1%
 
 ---
@@ -88,7 +88,7 @@ ht-degree: 1%
       <td>
          Medietypen som accepteras av klientprogrammet.
          <br/><br/>
-         Om det anges måste det vara application/json.
+         Om det anges måste det vara application/json;charset=utf-8.
       </td>
       <td>valfri</td>
    </tr>

@@ -2,9 +2,9 @@
 title: Skapa och hämta profil med partnerautentiseringssvar
 description: REST API V2 - Skapa och hämta profil med partnerautentiseringssvar
 exl-id: cae260ff-a229-4df7-bbf9-4cdf300c0f9a
-source-git-commit: 7ac04991289c95ebb803d1fd804e9b497f821cda
+source-git-commit: 110e8519d6c042cc38de3fbefcd34297b6edcfad
 workflow-type: tm+mt
-source-wordcount: '847'
+source-wordcount: '850'
 ht-degree: 0%
 
 ---
@@ -133,7 +133,7 @@ ht-degree: 0%
       <td>
          Medietypen som accepteras av klientprogrammet.
          <br/><br/>
-         Om det anges måste det vara application/json.
+         Om det anges måste det vara application/json;charset=utf-8.
       </td>
       <td>valfri</td>
    </tr>

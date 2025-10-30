@@ -2,9 +2,9 @@
 title: Hämta profiler
 description: REST API V2 - Hämta profiler
 exl-id: 72922aa8-95ca-48dc-8523-e335802fc366
-source-git-commit: 26245e019afac2c0844ed64b222208cc821f9c6c
+source-git-commit: 110e8519d6c042cc38de3fbefcd34297b6edcfad
 workflow-type: tm+mt
-source-wordcount: '888'
+source-wordcount: '891'
 ht-degree: 0%
 
 ---
@@ -127,7 +127,7 @@ ht-degree: 0%
       <td>
          Medietypen som accepteras av klientprogrammet.
          <br/><br/>
-         Om det anges måste det vara application/json.
+         Om det anges måste det vara application/json;charset=utf-8.
       </td>
       <td>valfri</td>
    </tr>
