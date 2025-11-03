@@ -53,14 +53,14 @@ Värdet [Experience Cloud ID](https://experienceleague.adobe.com/docs/id-service
 ## Tillståndsflöden {#entitlement}
 
 A. [Förutsättningar](#prereqs) </br>
-B. [ Startflöde ](#startup_flow) </br>
-C. [Autentiseringsflöde med Apple SSO ](#authn_flow_wo_applesso) </br>
-D. [Autentiseringsflöde med Apple SSO på iOS ](#authn_flow_with_applesso) </br>
-E. [Autentiseringsflöde med Apple SSO på tvOS ](#authn_flow_with_applesso_tvOS) </br>
+B. [&#x200B; Startflöde &#x200B;](#startup_flow) </br>
+C. [Autentiseringsflöde med Apple SSO &#x200B;](#authn_flow_wo_applesso) </br>
+D. [Autentiseringsflöde med Apple SSO på iOS &#x200B;](#authn_flow_with_applesso) </br>
+E. [Autentiseringsflöde med Apple SSO på tvOS &#x200B;](#authn_flow_with_applesso_tvOS) </br>
 F. [Auktoriseringsflöde](#authz_flow) </br>
 G. [Visa medieflöde](#media_flow) </br>
-H. [Utloggningsflöde utan Apple SSO ](#logout_flow_wo_AppleSSO)  </br>
-I. [Utloggningsflöde med Apple SSO ](#logout_flow_with_AppleSSO) </br>
+H. [Utloggningsflöde utan Apple SSO &#x200B;](#logout_flow_wo_AppleSSO)  </br>
+I. [Utloggningsflöde med Apple SSO &#x200B;](#logout_flow_with_AppleSSO) </br>
 
 
 ### A. Förutsättningar {#prereqs}
@@ -101,7 +101,7 @@ I. [Utloggningsflöde med Apple SSO ](#logout_flow_with_AppleSSO) </br>
 
    * `setMetadataStatus(metadata, key, arguments)`
       * Utlöses av `getMetadata().`
-      * Parametern `metadata` innehåller de specifika data som du har begärt. Parametern `key` är nyckeln som används i begäran [ getMetadata()](#getMeta) och parametern `arguments` är samma ordlista som skickades till [ getMetadata()](#getMeta).
+      * Parametern `metadata` innehåller de specifika data som du har begärt. Parametern `key` är nyckeln som används i begäran [&#x200B; getMetadata()](#getMeta) och parametern `arguments` är samma ordlista som skickades till [&#x200B; getMetadata()](#getMeta).
 
    * [`preauthorizedResources(authorizedResources)`](#preauthResources)
 
