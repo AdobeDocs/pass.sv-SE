@@ -2,7 +2,7 @@
 title: Grundläggande förauktorisering - primärt program - flöde
 description: REST API V2 - grundläggande förauktorisering - primärt program - flöde
 exl-id: f557f6c3-d5b2-4ec8-be51-91a90fbd31c0
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 92417dd4161be8ba97535404e262fd26d67383e4
 workflow-type: tm+mt
 source-wordcount: '496'
 ht-degree: 0%
@@ -19,13 +19,13 @@ ht-degree: 0%
 >
 > REST API V2-implementeringen begränsas av dokumentationen för [begränsningsmekanismen](/help/authentication/integration-guide-programmers/throttling-mechanism.md).
 
-**Förhandsauktoriseringsflödet** inom Adobe Pass-autentiseringsberättigandet gör att direktuppspelningsprogrammet kan avgöra om ett MVPD-program kan tillåta eller neka användarens åtkomst till en lista med resurser. Verifieringen säkerställer att programmet kan presentera korrekt information för användaren om det innehåll som han/hon kan visa.
+**Förhandsauktoriseringsflödet** inom Adobe Pass-autentiseringsberättigandet gör att direktuppspelningsprogrammet kan avgöra om en MVPD kan tillåta eller neka användaren åtkomst till en lista med resurser. Verifieringen säkerställer att programmet kan presentera korrekt information för användaren om det innehåll som han/hon kan visa.
 
 ## Hämta förauktoriseringsbeslut med hjälp av en specifik mvpd {#retrieve-preauthorization-decisions-using-specific-mvpd}
 
 ### Förutsättningar {#prerequisites-retrieve-preauthorization-decisions-using-specific-mvpd}
 
-Innan du hämtar beslut om förauktorisering med hjälp av ett specifikt MVPD måste du kontrollera att följande krav är uppfyllda:
+Innan du hämtar beslut om förauktorisering med en viss MVPD måste du kontrollera att följande krav är uppfyllda:
 
 * Strömningsprogrammet måste ha en giltig vanlig profil som har skapats för MVPD med något av de grundläggande autentiseringsflödena:
    * [Utför autentisering i det primära programmet](rest-api-v2-basic-authentication-primary-application-flow.md)
@@ -35,9 +35,9 @@ Innan du hämtar beslut om förauktorisering med hjälp av ett specifikt MVPD m�
 
 ### Arbetsflöde {#workflow-retrieve-preauthorization-decisions-using-specific-mvpd}
 
-Följ de angivna stegen för att implementera det grundläggande förauktoriseringsflödet med hjälp av ett specifikt MVPD som utförs i ett primärt program enligt bilden nedan.
+Följ de angivna stegen för att implementera det grundläggande förauktoriseringsflödet med en specifik MVPD som utförs i ett primärt program enligt bilden nedan.
 
-![Hämta förauktoriseringsbeslut med hjälp av specifik mvpd](../../../../../assets/rest-api-v2/flows/basic-access-flows/rest-api-v2-retrieve-preauthorization-decisions-within-primary-application-using-specific-mvpd.png)
+![Hämta förauktoriseringsbeslut med hjälp av specifik mvpd](/help/authentication/assets/rest-api-v2/flows/basic-access-flows/rest-api-v2-retrieve-preauthorization-decisions-within-primary-application-using-specific-mvpd.png)
 
 *Hämta förauktoriseringsbeslut med hjälp av specifik mvpd*
 

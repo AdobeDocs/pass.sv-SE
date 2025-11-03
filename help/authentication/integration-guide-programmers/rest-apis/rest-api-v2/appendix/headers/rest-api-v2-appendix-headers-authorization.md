@@ -2,7 +2,7 @@
 title: Header - Authorization
 description: REST API V2 - Header - Authorization
 exl-id: 86917d7e-ffd9-4d34-8f9c-5a50083f85e6
-source-git-commit: 81d3c3835d2e97e28c2ddb9c72d1a048a25ad433
+source-git-commit: 913b2127d2189bec1a7e6e197944f1512b764893
 workflow-type: tm+mt
 source-wordcount: '118'
 ht-degree: 0%
@@ -20,7 +20,7 @@ ht-degree: 0%
 
 Huvudet <b>Authorization</b> innehåller åtkomsttoken `Bearer` som krävs för att klientprogrammet ska få åtkomst till Adobe Pass-skyddade API:er.
 
-Mer information om hur du får åtkomst till Adobe Pass-skyddade API:er finns i [Översikt över registrering av dynamiska klienter](../../../rest-api-dcr/dynamic-client-registration-overview.md) -dokumentationen.
+Mer information om hur du får åtkomst till Adobe Pass-skyddade API:er finns i [Översikt över registrering av dynamiska klienter](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md) -dokumentationen.
 
 ## Syntax {#syntax}
 
@@ -42,7 +42,7 @@ Mer information om hur du får åtkomst till Adobe Pass-skyddade API:er finns i 
 
 <b>&lt;åtkomsttoken></b>
 
-Åtkomsttoken-värdet är ett ogenomskinligt värde med begränsad tid till livstid (t.ex. 24 timmar) som måste hämtas från Adobe Pass enligt beskrivningen i API-dokumentationen för [Hämta åtkomsttoken](../../../rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md).
+Åtkomsttoken-värdet är ett ogenomskinligt värde med begränsad tid till livstid (t.ex. 24 timmar) som måste hämtas från Adobe Pass enligt beskrivningen i API-dokumentationen för [Hämta åtkomsttoken](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md).
 
 ## Exempel {#examples}
 

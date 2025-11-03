@@ -2,9 +2,9 @@
 title: Fördelar med att använda parametern deviceType utan klient i Adobe Pass-autentiseringsmått
 description: Fördelar med att använda parametern deviceType utan klient i Adobe Pass-autentiseringsmått
 exl-id: a5004887-d5fa-468e-971b-10806519175b
-source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
+source-git-commit: 913b2127d2189bec1a7e6e197944f1512b764893
 workflow-type: tm+mt
-source-wordcount: '374'
+source-wordcount: '368'
 ht-degree: 0%
 
 ---
@@ -23,7 +23,7 @@ ht-degree: 0%
 
 ## Kontext
 
-Parametern `deviceType` från klientlöst API används, i förekommande fall, i Adobe Pass-autentiseringsmått som exponeras via [Entitlement Service Monitoring](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md), även om den är valfri.
+Parametern `deviceType` från klientlöst API används, i förekommande fall, i Adobe Pass-autentiseringsmått som exponeras via [Entitlement Service Monitoring](/help/premium-workflow/esm/entitlement-service-monitoring-overview.md), även om den är valfri.
 
 Med tanke på att anslutningen mellan parametern `deviceType` och dess **-fördelar** på Adobe Pass-autentiseringsmått inte angavs från början, är omfattningen av den här TechNote att lägga till mer information om dem.
 
@@ -35,10 +35,10 @@ Parametern `deviceType` fanns i det klientlösa API:t sedan den första versione
 
 >[!IMPORTANT]
 >
->Om parametern `deviceType` är rätt inställd har den följande **förmån** i övervakningen av berättigandetjänsten: den erbjuder mätvärden som är [nedbrutna per enhetstyp](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md#clientless_device_type) när klientlös används, så att olika typer av analyser kan utföras för t.ex. Roku, AppleTV, Xbox osv.
+>Om parametern `deviceType` är rätt inställd har den följande **förmån** i övervakningen av berättigandetjänsten: den erbjuder mätvärden som är [nedbrutna per enhetstyp](/help/premium-workflow/esm/entitlement-service-monitoring-overview.md#clientless_device_type) när klientlös används, så att olika typer av analyser kan utföras för t.ex. Roku, AppleTV, Xbox osv.
 
 
-Mer information om API:t för övervakning av berättigandetjänster finns i [fördjupningsträdet](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-api.md#drill-down_tree) som illustrerar [dimensionerna](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md#esm_dimensions) (resurserna) som finns i ESM 2.0.
+Mer information om övervaknings-API:t för berättigandetjänsten finns i [fördjupningsträdet](/help/premium-workflow/esm/entitlement-service-monitoring-overview.md#esm_dimensions) (resurser) som finns i ESM 2.0.
 
 >[!NOTE]
 >
@@ -52,7 +52,7 @@ Mer information om API:t för övervakning av berättigandetjänster finns i [f�
 För att du ska kunna dra full nytta av Adobe Pass autentiseringsmått finns det två typer av [klientlösa API:er](#web_srvs_summary) som för närvarande används och som måste ha rätt `deviceType`-uppsättning:
 
 1. API:er som har `regcode` som en obligatorisk parameter och använder parametern `deviceType` som ställdes in när `regcode` skapades, med följande API-anrop:
-   - [\&lt;REGGIE\_FQDN\>/reggie/v1/{requestorId}/regcode](#reg_serv)
+   - [\&lt;REGGIE\_FQDN\>/reggie/v1/](#reg_serv)
 
 1. API:er som har `deviceType` som en valfri parameter:
    - [\&lt;SP\_FQDN\>/api/v1/checkauthn](#check_authn_token)

@@ -2,7 +2,7 @@
 title: Amazon FireOS Integration Cookbook
 description: Amazon FireOS Integration Cookbook
 exl-id: 1982c485-f0ed-4df3-9a20-9c6a928500c2
-source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
+source-git-commit: 92417dd4161be8ba97535404e262fd26d67383e4
 workflow-type: tm+mt
 source-wordcount: '1447'
 ht-degree: 0%
@@ -30,7 +30,7 @@ Adobe Pass Authentication-berättigandelösningen för Amazon FireOS är uppdela
 
 - Användargränssnittsdomänen - det här är det övre programlagret som implementerar användargränssnittet och använder tjänsterna som tillhandahålls av biblioteket `AccessEnabler` för att ge åtkomst till begränsat innehåll.
 - Domänen `AccessEnabler` - här implementeras berättigandearbetsflödena i form av:
-   - Nätverksanrop gjorda till Adobe serverdel
+   - Nätverksanrop till Adobe serverdelsservrar
    - Affärslogik för arbetsflödena för autentisering och auktorisering
    - Hantering av olika resurser och bearbetning av arbetsflödestillstånd (t.ex. tokencache)
 
@@ -101,13 +101,13 @@ Parametern `event` anger vilken berättigandehändelse som inträffade. Paramete
       - Utlöses av `getMetadata().`
       - Parametern `metadata` innehåller de specifika data som du har begärt, parametern `key` är nyckeln som används i begäran `getMetadata()` och parametern `arguments` är samma ordlista som skickades till `getMetadata()`.
 
-   - [&quot;preauthorizedResources(resources)&grave;](#$preauthResources)
+   - [&quot;preauthorizedResources(resources)`](#$preauthResources)
 
       - Utlöses av `checkPreauthorizedResources()`.
       - Parametern `authorizedResources` visar de resurser som användaren har behörighet att visa.
 
 
-![](../../../../assets/android-entitlement-flows.png)
+![](/help//authentication/assets/android-entitlement-flows.png)
 
 
 ### B. Startflöde {#startup_flow}

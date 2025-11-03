@@ -2,9 +2,9 @@
 title: Om Adobe Pass-autentisering
 description: Om Adobe Pass-autentisering
 exl-id: 5edeaccb-f9fa-4395-83b4-706c518d5a03
-source-git-commit: 07bb12f7983f39b58e1b9795fdaa1bec4f68e674
+source-git-commit: 7ca9d8996756086a6b963c0b6d5b0bb64608ecbc
 workflow-type: tm+mt
-source-wordcount: '1832'
+source-wordcount: '1828'
 ht-degree: 0%
 
 ---
@@ -72,7 +72,7 @@ Dessa utmaningar gör att direkt integrering mellan programmerare och flera aute
 
 Adobe Pass Authentication förmedlar på ett säkert sätt berättigandetransaktioner mellan programmerare och betal-TV-leverantörer, vilket säkerställer att rätt kunder enkelt kan komma åt rätt innehåll.
 
-![](../assets/programmers-connect-authn.png)
+![](/help/authentication/assets/programmers-connect-authn.png)
 
 *Några av programmerarna och betal-tv-leverantörerna som ansluter via Adobe Pass-autentisering*
 
@@ -132,7 +132,7 @@ Ytterligare vägledning finns när integreringen har initierats formellt, men pr
 * Integrera Adobe Pass-autentiseringen [Media Token Verifier](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md#media-token-verifier).
 * Utveckla ett användargränssnitt för autentisering, auktorisering och utloggning.
 
-Mer information om programvaruintegreringsprocessen finns i [Programmer-kickstart-guiden](/help/authentication/kickstart/programmer-kickstart-guide.md) och [Programmer-integreringsguiden](/help/authentication/integration-guide-programmers/programmer-integration-guide-overview.md) .
+Mer information om programvaruintegreringsprocessen finns i [Programmerarens kickstart](/help/authentication/integration-guide-programmers/programmer-integration-guide-overview.md) -dokument.
 
 #### Integreringsprocess för betal-TV-leverantör {#pay-tv-provider-integration-process}
 
@@ -169,11 +169,11 @@ För programmerare tillhandahåller Adobe Pass Authentication API:er som en del 
    * [REST API V2](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/rest-api-v2-apis-overview.md)
 
 * Premium-API:er för Adobe Pass-autentisering:
-   * [Återställ API för tillfälligt pass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md#reset-tempass-api-access)
-      * [TempPass-funktion](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md)
-   * [Försämring av API](/help/authentication/integration-guide-programmers/features-premium/degraded-access/degradation-feature.md#degradation-api-access)
-      * [Försämringsfunktion](/help/authentication/integration-guide-programmers/features-premium/degraded-access/degradation-feature.md)
-   * [API för tillståndsövervaknings-API](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-api.md)
+   * [Återställ API för tillfälligt pass](/help/premium-workflow/temporary-access/temp-pass-feature.md#reset-tempass-api-access)
+      * [TempPass-funktion](/help/premium-workflow/temporary-access/temp-pass-feature.md)
+   * [Försämring av API](/help/premium-workflow/degraded-access/degradation-feature.md#degradation-api-access)
+      * [Försämringsfunktion](/help/premium-workflow/degraded-access/degradation-feature.md)
+   * [API för tillståndsövervaknings-API](/help/premium-workflow/esm/entitlement-service-monitoring-api.md)
 
 Mer information om berättigandeflödet finns i dokumentationen till [Programmeringsintegreringshandboken](/help/authentication/integration-guide-programmers/programmer-integration-guide-overview.md#entitlement-flow).
 
@@ -245,7 +245,7 @@ Adobe Pass Authentication ger flera fördelar jämfört med alternativa lösning
 
 **Hur säker är Adobe Pass-autentiseringen?**
 
-Säkerhet är högsta prioritet. Adobe Pass Authentication säkerställer att endast behöriga användare kan få åtkomst till premiuminnehåll genom att binda åtkomsten till användarens enhet. Det innehåller även alternativ för att begränsa antalet samtidiga strömmar, sessioner eller enheter per hushåll.
+Säkerhet är högsta prioritet. Adobe Pass Authentication säkerställer att endast behöriga användare kan komma åt premiuminnehåll genom att binda åtkomsten till användarens enhet. Det innehåller även alternativ för att begränsa antalet samtidiga strömmar, sessioner eller enheter per hushåll.
 
 **Vilka enheter stöder Adobe Pass-autentisering?**
 

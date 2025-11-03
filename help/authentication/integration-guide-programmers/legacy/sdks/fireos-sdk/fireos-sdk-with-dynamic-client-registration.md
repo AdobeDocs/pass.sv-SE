@@ -2,7 +2,7 @@
 title: Amazon FireOS SDK med dynamisk klientregistrering
 description: Amazon FireOS SDK med dynamisk klientregistrering
 exl-id: 27acf3f5-8b7e-4299-b0f0-33dd6782aeda
-source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
+source-git-commit: 913b2127d2189bec1a7e6e197944f1512b764893
 workflow-type: tm+mt
 source-wordcount: '1169'
 ht-degree: 0%
@@ -26,7 +26,7 @@ ht-degree: 0%
 
 FireOS AccessEnabler SDK for FireTV har ändrats för att aktivera autentisering utan sessionscookies. I takt med att fler och fler webbläsare begränsar åtkomsten till cookies behövdes en annan metod för att tillåta autentisering.
 
-**FireOS SDK 3.0.4** ersätter den aktuella programregistreringsmekanismen baserat på autentisering av begärande-ID och sessionscookie med [Översikt över registrering av dynamisk klient](../../../rest-apis/rest-api-dcr/dynamic-client-registration-overview.md).
+**FireOS SDK 3.0.4** ersätter den aktuella programregistreringsmekanismen baserat på autentisering av begärande-ID och sessionscookie med [Översikt över registrering av dynamisk klient](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md).
 
 
 ## API-ändringar {#API}
@@ -54,11 +54,11 @@ FireOS AccessEnabler SDK for FireTV har ändrats för att aktivera autentisering
 
 ### setRequestor
 
-**Beskrivning:** Anger kanalens identitet. Varje kanal tilldelas ett unikt ID när den registreras med Adobe för Adobe Pass autentiseringssystem. När det gäller enkel inloggning och fjärrtoken kan autentiseringstillståndet ändras när programmet är i bakgrunden. Det går att anropa setRequestor igen när programmet försätts i förgrunden för att synkronisera med systemtillståndet (hämta en fjärrtoken om enkel inloggning är aktiverad eller ta bort den lokala token om en utloggning inträffar under tiden).
+**Beskrivning:** Anger kanalens identitet. Varje kanal tilldelas ett unikt ID när den registreras hos Adobe för Adobe Pass autentiseringssystem. När det gäller enkel inloggning och fjärrtoken kan autentiseringstillståndet ändras när programmet är i bakgrunden. Det går att anropa setRequestor igen när programmet försätts i förgrunden för att synkronisera med systemtillståndet (hämta en fjärrtoken om enkel inloggning är aktiverad eller ta bort den lokala token om en utloggning inträffar under tiden).
 
 Serversvaret innehåller en lista över MVPD:er tillsammans med viss konfigurationsinformation som är kopplad till kanalens identitet. Serversvaret används internt av åtkomstaktiveringskoden. Endast åtgärdens status (d.v.s. SUCCESS/FAIL) visas för programmet via callback-funktionen setRequestorComplete().
 
-Om parametern *urls* inte används, anger det resulterande nätverksanropet standardtjänstleverantörens URL: produktionsmiljön för Adobe.
+Om parametern *urls* inte används anger det resulterande nätverksanropet standardtjänstleverantörens URL: Adobe Release Production Environment.
 
 Om ett värde anges för parametern *urls*, anger det resulterande nätverksanropet alla URL:er som anges i parametern *urls* som mål. Alla konfigurationsbegäranden aktiveras samtidigt i olika trådar. Den första svararen har företräde när listan över MVPD kompileras. För varje MVPD i listan kommer Access Enabler ihåg URL:en till den associerade tjänsteleverantören. Alla efterföljande tillståndsbegäranden dirigeras till den URL som är associerad med tjänstleverantören som parats med mål-MVPD under konfigurationsfasen.
 
@@ -76,7 +76,7 @@ Om ett värde anges för parametern *urls*, anger det resulterande nätverksanro
 
 **Parametrar:**
 
-- *requestedID*: Det unika ID som är associerat med kanalen. Skicka det unika ID som tilldelats av Adobe till din webbplats när du först registrerar dig hos Adobe Pass autentiseringstjänst.
+- *requestedID*: Det unika ID som är associerat med kanalen. Skicka det unika ID som tilldelats av Adobe till din webbplats när du första gången registrerar dig hos tjänsten Adobe Pass Authentication.
 - *urls*: Valfri parameter. Som standard används Adobes tjänstleverantör (http://sp.auth.adobe.com/). Med den här arrayen kan du ange slutpunkter för autentisering och auktoriseringstjänster som tillhandahålls av Adobe (olika instanser kan användas i felsökningssyfte). Du kan använda detta för att ange flera instanser av Adobe Pass Authentication-tjänstprovidern. Då består MVPD-listan av slutpunkterna från alla tjänsteleverantörer. Varje MVPD är kopplat till den snabbaste tjänsteleverantören, dvs. den leverantör som svarade först och som stöder MVPD.
 
 Föråldrat:
@@ -152,7 +152,7 @@ Föråldrat:
    - inloggningen avbröts: återställa MVPD-markering
    - URL-schemat har etablerats som &quot;adobepass://android.app&quot; för hämtning när autentiseringen är klar
 
-- e. get/checkAuthorization: SDK inkluderar **access\_token &#x200B;** i header som Authorization: Bearer **access\_token**
+- e. get/checkAuthorization: SDK inkluderar **access\_token **i header som Authorization: Bearer **access\_token**
 
 - om auktoriseringen lyckas, kommer ett anrop att göras för att erhålla medietoken
 

@@ -2,7 +2,7 @@
 title: Programmeraren kickstart
 description: Programmeraren kickstart
 exl-id: 0aecdb81-9b97-4475-b0b0-654d916b2374
-source-git-commit: 37858fa83aecbdf443a4a6058c78e4f9246eee42
+source-git-commit: d0f08314d7033aae93e4a0d9bc94af8773c5ba13
 workflow-type: tm+mt
 source-wordcount: '758'
 ht-degree: 0%
@@ -15,25 +15,25 @@ ht-degree: 0%
 >
 > Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
 
-Den här guiden är avsedd för innehållsleverantörer (programmerare) som tänker integrera Adobe® Pass Authentication i sina webbplatser eller tillämpningar.
+Den här snabbstartguiden är avsedd för innehållsleverantörer (programmerare) som tänker integrera Adobe® Pass Authentication i sina webbplatser eller tillämpningar.
 
 I det här dokumentet beskrivs de viktigaste initiala stegen för att säkerställa en smidig och effektiv start på integrationsprocessen. Syftet är att förtydliga förväntningarna och ge vägledning om hur vi kommer att samarbeta med partner för att uppnå framgångsrika integreringar.
 
-Adobe tillhandahåller en rad resurser som hjälper dig att integrera Adobe Pass Authentication i din webbplats eller tillämpning. Se **&quot;Du kommer att uppge&quot;** och **&quot;Adobe kommer att tillhandahålla&quot;** omnämnanden från varje avsnitt nedan.
+Adobe tillhandahåller en rad resurser som hjälper dig att integrera Adobe Pass Authentication i din webbplats eller i din tillämpning. Se **&quot;Du kommer att uppge&quot;** och **&quot;Adobe kommer att tillhandahålla&quot;** omnämnanden från varje avsnitt nedan.
 
 ## Installationsprocess {#setup-process}
 
 Installationsprocessen omfattar bland annat följande steg:
 
-![Integreringsprocess för autentisering i Adobe® Pass](../assets/progr-flow-int-lifecycle.png)
+![Integreringsprocess för Adobe® Pass-autentisering](/help/authentication/assets/progr-flow-int-lifecycle.png)
 
-*Integreringsprocess för autentisering i Adobe® Pass*
+*Integreringsprocess för Adobe® Pass-autentisering*
 
 **Du anger** under startfasen:
 
 * **Tjänstleverantör (begärande-ID)**
 
-  Detta är en sträng som unikt identifierar varumärket för webbplatsen eller det program som begär Adobe Pass Authentication. Själva strängen är godtycklig men måste avtalas mellan Adobe och programmeraren
+  Detta är en sträng som unikt identifierar varumärket för webbplatsen eller det program som begär Adobe Pass Authentication. Själva strängen är godtycklig, men måste avtalas mellan Adobe och programmeraren
 
 * **Kanalinformation**
 
@@ -75,7 +75,7 @@ Adobe Pass autentiseringsteam är tillgängliga för att hjälpa dig med eventue
 
 ## Åtkomst till dokumentation {#access-documentation}
 
-**Adobe ger** åtkomst till vår offentliga dokumentation via [Adobe Experience League](https://experienceleague.adobe.com/sv/docs/pass/authentication/home).
+**Adobe ger** åtkomst till vår offentliga dokumentation via [Adobe Experience League](https://experienceleague.adobe.com/en/docs/pass/authentication/home).
 
 Adobe Pass Authentication-teamet tillhandahåller omfattande dokumentation om tillgängliga funktioner och API:er i avsnittet [Integreringsguide för programmerare](/help/authentication/integration-guide-programmers/programmer-integration-guide-overview.md). I innehållsförteckningen under det här avsnittet finns länkar till detaljerad information om varje ämne.
 

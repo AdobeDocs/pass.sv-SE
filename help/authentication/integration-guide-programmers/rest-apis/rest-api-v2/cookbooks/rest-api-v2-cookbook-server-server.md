@@ -2,9 +2,9 @@
 title: REST API V2 Cookbook (Server-to-Server)
 description: REST API V2 Cookbook (Server-to-Server)
 exl-id: 3160c03c-849d-4d39-95e5-9a9cbb46174d
-source-git-commit: b753c6a6bdfd8767e86cbe27327752620158cdbb
+source-git-commit: af867cb5e41843ffa297a31c2185d6e4b4ad1914
 workflow-type: tm+mt
-source-wordcount: '2510'
+source-wordcount: '2497'
 ht-degree: 0%
 
 ---
@@ -183,7 +183,7 @@ Vanliga frågor
 * **Scenario 2:** Det finns inga befintliga profiler. Programmeringstjänsten kan gå vidare till nästa steg för att [autentisera användaren](#step-3-authenticate-the-user).
 
 
-* **Scenario 3:** Det finns inga befintliga profiler. Programmeringstjänsten kan fortsätta att ge användaren tillfällig åtkomst via funktionen [TempPass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md).
+* **Scenario 3:** Det finns inga befintliga profiler. Programmeringstjänsten kan fortsätta att ge användaren tillfällig åtkomst via funktionen [TempPass](/help/premium-workflow/temporary-access/temp-pass-feature.md).
 
    * Det här scenariot ligger utanför det här dokumentets omfång. Mer information finns i dokumentationen för [Tillfälliga åtkomstflöden](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/temporary-access-flows/rest-api-v2-access-temporary-flows.md).
 
@@ -294,7 +294,7 @@ Vanliga frågor
 
 ### Steg 6: Kontrollera om det finns auktoriserade resurser {#step-6-check-for-authorized-resources}
 
-* **Hämta auktoriseringsbeslut:** Programmerartjänsten hämtar auktoriseringsbeslut för en specifik resurs som skickas av direktuppspelningsappen genom att anropa slutpunkten [**/api/v2/{serviceProvider}/Decision/authorized/{mvpd}**](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md).
+* **Hämta auktoriseringsbeslut:** Programmerartjänsten hämtar auktoriseringsbeslut för en specifik resurs som skickas av direktuppspelningsappen genom att anropa slutpunkten [**/api/v2/{serviceProvider}/Decision/authorized/{mvpd}**](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md) .
 
    * Programmerartjänsten behövs inte för att lagra auktoriseringsbeslut i beständig lagring.
 

@@ -2,7 +2,7 @@
 title: Hämta auktoriseringstoken
 description: Hämta auktoriseringstoken
 exl-id: 0b010958-efa8-4dd9-b11b-5d10f51f5680
-source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
+source-git-commit: 913b2127d2189bec1a7e6e197944f1512b764893
 workflow-type: tm+mt
 source-wordcount: '373'
 ht-degree: 0%
@@ -44,7 +44,7 @@ Hämtar AuthZ-token.
 
 | Slutpunkt | Anropat </br>av | Indata   </br>Parametrar | HTTP </br>Metod | Svar | HTTP </br>Response |
 | --- | --- | --- | --- | --- | --- |
-| &lt;SP_FQDN>/api/v1/tokens/authz</br></br>Till exempel:</br></br>&lt;SP_FQDN>/api/v1/tokens/authz | Direktuppspelande app</br></br>eller</br></br>Programmeringtjänst | 1. beställare (obligatoriskt)</br>2.  deviceId (obligatoriskt)</br>3.  resurs (obligatoriskt)</br>4.  device_info/X-Device-Info (obligatoriskt)</br>5.  _deviceType_</br> 6.  _deviceUser_ (utgått)</br>7.  _appId_ (inaktuellt) | GET | 1. Lyckades</br>2.  Autentiseringstoken </br>    hittades inte eller har gått ut:   </br>    Förklaring av XML </br>    för författartoken hittades inte</br> .  Auktoriseringstoken </br>    hittades inte: </br>    XML-förklaring </br>4.  Auktoriseringstoken </br>    utgången: </br>    XML-förklaring | 200 - Lyckades </br>412 - Inget AuthN</br></br>404 - Ingen AuthZ</br></br>410 - AuthZ har gått ut |
+| &lt;SP_FQDN>/api/v1/tokens/authz</br></br>Till exempel:</br></br>&lt;SP_FQDN>/api/v1/tokens/authz | Direktuppspelande app</br></br>eller</br></br>Programmeringtjänst | &#x200B;1. beställare (obligatoriskt)</br>2.  deviceId (obligatoriskt)</br>3.  resurs (obligatoriskt)</br>4.  device_info/X-Device-Info (obligatoriskt)</br>5.  _deviceType_</br> 6.  _deviceUser_ (utgått)</br>7.  _appId_ (inaktuellt) | GET | &#x200B;1. Lyckades</br>2.  Autentiseringstoken </br>    hittades inte eller har gått ut:   </br>    Förklaring av XML </br>    för författartoken hittades inte</br> .  Auktoriseringstoken </br>    hittades inte: </br>    XML-förklaring </br>4.  Auktoriseringstoken </br>    utgången: </br>    XML-förklaring | 200 - Lyckades </br>412 - Inget AuthN</br></br>404 - Ingen AuthZ</br></br>410 - AuthZ har gått ut |
 
 {style="table-layout:auto"}
 
@@ -55,8 +55,8 @@ Hämtar AuthZ-token.
 | begärande | Programmerarens requestId som den här åtgärden är giltig för. |
 | deviceId | Byte för enhets-ID. |
 | resurs | En sträng som innehåller ett resourceId (eller MRSS-fragment), identifierar det innehåll som begärts av en användare och känns igen av MVPD auktoriseringsslutpunkter. |
-| device_info/</br></br>X-Device-Info | Information om direktuppspelningsenhet.</br></br>**Obs!**: Detta kan skickas som device_info som URL-parameter, men på grund av parameterns potentiella storlek och begränsningar i längden på en GET-URL, bör det skickas som X-Device-Info i http-huvudet. </br></br>Mer information finns i [Skicka information om enheter och anslutningar](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md). |
-| _deviceType_ | Enhetstypen (till exempel Roku, PC).</br></br>Om den här parametern är korrekt har ESM värden som är [nedbrutna per enhetstyp](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md#clientless_device_type) när klientlösa används, så att olika typer av analyser kan utföras, till exempel Roku, AppleTV och Xbox.</br></br>Se, [Fördelar med att använda parametern för klientlös enhetstyp i pass-mått &#x200B;](/help/authentication/integration-guide-programmers/legacy/notes-technical/benefits-of-using-the-clientless-devicetype-parameter-in-pass-metrics.md)</br></br>**Obs!** Parametern device_info kommer att ersättas. |
+| device_info/</br></br>X-Device-Info | Information om direktuppspelningsenhet.</br></br>**Obs!**: Detta kan skickas device_info som en URL-parameter, men på grund av parameterns potentiella storlek och begränsningar i längden på en GET-URL bör det skickas som X-Device-Info i http-huvudet. </br></br>Mer information finns i [Skicka information om enheter och anslutningar](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md). |
+| _deviceType_ | Enhetstypen (till exempel Roku, PC).</br></br>Om den här parametern är korrekt har ESM värden som är [nedbrutna per enhetstyp](/help/premium-workflow/esm/entitlement-service-monitoring-overview.md#clientless_device_type) när klientlösa används, så att olika typer av analyser kan utföras, till exempel Roku, AppleTV och Xbox.</br></br>Se, [Fördelar med att använda parametern för klientlös enhetstyp i pass-mått ](/help/authentication/integration-guide-programmers/legacy/notes-technical/benefits-of-using-the-clientless-devicetype-parameter-in-pass-metrics.md)</br></br>**Obs!** Parametern device_info kommer att ersättas. |
 | _deviceUser_ | Enhetens användaridentifierare. |
 | _appId_ | Program-ID/namn. </br></br>**Obs!**: device_info ersätter den här parametern. |
 

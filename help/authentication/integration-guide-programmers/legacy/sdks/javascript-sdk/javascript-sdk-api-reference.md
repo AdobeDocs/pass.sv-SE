@@ -2,7 +2,7 @@
 title: JavaScript SDK API Reference
 description: JavaScript SDK API Reference
 exl-id: 48d48327-14e6-46f3-9e80-557f161acd8a
-source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
+source-git-commit: 913b2127d2189bec1a7e6e197944f1512b764893
 workflow-type: tm+mt
 source-wordcount: '2883'
 ht-degree: 0%
@@ -40,7 +40,7 @@ Dessa funktioner startar förfrågningar om interaktion med en MVPD. Alla anrop 
 
 **Parametrar:**
 
-- *inRequestorID* - Den unika identifierare som Adobe tilldelade den ursprungliga platsen under registreringen.
+- *inRequestorID* - Den unika identifierare som Adobe tilldelade till den ursprungliga webbplatsen under registreringen.
 
 - *slutpunkter* - Den här parametern är valfri. Det kan vara något av följande värden:
 
@@ -51,7 +51,7 @@ Dessa funktioner startar förfrågningar om interaktion med en MVPD. Alla anrop 
 
 - *options* - Ett JSON-objekt som innehåller programmets ID-värde, inställningar för att uppdatera besökar-ID-värde (inloggning i bakgrunden) och MVPD-inställningar (iFrame). Alla värden är valfria.
    1. Om detta anges rapporteras Experience Cloud visitorID för alla nätverksanrop som utförs av biblioteket. Värdet kan användas senare för avancerade analysrapporter.
-   2. Om den unika identifieraren för programmet anges -`applicationId` - läggs värdet till i alla efterföljande anrop som görs av programmet som en del av HTTP-huvudet X-Device-Info. Det här värdet kan senare hämtas från [ESM](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md)-rapporter med rätt fråga.
+   2. Om den unika identifieraren för programmet anges -`applicationId` - läggs värdet till i alla efterföljande anrop som görs av programmet som en del av HTTP-huvudet X-Device-Info. Det här värdet kan senare hämtas från [ESM](/help/premium-workflow/esm/entitlement-service-monitoring-overview.md)-rapporter med rätt fråga.
 
   **Obs!** Alla JSON-tangenter är skiftlägeskänsliga.
 
@@ -178,7 +178,7 @@ När det är klart skapar och sparar en autentiseringstoken för användaren. Om
 
 ## checkAuthorization(inResourceID) {#checkauthorization(inresourceid)}
 
-**Beskrivning:** Den här metoden används av programmet för att kontrollera auktoriseringsstatusen för den aktuella kunden och den angivna resursen. Det börjar med att kontrollera autentiseringsstatusen först. Om den inte autentiseras aktiveras callback-funktionen tokenRequestFailed() och metoden avslutas. Om användaren är autentiserad utlöses även auktoriseringsflödet. Se information om metoden [getAuthorization()](#getAuthZ).
+**Beskrivning:** Den här metoden används av programmet för att kontrollera auktoriseringsstatusen för den aktuella kunden och den angivna resursen. Det börjar med att kontrollera autentiseringsstatusen först. Om den inte autentiseras aktiveras callback-funktionen tokenRequestFailed() och metoden avslutas. Om användaren är autentiserad utlöses även auktoriseringsflödet. Se information om metoden [getAuthorization()]&#x200B;(#getAuthZ).
 
 >[!TIP]
 >
@@ -190,7 +190,7 @@ När det är klart skapar och sparar en autentiseringstoken för användaren. Om
 
 
 **Återanrop har utlösts:**
-[&#x200B; setToken()](#settokeninrequestedresourceid-intoken-settokeninrequestedresourceidintoken), [&#x200B; tokenRequestFailed()](#tokenrequestfailedinrequestedresourceid-inrequesterrorcode-inrequestdetailederrormessage-tokenrequestfailedinrequestedresourceidinrequesterrorcodeinrequestdetailederrormessage), [sendTrackingData()](#sendtrackingdatatrackingeventtype-trackingdata-sendtrackingdatatrackingeventtypetrackingdata), [setAuthenticationStatus()](#setauthenticationstatusisauthenticated-errorcode)
+[ setToken()](#settokeninrequestedresourceid-intoken-settokeninrequestedresourceidintoken), [ tokenRequestFailed()](#tokenrequestfailedinrequestedresourceid-inrequesterrorcode-inrequestdetailederrormessage-tokenrequestfailedinrequestedresourceidinrequesterrorcodeinrequestdetailederrormessage), [sendTrackingData()](#sendtrackingdatatrackingeventtype-trackingdata-sendtrackingdatatrackingeventtypetrackingdata), [setAuthenticationStatus()](#setauthenticationstatusisauthenticated-errorcode)
 
 </br>
 
@@ -241,7 +241,7 @@ Det finns två typer av metadata:
 
    - Om nyckeln är `"TTL_AUTHZ"` och parametrarna är en array som innehåller resurs-ID:t som en sträng, görs frågan för att hämta förfallotiden för den auktoriseringstoken som är associerad med den angivna resursen.
 
-   - Om nyckeln är `"DEVICEID"` ställs frågan för att hämta aktuellt enhets-ID. Observera att den här funktionen är inaktiverad som standard och programmerare bör kontakta Adobe för att få information om aktivering och avgifter.
+   - Om nyckeln är `"DEVICEID"` ställs frågan för att hämta aktuellt enhets-ID. Observera att den här funktionen är inaktiverad som standard och programmerare bör kontakta Adobe för information om aktivering och avgifter.
 
    - Om nyckeln kommer från följande lista över användarmetadatatyper, skickas ett JSON-objekt som innehåller motsvarande användarmetadata till callback-funktionen [`setMetadataStatus()`](#setmetadatastatuskey-encrypted-data-setmetadatastatuskeyencrypteddata):
 
@@ -309,7 +309,7 @@ Exempel:
 **Beskrivning:** Anropa den här funktionen när användaren har valt en MVPD i användargränssnittet för val av leverantör för att skicka providervalet till åtkomstaktiveringen eller anropa den här funktionen med en null-parameter om användaren har avvisat användargränssnittet för val av leverantör utan att välja någon leverantör.
 
 **Återanrop
-utlöses:**[&#x200B; setAuthationStatus()](#setauthenticationstatusisauthenticated-errorcode), [sendTrackingData()](#sendtrackingdatatrackingeventtype-trackingdata-sendtrackingdatatrackingeventtypetrackingdata)
+utlöses:**[ setAuthationStatus()](#setauthenticationstatusisauthenticated-errorcode), [sendTrackingData()](#sendtrackingdatatrackingeventtype-trackingdata-sendtrackingdatatrackingeventtypetrackingdata)
 
 </br>
 
@@ -415,7 +415,7 @@ Du måste implementera dessa återanrop för att kunna hantera svaren på dina a
 
 **Beskrivning:** Implementera det här återanropet om användaren har valt en MVPD som kräver en iFrame där användargränssnittet för inloggningssidan för autentisering ska visas.
 
-**Utlöses av:**&#x200B;[&#x200B; setSelectedProvider()](#setselectedproviderproviderid-setselectedprovider)
+**Utlöses av:**[ setSelectedProvider()](#setselectedproviderproviderid-setselectedprovider)
 
 </br> [Till början](#top)
 
@@ -448,7 +448,7 @@ Du måste implementera dessa återanrop för att kunna hantera svaren på dina a
 
 >[!CAUTION]
 >
->Enhetstypen och operativsystemet härleds genom användning av ett offentligt Java-bibliotek (<http://java.net/projects/user-agent-utils>) och användaragentsträngen. Observera att denna information endast tillhandahålls som ett grovt sätt att dela upp mätvärden för drift i enhetskategorier, men att Adobe inte kan ta något ansvar för felaktiga resultat. Använd den nya funktionen i enlighet med detta.
+>Enhetstypen och operativsystemet härleds genom användning av ett offentligt Java-bibliotek (<http://java.net/projects/user-agent-utils>) och användaragentsträngen. Observera att denna information endast tillhandahålls som ett grovt sätt att dela upp driftsstatistik i enhetskategorier, men att Adobe inte kan ta något ansvar för felaktiga resultat. Använd den nya funktionen i enlighet med detta.
 
 **Beskrivning:** Implementera det här återanropet för att ta emot spårningsdata när specifika händelser inträffar. Du kan till exempel använda detta för att hålla reda på hur många användare som har loggat in med samma inloggningsuppgifter. Spårning kan för närvarande inte konfigureras. Med Adobe Pass Authentication 1.6 rapporterar `sendTrackingData()` även information om enheten, klienten för åtkomstaktivering och operativsystemstypen. Återanropet `sendTrackingData()` är fortfarande bakåtkompatibelt.
 

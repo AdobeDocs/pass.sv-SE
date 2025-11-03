@@ -2,7 +2,7 @@
 title: iOS/tvOS Cookbook
 description: iOS/tvOS Cookbook
 exl-id: 4743521e-d323-4d1d-ad24-773127cfbe42
-source-git-commit: e448427ae4a36c4c6cb9f9c1cb4d0cc5c6d564ed
+source-git-commit: 92417dd4161be8ba97535404e262fd26d67383e4
 workflow-type: tm+mt
 source-wordcount: '2424'
 ht-degree: 0%
@@ -29,7 +29,7 @@ Adobe Pass Authentication-berättigandelösningen för iOS/tvOS är uppdelad i t
 
 * Domänen AccessEnabler - det är här som berättigandearbetsflödena implementeras i form av:
 
-   * Nätverksanrop gjorda till Adobe serverdel
+   * Nätverksanrop till Adobe serverdelsservrar
    * Affärslogik för arbetsflödena för autentisering och auktorisering
    * Hantering av olika resurser och bearbetning av arbetsflödestillstånd (t.ex. tokencache)
 
@@ -48,19 +48,19 @@ Nätverksaktiviteten för AccessEnabler äger rum i en egen tråd, så gränssni
 
 ## Konfigurera Experience Cloud ID-tjänsten (besökar-ID) {#visitorIDSetup}
 
-Värdet [Experience Cloud ID](https://experienceleague.adobe.com/docs/id-service/using/home.html?lang=sv-SE) måste konfigureras ur [!DNL Analytics]-synvinkel. När ett `visitorID`-värde har angetts skickar SDK den här informationen tillsammans med varje nätverksanrop och autentiseringsservern [!DNL Adobe Pass] samlar in den här informationen. Du kan korrelera analysen från Adobe Pass autentiseringstjänst med andra analysrapporter som du kan ha från andra program eller webbplatser. Information om hur du konfigurerar besökar-ID finns [här](#setOptions).
+Värdet [Experience Cloud ID](https://experienceleague.adobe.com/docs/id-service/using/home.html) måste konfigureras från [!DNL Analytics]-vyn. När ett `visitorID`-värde har angetts skickar SDK den här informationen tillsammans med varje nätverksanrop och autentiseringsservern [!DNL Adobe Pass] samlar in den här informationen. Du kan korrelera analysen från Adobe Pass autentiseringstjänst med andra analysrapporter som du kan ha från andra program eller webbplatser. Information om hur du konfigurerar besökar-ID finns [här](#setOptions).
 
 ## Tillståndsflöden {#entitlement}
 
 A. [Förutsättningar](#prereqs) </br>
-B. [&#x200B; Startflöde &#x200B;](#startup_flow) </br>
-C. [Autentiseringsflöde med Apple SSO &#x200B;](#authn_flow_wo_applesso) </br>
-D. [Autentiseringsflöde med Apple SSO på iOS &#x200B;](#authn_flow_with_applesso) </br>
-E. [Autentiseringsflöde med Apple SSO på tvOS &#x200B;](#authn_flow_with_applesso_tvOS) </br>
+B. [ Startflöde ](#startup_flow) </br>
+C. [Autentiseringsflöde med Apple SSO ](#authn_flow_wo_applesso) </br>
+D. [Autentiseringsflöde med Apple SSO på iOS ](#authn_flow_with_applesso) </br>
+E. [Autentiseringsflöde med Apple SSO på tvOS ](#authn_flow_with_applesso_tvOS) </br>
 F. [Auktoriseringsflöde](#authz_flow) </br>
 G. [Visa medieflöde](#media_flow) </br>
-H. [Utloggningsflöde utan Apple SSO &#x200B;](#logout_flow_wo_AppleSSO)  </br>
-I. [Utloggningsflöde med Apple SSO &#x200B;](#logout_flow_with_AppleSSO) </br>
+H. [Utloggningsflöde utan Apple SSO ](#logout_flow_wo_AppleSSO)  </br>
+I. [Utloggningsflöde med Apple SSO ](#logout_flow_with_AppleSSO) </br>
 
 
 ### A. Förutsättningar {#prereqs}
@@ -101,7 +101,7 @@ I. [Utloggningsflöde med Apple SSO &#x200B;](#logout_flow_with_AppleSSO) </br>
 
    * `setMetadataStatus(metadata, key, arguments)`
       * Utlöses av `getMetadata().`
-      * Parametern `metadata` innehåller de specifika data som du har begärt. Parametern `key` är nyckeln som används i begäran [&#x200B; getMetadata()](#getMeta) och parametern `arguments` är samma ordlista som skickades till [&#x200B; getMetadata()](#getMeta).
+      * Parametern `metadata` innehåller de specifika data som du har begärt. Parametern `key` är nyckeln som används i begäran [ getMetadata()](#getMeta) och parametern `arguments` är samma ordlista som skickades till [ getMetadata()](#getMeta).
 
    * [`preauthorizedResources(authorizedResources)`](#preauthResources)
 
@@ -120,7 +120,7 @@ har behörighet att se.
       * Utlöses av en användaråtgärd (genom att välja Avbryt eller Andra TV-leverantörer i Apple SSO-dialogruta).
       * Parametern viewController är Apple SSO-dialogrutan och måste stängas av från huvudvykontrollanten.
 
-![](../../../../assets/iOS-flows.png)
+![](/help//authentication/assets/iOS-flows.png)
 
 ### B. Startflöde {#startup_flow}
 
@@ -136,7 +136,6 @@ har behörighet att se.
 Ansvarig för att ordna detta).
 
    * **Utlösare:**
-
      [setRequestorComplete()](#$setReqComplete)-återanrop.
 
    >[!NOTE]

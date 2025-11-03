@@ -2,9 +2,9 @@
 title: REST API V2 Cookbook (klient-till-server)
 description: REST API V2 Cookbook (klient-till-server)
 exl-id: 6a5a89d2-ea54-4f9c-9505-e575ced4301c
-source-git-commit: b753c6a6bdfd8767e86cbe27327752620158cdbb
+source-git-commit: af867cb5e41843ffa297a31c2185d6e4b4ad1914
 workflow-type: tm+mt
-source-wordcount: '1846'
+source-wordcount: '1833'
 ht-degree: 0%
 
 ---
@@ -107,7 +107,7 @@ Autentiseringsfasen fungerar som ett nödvändigt steg för förauktoriseringsfa
 * **Scenario 2:** Det finns inga befintliga profiler. Direktuppspelningsprogrammet kan fortsätta till nästa steg för att [autentisera användaren](#step-3-authenticate-the-user).
 
 
-* **Scenario 3:** Det finns inga befintliga profiler. Direktuppspelningsprogrammet kan fortsätta att ge användaren tillfällig åtkomst via funktionen [TempPass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md).
+* **Scenario 3:** Det finns inga befintliga profiler. Direktuppspelningsprogrammet kan fortsätta att ge användaren tillfällig åtkomst via funktionen [TempPass](/help/premium-workflow/temporary-access/temp-pass-feature.md).
 
    * Det här scenariot ligger utanför det här dokumentets omfång. Mer information finns i dokumentationen för [Tillfälliga åtkomstflöden](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/temporary-access-flows/rest-api-v2-access-temporary-flows.md).
 

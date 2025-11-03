@@ -2,7 +2,7 @@
 title: REST API V2-ordlista
 description: REST API V2-ordlista
 exl-id: 8b3bd2de-1ff8-4c57-b18d-27ecdf2b0de2
-source-git-commit: e448427ae4a36c4c6cb9f9c1cb4d0cc5c6d564ed
+source-git-commit: af867cb5e41843ffa297a31c2185d6e4b4ad1914
 workflow-type: tm+mt
 source-wordcount: '1742'
 ht-degree: 0%
@@ -33,7 +33,7 @@ Autentiseringen är en process som gör det möjligt för en användare att bevi
 
 Autentiseringskoden är ett Adobe Pass-autentiseringskoncept som lagrar ett unikt värde som genereras när en användare initierar [autentiseringsprocessen](#authentication) och unikt identifierar en användares [autentiseringssession](#session) tills autentiseringsprocessen är slutförd.
 
-Autentiseringskoden kan användas av både ett [primärt (programmerare) program](#primary-application) eller ett [sekundärt (programmerare) program](#secondary-application) för att slutföra [autentiseringsprocessen](#authentication), hämta information om [autentiseringssessionen](#session) eller för att få åtkomst till användarprofilen [&#128279;](#profile).
+Autentiseringskoden kan användas av både ett [primärt (programmerare) program](#primary-application) eller ett [sekundärt (programmerare) program](#secondary-application) för att slutföra [autentiseringsprocessen](#authentication), hämta information om [autentiseringssessionen](#session) eller för att få åtkomst till användarprofilen [](#profile).
 
 Synonym med den tidigare termen som används i registreringskoden.
 
@@ -63,7 +63,7 @@ Beslutet är ett Adobe Pass-autentiseringskoncept som lagrar information om proc
 
 Nedbrytningen är en Adobe Pass-autentiseringsfunktion som gör att en användare kan komma åt skyddat innehåll även när [MVPD](#mvpd) upplever en tjänststörning.
 
-Mer information finns i dokumentationen för [Försämringsfunktionen](/help/authentication/integration-guide-programmers/features-premium/degraded-access/degradation-feature.md).
+Mer information finns i dokumentationen för [Försämringsfunktionen](/help/premium-workflow/degraded-access/degradation-feature.md).
 
 #### Enhets-ID {#device-id}
 
@@ -229,13 +229,13 @@ enkel inloggning (SSO) är en process som gör att en användare kan autentisera
 
 Grundläggande TempPass är en Adobe Pass-autentiseringsfunktion som gör att en användare kan komma åt skyddat innehåll under en begränsad tid utan att behöva autentisera med en [MVPD](#mvpd).
 
-Mer information finns i dokumentationen för [Basic TempPass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md#basic-temp-pass).
+Mer information finns i dokumentationen för [Basic TempPass](/help/premium-workflow/temporary-access/temp-pass-feature.md#basic-temp-pass).
 
 #### TempPass-kampanj {#temp-pass-promotional}
 
 Kampanjen TempPass är en Adobe Pass-autentiseringsfunktion som gör att en användare kan få åtkomst till skyddat innehåll för ett maximalt antal resurser och en begränsad tid utan att behöva autentisera med en [MVPD](#mvpd).
 
-Mer information finns i dokumentationen för [Promotional TempPass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md#promotional-temp-pass).
+Mer information finns i dokumentationen för [Promotional TempPass](/help/premium-workflow/temporary-access/temp-pass-feature.md#promotional-temp-pass).
 
 #### TTL {#ttl}
 

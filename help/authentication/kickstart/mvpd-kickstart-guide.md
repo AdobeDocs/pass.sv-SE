@@ -2,7 +2,7 @@
 title: MVPD kickstart guide
 description: MVPD kickstart guide
 exl-id: 6423cc9a-a45a-4cde-b562-4cb72c98e505
-source-git-commit: 2b9a8ce374f7a73cd815e9735d672e5c9ba285cc
+source-git-commit: d0f08314d7033aae93e4a0d9bc94af8773c5ba13
 workflow-type: tm+mt
 source-wordcount: '934'
 ht-degree: 0%
@@ -33,9 +33,9 @@ Adobe tillhandahåller en rad resurser som hjälper dig att integrera med Adobe 
 
 Installationsprocessen omfattar bland annat följande steg:
 
-![Integreringsprocess för autentisering i Adobe® Pass](../assets/mvpd-int-lifecycle.png)
+![Integreringsprocess för Adobe® Pass-autentisering](/help/authentication/assets/mvpd-int-lifecycle.png)
 
-*Integreringsprocess för autentisering i Adobe® Pass*
+*Integreringsprocess för Adobe® Pass-autentisering*
 
 ### Kickoff {#kickoff}
 
@@ -87,13 +87,13 @@ Installationsprocessen omfattar bland annat följande steg:
 
 ### Utveckling {#development}
 
-**Adobe kommer att tillhandahålla** teknisk tid för nära samarbete med MVPD för att säkerställa att den tekniska integrationen är korrekt etablerad. I den här processen ingår utveckling av anpassad kod som är anpassad efter MVPD specifika krav.
+**Adobe kommer att ge** teknisk tid för nära samarbete med MVPD för att säkerställa att den tekniska integrationen är korrekt etablerad. I den här processen ingår utveckling av anpassad kod som är anpassad efter MVPD specifika krav.
 
 ### Distribution i mellanlagring {#deployment-staging}
 
 **Adobe kommer att tillhandahålla** en version med de nödvändiga koduppdateringarna som först kommer att distribueras i PRE-QUAL-mellanlagringsmiljön. Under den här fasen kommer de nödvändiga konfigurationsändringarna också att implementeras för att integrera MVPD med tjänstleverantören `TestDistributors` för testningsändamål.
 
-**Du och Adobe tillhandahåller** tid för kvalitetssäkring (QA) för att säkerställa att integreringen testas korrekt i PRE-QUAL-mellanlagringsmiljön. Efter den här fasen kommer MVPD att flyttas till testmiljön RELEASE för ytterligare testning med en riktig programmerare.
+**Du och Adobe kommer att tillhandahålla** kvalitetskontrolltid (QA) för att säkerställa att integreringen testas korrekt i PRE-QUAL-mellanlagringsmiljön. Efter den här fasen kommer MVPD att flyttas till testmiljön RELEASE för ytterligare testning med en riktig programmerare.
 
 ### Driftsättning i produktion {#deployment-production}
 
@@ -101,7 +101,7 @@ Installationsprocessen omfattar bland annat följande steg:
 
 **Adobe kommer att tillhandahålla** en version med de nödvändiga koduppdateringarna som ska distribueras i produktionsmiljön PRE-QUAL.
 
-**Du och Adobe kommer att tillhandahålla** tid för kvalitetssäkring (QA) för att säkerställa att integreringen kan testas med hjälp av produktionsprofilen. Om allt är bra nu kan Adobe flytta integreringen till produktionsmiljön RELEASE (&quot;live&quot;), som är tillgänglig för alla användare.
+**Du och Adobe kommer att tillhandahålla** tid för kvalitetssäkring (QA) för att säkerställa att integreringen kan testas med hjälp av produktionsprofilen. Om allt är bra kan Adobe flytta integreringen till produktionsmiljön RELEASE (&quot;live&quot;), som är tillgänglig för alla användare.
 
 >[!IMPORTANT]
 >
@@ -121,11 +121,11 @@ Installationsprocessen omfattar bland annat följande steg:
 
   I RELEASE-miljön finns den aktuella (stabila) produktionsversionen.
 
-Mer information om hur du använder de här miljöerna finns i [Förstå Adobe-miljöerna](/help/authentication/notes-technical/environments/understanding-the-adobe-environments.md) .
+Mer information om hur du använder dessa miljöer finns i [Förstå Adobe-miljöer](/help/authentication/notes-technical/environments/understanding-the-adobe-environments.md) -dokumentationen.
 
 >[!IMPORTANT]
 > 
-> Konfigurationsändringar av dessa miljöer måste uttryckligen begäras via din Adobe-representant efter den etablerade ändringsbegärandeprocessen.
+> Konfigurationsändringar i dessa miljöer måste uttryckligen begäras via din Adobe-representant efter den etablerade ändringsbegärandeprocessen.
 
 ## Tillgång till kundsupport {#access-customer-support}
 
@@ -135,7 +135,7 @@ Adobe Pass Authentication-teamet är tillgängligt för att beskriva eventuella 
 
 ## Åtkomst till dokumentation {#access-documentation}
 
-**Adobe ger** åtkomst till vår offentliga dokumentation via [Adobe Experience League](https://experienceleague.adobe.com/sv/docs/pass/authentication/home).
+**Adobe ger** åtkomst till vår offentliga dokumentation via [Adobe Experience League](https://experienceleague.adobe.com/en/docs/pass/authentication/home).
 
 Adobe Pass-autentiseringsteamet tillhandahåller omfattande dokumentation om tillgängliga funktioner och arbetsflöden i avsnittet [Integreringsguide för MVPD-program](/help/authentication/integration-guide-mvpds/mvpd-integration-guide-overview.md). I innehållsförteckningen under det här avsnittet finns länkar till detaljerad information om varje ämne.
 

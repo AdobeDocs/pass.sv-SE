@@ -2,7 +2,7 @@
 title: Integreringsguide för programmerare
 description: Integreringsguide för programmerare
 exl-id: 51461caf-08ef-459e-b284-8f317f45e7b1
-source-git-commit: b753c6a6bdfd8767e86cbe27327752620158cdbb
+source-git-commit: 7ca9d8996756086a6b963c0b6d5b0bb64608ecbc
 workflow-type: tm+mt
 source-wordcount: '2119'
 ht-degree: 0%
@@ -28,13 +28,13 @@ Innan du beviljar åtkomst till skyddat innehåll måste du avgöra om tittaren 
 
 För programmerare är det inte alltid så enkelt att avgöra behörighet. MVPD är förvaringsinstitut för sina kunders ID-data och åtkomstbehörigheter. Programmerare kan abonnera på ett stort antal olika programmeringsskyltar, som alla fungerar med unika system. Dessa svårigheter gör det både tekniskt utmanande och resurskrävande att verifiera berättigandet.
 
-![Användarberättigandet bestäms direkt av programmeraren](../assets/user-ent-by-progr.png){align="center"}
+![Användarberättigandet bestäms direkt av programmeraren](/help/authentication/assets/user-ent-by-progr.png){align="center"}
 
 *Användarberättigandet bestäms direkt av programmeraren*
 
 Adobe Pass Authentication underlättar på ett säkert sätt berättigandetransaktioner mellan programmerare och distributörer av videoprogrammeringstjänster, vilket gör det snabbt, enkelt och säkert att tillhandahålla skyddat innehåll till berättigade tittare.
 
-![Användarrättigheter förmedlas av Adobe Pass-autentisering](../assets/user-ent-mediatedby-authn.png){align="center"}
+![Användarrättigheter förmedlas av Adobe Pass-autentisering](/help/authentication/assets/user-ent-mediatedby-authn.png){align="center"}
 
 *Användarrättigheter förmedlas av Adobe Pass-autentisering*
 
@@ -47,11 +47,11 @@ För programmerare tillhandahåller Adobe Pass Authentication API:er som en del 
    * [REST API V2](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/rest-api-v2-apis-overview.md)
 
 * Premium-API:er för Adobe Pass-autentisering:
-   * [Återställ API för tillfälligt pass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md#reset-tempass-api-access)
-      * [TempPass-funktion](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md)
-   * [Försämring av API](/help/authentication/integration-guide-programmers/features-premium/degraded-access/degradation-feature.md#degradation-api-access)
-      * [Försämringsfunktion](/help/authentication/integration-guide-programmers/features-premium/degraded-access/degradation-feature.md)
-   * [API för tillståndsövervaknings-API](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-api.md)
+   * [Återställ API för tillfälligt pass](/help/premium-workflow/temporary-access/temp-pass-feature.md#reset-tempass-api-access)
+      * [TempPass-funktion](/help/premium-workflow/temporary-access/temp-pass-feature.md)
+   * [Försämring av API](/help/premium-workflow/degraded-access/degradation-feature.md#degradation-api-access)
+      * [Försämringsfunktion](/help/premium-workflow/degraded-access/degradation-feature.md)
+   * [API för tillståndsövervaknings-API](/help/premium-workflow/esm/entitlement-service-monitoring-api.md)
 
 ### Användningsexempel {#use-cases}
 
@@ -72,7 +72,7 @@ I det här avsnittet beskrivs ytterligare de fall av programvaruintegrering som 
 | **Fas** | **Prioritet** | **Använd skiftläge** | **Dokument** |
 |----------------------|--------------|-------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Autentisering** | **Hög** | Autentisering | Mer information finns i de dokument som lagts samman under avsnittet [Autentiseringsfas](#authentication-phase). |
-|                      | **Hög** | Hembaserad autentisering (HBA) | Mer information finns i [Hembaserad autentisering](/help/authentication/integration-guide-programmers/features-standard/hba-access/home-based-authentication.md). |
+|                      | **Hög** | Hembaserad autentisering (HBA) | Mer information finns i [Hembaserad autentisering](/help/premium-workflow/hba-access/home-based-authentication.md). |
 |                      | **Hög** | enkel inloggning (SSO) | Mer information finns i de dokument som sammanställts under avsnittet [enkel inloggning (SSO)](#sso). |
 |                      | **Hög** | Välj MVPD | Mer information finns i de dokument som lagts samman under avsnittet [Konfigurationsfas](#configuration-phase). |
 |                      | **Medium** | Inloggningssida för MVPD | MVPD-program kan förse inloggningssidor med varumärken som är specifika för programmeraren eller tjänsteleverantören, inklusive stöd för standardspråkinställningar. |

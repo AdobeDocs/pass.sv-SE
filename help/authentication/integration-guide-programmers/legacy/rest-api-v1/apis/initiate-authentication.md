@@ -2,7 +2,7 @@
 title: Initiera autentisering
 description: Initiera autentisering
 exl-id: 55dddd29-68d6-4aae-8744-307fea285e29
-source-git-commit: 9dc25b66d12b05a8afe16d1a866707880b5d6a51
+source-git-commit: af867cb5e41843ffa297a31c2185d6e4b4ad1914
 workflow-type: tm+mt
 source-wordcount: '306'
 ht-degree: 0%
@@ -46,7 +46,7 @@ Initierar autentiseringsprocessen genom att informera om en MVPD-markeringshänd
 
 | Slutpunkt | Anropat </br>av | Indata   </br>Parametrar | HTTP </br>Metod | Svar | HTTP </br>Response |
 | --- | --- | --- | --- | --- | --- |
-| &lt;SP_FQDN>/api/v1/authenticate | AuthN-modul | 1. request_id (obligatoriskt)</br>2.  mso_id (obligatoriskt)</br>3.  reg_code (obligatoriskt)</br>4.  domain_name (obligatoriskt)</br>5.  noflash=true - </br>    (Obligatoriskt, Restresterande parameter)</br>6.  no_iframe=true (obligatorisk, restparameter)</br>7.  extra parametrar (valfritt)</br>8.  redirect_url (obligatoriskt) | GET | Inloggningswebbappen omdirigeras till inloggningssidan för MVPD. | 302 för fullständiga omdirigeringsimplementeringar |
+| &lt;SP_FQDN>/api/v1/authenticate | AuthN-modul | &#x200B;1. request_id (obligatoriskt)</br>2.  mso_id (obligatoriskt)</br>3.  reg_code (obligatoriskt)</br>4.  domain_name (obligatoriskt)</br>5.  noflash=true - </br>    (Obligatoriskt, Restresterande parameter)</br>6.  no_iframe=true (obligatorisk, restparameter)</br>7.  extra parametrar (valfritt)</br>8.  redirect_url (obligatoriskt) | GET | Inloggningswebbappen omdirigeras till inloggningssidan för MVPD. | 302 för fullständiga omdirigeringsimplementeringar |
 
 {style="table-layout:auto"}
 
@@ -85,7 +85,7 @@ Initierar autentiseringsprocessen genom att informera om en MVPD-markeringshänd
 >
 >Anropet kan även innehålla valfria parametrar som möjliggör andra funktioner som:
 >
-> * generisk\_data - aktiverar användning av [Promotional TempPass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md#promotional-temp-pass)
+> * generisk\_data - aktiverar användning av [Promotional TempPass](/help/premium-workflow/temporary-access/temp-pass-feature.md#promotional-temp-pass)
 >
 >```JSON
 >Example:

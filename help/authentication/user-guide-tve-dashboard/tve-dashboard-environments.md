@@ -2,7 +2,7 @@
 title: TVE Dashboard-miljöer
 description: Förstå hur olika miljöer används och fungerar i TVE Dashboard.
 exl-id: 591becb8-2f6c-46e0-b108-c64e6df69f89
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: d0f08314d7033aae93e4a0d9bc94af8773c5ba13
 workflow-type: tm+mt
 source-wordcount: '346'
 ht-degree: 0%
@@ -23,9 +23,9 @@ På TVE Dashboard finns olika miljöer som är anpassade för att uppfylla speci
 
 I varje miljö finns det två olika profiler:
 
-* **Förproduktion**: Mellanlagringsprofilen ansluter till MVPD:s mellanlagringsserver för testning och validering av integreringar innan den aktiveras.
+* **Förproduktion**: Mellanlagringsprofilen ansluter till MVPD mellanlagringsserver för testning och validering av integreringar innan den aktiveras.
 
-* **Produktion**: Produktionsprofilen ansluter till MVPD:s produktionsprofil för faktiska produktionsaktiviteter.
+* **Produktion**: Produktionsprofilen ansluter till MVPD produktionsprofil för faktiska produktionsaktiviteter.
 
 ## Användningsexempel
 
@@ -33,18 +33,18 @@ Miljöerna i TVE Dashboard används i olika fall under programmets livscykel. Me
 
 ### Föregående mellanlagring
 
-* Validera nya ej släppta funktioner på Adobe Pass Authentication-servern med MVPD:s mellanlagringsslutpunkter.
+* Validera nya ej släppta funktioner på Adobe Pass Authentication-servern med MVPD mellanlagringsslutpunkter.
 * Används främst av Adobe Pass Authentication-produktteamet för att lägga till och validera nya MVPD-integreringar.
 
 ### Föregående produktion
 
-* Validera nya ej släppta funktioner eller konfigurationer för Adobe Pass Authentication-servern med MVPD:s slutpunkter för produktionen.
-* Validera nya programversioner för varje kanal med MVPD:s produktionsslutpunkter.
+* Validera nya ej släppta funktioner eller konfigurationer för Adobe Pass-autentiseringsservern med MVPD produktionsslutpunkter.
+* Validera nya programversioner för varje kanal med MVPD produktionsslutpunkter.
 * Validera alla konfigurationsändringar innan du överför dem till produktion.
 
 ### Frigör mellanlagring
 
-* Validera nya programversioner för varje kanal med MVPD:s mellanlagringsslutpunkter.
+* Validera nya programversioner för varje kanal med MVPD mellanlagringsslutpunkter.
 * Utför prestanda- eller kapacitetstester i den här miljön.
 
 ### Frigör produktion
@@ -60,7 +60,7 @@ Följ stegen för att växla mellan Adobe Pass Authentication TVE Dashboard-milj
 
 1. Välj önskad staging- eller produktionsmiljö i listrutan **Miljö** högst upp i den vänstra panelen.
 
-   ![TVE Dashboard-miljölistruta](../assets/tve-dashboard/new-tve-dashboard/dashboard/dashboard-environment-menu.png)
+   ![TVE Dashboard-miljölistruta](/help/authentication/assets/tve-dashboard/new-tve-dashboard/dashboard/dashboard-environment-menu.png)
 
    *Listrutan Adobe Pass Authentication TVE Dashboard-miljö*
 

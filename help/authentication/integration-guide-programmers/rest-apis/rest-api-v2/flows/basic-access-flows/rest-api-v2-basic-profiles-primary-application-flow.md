@@ -2,7 +2,7 @@
 title: Grundläggande profiler - primärt program - flöde
 description: REST API V2 - Grundläggande profiler - Primärt program - Flöde
 exl-id: 19ddf382-9a32-4b94-aa84-7611c0e1780e
-source-git-commit: 6b803eb0037e347d6ce147c565983c5a26de9978
+source-git-commit: 92417dd4161be8ba97535404e262fd26d67383e4
 workflow-type: tm+mt
 source-wordcount: '974'
 ht-degree: 0%
@@ -43,7 +43,7 @@ Innan du hämtar profiler kontrollerar du att följande krav är uppfyllda:
 
 Följ de angivna stegen för att implementera det grundläggande återgivningsflödet för profiler som utförs i ett primärt program enligt bilden nedan.
 
-![Hämta profiler](../../../../../assets/rest-api-v2/flows/basic-access-flows/rest-api-v2-retrieve-profiles-within-primary-application.png)
+![Hämta profiler](/help/authentication/assets/rest-api-v2/flows/basic-access-flows/rest-api-v2-retrieve-profiles-within-primary-application.png)
 
 *Hämta profiler*
 
@@ -91,7 +91,7 @@ Innan du hämtar profilen för en viss MVPD måste följande krav vara uppfyllda
 
 Följ de angivna stegen för att implementera det grundläggande flödet för hämtning av profiler för en viss MVPD som utförs i ett primärt program enligt bilden nedan.
 
-![Hämta profil för specifik mvpd](../../../../../assets/rest-api-v2/flows/basic-access-flows/rest-api-v2-retrieve-profile-within-primary-application-for-specific-mvpd.png)
+![Hämta profil för specifik mvpd](/help/authentication/assets/rest-api-v2/flows/basic-access-flows/rest-api-v2-retrieve-profile-within-primary-application-for-specific-mvpd.png)
 
 *Hämta profil för specifik mvpd*
 
@@ -140,7 +140,7 @@ Innan du hämtar profilen för en viss autentiseringskod måste du se till att f
 
 Följ de angivna stegen för att implementera det grundläggande flödet för hämtning av profiler för en specifik autentiseringskod som har utförts i ett primärt program enligt bilden nedan.
 
-![Hämta profil för specifik kod](../../../../../assets/rest-api-v2/flows/basic-access-flows/rest-api-v2-retrieve-profile-within-primary-application-for-specific-code.png)
+![Hämta profil för specifik kod](/help/authentication/assets/rest-api-v2/flows/basic-access-flows/rest-api-v2-retrieve-profile-within-primary-application-for-specific-code.png)
 
 *Hämta profil för specifik kod*
 

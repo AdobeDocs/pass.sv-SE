@@ -2,7 +2,7 @@
 title: Apple SSO Cookbook (REST API V1)
 description: Apple SSO Cookbook (REST API V1)
 exl-id: 072a011f-e1bb-4d3e-bcb5-697f2d1739cc
-source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
+source-git-commit: d0f08314d7033aae93e4a0d9bc94af8773c5ba13
 workflow-type: tm+mt
 source-wordcount: '1496'
 ht-degree: 0%
@@ -46,18 +46,18 @@ För att du ska kunna dra nytta av Apple SSO-användarupplevelsen måste program
 * [Finns det en giltig Adobe-autentiseringstoken?](#step1)
 * [Är användaren inloggad via enkel inloggning för partner?](#step2)
 * [Hämta Adobe-konfiguration](#step3)
-* [Initiera enkel inloggning för partner med Adobe config](#step4)
+* [Starta enkel inloggning för partner med Adobe-konfiguration](#step4)
 * [Har användaren loggat in?](#step5)
 * [Hämta en profilförfrågan från Adobe för den valda MVPD](#step6)
-* [Vidarebefordra Adobe-begäran till partnerorganisationen för enkel inloggning för att erhålla profilen](#step7)
-* [Byt SSO-profil för partner för en autentiseringstoken för Adobe](#step8)
-* [Genereras Adobe-token korrekt?](#step9)
+* [Vidarebefordra Adobe-begäran till Partner SSO för att erhålla profilen](#step7)
+* [Byt SSO-profil för partner för en Adobe-autentiseringstoken](#step8)
+* [Har Adobe-token genererats?](#step9)
 * [Starta ett arbetsflöde för vanlig autentisering](#step10)
 * [Fortsätt med auktoriseringsflöden](#step11)
 
-![](../../../assets/rest-api-v1/apple-sso-cookbook-rest-api-v1.png)
+![](/help/authentication/assets/rest-api-v1/apple-sso-cookbook-rest-api-v1.png)
 
-#### Steg: &quot;Finns det en giltig token för autentisering i Adobe?&quot; {#step1}
+#### Steg:&quot;Finns det en giltig Adobe-autentiseringstoken?&quot; {#step1}
 
 >[!TIP]
 >
@@ -141,7 +141,7 @@ videoSubscriberAccountManager.checkAccessStatus(options: [VSCheckAccessOption.pr
 >
 > **<u>Pro Tip:</u>** Observera MVPD-egenskaperna: *`enablePlatformServices`*, *`boardingStatus`*, *`displayInPlatformPicker`*, *`platformMappingId`*, *`requiredMetadataFields`* och observera de kommentarer som presenteras i kodfragment från andra steg.
 
-#### Steg&quot;Initiera enkel inloggning för partner med Adobe config&quot; {#step4}
+#### Steg&quot;Initiera SSO-arbetsflöde för partner med Adobe config&quot; {#step4}
 
 >[!TIP]
 >
@@ -344,7 +344,7 @@ videoSubscriberAccountManager.checkAccessStatus(options: [VSCheckAccessOption.pr
     ...
 ```
 
-#### Steg:&quot;Byt ut partnerns SSO-profil för en autentiseringstoken för Adobe&quot; {#step8}
+#### Steg:&quot;Byt ut partnerns SSO-profil för en Adobe-autentiseringstoken&quot; {#step8}
 
 >[!TIP]
 >
@@ -352,7 +352,7 @@ videoSubscriberAccountManager.checkAccessStatus(options: [VSCheckAccessOption.pr
 
 >[!TIP]
 >
-> **<u>Pro Tips!</u>** Observera kodfragmentet från [&quot;Vidarebefordra Adobe-begäran till enkel inloggning för partner för att hämta profilen&quot;](#step7)-steget. Denna *`vsaMetadata!.samlAttributeQueryResponse!`* representerar *`SAMLResponse`*, som måste skickas på [Token Exchange](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/token-exchange.md) och som kräver strängmanipulering och kodning (*Base64*-kodad och *URL*-kodad efteråt) innan anropet görs.
+> **<u>Pro Tips!</u>** Observera kodfragmentet från [&quot;Vidarebefordra Adobe-begäran till enkel inloggning hos partner för att få fram profilen&quot;](#step7) steget. Denna *`vsaMetadata!.samlAttributeQueryResponse!`* representerar *`SAMLResponse`*, som måste skickas på [Token Exchange](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/token-exchange.md) och som kräver strängmanipulering och kodning (*Base64*-kodad och *URL*-kodad efteråt) innan anropet görs.
 
 #### Steg:&quot;Har Adobe-token genererats utan fel?&quot; {#step9}
 

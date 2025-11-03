@@ -2,7 +2,7 @@
 title: JavaScript SDK Cookbook
 description: JavaScript SDK Cookbook
 exl-id: d57f7a4a-ac77-4f3c-8008-0cccf8839f7c
-source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
+source-git-commit: 92417dd4161be8ba97535404e262fd26d67383e4
 workflow-type: tm+mt
 source-wordcount: '957'
 ht-degree: 0%
@@ -36,7 +36,7 @@ länka till en uppsättning JavaScript-kodexempel.
 
 </br>
 
-![](../../../../assets/javascript-flows.png)
+![](/help//authentication/assets/javascript-flows.png)
 
 
 ## Förutsättningar {#prereq}
@@ -86,7 +86,7 @@ Parametern mvpds är en array med providers som är tillgängliga för användar
 
 - `selectedProvider(mvpd)`
 
-  **Utlösare:** [`getSelectedProvider()`] (#$getSelProv Parametern `mvpd` ger information om providern som valts av
+  **Utlösare:** [`getSelectedProvider()`]&#x200B;(#$getSelProv Parametern `mvpd` ger information om providern som valts av
 användaren.
 
 - `setMetadataStatus(metadata, key, arguments)`
@@ -95,7 +95,7 @@ användaren.
   Parametern `metadata` innehåller de specifika data som du har begärt. Nyckelparametern är nyckeln som används i `getMetadata()`-begäran och parametern `arguments` är samma ordlista som skickades till `getMetadata()`.
 
 
-## 2. Startflöde
+## &#x200B;2. Startflöde
 
 **I. Läs in AccessEnabler JavaScript:**
 
@@ -136,7 +136,7 @@ Programmerarens identitet; ange Programmerarens `requestorID` och
 
 </br>
 
-## 3. Autentiseringsflöde </span>
+## &#x200B;3. Autentiseringsflöde </span>
 
 
 **Beroende:** Ett lyckat anrop till `setRequestor()` (det här beroendet gäller även för alla efterföljande anrop).
@@ -151,7 +151,7 @@ Anropa `getAuthentication()` för att få autentiseringsstatusen OR för att utl
 
 Autentiseringsflödet har slutförts när AccessEnabler anropar `setAuthenticationStatus()` med `isAuthenticated == 1`.
 
-## 4. Auktoriseringsflöde {#authz}
+## &#x200B;4. Auktoriseringsflöde {#authz}
 
 **Beroenden:**
 
@@ -175,7 +175,7 @@ AccessEnabler-bibliotek)
 - Om valideringen godkänns: Visa/spela upp det begärda mediet för användaren.
 - Om den misslyckas: AuthZ-token var ogiltig, ska mediebegäran avvisas och ett felmeddelande ska visas för användaren.
 
-## 5. Visa medieflöde {#logout}
+## &#x200B;5. Visa medieflöde {#logout}
 
 - Användaren väljer de media som ska visas.
    - Är media skyddade?
@@ -186,7 +186,7 @@ AccessEnabler-bibliotek)
 
 ## Konfigurera besökar-ID {#visitorID}
 
-Det är mycket viktigt att konfigurera ett [Experience Cloud-besökar-ID](https://experienceleague.adobe.com/docs/id-service/using/home.html?lang=sv-SE) från analysens synvinkel. När ett EC-besökarID-värde har angetts skickar SDK den här informationen tillsammans med alla nätverksanrop och Adobe Pass Authentication-tjänsten samlar in den här informationen. På så sätt kan du korrelera analysdata från tjänsten Adobe Pass Authentication med andra analysrapporter som du kan ha från andra program eller webbplatser. Information om hur du konfigurerar EC visitorID finns [här](https://experienceleague.adobe.com/docs/id-service/using/home.html?lang=sv-SE).
+Att konfigurera ett [Experience Cloud visitorID](https://experienceleague.adobe.com/docs/id-service/using/home.html)-värde är mycket viktigt ur analyssynpunkt. När ett EC-besökarID-värde har angetts skickar SDK den här informationen tillsammans med alla nätverksanrop och Adobe Pass Authentication-tjänsten samlar in den här informationen. På så sätt kan du korrelera analysdata från tjänsten Adobe Pass Authentication med andra analysrapporter som du kan ha från andra program eller webbplatser. Information om hur du konfigurerar EC visitorID finns [här](https://experienceleague.adobe.com/docs/id-service/using/home.html?lang=en).
 
 
 >[!NOTE]

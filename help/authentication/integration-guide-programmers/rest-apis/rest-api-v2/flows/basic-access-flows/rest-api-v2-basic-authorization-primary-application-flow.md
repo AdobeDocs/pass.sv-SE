@@ -2,7 +2,7 @@
 title: Grundläggande auktorisering - primärt program - flöde
 description: REST API V2 - grundläggande auktorisering - primärt program - flöde
 exl-id: 46bc9326-966e-44fc-8546-2f58be01b7bc
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: 92417dd4161be8ba97535404e262fd26d67383e4
 workflow-type: tm+mt
 source-wordcount: '603'
 ht-degree: 0%
@@ -19,7 +19,7 @@ ht-degree: 0%
 >
 > REST API V2-implementeringen begränsas av dokumentationen för [begränsningsmekanismen](/help/authentication/integration-guide-programmers/throttling-mechanism.md).
 
-**Auktoriseringsflödet** inom Adobe Pass-autentiseringsberättigandet gör att direktuppspelningsprogrammet kan avgöra om ett MVPD tillåter eller nekar användarens begäran att direktuppspela innehåll. Om beslutet är `Permit` innehåller svaret en medietoken. Adobe Pass-servern signerar medietoken och tillåter att direktuppspelningsprogrammet använder medietokenkontrollerarbiblioteket för att kontrollera dess autenticitet innan strömmen släpps.
+**Auktoriseringsflödet** inom Adobe Pass-autentiseringsberättigandet gör att direktuppspelningsprogrammet kan avgöra om en MVPD tillåter eller nekar användarens begäran att direktuppspela innehåll. Om beslutet är `Permit` innehåller svaret en medietoken. Adobe Pass-servern signerar medietoken och tillåter att direktuppspelningsprogrammet använder medietokenkontrollerarbiblioteket för att kontrollera dess autenticitet innan strömmen släpps.
 
 Verifieringen med kontrollerarbiblioteket för medietoken bör ske på den serverdelstjänst för direktuppspelade program som är länkad i behörighetskedjan för att frigöra en ström från CDN.
 
@@ -27,7 +27,7 @@ Verifieringen med kontrollerarbiblioteket för medietoken bör ske på den serve
 
 ### Förutsättningar {#prerequisites-retrieve-authorization-decisions-using-specific-mvpd}
 
-Innan du hämtar auktoriseringsbeslut med hjälp av ett specifikt MVPD måste du kontrollera att följande krav är uppfyllda:
+Innan du hämtar auktoriseringsbeslut med en viss MVPD-fil måste du kontrollera att följande krav är uppfyllda:
 
 * Strömningsprogrammet måste ha en giltig vanlig profil som har skapats för MVPD med något av de grundläggande autentiseringsflödena:
    * [Utför autentisering i det primära programmet](rest-api-v2-basic-authentication-primary-application-flow.md)
@@ -37,9 +37,9 @@ Innan du hämtar auktoriseringsbeslut med hjälp av ett specifikt MVPD måste du
 
 ### Arbetsflöde {#workflow-retrieve-authorization-decisions-using-specific-mvpd}
 
-Följ de angivna stegen för att implementera det grundläggande auktoriseringsflödet med hjälp av ett specifikt MVPD som utförs i ett primärt program enligt bilden nedan.
+Följ de angivna stegen för att implementera det grundläggande auktoriseringsflödet med en specifik MVPD som utförs i ett primärt program enligt bilden nedan.
 
-![Hämta auktoriseringsbeslut med en specifik mvpd](../../../../../assets/rest-api-v2/flows/basic-access-flows/rest-api-v2-retrieve-authorization-decisions-within-primary-application-using-specific-mvpd.png)
+![Hämta auktoriseringsbeslut med en specifik mvpd](/help/authentication/assets/rest-api-v2/flows/basic-access-flows/rest-api-v2-retrieve-authorization-decisions-within-primary-application-using-specific-mvpd.png)
 
 *Hämta auktoriseringsbeslut med en specifik mvpd*
 

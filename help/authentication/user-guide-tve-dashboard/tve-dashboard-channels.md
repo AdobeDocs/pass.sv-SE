@@ -2,7 +2,7 @@
 title: Kanaler
 description: Lär dig mer om kanaler och deras olika konfigurationer i TVE Dashboard.
 exl-id: bbddeccb-6b6f-4a8f-87ab-d4af538eee1d
-source-git-commit: 5622cad15383560e19e8111f12a1460e9b118efe
+source-git-commit: 913b2127d2189bec1a7e6e197944f1512b764893
 workflow-type: tm+mt
 source-wordcount: '1556'
 ht-degree: 0%
@@ -23,7 +23,7 @@ På fliken **Kanaler** i den vänstra panelen visas en lista med länkade kanale
 * **Kanal-ID**: En unik identifierare som även kallas begärande-ID.
 * **Integrationer**: Antalet anslutningar som upprättats med [MVPD-filer](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#mvpd).
 
-![Lista över befintliga kanaler](../assets/tve-dashboard/new-tve-dashboard/channels/channels-list-view.png)
+![Lista över befintliga kanaler](/help/authentication/assets/tve-dashboard/new-tve-dashboard/channels/channels-list-view.png)
 
 *Lista över befintliga kanaler*
 
@@ -46,7 +46,7 @@ Följ stegen för att hantera olika inställningar för en viss kanal.
    * [Registrerade program](#registered-applications)
    * [Anpassade scheman](#custom-schemes)
 
-   ![Kanalinställningar](../assets/tve-dashboard/new-tve-dashboard/channels/channel-tabs-view.png)
+   ![Kanalinställningar](/help/authentication/assets/tve-dashboard/new-tve-dashboard/channels/channel-tabs-view.png)
 
    *Kanalinställningar*
 
@@ -68,7 +68,7 @@ I det här avsnittet kan du redigera följande information:
 
 * **Felrapportering**: När du väljer **Ja** skickar Adobe Pass SDK:er felrapporter till Adobe Pass backend för analys.
 
-![Redigera kanalinformation](../assets/tve-dashboard/new-tve-dashboard/channels/channel-general-settings-tab-view.png)
+![Redigera kanalinformation](/help/authentication/assets/tve-dashboard/new-tve-dashboard/channels/channel-general-settings-tab-view.png)
 
 *Redigera kanalinformation*
 
@@ -78,7 +78,7 @@ I det här avsnittet kan du konfigurera vidarebefordran av Adobe Pass Authentica
 
 Om du vill aktivera **Analyskonfiguration** kontaktar du den tekniska kontohanteraren (TAM) för mer information om hur du konfigurerar Report Suite-ID (RSID).
 
-![Aktivera analyskonfigurationer](../assets/tve-dashboard/new-tve-dashboard/channels/channel-add-new-analytics-configuration-button.png)
+![Aktivera analyskonfigurationer](/help/authentication/assets/tve-dashboard/new-tve-dashboard/channels/channel-add-new-analytics-configuration-button.png)
 
 *Aktivera analyskonfigurationer*
 
@@ -90,7 +90,7 @@ En ny konfigurationsändring har skapats och är klar för serveruppdatering. Om
 
 På den här fliken visas en lista med tillgängliga integreringar mellan den valda kanalen och de virtuella dokumentdokumenten. I listan visas varje integrering tillsammans med dess status, vilket anger om den är aktiverad eller inte. Välj en specifik integrering i den här listan för att få tillgång till detaljerad information i avsnittet [Integrationer](tve-dashboard-integrations.md).
 
-![Lista över tillgängliga integreringar](../assets/tve-dashboard/new-tve-dashboard/channels/channel-integrations-tab-view.png)
+![Lista över tillgängliga integreringar](/help/authentication/assets/tve-dashboard/new-tve-dashboard/channels/channel-integrations-tab-view.png)
 
 *Lista över tillgängliga integreringar*
 
@@ -120,7 +120,7 @@ Så här lägger du till ett nytt certifikat:
 
 1. Välj **Lägg till nytt certifikat** högst upp i avsnittet **Tillgängliga certifikat**.
 
-   ![Lägg till ett nytt certifikat](../assets/tve-dashboard/new-tve-dashboard/channels/channel-add-new-certificate-button.png)
+   ![Lägg till ett nytt certifikat](/help/authentication/assets/tve-dashboard/new-tve-dashboard/channels/channel-add-new-certificate-button.png)
 
    *Lägg till ett nytt certifikat*
 
@@ -146,7 +146,7 @@ Så här tar du bort ett certifikat.
 
 1. Välj **Ta bort**.
 
-   ![Ta bort det markerade certifikatet](../assets/tve-dashboard/new-tve-dashboard/channels/channel-delete-certificate-button.png)
+   ![Ta bort det markerade certifikatet](/help/authentication/assets/tve-dashboard/new-tve-dashboard/channels/channel-delete-certificate-button.png)
 
    *Ta bort det markerade certifikatet*
 
@@ -158,7 +158,7 @@ En ny konfigurationsändring har skapats och är klar för serveruppdatering. Ce
 
 Medieföretag definierar dessa certifikat på sin egen nivå. Alla kanaler som är associerade med samma medieföretag kan använda dessa certifikat.
 
-![Ärvda tillgängliga certifikat](../assets/tve-dashboard/new-tve-dashboard/channels/channel-inherited-available-certificates-panel-view.png)
+![Ärvda tillgängliga certifikat](/help/authentication/assets/tve-dashboard/new-tve-dashboard/channels/channel-inherited-available-certificates-panel-view.png)
 
 *Ärvda tillgängliga certifikat*
 
@@ -181,7 +181,7 @@ Följ de här stegen för att lägga till en domän.
 
 1. Välj **Lägg till ny domän** längst upp till höger i avsnittet **Tillgängliga domäner**.
 
-   ![Lägg till en ny domän](../assets/tve-dashboard/new-tve-dashboard/channels/channel-add-new-domain-button.png)
+   ![Lägg till en ny domän](/help/authentication/assets/tve-dashboard/new-tve-dashboard/channels/channel-add-new-domain-button.png)
 
    *Lägg till en ny domän*
 
@@ -199,7 +199,7 @@ Så här tar du bort en domän.
 
 1. Välj **Ta bort**.
 
-   ![Ta bort den markerade domänen](../assets/tve-dashboard/new-tve-dashboard/channels/channel-remove-domain-button.png)
+   ![Ta bort den markerade domänen](/help/authentication/assets/tve-dashboard/new-tve-dashboard/channels/channel-remove-domain-button.png)
 
    *Ta bort den markerade domänen*
 
@@ -211,7 +211,7 @@ Den valda domänen är inte längre tillgänglig för användning. Därför för
 
 ### Registrerade program {#registered-applications}
 
-På den här fliken visas en lista med registrerade program. Mer information om användning av registrerade program finns i dokumentationen om [dynamisk klientregistrering](../integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md).
+På den här fliken visas en lista med registrerade program. Mer information om användning av registrerade program finns i dokumentationen om [dynamisk klientregistrering](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md).
 
 Du kan göra följande med registrerade program:
 
@@ -224,7 +224,7 @@ Följ de här stegen för att lägga till ett nytt registrerat program.
 
 1. Välj **Lägg till nytt program** längst upp till höger i avsnittet **Registrerade program**.
 
-   ![Lägg till ett nytt program](../assets/tve-dashboard/new-tve-dashboard/channels/channel-add-new-application-button.png)
+   ![Lägg till ett nytt program](/help/authentication/assets/tve-dashboard/new-tve-dashboard/channels/channel-add-new-application-button.png)
 
    *Lägg till ett nytt program*
 
@@ -262,7 +262,7 @@ Följ de här stegen för att hämta en programsats.
 
 1. Välj **Hämta**.
 
-   ![Hämta en programsats](../assets/tve-dashboard/new-tve-dashboard/channels/channel-download-software-statement-button.png)
+   ![Hämta en programsats](/help/authentication/assets/tve-dashboard/new-tve-dashboard/channels/channel-download-software-statement-button.png)
 
    *Hämta en programsats*
 
@@ -280,7 +280,7 @@ Följ de här stegen för att skapa ett nytt anpassat schema.
 
 1. Välj **Skapa nytt anpassat schema**.
 
-   ![Skapa ett nytt anpassat schema](../assets/tve-dashboard/new-tve-dashboard/channels/channel-add-new-custom-scheme-button.png)
+   ![Skapa ett nytt anpassat schema](/help/authentication/assets/tve-dashboard/new-tve-dashboard/channels/channel-add-new-custom-scheme-button.png)
 
    *Skapa ett nytt anpassat schema*
 
@@ -290,7 +290,7 @@ En ny konfigurationsändring har skapats och är klar för serveruppdatering. Om
 
 Medieföretag definierar dessa anpassade scheman på sin egen nivå. Alla kanaler som är associerade med samma medieföretag kan använda dessa anpassade scheman.
 
-![Ärvda anpassade scheman](../assets/tve-dashboard/new-tve-dashboard/channels/channel-inherited-custom-schemes-panel-view.png)
+![Ärvda anpassade scheman](/help/authentication/assets/tve-dashboard/new-tve-dashboard/channels/channel-inherited-custom-schemes-panel-view.png)
 
 *Ärvda anpassade scheman*
 
@@ -302,7 +302,7 @@ Följ de här stegen för att lägga till en ny kanal.
 
 1. Välj **Lägg till ny kanal** längst upp till höger i avsnittet **Kanaler**.
 
-   ![Lägg till en ny kanal](../assets/tve-dashboard/new-tve-dashboard/channels/channel-add-new-channel-button.png)
+   ![Lägg till en ny kanal](/help/authentication/assets/tve-dashboard/new-tve-dashboard/channels/channel-add-new-channel-button.png)
 
    *Lägg till en ny kanal*
 

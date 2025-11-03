@@ -2,7 +2,7 @@
 title: Autentisering med OAuth 2.0-protokollet
 description: Autentisering med OAuth 2.0-protokollet
 exl-id: 0c1f04fe-51dc-4b4d-88e7-66e8f4609e02
-source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
+source-git-commit: d0f08314d7033aae93e4a0d9bc94af8773c5ba13
 workflow-type: tm+mt
 source-wordcount: '1088'
 ht-degree: 0%
@@ -37,11 +37,11 @@ Protokollet ger också större flexibilitet när det gäller de data som exponer
 
 ## Krav för att byta till OAuth 2.0 {#oauth-req}
 
-För att stödja autentisering med OAuth 2.0 måste ett MVPD uppfylla följande krav:
+För att stödja autentisering med OAuth 2.0 måste MVPD uppfylla följande krav:
 
-Först och främst måste MVPD se till att det har stöd för flödet [Bevilja auktoriseringskod](https://oauthlib.readthedocs.io/en/latest/oauth2/grants/authcode.html).
+Först och främst måste MVPD se till att det stöder flödet [Authorization Code Grant](https://oauthlib.readthedocs.io/en/latest/oauth2/grants/authcode.html) .
 
-Efter att ha bekräftat att MVPD stöder flödet måste det förse oss med följande information:
+När MVPD har bekräftat att det stöder flödet måste vi få följande information:
 
 * slutpunkten för autentisering
    * slutpunkten kommer att tillhandahålla auktoriseringskoden som senare kommer att användas i utbyte mot uppdaterings- och åtkomsttoken
@@ -53,21 +53,21 @@ Efter att ha bekräftat att MVPD stöder flödet måste det förse oss med följ
 * vi behöver en **slutpunkt för användarprofilen**
    * den här slutpunkten tillhandahåller användar-ID, som måste vara unikt för ett konto och inte ska innehålla någon personligt identifierbar information
 * **/utloggning** slutpunkt (valfritt)
-   * Adobe Pass Authentication kommer att omdirigera till denna slutpunkt, tillhandahålla MVPD en omdirigerings-URI; i denna slutpunkt kan MVPD rensa cookies på klientdatorn eller använda önskad logik för utloggning
+   * Adobe Pass Authentication kommer att dirigera om till denna slutpunkt, tillhandahålla en omdirigerings-URI till MVPD. På denna slutpunkt kan MVPD rensa cookies på klientdatorn eller tillämpa önskad logik för utloggning
 * vi rekommenderar starkt att du har stöd för auktoriserade klienter (klientappar som inte utlöser någon användarauktoriseringssida)
 * vi kommer också att behöva:
    * **clientID** och **klienthemlighet** för integreringskonfigurationerna
    * **tid till live**-värden (TTL) för uppdateringstoken och åtkomsttoken
-   * Vi kan förse MVPD med en URI för auktoriseringsåteranrop och inloggning. Vid behov kan vi även tillhandahålla en lista över IP-adresser som ska vitlistas i brandväggsinställningarna.
+   * Vi kan förse MVPD med en URI för auktoriseringsåteranrop och inloggningsåteranrop. Vid behov kan vi även tillhandahålla en lista över IP-adresser som ska vitlistas i brandväggsinställningarna.
 
 
 ## Autentiseringsflöde {#authn-flow}
 
-I autentiseringsflödet kommunicerar Adobe Pass-autentiseringen med MVPD på det protokoll som valts i konfigurationen. OAuth 2.0-flödet visas i bilden nedan:
+I autentiseringsflödet kommunicerar Adobe Pass Authentication med MVPD om det protokoll som valts i konfigurationen. OAuth 2.0-flödet visas i bilden nedan:
 
 
 
-![Diagram som visar autentiseringsflödet i Adobe-autentiseringen som kommunicerar med MVPD för det protokoll som valts i konfigurationen.](../assets/authn-flow.png)
+![Diagram som visar autentiseringsflödet i Adobe-autentisering som kommunicerar med MVPD på det protokoll som valts i konfigurationen.](/help/authentication/assets/authn-flow.png)
 
 **Figur 1: OAuth 2.0-autentiseringsflöde**
 
@@ -77,10 +77,10 @@ I autentiseringsflödet kommunicerar Adobe Pass-autentiseringen med MVPD på det
 
 I korthet följer autentiseringsflödet för MVPD-program som stöder protokollet OAuth 2.0 följande steg:
 
-1. Slutanvändaren navigerar till programmerarens webbplats och väljer att logga in med sina MVPD-uppgifter
-1. AccessEnabler som installerats på programmerarens sida med en autentiseringsbegäran i form av en HTTP-begäran till Adobe Pass Authentication-slutpunkten, som Adobe Pass Authentication-slutpunkten omdirigerar till MVPD-auktoriseringsslutpunkten.
-1. Slutpunkten för MVPD-auktoriseringen skickar en auktoriseringskod till slutpunkten för Adobe Pass-autentisering
-1. Adobe Pass Authentication använder den auktoriseringskod som tagits emot för att begära en uppdateringstoken och en åtkomsttoken från MVPD:s tokenslutpunkt
+1. Slutanvändaren navigerar till Programmerarens webbplats och väljer att logga in med sina MVPD-uppgifter
+1. AccessEnabler installerades på programmerarens sida med en autentiseringsbegäran i form av en HTTP-begäran till Adobe Pass Authentication-slutpunkten, som Adobe Pass Authentication-slutpunkten omdirigerar till MVPD-auktoriseringsslutpunkten.
+1. MVPD-slutpunkten för auktorisering skickar en auktoriseringskod till Adobe Pass-slutpunkten för autentisering
+1. Adobe Pass Authentication använder den auktoriseringskod som tas emot för att begära en uppdateringstoken och en åtkomsttoken från MVPD tokenslutpunkt
 1. Ett anrop om att hämta användarinformation och metadata kan skickas till användarprofilens slutpunkt om användarinformationen inte ingår i token
 1. Autentiseringstoken skickas till slutanvändaren som nu kan bläddra på webbplatsen Programmer
 
@@ -100,7 +100,7 @@ Ett typiskt auktoriseringsflöde utför ett utbyte av den uppdateringstoken som 
 
 ## Migrerar från SAML till OAuth 2.0 {#saml-auth2-migr}
 
-Migrering av integreringar från SAML till OAuth 2.0 kommer att utföras av Adobe och MVPD. Programmeraren behöver inte göra några tekniska ändringar, även om programmeraren kanske vill kontrollera/testa sammärkningen på inloggningssidan för MVPD. Enligt MVPD krävs slutpunkterna och annan information som krävs enligt Oauth 2.0-kraven.
+Migrering av integreringar från SAML till OAuth 2.0 kommer att utföras av Adobe och MVPD. Programmeraren behöver inte göra några tekniska ändringar, även om programmeraren kanske vill kontrollera/testa sammärkesfunktionen på MVPD inloggningssida. Ur MVPD synvinkel krävs slutpunkterna och annan information som efterfrågas i Oauth 2.0-kraven.
 
 För att **bevara enkel inloggning** kommer de användare som redan har en autentiseringstoken som hämtats via SAML fortfarande att betraktas som autentiserade och deras förfrågningar dirigeras via den gamla SAML-integreringen.
 
@@ -108,6 +108,6 @@ Ur ett tekniskt perspektiv:
 
 1. Adobe möjliggör en OAuth 2.0-integrering mellan programmeraren och MVPD, UTAN att SAML-integreringen tas bort.
 1. Efter aktiveringen kommer alla nya användare att använda OAuth 2.0-flöden.
-1. Användare som redan är autentiserade och som redan har en lokal AuthN-token som innehåller SAML subject-id, dirigeras automatiskt av Adobe via SAML-integreringen.
-1. För användare i steg 3, när deras SAML-genererade AuthN-token upphör att gälla, behandlar Adobe dem som nya användare och uppför sig som användare i steg 2.
+1. Användare som redan har autentiserats och som redan har en lokal AuthN-token som innehåller SAML subject-id, dirigeras automatiskt av Adobe via SAML-integreringen.
+1. För användare i steg 3 kommer Adobe att behandla dem som nya användare och uppföra sig som användare i steg 2 när deras SAML-genererade AuthN-token upphör att gälla.
 1. Adobe kommer att granska användningsmönstren för att avgöra när SAML-integreringen kan inaktiveras på ett säkert sätt.

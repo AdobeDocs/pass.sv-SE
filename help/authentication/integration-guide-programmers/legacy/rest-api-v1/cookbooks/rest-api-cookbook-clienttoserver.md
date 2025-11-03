@@ -2,7 +2,7 @@
 title: REST API Cookbook (klient-till-server)
 description: Återställ API-cookbook-klienten till servern.
 exl-id: f54a1eda-47d5-4f02-b343-8cdbc99a73c0
-source-git-commit: 640ba7073f7f4639f980f17f1a59c4468bfebcf4
+source-git-commit: 913b2127d2189bec1a7e6e197944f1512b764893
 workflow-type: tm+mt
 source-wordcount: '886'
 ht-degree: 0%
@@ -49,12 +49,12 @@ I en fungerande klient-till-server-lösning ingår följande komponenter:
 
 ### Dynamic Client Registration (DCR)
 
-Adobe Pass använder DCR för att säkra klientkommunikationen mellan ett programmeringsprogram eller en server och Adobe Pass tjänster. DCR-flödet är separat och beskrivs i [Översikt över registrering av dynamiska klienter](../../../rest-apis/rest-api-dcr/dynamic-client-registration-overview.md) -dokumentationen.
+Adobe Pass använder DCR för att säkra klientkommunikationen mellan ett programmeringsprogram eller en server och Adobe Pass tjänster. DCR-flödet är separat och beskrivs i [Översikt över registrering av dynamiska klienter](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md) -dokumentationen.
 
 
 ### Appflöden för direktuppspelning (smart enhet)
 
-![](../../../../assets/smart-device-app-flow.png)
+![](/help//authentication/assets/smart-device-app-flow.png)
 
 #### Startflöde
 
@@ -119,7 +119,7 @@ användare.
 
 ### Appflöde för AuthN (andra skärmen)
 
-![](../../../../assets/secnd-screen-authn-flow.png)
+![](/help//authentication/assets/secnd-screen-authn-flow.png)
 
 1. Hämta en lista över MVPD för den här användaren. Till exempel: [`<SP_FQDN>/api/v1/config/[requestorID]`](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/provide-mvpd-list.md)
 
@@ -148,4 +148,4 @@ För TempPass- och Promotional TempPass-implementeringar där användaren inte b
 **Om du vill använda det här API:t måste direktuppspelningsappen se till att enhets-ID är unikt eftersom det används för att identifiera token, tillsammans med valfria extra data.**
 
 
-![](../../../../assets/temp-pass-promo-temppass.png)
+![](/help//authentication/assets/temp-pass-promo-temppass.png)

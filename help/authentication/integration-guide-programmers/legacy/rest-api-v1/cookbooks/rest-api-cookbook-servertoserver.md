@@ -2,7 +2,7 @@
 title: REST API Cookbook (Server-to-Server)
 description: Återställ API-cookbook-servern till servern.
 exl-id: 36ad4a64-dde8-4a5f-b0fe-64b6c0ddcbee
-source-git-commit: 5622cad15383560e19e8111f12a1460e9b118efe
+source-git-commit: 913b2127d2189bec1a7e6e197944f1512b764893
 workflow-type: tm+mt
 source-wordcount: '1856'
 ht-degree: 0%
@@ -39,7 +39,7 @@ I en fungerande Server-till-Server-lösning ingår följande komponenter:
 | | \[Valfritt\] AuthN-modul | Om direktuppspelningsenheten har en användaragent (t.ex. en webbläsare) ansvarar AuthN-modulen för att autentisera användaren på MVPD IdP. |
 | \[Valfritt\] AuthN-enhet | AuthN-app | Om direktuppspelningsenheten inte har någon användaragent (t.ex. webbläsare) är AuthN-programmet ett webbprogram för programmerare som nås från en separat användares enhet via en webbläsare. |
 | Programmeringsinfrastruktur | Programmerartjänst | En tjänst som länkar direktuppspelningsenheten till Adobe Pass-tjänsten för att få autentiserings- och auktoriseringsbeslut. |
-| Adobe infrastruktur | Adobe Pass Service | En tjänst som integreras med MVPD IdP- och AuthZ-tjänsten och som ger autentiserings- och auktoriseringsbeslut. |
+| Adobe Infrastructure | Adobe Pass Service | En tjänst som integreras med MVPD IdP- och AuthZ-tjänsten och som ger autentiserings- och auktoriseringsbeslut. |
 | MVPD Infrastructure | MVPD IdP | En MVPD-slutpunkt som tillhandahåller autentiseringsbaserad autentisering för att validera användarens identitet. |
 | | MVPD AuthZ-tjänst | En MVPD-slutpunkt som ger auktoriseringsbeslut baserat på användarens prenumerationer, föräldrakontroll osv. |
 
@@ -48,7 +48,7 @@ I en fungerande Server-till-Server-lösning ingår följande komponenter:
 ### Dynamic Client Registration (DCR)
 
 
-Adobe Pass använder DCR för att säkra klientkommunikationen mellan ett programmeringsprogram eller en server och Adobe Pass tjänster. DCR-flödet är separat och beskrivs i [Översikt över registrering av dynamiska klienter](../../../rest-apis/rest-api-dcr/dynamic-client-registration-overview.md) -dokumentationen.
+Adobe Pass använder DCR för att säkra klientkommunikationen mellan ett programmeringsprogram eller en server och Adobe Pass tjänster. DCR-flödet är separat och beskrivs i [Översikt över registrering av dynamiska klienter](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md) -dokumentationen.
 
 
 ### Autentisering (authN)
@@ -73,7 +73,7 @@ till deras MVPD för att avgöra om användaren har ett giltigt konto.
 
 I följande diagram visas autentiseringsflödet:
 
-![](../../../../assets/authn-flow.png)
+![](/help//authentication/assets/authn-flow.png)
 
 ### Behörighet (authZ)
 
@@ -86,7 +86,7 @@ Auktoriseringsflödet används för att avgöra om en användare har behörighet
 
 I följande diagram visas auktoriseringsflödet:
 
-![](../../../../assets/authz-flow.png)
+![](/help//authentication/assets/authz-flow.png)
 
 ### Utloggning
 
@@ -98,7 +98,7 @@ som är associerad med programmet.
 
 I följande diagram visas utloggningsflödet:
 
-![](../../../../assets/logout-flow.png)
+![](/help//authentication/assets/logout-flow.png)
 
 ### \[Valfritt\] Förhandsauktorisering (alias Preflight)
 
@@ -114,7 +114,7 @@ Förhandsauktorisering kan användas för att snabbt utifrån en uppsättning re
 
 I följande diagram visas förauktoriseringsflödet:
 
-![](../../../../assets/preauthz-flow.png)
+![](/help//authentication/assets/preauthz-flow.png)
 
 
 ### \[Valfritt\]-metadata
@@ -130,7 +130,7 @@ I följande diagram visas förauktoriseringsflödet:
 
 
 
-![](../../../../assets/user-metadata-api-preauthz.png)
+![](/help//authentication/assets/user-metadata-api-preauthz.png)
 
 
 
@@ -152,14 +152,14 @@ Adobe Pass-tjänsten körs på flera datacenter som är geografiskt spridda i he
 infrastruktur.
 
 
-Programmerartjänsten bör begränsa DNS-cachen till högst 30 sekunder om Adobe behöver dirigera om trafiken. Detta kan inträffa om ett datacenter blir otillgängligt.
+Programmerartjänsten bör begränsa DNS-cachen till maximalt 30-tal om Adobe behöver dirigera om trafiken. Detta kan inträffa om ett datacenter blir otillgängligt.
 
 
-Programmeraren ska tillhandahålla produktionsmiljöns offentliga IP-intervall. Dessa kommer att ingå i en tillåten lista över IP-adresser i Adobe Pass-infrastruktur för åtkomst och hanteras av Adobe användningspolicyer för rättvisa API.
+Programmeraren ska tillhandahålla produktionsmiljöns offentliga IP-intervall. Dessa läggs in i en tillåten lista över IP-adresser i Adobe Pass infrastruktur för åtkomst och hanteras av Adobe policyer för rättvis API-användning.
 
 ### Mellanlagring
 
-Mellanlagringsmiljön kan vara minimal, men bör innehålla alla systemkomponenter och affärslogik. Den bör fungera på liknande sätt som produktionen och göra det möjligt att testa releaser utanför produktionen. I idealfallet kan mellanlagringsmiljön anslutas till Adobe Pass testmiljöer som kan användas av Programmer och av Adobe vid behov så att vi kan hjälpa till med testning och felsökning.
+Mellanlagringsmiljön kan vara minimal, men bör innehålla alla systemkomponenter och affärslogik. Den bör fungera på liknande sätt som produktionen och göra det möjligt att testa releaser utanför produktionen. I idealfallet kan testmiljön anslutas till Adobe Pass testmiljöer som kan användas av Programmeraren och av Adobe när det behövs så att vi kan hjälpa till med testning och felsökning.
 
 ### Funktionskrav
 
@@ -175,16 +175,16 @@ Programmerartjänsten måste skicka korrekt enhetsidentifieringsinformation för
     
     Exempel:
     
-    POST /reggie/v1/{req\_id}/regcode HTTP/1.1 5&rbrace;x-Forwarded-For:203.45.101.20
-    
-    
+    POST /reggie/v1/{req\_id}/regcode HTTP/1.1 5}x-Forwarded-For:203.45.101.20
     
     GET /api/v1/authorized HTTP/1.1
     
+    
+    
     X-Forwarded-For:203.45.101.20
+    
+    
 
-    
-    
 
 
 Programmerartjänsten ska skicka data och formatering som krävs av enskilda MVPD-program eller integrerade program (t.ex. enhets-IP, källport, enhetsinformation, MRSS, valfria data som ECID). <!--Please see the documentation for [Passing Device and Connection Information Cookbook](http://tve.helpdocsonline.com/passing-device-information-cookbook)-->.
@@ -192,4 +192,4 @@ Programmerartjänsten ska skicka data och formatering som krävs av enskilda MVP
 
 Programmeringstjänsten måste respektera åtkomstkontrollistan authN och authZ vid cachelagring och ogiltigförklara authN- eller authZ-sessionerna när de meddelas.
 
-Programmeraren måste behålla certifikat som delas med Adobe.
+Programmeraren måste underhålla certifikat som delas med Adobe.

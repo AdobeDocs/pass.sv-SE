@@ -2,7 +2,7 @@
 title: Översikt över registrering av dynamisk klient
 description: Översikt över registrering av dynamisk klient
 exl-id: 9f98dfcd-4375-48c3-beff-259dfb1d3a26
-source-git-commit: fab5964aeb832d419702b41a6d3bc5676cb3354f
+source-git-commit: 7ca9d8996756086a6b963c0b6d5b0bb64608ecbc
 workflow-type: tm+mt
 source-wordcount: '809'
 ht-degree: 0%
@@ -20,10 +20,10 @@ Dynamisk klientregistrering representerar en auktoriseringsmekanism som definier
 Adobe Pass erbjuder en dynamisk klientregistreringstjänst som ger åtkomst till följande skyddade API:er:
 
 * API:er för hantering av Adobe Pass-autentisering:
-   * [Återställ API för tillfälligt pass](../../features-premium/temporary-access/temp-pass-feature.md#reset-tempass-api-access)
-   * [Försämring av API](../../features-premium/degraded-access/degradation-feature.md#degradation-api-access)
+   * [Återställ API för tillfälligt pass](/help/premium-workflow/temporary-access/temp-pass-feature.md#reset-tempass-api-access)
+   * [Försämring av API](/help/premium-workflow/degraded-access/degradation-feature.md#degradation-api-access)
    * [Proxy MVPD API](../../../integration-guide-mvpds/proxy-mvpd-webserv.md)
-   * [API för tillståndsövervaknings-API](../../features-premium/esm/entitlement-service-monitoring-api.md)
+   * [API för tillståndsövervaknings-API](/help/premium-workflow/esm/entitlement-service-monitoring-api.md)
 * Adobe Pass Authentication REST API:er:
    * [REST API V2](../rest-api-v2/apis/rest-api-v2-apis-overview.md)
    * [(Äldre) REST API V1](../../legacy/rest-api-v1/rest-api-reference.md)
@@ -114,6 +114,6 @@ Sammanfattningsvis omfattar den dynamiska auktoriseringsmekanismen för klientre
 **Flöde**
 
 * Klientprogrammet måste hämta klientautentiseringsuppgifterna enligt beskrivningen i API-dokumentationen för [Hämta klientautentiseringsuppgifter](apis/dynamic-client-registration-apis-retrieve-client-credentials.md).
-* Klientprogrammet måste hämta åtkomsttoken enligt beskrivningen i API-dokumentationen för [Hämta åtkomsttoken](apis/dynamic-client-registration-apis-retrieve-access-token.md).
+* Klientprogrammet måste hämta åtkomsttoken enligt beskrivningen i API-dokumentationen för [Hämta åtkomsttoken](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md).
 
 Läs dokumentationen för [Dynamiskt klientregistreringsflöde](flows/dynamic-client-registration-flow.md) om du vill veta mer om hur du får åtkomst till Adobe Pass-skyddade API:er. Du kan även titta på den här [webbinariet](https://my.adobeconnect.com/pzkp8ujrigg1/)-inspelningen, som ger mer kontext och innehåller en demo.

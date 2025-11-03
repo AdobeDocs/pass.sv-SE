@@ -2,7 +2,7 @@
 title: Android SDK med Dynamic Client Registration
 description: Android SDK med Dynamic Client Registration
 exl-id: 8d0c1507-8e80-40a4-8698-fb795240f618
-source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
+source-git-commit: 913b2127d2189bec1a7e6e197944f1512b764893
 workflow-type: tm+mt
 source-wordcount: '1301'
 ht-degree: 0%
@@ -37,7 +37,7 @@ För Android begränsar användningen av Chrome anpassade flikar åtkomsten till
 
 ## Dynamisk klientregistrering {#DCR}
 
-Android SDK v3.0+ använder den dynamiska klientregistreringsproceduren som definieras i [Översikt över dynamisk klientregistrering](../../../rest-apis/rest-api-dcr/dynamic-client-registration-overview.md).
+Android SDK v3.0+ använder den dynamiska klientregistreringsproceduren som definieras i [Översikt över dynamisk klientregistrering](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md).
 
 
 ## Demo {#Demo}
@@ -71,7 +71,7 @@ Obs! Parametern redirectUrl eller redirect\_uri i strings.xml ska vara värdet f
 
 ### setRequestor
 
-**Beskrivning:** Anger kanalens identitet. Varje kanal tilldelas ett unikt ID när den registreras med Adobe för Adobe Pass autentiseringssystem. När det gäller enkel inloggning och fjärrtoken kan autentiseringstillståndet ändras när programmet är i bakgrunden. Det går att anropa setRequestor igen när programmet försätts i förgrunden för att synkronisera med systemtillståndet (hämta en fjärrtoken om enkel inloggning är aktiverad eller ta bort den lokala token om en utloggning inträffar under tiden).
+**Beskrivning:** Anger kanalens identitet. Varje kanal tilldelas ett unikt ID när den registreras hos Adobe för Adobe Pass autentiseringssystem. När det gäller enkel inloggning och fjärrtoken kan autentiseringstillståndet ändras när programmet är i bakgrunden. Det går att anropa setRequestor igen när programmet försätts i förgrunden för att synkronisera med systemtillståndet (hämta en fjärrtoken om enkel inloggning är aktiverad eller ta bort den lokala token om en utloggning inträffar under tiden).
 
 Serversvaret innehåller en lista över MVPD:er tillsammans med viss konfigurationsinformation som är kopplad till kanalens identitet. Serversvaret används internt av åtkomstaktiveringskoden. Endast åtgärdens status (d.v.s. SUCCESS/FAIL) visas för programmet via callback-funktionen setRequestorComplete().
 
@@ -93,7 +93,7 @@ Om ett värde anges för parametern *urls*, anger det resulterande nätverksanro
 
 **Parametrar:**
 
-- *requestedID*: Det unika ID som är associerat med kanalen. Skicka det unika ID som tilldelats av Adobe till din webbplats när du först registrerade dig hos Adobe Pass autentiseringstjänst.
+- *requestedID*: Det unika ID som är associerat med kanalen. Skicka det unika ID som tilldelats av Adobe till din webbplats när du först registrerade dig för Adobe Pass autentiseringstjänst.
 - *urls*: Valfri parameter. Som standard används Adobes tjänstleverantör [http://sp.auth.adobe.com/](http://sp.auth.adobe.com/). Med den här arrayen kan du ange slutpunkter för autentisering och auktoriseringstjänster som tillhandahålls av Adobe (olika instanser kan användas i felsökningssyfte). Du kan använda detta för att ange flera instanser av Adobe Pass Authentication-tjänstprovidern. Då består MVPD-listan av slutpunkterna från alla tjänsteleverantörer. Varje MVPD är kopplat till den snabbaste tjänsteleverantören, dvs. den leverantör som svarade först och som stöder MVPD.
 
 Föråldrat:
@@ -136,7 +136,7 @@ Anropa AccessEnabler.getInstance(appContext,softwareStatement,
 redirectUrl)
 
 
-### 2. Konfigurera program
+### &#x200B;2. Konfigurera program
 
 a. setRequestor(request\_id)
 

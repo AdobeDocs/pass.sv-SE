@@ -2,7 +2,7 @@
 title: Grundläggande autentisering - sekundärt program - flöde
 description: REST API V2 - grundläggande autentisering - sekundärt program - flöde
 exl-id: 83bf592e-c679-4cfe-984d-710a9598c620
-source-git-commit: b753c6a6bdfd8767e86cbe27327752620158cdbb
+source-git-commit: 92417dd4161be8ba97535404e262fd26d67383e4
 workflow-type: tm+mt
 source-wordcount: '2006'
 ht-degree: 0%
@@ -65,7 +65,7 @@ Innan du startar autentiseringsflödet i ett primärt program och avslutar det v
 
 Följ de angivna stegen för att implementera det grundläggande autentiseringsflödet som utförs i ett sekundärt program med en förinställd MVPD enligt bilden nedan.
 
-![Utför autentisering i det sekundära programmet med förvald mvpd](../../../../../assets/rest-api-v2/flows/basic-access-flows/rest-api-v2-perform-authentication-within-secondary-application-with-preselected-mvpd.png)
+![Utför autentisering i det sekundära programmet med förvald mvpd](/help/authentication/assets/rest-api-v2/flows/basic-access-flows/rest-api-v2-perform-authentication-within-secondary-application-with-preselected-mvpd.png)
 
 *Utför autentisering i det sekundära programmet med förvald mvpd*
 
@@ -209,7 +209,7 @@ Innan du startar autentiseringsflödet i ett primärt program och avslutar det v
 
 Följ de angivna stegen för att implementera det grundläggande autentiseringsflödet som utförs i ett sekundärt program utan en förinställd MVPD, vilket visas i följande diagram.
 
-![Utför autentisering i det sekundära programmet utan förvald mvpd](../../../../../assets/rest-api-v2/flows/basic-access-flows/rest-api-v2-perform-authentication-within-secondary-application-without-preselected-mvpd.png)
+![Utför autentisering i det sekundära programmet utan förvald mvpd](/help/authentication/assets/rest-api-v2/flows/basic-access-flows/rest-api-v2-perform-authentication-within-secondary-application-without-preselected-mvpd.png)
 
 *Utför autentisering i det sekundära programmet utan förvald mvpd*
 

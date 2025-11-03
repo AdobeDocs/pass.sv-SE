@@ -2,7 +2,7 @@
 title: Enkel utloggning - flöde
 description: REST API V2 - enkel utloggning - flöde
 exl-id: d7092ca7-ea7b-4e92-b45f-e373a6d673d6
-source-git-commit: 6b803eb0037e347d6ce147c565983c5a26de9978
+source-git-commit: 92417dd4161be8ba97535404e262fd26d67383e4
 workflow-type: tm+mt
 source-wordcount: '587'
 ht-degree: 0%
@@ -46,7 +46,7 @@ Innan du startar en enda utloggning för en viss MVPD måste du kontrollera att 
 
 Utför de angivna stegen för att implementera ett enda utloggningsflöde för en specifik MVPD enligt bilden nedan.
 
-![Initiera enkel utloggning för specifik mvpd](../../../../../assets/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-initiate-single-logout-for-specific-mvpd-flow.png)
+![Initiera enkel utloggning för specifik mvpd](/help/authentication/assets/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-initiate-single-logout-for-specific-mvpd-flow.png)
 
 *Initiera enkel utloggning för specifik mvpd*
 
@@ -54,7 +54,7 @@ Utför de angivna stegen för att implementera ett enda utloggningsflöde för e
 
    >[!IMPORTANT]
    >
-   > Mer information om hur du använder API-dokumentationen för mvpd[&#128279;](../../apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md) finns i Initiera utloggning:
+   > Mer information om hur du använder API-dokumentationen för mvpd[ finns i ](../../apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md)Initiera utloggning:
    >
    > * Alla _obligatoriska_-parametrar, som `serviceProvider`, `mvpd` och `redirectUrl`
    > * Alla _obligatoriska_ rubriker, som `Authorization`, `AP-Device-Identifier`

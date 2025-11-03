@@ -2,7 +2,7 @@
 title: Enkel inloggning - plattformsidentitet - flöden
 description: REST API V2 - enkel inloggning - plattformsidentitet - flöden
 exl-id: 5200e851-84e8-4cb4-b068-63b91a2a8945
-source-git-commit: b753c6a6bdfd8767e86cbe27327752620158cdbb
+source-git-commit: 2afe9ea2a814817757f1ab28484a84466da68d62
 workflow-type: tm+mt
 source-wordcount: '1855'
 ht-degree: 0%
@@ -33,8 +33,8 @@ Mer information om rubriken `Adobe-Subject-Token` / `X-Roku-Reserved-Roku-Connec
 
 >[!MORELIKETHIS]
 > 
-> * [Amazon SSO Cookbook](/help/authentication/integration-guide-programmers/features-standard/sso-access/platform-sso/amazon-single-sign-on/amazon-sso-cookbook-rest-api-v2.md)
-> * [Roku SSO-kokbok](/help/authentication/integration-guide-programmers/features-standard/sso-access/platform-sso/roku-single-sign-on/roku-sso-cookbook-rest-api-v2.md)
+> * [Amazon SSO Cookbook](/help/premium-workflow/sso-access/platform-sso/amazon-single-sign-on/amazon-sso-cookbook-rest-api-v2.md)
+> * [Roku SSO-kokbok](/help/premium-workflow/sso-access/platform-sso/roku-single-sign-on/roku-sso-cookbook-rest-api-v2.md)
 
 ## Utför autentisering genom enkel inloggning med plattformsidentitet {#perform-authentication-through-single-sign-on-using-platform-identity}
 
@@ -62,7 +62,7 @@ Innan du utför autentiseringsflödet genom enkel inloggning med en plattformsid
 
 Utför de angivna stegen för att implementera autentiseringsflödet genom enkel inloggning med en plattformsidentitet, vilket visas i följande diagram.
 
-![Utför autentisering med enkel inloggning med plattformsidentitet](../../../../../assets/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-perform-authentication-through-single-sign-on-using-platform-identity-flow.png)
+![Utför autentisering med enkel inloggning med plattformsidentitet](/help/authentication/assets/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-perform-authentication-through-single-sign-on-using-platform-identity-flow.png)
 
 *Utför autentisering med enkel inloggning med plattformsidentitet*
 
@@ -232,7 +232,7 @@ Innan du utför auktoriseringsflödet genom enkel inloggning med en plattformsid
 
 Utför de angivna stegen för att implementera auktoriseringsflödet genom enkel inloggning med en plattformsidentitet, vilket visas i följande diagram.
 
-![Hämta auktoriseringsbeslut via enkel inloggning med plattformsidentitet](../../../../../assets/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-retrieve-authorization-decisions-through-single-sign-on-using-platform-identity-flow.png)
+![Hämta auktoriseringsbeslut via enkel inloggning med plattformsidentitet](/help/authentication/assets/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-retrieve-authorization-decisions-through-single-sign-on-using-platform-identity-flow.png)
 
 *Hämta auktoriseringsbeslut via enkel inloggning med plattformsidentitet*
 
