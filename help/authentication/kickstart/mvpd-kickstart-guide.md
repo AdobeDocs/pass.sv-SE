@@ -135,7 +135,7 @@ Adobe Pass Authentication-teamet är tillgängligt för att beskriva eventuella 
 
 ## Åtkomst till dokumentation {#access-documentation}
 
-**Adobe ger** åtkomst till vår offentliga dokumentation via [Adobe Experience League](https://experienceleague.adobe.com/en/docs/pass/authentication/home).
+**Adobe ger** åtkomst till vår offentliga dokumentation via [Adobe Experience League](https://experienceleague.adobe.com/sv/docs/pass/authentication/home).
 
 Adobe Pass-autentiseringsteamet tillhandahåller omfattande dokumentation om tillgängliga funktioner och arbetsflöden i avsnittet [Integreringsguide för MVPD-program](/help/authentication/integration-guide-mvpds/mvpd-integration-guide-overview.md). I innehållsförteckningen under det här avsnittet finns länkar till detaljerad information om varje ämne.
 
