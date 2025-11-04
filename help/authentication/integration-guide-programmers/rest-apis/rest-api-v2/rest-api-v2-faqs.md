@@ -29,7 +29,7 @@ Mer information om migreringsinformation och -steg finns även i nästa avsnitt.
 
 +++Vanliga frågor om registreringsfasen
 
-Se [DCR-dokumentationen &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-faqs.md#rest-api-v2-access-faqs) med vanliga frågor om registrering av dynamiska klienter.
+Se [DCR-dokumentationen ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-faqs.md#rest-api-v2-access-faqs) med vanliga frågor om registrering av dynamiska klienter.
 
 +++
 
@@ -235,7 +235,7 @@ Klientprogrammet bör cachelagra delar av användarens profilinformation i en be
 |--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `mvpd` | Klientprogrammet kan använda detta för att hålla reda på användarens valda TV-leverantör och fortsätta att använda det under förauktoriserings- eller auktoriseringsfaserna.<br/><br/>När den aktuella användarprofilen förfaller kan klientprogrammet använda det sparade MVPD-valet och be användaren bekräfta. |
 | `attributes` | Klientprogrammet kan använda detta för att anpassa användarupplevelsen baserat på olika [användarmetadata](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md)-nycklar (t.ex. `zip`, `maxRating` osv.).<br/><br/>Användarmetadata blir tillgängliga när autentiseringsflödet har slutförts. Klientprogrammet behöver därför inte fråga en separat slutpunkt för att hämta informationen för [användarens metadata](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md) eftersom den redan ingår i profilinformationen.<br/><br/>Vissa metadataattribut kan uppdateras under auktoriseringsflödet, beroende på MVPD och det specifika metadataattributet. Därför kan klientprogrammet behöva fråga Profiles-API:erna igen för att hämta de senaste användarens metadata. |
-| `notAfter` | Klientprogrammet kan använda detta för att hålla reda på utgångsdatumet för användarprofilen.<br/><br/>Felhanteringen i klientprogrammet kräver att [&#x200B; error](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md#enhanced-error-codes-lists-rest-api-v2) -koderna (t.ex. `authenticated_profile_missing`, `authenticated_profile_expired`, `authenticated_profile_invalidated` osv.) hanteras, vilket anger att klientprogrammet kräver att användaren autentiserar. |
+| `notAfter` | Klientprogrammet kan använda detta för att hålla reda på utgångsdatumet för användarprofilen.<br/><br/>Felhanteringen i klientprogrammet kräver att [ error](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md#enhanced-error-codes-lists-rest-api-v2) -koderna (t.ex. `authenticated_profile_missing`, `authenticated_profile_expired`, `authenticated_profile_invalidated` osv.) hanteras, vilket anger att klientprogrammet kräver att användaren autentiserar. |
 
 #### &#x200B;9. Kan klientprogrammet utöka användarens profil utan att omautentisering krävs? {#authentication-phase-faq9}
 
@@ -309,7 +309,7 @@ För att säkerställa effektivitet och undvika onödiga förfrågningar måste 
 
 **Autentisering utförd i det primära (skärm) programmet**
 
-Det primära (direktuppspelande) programmet ska starta avsökningen när användaren kommer till den sista målsidan, efter att webbläsarkomponenten har läst in den URL som angetts för parametern `redirectUrl` i [&#x200B; Sessions](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) -slutpunktsbegäran.
+Det primära (direktuppspelande) programmet ska starta avsökningen när användaren kommer till den sista målsidan, efter att webbläsarkomponenten har läst in den URL som angetts för parametern `redirectUrl` i [ Sessions](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) -slutpunktsbegäran.
 
 **Autentisering utförd i ett sekundärt (skärm) program**
 
@@ -507,7 +507,7 @@ Klientprogrammet behövs inte för att lagra auktoriseringsbeslut i beständig l
 
 #### &#x200B;5. Hur kan klientprogrammet avgöra varför ett auktoriseringsbeslut nekades? {#authorization-phase-faq5}
 
-Klientprogrammet kan fastställa orsaken till ett beslut om nekad auktorisering genom att granska [felkoden och meddelandet &#x200B;](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) som ingår i svaret från slutpunkten för auktorisering av beslut. Dessa uppgifter ger insikt i varför auktoriseringsbegäran nekades, vilket kan bidra till att informera användaren eller utlösa nödvändig hantering i programmet.
+Klientprogrammet kan fastställa orsaken till ett beslut om nekad auktorisering genom att granska [felkoden och meddelandet ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) som ingår i svaret från slutpunkten för auktorisering av beslut. Dessa uppgifter ger insikt i varför auktoriseringsbegäran nekades, vilket kan bidra till att informera användaren eller utlösa nödvändig hantering i programmet.
 
 Se till att alla återförsöksmetoder som implementeras för att hämta auktoriseringsbeslut inte resulterar i en oändlig slinga om auktoriseringsbeslutet nekas.
 

@@ -186,7 +186,7 @@ AccessEnabler-bibliotek)
 
 ## Konfigurera besökar-ID {#visitorID}
 
-Att konfigurera ett [Experience Cloud visitorID](https://experienceleague.adobe.com/docs/id-service/using/home.html?lang=sv-SE)-värde är mycket viktigt ur analyssynpunkt. När ett EC-besökarID-värde har angetts skickar SDK den här informationen tillsammans med alla nätverksanrop och Adobe Pass Authentication-tjänsten samlar in den här informationen. På så sätt kan du korrelera analysdata från tjänsten Adobe Pass Authentication med andra analysrapporter som du kan ha från andra program eller webbplatser. Information om hur du konfigurerar EC visitorID finns [här](https://experienceleague.adobe.com/docs/id-service/using/home.html?lang=sv-SE).
+Att konfigurera ett [Experience Cloud visitorID](https://experienceleague.adobe.com/docs/id-service/using/home.html)-värde är mycket viktigt ur analyssynpunkt. När ett EC-besökarID-värde har angetts skickar SDK den här informationen tillsammans med alla nätverksanrop och Adobe Pass Authentication-tjänsten samlar in den här informationen. På så sätt kan du korrelera analysdata från tjänsten Adobe Pass Authentication med andra analysrapporter som du kan ha från andra program eller webbplatser. Information om hur du konfigurerar EC visitorID finns [här](https://experienceleague.adobe.com/docs/id-service/using/home.html?lang=en).
 
 
 >[!NOTE]

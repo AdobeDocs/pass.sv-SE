@@ -175,7 +175,7 @@ Programmerartjänsten måste skicka korrekt enhetsidentifieringsinformation för
     
     Exempel:
     
-    POST /reggie/v1/{req\_id}/regcode HTTP/1.1 5&rbrace;x-Forwarded-For:203.45.101.20
+    POST /reggie/v1/{req\_id}/regcode HTTP/1.1 5}x-Forwarded-For:203.45.101.20
     
     GET /api/v1/authorized HTTP/1.1
     

@@ -33,7 +33,7 @@ Autentiseringen är en process som gör det möjligt för en användare att bevi
 
 Autentiseringskoden är ett Adobe Pass-autentiseringskoncept som lagrar ett unikt värde som genereras när en användare initierar [autentiseringsprocessen](#authentication) och unikt identifierar en användares [autentiseringssession](#session) tills autentiseringsprocessen är slutförd.
 
-Autentiseringskoden kan användas av både ett [primärt (programmerare) program](#primary-application) eller ett [sekundärt (programmerare) program](#secondary-application) för att slutföra [autentiseringsprocessen](#authentication), hämta information om [autentiseringssessionen](#session) eller för att få åtkomst till användarprofilen [&#128279;](#profile).
+Autentiseringskoden kan användas av både ett [primärt (programmerare) program](#primary-application) eller ett [sekundärt (programmerare) program](#secondary-application) för att slutföra [autentiseringsprocessen](#authentication), hämta information om [autentiseringssessionen](#session) eller för att få åtkomst till användarprofilen [](#profile).
 
 Synonym med den tidigare termen som används i registreringskoden.
 

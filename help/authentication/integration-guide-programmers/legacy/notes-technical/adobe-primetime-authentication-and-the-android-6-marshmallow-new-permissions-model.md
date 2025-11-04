@@ -30,7 +30,7 @@ Som en ny funktion ger nya Android OS [detaljkontroll över de behörigheter som
 >Ändringarna som beskrivs nedan **påverkar bara program som utvecklats specifikt för Android 6.0** (targetSdkVersion=23). De påverkar inte äldre program som redan är installerade på användarens enhet vid uppgradering till Android 6.0.
 
 
-För program som utvecklats i Android Studio med [API-nivå 23](http://developer.android.com/sdk/api_diff/23/changes.html) och som använder Adobe Pass Authentication SDK måste utvecklaren skriva egen kod (se kodutdrag nedan) [&#x200B; för att aktivera dialogrutan Tillåt/Neka behörigheter](https://developer.android.com/training/permissions/requesting.html).
+För program som utvecklats i Android Studio med [API-nivå 23](http://developer.android.com/sdk/api_diff/23/changes.html) och som använder Adobe Pass Authentication SDK måste utvecklaren skriva egen kod (se kodutdrag nedan) [ för att aktivera dialogrutan Tillåt/Neka behörigheter](https://developer.android.com/training/permissions/requesting.html).
 
 Här följer det kodutdrag som används för att begära skrivåtkomst till enhetens externa lagring:
 

@@ -61,7 +61,7 @@ Följ de angivna stegen för att implementera det grundläggande utloggningsflö
 
    >[!IMPORTANT]
    >
-   > Mer information om hur du använder API-dokumentationen för mvpd[&#x200B; finns i &#x200B;](../../apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md)Initiera utloggning:
+   > Mer information om hur du använder API-dokumentationen för mvpd[ finns i ](../../apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md)Initiera utloggning:
    >
    > * Alla _obligatoriska_-parametrar, som `serviceProvider`, `mvpd` och `redirectUrl`
    > * Alla _obligatoriska_ rubriker, som `Authorization`, `AP-Device-Identifier`
@@ -127,7 +127,7 @@ Följ de angivna stegen för att implementera det grundläggande utloggningsflö
 
    >[!IMPORTANT]
    >
-   > Mer information om hur du använder API-dokumentationen för mvpd[&#x200B; finns i &#x200B;](../../apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md)Initiera utloggning:
+   > Mer information om hur du använder API-dokumentationen för mvpd[ finns i ](../../apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md)Initiera utloggning:
    >
    > * Alla _obligatoriska_-parametrar, som `serviceProvider`, `mvpd` och `redirectUrl`
    > * Alla _obligatoriska_ rubriker, som `Authorization`, `AP-Device-Identifier`

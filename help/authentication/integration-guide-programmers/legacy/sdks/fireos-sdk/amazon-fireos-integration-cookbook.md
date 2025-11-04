@@ -101,7 +101,7 @@ Parametern `event` anger vilken berättigandehändelse som inträffade. Paramete
       - Utlöses av `getMetadata().`
       - Parametern `metadata` innehåller de specifika data som du har begärt, parametern `key` är nyckeln som används i begäran `getMetadata()` och parametern `arguments` är samma ordlista som skickades till `getMetadata()`.
 
-   - [&quot;preauthorizedResources(resources)&grave;](#$preauthResources)
+   - [&quot;preauthorizedResources(resources)`](#$preauthResources)
 
       - Utlöses av `checkPreauthorizedResources()`.
       - Parametern `authorizedResources` visar de resurser som användaren har behörighet att visa.
