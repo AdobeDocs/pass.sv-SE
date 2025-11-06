@@ -2,7 +2,7 @@
 title: JavaScript SDK API Reference
 description: JavaScript SDK API Reference
 exl-id: 48d48327-14e6-46f3-9e80-557f161acd8a
-source-git-commit: 913b2127d2189bec1a7e6e197944f1512b764893
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
 source-wordcount: '2883'
 ht-degree: 0%
@@ -51,7 +51,7 @@ Dessa funktioner startar förfrågningar om interaktion med en MVPD. Alla anrop 
 
 - *options* - Ett JSON-objekt som innehåller programmets ID-värde, inställningar för att uppdatera besökar-ID-värde (inloggning i bakgrunden) och MVPD-inställningar (iFrame). Alla värden är valfria.
    1. Om detta anges rapporteras Experience Cloud visitorID för alla nätverksanrop som utförs av biblioteket. Värdet kan användas senare för avancerade analysrapporter.
-   2. Om den unika identifieraren för programmet anges -`applicationId` - läggs värdet till i alla efterföljande anrop som görs av programmet som en del av HTTP-huvudet X-Device-Info. Det här värdet kan senare hämtas från [ESM](/help/premium-workflow/esm/entitlement-service-monitoring-overview.md)-rapporter med rätt fråga.
+   2. Om den unika identifieraren för programmet anges -`applicationId` - läggs värdet till i alla efterföljande anrop som görs av programmet som en del av HTTP-huvudet X-Device-Info. Det här värdet kan senare hämtas från [ESM](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md)-rapporter med rätt fråga.
 
   **Obs!** Alla JSON-tangenter är skiftlägeskänsliga.
 
@@ -190,7 +190,7 @@ När det är klart skapar och sparar en autentiseringstoken för användaren. Om
 
 
 **Återanrop har utlösts:**
-[&#x200B; setToken()](#settokeninrequestedresourceid-intoken-settokeninrequestedresourceidintoken), [&#x200B; tokenRequestFailed()](#tokenrequestfailedinrequestedresourceid-inrequesterrorcode-inrequestdetailederrormessage-tokenrequestfailedinrequestedresourceidinrequesterrorcodeinrequestdetailederrormessage), [sendTrackingData()](#sendtrackingdatatrackingeventtype-trackingdata-sendtrackingdatatrackingeventtypetrackingdata), [setAuthenticationStatus()](#setauthenticationstatusisauthenticated-errorcode)
+[ setToken()](#settokeninrequestedresourceid-intoken-settokeninrequestedresourceidintoken), [ tokenRequestFailed()](#tokenrequestfailedinrequestedresourceid-inrequesterrorcode-inrequestdetailederrormessage-tokenrequestfailedinrequestedresourceidinrequesterrorcodeinrequestdetailederrormessage), [sendTrackingData()](#sendtrackingdatatrackingeventtype-trackingdata-sendtrackingdatatrackingeventtypetrackingdata), [setAuthenticationStatus()](#setauthenticationstatusisauthenticated-errorcode)
 
 </br>
 
@@ -309,7 +309,7 @@ Exempel:
 **Beskrivning:** Anropa den här funktionen när användaren har valt en MVPD i användargränssnittet för val av leverantör för att skicka providervalet till åtkomstaktiveringen eller anropa den här funktionen med en null-parameter om användaren har avvisat användargränssnittet för val av leverantör utan att välja någon leverantör.
 
 **Återanrop
-utlöses:**[&#x200B; setAuthationStatus()](#setauthenticationstatusisauthenticated-errorcode), [sendTrackingData()](#sendtrackingdatatrackingeventtype-trackingdata-sendtrackingdatatrackingeventtypetrackingdata)
+utlöses:**[ setAuthationStatus()](#setauthenticationstatusisauthenticated-errorcode), [sendTrackingData()](#sendtrackingdatatrackingeventtype-trackingdata-sendtrackingdatatrackingeventtypetrackingdata)
 
 </br>
 
@@ -415,7 +415,7 @@ Du måste implementera dessa återanrop för att kunna hantera svaren på dina a
 
 **Beskrivning:** Implementera det här återanropet om användaren har valt en MVPD som kräver en iFrame där användargränssnittet för inloggningssidan för autentisering ska visas.
 
-**Utlöses av:**&#x200B;[&#x200B; setSelectedProvider()](#setselectedproviderproviderid-setselectedprovider)
+**Utlöses av:**[ setSelectedProvider()](#setselectedproviderproviderid-setselectedprovider)
 
 </br> [Till början](#top)
 

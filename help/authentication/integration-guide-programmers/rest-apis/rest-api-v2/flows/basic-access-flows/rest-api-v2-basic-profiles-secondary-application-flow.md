@@ -2,7 +2,7 @@
 title: Grundläggande profiler - sekundärt program - flöde
 description: REST API V2 - Grundläggande profiler - Sekundärt program - flöde
 exl-id: 1fcefcfa-7534-4b85-b3b5-df513685d66b
-source-git-commit: 92417dd4161be8ba97535404e262fd26d67383e4
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
 source-wordcount: '418'
 ht-degree: 0%
@@ -41,7 +41,7 @@ Innan du hämtar profilen för en viss autentiseringskod måste du se till att f
 
 Följ de angivna stegen för att implementera det grundläggande flödet för hämtning av profiler för en specifik autentiseringskod som har utförts i ett sekundärt program enligt bilden nedan.
 
-![Hämta profil för specifik kod](/help/authentication/assets/rest-api-v2/flows/basic-access-flows/rest-api-v2-retrieve-profile-within-secondary-application-for-specific-code.png)
+![Hämta profil för specifik kod](../../../../../assets/rest-api-v2/flows/basic-access-flows/rest-api-v2-retrieve-profile-within-secondary-application-for-specific-code.png)
 
 *Hämta profil för specifik kod*
 

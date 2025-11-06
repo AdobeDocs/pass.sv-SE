@@ -2,7 +2,7 @@
 title: Integrering med TVE Dashboard
 description: Lär dig mer om integreringarna mellan era kanaler och distributörer av videoprogrammeringstjänster och hur ni hanterar integreringar.
 exl-id: 0add340b-120c-4e82-8e3c-6c190d77cf7e
-source-git-commit: d0f08314d7033aae93e4a0d9bc94af8773c5ba13
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
 source-wordcount: '2093'
 ht-degree: 0%
@@ -24,7 +24,7 @@ På fliken **Integrationer** i den vänstra panelen visas en lista med befintlig
 * Kanalnamn med kanal-ID
 * MVPD visningsnamn och MVPD-ID
 
-![Lista över befintliga integreringar](/help/authentication/assets/tve-dashboard/new-tve-dashboard/integrations/integrations-list.png)
+![Lista över befintliga integreringar](../assets/tve-dashboard/new-tve-dashboard/integrations/integrations-list.png)
 
 *Lista över befintliga integreringar*
 
@@ -49,7 +49,7 @@ Följ de här stegen för att hantera en specifik integrering.
 
 I det här avsnittet kan du välja slutpunkter för MVPD som används för autentiserings-, auktoriserings- och utloggningsflöden i respektive listruta.
 
-![Slutpunkter för autentiserings-, auktoriserings- och utloggningsflöden](/help/authentication/assets/tve-dashboard/new-tve-dashboard/integrations/integration-endpoint-selection-panel-view.png)
+![Slutpunkter för autentiserings-, auktoriserings- och utloggningsflöden](../assets/tve-dashboard/new-tve-dashboard/integrations/integration-endpoint-selection-panel-view.png)
 
 *Slutpunkter för autentiserings-, auktoriserings- och utloggningsflöden*
 
@@ -87,11 +87,11 @@ Varje egenskap i plattformsinställningarna ärver ett standardvärde som angett
 
 * **Oidentifierade enheter**: Ange värden för egenskaper som gäller för alla enheter där den aktuella mekanismen inte kan identifiera plattformen korrekt. I sådana fall tillämpar du de mest restriktiva regler som definieras av MVPD.
 
-  ![Plattformskategori och enheter](/help/authentication/assets/tve-dashboard/new-tve-dashboard/integrations/integration-platform-settings-menu.png)
+  ![Plattformskategori och enheter](../assets/tve-dashboard/new-tve-dashboard/integrations/integration-platform-settings-menu.png)
 
   *Plattformskategori och enheter*
 
-Välj Ikonen <img alt= "arvskedjeikon" src="/help/authentication/assets/tve-dashboard/new-tve-dashboard/integrations/integration-platform-settings-inheritance-chain-icon.svg" width="25"> finns till höger om varje egenskap för att utforska de egenskaper som används för varje arvsnivå som beskrivs ovan.
+Välj Ikonen <img alt= "arvskedjeikon" src="../assets/tve-dashboard/new-tve-dashboard/integrations/integration-platform-settings-inheritance-chain-icon.svg" width="25"> finns till höger om varje egenskap för att utforska de egenskaper som används för varje arvsnivå som beskrivs ovan.
 
 #### De mest använda affärsflödena {#most-used-flows}
 
@@ -117,7 +117,7 @@ Följ de här stegen för att ändra autentiserings- och auktoriserings-TTL på 
    >
    >Om du vill ändra längden på **AuthN TTL** och **AuthZ TTL** för en plattformskategori eller en viss plattform väljer du plattformen i enlighet med detta.
 
-   ![Ändra AuthN TTL AuthZ TTL-varaktighet på alla plattformar](/help/authentication/assets/tve-dashboard/new-tve-dashboard/integrations/integration-platform-settings-authn-ttl-authz-ttl-properties.png)
+   ![Ändra AuthN TTL AuthZ TTL-varaktighet på alla plattformar](../assets/tve-dashboard/new-tve-dashboard/integrations/integration-platform-settings-authn-ttl-authz-ttl-properties.png)
 
    *Ändra AuthN TTL AuthZ TTL-varaktighet på alla plattformar*
 
@@ -143,7 +143,7 @@ Följ de här stegen för att aktivera eller inaktivera enkel inloggning för en
 
 1. Välj en specifik plattform eller plattformskategori som du vill aktivera enkel inloggning för under **Plattformsinställningar**.
 
-   ![Aktivera enkel inloggning för en viss plattform](/help/authentication/assets/tve-dashboard/new-tve-dashboard/integrations/integration-platform-settings-single-sign-on-properties.png)
+   ![Aktivera enkel inloggning för en viss plattform](../assets/tve-dashboard/new-tve-dashboard/integrations/integration-platform-settings-single-sign-on-properties.png)
 
    *Aktivera enkel inloggning för en viss plattform*
 
@@ -171,7 +171,7 @@ Följ de här stegen för att aktivera eller inaktivera hembaserad autentisering
 
 1. Välj en specifik plattform eller plattformskategori som du vill aktivera hembaserad autentisering för under **Plattformsinställningar**.
 
-   ![Aktivera hembaserad autentisering för en viss plattform](/help/authentication/assets/tve-dashboard/new-tve-dashboard/integrations/integration-platform-settings-attempt-hba-properties.png)
+   ![Aktivera hembaserad autentisering för en viss plattform](../assets/tve-dashboard/new-tve-dashboard/integrations/integration-platform-settings-attempt-hba-properties.png)
 
    *Aktivera hembaserad autentisering för en viss plattform*
 
@@ -204,7 +204,7 @@ Om flera PDF-filer accepterar att höja den här gränsen kan du navigera till *
 
 **Max resurser för preflight** lägger till ett nytt attribut där den överenskomna gränsen med MVPD kan anges.
 
-![Lägg till egenskapen Max resurser för preflight](/help/authentication/assets/tve-dashboard/new-tve-dashboard/integrations/integration-platform-settings-preflight-max-resources-properties.png)
+![Lägg till egenskapen Max resurser för preflight](../assets/tve-dashboard/new-tve-dashboard/integrations/integration-platform-settings-preflight-max-resources-properties.png)
 
 *Lägg till egenskapen Max resurser för preflight*
 
@@ -216,7 +216,7 @@ För programmeringsprogram som inte vill bygga sin MVPD-väljare och i stället 
 
 Olika värden för dessa egenskaper kan användas för samma MVPD beroende på enhetsplattform och önskad användarupplevelse.
 
-![Lägg till visningsnamn eller URL-logotyp &#x200B;](/help/authentication/assets/tve-dashboard/new-tve-dashboard/integrations/integration-platform-settings-display-name-logo-url-properties.png)
+![Lägg till visningsnamn eller URL-logotyp ](../assets/tve-dashboard/new-tve-dashboard/integrations/integration-platform-settings-display-name-logo-url-properties.png)
 
 *Lägg till visningsnamn eller URL-logotyp*
 
@@ -228,7 +228,7 @@ Om du vill framtvinga en ny autentisering när användare växlar mellan appar. 
 
 Om du lägger till **Autentisering per aggregator** bryts enkel inloggning för respektive kanal.
 
-![Lägg till autenticering per aggregator-egenskap](/help/authentication/assets/tve-dashboard/new-tve-dashboard/integrations/integration-platform-settings-auth-per-aggregator-properties.png)
+![Lägg till autenticering per aggregator-egenskap](../assets/tve-dashboard/new-tve-dashboard/integrations/integration-platform-settings-auth-per-aggregator-properties.png)
 
 *Lägg till autenticering per aggregator-egenskap*
 
@@ -238,7 +238,7 @@ När du har lagt till väljer du **Ja** för att aktivera egenskapen **Autentise
 
 #### Ta bort egenskaper {#delete-properties}
 
-Välj Ikonen <img alt= "delete, egenskapsknapp" src="/help/authentication/assets/tve-dashboard/new-tve-dashboard/integrations/integration-platform-settings-delete-property-icon.svg" width="25"> finns till höger om varje egenskap för att ta bort de egenskaper som inte längre behövs.
+Välj Ikonen <img alt= "delete, egenskapsknapp" src="../assets/tve-dashboard/new-tve-dashboard/integrations/integration-platform-settings-delete-property-icon.svg" width="25"> finns till höger om varje egenskap för att ta bort de egenskaper som inte längre behövs.
 
 >[!NOTE]
 >
@@ -271,7 +271,7 @@ Läs mer om tillgängliga certifikat i avsnitten [Programmerare](/help/authentic
 
 **Aktiverad**: Med den här kolumnen kan du aktivera eller inaktivera parametrar i API:t genom att välja **Ja** respektive **Nej** i listrutan.
 
-![Parametrar tillgängliga för användarmetadata](/help/authentication/assets/tve-dashboard/new-tve-dashboard/integrations/integration-user-metadata-panel-view.png)
+![Parametrar tillgängliga för användarmetadata](../assets/tve-dashboard/new-tve-dashboard/integrations/integration-user-metadata-panel-view.png)
 
 *Parametrar tillgängliga för användarmetadata*
 
@@ -283,7 +283,7 @@ Så här skapar du en ny integrering med en ny MVPD i din nuvarande konfiguratio
 
 1. Välj **Skapa ny integrering** längst upp till höger i avsnittet **Integrationer**.
 
-   ![Skapa en ny integrering](/help/authentication/assets/tve-dashboard/new-tve-dashboard/integrations/integration-create-new-integration-button.png)
+   ![Skapa en ny integrering](../assets/tve-dashboard/new-tve-dashboard/integrations/integration-create-new-integration-button.png)
 
    *Skapa en ny integrering*
 
@@ -293,7 +293,7 @@ Så här skapar du en ny integrering med en ny MVPD i din nuvarande konfiguratio
 
    Välj en **kanal** i listrutan **Välj kanal** om du vill lägga till en ny integrering. När du har markerat kanalen väljer du önskad **MVPD** i listrutan **Välj MVPD** som ska integreras med den markerade kanalen.
 
-   ![Välj kanal och MVPD](/help/authentication/assets/tve-dashboard/new-tve-dashboard/integrations/integration-new-integration-select-channel-and-mvpd-panel-view.png)
+   ![Välj kanal och MVPD](../assets/tve-dashboard/new-tve-dashboard/integrations/integration-new-integration-select-channel-and-mvpd-panel-view.png)
 
    *Välj kanal och MVPD*
 
@@ -305,7 +305,7 @@ Så här skapar du en ny integrering med en ny MVPD i din nuvarande konfiguratio
    >
    >Ändra inte standardslutpunkterna i något flöde om inte MVPD särskilt anger det.
 
-   ![Markera slutpunkter &#x200B;](/help/authentication/assets/tve-dashboard/new-tve-dashboard/integrations/integration-new-integration-select-endpoints-panel-view.png)
+   ![Markera slutpunkter ](../assets/tve-dashboard/new-tve-dashboard/integrations/integration-new-integration-select-endpoints-panel-view.png)
 
    *Markera slutpunkter*
 
@@ -319,7 +319,7 @@ Så här skapar du en ny integrering med en ny MVPD i din nuvarande konfiguratio
 
    Du kan till exempel redigera **AuthN TTL** eller **partner-ID** (Channel ID) för sammärkning på MVPD inloggningssida i följande bild.
 
-   ![Redigera ytterligare information](/help/authentication/assets/tve-dashboard/new-tve-dashboard/integrations/integration-new-integration-additional-information-panel-view.png)
+   ![Redigera ytterligare information](../assets/tve-dashboard/new-tve-dashboard/integrations/integration-new-integration-additional-information-panel-view.png)
 
    *Redigera ytterligare information*
 
@@ -338,7 +338,7 @@ Så här inaktiverar du en integrering:
 
 1. Inaktivera alternativet längst upp till höger i den valda integreringen.
 
-   ![Inaktivera integrering](/help/authentication/assets/tve-dashboard/new-tve-dashboard/integrations/integration-enabled-disabled-button.png)
+   ![Inaktivera integrering](../assets/tve-dashboard/new-tve-dashboard/integrations/integration-enabled-disabled-button.png)
 
    *Inaktivera integrering*
 

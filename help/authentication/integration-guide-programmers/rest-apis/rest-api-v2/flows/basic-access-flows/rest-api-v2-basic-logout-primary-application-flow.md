@@ -2,7 +2,7 @@
 title: Grundläggande utloggning - primärt program - flöde
 description: REST API V2 - grundläggande utloggning - primärt program - flöde
 exl-id: 21dbff4a-0d69-4f81-b04f-e99d743c35b3
-source-git-commit: 92417dd4161be8ba97535404e262fd26d67383e4
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
 source-wordcount: '948'
 ht-degree: 0%
@@ -53,7 +53,7 @@ Innan du startar utloggningen för en viss MVPD med en utloggningsslutpunkt mås
 
 Följ de angivna stegen för att implementera det grundläggande utloggningsflödet för en specifik MVPD med en utloggningsslutpunkt som utförs i ett primärt program enligt bilden nedan.
 
-![Initiera utloggning för specifik mvpd med utloggningsslutpunkt](/help/authentication/assets/rest-api-v2/flows/basic-access-flows/rest-api-v2-initiate-logout-within-primary-application-for-specific-mvpd-with-logout-endpoint.png)
+![Initiera utloggning för specifik mvpd med utloggningsslutpunkt](../../../../../assets/rest-api-v2/flows/basic-access-flows/rest-api-v2-initiate-logout-within-primary-application-for-specific-mvpd-with-logout-endpoint.png)
 
 *Initiera utloggning för specifik mvpd med utloggningsslutpunkt*
 
@@ -61,7 +61,7 @@ Följ de angivna stegen för att implementera det grundläggande utloggningsflö
 
    >[!IMPORTANT]
    >
-   > Mer information om hur du använder API-dokumentationen för mvpd[&#x200B; finns i &#x200B;](../../apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md)Initiera utloggning:
+   > Mer information om hur du använder API-dokumentationen för mvpd[ finns i ](../../apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md)Initiera utloggning:
    >
    > * Alla _obligatoriska_-parametrar, som `serviceProvider`, `mvpd` och `redirectUrl`
    > * Alla _obligatoriska_ rubriker, som `Authorization`, `AP-Device-Identifier`
@@ -119,7 +119,7 @@ Innan du startar utloggningen för en viss MVPD utan en utloggningsslutpunkt må
 
 Följ de angivna stegen för att implementera det grundläggande utloggningsflödet för en specifik MVPD utan en utloggningsslutpunkt som utförs i ett primärt program, vilket visas i följande diagram.
 
-![Initiera utloggning för specifik mvpd utan utloggningsslutpunkt](/help/authentication/assets/rest-api-v2/flows/basic-access-flows/rest-api-v2-initiate-logout-within-primary-application-for-specific-mvpd-without-logout-endpoint.png)
+![Initiera utloggning för specifik mvpd utan utloggningsslutpunkt](../../../../../assets/rest-api-v2/flows/basic-access-flows/rest-api-v2-initiate-logout-within-primary-application-for-specific-mvpd-without-logout-endpoint.png)
 
 *Initiera utloggning för specifik mvpd utan utloggningsslutpunkt*
 
@@ -127,7 +127,7 @@ Följ de angivna stegen för att implementera det grundläggande utloggningsflö
 
    >[!IMPORTANT]
    >
-   > Mer information om hur du använder API-dokumentationen för mvpd[&#x200B; finns i &#x200B;](../../apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md)Initiera utloggning:
+   > Mer information om hur du använder API-dokumentationen för mvpd[ finns i ](../../apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md)Initiera utloggning:
    >
    > * Alla _obligatoriska_-parametrar, som `serviceProvider`, `mvpd` och `redirectUrl`
    > * Alla _obligatoriska_ rubriker, som `Authorization`, `AP-Device-Identifier`

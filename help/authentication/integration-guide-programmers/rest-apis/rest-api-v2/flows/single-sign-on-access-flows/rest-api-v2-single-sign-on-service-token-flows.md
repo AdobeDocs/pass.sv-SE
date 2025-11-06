@@ -2,7 +2,7 @@
 title: Enkel inloggning - tjänsttoken - flöden
 description: REST API V2 - enkel inloggning - tjänsttoken - flöden
 exl-id: b0082d2a-e491-4cb5-bb40-35ba10db6b1a
-source-git-commit: 92417dd4161be8ba97535404e262fd26d67383e4
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
 source-wordcount: '1857'
 ht-degree: 0%
@@ -60,7 +60,7 @@ Innan du utför autentiseringsflödet genom enkel inloggning med en tjänsttoken
 
 Utför de angivna stegen för att implementera autentiseringsflödet med enkel inloggning med en tjänsttoken, vilket visas i följande diagram.
 
-![Utför autentisering med enkel inloggning med tjänsttoken](/help/authentication/assets/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-perform-authentication-through-single-sign-on-using-service-token-flow.png)
+![Utför autentisering med enkel inloggning med tjänsttoken](../../../../../assets/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-perform-authentication-through-single-sign-on-using-service-token-flow.png)
 
 *Utför autentisering med enkel inloggning med tjänsttoken*
 
@@ -230,7 +230,7 @@ Innan du utför auktoriseringsflödet via enkel inloggning med en tjänsttoken m
 
 Utför de angivna stegen för att implementera auktoriseringsflödet genom enkel inloggning med en servicetoken, vilket visas i följande diagram.
 
-![Hämta auktoriseringsbeslut via enkel inloggning med tjänsttoken](/help/authentication/assets/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-retrieve-authorization-decisions-through-single-sign-on-using-service-token-flow.png)
+![Hämta auktoriseringsbeslut via enkel inloggning med tjänsttoken](../../../../../assets/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-retrieve-authorization-decisions-through-single-sign-on-using-service-token-flow.png)
 
 *Hämta auktoriseringsbeslut via enkel inloggning med tjänsttoken*
 

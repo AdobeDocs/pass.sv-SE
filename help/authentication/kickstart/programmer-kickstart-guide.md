@@ -2,7 +2,7 @@
 title: Programmeraren kickstart
 description: Programmeraren kickstart
 exl-id: 0aecdb81-9b97-4475-b0b0-654d916b2374
-source-git-commit: d0f08314d7033aae93e4a0d9bc94af8773c5ba13
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
 source-wordcount: '758'
 ht-degree: 0%
@@ -25,7 +25,7 @@ Adobe tillhandahåller en rad resurser som hjälper dig att integrera Adobe Pass
 
 Installationsprocessen omfattar bland annat följande steg:
 
-![Integreringsprocess för Adobe® Pass-autentisering](/help/authentication/assets/progr-flow-int-lifecycle.png)
+![Integreringsprocess för Adobe® Pass-autentisering](../assets/progr-flow-int-lifecycle.png)
 
 *Integreringsprocess för Adobe® Pass-autentisering*
 
@@ -75,7 +75,7 @@ Adobe Pass autentiseringsteam är tillgängliga för att hjälpa dig med eventue
 
 ## Åtkomst till dokumentation {#access-documentation}
 
-**Adobe ger** åtkomst till vår offentliga dokumentation via [Adobe Experience League](https://experienceleague.adobe.com/sv/docs/pass/authentication/home).
+**Adobe ger** åtkomst till vår offentliga dokumentation via [Adobe Experience League](https://experienceleague.adobe.com/en/docs/pass/authentication/home).
 
 Adobe Pass Authentication-teamet tillhandahåller omfattande dokumentation om tillgängliga funktioner och API:er i avsnittet [Integreringsguide för programmerare](/help/authentication/integration-guide-programmers/programmer-integration-guide-overview.md). I innehållsförteckningen under det här avsnittet finns länkar till detaljerad information om varje ämne.
 

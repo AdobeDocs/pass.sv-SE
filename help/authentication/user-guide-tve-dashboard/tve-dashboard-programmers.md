@@ -2,7 +2,7 @@
 title: Programmerare
 description: Lär dig mer om programmerare och dess konfigurationer på TVE-kontrollpanelen.
 exl-id: b450d7cc-d5b5-4454-8f95-8047856bfb98
-source-git-commit: 913b2127d2189bec1a7e6e197944f1512b764893
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
 source-wordcount: '1139'
 ht-degree: 0%
@@ -22,7 +22,7 @@ Fliken **Programmerare** i den vänstra panelen visar en lista med befintliga pr
 * **Program-ID**: En medieföretags-ID i systemet.
 * **Kanaler**: Antalet associerade kanaler som är länkade till en programmerare.
 
-![Lista över befintliga programmerare](/help/authentication/assets/tve-dashboard/new-tve-dashboard/programmers/programmers-list-view.png)
+![Lista över befintliga programmerare](../assets/tve-dashboard/new-tve-dashboard/programmers/programmers-list-view.png)
 
 *Lista över befintliga programmerare*
 
@@ -41,7 +41,7 @@ Följ de här stegen för att hantera olika inställningar för en viss programm
    * [Registrerade program](#registered-applications)
    * [Anpassade scheman](#custom-schemes)
 
-   ![Programmeringsinställningar](/help/authentication/assets/tve-dashboard/new-tve-dashboard/programmers/programmer-tabs-view.png)
+   ![Programmeringsinställningar](../assets/tve-dashboard/new-tve-dashboard/programmers/programmer-tabs-view.png)
 
    *Programmeringsinställningar*
 
@@ -55,7 +55,7 @@ På den här fliken visas en lista med kanaler som är länkade till en aktuell 
 
 Om du vill lägga till en ny kanal för den valda programmeraren väljer du **Lägg till ny kanal** i det övre högra hörnet av avsnittet **Tillgängliga kanaler**. Lär dig [hur du lägger till en ny kanal](/help/authentication/user-guide-tve-dashboard/tve-dashboard-channels.md#add-new-channel).
 
-![Lägg till en ny kanal](/help/authentication/assets/tve-dashboard/new-tve-dashboard/programmers/programmer-add-new-channel-button.png)
+![Lägg till en ny kanal](../assets/tve-dashboard/new-tve-dashboard/programmers/programmer-add-new-channel-button.png)
 
 *Lägg till en ny kanal*
 
@@ -86,7 +86,7 @@ Följ de här stegen för att lägga till ett nytt certifikat.
 
 1. Välj **Lägg till nytt certifikat** längst upp till höger i avsnittet **Tillgängliga certifikat**.
 
-   ![Lägg till ett nytt certifikat](/help/authentication/assets/tve-dashboard/new-tve-dashboard/programmers/programmer-add-new-certificate-button.png)
+   ![Lägg till ett nytt certifikat](../assets/tve-dashboard/new-tve-dashboard/programmers/programmer-add-new-certificate-button.png)
 
    *Lägg till ett nytt certifikat*
 
@@ -112,7 +112,7 @@ Så här tar du bort ett certifikat.
 
 1. Välj **Ta bort**.
 
-   ![Ta bort det markerade certifikatet](/help/authentication/assets/tve-dashboard/new-tve-dashboard/programmers/programmer-remove-certificate-button.png)
+   ![Ta bort det markerade certifikatet](../assets/tve-dashboard/new-tve-dashboard/programmers/programmer-remove-certificate-button.png)
 
    *Ta bort det markerade certifikatet*
 
@@ -122,7 +122,7 @@ En ny konfigurationsändring har skapats och är klar för serveruppdatering. Ce
 
 ### Registrerade program {#registered-applications}
 
-På den här fliken visas en lista med registrerade program. Mer information om användning av registrerade program finns i dokumentationen om [dynamisk klientregistrering](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md).
+På den här fliken visas en lista med registrerade program. Mer information om användning av registrerade program finns i dokumentationen om [dynamisk klientregistrering](../integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md).
 
 Du kan göra följande med registrerade program:
 
@@ -135,7 +135,7 @@ Följ de här stegen för att lägga till ett nytt registrerat program.
 
 1. Välj **Lägg till nytt program** längst upp till höger i avsnittet **Registrerade program**.
 
-   ![Lägg till ett nytt program](/help/authentication/assets/tve-dashboard/new-tve-dashboard/programmers/programmer-add-new-application-button.png)
+   ![Lägg till ett nytt program](../assets/tve-dashboard/new-tve-dashboard/programmers/programmer-add-new-application-button.png)
 
    *Lägg till ett nytt program*
 
@@ -179,7 +179,7 @@ Följ de här stegen för att hämta en programsats.
 
 1. Välj **Hämta**.
 
-   ![Hämta en programsats](/help/authentication/assets/tve-dashboard/new-tve-dashboard/programmers/programmer-download-software-statement-button.png)
+   ![Hämta en programsats](../assets/tve-dashboard/new-tve-dashboard/programmers/programmer-download-software-statement-button.png)
 
    *Hämta en programsats*
 
@@ -198,7 +198,7 @@ Följ de här stegen för att skapa ett nytt anpassat schema.
 
 1. Välj **Skapa nytt anpassat schema**.
 
-   ![Skapa ett nytt anpassat schema](/help/authentication/assets/tve-dashboard/new-tve-dashboard/programmers/programmer-add-new-custom-scheme-button.png)
+   ![Skapa ett nytt anpassat schema](../assets/tve-dashboard/new-tve-dashboard/programmers/programmer-add-new-custom-scheme-button.png)
 
    *Skapa ett nytt anpassat schema*
 
@@ -212,7 +212,7 @@ Följ de här stegen för att lägga till en ny programmeringsenhet.
 
 1. Välj **Lägg till ny programmerare** längst upp till höger i avsnittet **Programmerare**.
 
-   ![Lägg till en ny programmerare](/help/authentication/assets/tve-dashboard/new-tve-dashboard/programmers/programmer-add-new-programmer-button.png)
+   ![Lägg till en ny programmerare](../assets/tve-dashboard/new-tve-dashboard/programmers/programmer-add-new-programmer-button.png)
 
    *Lägg till en ny programmerare*
 

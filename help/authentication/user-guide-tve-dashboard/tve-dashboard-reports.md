@@ -2,7 +2,7 @@
 title: Rapporter
 description: Lär dig hur data aggregeras i TVE Dashboard-rapporter.
 exl-id: d8ba48de-d743-4dc2-866c-7d6e3ff94773
-source-git-commit: d0f08314d7033aae93e4a0d9bc94af8773c5ba13
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
 source-wordcount: '976'
 ht-degree: 0%
@@ -29,7 +29,7 @@ Följ de här stegen för att visa en specifik rapport.
    * [AuthZ TTL-rapporter](#authz-ttl-reports)
    * [SSO-rapporter](#sso-reports)
 
-   ![Typ av rapporter](/help/authentication/assets/tve-dashboard/new-tve-dashboard/reports/reports-tabs-view.png)
+   ![Typ av rapporter](../assets/tve-dashboard/new-tve-dashboard/reports/reports-tabs-view.png)
 
    *Typ av rapporter*
 
@@ -39,7 +39,7 @@ I AuthN TTL-rapporterna, som även kallas TTL (Authentication Time-To-Live), vis
 
 Du kan också visa och hämta data för [specifika kanaler eller MVPD-program](#selecting-specific-channels-mvpds).
 
-![Exportera AuthN TTL-rapporter](/help/authentication/assets/tve-dashboard/new-tve-dashboard/reports/reports-authn-ttl-export-button.png)
+![Exportera AuthN TTL-rapporter](../assets/tve-dashboard/new-tve-dashboard/reports/reports-authn-ttl-export-button.png)
 
 *Exportera AuthN TTL-rapporter*
 
@@ -55,7 +55,7 @@ I AuthZ TTL-rapporterna, som även kallas TTL (Authorization Time-To-Live), visa
 
 Du kan också visa och hämta data för [specifika kanaler eller MVPD](#selecting-specific-channels-mvpds).
 
-![Exportera AuthZ TTL-rapporter](/help/authentication/assets/tve-dashboard/new-tve-dashboard/reports/reports-authz-ttl-export-button.png)
+![Exportera AuthZ TTL-rapporter](../assets/tve-dashboard/new-tve-dashboard/reports/reports-authz-ttl-export-button.png)
 
 *Exportera AuthZ TTL-rapporter*
 
@@ -71,7 +71,7 @@ SSO-rapporterna, som även kallas enkel inloggning, visar den status för enkel 
 
 Du kan också visa och hämta data för [specifika kanaler eller MVPD-program](#selecting-specific-channels-mvpds).
 
-![Exportera SSO-rapporter](/help/authentication/assets/tve-dashboard/new-tve-dashboard/reports/reports-sso-export-button.png)
+![Exportera SSO-rapporter](../assets/tve-dashboard/new-tve-dashboard/reports/reports-sso-export-button.png)
 
 *Exportera SSO-rapporter*
 
@@ -129,7 +129,7 @@ Så här skapar du en rapport för specifika kanaler:
 
 1. Välj listrutan **Inkluderade kanaler** längst upp i den markerade rapporten.
 
-   ![Listrutan Inkluderade kanaler](/help/authentication/assets/tve-dashboard/new-tve-dashboard/reports/reports-included-channels-menu.png)
+   ![Listrutan Inkluderade kanaler](../assets/tve-dashboard/new-tve-dashboard/reports/reports-included-channels-menu.png)
 
    *Listrutan Inkluderade kanaler*
 
@@ -145,7 +145,7 @@ Så här skapar du en rapport för specifika programmeringsdokumentskydd:
 
 1. Välj listrutan **Inkluderade PDF-filer** högst upp i den markerade rapporten.
 
-   ![Listrutan MVPD ingår](/help/authentication/assets/tve-dashboard/new-tve-dashboard/reports/reports-included-mvpds-menu.png)
+   ![Listrutan MVPD ingår](../assets/tve-dashboard/new-tve-dashboard/reports/reports-included-mvpds-menu.png)
 
    *Listrutan MVPD ingår*
 

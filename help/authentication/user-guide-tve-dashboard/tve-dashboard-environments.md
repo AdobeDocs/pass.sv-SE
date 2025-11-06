@@ -2,7 +2,7 @@
 title: TVE Dashboard-miljöer
 description: Förstå hur olika miljöer används och fungerar i TVE Dashboard.
 exl-id: 591becb8-2f6c-46e0-b108-c64e6df69f89
-source-git-commit: d0f08314d7033aae93e4a0d9bc94af8773c5ba13
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
 source-wordcount: '346'
 ht-degree: 0%
@@ -60,7 +60,7 @@ Följ stegen för att växla mellan Adobe Pass Authentication TVE Dashboard-milj
 
 1. Välj önskad staging- eller produktionsmiljö i listrutan **Miljö** högst upp i den vänstra panelen.
 
-   ![TVE Dashboard-miljölistruta](/help/authentication/assets/tve-dashboard/new-tve-dashboard/dashboard/dashboard-environment-menu.png)
+   ![TVE Dashboard-miljölistruta](../assets/tve-dashboard/new-tve-dashboard/dashboard/dashboard-environment-menu.png)
 
    *Listrutan Adobe Pass Authentication TVE Dashboard-miljö*
 

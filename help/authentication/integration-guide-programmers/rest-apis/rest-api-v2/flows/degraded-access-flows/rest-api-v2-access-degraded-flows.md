@@ -2,7 +2,7 @@
 title: Försämrade åtkomstflöden
 description: REST API V2 - Åtkomstflöden med degradering
 exl-id: 9276f5d9-8b1a-4282-8458-0c1e1e06bcf5
-source-git-commit: af867cb5e41843ffa297a31c2185d6e4b4ad1914
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
 source-wordcount: '1615'
 ht-degree: 0%
@@ -25,7 +25,7 @@ ht-degree: 0%
 
 Genom att dekryptera kan du tillfälligt kringgå specifika slutpunkter för autentisering och behörighet från MVPD. Oftast initierar programmeraren den här åtgärden, men oavsett vem som utlöser en nedbrytningshändelse beror åtgärden på tidigare arrangemang som gjorts med de berörda programmeringsversionerna.
 
-Mer information om degraderingsfunktionen finns i dokumentationen för [Försämring](/help/premium-workflow/degraded-access/degradation-feature.md).
+Mer information om degraderingsfunktionen finns i dokumentationen för [Försämring](../../../../features-premium/degraded-access/degradation-feature.md).
 
 Med de försämrade åtkomstflödena kan du fråga efter följande scenarier:
 
@@ -55,7 +55,7 @@ Innan du utför autentiseringsflödet när nedgraderingen tillämpas ska du kont
 
 Följ de angivna stegen för att implementera autentiseringsflödet när nedbrytning används, vilket visas i följande diagram.
 
-![Utför autentisering när degradering används](/help/authentication/assets/rest-api-v2/flows/degraded-access-flows/rest-api-v2-perform-authentication-while-degradation-is-applied-flow.png)
+![Utför autentisering när degradering används](../../../../../assets/rest-api-v2/flows/degraded-access-flows/rest-api-v2-perform-authentication-while-degradation-is-applied-flow.png)
 
 *Utför autentisering när degradering används*
 
@@ -123,7 +123,7 @@ Innan du hämtar auktoriseringsbeslut när nedgradering används, ska du kontrol
 
 Följ de angivna stegen för att implementera auktoriseringsflödet när nedbrytning används, vilket visas i följande diagram.
 
-![Hämta auktoriseringsbeslut när nedgradering används](/help/authentication/assets/rest-api-v2/flows/degraded-access-flows/rest-api-v2-retrieve-authorization-decisions-while-degradation-is-applied-flow.png)
+![Hämta auktoriseringsbeslut när nedgradering används](../../../../../assets/rest-api-v2/flows/degraded-access-flows/rest-api-v2-retrieve-authorization-decisions-while-degradation-is-applied-flow.png)
 
 *Hämta auktoriseringsbeslut när nedgradering används*
 
@@ -189,7 +189,7 @@ Innan du hämtar beslut om förauktorisering när nedgradering används, måste 
 
 Följ de angivna stegen för att implementera förauktoriseringsflödet när nedbrytning används, vilket visas i följande diagram.
 
-![Hämta beslut om förauktorisering när nedgradering används](/help/authentication/assets/rest-api-v2/flows/degraded-access-flows/rest-api-v2-retrieve-preauthorization-decisions-while-degradation-is-applied-flow.png)
+![Hämta beslut om förauktorisering när nedgradering används](../../../../../assets/rest-api-v2/flows/degraded-access-flows/rest-api-v2-retrieve-preauthorization-decisions-while-degradation-is-applied-flow.png)
 
 *Hämta beslut om förauktorisering när nedgradering används*
 
@@ -263,7 +263,7 @@ Innan du hämtar profilen för en viss MVPD när nedgradering används, måste d
 
 Följ de angivna stegen för att implementera flödet för hämtning av profiler för en viss MVPD när nedgradering används, vilket visas i följande diagram.
 
-![Hämta profil när nedgradering används](/help/authentication/assets/rest-api-v2/flows/degraded-access-flows/rest-api-v2-retrieve-profile-while-degradation-is-applied-flow.png)
+![Hämta profil när nedgradering används](../../../../../assets/rest-api-v2/flows/degraded-access-flows/rest-api-v2-retrieve-profile-while-degradation-is-applied-flow.png)
 
 *Hämta profil när nedgradering används*
 

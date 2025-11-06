@@ -2,7 +2,7 @@
 title: Apple SSO Cookbook (REST API V1)
 description: Apple SSO Cookbook (REST API V1)
 exl-id: 072a011f-e1bb-4d3e-bcb5-697f2d1739cc
-source-git-commit: d0f08314d7033aae93e4a0d9bc94af8773c5ba13
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
 source-wordcount: '1496'
 ht-degree: 0%
@@ -55,7 +55,7 @@ För att du ska kunna dra nytta av Apple SSO-användarupplevelsen måste program
 * [Starta ett arbetsflöde för vanlig autentisering](#step10)
 * [Fortsätt med auktoriseringsflöden](#step11)
 
-![](/help/authentication/assets/rest-api-v1/apple-sso-cookbook-rest-api-v1.png)
+![](../../../assets/rest-api-v1/apple-sso-cookbook-rest-api-v1.png)
 
 #### Steg:&quot;Finns det en giltig Adobe-autentiseringstoken?&quot; {#step1}
 

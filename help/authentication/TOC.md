@@ -4,9 +4,9 @@ audience: end-user
 feature: Authentication
 user-guide-title: Adobe Pass-autentisering
 user-guide-description: Adobe Pass-autentisering är en berättigandelösning för TV Everywhere, som tillhandahåller ett modulärt ramverk för att avgöra om någon som begär åtkomst till en resurs är berättigad till den.
-source-git-commit: 913b2127d2189bec1a7e6e197944f1512b764893
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
-source-wordcount: '1212'
+source-wordcount: '1279'
 ht-degree: 3%
 
 ---
@@ -57,17 +57,17 @@ ht-degree: 3%
    - [MVPD kickstart guide](kickstart/mvpd-kickstart-guide.md)
    - [Supportprocedurer Frågor och svar](kickstart/support-procedures-faqs.md)
 - Integreringsguide för programmerare {#integration-guide-programmers}
-   - [Integreringsguide för programmerare](/help/authentication/integration-guide-programmers/programmer-integration-guide-overview.md)
+   - [Integreringsguide för programmerare](integration-guide-programmers/programmer-integration-guide-overview.md)
    - [Systemkrav](integration-guide-programmers/minimum-system-requirements.md)
    - [Begränsningsmekanism](integration-guide-programmers/throttling-mechanism.md)
    - REST API:er {#rest-apis}
       - REST API DCR {#rest-api-dcr}
-         - [Översikt över registrering av dynamisk klient](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md)
+         - [Översikt över registrering av dynamisk klient](integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md)
          - [Ordlista för registrering av dynamisk klient](integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-glossary.md)
          - [Vanliga frågor om registrering av dynamiska klienter](integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-faqs.md)
          - API:er {#rest-api-dcr-apis}
             - [Hämta klientautentiseringsuppgifter](integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-client-credentials.md)
-            - [Hämta åtkomsttoken](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md)
+            - [Hämta åtkomsttoken](integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md)
          - Flöden {#rest-api-dcr-flows}
             - [Dynamiskt klientregistreringsflöde](integration-guide-programmers/rest-apis/rest-api-dcr/flows/dynamic-client-registration-flow.md)
       - REST API V2 {#rest-api-v2}
@@ -137,12 +137,33 @@ ht-degree: 3%
          - [Medietoken](integration-guide-programmers/features-standard/entitlements/media-tokens.md)
       - Felrapportering {#error-reporting}
          - [Förbättrade felkoder](integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md)
+      - Enkel inloggningsåtkomst {#sso-access}
+         - Enkel inloggning för partner {#partner-sso}
+            - Apple enkel inloggning {#apple-sso}
+               - [Apple SSO - översikt](integration-guide-programmers/features-standard/sso-access/partner-sso/apple-sso/apple-sso-overview.md)
+               - [Apple SSO Cookbook (REST API V2)](integration-guide-programmers/features-standard/sso-access/partner-sso/apple-sso/apple-sso-cookbook-rest-api-v2.md)
+         - Plattform för enkel inloggning {#platform-sso}
+            - Amazon enkel inloggning {#amazon-sso}
+               - [Amazon SSO Cookbook (REST API V2)](integration-guide-programmers/features-standard/sso-access/platform-sso/amazon-single-sign-on/amazon-sso-cookbook-rest-api-v2.md)
+            - Roku enkel inloggning {#roku-sso}
+               - [Roku SSO Cookbook (REST API V2)](integration-guide-programmers/features-standard/sso-access/platform-sso/roku-single-sign-on/roku-sso-cookbook-rest-api-v2.md)
+      - Hembaserad autentiseringsåtkomst {#hba-access}
+         - [Hembaserad autentisering (HBA)](integration-guide-programmers/features-standard/hba-access/home-based-authentication.md)
       - Sekretesssupport {#privacy-support}
-         - [Översikt över sekretesssupport](integration-guide-programmers/features-standard/privacy-support/privacy-supp-overview.md)
-         - [Hur man gör en sekretessförfrågan](integration-guide-programmers/features-standard/privacy-support/make-privacy-req.md)
+         - [Översikt över sekretesssupport](integration-guide-programmers/features-premium/privacy-support/privacy-supp-overview.md)
+         - [Hur man gör en sekretessförfrågan](integration-guide-programmers/features-premium/privacy-support/make-privacy-req.md)
+   - Premium-funktioner {#features-premium}
+      - Tillfällig åtkomst {#temporary-access}
+         - [TempPass-funktion](integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md)
+      - Försämrad åtkomst {#degraded-access}
+         - [Försämringsfunktion](integration-guide-programmers/features-premium/degraded-access/degradation-feature.md)
+      - ESM {#esm}
+         - [Tillståndsövervakning - översikt](integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md)
+         - [API för kontroll av berättigandetjänster](integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-api.md)
+         - [Mätvärden på serversidan](integration-guide-programmers/features-premium/esm/understanding-serverside-metrics.md)
       - Analyser {#analytics}
-         - [Integrera data på serversidan för Adobe Pass Authentication i Adobe Analytics](integration-guide-programmers/features-standard/analytics/integrate-authn-servr-data-analytics.md)
-         - [Använda Experience Cloud ID i Adobe Pass-autentisering](/help/authentication/integration-guide-programmers/features-standard/analytics/exp-cloud-id-authn.md)
+         - [Integrera data på serversidan för Adobe Pass Authentication i Adobe Analytics](integration-guide-programmers/features-premium/analytics/integrate-authn-servr-data-analytics.md)
+         - [Använda Experience Cloud ID i Adobe Pass-autentisering](integration-guide-programmers/features-premium/analytics/exp-cloud-id-authn.md)
    - Äldre {#legacy}
       - (Äldre) REST API V1 {#rest-api-v1}
          - [(Äldre) REST API V1 - översikt](integration-guide-programmers/legacy/rest-api-v1/rest-api-overview.md)

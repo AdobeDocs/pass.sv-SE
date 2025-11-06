@@ -2,7 +2,7 @@
 title: JavaScript SDK Cookbook
 description: JavaScript SDK Cookbook
 exl-id: d57f7a4a-ac77-4f3c-8008-0cccf8839f7c
-source-git-commit: 92417dd4161be8ba97535404e262fd26d67383e4
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
 source-wordcount: '957'
 ht-degree: 0%
@@ -36,7 +36,7 @@ länka till en uppsättning JavaScript-kodexempel.
 
 </br>
 
-![](/help//authentication/assets/javascript-flows.png)
+![](../../../../assets/javascript-flows.png)
 
 
 ## Förutsättningar {#prereq}
@@ -186,7 +186,7 @@ AccessEnabler-bibliotek)
 
 ## Konfigurera besökar-ID {#visitorID}
 
-Att konfigurera ett [Experience Cloud visitorID](https://experienceleague.adobe.com/docs/id-service/using/home.html?lang=sv-SE)-värde är mycket viktigt ur analyssynpunkt. När ett EC-besökarID-värde har angetts skickar SDK den här informationen tillsammans med alla nätverksanrop och Adobe Pass Authentication-tjänsten samlar in den här informationen. På så sätt kan du korrelera analysdata från tjänsten Adobe Pass Authentication med andra analysrapporter som du kan ha från andra program eller webbplatser. Information om hur du konfigurerar EC visitorID finns [här](https://experienceleague.adobe.com/docs/id-service/using/home.html?lang=sv-SE).
+Att konfigurera ett [Experience Cloud visitorID](https://experienceleague.adobe.com/docs/id-service/using/home.html)-värde är mycket viktigt ur analyssynpunkt. När ett EC-besökarID-värde har angetts skickar SDK den här informationen tillsammans med alla nätverksanrop och Adobe Pass Authentication-tjänsten samlar in den här informationen. På så sätt kan du korrelera analysdata från tjänsten Adobe Pass Authentication med andra analysrapporter som du kan ha från andra program eller webbplatser. Information om hur du konfigurerar EC visitorID finns [här](https://experienceleague.adobe.com/docs/id-service/using/home.html?lang=en).
 
 
 >[!NOTE]

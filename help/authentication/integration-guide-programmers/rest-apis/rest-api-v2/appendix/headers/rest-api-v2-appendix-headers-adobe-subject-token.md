@@ -2,7 +2,7 @@
 title: Header - Adobe-Subject-Token
 description: REST API V2 - Header - Adobe-Subject-Token
 exl-id: 906d88f4-3b8f-491a-ab58-8e63d3b958d8
-source-git-commit: af867cb5e41843ffa297a31c2185d6e4b4ad1914
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
 source-wordcount: '166'
 ht-degree: 0%
@@ -47,10 +47,10 @@ JSON-webbsignaturen (`JWS`) eller JSON-webbkrypteringen (`JWE`) som är en signe
 
 Detta är tillgängligt för följande plattformar:
 
-* [Amazon SSO Cookbook (REST API V2)](/help/premium-workflow/sso-access/platform-sso/amazon-single-sign-on/amazon-sso-cookbook-rest-api-v2.md)
+* [Amazon SSO Cookbook (REST API V2)](../../../../features-standard/sso-access/platform-sso/amazon-single-sign-on/amazon-sso-cookbook-rest-api-v2.md)
 
 ## Exempel {#examples}
 
 Se exemplen som beskrivs för följande plattformar:
 
-* [Amazon SSO Cookbook (REST API V2)](/help/premium-workflow/sso-access/platform-sso/amazon-single-sign-on/amazon-sso-cookbook-rest-api-v2.md)
+* [Amazon SSO Cookbook (REST API V2)](../../../../features-standard/sso-access/platform-sso/amazon-single-sign-on/amazon-sso-cookbook-rest-api-v2.md)

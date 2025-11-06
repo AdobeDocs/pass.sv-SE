@@ -2,7 +2,7 @@
 title: TVE Dashboard MVPDs
 description: Lär dig mer om MVPD och dess konfigurationer i TVE Dashboard.
 exl-id: 802c1570-9a5b-4bec-8fb2-6c7738b28bc9
-source-git-commit: d0f08314d7033aae93e4a0d9bc94af8773c5ba13
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
 source-wordcount: '133'
 ht-degree: 0%
@@ -23,7 +23,7 @@ Fliken **MVPDs** i den vänstra panelen visar en lista med MVPD-filer med följa
 
 * **MVPD ID**: Ett unikt ID för MVPD som används för att konfigurera en ny integrering i systemet.
 
-![Lista över integrerade MVPD:er](/help/authentication/assets/tve-dashboard/new-tve-dashboard/mvpds/mvpds-list-view.png)
+![Lista över integrerade MVPD:er](../assets/tve-dashboard/new-tve-dashboard/mvpds/mvpds-list-view.png)
 
 *Lista över integrerade MVPD:er*
 

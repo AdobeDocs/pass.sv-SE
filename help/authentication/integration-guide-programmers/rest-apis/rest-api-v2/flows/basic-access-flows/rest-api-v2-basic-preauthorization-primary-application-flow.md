@@ -2,7 +2,7 @@
 title: Grundläggande förauktorisering - primärt program - flöde
 description: REST API V2 - grundläggande förauktorisering - primärt program - flöde
 exl-id: f557f6c3-d5b2-4ec8-be51-91a90fbd31c0
-source-git-commit: 92417dd4161be8ba97535404e262fd26d67383e4
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
 source-wordcount: '496'
 ht-degree: 0%
@@ -37,7 +37,7 @@ Innan du hämtar beslut om förauktorisering med en viss MVPD måste du kontroll
 
 Följ de angivna stegen för att implementera det grundläggande förauktoriseringsflödet med en specifik MVPD som utförs i ett primärt program enligt bilden nedan.
 
-![Hämta förauktoriseringsbeslut med hjälp av specifik mvpd](/help/authentication/assets/rest-api-v2/flows/basic-access-flows/rest-api-v2-retrieve-preauthorization-decisions-within-primary-application-using-specific-mvpd.png)
+![Hämta förauktoriseringsbeslut med hjälp av specifik mvpd](../../../../../assets/rest-api-v2/flows/basic-access-flows/rest-api-v2-retrieve-preauthorization-decisions-within-primary-application-using-specific-mvpd.png)
 
 *Hämta förauktoriseringsbeslut med hjälp av specifik mvpd*
 

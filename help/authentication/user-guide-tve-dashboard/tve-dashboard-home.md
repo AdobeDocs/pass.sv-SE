@@ -2,7 +2,7 @@
 title: Kontrollpanel
 description: Läs mer om startsidan för TVE Dashboard.
 exl-id: 3073cd86-89f8-4c65-996b-24edda24f25b
-source-git-commit: d0f08314d7033aae93e4a0d9bc94af8773c5ba13
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
 source-wordcount: '276'
 ht-degree: 0%
@@ -31,7 +31,7 @@ I det här avsnittet kan du komma åt den offentliga dokumentationen direkt frå
 * **Databasuppdateringar**: Antalet konfigurationsändringar som har gjorts i den aktuella miljön. Välj **Visa mer i avsnittet Ändringslogg** om du vill ha mer information i avsnittet [Ändringslogg](tve-dashboard-changes-log.md).
 * **ESM-instrumentpanel**: Håll utkik efter den kommande ESM-instrumentpanelen med djupgående statistik om egenskapsanvändning i den aktuella miljön. Den här funktionen kommer att vara tillgänglig i framtida uppdateringar.
 
-![Välkomstskärm](/help/authentication/assets/tve-dashboard/new-tve-dashboard/dashboard/dashboard-welcome-panel-view.png)
+![Välkomstskärm](../assets/tve-dashboard/new-tve-dashboard/dashboard/dashboard-welcome-panel-view.png)
 
 *Välkomstskärm*
 
@@ -43,7 +43,7 @@ I det här avsnittet presenteras 10 senaste konfigurationsändringar som inklude
 * **Publicerad av**: Kontot som är ansvarig för ändringen.
 * **Push-datum**: Det datum då ändringen gjordes.
 
-![Konfigurationsstatus för en ändringslogg](/help/authentication/assets/tve-dashboard/new-tve-dashboard/dashboard/dashboard-configuration-status-panel-view.png)
+![Konfigurationsstatus för en ändringslogg](../assets/tve-dashboard/new-tve-dashboard/dashboard/dashboard-configuration-status-panel-view.png)
 
 *Konfigurationsstatus för en ändringslogg*
 

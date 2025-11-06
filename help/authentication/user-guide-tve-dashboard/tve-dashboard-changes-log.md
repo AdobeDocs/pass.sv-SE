@@ -2,7 +2,7 @@
 title: Ändringslogg
 description: Se hur en administratör kan övervaka konfigurationsändringarna i TVE Dashboard.
 exl-id: 9b53a61b-679f-491e-90f3-5d827e21b32c
-source-git-commit: d0f08314d7033aae93e4a0d9bc94af8773c5ba13
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
 source-wordcount: '270'
 ht-degree: 0%
@@ -30,7 +30,7 @@ Så här jämför du ändringar:
 
 1. Välj två konfigurationsändringar i listan som du vill jämföra.
 
-   ![Jämför konfigurationsändringar](/help/authentication/assets/tve-dashboard/new-tve-dashboard/review/review-changes-compare-button.png)
+   ![Jämför konfigurationsändringar](../assets/tve-dashboard/new-tve-dashboard/review/review-changes-compare-button.png)
 
    *Jämför konfigurationsändringar*
 
@@ -42,12 +42,12 @@ Så här jämför du ändringar:
 
 1. Välj **Visa** för att komma åt de ändrade värdena.
 
-   ![Visa konfigurationsändringar](/help/authentication/assets/tve-dashboard/new-tve-dashboard/review/review-changes-view-button.png)
+   ![Visa konfigurationsändringar](../assets/tve-dashboard/new-tve-dashboard/review/review-changes-view-button.png)
 
    *Visa konfigurationsändringar*
 
 Följande är ett exempel på en ändring som har gjorts i den valda konfigurationen. Du kan visa skillnaden mellan de gamla och nya värdena i ändringen.
 
-![Gammalt och nytt värde](/help/authentication/assets/tve-dashboard/new-tve-dashboard/review/review-change-modal-view.png)
+![Gammalt och nytt värde](../assets/tve-dashboard/new-tve-dashboard/review/review-change-modal-view.png)
 
 *Gammalt och nytt värde*

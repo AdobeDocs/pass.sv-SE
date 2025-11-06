@@ -2,7 +2,7 @@
 title: Initiera autentisering
 description: Initiera autentisering
 exl-id: 55dddd29-68d6-4aae-8744-307fea285e29
-source-git-commit: af867cb5e41843ffa297a31c2185d6e4b4ad1914
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
 source-wordcount: '306'
 ht-degree: 0%
@@ -85,7 +85,7 @@ Initierar autentiseringsprocessen genom att informera om en MVPD-markeringshänd
 >
 >Anropet kan även innehålla valfria parametrar som möjliggör andra funktioner som:
 >
-> * generisk\_data - aktiverar användning av [Promotional TempPass](/help/premium-workflow/temporary-access/temp-pass-feature.md#promotional-temp-pass)
+> * generisk\_data - aktiverar användning av [Promotional TempPass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md#promotional-temp-pass)
 >
 >```JSON
 >Example:

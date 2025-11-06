@@ -2,7 +2,7 @@
 title: iOS/tvOS - programregistrering
 description: iOS/tvOS - programregistrering
 exl-id: 89ee6b5a-29fa-4396-bfc8-7651aa3d6826
-source-git-commit: 913b2127d2189bec1a7e6e197944f1512b764893
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
 source-wordcount: '632'
 ht-degree: 0%
@@ -24,7 +24,7 @@ ht-degree: 0%
 
 Från och med version 3.0 av iOS/tvOS AccessEnabler SDK ändrar vi autentiseringsmekanismen med Adobe servrar. I stället för att använda en offentlig nyckel och ett hemligt system för att signera beställar-ID introducerar vi begreppet programsatssträng som kan användas för att få en åtkomsttoken som senare används för alla anrop som SDK gör till våra servrar. Förutom en programsats behöver du också ett anpassat URL-schema för programmet.
 
-Mer information finns i [Översikt över registrering av dynamisk klient](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md).
+Mer information finns i [Översikt över registrering av dynamisk klient](../../../rest-apis/rest-api-dcr/dynamic-client-registration-overview.md).
 
 ## Vad är en programsats? {#Soft_state}
 
@@ -45,7 +45,7 @@ En programsats är en JWT-token som innehåller information om programmet. Alla 
 - Du bör se en lista med alla registrerade program. Klicka på   `Download`-knappen i programmet som du just har skapat. Du kan behöva vänta några minuter innan programsatsen är klar för nedladdning.
 - En textfil hämtas. Använd innehållet som programsats.
 
-Mer information finns i [Registreringshantering för dynamisk klient](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md#dynamic-client-registration-management).
+Mer information finns i [Registreringshantering för dynamisk klient](../../../rest-apis/rest-api-dcr/dynamic-client-registration-overview.md#dynamic-client-registration-management).
 
 ### Om du inte har tillgång till Adobe TVE Dashboard:
 

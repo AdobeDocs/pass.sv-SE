@@ -2,7 +2,7 @@
 title: Android SDK med Dynamic Client Registration
 description: Android SDK med Dynamic Client Registration
 exl-id: 8d0c1507-8e80-40a4-8698-fb795240f618
-source-git-commit: 913b2127d2189bec1a7e6e197944f1512b764893
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
 source-wordcount: '1301'
 ht-degree: 0%
@@ -37,7 +37,7 @@ För Android begränsar användningen av Chrome anpassade flikar åtkomsten till
 
 ## Dynamisk klientregistrering {#DCR}
 
-Android SDK v3.0+ använder den dynamiska klientregistreringsproceduren som definieras i [Översikt över dynamisk klientregistrering](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md).
+Android SDK v3.0+ använder den dynamiska klientregistreringsproceduren som definieras i [Översikt över dynamisk klientregistrering](../../../rest-apis/rest-api-dcr/dynamic-client-registration-overview.md).
 
 
 ## Demo {#Demo}

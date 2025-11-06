@@ -2,7 +2,7 @@
 title: Android SDK Cookbook
 description: Android SDK Cookbook
 exl-id: 7f66ab92-f52c-4dae-8016-c93464dd5254
-source-git-commit: 92417dd4161be8ba97535404e262fd26d67383e4
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
 source-wordcount: '1703'
 ht-degree: 0%
@@ -107,13 +107,13 @@ Nätverksaktiviteten för AccessEnabler sker i en annan tråd så att gränssnit
      Utlöses av `getMetadata().`\
      Parametern `metadata` innehåller de specifika data som du har begärt, parametern `key` är nyckeln som används i begäran `getMetadata()` och parametern `arguments` är samma ordlista som skickades till `getMetadata()`.
 
-   - [&quot;preauthorizedResources(resources)&grave;](#$preauthResources)
+   - [&quot;preauthorizedResources(resources)`](#$preauthResources)
 
      Utlöses av `checkPreauthorizedResources()`.\
      Parametern `authorizedResources` visar de resurser som användaren har behörighet att visa.
 
 
-![](/help//authentication/assets/android-entitlement-flows.png)
+![](../../../../assets/android-entitlement-flows.png)
 
 
 ### B. Startflöde {#startup_flow}

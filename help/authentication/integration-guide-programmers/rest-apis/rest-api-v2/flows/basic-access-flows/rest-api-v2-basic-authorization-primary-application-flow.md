@@ -2,7 +2,7 @@
 title: Grundläggande auktorisering - primärt program - flöde
 description: REST API V2 - grundläggande auktorisering - primärt program - flöde
 exl-id: 46bc9326-966e-44fc-8546-2f58be01b7bc
-source-git-commit: 92417dd4161be8ba97535404e262fd26d67383e4
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
 source-wordcount: '603'
 ht-degree: 0%
@@ -39,7 +39,7 @@ Innan du hämtar auktoriseringsbeslut med en viss MVPD-fil måste du kontrollera
 
 Följ de angivna stegen för att implementera det grundläggande auktoriseringsflödet med en specifik MVPD som utförs i ett primärt program enligt bilden nedan.
 
-![Hämta auktoriseringsbeslut med en specifik mvpd](/help/authentication/assets/rest-api-v2/flows/basic-access-flows/rest-api-v2-retrieve-authorization-decisions-within-primary-application-using-specific-mvpd.png)
+![Hämta auktoriseringsbeslut med en specifik mvpd](../../../../../assets/rest-api-v2/flows/basic-access-flows/rest-api-v2-retrieve-authorization-decisions-within-primary-application-using-specific-mvpd.png)
 
 *Hämta auktoriseringsbeslut med en specifik mvpd*
 

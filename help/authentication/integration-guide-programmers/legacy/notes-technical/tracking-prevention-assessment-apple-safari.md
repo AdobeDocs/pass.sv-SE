@@ -2,7 +2,7 @@
 title: Utvärdering av förebyggande av spårning Apple Safari
 description: Utvärdering av förebyggande av spårning Apple Safari
 exl-id: a3362020-92ff-4232-b923-e462868730d5
-source-git-commit: af867cb5e41843ffa297a31c2185d6e4b4ad1914
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
 source-wordcount: '1849'
 ht-degree: 0%
@@ -33,7 +33,7 @@ för följande versioner av AccessEnabler JavaScript SDK: v2 (version 2.x), v3 (
 
 För att begränsa dessa begränsningar kan du instruera användaren att ändra sekretessinställningarna för webbläsaren Safari 10 och använda alternativet **Tillåt alltid** för posten **Cookies och webbplatsdata** på fliken Sekretess i inställningarna, vilket visas i bilden nedan.
 
-![](/help/authentication/assets/always-allow-safari10.png)
+![](../../../assets/always-allow-safari10.png)
 
 
 ## Safari 11 {#safari11}
@@ -64,12 +64,12 @@ När felåteranrop för [N130](/help/authentication/integration-guide-programmer
 
 * Om det gäller Mac OS X High Sierra och senare: Avmarkerar alternativet **Förhindra spårning mellan webbplatser** för **webbplatsspårning** på fliken Sekretess i inställningarna, vilket visas i bilden nedan.
 
-  ![](/help/authentication/assets/uncheck-prvnt-cr-st-tr-safari11.png)
+  ![](../../../assets/uncheck-prvnt-cr-st-tr-safari11.png)
 
 
 * Om det gäller Mac OS X Sierra och tidigare: Kontrollera alternativet **Tillåt alltid** för posten **Cookies och webbplatsdata** på fliken Sekretess i Inställningar, enligt bilden nedan.
 
-  ![](/help/authentication/assets/always-allow-safari11.png)
+  ![](../../../assets/always-allow-safari11.png)
 
 ## Safari 12 {#safari12}
 
@@ -126,14 +126,14 @@ Användningsfall som påverkas av detta problem:
 
 Det finns ingen känd begränsning tillgänglig eller möjlig för tillfället. Apple introducerade ett &quot;Lagringsåtkomst-API&quot; i Safari 12 (`https://webkit.org/blog/8124/introducing-storage-access-api`), men den aktuella implementeringen gäller inte för localStorage utan endast för cookies. API:t kräver dessutom användarinteraktion för att kunna användas, och när du väl har använt det får användaren också en behörighetsdialogruta som liknar den nedan.
 
-![](/help/authentication/assets/permission-dialog-apple.png)
+![](../../../assets/permission-dialog-apple.png)
 
 
 I nuläget uppfyller dessa Safari-krav/-uppmaningar inte våra UX-krav och vi har inte något konsekvent beteende som i andra webbläsare, där enkel inloggning&quot;fungerar&quot; när vi har sparat en token i en gemensam domän localStorage.
 
 **Tillfälligt pass**
 
-För att minska personaliseringsproblemen och för att få en användarinteraktion rekommenderar vi att du använder **[Befordrad befordran](/help/premium-workflow/temporary-access/temp-pass-feature.md#promotional-temp-pass)** på ett interaktivt sätt och tillhandahåller minst en ytterligare information om användaren (till exempel e-postadress).
+För att minska personaliseringsproblemen och för att få en användarinteraktion rekommenderar vi att du använder **[Befordrad befordran](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md#promotional-temp-pass)** på ett interaktivt sätt och tillhandahåller minst en ytterligare information om användaren (till exempel e-postadress).
 
 ## Safari 13 {#safari13}
 
@@ -164,8 +164,8 @@ När felåteranrop för [N130](/help/authentication/integration-guide-programmer
 
 * Om det gäller Mac OS X High Sierra och senare: Avmarkerar alternativet **Förhindra spårning mellan webbplatser** för **webbplatsspårning** på fliken Sekretess i inställningarna, vilket visas i bilden nedan.
 
-  ![](/help/authentication/assets/prvnt-cross-site-tr-safari13.png)
+  ![](../../../assets/prvnt-cross-site-tr-safari13.png)
 
 * Om det gäller Mac OS X Sierra och tidigare: Kontrollerar </span>alternativet **Tillåt alltid** för posten **Cookies och webbplatsdata** på fliken Sekretess i Inställningar, enligt bilden nedan.
 
-  ![](/help/authentication/assets/always-allow-safari13.png)
+  ![](../../../assets/always-allow-safari13.png)

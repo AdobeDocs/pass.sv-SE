@@ -2,7 +2,7 @@
 title: Felsöka AccessEnabler iOS/tvOS SDK med hjälp av apploggarna i konsolen
 description: Felsöka AccessEnabler iOS/tvOS SDK med hjälp av apploggarna i konsolen
 exl-id: 0dad325e-db15-4ea0-a87a-75409eaf8d46
-source-git-commit: d0f08314d7033aae93e4a0d9bc94af8773c5ba13
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
 source-wordcount: '576'
 ht-degree: 0%
@@ -50,19 +50,19 @@ Beroende på vilka problem som utreds kanske du vill inkludera eller exkludera d
 
 För att kunna se något av de loggningsmeddelanden som skickas av AccessEnabler-ramverket **måste** markera Inkludera informationsmeddelanden och Inkludera felsökningsmeddelanden i åtgärdsavsnittet i Console-appen, enligt bilden nedan.
 
-![](/help/authentication/assets/include-info-debug-msg.png)
+![](../../../assets/include-info-debug-msg.png)
 
 
 För att kunna felsöka funktionerna i AccessEnabler iOS/tvOS SDK och **se** loggarna i AccessEnabler-ramverket kan du:
 
 * Sök i konsolappen med alternativet **Subsystem** som är lika med värdet com.adobe.pass.AccessEnabler som i bilden nedan.
 
-![](/help/authentication/assets/subsys-console-app.png)
+![](../../../assets/subsys-console-app.png)
 
 * Sök i konsolappen med alternativet **Valfri** som innehåller
   [AccessEnabler]-värde som i bilden nedan.
 
-![](/help/authentication/assets/any-optn-console-app.png)
+![](../../../assets/any-optn-console-app.png)
 
 Tillsammans med ovanstående två villkor kan du även använda alternativet **Kategori** i kombination med **Delsystem** eller **Valfritt (prefix)** för att explicit söka efter **debug** - eller **error** -nivåmeddelanden som skickas av AccessEnabler iOS/tvOS SDK.
 

@@ -2,7 +2,7 @@
 title: Registrering av Android
 description: Registrering av Android
 exl-id: 6238bd87-ac97-4a5c-9d92-3631f7b2d46a
-source-git-commit: 913b2127d2189bec1a7e6e197944f1512b764893
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
 source-wordcount: '609'
 ht-degree: 0%
@@ -23,7 +23,7 @@ ht-degree: 0%
 
 Från och med version 3.0 av Android AccessEnabler SDK ändrar vi autentiseringsmekanismen med Adobe servrar. Istället för att använda en offentlig nyckel och ett hemligt system för att signera beställar-ID introducerar vi konceptet med en programsatssträng som kan användas för att få en åtkomsttoken som senare används för alla anrop som SDK gör till våra servrar. Förutom en programsats måste du också skapa en djup länk till programmet.
 
-Mer information finns i [Översikt över registrering av dynamisk klient](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md).
+Mer information finns i [Översikt över registrering av dynamisk klient](../../../rest-apis/rest-api-dcr/dynamic-client-registration-overview.md).
 
 ## Vad är en programsats? {#what}
 
@@ -61,7 +61,7 @@ Här beskrivs hur du kan få en programsats.
 
    En textfil hämtas. Använd innehållet som programsats.
 
-Mer information finns i [Registreringshantering för dynamisk klient](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md#dynamic-client-registration-management).
+Mer information finns i [Registreringshantering för dynamisk klient](../../../rest-apis/rest-api-dcr/dynamic-client-registration-overview.md#dynamic-client-registration-management).
 
 ### Om du inte har tillgång till Adobe TVE Dashboard
 

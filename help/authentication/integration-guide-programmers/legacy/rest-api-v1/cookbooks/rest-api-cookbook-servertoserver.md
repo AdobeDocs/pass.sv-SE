@@ -2,7 +2,7 @@
 title: REST API Cookbook (Server-to-Server)
 description: Återställ API-cookbook-servern till servern.
 exl-id: 36ad4a64-dde8-4a5f-b0fe-64b6c0ddcbee
-source-git-commit: 913b2127d2189bec1a7e6e197944f1512b764893
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
 source-wordcount: '1856'
 ht-degree: 0%
@@ -48,7 +48,7 @@ I en fungerande Server-till-Server-lösning ingår följande komponenter:
 ### Dynamic Client Registration (DCR)
 
 
-Adobe Pass använder DCR för att säkra klientkommunikationen mellan ett programmeringsprogram eller en server och Adobe Pass tjänster. DCR-flödet är separat och beskrivs i [Översikt över registrering av dynamiska klienter](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md) -dokumentationen.
+Adobe Pass använder DCR för att säkra klientkommunikationen mellan ett programmeringsprogram eller en server och Adobe Pass tjänster. DCR-flödet är separat och beskrivs i [Översikt över registrering av dynamiska klienter](../../../rest-apis/rest-api-dcr/dynamic-client-registration-overview.md) -dokumentationen.
 
 
 ### Autentisering (authN)
@@ -73,7 +73,7 @@ till deras MVPD för att avgöra om användaren har ett giltigt konto.
 
 I följande diagram visas autentiseringsflödet:
 
-![](/help//authentication/assets/authn-flow.png)
+![](../../../../assets/authn-flow.png)
 
 ### Behörighet (authZ)
 
@@ -86,7 +86,7 @@ Auktoriseringsflödet används för att avgöra om en användare har behörighet
 
 I följande diagram visas auktoriseringsflödet:
 
-![](/help//authentication/assets/authz-flow.png)
+![](../../../../assets/authz-flow.png)
 
 ### Utloggning
 
@@ -98,7 +98,7 @@ som är associerad med programmet.
 
 I följande diagram visas utloggningsflödet:
 
-![](/help//authentication/assets/logout-flow.png)
+![](../../../../assets/logout-flow.png)
 
 ### \[Valfritt\] Förhandsauktorisering (alias Preflight)
 
@@ -114,7 +114,7 @@ Förhandsauktorisering kan användas för att snabbt utifrån en uppsättning re
 
 I följande diagram visas förauktoriseringsflödet:
 
-![](/help//authentication/assets/preauthz-flow.png)
+![](../../../../assets/preauthz-flow.png)
 
 
 ### \[Valfritt\]-metadata
@@ -130,7 +130,7 @@ I följande diagram visas förauktoriseringsflödet:
 
 
 
-![](/help//authentication/assets/user-metadata-api-preauthz.png)
+![](../../../../assets/user-metadata-api-preauthz.png)
 
 
 
@@ -175,7 +175,7 @@ Programmerartjänsten måste skicka korrekt enhetsidentifieringsinformation för
     
     Exempel:
     
-    POST /reggie/v1/{req\_id}/regcode HTTP/1.1 5&rbrace;x-Forwarded-For:203.45.101.20
+    POST /reggie/v1/{req\_id}/regcode HTTP/1.1 5}x-Forwarded-For:203.45.101.20
     
     GET /api/v1/authorized HTTP/1.1
     

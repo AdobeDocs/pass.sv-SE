@@ -2,7 +2,7 @@
 title: Hämta konfiguration för en viss tjänsteleverantör
 description: REST API V2 - Hämta konfiguration för specifik tjänstleverantör
 exl-id: ad7e4c6d-ed96-4ae7-82a9-3c24e5fc9302
-source-git-commit: 1c96904f67507ad127c29628963d74a9fb010e99
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
 source-wordcount: '728'
 ht-degree: 0%
@@ -229,7 +229,7 @@ ht-degree: 0%
                         <li><b>id</b><br/>Den interna unika identifierare som är associerad med identitetsleverantören under introduktionsprocessen.</li>
                         <li><b>displayName</b><br/>Det företagsnamn (varumärke) som är associerat med identitetsleverantören under introduktionsprocessen.</li>
                         <li><b>logoUrl</b><br>URL:en som logotypen som är kopplad till identitetsleverantören ska hämtas från.</li>
-                        <li><b>isTempPass</b><br/>Den flagga som anger om MVPD är utformat för att tillhandahålla <a href="/help/premium-workflow/temporary-access/temp-pass-feature.md">TempPass</a>-funktionalitet.</li>
+                        <li><b>isTempPass</b><br/>Den flagga som anger om MVPD är utformat för att tillhandahålla <a href="../../../../features-premium/temporary-access/temp-pass-feature.md">TempPass</a>-funktionalitet.</li>
                         <li><b>isProxy</b><br/>Den flagga som anger om MVPD är en proxiderad MVPD.</li>
                         <li><b>boardingStatus</b><br/>Statusen som anger om identitetsprovidern har anslutits av den strömmande enhetsplattformen för enkla inloggningsflöden.</li>
                         <li><b>platformMappingId</b><br/>Den interna unika identifierare som är associerad med identitetsleverantören av den strömmande enhetsplattformen för enkla inloggningsflöden.</li>

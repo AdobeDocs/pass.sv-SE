@@ -2,7 +2,7 @@
 title: REST API-referens
 description: Rest api reference
 exl-id: 67e4639e-db0b-4400-bb81-e214263e8395
-source-git-commit: af867cb5e41843ffa297a31c2185d6e4b4ad1914
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
 source-wordcount: '661'
 ht-degree: 2%
@@ -81,4 +81,4 @@ Tabellen nedan visar de tillgängliga webbtjänsterna för kundlösa metoder. Kl
 
 ## REST API-säkerhet {#security}
 
-Alla Adobe Pass Authentication REST API:er måste anropas med HTTPS-protokollet för säker kommunikation. Dessutom bör de flesta API:er som anropas innehålla en åtkomsttoken som hämtas enligt beskrivningen i API-dokumentationen för [Hämta åtkomsttoken](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md).
+Alla Adobe Pass Authentication REST API:er måste anropas med HTTPS-protokollet för säker kommunikation. Dessutom bör de flesta API:er som anropas innehålla en åtkomsttoken som hämtas enligt beskrivningen i API-dokumentationen för [Hämta åtkomsttoken](../../rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md).

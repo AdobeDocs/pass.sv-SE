@@ -2,7 +2,7 @@
 title: Tillfälliga åtkomstflöden
 description: REST API V2 - Tillfälliga åtkomstflöden
 exl-id: 387fcdb0-3a42-4893-ba83-e809426f92be
-source-git-commit: af867cb5e41843ffa297a31c2185d6e4b4ad1914
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
 source-wordcount: '3223'
 ht-degree: 0%
@@ -25,7 +25,7 @@ ht-degree: 0%
 
 Med TempPass kan programmerare ge temporär åtkomst till sitt skyddade innehåll utan att be användarna autentisera med ett giltigt MVPD-konto.
 
-Mer information om TempPass-funktionen finns i [TempPass](/help/premium-workflow/temporary-access/temp-pass-feature.md) -dokumentationen.
+Mer information om TempPass-funktionen finns i [TempPass](../../../../features-premium/temporary-access/temp-pass-feature.md) -dokumentationen.
 
 Med tillfälliga åtkomstflöden kan du fråga efter följande scenarier:
 
@@ -58,7 +58,7 @@ Innan du hämtar auktoriseringsbeslut med hjälp av grundläggande TempPass mås
 
 Följ de angivna stegen för att implementera auktoriseringsflödet med hjälp av grundläggande TempPass som i följande diagram.
 
-![Hämta auktoriseringsbeslut med grundläggande TempPass](/help/authentication/assets/rest-api-v2/flows/temporary-access-flows/rest-api-v2-retrieve-authorization-decisions-using-basic-temppass-flow.png)
+![Hämta auktoriseringsbeslut med grundläggande TempPass](../../../../../assets/rest-api-v2/flows/temporary-access-flows/rest-api-v2-retrieve-authorization-decisions-using-basic-temppass-flow.png)
 
 *Hämta auktoriseringsbeslut med grundläggande TempPass*
 
@@ -127,7 +127,7 @@ Innan du hämtar auktoriseringsbeslut med hjälp av erbjudandeTempPass måste du
 
 Följ de angivna stegen för att implementera auktoriseringsflödet med hjälp av en kampanj TempPass enligt bilden nedan.
 
-![Hämta auktoriseringsbeslut med hjälp av tillfälligt kampanjpass](/help/authentication/assets/rest-api-v2/flows/temporary-access-flows/rest-api-v2-retrieve-authorization-decisions-using-promotional-temppass-flow.png)
+![Hämta auktoriseringsbeslut med hjälp av tillfälligt kampanjpass](../../../../../assets/rest-api-v2/flows/temporary-access-flows/rest-api-v2-retrieve-authorization-decisions-using-promotional-temppass-flow.png)
 
 *Hämta auktoriseringsbeslut med hjälp av tillfälligt kampanjpass*
 
@@ -205,7 +205,7 @@ Kontrollera att följande krav är uppfyllda innan du förbrukar maximalt antal 
 
 Följ de angivna stegen för att implementera auktoriseringsflödet när du använder ett maximalt antal resurser med hjälp av erbjudandet TempPass enligt bilden nedan.
 
-![Konsumera maximalt antal resurser med hjälp av erbjudandet TempPass](/help/authentication/assets/rest-api-v2/flows/temporary-access-flows/rest-api-v2-consume-maximum-number-of-resources-using-promotional-temppass-flow.png)
+![Konsumera maximalt antal resurser med hjälp av erbjudandet TempPass](../../../../../assets/rest-api-v2/flows/temporary-access-flows/rest-api-v2-consume-maximum-number-of-resources-using-promotional-temppass-flow.png)
 
 *Konsumera maximalt antal resurser med hjälp av erbjudandet TempPass*
 
@@ -379,7 +379,7 @@ Innan du hämtar auktoriseringsbeslut när grundläggande eller kampanjtillhöri
 
 Följ de angivna stegen för att implementera auktoriseringsflödet när det grundläggande eller kampanjmässiga TempPass förfaller enligt bilden nedan.
 
-![Hämta auktoriseringsbeslut när grundläggande eller kampanjtillhörighet för TempPass upphör](/help/authentication/assets/rest-api-v2/flows/temporary-access-flows/rest-api-v2-retrieve-authorization-decisions-when-basic-or-promotional-temppass-expires-flow.png)
+![Hämta auktoriseringsbeslut när grundläggande eller kampanjtillhörighet för TempPass upphör](../../../../../assets/rest-api-v2/flows/temporary-access-flows/rest-api-v2-retrieve-authorization-decisions-when-basic-or-promotional-temppass-expires-flow.png)
 
 *Hämta auktoriseringsbeslut när grundläggande eller kampanjtillhörighet för TempPass upphör*
 
@@ -462,7 +462,7 @@ Innan du hämtar profilen för grundläggande TempPass måste följande krav var
 
 Följ de angivna stegen för att implementera flödet för hämtning av profiler för grundläggande TempPass enligt bilden nedan.
 
-![Hämta profil för grundläggande TempPass](/help/authentication/assets/rest-api-v2/flows/temporary-access-flows/rest-api-v2-retrieve-profile-for-basic-temppass-flow.png)
+![Hämta profil för grundläggande TempPass](../../../../../assets/rest-api-v2/flows/temporary-access-flows/rest-api-v2-retrieve-profile-for-basic-temppass-flow.png)
 
 *Hämta profil för grundläggande TempPass*
 
@@ -533,7 +533,7 @@ Innan du hämtar profilen för kampanjens TempPass måste du kontrollera att fö
 
 Följ de angivna stegen för att implementera flödet för hämtning av profiler för erbjudandet TempPass enligt bilden nedan.
 
-![Hämta profil för kampanjTempPass](/help/authentication/assets/rest-api-v2/flows/temporary-access-flows/rest-api-v2-retrieve-profile-for-promotional-temppass-flow.png)
+![Hämta profil för kampanjTempPass](../../../../../assets/rest-api-v2/flows/temporary-access-flows/rest-api-v2-retrieve-profile-for-promotional-temppass-flow.png)
 
 *Hämta profil för kampanjTempPass*
 

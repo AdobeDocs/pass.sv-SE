@@ -2,9 +2,9 @@
 title: REST API V2 - frågor och svar
 description: REST API V2 - frågor och svar
 exl-id: 2dd74b47-126e-487b-b467-c16fa8cc14c1
-source-git-commit: 913b2127d2189bec1a7e6e197944f1512b764893
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
-source-wordcount: '9611'
+source-wordcount: '9682'
 ht-degree: 0%
 
 ---
@@ -29,7 +29,7 @@ Mer information om migreringsinformation och -steg finns även i nästa avsnitt.
 
 +++Vanliga frågor om registreringsfasen
 
-Se [DCR-dokumentationen &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-faqs.md#rest-api-v2-access-faqs) med vanliga frågor om registrering av dynamiska klienter.
+Se [DCR-dokumentationen ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-faqs.md#rest-api-v2-access-faqs) med vanliga frågor om registrering av dynamiska klienter.
 
 +++
 
@@ -50,7 +50,7 @@ Konfigurationsfasen är inte obligatorisk. Klientprogrammet måste hämta konfig
 Klientprogrammet kan hoppa över den här fasen i följande scenarier:
 
 * Användaren är redan autentiserad.
-* Användaren erbjuds tillfällig åtkomst via grundläggande eller kampanjanpassad [TempPass](/help/premium-workflow/temporary-access/temp-pass-feature.md)-funktion.
+* Användaren erbjuds tillfällig åtkomst via grundläggande eller kampanjanpassad [TempPass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md)-funktion.
 * Användarautentiseringen har upphört att gälla, men klientprogrammet har cachelagrat den tidigare valda MVPD som ett motiverat val av användarupplevelse och uppmanar bara användaren att bekräfta att han/hon fortfarande prenumererar på denna MVPD.
 
 #### &#x200B;3. Vad är en konfiguration och hur länge gäller den? {#configuration-phase-faq3}
@@ -88,7 +88,7 @@ Klientprogrammet måste hämta konfigurationen först när användaren måste v�
 Klientprogrammet bör cachelagra konfigurationssvarsinformationen i en minneslagring för att undvika onödiga begäranden och förbättra användarupplevelsen när:
 
 * Användaren är redan autentiserad.
-* Användaren erbjuds tillfällig åtkomst via grundläggande eller kampanjanpassad [TempPass](/help/premium-workflow/temporary-access/temp-pass-feature.md)-funktion.
+* Användaren erbjuds tillfällig åtkomst via grundläggande eller kampanjanpassad [TempPass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md)-funktion.
 * Användarautentiseringen har upphört att gälla, men klientprogrammet har cachelagrat den tidigare valda MVPD som ett motiverat val av användarupplevelse och uppmanar bara användaren att bekräfta att han/hon fortfarande prenumererar på denna MVPD.
 
 #### &#x200B;6. Kan klientapplikationen hantera sin egen lista över MVPD? {#configuration-phase-faq6}
@@ -101,7 +101,7 @@ Klientprogrammet skulle få ett [error](/help/authentication/integration-guide-p
 
 Klientprogrammet kan filtrera listan över MVPD-program som anges i konfigurationssvaret genom att implementera en anpassad mekanism som bygger på dess egen affärslogik och krav som användarplats eller användarhistorik för det tidigare urvalet.
 
-Klientprogrammet kan filtrera listan över [TempPass](/help/premium-workflow/temporary-access/temp-pass-feature.md)-MVPD-filer eller MVPD-filer som fortfarande är integrerade i utveckling eller testning.
+Klientprogrammet kan filtrera listan över [TempPass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md)-MVPD-filer eller MVPD-filer som fortfarande är integrerade i utveckling eller testning.
 
 #### &#x200B;8. Vad händer om integreringen med en MVPD är inaktiverad och markerad som inaktiv? {#configuration-phase-faq8}
 
@@ -144,7 +144,7 @@ Autentiseringsfasen är obligatorisk. Klientprogrammet måste autentisera använ
 Klientprogrammet kan hoppa över den här fasen i följande scenarier:
 
 * Användaren är redan autentiserad och profilen är fortfarande giltig.
-* Användaren erbjuds tillfällig åtkomst via grundläggande eller kampanjanpassad [TempPass](/help/premium-workflow/temporary-access/temp-pass-feature.md)-funktion.
+* Användaren erbjuds tillfällig åtkomst via grundläggande eller kampanjanpassad [TempPass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md)-funktion.
 
 Felhanteringen i klientprogrammet kräver att [error](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md#enhanced-error-codes-lists-rest-api-v2)-koderna (t.ex. `authenticated_profile_missing`, `authenticated_profile_expired`, `authenticated_profile_invalidated` osv.) hanteras, vilket anger att klientprogrammet kräver att användaren autentiserar.
 
@@ -235,7 +235,7 @@ Klientprogrammet bör cachelagra delar av användarens profilinformation i en be
 |--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `mvpd` | Klientprogrammet kan använda detta för att hålla reda på användarens valda TV-leverantör och fortsätta att använda det under förauktoriserings- eller auktoriseringsfaserna.<br/><br/>När den aktuella användarprofilen förfaller kan klientprogrammet använda det sparade MVPD-valet och be användaren bekräfta. |
 | `attributes` | Klientprogrammet kan använda detta för att anpassa användarupplevelsen baserat på olika [användarmetadata](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md)-nycklar (t.ex. `zip`, `maxRating` osv.).<br/><br/>Användarmetadata blir tillgängliga när autentiseringsflödet har slutförts. Klientprogrammet behöver därför inte fråga en separat slutpunkt för att hämta informationen för [användarens metadata](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md) eftersom den redan ingår i profilinformationen.<br/><br/>Vissa metadataattribut kan uppdateras under auktoriseringsflödet, beroende på MVPD och det specifika metadataattributet. Därför kan klientprogrammet behöva fråga Profiles-API:erna igen för att hämta de senaste användarens metadata. |
-| `notAfter` | Klientprogrammet kan använda detta för att hålla reda på utgångsdatumet för användarprofilen.<br/><br/>Felhanteringen i klientprogrammet kräver att [&#x200B; error](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md#enhanced-error-codes-lists-rest-api-v2) -koderna (t.ex. `authenticated_profile_missing`, `authenticated_profile_expired`, `authenticated_profile_invalidated` osv.) hanteras, vilket anger att klientprogrammet kräver att användaren autentiserar. |
+| `notAfter` | Klientprogrammet kan använda detta för att hålla reda på utgångsdatumet för användarprofilen.<br/><br/>Felhanteringen i klientprogrammet kräver att [ error](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md#enhanced-error-codes-lists-rest-api-v2) -koderna (t.ex. `authenticated_profile_missing`, `authenticated_profile_expired`, `authenticated_profile_invalidated` osv.) hanteras, vilket anger att klientprogrammet kräver att användaren autentiserar. |
 
 #### &#x200B;9. Kan klientprogrammet utöka användarens profil utan att omautentisering krävs? {#authentication-phase-faq9}
 
@@ -245,7 +245,7 @@ Användarprofilen kan inte förlängas utanför sin giltighet utan användarinte
 
 Klientprogrammet måste därför uppmana användaren att autentisera igen och interagera med MVPD inloggningssida för att uppdatera sin profil på vårt system.
 
-För MVPD-program som stöder [hembaserad autentisering](/help/premium-workflow/hba-access/home-based-authentication.md) (HBA) behöver användaren inte ange några autentiseringsuppgifter.
+För MVPD-program som stöder [hembaserad autentisering](/help/authentication/integration-guide-programmers/features-standard/hba-access/home-based-authentication.md) (HBA) behöver användaren inte ange några autentiseringsuppgifter.
 
 #### &#x200B;10. Vilka är användningsexemplen för de tillgängliga profilslutpunkterna? {#authentication-phase-faq10}
 
@@ -269,7 +269,7 @@ Profilens SSO-slutpunkt har ett annat syfte och ger klientprogrammet möjlighet 
 
 För efterföljande frågor måste de grundläggande profilslutpunkterna användas för att fastställa användarens autentiseringsstatus, få åtkomst till användarens metadatainformation, hitta den metod som används för att autentisera eller den enhet som används för att ange identitet.
 
-Mer information finns i dokumenten för [enkel inloggning med partnerflöden](/help/premium-workflow/sso-access/partner-sso/apple-sso/apple-sso-cookbook-rest-api-v2.md).
+Mer information finns i dokumenten [Single sign-on med partnerflöden](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-partner-flows.md) och [Apple SSO Cookbook (REST API V2)](/help/authentication/integration-guide-programmers/features-standard/sso-access/partner-sso/apple-sso/apple-sso-cookbook-rest-api-v2.md).
 
 #### &#x200B;11. Vad ska klientprogrammet göra om användaren har flera MVPD-profiler? {#authentication-phase-faq11}
 
@@ -309,7 +309,7 @@ För att säkerställa effektivitet och undvika onödiga förfrågningar måste 
 
 **Autentisering utförd i det primära (skärm) programmet**
 
-Det primära (direktuppspelande) programmet ska starta avsökningen när användaren kommer till den sista målsidan, efter att webbläsarkomponenten har läst in den URL som angetts för parametern `redirectUrl` i [&#x200B; Sessions](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) -slutpunktsbegäran.
+Det primära (direktuppspelande) programmet ska starta avsökningen när användaren kommer till den sista målsidan, efter att webbläsarkomponenten har läst in den URL som angetts för parametern `redirectUrl` i [ Sessions](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) -slutpunktsbegäran.
 
 **Autentisering utförd i ett sekundärt (skärm) program**
 
@@ -366,7 +366,7 @@ Vissa metadataattribut kan uppdateras under auktoriseringsflödet beroende på M
 
 #### &#x200B;19. Hur ska klientprogrammet hantera försämrad åtkomst? {#authentication-phase-faq19}
 
-[Försämringsfunktionen](/help/premium-workflow/degraded-access/degradation-feature.md) gör att klientprogrammet kan upprätthålla en sömlös direktuppspelning för användare, även när deras MVPD autentiserings- eller auktoriseringstjänster stöter på problem.
+[Försämringsfunktionen](/help/authentication/integration-guide-programmers/features-premium/degraded-access/degradation-feature.md) gör att klientprogrammet kan upprätthålla en sömlös direktuppspelning för användare, även när deras MVPD autentiserings- eller auktoriseringstjänster stöter på problem.
 
 Sammanfattningsvis kan detta säkerställa oavbruten åtkomst till innehåll trots att MVPD tillfälligt upphör med tjänsten.
 
@@ -376,7 +376,7 @@ Mer information finns i dokumentationen för [Försämrade åtkomstflöden](/hel
 
 #### &#x200B;20. Hur ska klientprogrammet hantera temporär åtkomst? {#authentication-phase-faq20}
 
-Med funktionen [TempPass](/help/premium-workflow/temporary-access/temp-pass-feature.md) kan klientprogrammet ge användaren tillfällig åtkomst.
+Med funktionen [TempPass](/help/authentication/integration-guide-programmers/features-premium/temporary-access/temp-pass-feature.md) kan klientprogrammet ge användaren tillfällig åtkomst.
 
 Sammanfattningsvis kan detta engagera användarna genom att ge dem tidsbegränsad tillgång till materialet eller ett fördefinierat antal VOD-titlar under en viss tidsperiod.
 
@@ -507,7 +507,7 @@ Klientprogrammet behövs inte för att lagra auktoriseringsbeslut i beständig l
 
 #### &#x200B;5. Hur kan klientprogrammet avgöra varför ett auktoriseringsbeslut nekades? {#authorization-phase-faq5}
 
-Klientprogrammet kan fastställa orsaken till ett beslut om nekad auktorisering genom att granska [felkoden och meddelandet &#x200B;](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) som ingår i svaret från slutpunkten för auktorisering av beslut. Dessa uppgifter ger insikt i varför auktoriseringsbegäran nekades, vilket kan bidra till att informera användaren eller utlösa nödvändig hantering i programmet.
+Klientprogrammet kan fastställa orsaken till ett beslut om nekad auktorisering genom att granska [felkoden och meddelandet ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) som ingår i svaret från slutpunkten för auktorisering av beslut. Dessa uppgifter ger insikt i varför auktoriseringsbegäran nekades, vilket kan bidra till att informera användaren eller utlösa nödvändig hantering i programmet.
 
 Se till att alla återförsöksmetoder som implementeras för att hämta auktoriseringsbeslut inte resulterar i en oändlig slinga om auktoriseringsbeslutet nekas.
 
@@ -640,7 +640,7 @@ Huvuddokumentationen för [X-Device-Info](/help/authentication/integration-guide
 
 Om rubriken [X-Device-Info](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-x-device-info.md) saknas eller innehåller felaktiga värden kan begäran klassificeras som om den kommer från en `unknown`-plattform.
 
-Detta kan leda till att begäran behandlas som osäker och omfattas av mer restriktiva regler, till exempel kortare autentiserings-TTL. Dessutom är vissa fält, till exempel direktuppspelningsenheten `connectionIp` och `connectionPort`, obligatoriska för funktioner som spektrumets [Home Base Authentication](/help/premium-workflow/hba-access/home-based-authentication.md).
+Detta kan leda till att begäran behandlas som osäker och omfattas av mer restriktiva regler, till exempel kortare autentiserings-TTL. Dessutom är vissa fält, till exempel direktuppspelningsenheten `connectionIp` och `connectionPort`, obligatoriska för funktioner som spektrumets [Home Base Authentication](/help/authentication/integration-guide-programmers/features-standard/hba-access/home-based-authentication.md).
 
 Även när begäran kommer från en server för en enhets räkning måste rubrikvärdet [X-Device-Info](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-x-device-info.md) återspegla den faktiska informationen om direktuppspelningsenheten.
 
@@ -864,25 +864,25 @@ I migreringen från SDK:er till REST API V2 finns det stora förändringar som k
 
 | Omfång | SDK | REST API V2 | Observationer |
 |--------------------------------------------|---------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Fullständig DCR (Dynamic Client Registration) | Tillhandahåller programsats till konstruktorn | [POST <br/> /o/client/register](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md)</li><li>[Registreringsflöde för dynamisk klient](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/flows/dynamic-client-registration-flow.md)</li></ul> |
+| Fullständig DCR (Dynamic Client Registration) | Tillhandahåller programsats till konstruktorn | [POST <br/> /o/client/register](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-client-credentials.md) <br/> [GET <br/> /o/client/token](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md) | Mer information finns i följande dokument: <br/> <ul><li>[Översikt över registrering av dynamisk klient](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md)</li><li>[Registreringsflöde för dynamisk klient](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/flows/dynamic-client-registration-flow.md)</li></ul> |
 
 ###### AccessEnabler iOS/tvOS SDK
 
 | Omfång | SDK | REST API V2 | Observationer |
 |--------------------------------------------|---------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Fullständig DCR (Dynamic Client Registration) | Tillhandahåller programsats till konstruktorn | [POST <br/> /o/client/register](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md)</li><li>[Registreringsflöde för dynamisk klient](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/flows/dynamic-client-registration-flow.md)</li></ul> |
+| Fullständig DCR (Dynamic Client Registration) | Tillhandahåller programsats till konstruktorn | [POST <br/> /o/client/register](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-client-credentials.md) <br/> [GET <br/> /o/client/token](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md) | Mer information finns i följande dokument: <br/> <ul><li>[Översikt över registrering av dynamisk klient](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md)</li><li>[Registreringsflöde för dynamisk klient](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/flows/dynamic-client-registration-flow.md)</li></ul> |
 
 ###### AccessEnabler Android SDK
 
 | Omfång | SDK | REST API V2 | Observationer |
 |--------------------------------------------|---------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Fullständig DCR (Dynamic Client Registration) | Tillhandahåller programsats till konstruktorn | [POST <br/> /o/client/register](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md)</li><li>[Registreringsflöde för dynamisk klient](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/flows/dynamic-client-registration-flow.md)</li></ul> |
+| Fullständig DCR (Dynamic Client Registration) | Tillhandahåller programsats till konstruktorn | [POST <br/> /o/client/register](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-client-credentials.md) <br/> [GET <br/> /o/client/token](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md) | Mer information finns i följande dokument: <br/> <ul><li>[Översikt över registrering av dynamisk klient](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md)</li><li>[Registreringsflöde för dynamisk klient](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/flows/dynamic-client-registration-flow.md)</li></ul> |
 
 ###### AccessEnabler FireOS SDK
 
 | Omfång | SDK | REST API V2 | Observationer |
 |--------------------------------------------|---------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Fullständig DCR (Dynamic Client Registration) | Tillhandahåller programsats till konstruktorn | [POST <br/> /o/client/register](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md)</li><li>[Registreringsflöde för dynamisk klient](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/flows/dynamic-client-registration-flow.md)</li></ul> |
+| Fullständig DCR (Dynamic Client Registration) | Tillhandahåller programsats till konstruktorn | [POST <br/> /o/client/register](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-client-credentials.md) <br/> [GET <br/> /o/client/token](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md) | Mer information finns i följande dokument: <br/> <ul><li>[Översikt över registrering av dynamisk klient](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md)</li><li>[Registreringsflöde för dynamisk klient](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/flows/dynamic-client-registration-flow.md)</li></ul> |
 
 +++
 

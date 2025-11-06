@@ -2,7 +2,7 @@
 title: Adobe Pass Authentication and the Android 6 "Marshmallow" New Permissions Model
 description: Adobe Pass Authentication and the Android 6 "Marshmallow" New Permissions Model
 exl-id: 3c96769e-b25b-48ab-bb74-40f13d4e5a84
-source-git-commit: d0f08314d7033aae93e4a0d9bc94af8773c5ba13
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
 source-wordcount: '503'
 ht-degree: 0%
@@ -30,7 +30,7 @@ Som en ny funktion ger nya Android OS [detaljkontroll över de behörigheter som
 >Ändringarna som beskrivs nedan **påverkar bara program som utvecklats specifikt för Android 6.0** (targetSdkVersion=23). De påverkar inte äldre program som redan är installerade på användarens enhet vid uppgradering till Android 6.0.
 
 
-För program som utvecklats i Android Studio med [API-nivå 23](http://developer.android.com/sdk/api_diff/23/changes.html) och som använder Adobe Pass Authentication SDK måste utvecklaren skriva egen kod (se kodutdrag nedan) [&#x200B; för att aktivera dialogrutan Tillåt/Neka behörigheter](https://developer.android.com/training/permissions/requesting.html).
+För program som utvecklats i Android Studio med [API-nivå 23](http://developer.android.com/sdk/api_diff/23/changes.html) och som använder Adobe Pass Authentication SDK måste utvecklaren skriva egen kod (se kodutdrag nedan) [ för att aktivera dialogrutan Tillåt/Neka behörigheter](https://developer.android.com/training/permissions/requesting.html).
 
 Här följer det kodutdrag som används för att begära skrivåtkomst till enhetens externa lagring:
 
@@ -77,7 +77,7 @@ if (ContextCompat.checkSelfPermission(thisActivity,
 >En funktion som introducerar lagringsflexibilitet håller på att utvecklas för Adobe Pass Authentication SDK 1.9. Den nya SDK-versionen är avsedd för **version under den sista veckan i oktober**. Programmet återgår till att skriva i programmets sandlådelagring när den allmänna lagringen inte kan användas. Detta omfattar det fall där användare, för program som utvecklats på API-nivå 23, INTE accepterar läs-/skrivbehörigheter i den globala lagringen. Token lagras individuellt per app vilket innebär att enkel inloggning mellan program som använder Adobe Pass-autentisering inaktiveras.
 
 
-![](/help/authentication/assets/android-permissions-request.png)
+![](../../../assets/android-permissions-request.png)
 
 *Figur: Dialogrutan för behörighetsbegäran för program som skrivits med API-nivå 23*
 

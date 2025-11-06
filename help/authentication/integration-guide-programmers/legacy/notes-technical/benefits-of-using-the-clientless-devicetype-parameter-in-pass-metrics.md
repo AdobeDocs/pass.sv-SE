@@ -2,9 +2,9 @@
 title: Fördelar med att använda parametern deviceType utan klient i Adobe Pass-autentiseringsmått
 description: Fördelar med att använda parametern deviceType utan klient i Adobe Pass-autentiseringsmått
 exl-id: a5004887-d5fa-468e-971b-10806519175b
-source-git-commit: 913b2127d2189bec1a7e6e197944f1512b764893
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
-source-wordcount: '368'
+source-wordcount: '372'
 ht-degree: 0%
 
 ---
@@ -23,7 +23,7 @@ ht-degree: 0%
 
 ## Kontext
 
-Parametern `deviceType` från klientlöst API används, i förekommande fall, i Adobe Pass-autentiseringsmått som exponeras via [Entitlement Service Monitoring](/help/premium-workflow/esm/entitlement-service-monitoring-overview.md), även om den är valfri.
+Parametern `deviceType` från klientlöst API används, i förekommande fall, i Adobe Pass-autentiseringsmått som exponeras via [Entitlement Service Monitoring](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md), även om den är valfri.
 
 Med tanke på att anslutningen mellan parametern `deviceType` och dess **-fördelar** på Adobe Pass-autentiseringsmått inte angavs från början, är omfattningen av den här TechNote att lägga till mer information om dem.
 
@@ -35,10 +35,10 @@ Parametern `deviceType` fanns i det klientlösa API:t sedan den första versione
 
 >[!IMPORTANT]
 >
->Om parametern `deviceType` är rätt inställd har den följande **förmån** i övervakningen av berättigandetjänsten: den erbjuder mätvärden som är [nedbrutna per enhetstyp](/help/premium-workflow/esm/entitlement-service-monitoring-overview.md#clientless_device_type) när klientlös används, så att olika typer av analyser kan utföras för t.ex. Roku, AppleTV, Xbox osv.
+>Om parametern `deviceType` är rätt inställd har den följande **förmån** i övervakningen av berättigandetjänsten: den erbjuder mätvärden som är [nedbrutna per enhetstyp](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md#clientless_device_type) när klientlös används, så att olika typer av analyser kan utföras för t.ex. Roku, AppleTV, Xbox osv.
 
 
-Mer information om övervaknings-API:t för berättigandetjänsten finns i [fördjupningsträdet](/help/premium-workflow/esm/entitlement-service-monitoring-overview.md#esm_dimensions) (resurser) som finns i ESM 2.0.
+Mer information om API:t för övervakning av berättigandetjänster finns i [fördjupningsträdet](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-api.md#drill-down_tree) som illustrerar [dimensionerna](/help/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md#esm_dimensions) (resurserna) som finns i ESM 2.0.
 
 >[!NOTE]
 >

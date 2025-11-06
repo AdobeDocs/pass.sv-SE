@@ -2,7 +2,7 @@
 title: Dynamiskt klientregistreringsflöde
 description: Dynamiskt klientregistreringsflöde
 exl-id: d881cf0a-de09-4b1d-a094-d5490f944796
-source-git-commit: 913b2127d2189bec1a7e6e197944f1512b764893
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
 source-wordcount: '564'
 ht-degree: 0%
@@ -25,8 +25,8 @@ ht-degree: 0%
 
 Innan du får åtkomst till Adobe Pass-skyddade API:er måste du kontrollera att följande krav är uppfyllda:
 
-* En klientrepresentant måste skapa ett registrerat program enligt beskrivningen i avsnittet [Hantera registrerade program](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md#manage-registered-applications).
-* En klientrepresentant måste hämta och bädda in en programsats enligt beskrivningen i avsnittet [Hantera programsatser](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview.md#manage-software-statements).
+* En klientrepresentant måste skapa ett registrerat program enligt beskrivningen i avsnittet [Hantera registrerade program](../dynamic-client-registration-overview.md#manage-registered-applications).
+* En klientrepresentant måste hämta och bädda in en programsats enligt beskrivningen i avsnittet [Hantera programsatser](../dynamic-client-registration-overview.md#manage-software-statements).
 
 >[!IMPORTANT]
 >
@@ -38,7 +38,7 @@ Innan du får åtkomst till Adobe Pass-skyddade API:er måste du kontrollera att
 
 Följ de angivna stegen för att få åtkomst till Adobe Pass-skyddade API:er enligt bilden nedan.
 
-![Få åtkomst till Adobe Pass-skyddade API:er](/help//authentication/assets/dcr-api/dcr-api-access-adobe-pass-protected-apis.png)
+![Få åtkomst till Adobe Pass-skyddade API:er](../../../../assets/dcr-api/dcr-api-access-adobe-pass-protected-apis.png)
 
 *Få åtkomst till Adobe Pass-skyddade API:er*
 
@@ -76,7 +76,7 @@ Följ de angivna stegen för att få åtkomst till Adobe Pass-skyddade API:er en
 
    >[!IMPORTANT]
    >
-   > Mer information om följande finns i [Hämta åtkomsttoken](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md#request) API-dokumentationen:
+   > Mer information om följande finns i [Hämta åtkomsttoken](../apis/dynamic-client-registration-apis-retrieve-access-token.md#request) API-dokumentationen:
    >
    > * Alla _obligatoriska_-parametrar, som `client_id`, `client_secret` och `grant_type`
    > * Alla _obligatoriska_ rubriker, som `Content-Type`, `X-Device-Info`
@@ -86,7 +86,7 @@ Följ de angivna stegen för att få åtkomst till Adobe Pass-skyddade API:er en
 
    >[!IMPORTANT]
    >
-   > Mer information om vilken information som ges i ett åtkomsttoken-svar finns i [Hämta åtkomsttoken](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md#success) API-dokumentationen.
+   > Mer information om vilken information som ges i ett åtkomsttoken-svar finns i [Hämta åtkomsttoken](../apis/dynamic-client-registration-apis-retrieve-access-token.md#success) API-dokumentationen.
    >
    > <br/>
    >
@@ -96,7 +96,7 @@ Följ de angivna stegen för att få åtkomst till Adobe Pass-skyddade API:er en
    >
    > <br/>
    >
-   > Om valideringen misslyckas genereras ett felsvar som ger ytterligare information som följer [Hämta åtkomsttoken](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/apis/dynamic-client-registration-apis-retrieve-access-token.md#error) API-dokumentationen.
+   > Om valideringen misslyckas genereras ett felsvar som ger ytterligare information som följer [Hämta åtkomsttoken](../apis/dynamic-client-registration-apis-retrieve-access-token.md#error) API-dokumentationen.
 
    >[!TIP]
    >

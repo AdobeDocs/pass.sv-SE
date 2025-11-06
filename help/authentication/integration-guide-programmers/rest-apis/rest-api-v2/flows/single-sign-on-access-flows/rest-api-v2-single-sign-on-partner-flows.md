@@ -2,7 +2,7 @@
 title: Enkel inloggning - partner - flöden
 description: REST API V2 - enkel inloggning - partner - flöden
 exl-id: 5735d67f-a311-4d03-ad48-93c0fcbcace5
-source-git-commit: af867cb5e41843ffa297a31c2185d6e4b4ad1914
+source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
 workflow-type: tm+mt
 source-wordcount: '1468'
 ht-degree: 0%
@@ -33,7 +33,7 @@ Mer information om rubriken `AP-Partner-Framework-Status` finns i dokumentatione
 
 Adobe Pass Authentication REST API V2 har stöd för enkel inloggning (SSO) för slutanvändare av klientprogram som körs på iOS, iPadOS eller tvOS.
 
-Mer information om enkel inloggning (SSO) för Apple-plattformen finns i [Apple SSO Cookbook (REST API V2)](/help/premium-workflow/sso-access/partner-sso/apple-sso/apple-sso-cookbook-rest-api-v2.md) -dokumentationen.
+Mer information om enkel inloggning (SSO) för Apple-plattformen finns i [Apple SSO Cookbook (REST API V2)](/help/authentication/integration-guide-programmers/features-standard/sso-access/partner-sso/apple-sso/apple-sso-cookbook-rest-api-v2.md) -dokumentationen.
 
 ## Hämta partnerautentiseringsbegäran {#retrieve-partner-authentication-request}
 
@@ -59,7 +59,7 @@ Innan du hämtar partnerautentiseringsbegäran ska du kontrollera att följande 
 
 Utför de angivna stegen för att hämta partnerautentiseringsbegäran enligt bilden nedan.
 
-![Hämta partnerautentiseringsförfrågan](/help/authentication/assets/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-retrieve-partner-authentication-request-flow.png)
+![Hämta partnerautentiseringsförfrågan](../../../../../assets/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-retrieve-partner-authentication-request-flow.png)
 
 *Hämta partnerautentiseringsförfrågan*
 
@@ -173,7 +173,7 @@ Innan du hämtar profilen med ett partnerautentiseringssvar måste du kontroller
 
 Utför de angivna stegen för att implementera flödet för hämtning av profiler med hjälp av ett partnerautentiseringssvar, vilket visas i följande diagram.
 
-![Skapa och hämta profil med partnerautentiseringssvaret](/help/authentication/assets/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-retrieve-profile-using-partner-authentication-response-flow.png)
+![Skapa och hämta profil med partnerautentiseringssvaret](../../../../../assets/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-retrieve-profile-using-partner-authentication-response-flow.png)
 
 *Skapa och hämta autentiserad profil med partnerautentiseringssvaret*
 
