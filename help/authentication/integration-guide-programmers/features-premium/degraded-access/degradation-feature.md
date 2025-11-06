@@ -43,7 +43,7 @@ Utförliga instruktioner finns i dokumentationen [Översikt över registrering a
 
 Försämring-API:t är ett RESTful-API som gör att programmerare kan hantera nedbrytningsregler för specifika MVPD-program. API:t ger möjlighet att aktivera, ta bort och hämta status för de regler för nedbrytning som är aktiva.
 
-Mer information om API:t för degradering finns i följande Zendesk-dokument [Adobe Pass Authentication | Försämring av API v3 ](https://tve.zendesk.com/hc/en-us/articles/33912526308372-Adobe-Pass-Authentication-Degradation-API-v3) och leta efter den PDF-fil som ska laddas ned.
+Mer information om API:t för degradering finns i följande Zendesk-dokument [Adobe Pass Authentication | Försämring av API v3 &#x200B;](https://tve.zendesk.com/hc/en-us/articles/33912526308372-Adobe-Pass-Authentication-Degradation-API-v3) och leta efter den PDF-fil som ska laddas ned.
 
 ## REST API V2 {#rest-api-v2}
 

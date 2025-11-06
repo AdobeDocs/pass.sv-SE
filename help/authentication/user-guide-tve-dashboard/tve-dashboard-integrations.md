@@ -216,7 +216,7 @@ För programmeringsprogram som inte vill bygga sin MVPD-väljare och i stället 
 
 Olika värden för dessa egenskaper kan användas för samma MVPD beroende på enhetsplattform och önskad användarupplevelse.
 
-![Lägg till visningsnamn eller URL-logotyp ](../assets/tve-dashboard/new-tve-dashboard/integrations/integration-platform-settings-display-name-logo-url-properties.png)
+![Lägg till visningsnamn eller URL-logotyp &#x200B;](../assets/tve-dashboard/new-tve-dashboard/integrations/integration-platform-settings-display-name-logo-url-properties.png)
 
 *Lägg till visningsnamn eller URL-logotyp*
 
@@ -305,7 +305,7 @@ Så här skapar du en ny integrering med en ny MVPD i din nuvarande konfiguratio
    >
    >Ändra inte standardslutpunkterna i något flöde om inte MVPD särskilt anger det.
 
-   ![Markera slutpunkter ](../assets/tve-dashboard/new-tve-dashboard/integrations/integration-new-integration-select-endpoints-panel-view.png)
+   ![Markera slutpunkter &#x200B;](../assets/tve-dashboard/new-tve-dashboard/integrations/integration-new-integration-select-endpoints-panel-view.png)
 
    *Markera slutpunkter*
 
