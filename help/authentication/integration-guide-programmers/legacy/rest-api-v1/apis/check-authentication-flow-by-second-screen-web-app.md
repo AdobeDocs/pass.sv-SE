@@ -4,7 +4,7 @@ description: Kontrollera autentiseringsflöde med andra skärmens webbapp
 exl-id: 5807f372-a520-4069-b837-67ae41b7f79b
 source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
 workflow-type: tm+mt
-source-wordcount: '234'
+source-wordcount: '232'
 ht-degree: 0%
 
 ---
@@ -44,7 +44,7 @@ Detta API bör användas av webbprogrammet för inloggning på andra skärmen f�
 
 | Slutpunkt | Anropat </br>av | Indata   </br>Parametrar | HTTP </br>Metod | Svar | HTTP </br>Response |
 | --- | --- | --- | --- | --- | --- |
-| SP_FQDN/api/v1/checkauthn/{registreringskod} | Inloggningswebbapp | 1. Registreringskod </br>    (Bankomponent)</br>2.  begärande </br>    (Obligatoriskt) | GET | XML eller JSON som innehåller felinformation om det misslyckas. | 200 - lyckades   </br>403 - Ej tillåtet |
+| SP_FQDN/api/v1/checkauthn/{registration code} | Inloggningswebbapp | &#x200B;1. Registreringskod </br>    (Bankomponent)</br>2.  begärande </br>    (Obligatoriskt) | GET | XML eller JSON som innehåller felinformation om det misslyckas. | 200 - lyckades   </br>403 - Ej tillåtet |
 
 </br>
 

@@ -4,7 +4,7 @@ description: Migreringshandbok för iOS/tvOS v3.x
 exl-id: 4c43013c-40af-48b7-af26-0bd7f8df2bdb
 source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
 workflow-type: tm+mt
-source-wordcount: '582'
+source-wordcount: '581'
 ht-degree: 0%
 
 ---
@@ -72,7 +72,7 @@ När du har fått det anpassade URL-schemat måste du lägga till det i programm
 
 ## Avlyssnande anrop till det anpassade URL-schemat {#intercept}
 
-Detta gäller endast om ditt program tidigare aktiverat manuell hantering av Safari View Controller (SVC) via anropet [setOptions(\[&quot;handleSVC&quot;:true&quot;\])](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md) och för specifika MVPD-anrop som kräver Safari View Controller (SVC), vilket innebär att URL:er för autentisering och utloggning av slutpunkter måste läsas in av en SFSafariViewController-styrenhet i stället för en i stället för en UIW-styrenhet WebView/WKWebView-kontrollant.
+Detta gäller endast om ditt program tidigare aktiverat manuell hantering av Safari View Controller (SVC) via anropet [setOptions(\[&quot;handleSVC&quot;:true&quot;\])](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md) och för specifika MVPD-anrop som kräver Safari View Controller (SVC), vilket innebär att URL:er för autentisering och utloggning av slutpunkter måste läsas in av en SFSafariViewController-styrenhet i stället i stället för en i stället för en i stället för UIUIUIEEE-styrenheten WebView/WKWebView-kontrollant.
 
 Under autentiserings- och utloggningsflöden måste ditt program övervaka aktiviteten för `SFSafariViewController `kontrollanten när den går igenom flera omdirigeringar. Programmet måste identifiera tidpunkten då det läser in en specifik anpassad URL som definieras av din `application's custom URL scheme` (t.ex.`adbe.u-XFXJeTSDuJiIQs0HVRAg://adobe.com)`). När kontrollenheten läser in den här anpassade URL:en måste ditt program stänga `SFSafariViewController` och anropa AccessEnablers `handleExternalURL:url `API-metod.
 

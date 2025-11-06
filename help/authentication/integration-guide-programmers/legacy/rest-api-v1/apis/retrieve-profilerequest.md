@@ -4,7 +4,7 @@ description: Hämta plattformens SSO-profilbegäran
 exl-id: 44fd4e26-4d9a-4607-ac2c-b85d848f5fc6
 source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
 workflow-type: tm+mt
-source-wordcount: '212'
+source-wordcount: '210'
 ht-degree: 0%
 
 ---
@@ -44,7 +44,7 @@ Den här resursen skapar profilförfrågningar för begärande-ID och MVPD tuppe
 
 | Slutpunkt | Anropat </br>av | Indata   </br>Parametrar | HTTP </br>Metod | Svar | HTTP </br>Response |
 | --- | --- | --- | --- | --- | --- |
-| &lt;SP_FQDN>/api/v1/{requestor}/profile-requests/{mvpd} | Direktuppspelande app</br></br>eller</br></br>Programmeringtjänst | 1. beställare (path param)</br>2. mvpd (path param)</br>3. deviceType (obligatoriskt) | GET | Svarets Content-Type blir application/octet-stream eftersom den faktiska nyttolasten är ogenomskinlig för klientprogrammet.</br></br>Svaret bör vidarebefordras av programmet till SSO-motorn för plattformen</br></br>för att erhålla en enkel inloggning för profiler. | 200 - lyckades   </br>400 - Ogiltig begäran |
+| &lt;SP_FQDN>/api/v1/{requestor}/profile-requests/{mvpd} | Direktuppspelande app</br></br>eller</br></br>Programmeringtjänst | &#x200B;1. beställare (path param)</br>2. mvpd (path param)</br>3. deviceType (obligatoriskt) | GET | Svarets Content-Type blir application/octet-stream eftersom den faktiska nyttolasten är ogenomskinlig för klientprogrammet.</br></br>Svaret bör vidarebefordras av programmet till SSO-motorn för plattformen</br></br>för att erhålla en enkel inloggning för profiler. | 200 - lyckades   </br>400 - Ogiltig begäran |
 
 
 | Indataparameter | Beskrivning |

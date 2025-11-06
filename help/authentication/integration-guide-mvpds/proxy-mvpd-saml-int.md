@@ -1,15 +1,15 @@
 ---
-title: Proxy MVPD SAML-integrering
-description: Proxy MVPD SAML-integrering
+title: Proxy MVPD SAML Integration
+description: Proxy MVPD SAML Integration
 exl-id: 6c83e703-d8cd-476b-8514-05b8230902be
 source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
 workflow-type: tm+mt
-source-wordcount: '711'
+source-wordcount: '700'
 ht-degree: 0%
 
 ---
 
-# Proxy MVPD SAML-integrering
+# Proxy MVPD SAML Integration
 
 >[!NOTE]
 >
@@ -17,37 +17,37 @@ ht-degree: 0%
 
 ## Ökning {#overview-proxy-mvpd-saml-int}
 
-I det här dokumentet beskrivs SAML-autentiseringsflödet för proxyintegreringar.  Dessa flöden är beroende av att det finns proxykonfigurationsdata i serverkonfigurationen för Adobe Pass-autentisering. Proxy MVPD skickar sina proxykonfigurationsdata till Adobe Pass-autentiseringsservern via Adobe Pass Authentication Proxy Web Service.
+I det här dokumentet beskrivs SAML-autentiseringsflödet för proxyintegreringar.  Dessa flöden är beroende av att det finns proxykonfigurationsdata i serverkonfigurationen för Adobe Pass-autentisering. Proxy MVPD skickar sina Proxy-konfigurationsdata till Adobe Pass Authentication-servern via Adobe Pass Authentication Proxy Web Service.
 
 ## Konfigurationsdata för proxy {#proxy-config-data}
 
-Varje MVPD-proxy tillhandahåller proxykonfigurationsdata för sina proxybaserade MVPD-program till webbtjänsten Adobe Pass Authentication Proxy.  Information om detta finns i dokumentationen för Proxy Web Service.   För att SAML AuthN-flödet ska fungera måste proxyns konfigurationsdata innehålla följande egenskaper:
+Varje MVPD Proxy tillhandahåller proxykonfigurationsdata för sina proxybaserade MVPD:er till webbtjänsten Adobe Pass Authentication Proxy.  Information om detta finns i dokumentationen för Proxy Web Service.   För att SAML AuthN-flödet ska fungera måste proxyns konfigurationsdata innehålla följande egenskaper:
 
 | Egenskap | Beskrivning |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| MVPD-ID | En sträng som representerar Proxied MVPD internt till Adobe Pass Authentication.  Ska bekräftas av Adobe som unikt i samband med Adobe Pass-autentisering. |
-| URL för MVPD-standardlogotyp | URL till en logotyp som kan visas i en MVPD-väljarupplevelse för användaren.  Använd en genomskinlig bakgrund. |
-| MVPD-visningsnamn | Sträng som ska användas som visningsnamntext som kan visas med logotypen, eventuellt som alternativ text. |
+| MVPD ID | En sträng som representerar Proxied MVPD internt till Adobe Pass Authentication.  Ska bekräftas av Adobe som unikt i samband med Adobe Pass-autentisering. |
+| MVPD standardlogotyp-URL | URL till en logotyp som kan visas i en MVPD-väljarupplevelse för användaren.  Använd en genomskinlig bakgrund. |
+| MVPD visningsnamn | Sträng som ska användas som visningsnamntext som kan visas med logotypen, eventuellt som alternativ text. |
 
 
 
 ## SAML-integreringsflöden {#saml-int-flows}
 
-När en MVPD-prenumerant besöker en programmerares webbplats eller program svarar Adobe Pass Authentication på ett API-anrop från webbplatsen eller programmet med en lista över MVPD som är aktiverat för den programmeraren.  Integrationen kan vara direkt eller proxibel; det är ingen skillnad mellan dem och programmeraren. På så sätt kan programmerare presentera listan över aktiva MVPD:er på det sätt de vill. Abonnenten väljer sitt MVPD och Adobe Pass Authentication dirigerar om abonnenten till MVPD:s specifika identitetsleverantör.
+När en MVPD-prenumerant besöker en programmerares webbplats eller tillämpning svarar Adobe Pass Authentication på ett API-anrop från webbplatsen eller programmet med en lista över MVPD som är aktiverat för den programmeraren.  Integrationen kan vara direkt eller proxibel; det är ingen skillnad mellan dem och programmeraren. På så sätt kan programmerare presentera listan över aktiva MVPD:er på det sätt de vill. Abonnenten väljer sin MVPD och Adobe Pass Authentication dirigerar om abonnenten till MVPD specifika identitetsleverantör.
 
-När det gäller en integrerad MVPD-proxy sker integreringen mellan Adobe Pass Authentication och MVPD Proxy. Adobe Pass Authentication skickar autentiseringsbegäran till MVPD-proxyn och MVPD-proxyn hanterar omdirigeringen. För att MVPD-proxyn ska få veta var användarautentiseringsbegäran ska dirigeras om skickar Adobe Pass Authentication en MVPD-identifierare i SAML-autentiseringsbegäran.  Den här identifieraren är det MVPD-ID som anges av proxyprovidern via proxywebbtjänsten enligt ovan.
+När det gäller en integrerad MVPD Proxy sker integreringen mellan Adobe Pass Authentication och MVPD Proxy. Adobe Pass Authentication skickar autentiseringsbegäran till MVPD Proxy och MVPD Proxy hanterar omdirigeringen. För att MVPD Proxy ska kunna omdirigera användarens autentiseringsbegäran skickar Adobe Pass Authentication en MVPD-identifierare i SAML-autentiseringsbegäran.  Den här identifieraren är det MVPD-ID som anges av proxyprovidern via webbtjänsten Proxy enligt ovan.
 
 ### Autentisering {#authn-saml-int}
 
-För att Adobe Pass Authentication ska kunna integreras med ett Proxy MVPD krävs följande:
+För att Adobe Pass Authentication ska kunna integreras med en proxy-MVPD krävs följande:
 
-* En MVPD-proxylista med Proxied MVPD, som skickats till Adobe Proxy Web Service
+* En proxylista från MVPD med proxyversioner av proxiderade MVPD-program som skickats till Adobe Proxy Web Service
 
 * SAML-metadata för överordnad MVPD-proxy
 
-* (Rekommenderas) - Proxyn MVPD hanterar ytterligare omdirigering till inloggningssidans URL för Proxied MVPD
+* (Rekommenderas) - Proxy-MVPD hanterar ytterligare omdirigering till inloggningssidans URL för den proxiderade MVPD
 
-* MVPD-proxyn måste öppna portarna 443 och 80 för följande IP-adresser:
+* MVPD Proxy måste öppna portarna 443 och 80 för följande IP-adresser:
    * 192.150.4.5
    * 192.150.10.200
    * 192.150.11.4
@@ -63,13 +63,13 @@ För att Adobe Pass Authentication ska kunna integreras med ett Proxy MVPD kräv
 
 #### SAML-autentiseringsbegäran och -svar {#authn-saml-req-resp}
 
-I SAML AuthN-begäran innehåller proxyintegreringar följande extra egenskap som måste hanteras av MVPD-proxyn.  Den här egenskapen är nödvändig för att den som gjorde begäran ska kunna bearbeta den för det proxiderade PDF-dokumentet och för att återge rätt inloggningsfunktion. (Den här egenskapen markeras i exempelbegäran nedan.)
+I SAML AuthN-begäran innehåller proxyintegreringar följande extra egenskap som måste hanteras av MVPD Proxy.  Den här egenskapen är nödvändig för att bearbeta den som gjorde begäran för den proxiderade MVPD och för att återge rätt inloggningsupplevelse. (Den här egenskapen markeras i exempelbegäran nedan.)
 
-**Omfångsegenskapen** - Innehåller ett IDPEntry-objekt som innehåller det specifika MVPD_ID och MVPD-namnet.  Detta representerar det MVPD som användaren faktiskt valde i programmerarens väljare och matchar det MVPD_ID som angetts i proxywebbtjänsten.
+**Omfångsegenskap** - Innehåller ett IDPEntry-objekt som innehåller det specifika MVPD_ID och MVPD-namnet.  Detta representerar den MVPD som användaren faktiskt valde i programmerarens väljare och matchar det MVPD_ID som angetts i proxywebbtjänsten.
 
 Det finns ytterligare en omfångsegenskap för RequestorID som kan användas för att anpassa inloggningen till det särskilda varumärket för Programmer (om det behövs). Eller så kan den bara användas för att analysera var begäran kommer från.
 
-I SAML AuthN-svaret ska Proxy MVPD ange Proxied MVPD som IdP-enhet i följande egenskaper:
+I SAML AuthN-svaret ska Proxy MVPD ange den proxiderade MVPD som IdP-entitet i följande egenskaper:
 
 * SAML-utfärdare
 * Namnkvalificerare
@@ -164,11 +164,11 @@ I SAML AuthN-svaret ska Proxy MVPD ange Proxied MVPD som IdP-enhet i följande e
 
 ### Behörighet {#authz-proxy-mvpd-saml-int}
 
-För auktoriseringsdelen måste det virtuella dokumentationsdokumentet godkänna den resurs som anges av programmeraren för auktorisering.  I de flesta fall är detta en strängidentifierare för kanalnätverket, till exempel TBS eller TNT.
+För auktoriseringsdelen måste MVPD godkänna den resurs som anges av Programmer för auktorisering.  I de flesta fall är detta en strängidentifierare för kanalnätverket, till exempel TBS eller TNT.
 
 #### SAML-auktoriseringsbegäran och -svar {#authz-saml-req-resp}
 
-I AuthZ-svaret måste UTFÄRDAREN matcha UTFÄRDAREN från SAML-svaret som ska vara Proxied MVPD-identifierare.
+I AuthZ-svaret måste UTFÄRDAREN matcha UTFÄRDAREN från SAML-svaret som ska vara Proxied MVPD-identifieraren.
 
 **Exempel på AuthZ XACML-begäran**
 

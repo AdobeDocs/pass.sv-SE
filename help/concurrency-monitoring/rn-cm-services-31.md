@@ -1,6 +1,6 @@
 ---
-title: Versionsinformation för Adobe Concurrency Monitoring Services 3.1
-description: Versionsinformation för Adobe Concurrency Monitoring Services 3.1
+title: Versionsinformation om Adobe Concurrency Monitoring Services 3.1
+description: Versionsinformation om Adobe Concurrency Monitoring Services 3.1
 exl-id: 2c43d6fd-812b-438c-bebf-28b32e5f1935
 source-git-commit: f30b6814b8a77424c13337d44d7b247105e0bfe2
 workflow-type: tm+mt
@@ -9,7 +9,7 @@ ht-degree: 1%
 
 ---
 
-# Versionsinformation för Adobe Concurrency Monitoring Services 3.1 {#cm-services-rns}
+# Versionsinformation om Adobe Concurrency Monitoring Services 3.1 {#cm-services-rns}
 
 Den här sidan beskriver nya funktioner, ändringar och kända fel i den här versionen.
 

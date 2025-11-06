@@ -19,7 +19,7 @@ Releasedatum: 2015-12-11
 
 * Nya uppdelningar finns i användningsrapporter. De nya uppdelningarna är tillgängliga om programmet som är integrerat med Concurrency Monitoring skickar anpassade metadata.
    * program - det program-ID som rapporteras i anrops-URL
-   * mvpd - det MVPD som rapporterades i anrops-URL
+   * mvpd - den MVPD som rapporteras i call URL
    * kanal - den anpassade metadatakanalen
    * platform - det anpassade metadataprogrammetPlatform
 * Nya mått relaterade till **dataströmmens varaktighet** finns tillgängliga i användningsrapporterna. De nya mätvärdena kan användas för att skapa ett histogram med flödeslängd. Följande intervaller i minuter är tillgängliga:

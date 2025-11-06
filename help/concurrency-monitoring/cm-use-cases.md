@@ -13,7 +13,7 @@ ht-degree: 0%
 
 Det huvudsakliga användningsfallet för tjänsten Stream Counting Service är att räkna antalet samtidiga videoströmmar som en användare bevakar och fatta ett beslut om dess samtidiga användning för samma konto-ID.
 
-För att kunna övervaka abonnentens användning finns det ett behov av en centraliserad tjänst som kan samla användaraktiviteten oavsett om den sker på programmerarens webbplats eller i applikationen, på MVPD:s innehållsportal eller på en syndikerad egenskap.
+För att kunna övervaka abonnentens användning finns det ett behov av en centraliserad tjänst som kan samla användaraktiviteten oavsett om den sker på programmerarens webbplats eller i applikationen, på MVPD innehållsportal eller på en syndikerad egenskap.
 
 De huvudsakliga användningsområdena som stöds av denna centraliserade tjänst bör vara:
 

@@ -80,7 +80,7 @@ Vilka metadataattribut som är tillgängliga för en programmerare beror på vad
 
 ## Kryptering av användarmetadata {#encryption}
 
-Om du vill kryptera och dekryptera användarmetadataattribut måste programmeraren generera ett certifikat (offentlig/privat nyckelpar) och [konfigurera &#x200B;](#management) certifikatet automatiskt via [Adobe Pass TVE Dashboard](https://experience.adobe.com/#/pass/authentication) eller dela den offentliga nyckeln med Adobe Pass autentiseringsrepresentanter.
+Om du vill kryptera och dekryptera användarmetadataattribut måste programmeraren generera ett certifikat (offentlig/privat nyckelpar) och [konfigurera ](#management) certifikatet automatiskt via [Adobe Pass TVE Dashboard](https://experience.adobe.com/#/pass/authentication) eller dela den offentliga nyckeln med Adobe Pass autentiseringsrepresentanter.
 
 Följ stegen nedan för att se till att certifikatet skapas och konfigureras korrekt:
 

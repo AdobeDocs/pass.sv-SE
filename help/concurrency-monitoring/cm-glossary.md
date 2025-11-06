@@ -13,7 +13,7 @@ ht-degree: 0%
 
 ## Konto-ID {#accid-defn}
 
-* MVPD-konto för en prenumerant, som vanligtvis motsvarar det faktiska faktureringskontot. Det här kontot måste kunna identifieras av MVPD i sitt eget system.
+* En prenumerantes MVPD-konto motsvarar vanligtvis det faktiska faktureringskontot. Kontot måste kunna identifieras av MVPD i dess eget system.
 
 ## Åtgärd {#action-defn}
 
@@ -29,7 +29,7 @@ ht-degree: 0%
 
 * Utvecklad av klienten för åtkomst till videoinnehåll
 * Fungerar och verkställer beslut om innehållsåtkomst baserat på information som tillhandahålls av Concurrency Monitoring Service (detta gäller i fallet [Policy Information Point](/help/concurrency-monitoring/policy-info-pt-versionone.md))
-* Kommer att ha ett unikt **program-ID** som tillhandahålls av Adobe.
+* Kommer att ha ett unikt **program-ID** från Adobe.
 
 ## Övervakningstjänst för samtidig valuta {#cm-service-defn}
 
@@ -73,7 +73,7 @@ ht-degree: 0%
 
 * Fungerar som en tjänst- och innehållsleverantör.
 * Förlitar sig på det distribuerade klientprogrammet som integreras med tjänsten för övervakning av samtidig användning (Concurrency Monitoring) för att tillämpa de definierade säkerhetsprinciperna baserat på ovannämnda tjänstdata.
-* Behovet av stöd för MVPD vid insamling av abonnentaktivitet och genomförande av begränsningsreglerna när det gäller deras egenskaper.
+* MVPD måste få stöd för att man ska kunna samla in abonnemangsaktiviteter och genomföra begränsningsreglerna när det gäller deras egendom.
 * Som en separat regel kan du även vara intresserad av att begränsa den samtidiga åtkomsten till innehållet i alla målportaler.
 
   *F: Varför programmerare och inte begärande-ID som i resten av Adobe Pass-autentiseringen?*
@@ -94,13 +94,13 @@ ht-degree: 0%
 
 ## Ämne {#subj-defn}
 
-* Konsumenten av (video)-innehållet via internet. Vi undviker avsiktligt termen _&#x200B;**användare**&#x200B;_ eftersom övervakning av samtidig användning vanligtvis handlar om konton-ID:n för distributörer av videoprogrammeringstjänster (vilket inbegriper flera faktiska användare som delar samma kontrakt, till exempel familjemedlemmar för ett hushåll).
+* Konsumenten av (video)-innehållet via internet. Vi undviker avsiktligt termen _**användare**_, eftersom övervakning av samtidig användning vanligtvis handlar om MVPD konto-ID:n (som omfattar flera faktiska användare som delar samma kontrakt, till exempel familjemedlemmar för ett hushåll).
 
 * För varje ström kan motivet förbättras med attribut som är kopplade till den person som använder tjänsten, den nätverksanslutna enheten och så vidare.
 
 ## Prenumerant {#subscriber-defn}
 
-* Den betalande kunden till ett sidoskydd eller en person som delar den betalande kundens uppgifter
+* Den betalande kunden till en MVPD eller en person som delar den betalande kundens uppgifter
 * Kan stoppas från att titta på innehåll av Concurrency Monitoring Service, av klientprogrammet som använder tjänsten ovan.
 * I det bästa fallet kommer han eller hon aldrig att märka att Concurrency Monitoring Service finns
 

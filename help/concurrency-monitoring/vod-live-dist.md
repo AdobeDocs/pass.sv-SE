@@ -15,7 +15,7 @@ ht-degree: 0%
 
 
 
-**A:** Övervakning av samtidig användning kan inte direkt skilja mellan live-innehåll och VOD (Video on demand). Videospelaren måste känna till vilken typ av innehåll som spelas upp och skicka den här informationen under [sessionsinitieringsanropet](/help/concurrency-monitoring/cm-api-overview.md#session-initial) (krävs för övervakning av samtidig användning). Det reguljära arbetsflödet ser ut så här:
+**A:** Övervakning av samtidig användning kan inte direkt skilja mellan live-innehåll och on demand-video (VOD). Videospelaren måste känna till vilken typ av innehåll som spelas upp och skicka den här informationen under [sessionsinitieringsanropet](/help/concurrency-monitoring/cm-api-overview.md#session-initial) (krävs för övervakning av samtidig användning). Det reguljära arbetsflödet ser ut så här:
 
 1. Kunder med Concurrency Monitoring definierar en uppsättning metadata som de vill ha regler implementerade på (t.ex. content-type=live|vod, device-type=mobile|console|desktop).
 1. Concurrency Monitoring-teamet implementerar den önskade principen. Exempel:

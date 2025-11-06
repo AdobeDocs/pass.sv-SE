@@ -139,7 +139,7 @@ Kontrollera att direktuppspelningsprogrammet hanterar:
    * Strömningsprogrammet kan stöta på `ClassNotFoundException` vid körning i följande klass `com.amazon.ottssotokenlib.SSOEnabler`.
 
 * Frånvaro av SSO-token (platform identity)-nyttolast som ska returneras av ovanstående API:er.
-   * Direktuppspelningsapplikationen kan kontakta Amazon och Adobe för att undersöka saken.
+   * Direktuppspelningsapplikationen kan kontakta Amazon och Adobe representanter för att undersöka saken.
 
 ### Arbetsflöde {#workflow}
 

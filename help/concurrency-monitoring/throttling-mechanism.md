@@ -4,7 +4,7 @@ description: Begränsningsmekanism
 exl-id: 15236570-1a75-42fb-9bba-0e2d7a59c9f6
 source-git-commit: 8552a62f4d6d80ba91543390bf0689d942b3a6f4
 workflow-type: tm+mt
-source-wordcount: '624'
+source-wordcount: '614'
 ht-degree: 1%
 
 ---
@@ -23,7 +23,7 @@ Mekanismen avgör det maximala antalet godkända anrop för varje slutpunkt för
 När det maximala antalet samtal har nåtts svarar vår tjänst med &quot;429 För många förfrågningar&quot;. 429-svarsrubriken&quot;Förfaller&quot; innehåller tidsstämpeln när nästa anrop anses vara giltigt eller när begränsningen upphör att gälla. Just nu upphör begränsningen efter en   från första 429 svaret.
 
 Följande slutpunkter har konfigurerats med begränsning:
-1. Skapa en ny session: POST /sessioner/{idp}/{subject}
+1. Skapa en ny session: POST /sessions/{idp}/{subject}
 2. Heartbeat-anrop: POST /sessions/{idp}/{subject}/{sessionId}
 3. Avsluta en session: DELETE /sessions/{idp}/{subject}/{sessionId}
 
@@ -48,10 +48,10 @@ Båda dessa begränsningar (begränsning av sessionsnivå och begränsning av an
 
 | Tid | Begär att få skicka till CM | Antal begäranden | Svar från CM | Förklaring |
 |-----------|------------------------------|--------------------|------------------------------------------------------------------------------|---------------------------------------------------------------------------------|
-| Andra 10 | POST /sessioner/idp1/subject1 | 50 | 50 samtal får&quot;202 Godkänt&quot; | 50 samtal har förbrukats från gränsen |
-| Andra 50 | POST /sessioner/idp1/subject1 | 151 | 150 samtal får&quot;202 Godkänt&quot; och 1 samtal får&quot;429 För många förfrågningar&quot; | 200 samtal tas bort från gränsen och 1 samtal får 429 svar |
-| Andra 61 | POST /sessioner/idp1/subject1 | 1 | 1 samtal tar emot&quot;429 För många förfrågningar&quot; | Inga samtal i gränsen är tillgängliga än |
-| Andra 70 | POST /sessioner/idp1/subject1 | 1 | 1 samtal får&quot;202 Godkänt&quot; | Begränsningen är inställd på 200 tillgängliga samtal eftersom 60 sekunder har gått sedan andra 10 |
+| Andra 10 | POST /sessions/idp1/subject1 | 50 | 50 samtal får&quot;202 Godkänt&quot; | 50 samtal har förbrukats från gränsen |
+| Andra 50 | POST /sessions/idp1/subject1 | 151 | 150 samtal får&quot;202 Godkänt&quot; och 1 samtal får&quot;429 För många förfrågningar&quot; | 200 samtal tas bort från gränsen och 1 samtal får 429 svar |
+| Andra 61 | POST /sessions/idp1/subject1 | 1 | 1 samtal tar emot&quot;429 För många förfrågningar&quot; | Inga samtal i gränsen är tillgängliga än |
+| Andra 70 | POST /sessions/idp1/subject1 | 1 | 1 samtal får&quot;202 Godkänt&quot; | Begränsningen är inställd på 200 tillgängliga samtal eftersom 60 sekunder har gått sedan andra 10 |
 
 **429 Exempel på svar:**
 

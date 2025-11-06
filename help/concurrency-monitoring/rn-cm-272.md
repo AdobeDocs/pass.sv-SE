@@ -1,6 +1,6 @@
 ---
-title: Versionsinformation om samtidighetsövervakning för Adobe 2.7.2
-description: Versionsinformation om samtidighetsövervakning för Adobe 2.7.2
+title: Versionsinformation om Adobe Concurrency Monitoring 2.7.2
+description: Versionsinformation om Adobe Concurrency Monitoring 2.7.2
 exl-id: b7850400-a3ae-4c26-aba9-ffbf68bc41f4
 source-git-commit: f30b6814b8a77424c13337d44d7b247105e0bfe2
 workflow-type: tm+mt
@@ -9,7 +9,7 @@ ht-degree: 4%
 
 ---
 
-# Versionsinformation om samtidighetsövervakning för Adobe 2.7.2 {#cm-272-rn}
+# Versionsinformation om Adobe Concurrency Monitoring 2.7.2 {#cm-272-rn}
 
 Den här sidan beskriver nya funktioner, ändringar och kända fel i den här versionen.
 

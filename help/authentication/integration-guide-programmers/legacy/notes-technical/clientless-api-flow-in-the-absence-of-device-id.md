@@ -43,7 +43,7 @@ När dessa steg är klara använder Adobe Pass Authentication UUID som enhets-ID
 
 ## Permanent lösning
 
-Adobe ändrar detta i en framtida version genom att göra `deviceId` till en valfri nyttolast när reg.koden skapas och använda UUID som tokennyckel i stället för `deviceId` när `deviceId` inte finns.
+Adobe kommer att ändra detta i en framtida version genom att göra `deviceId` till en valfri nyttolast när reg.koden skapas och använda UUID som tokennyckel i stället för `deviceId` när `deviceId` inte finns.
 
 <!--
 ## Related Information

@@ -4,7 +4,7 @@ description: Få åtkomst till Aktivera Android SDK enkel inloggning (SSO) i And
 exl-id: dedade15-c451-4757-b684-d3728e11dd87
 source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
 workflow-type: tm+mt
-source-wordcount: '402'
+source-wordcount: '401'
 ht-degree: 0%
 
 ---

@@ -43,7 +43,7 @@ Hämtar autentiseringstoken (AuthN).
 
 | Slutpunkt | Anropat </br>av | Indata   </br>Parametrar | HTTP </br>Metod | Svar | HTTP </br>Response |
 | --- | --- | --- | --- | --- | --- |
-| &lt;SP_FQDN>/api/v1/tokens/authn</br></br>Till exempel:</br></br>&lt;SP_FQDN>/api/v1/tokens/authn | Direktuppspelande app</br></br>eller</br></br>Programmeringtjänst | 1. beställare (obligatoriskt)</br>2.  deviceId (obligatoriskt)</br>3.  device_info/X-Device-Info (obligatoriskt)</br>4.  _deviceType_ (utgått)</br>5.  _deviceUser_ (utgått)</br>6.  _appId_ (inaktuellt) | GET | XML eller JSON som innehåller autentiseringsinformation eller felinformation om det misslyckas. | 200 - Klart.  </br>404 - Det gick inte att hitta token </br>410 - token har upphört att gälla |
+| &lt;SP_FQDN>/api/v1/tokens/authn</br></br>Till exempel:</br></br>&lt;SP_FQDN>/api/v1/tokens/authn | Direktuppspelande app</br></br>eller</br></br>Programmeringtjänst | &#x200B;1. beställare (obligatoriskt)</br>2.  deviceId (obligatoriskt)</br>3.  device_info/X-Device-Info (obligatoriskt)</br>4.  _deviceType_ (utgått)</br>5.  _deviceUser_ (utgått)</br>6.  _appId_ (inaktuellt) | GET | XML eller JSON som innehåller autentiseringsinformation eller felinformation om det misslyckas. | 200 - Klart.  </br>404 - Det gick inte att hitta token </br>410 - token har upphört att gälla |
 
 {style="table-layout:auto"}
 
@@ -52,7 +52,7 @@ Hämtar autentiseringstoken (AuthN).
 | --- | --- |
 | begärande | Programmerarens requestId som den här åtgärden är giltig för. |
 | deviceId | Byte för enhets-ID. |
-| device_info/</br></br>X-Device-Info | Information om direktuppspelningsenhet.</br></br>**Obs!**: Detta kan skickas som device_info som URL-parameter, men på grund av parameterns potentiella storlek och begränsningar i längden på en GET-URL, bör det skickas som X-Device-Info i http-huvudet. </br></br>Mer information finns i [Skicka information om enheter och anslutningar](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md). |
+| device_info/</br></br>X-Device-Info | Information om direktuppspelningsenhet.</br></br>**Obs!**: Detta kan skickas device_info som en URL-parameter, men på grund av parameterns potentiella storlek och begränsningar i längden på en GET-URL bör det skickas som X-Device-Info i http-huvudet. </br></br>Mer information finns i [Skicka information om enheter och anslutningar](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md). |
 | _deviceType_ | Enhetstypen (till exempel Roku, PC).</br></br>**Obs!**: device_info ersätter den här parametern. |
 | _deviceUser_ | Enhetens användaridentifierare.</br></br>**Obs!** Om det används ska deviceUser ha samma värden som i begäran [Skapa registreringskod](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/registration-code-request.md). |
 | _appId_ | Program-ID/namn. </br></br>**Obs!**: device_info ersätter den här parametern. Om det används ska `appId` ha samma värden som i begäran [Skapa registreringskod](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/registration-code-request.md). |

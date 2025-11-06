@@ -231,7 +231,7 @@ funktioner)**
 
 </br>
 
->**class Decision** {#decision}
+>**klassbeslut** {#decision}
 
 ```
     ///

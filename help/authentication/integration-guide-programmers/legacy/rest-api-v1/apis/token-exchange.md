@@ -9,7 +9,7 @@ ht-degree: 0%
 
 ---
 
-# (Äldre) Exchange a Platform SSO token for an Adobe token {#exchange-a-platform-sso-token-for-an-adobe-token}
+# (Äldre) Byt ut en plattformsoberoende SSO-token för en Adobe-token {#exchange-a-platform-sso-token-for-an-adobe-token}
 
 >[!NOTE]
 >
@@ -39,11 +39,11 @@ ht-degree: 0%
 
 ## Beskrivning {#description}
 
-Tillåter att en plattforms-SSO-profil&quot;utbyts&quot; för en Adobe-token.
+Tillåter att en plattforms-SSO-profil&quot;byts&quot; ut mot en Adobe-token.
 
 | Slutpunkt | Anropat </br>av | Indata   </br>Parametrar | HTTP </br>Metod | Svar | HTTP </br>Response |
 | --- | --- | --- | --- | --- | --- |
-| &lt;SP_FQDN>/api/v1/token/authn | Direktuppspelande app</br></br>eller</br></br>Programmeringtjänst | 1. beställare (obligatoriskt)</br>    </br>2.  deviceId (obligatoriskt)</br>    </br>3.  mvpd (obligatoriskt)</br>    </br>4.  deviceType (obligatoriskt)</br>    </br>5.  SAMLResponse (obligatoriskt)</br>    </br>6.  deviceUser (utgått)</br>    </br>7.  appId (utgått) | POST | Svaret blir 2004 No Content, vilket anger att token har skapats och är klar att användas för redigeringsflödena. | 204 - Inget innehåll   </br>400 - Ogiltig begäran |
+| &lt;SP_FQDN>/api/v1/token/authn | Direktuppspelande app</br></br>eller</br></br>Programmeringtjänst | &#x200B;1. beställare (obligatoriskt)</br>    </br>2.  deviceId (obligatoriskt)</br>    </br>3.  mvpd (obligatoriskt)</br>    </br>4.  deviceType (obligatoriskt)</br>    </br>5.  SAMLResponse (obligatoriskt)</br>    </br>6.  deviceUser (utgått)</br>    </br>7.  appId (utgått) | POST | Svaret blir 2004 No Content, vilket anger att token har skapats och är klar att användas för redigeringsflödena. | 204 - Inget innehåll   </br>400 - Ogiltig begäran |
 
 
 | Indataparameter | Beskrivning |

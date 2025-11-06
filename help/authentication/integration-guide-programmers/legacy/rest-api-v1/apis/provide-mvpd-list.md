@@ -4,7 +4,7 @@ description: Tillhandahåll MVPD List
 exl-id: db2d8f19-d0b9-4195-bf0b-f9de0d96062b
 source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
 workflow-type: tm+mt
-source-wordcount: '255'
+source-wordcount: '254'
 ht-degree: 1%
 
 ---
@@ -43,7 +43,7 @@ Returnerar en lista över konfigurerade MVPD-filer för den som gjorde begäran.
 
 | Slutpunkt | Anropat </br>av | Indata   </br>Parametrar | HTTP </br>Metod | Svar | HTTP </br>Response |
 | --- | --- | --- | --- | --- | --- |
-| &lt;SP_FQDN>/api/v1/config/{requestorId}</br></br>Till exempel:</br></br>&lt;SP_FQDN>/api/v1/config/sampleRequestorId | Adobe Pass-autentisering | 1. Begärande </br>    (Bankomponent)</br>_2.  deviceType (utgått)_ | GET | XML eller JSON som innehåller en lista över PDF-filer. | 200 |
+| &lt;SP_FQDN>/api/v1/config/{requestorId}</br></br>Till exempel:</br></br>&lt;SP_FQDN>/api/v1/config/sampleRequestorId | Adobe Pass-autentisering | &#x200B;1. Begärande </br>    (Bankomponent)</br>_2.  deviceType (utgått)_ | GET | XML eller JSON som innehåller en lista över PDF-filer. | 200 |
 
 {style="table-layout:auto"}
 

@@ -53,7 +53,7 @@ Värdet `Base64-encoded` för JSON-elementet som innehåller minst de attribut s
         <td></td>
         <td>primärHardwareType</td>
         <td>Enhetens primära maskinvarutyp.</td>
-        <td>&check;</td>
+        <td>&amp;check;</td>
         <td>
             Värdena är begränsade:
             <ul>
@@ -110,7 +110,7 @@ Värdet `Base64-encoded` för JSON-elementet som innehåller minst de attribut s
         <td><i>obligatoriskt</i></td>
         <td>osName</td>
         <td>Enhetens operativsystemnamn.</td>
-        <td>&check;</td>
+        <td>&amp;check;</td>
         <td>
             Värdena är begränsade:
             <ul>
@@ -132,7 +132,7 @@ Värdet `Base64-encoded` för JSON-elementet som innehåller minst de attribut s
         <td></td>
         <td>osFamily</td>
         <td>Enhetens operativsystemsgruppnamn.</td>
-        <td>&check;</td>
+        <td>&amp;check;</td>
         <td>
             Värdena är begränsade:
             <ul>
@@ -155,7 +155,7 @@ Värdet `Base64-encoded` för JSON-elementet som innehåller minst de attribut s
         <td></td>
         <td>osVendor</td>
         <td>Enhetens operativsystemsleverantör.</td>
-        <td>&check;</td>
+        <td>&amp;check;</td>
         <td>
             Värdena är begränsade:
             <ul>
@@ -185,7 +185,7 @@ Värdet `Base64-encoded` för JSON-elementet som innehåller minst de attribut s
         <td></td>
         <td>browserName</td>
         <td>Webbläsarens namn.</td>
-        <td>&check;</td>
+        <td>&amp;check;</td>
         <td>
             Värdena är begränsade:
             <ul>
@@ -205,7 +205,7 @@ Värdet `Base64-encoded` för JSON-elementet som innehåller minst de attribut s
         <td></td>
         <td>browserVendor</td>
         <td>Webbläsarens byggföretag/organisation.</td>
-        <td>&check;</td>
+        <td>&amp;check;</td>
         <td>
             Värdena är begränsade:
             <ul>
@@ -290,7 +290,7 @@ Värdet `Base64-encoded` för JSON-elementet som innehåller minst de attribut s
         <td></td>
         <td>connectionSecure</td>
         <td>Säkerhetsstatus för nätverksanslutning.</td>
-        <td>&check;</td>
+        <td>&amp;check;</td>
         <td>
             Värdena är begränsade:
             <ul>
@@ -339,7 +339,7 @@ X-Device-Info: ewogICJwcmltYXJ5SGFyZHdhcmVUeXBlIiA6ICJNb2JpbGVQaG9uZSIsCiAgIm1vZ
 > 
 > Kodfragmenten är inte fullständiga och kan kräva ytterligare ändringar för att fungera i ditt projekt.
 >
-> Oavsett vilken implementering du har måste rubriken `X-Device-Info` innehålla ett värde som är formaterat enligt beskrivningen i avsnittet [&#x200B; Direktiv &#x200B;](#directives) .
+> Oavsett vilken implementering du har måste rubriken `X-Device-Info` innehålla ett värde som är formaterat enligt beskrivningen i avsnittet [ Direktiv ](#directives) .
 
 ### Webbläsare {#browsers}
 

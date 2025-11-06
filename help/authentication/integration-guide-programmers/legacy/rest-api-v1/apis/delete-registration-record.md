@@ -4,7 +4,7 @@ description: Ta bort registreringspost
 exl-id: 42707070-2e1f-4847-93fd-30025aef56c1
 source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
 workflow-type: tm+mt
-source-wordcount: '176'
+source-wordcount: '174'
 ht-degree: 0%
 
 ---
@@ -44,7 +44,7 @@ Tar bort reg.kodposten och släpper reg.koden för återanvändning.
 
 | Slutpunkt | Anropat </br>av | Indata   </br>Parametrar | HTTP </br>Metod | Svar | HTTP </br>Response |
 | --- | --- | --- | --- | --- | --- |
-| &lt;REGGIE_FQDN>/reggie/v1/{requestorId}/regcode/{registrationCode}</br></br>Till exempel:</br></br>&lt;REGGIE_FQDN>/reggie/v1/regcode/ER45RTY | Direktuppspelande app</br></br>eller</br></br>Programmeringtjänst | 1. Begärande-ID </br>    (Bankomponent)</br>2.  Registreringskod </br>    (Bankomponent) | DELETE | Ingen | 204 |
+| &lt;REGGIE_FQDN>/reggie/v1/{requestorId}/regcode/{registrationCode}</br></br>Till exempel:</br></br>&lt;REGGIE_FQDN>/reggie/v1/regcode/ER45RTY | Direktuppspelande app</br></br>eller</br></br>Programmeringtjänst | &#x200B;1. Begärande-ID </br>    (Bankomponent)</br>2.  Registreringskod </br>    (Bankomponent) | DELETE | Ingen | 204 |
 
 {style="table-layout:auto"}
 

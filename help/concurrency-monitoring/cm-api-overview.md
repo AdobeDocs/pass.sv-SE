@@ -15,7 +15,7 @@ Mer information finns i [online-API-dokumentationen](http://docs.adobeptime.io/c
 
 ## Syfte och krav {#purpose-prerequisites}
 
-Det här dokumentet hjälper programutvecklare att använda specifikationen för Swagger API när de implementerar en integrering med Concurrency Monitoring. Vi rekommenderar starkt att läsaren har en tidigare förståelse för de begrepp som definieras av tjänsten innan han/hon följer denna riktlinje. För att förstå detta måste du ha en översikt över [produktdokumentationen](/help/concurrency-monitoring/cm-home.md) och [API-specifikationen för &#x200B;](http://docs.adobeptime.io/cm-api-v2/) Swagger.
+Det här dokumentet hjälper programutvecklare att använda specifikationen för Swagger API när de implementerar en integrering med Concurrency Monitoring. Vi rekommenderar starkt att läsaren har en tidigare förståelse för de begrepp som definieras av tjänsten innan han/hon följer denna riktlinje. För att förstå detta måste du ha en översikt över [produktdokumentationen](/help/concurrency-monitoring/cm-home.md) och [API-specifikationen för ](http://docs.adobeptime.io/cm-api-v2/) Swagger.
 
 
 ## Introduktion {#api-overview-intro}
@@ -60,7 +60,7 @@ Initieringsanropet för sessionen utförs av ett program efter att all nödvänd
 
 Ingen avslutningskod behöver anges för det första samtalet eftersom vi inte har några andra aktiva strömmar. Och inget metadataattribut eftersom inget returnerades från anropet Hämta metadata.
 
-Parametrarna **subject** och **idp** är obligatoriska. De anges som URI-sökvägsvariabler. Du kan hämta parametrarna **subject** och **idp** genom att anropa metadatafälten **mvpd** och **upstreamUserID** från Adobe Pass Authentication. Se även [översikten över metadata-API:er](https://experienceleague.adobe.com/docs/primetime/authentication/auth-features/user-metadat/user-metadata-feature.html?lang=sv-SE#). I det här exemplet anger vi värdet&quot;12345&quot; som ämne och&quot;adobe&quot; som idp.
+Parametrarna **subject** och **idp** är obligatoriska. De anges som URI-sökvägsvariabler. Du kan hämta parametrarna **subject** och **idp** genom att anropa metadatafälten **mvpd** och **upstreamUserID** från Adobe Pass Authentication. Se även [översikten över metadata-API:er](https://experienceleague.adobe.com/docs/primetime/authentication/auth-features/user-metadat/user-metadata-feature.html?lang=en#). I det här exemplet anger vi värdet&quot;12345&quot; som ämne och&quot;adobe&quot; som idp.
 
 
 ![](assets/session-init-params-frstapp.png)

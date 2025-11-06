@@ -4,7 +4,7 @@ description: Stöd för SFSafariViewController i iOS SDK 3.2+
 exl-id: 6691550f-c36f-4fae-aa77-082ca7d8a60a
 source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
 workflow-type: tm+mt
-source-wordcount: '436'
+source-wordcount: '432'
 ht-degree: 0%
 
 ---
@@ -39,7 +39,7 @@ I sådana fall ger version 3.2 programmeraren möjlighet att hantera SVC manuell
 För att manuellt kunna hantera SVC måste implementeraren utföra följande steg:
 
 
-1. anropa **setOptions([&quot;handleSVC&quot;:true])** efter initiering av AccessEnabler (kontrollera att anropet utförs innan autentiseringen börjar). Detta möjliggör&quot;manuell&quot; SVC-hantering och SDK presenterar inte automatiskt SVC, utan kommer vid behov att     anropa **navigate(toUrl:*{url}* useSVC:true)**.
+1. anropa **setOptions([&quot;handleSVC&quot;:true])** efter initieringen av AccessEnabler (kontrollera att anropet utförs innan autentiseringen börjar). Detta möjliggör&quot;manuell&quot; SVC-hantering och SDK presenterar inte automatiskt SVC, utan kommer vid behov att     anropa **navigate(toUrl:*{url}* useSVC:true)**.
 
 1. implementera det valfria återanropet **`navigateToUrl:useSVC:`** i implementeringen måste du skapa en svc-instans med SFSafariViewController-instansen med den angivna url:en och visa den på skärmen:
 
@@ -54,7 +54,7 @@ För att manuellt kunna hantera SVC måste implementeraren utföra följande ste
    ***Anteckningar:***
 
    - *Du kan anpassa SFSafariViewController precis som du vill. På iOS 11+ kan du till exempel ändra etiketten Klar till Avbryt.*
-   - *Om du vill kunna avvisa SVC:n behöver du en referens till den. Skapa den inte inom omfånget **navigateToUrl:useSVC***
+   - *Om du vill kunna avvisa SVC:n måste du ha en referens till den. Skapa den inte inom omfånget **navigateToUrl:useSVC***
    - *använd din egen vykontroll för &quot;myController&quot;*
 
 

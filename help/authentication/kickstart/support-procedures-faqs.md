@@ -27,7 +27,7 @@ Exempel på incidenter av typen SEVERITY 1
 
 * Under autentiseringsprocessen omdirigeras användaren inte till inloggningssidan när användaren har valt MVPD i en webbläsare som stöds.
 
-* Under autentiseringsprocessen fastnar användaren på en felsida i Adobe utan möjlighet att återinitiera autentiseringsflödet.
+* Under autentiseringsprocessen fastnar användaren på en Adobe-felsida utan möjlighet att återinitiera autentiseringsflödet.
 
 * Partnern får ett antal rapporter om att användare inte kan autentisera eller auktorisera med en viss MVPD.
 
@@ -35,7 +35,7 @@ Exempel på incidenter av typen SEVERITY 1
 
 ### Vad är en incident på nivå 1 utan ALLVARLIGHET?
 
-Adobe kommer att stödja utredningar av dessa frågor, men de betraktas inte som incidenter på nivå 1 av ALLVARLIGHET:
+Adobe kommer att stödja utredningar av dessa problem, men de betraktas inte som incidenter på nivå 1 av ALLVARLIGHET:
 
 * En eller ett fåtal prenumeranter kan inte autentisera sig och finns kvar på MVPD inloggningssida.
 
@@ -45,11 +45,11 @@ Adobe kommer att stödja utredningar av dessa frågor, men de betraktas inte som
 
 ### Hur hanteras incidenter på nivå 1 av SEVERITY?
 
-Incidenter på nivå SEVERITY 1 kan initieras av Adobe eller en Adobe Pass-autentiseringspartner. Stegen för varje steg beskrivs nedan.
+Incidenter på nivå SEVERITY 1 kan initieras av antingen Adobe eller en Adobe Pass Authentication-partner. Stegen för varje steg beskrivs nedan.
 
 **Partnerinitierat flöde**
 
-1. Partnern identifierar en incident på Allvarlighetsgrad 1-nivå som kräver omedelbar åtgärd från Adobe.
+1. Partnern identifierar en incident på Allvarlighetsgrad 1-nivå som kräver Adobe omedelbar åtgärd.
 
 1. Partnern skickar ett e-postmeddelande till **tve-support@adobe.com** inklusive **URGENT - INCIDENT** i ämnesraden och lägger till följande information:
    * Titel
@@ -73,19 +73,19 @@ För ett Adobe Pass-autentiseringsproblem:
 
 1. Adobe identifierar ett internt problem och öppnar en biljett i vårt spårningssystem.
 
-1. Adobe meddelar sin programansvarige och tekniska kontakt, med angivande av biljettnumret och den beräknade effekten av ärendet.
+1. Adobe meddelar partnerns programledare och tekniska kontaktperson och anger biljettnumret och den beräknade effekten av problemet.
 
 1. Adobe arbetar för att lösa incidenten och håller alla berörda parter informerade.
 
 För ett partnerproblem (Programmer/MVPD):
 
-1. Adobe identifierar ett problem som är relaterat till integrationen med en MVPD eller på någon av Programmerarens webbplatser.
+1. Adobe identifierar ett problem som är relaterat till integrationen med en MVPD eller någon av Programmerarens webbplatser.
 
 1. Adobe meddelar den berörda partnern efter de supportförfaranden som gäller för den partnern och öppnar en biljett till partnerns supportorganisation.
 
-1. Om Adobe under konsekvensanalysen konstaterar att problemet omfattas av ett av de på förhand överenskomna besluten om incidentscenarier, kommer det att agera i enlighet med detta utan att invänta partnerns synpunkter.
+1. Om Adobe under konsekvensanalysen identifierar att problemet omfattas av ett av de på förhand överenskomna besluten om incidentscenarier, kommer att agera därefter utan att vänta på partnerns synpunkter.
 
-1. Adobe väntar på uppdateringar från partnern och ett meddelande visas när tjänsten har återställts.
+1. Adobe väntar på uppdateringar från partnern och meddelar när tjänsten har återställts.
 
 ### Vad är i förväg överenskomna beslut om incidentscenarier?
 
@@ -93,6 +93,6 @@ Vissa situationer med standardåtgärder som utförs om scenariot inträffar:
 
 |    | Scenario | Beskrivning | Åtgärder |
 |----|--------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| S1 | Adobe identifierar ett problem med MVPD integrering under normala produktionsåtgärder. | Under normala produktionsåtgärder identifierar Adobe ett problem med en av de alternativa dokumentationsdokumenten som gör det omöjligt att utföra autentiserings-/auktoriseringsflödena (t.ex. utgångna certifikat, utgångna SAML-svar, stängda portar, ändrade parametrar) | Adobe ska underrätta de berörda MVPD- och Programmerarna.  </br></br> Adobe inaktiverar denna MVPD för alla berörda programmerare. </br></br> Adobe öppnar en biljett med MVPD enligt det överenskomna supportförfarandet med den MVPD |
-| S2 | Adobe aktiverar en ny MVPD for a Programmer och Programmer tillåter MVPD före startdatumet. | Adobe aktiverar en ny MVPD för en programmerares webbplats, och webbplatsen visar redan den nya MVPD i väljaren, även om det inte var meningen. | Adobe kommer att meddela Programmeraren om att nya MVPD visas i väljaren före det schemalagda datumet. </br></br>-programmeraren kommer att vidta åtgärder för att ta bort den från väljaren om det behövs. |
+| S1 | Adobe identifierar ett problem med MVPD integrering under normala produktionsåtgärder. | Under normala produktionsåtgärder identifierar Adobe ett problem med en av de alternativa dokumentationsdokumenten som gör det omöjligt att utföra autentiserings-/auktoriseringsflödena (t.ex. utgångna certifikat, utgångna SAML-svar, stängda portar, ändrade parametrar) | Adobe kommer att meddela de berörda MVPD- och Programmerarna.  </br></br> Adobe inaktiverar denna MVPD för alla berörda programmerare. </br></br> Adobe öppnar en biljett med MVPD enligt det överenskomna supportförfarandet med den MVPD |
+| S2 | Adobe aktiverar en ny MVPD for a Programmer och Programmer tillåter MVPD före startdatumet. | Adobe aktiverar en ny MVPD för en programmerare och webbplatsen visar redan den nya MVPD-appen i väljaren, även om det inte var meningen. | Adobe meddelar Programmeraren om att den nya MVPD-versionen visas i väljaren före det schemalagda datumet. </br></br>-programmeraren kommer att vidta åtgärder för att ta bort den från väljaren om det behövs. |
 | S3 | Adobe aktiverar en ny MVPD for a Programmer även om MVPD inte är redo att börja producera | Adobe aktiverar en ny MVPD for a Programmer, men MVPD har ännu inte distribuerat stödet för integreringen så autentiserings-/auktoriseringsflödena kan inte utföras | Adobe utför distributionen endast om programmeraren </br></br> begär det. Programmeraren ansvarar för att MVPD tillstånd säkerställs när alla tester har utförts. |

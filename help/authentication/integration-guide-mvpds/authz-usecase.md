@@ -1,6 +1,6 @@
 ---
-title: MVPD-auktorisering
-description: MVPD-auktorisering
+title: MVPD Authorization
+description: MVPD Authorization
 exl-id: 215780e4-12b6-4ba6-8377-4d21b63b6975
 source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
 workflow-type: tm+mt
@@ -9,7 +9,7 @@ ht-degree: 0%
 
 ---
 
-# MVPD-auktorisering
+# MVPD Authorization
 
 >[!NOTE]
 >
@@ -17,15 +17,15 @@ ht-degree: 0%
 
 ## Ökning {#mvpd-authz-overview}
 
-Auktorisering (AuthZ) utförs via bakåtkanalskommunikation (server-till-server) mellan en serverdelsserver som är värd för Adobe och MVPD AuthZ-slutpunkten.
+Auktorisering (AuthZ) utförs via bakkanalskommunikation (server-till-server) mellan en Adobe-värdserver och MVPD AuthZ-slutpunkten.
 
 För AuthZ-begäranden ska åtkomstslutpunkten kunna behandla minst följande parametrar:
 
 * **Uid**. Det användar-ID som togs emot från autentiseringssteget.
 
-* **Resurs-ID**. En sträng som identifierar en viss innehållsresurs. Resurs-ID anges av Programmeraren och MVPD måste förstärka affärsreglerna för dessa resurser (t.ex. genom att kontrollera att användaren prenumererar på en viss kanal).
+* **Resurs-ID**. En sträng som identifierar en viss innehållsresurs. Detta resurs-ID anges av Programmeraren och MVPD måste förstärka affärsreglerna för dessa resurser (t.ex. genom att kontrollera att användaren prenumererar på en viss kanal).
 
-Förutom att avgöra om användaren är behörig måste svaret innehålla en TTL-gräns (time-to-live) för auktorisationen, det vill säga när auktorisationen upphör att gälla. Om TTL inte anges misslyckas AuthZ-begäran.  Därför är **TTL en obligatorisk konfigurationsinställning på sidan för Adobe Pass-autentisering**, för att täcka fallet när en MVPD inte inkluderar TTL i sin begäran.
+Förutom att avgöra om användaren är behörig måste svaret innehålla en TTL-gräns (time-to-live) för auktorisationen, det vill säga när auktorisationen upphör att gälla. Om TTL inte anges misslyckas AuthZ-begäran.  Därför är **TTL-värdet en obligatorisk konfigurationsinställning på Adobe Pass-autentiseringssidan**, för att täcka fallet när en MVPD inte inkluderar TTL-värdet i sin begäran.
 
 ## Begäran om auktorisering {#authz-req}
 
@@ -40,7 +40,7 @@ En AuthZ-begäran måste innehålla ett ämne för vars räkning begäran görs,
 
 
 
-SP:n måste förbereda en XACML Authorization DecisionQuery och skicka den (via HTTP-POST) till (tidigare överenskomna) Policy Decision Point (PDP) för IdP:n. Nedan visas ett exempel på en enkel XACML-begäran (se XACML-kärnspecifikation):
+SP:n måste förbereda en XACML Authorization DecisionQuery och skicka den (via HTTP POST) till (tidigare överenskomna) Policy Decision Point (PDP) för IdP:n. Nedan visas ett exempel på en enkel XACML-begäran (se XACML-kärnspecifikation):
 
 ```XML
 POST https://authz.site.com/XACML_endpoint
@@ -80,11 +80,11 @@ http://docs.oasis-open.org/xacml/access_control-xacml-2.0-context-schema-os.xsd"
 ```
 
 
-När AuthZ-begäran har tagits emot utvärderar MVPD-filens PDP begäran och avgör om ämnet ska kunna utföra den begärda åtgärden på resursen. MVPD returnerar sedan ett svar med ett beslut, en statuskod och ett meddelande enligt beskrivningen i behörighetssvaret nedan.
+När AuthZ-begäran har tagits emot utvärderar MVPD PDP begäran och avgör om ämnet ska kunna utföra den begärda åtgärden på resursen. MVPD returnerar sedan ett svar med ett beslut, en statuskod och ett meddelande enligt beskrivningen i Autentiseringssvaret nedan.
 
 ## Auktoriseringssvaret {#authz-response}
 
-Svaret på AuthZ-begäran kommer efter det att MVPD utvärderat begäran och tillämpar de begärda affärsreglerna för att avgöra om ämnet får utföra den begärda åtgärden på resursen. Det returnerade svaret på Adobe Pass-autentiseringen uttrycks igen efter XACML-kärnspecifikationen med ett beslut, en statuskod, ett meddelande och de skyldigheter som SP har som PEP (Policy Enforcement Point). Här följer ett exempel på svar:
+Svaret på AuthZ-begäran kommer efter att MVPD utvärderat begäran och tillämpar de begärda affärsreglerna för att avgöra om ämnet har rätt att utföra den begärda åtgärden på resursen. Det returnerade svaret på Adobe Pass-autentiseringen uttrycks igen efter XACML-kärnspecifikationen med ett beslut, en statuskod, ett meddelande och de skyldigheter som SP har som PEP (Policy Enforcement Point). Här följer ett exempel på svar:
 
 ```XML
 <Response xmlns="urn:oasis:names:tc:xacml:2.0:context:schema:os">

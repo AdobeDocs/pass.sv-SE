@@ -22,7 +22,7 @@ ht-degree: 0%
 Adobe Pass Authentication har för närvarande stöd för Preflight Authorization på två sätt för MVPD, antingen via AuthN-svarsattribut eller via en AuthZ-begäran i flera kanaler.  I följande scenarier beskrivs kostnaden/nyttan av olika sätt att implementera preflight-auktorisering:
 
 * **Best Case Scenario** - MVPD tillhandahåller en lista över förauktoriserade resurser under auktoriseringsfasen (Multi-channel AuthZ).
-* **Sämsta scenariot** - Om en MVPD inte har stöd för någon form av auktorisering med flera resurser, utför Adobe Pass autentiseringsserver ett auktoriseringsanrop till MVPD för varje resurs i resurslistan. Det här scenariot påverkar svarstiden för preflight-auktoriseringsbegäran (i förhållande till antalet resurser). Det kan öka belastningen på både Adobe- och MVPD-servrar vilket kan orsaka prestandaproblem. Dessutom genereras auktoriseringsförfrågningar/svarshändelser utan behov av en uppspelning.
+* **Sämsta scenariot** - Om en MVPD inte har stöd för någon form av auktorisering med flera resurser, utför Adobe Pass autentiseringsserver ett auktoriseringsanrop till MVPD för varje resurs i resurslistan. Det här scenariot påverkar svarstiden för preflight-auktoriseringsbegäran (i förhållande till antalet resurser). Det kan öka belastningen på både Adobe- och MVPD-servrar och orsaka prestandaproblem. Dessutom genereras auktoriseringsförfrågningar/svarshändelser utan behov av en uppspelning.
 * **Föråldrat** - MVPD tillhandahåller en lista med förauktoriserade resurser under autentiseringsfasen, så det behövs inga nätverksanrop, inte ens preflight-begäran, eftersom listan cachelagras på klienten.
 
 Även om programmeringsgränssnitten inte behöver stödja preflight-auktorisering, beskriver följande avsnitt några metoder för preflight-auktorisering som Adobe Pass Authentication kan stödja, innan de återgår till det värsta scenariot ovan.
@@ -117,7 +117,7 @@ Adobe Pass Authentication tar emot listan över resurser från programmerarens p
 
 Vissa MVPD-filer har auktoriseringsslutpunkter som stöder auktorisering för flera resurser i en begäran, men de omfattas inte av scenariot som beskrivs i AuthZ för flera kanaler. Dessa specifika PDF-filer kräver anpassat arbete.
 
-Adobe kan även stödja flerkanalsauktorisering utan ändringar i den befintliga implementeringen.  Detta tillvägagångssätt måste ses över mellan Adobe och MVPD tekniska team för att se till att det fungerar som förväntat.
+Adobe kan också ge stöd för flerkanalsauktorisering utan ändringar i den befintliga implementeringen.  Detta tillvägagångssätt måste granskas av Adobe och MVPD tekniska team för att säkerställa att det fungerar som förväntat.
 
 ## MVPD-filer som stöder Preflight-auktorisering {#mvpds-supp-preflight-authz}
 

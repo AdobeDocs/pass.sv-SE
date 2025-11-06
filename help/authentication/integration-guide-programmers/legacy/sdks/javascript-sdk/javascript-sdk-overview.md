@@ -23,7 +23,7 @@ ht-degree: 0%
 
 Adobe rekommenderar att du migrerar till den senaste JS v4.x-versionen av AccessEnabler-biblioteket.
 
-Integrationen med Adobe Pass Authentication JavaScript ger programmerare en TV-Everywhere-lösning i den välbekanta utvecklingsmiljön för JS-webbapplikationer. De viktigaste komponenterna i integreringen är ditt högnivåprogram (användarinteraktion, videopresentation) och det lågnivåbibliotek för AccessEnabler som tillhandahålls av Adobe som ger dig tillgång till tillståndsflödena och hanterar kommunikationen med Adobe Pass autentiseringsservrar.
+Integrationen med Adobe Pass Authentication JavaScript ger programmerare en TV-Everywhere-lösning i den välbekanta utvecklingsmiljön för JS-webbapplikationer. De viktigaste komponenterna i integreringen är ditt högnivåprogram (användarinteraktion, videopresentation) och det lågnivåbibliotek för AccessEnabler som Adobe tillhandahåller som ger dig tillgång till tillståndsflödena samt hanterar kommunikationen med Adobe Pass autentiseringsservrar.
 
 I följande avsnitt finns beskrivningar och exempel som är specifika för integreringen av JavaScript AccessEnabler.
 
@@ -55,7 +55,7 @@ I följande kodexempel visas hur du identifierar och visar tjänsteleverantören
     </head>
     <body>
         <div id="alternative">
-        <a href="http://www.adobe.com/go/getflashplayer_se"> 
+        <a href="http://www.adobe.com/go/getflashplayer"> 
             <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" 
                  alt="Get Adobe Flash player"/> </a>
         </div> 

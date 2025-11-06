@@ -4,7 +4,7 @@ description: Migrera inloggningssidan för MVPD från iFrame till Popup
 exl-id: 389ea0ea-4e18-4c2e-a527-c84bffd808b4
 source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
 workflow-type: tm+mt
-source-wordcount: '709'
+source-wordcount: '708'
 ht-degree: 0%
 
 ---
@@ -183,7 +183,7 @@ function displayProviderDialog(providers) {
 }
 ```
 
-När användaren har valt en MVPD i väljaren måste popup-fönstret skapas. Vissa webbläsare kan blockera popup-fönstret om det skapas med about:blank eller med en sida som finns i en annan domän. Därför bör du öppna det med värdnamnet som AccessEnabler läses in från.
+När användaren har valt en MVPD i väljaren måste popup-fönstret skapas. Vissa webbläsare kan blockera popup-fönstret om det har skapats med cirka :blank eller med en sida som finns i en annan domän. Därför bör du öppna det med värdnamnet som AccessEnabler läses in från.
 
 I iFrame-implementeringen återställs autentiseringsflödet av btnCloseIframe-knappen och JavaScript-funktionen closeIframeAction(), men nu går det inte längre att dekorera iFrame. Så samma beteende uppnås genom att man tittar efter när popup-fönstret stängs (antingen av användaren eller genom att autentiseringsflödet slutförs). Ett kodfragment har lagts till som också är användbart om användaren förlorar fokus i popup-fönstret:
 

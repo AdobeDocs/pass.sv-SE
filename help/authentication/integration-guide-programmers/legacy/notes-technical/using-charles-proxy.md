@@ -97,7 +97,7 @@ Med kartfjärrkontrollen kan du dirigera om en inkommande begäran till en annan
 
 ## Mobil {#mobile}
 
-### Använd Charles på en iOS-enhet (iPhone/iPad) {#use-charles-on-an-ios-device-(iphone-/-ipad)}
+### Använda Charles på en iOS-enhet (iPhone/iPad) {#use-charles-on-an-ios-device-(iphone-/-ipad)}
 
 #### SSL-anslutning från iPhone {#ssl-connection-from-iphone}
 

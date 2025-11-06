@@ -4,7 +4,7 @@ description: Apple SSO Cookbook (iOS/tvOS SDK)
 exl-id: 2d59cd33-ccfd-41a8-9697-1ace3165bc44
 source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
 workflow-type: tm+mt
-source-wordcount: '1834'
+source-wordcount: '1832'
 ht-degree: 0%
 
 ---
@@ -106,14 +106,14 @@ För att dra nytta av Apple SSO-användarupplevelse måste programmet integrera 
    * ***VSA404*** - Användarens TV-leverantörsbehörighet är inte definierad för programmet.
    * ***APPL*** - Ett fel uppstod i kommunikationen mellan AccessEnabler iOS/tvOS SDK och Video Subscriber Account Framework.
 
-   Det andra steget skulle försöka att tyst byta ut Apple SSO-profilen mot en Adobe-autentiseringstoken, om **alla ovanstående är falska** och **alla följande är sanna**:
+   Det andra steget skulle försöka att tyst byta ut Apple SSO-profilen mot en Adobe-autentiseringstoken om **alla ovanstående är falska** och **alla följande är sanna**:
 
    * Användarens TV-leverantörsbehörighet beviljas för programmet.
    * Användaren är inloggad på sitt TV-leverantörskonto på enhetssystemnivå.
    * AccessEnabler iOS/tvOS SDK tog emot användarens TV-leverantörs-ID från Video Subscriber Account Framework.
-   * Användarens TV-leverantörsintegrering med programmet aktiveras via Adobe Primetime TVE Dashboard.
-   * Användarens TV-leverantör enkel inloggning med programmet aktiveras via Adobe Primetime TV-instrumentpanelen.
-   * Användarens TV-leverantör fungerar inte på Adobe Primetime TV Dashboard.
+   * Användarens TV-leverantörsintegrering med programmet aktiveras via Adobe Primetimes TVE Dashboard.
+   * Användarens TV-leverantör enkel inloggning med programmet aktiveras via Adobe Primetimes TV-instrumentpanel.
+   * Användarens TV-leverantör fungerar inte på samma sätt som Adobe Primetime TVE Dashboard.
    * AccessEnabler iOS/tvOS SDK tog emot användarens SAML-svar från Video Subscriber Account Framework.
 
    **<u>Pro Tip:</u>** Det andra steget utlöser inga andra återanrop förutom återanropet [setRequestorComplete](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#setrequestorcomplete-setreqcomplete) eftersom autentiseringen inte initierades explicit av programmet.
@@ -138,8 +138,8 @@ ett fel uppstod i ramverket.
 
    * Användaren är inte inloggad på sitt TV-leverantörskonto på enhetssystemnivå eller via ett regelbundet autentiseringsflöde.
    * Användaren är inloggad på sitt TV-leverantörskonto på enhetssystemnivå eller via det reguljära autentiseringsflödet, men användarens TV-leverantörs autentiseringstoken TTL har passerat.
-   * Användaren är inloggad på sitt TV-leverantörskonto på enhetssystemnivå eller via ett regelbundet autentiseringsflöde, men användarens TV-leverantörsintegrering med programmet inaktiveras via Adobe Primetime TV-instrumentpanel.
-   * Användaren är inloggad på sitt TV-leverantörskonto på enhetssystemnivå, men användarens TV-leverantör enkel inloggning med programmet är inaktiverad via Adobe Primetime TV Dashboard.
+   * Användaren är inloggad på sitt TV-leverantörskonto på enhetssystemnivå eller via det reguljära autentiseringsflödet, men användarens TV-leverantörsintegrering med programmet inaktiveras via Adobe Primetime TVE Dashboard.
+   * Användaren är inloggad på sitt TV-leverantörskonto på enhetssystemnivå, men användarens TV-leverantör enkel inloggning med programmet är inaktiverad via Adobe Primetime TVE Dashboard.
    * Användaren är inloggad på sitt TV-leverantörskonto på enhetssystemnivå, men användarens TV-leverantörsbehörighet nekas för programmet.
    * Användaren är inloggad på sitt TV-leverantörskonto på enhetssystemnivå, men användarens TV-leverantörsbehörighet är inte fastställd för programmet.
    * Användaren är inloggad på sitt TV-leverantörskonto på enhetssystemnivå, men ett fel uppstod i kommunikationen mellan AccessEnabler iOS/tvOS SDK och Video Subscriber Account Framework.
@@ -162,7 +162,7 @@ ett fel uppstod i ramverket.
 
    **Viktigt!** Det här fjärde steget återgår till det reguljära autentiseringsflödet genom att utlösa callback-funktionen [displayProviderDialog](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#dispProvDialog) och **en** av de [avancerade felkoderna](/help/authentication/integration-guide-programmers/legacy/error-reporting/error-reporting.md) ovan, om **en av de ovanstående är true**.
 
-   **Viktigt!** Det här fjärde steget återgår till det reguljära autentiseringsflödet genom att utlösa callback-funktionen [navigateToUrl](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#nav2url) eller [navigateToUrl:useSVC](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#nav2urlSVC) och **none** i de [avancerade felkoderna](/help/authentication/integration-guide-programmers/legacy/error-reporting/error-reporting.md) om användaren har valt en TV-leverantör som inte stöder Apple SSO, men som finns i Apple MVPD-väljaren.
+   **Viktigt!** Det här fjärde steget återgår till det reguljära autentiseringsflödet genom att utlösa callback-funktionen [navigateToUrl](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#nav2url) eller [navigateToUrl:useSVC](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#nav2urlSVC) och **none** för de [avancerade felkoderna](/help/authentication/integration-guide-programmers/legacy/error-reporting/error-reporting.md) ovan, om användaren har valt en TV-leverantör som inte stöder Apple SSO, men som finns i Apple MVPD-väljaren er.
 
    **<u>Pro Tips:</u>** AccessEnabler iOS/tvOS SDK anropar i tysthet [setSelectedProvider](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#setSelProv) -API:t om användaren väljer en TV-leverantör som inte stöder Apple SSO, men som finns i Apple MVPD-väljaren.
 
@@ -171,9 +171,9 @@ ett fel uppstod i ramverket.
    * Användarens TV-leverantörsbehörighet beviljas för programmet.
    * Användaren är inloggad/loggar för närvarande in på sitt TV-leverantörskonto på enhetssystemnivå.
    * AccessEnabler iOS/tvOS SDK tog emot användarens TV-leverantörs-ID från Video Subscriber Account Framework.
-   * Användarens TV-leverantörsintegrering med programmet aktiveras via Adobe Primetime TVE Dashboard.
-   * Användarens TV-leverantör enkel inloggning med programmet aktiveras via Adobe Primetime TV-instrumentpanelen.
-   * Användarens TV-leverantör fungerar inte på Adobe Primetime TV Dashboard.
+   * Användarens TV-leverantörsintegrering med programmet aktiveras via Adobe Primetimes TVE Dashboard.
+   * Användarens TV-leverantör enkel inloggning med programmet aktiveras via Adobe Primetimes TV-instrumentpanel.
+   * Användarens TV-leverantör fungerar inte på samma sätt som Adobe Primetime TVE Dashboard.
    * AccessEnabler iOS/tvOS SDK tog emot användarens SAML-svar från Video Subscriber Account Framework.
 
    **<u>Pro Tip:</u>** Det här fjärde steget utlöser callback-funktionen [*setAuthenticationStatus*](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-sdk-api-reference.md#setAuthNStatus), oavsett resultatet av *status*, eftersom autentiseringen initierades explicit av programmet.

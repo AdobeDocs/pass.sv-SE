@@ -27,14 +27,14 @@ På programmerarsidan har Adobe Pass Authentication stöd för strukturerade MRS
    * objekttitel
    * resursidentifierare
    * Värderingsvärde och typ
-1. De värden som extraheras från MRSS används för att skapa den auktoriseringsbegäran som skickas till MVPD.
+1. De värden som extraheras från MRSS används för att skapa auktoriseringsbegäran som skickas till MVPD.
 
 Adobe Pass Authentication stöder två metoder för översättning av MRSS till format som stöds av MVPD:
 
 * **XML**.  Den första metoden är anpassad efter OLCA-standarden.  Den använder XACML, där MRSS-värdena extraheras för att skapa en XACMLResource med attribut som mappar till MRSS-elementen.  Detta skickas sedan till MVPD.
 * **REST**.  Den andra metoden är REST-baserad.  MRSS är base64-kodad och skickas som en URL-parameter i REST-anropet.
 
-I båda metoderna behandlar det virtuella dokumentationsdokumentet tillståndsansökan genom att inkludera de extraherade värdena i sitt eget logiska flöde och returnera ett auktoriseringssvar.
+På båda sätten behandlar MVPD begäran om auktorisation genom att inkludera de extraherade värdena i sitt eget logiska flöde och returnera ett auktoriseringssvar.
 
 ## Integreringsinformation {#integration-details}
 

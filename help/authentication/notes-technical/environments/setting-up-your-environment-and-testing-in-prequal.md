@@ -4,26 +4,26 @@ description: Konfigurera din miljö och testning i Pre-Qual
 exl-id: f822c0a1-045a-401f-a44f-742ed25bfcdc
 source-git-commit: ca95bc45027410becf8987154c7c9f8bb8c2d5f8
 workflow-type: tm+mt
-source-wordcount: '478'
+source-wordcount: '476'
 ht-degree: 0%
 
 ---
 
-# Konfigurera din miljö och testa i Pre-Qual{#setting-up-your-environment-and-testing-in-prequal}
+# Konfigurera din miljö och testning i Pre-Qual{#setting-up-your-environment-and-testing-in-prequal}
 
 >[!NOTE]
 >
->Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av detta API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
+>Innehållet på den här sidan tillhandahålls endast i informationssyfte. Användning av denna API kräver en aktuell licens från Adobe. Ingen obehörig användning är tillåten.
 
-Syftet med den här tekniska anteckningen är att hjälpa våra partners att konfigurera sin miljö och börja testa en ny version som distribuerats i Adobes förkvalificeringsmiljö.
+Syftet med detta tekniska meddelande är att hjälpa våra partners att konfigurera sin miljö och testa en ny version som körs i Adobe förkvalificeringsmiljö.
 
-Eftersom det finns två byggvarianter: ***produktion*** och ***mellanlagring***, kommer vi i det här dokumentet att fokusera på produktionsinställningen med omnämnandet att alla steg är desamma för mellanlagring, bara URL:erna är olika.
+Eftersom det finns två build-versioner: ***production*** och ***staging*** kommer vi i det här dokumentet att fokusera på produktionsinställningarna och meddela att alla steg är desamma för mellanlagring. Det är bara URL:erna som är olika.
 
-Steg 1 och 2 är att sätta upp testmiljön på en av testmaskinerna, steg 3 är en verifiering av det grundläggande flödet och steg 4 och 5 presenterar några testriktlinjer.
+Steg 1 och 2 konfigurerar testmiljön på en av testdatorerna, steg 3 är en verifiering av basflödet och steg 4 och 5 presenterar några riktlinjer för testningen.
 
 >[!IMPORTANT]
 >
-> Det är mycket viktigt att utföra steg 1 och 2 varje gång du vill ändra din testmiljö (byta från staging till produktionsprofil eller tvärtom)
+> Det är mycket viktigt att du kör steg 1 och 2 varje gång du vill ändra testmiljön (växla från mellanlagring till produktionsprofil eller på andra sätt)
 
 
 ## STEG 1. Matcha lösenordsdomän till en IP {#resolving-pass-domain-to-an-ip}
@@ -51,7 +51,7 @@ Addresses:  52.26.79.43
 ```Choose any IP from **addresses** section (e.g. `54.190.212.171)```
 
 
-* **På Linux/Mac**
+* **I Linux/Mac**
 
 ```sh
     $ dig sp-prequal.auth.adobe.com
@@ -77,19 +77,19 @@ Addresses:  52.26.79.43
 
 >[!NOTE]
 >
->Domäner utesluts från svar eftersom de inte är relevanta och kan skilja sig från användare till användare.
+>Domäner som utesluts från svar eftersom de inte är relevanta och kan skilja sig från användare till användare.
 
 >[!IMPORTANT]
 >
-> Dessa IP-adresser kan ändras i framtiden och de kanske inte är desamma för användare i olika geografiska regioner.
+> Dessa IP-adresser kan komma att ändras i framtiden och de är kanske inte desamma för användare i olika geografiska regioner.
 
 
-## STEG 2.  Förfalskning av förkvalificeringsmiljön för att vara produktion {#spoofing-the-prequalification-environment}
+## STEG 2.  Spofing the pre-eligibility environment to be production {#spoofing-the-prequalification-environment}
 
-* *Redigera filen c:\\windows\\System32\\drivers\\etc\\hosts* (i Windows) eller */etc/hosts* filen (på Macintosh/Linux/Android) och lägg till följande:
+* Redigera filen *c:\\windows\\System32\\drivers\\etc\\hosts* (i Windows) eller filen */etc/hosts* (i Macintosh/Linux/Android) och lägg till följande:
 
-* Produktionsprofil för förfalskning
-   * 52.13.71.11 sp.auth.adobe.com api.auth.adobe.com
+* Profil för dekorproduktion
+   * 52.13.71.11 api.auth.adobe.com
    * 54.190.212.171 entitlement.auth.adobe.com
 
 **Spofing på Android:** Om du vill göra en buffring på Android måste du använda en Android-emulator.
@@ -97,16 +97,16 @@ Addresses:  52.26.79.43
 * När denna funktion är på plats kan du helt enkelt använda de vanliga URL:erna för produktions- och staging-profilerna: (d.v.s. `http://sp.auth-staging.adobe.com` och `http://entitlement.auth-staging.adobe.com`, och du kommer att träffa *förkvalificeringsmiljön/ produktionen* i den nya*-versionen.
 
 
-## STEG 3.  Kontrollera att du pekar på rätt miljö {#Verify-you-are-pointing-to-the-right-environment}
+## STEG 3.  Kontrollera att du pekar mot rätt miljö {#Verify-you-are-pointing-to-the-right-environment}
 
 **Detta är ett enkelt steg:**
 
-* Lastberättigande [prequal miljö](https://entitlement-prequal.auth.adobe.com/environment.html) och [berättigande](https://entitlement.auth.adobe.com/environment.html). De bör returnera samma svar.
+* läsa in [berättigandeförhandsmiljö](https://entitlement-prequal.auth.adobe.com/environment.html) och [berättigande](https://entitlement.auth.adobe.com/environment.html). De bör returnera samma svar.
 
 
-## STEG 4.  Utför ett enkelt autentiserings-/auktoriseringsflöde med hjälp av programmerarens webbplats {#peform-a-simple-auth-flow}
+## STEG 4.  Utför ett enkelt autentiserings-/auktoriseringsflöde via programmerarens webbplats {#peform-a-simple-auth-flow}
 
-* Det här steget kräver programmerarens webbadress och några giltiga MVPD-autentiseringsuppgifter (en användare som den är autentiserad och auktoriserad).
+* Det här steget kräver programmerarens webbplatsadress och vissa giltiga MVPD-autentiseringsuppgifter (en användare som är autentiserad och behörig).
 
 ## STEG 5.  Testa scenarier med programmerarens webbplatser {#perform-scenario-testing-using-programmer-website}
 
@@ -117,4 +117,4 @@ Addresses:  52.26.79.43
 
 * Om du vill gå djupare i testningen av Adobe Pass-autentisering rekommenderar vi att du använder [API-testwebbplatsen](http://entitlement-prequal.auth.adobe.com/apitest/api.html).
 
-Du hittar mer information på API-testwebbplatsen på [How to test Authentication and Authorization flows using Adobe&#39;s API-test site](/help/authentication/integration-guide-programmers/legacy/notes-technical/test-authn-authz-flows-using-adobes-api-test-site.md).
+Mer information om API-testwebbplatsen finns på [Så här testar du autentiserings- och auktoriseringsflöden med hjälp av Adobe API-testwebbplats](/help/authentication/integration-guide-programmers/legacy/notes-technical/test-authn-authz-flows-using-adobes-api-test-site.md).

@@ -43,7 +43,7 @@ Hämtar kort medietoken.
 
 | Slutpunkt | Anropat </br>av | Indata   </br>Parametrar | HTTP </br>Metod | Svar | HTTP </br>Response |
 | --- | --- | --- | --- | --- | --- |
-| &lt;SP_FQDN>/api/v1/mediatoken</br></br> eller</br></br>&lt;SP_FQDN>/api/v1/tokens/media</br></br>Till exempel:</br></br>&lt;SP_FQDN>/api/v1/tokens/media | Direktuppspelande app</br></br>eller</br></br>Programmeringtjänst | 1. beställare (obligatoriskt)</br>2.  deviceId (obligatoriskt)</br>3.  resurs (obligatoriskt)</br>4.  device_info/X-Device-Info (obligatoriskt)</br>5.  _deviceType_</br> 6.  _deviceUser_ (utgått)</br>7.  _appId_ (inaktuellt) | GET | XML eller JSON som innehåller en Base64-kodad medietoken eller felinformation om felet misslyckas. | 200 - lyckades </br> 403 - misslyckades |
+| &lt;SP_FQDN>/api/v1/mediatoken</br></br> eller</br></br>&lt;SP_FQDN>/api/v1/tokens/media</br></br>Till exempel:</br></br>&lt;SP_FQDN>/api/v1/tokens/media | Direktuppspelande app</br></br>eller</br></br>Programmeringtjänst | &#x200B;1. beställare (obligatoriskt)</br>2.  deviceId (obligatoriskt)</br>3.  resurs (obligatoriskt)</br>4.  device_info/X-Device-Info (obligatoriskt)</br>5.  _deviceType_</br> 6.  _deviceUser_ (utgått)</br>7.  _appId_ (inaktuellt) | GET | XML eller JSON som innehåller en Base64-kodad medietoken eller felinformation om felet misslyckas. | 200 - lyckades </br> 403 - misslyckades |
 
 {style="table-layout:auto"}
 
@@ -60,8 +60,8 @@ Hämtar kort medietoken.
 | begärande | Programmerarens requestId som den här åtgärden är giltig för. |
 | deviceId | Byte för enhets-ID. |
 | resurs | En sträng som innehåller ett resourceId (eller MRSS-fragment), identifierar det innehåll som begärts av en användare och känns igen av MVPD auktoriseringsslutpunkter. |
-| device_info/</br></br>X-Device-Info | Information om direktuppspelningsenhet.</br></br>**Obs!**: Detta kan skickas som device_info som URL-parameter, men på grund av parameterns potentiella storlek och begränsningar i längden på en GET-URL, bör det skickas som X-Device-Info i http-huvudet. </br></br>Mer information finns i [Skicka information om enheter och anslutningar](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md). |
-| _deviceType_ | Enhetstypen (till exempel Roku, PC).</br></br>Om den här parametern är korrekt har ESM värden som är [nedbrutna per enhetstyp]/(help/authentication/entitlement-service-monitoring-overview.md#clientless_device_type) när du använder Klientlös, så att olika typer av analyser kan utföras för. Till exempel Roku, AppleTV och Xbox.</br></br>Se [Fördelar med att använda parametern client_type &#x200B;](/help/authentication/integration-guide-programmers/legacy/notes-technical/benefits-of-using-the-clientless-devicetype-parameter-in-pass-metrics.md)</br></br>**Obs!** Parametern device_info kommer att ersättas. |
+| device_info/</br></br>X-Device-Info | Information om direktuppspelningsenhet.</br></br>**Obs!**: Detta kan skickas device_info som en URL-parameter, men på grund av parameterns potentiella storlek och begränsningar i längden på en GET-URL bör det skickas som X-Device-Info i http-huvudet. </br></br>Mer information finns i [Skicka information om enheter och anslutningar](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md). |
+| _deviceType_ | Enhetstypen (till exempel Roku, PC).</br></br>Om den här parametern är korrekt har ESM värden som är [nedbrutna per enhetstyp]/(help/authentication/entitlement-service-monitoring-overview.md#clientless_device_type) när du använder Klientlös, så att olika typer av analyser kan utföras för. Till exempel Roku, AppleTV och Xbox.</br></br>Se [Fördelar med att använda parametern client_type ](/help/authentication/integration-guide-programmers/legacy/notes-technical/benefits-of-using-the-clientless-devicetype-parameter-in-pass-metrics.md)</br></br>**Obs!** Parametern device_info kommer att ersättas. |
 | _deviceUser_ | Enhetens användaridentifierare.</br></br>**Obs!** Om det används ska deviceUser ha samma värden som i begäran [Skapa registreringskod](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/registration-code-request.md). |
 | _appId_ | Program-ID/namn. </br></br>**Obs!**: device_info ersätter den här parametern. Om det används ska `appId` ha samma värden som i begäran [Skapa registreringskod](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/registration-code-request.md). |
 
@@ -102,4 +102,4 @@ Hämtar kort medietoken.
 
 ### Kompatibilitet med medieverifieringsbibliotek
 
-Fältet `serializedToken` från anropet &quot;Hämta kort medietoken&quot; är en Base64-kodad token som kan verifieras mot Adobe Media Verification Library.
+Fältet `serializedToken` från anropet&quot;Hämta kort medietoken&quot; är en Base64-kodad token som kan verifieras mot Adobe Media Verification Library.

@@ -17,7 +17,7 @@ ht-degree: 0%
 
 Den officiella dokumentationen som beskriver Adobe-miljöerna är tillgänglig [Konfigurera din miljö och testning i Pre-qual](/help/authentication/notes-technical/environments/setting-up-your-environment-and-testing-in-prequal.md):
 
-Miljöerna i Adobe, sammanfattas med några ord:
+Adobe-miljöerna, med några ord:
 
 Adobe har två miljöer: **Pre-Qualification** och **Release**.
 

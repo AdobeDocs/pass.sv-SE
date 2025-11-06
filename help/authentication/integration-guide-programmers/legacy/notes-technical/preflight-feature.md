@@ -24,7 +24,7 @@ Det externa gränssnittet för PreAuthorization API är oförändrat, inga uppda
 
 Preflight-resurserna beräknas på tre sätt:
 
-* **Koppla och anslut metod till MVPD**: Detta innebär att Adobe gör flera auktoriseringsanrop till MVPD (klienten måste ändå göra ett preflight-anrop).
+* **Kör och anslut metod till MVPD**: Detta innebär att Adobe gör flera auktoriseringsanrop till MVPD (klienten måste ändå göra ett preflight-anrop).
 * **Kanaljustering**: MVPD visar kanalraden för den inloggade användaren i SAML-autentiseringssvaret och Adobe returnerar de auktoriserade resurserna baserat på detta. SAML authN-svaret i SAML-spåraren bör visa den listan.
 * **Flerkanalsauktorisering**: Klient- och Adobe-autentiseringen anropar båda MVPD för en uppsättning resurser.
 

@@ -22,7 +22,7 @@ CMU (Concurrency Monitoring Usage) implementeras som ett WOLAP-projekt (webbaser
 
 >[!NOTE]
 >
->CMU-API:t är inte allmänt tillgängligt. Kontakta din Adobe-representant om du har frågor om tillgänglighet.
+>CMU-API:t är inte allmänt tillgängligt. Kontakta Adobe om du har frågor om tillgänglighet.
 
 CMU-API:t ger en hierarkisk vy över de underliggande OLAP-kubarna. Varje resurs ([dimension](/help/concurrency-monitoring/cm-usage-reports.md#dimensions-2-filter-metrics) i dimensionshierarkin, mappad som ett URL-sökvägssegment) genererar rapporter med (aggregerade) [mått](/help/concurrency-monitoring/cm-usage-reports.md#monitor-metrics) för den aktuella markeringen. Varje resurs pekar på sin överordnade resurs (för sammanslagning) och dess underresurser (för fördjupning). Segmentering och segmentering uppnås med frågesträngsparametrar som fäster dimensioner till specifika värden eller intervall.
 
@@ -36,7 +36,7 @@ De tillgängliga URL-sökvägarna kan identifieras via länkar i svaret. Giltiga
 
 I följande detaljerade träd visas dimensionerna (resurserna) som finns i CMU 2.0:
 
-**Dimensioner tillgängliga för CM-innehavare**
+**Tillgängliga dimensioner för CM-innehavare**
 
 ![](assets/new_breakdown.png)
 
@@ -99,7 +99,7 @@ Parametrar för CMU API-reserverad frågesträng:
 | start | Ja | Starttid för rapporten som ISO8601. Servern fyller i den återstående delen om bara ett prefix anges: Exempel: start=2012 ger start=2012-01-01:00:00:00 | Rapporteras av servern i självlänken. Servern försöker att tillhandahålla rimliga standardinställningar baserat på den valda tidsperioden | start=2012-07-15 |
 
 
-Den enda tillgängliga HTTP-metoden är GET. Stöd för OPTIONS/HEAD kan ges i framtida versioner.
+Den enda tillgängliga HTTP-metoden är GET. Stöd för OPTIONS-/HEAD-metoder kan finnas i framtida versioner.
 
 
 
@@ -112,7 +112,7 @@ Den enda tillgängliga HTTP-metoden är GET. Stöd för OPTIONS/HEAD kan ges i f
 | 401 | Obehörig | Orsakas av en begäran som inte innehåller rätt OAuth-huvuden för att autentisera användaren |
 | 403 | Förbjuden | Anger att begäran inte tillåts i den aktuella säkerhetskontexten. Detta inträffar när användaren är autentiserad men inte har åtkomst till den begärda informationen |
 | 404 | Hittades inte | Inträffar om en ogiltig URL-sökväg anges med begäran. Detta bör aldrig inträffa om klienten följer länkarna &quot;drill-down&quot;/&quot;roll-up&quot; i 200 svar |
-| 405 | Metoden tillåts inte | Signalerar att en metod som inte stöds användes i begäran. Även om det för närvarande bara finns stöd för metoden GET kan framtida versioner tillåta HEAD eller OPTIONS |
+| 405 | Metoden tillåts inte | Signalerar att en metod som inte stöds användes i begäran. Även om det för närvarande bara finns stöd för GET-metoden kan framtida versioner tillåta HEAD eller OPTIONS |
 | 406 | Godkänns inte | Signalerar att en medietyp som inte stöds begärdes av klienten |
 | 500 | Internt serverfel | &quot;Det här ska aldrig hända&quot; |
 | 503 | Tjänsten är inte tillgänglig | Signalerar ett fel i programmet eller dess beroenden |
@@ -252,7 +252,7 @@ Rapporterna **aktivitetsnivå** och **samtidighetsnivå** uppdateras varje dag, 
 
 ## GZIP-komprimering {#gzip-compression}
 
-Adobe rekommenderar starkt att du aktiverar GZIP-stöd i klienter som hämtar CMU-rapporter. Om du gör det minskar svarsstorleken avsevärt, vilket i sin tur minskar svarstiden. (Komprimeringsförhållandet för CMU-data ligger i intervallet 20-30.)
+Adobe rekommenderar att du aktiverar GZIP-stöd i klienter som hämtar CMU-rapporter. Om du gör det minskar svarsstorleken avsevärt, vilket i sin tur minskar svarstiden. (Komprimeringsförhållandet för CMU-data ligger i intervallet 20-30.)
 
 Om du vill aktivera gzip-komprimering i klienten anger du huvudet Accept-Encoding: enligt följande:
 

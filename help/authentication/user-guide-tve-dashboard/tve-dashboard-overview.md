@@ -48,7 +48,7 @@ Adobe Pass Authentication innehåller följande avsnitt på TVE Dashboard:
 
 ## Resurs {#resources-tve-dashboard}
 
-Adobe föreslår att du använder följande resurser för att få en bättre förståelse för flöden och funktioner, vilket hjälper dig att bekanta dig med den terminologi som används i den här handboken:
+Adobe föreslår att du använder följande resurser för att få en bättre förståelse för flöden och funktioner, vilket hjälper dig att bekanta dig med terminologin som används i den här handboken:
 
 * [TVE Technical Paper](/help/authentication/kickstart/technical-paper.md)
 * [Programmer Kickstart Guide](/help/authentication/kickstart/programmer-kickstart-guide.md)

@@ -84,4 +84,4 @@ Kontakta teamet för övervakning av samtidig användning (Concurrency Monitorin
 Här finns fler exempel på principer och integreringscookbooks:
 
 * [Policybeslutspunkt](/help/concurrency-monitoring/cm-policy-decision-point.md)
-* [API-konsol - övervakning av samtidighet i Adobe](http://docs.adobeptime.io/cm-api-v2/)
+* [API-konsol - Adobe Concurrency Monitoring](http://docs.adobeptime.io/cm-api-v2/)

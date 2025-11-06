@@ -1,6 +1,6 @@
 ---
-title: MVPD-utbyte av användarmetadata
-description: MVPD-utbyte av användarmetadata
+title: MVPD Metadatautbyte för användare
+description: MVPD Metadatautbyte för användare
 exl-id: 8bce6acc-cd33-476c-af5e-27eb2239cad1
 source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
 workflow-type: tm+mt
@@ -9,7 +9,7 @@ ht-degree: 0%
 
 ---
 
-# MVPD-utbyte av användarmetadata
+# MVPD Metadatautbyte för användare
 
 >[!NOTE]
 >
@@ -27,7 +27,7 @@ Följande metadatatyper för användare finns för utbyte:
 * Hushållets-ID
 * Kanal-ID
 
-Med den här funktionen kan programmerare och programmerare implementera specialfall som föräldrakontroll. En MVPD kan till exempel skicka föräldraklassificeringsdata till en programmerare som sedan använder dessa data för att filtrera de tillgängliga visningsalternativen för en användare.
+Med den här funktionen kan programmerare och programmerare implementera specialfall som föräldrakontroll. En MVPD kan till exempel skicka klassificeringsdata till en programmerare som sedan använder dessa data för att filtrera de visningsalternativ som är tillgängliga för en användare.
 
 Nyckelpunkter för användarmetadata:
 
@@ -35,7 +35,7 @@ Nyckelpunkter för användarmetadata:
 * Adobe Pass Authentication sparar metadatavärdena i AuthN- och AuthZ-tokens
 * Adobe Pass Authentication kan normalisera värden för MVPD-filer som tillhandahåller användarmetadata i olika format
 * Vissa parametrar kan krypteras med programmerarens nyckel
-* Specifika värden är tillgängliga av Adobe via en konfigurationsändring
+* Adobe tillhandahåller specifika värden via en konfigurationsändring
 
 >[!NOTE]
 >
@@ -47,15 +47,15 @@ Nyckelpunkter för användarmetadata:
 
 I det här exemplet visas utbytet av följande:
 
-* [Programmer till MVPD-metadatautbyte](#progr-mvpd-metadata-exch)
+* [Programmer till MVPD Metadata Exchange](#progr-mvpd-metadata-exch)
 
-* [MVPD till programmerarens metadatautbytesflöde](#mvpd-progr-exchange-flow)
+* [MVPD to Programmer Metadata Exchange Flow](#mvpd-progr-exchange-flow)
 
-### Programmer till MVPD-metadatautbyte {#progr-mvpd-metadata-exch}
+### Programmer till MVPD Metadata Exchange {#progr-mvpd-metadata-exch}
 
-För närvarande stöder programmerings-API, Adobe Pass Authentication och MVPD Authorizers endast auktorisering på kanalnivå. Kanalen anges som en ren textsträng i programmerarens getAuthorization()-API-anrop. Strängen sprids ända till MVPD:s auktoriserande serverdel:
+För närvarande stöder programmers API, Adobe Pass Authentication och MVPD Authorizers endast auktorisering på kanalnivå. Kanalen anges som en ren textsträng i programmerarens getAuthorization()-API-anrop. Strängen sprids ända till MVPD Authoring backend:
 
-Från programmerarens app eller webbplats väljer användaren ett MVPD-program som stöder XACML (i det här exemplet&quot;TNT&quot;). Mer information om XACML finns i [eXtensible Access Control Markup Language](https://en.wikipedia.org/wiki/XACML){target=_blank}.
+Från programmerarens app eller webbplats väljer användaren en XACML-kompatibel MVPD (i det här exemplet&quot;TNT&quot;). Mer information om XACML finns i [eXtensible Access Control Markup Language](https://en.wikipedia.org/wiki/XACML){target=_blank}.
 Programmerarens app utgör en AuthZ-begäran som innehåller resursen och dess metadata.  I det här exemplet ingår en MPAA-klassificering av &quot;pg&quot; i medieattributet för kanalelementet:
 
 ```XML
@@ -68,17 +68,17 @@ var resource = '<rss version="2.0" xmlns:media="http://video.search.yahoo.com/mr
 getAuthorization(resource);
 ```
 
-Adobe Pass Authentication har faktiskt stöd för mer detaljerad auktorisering, ända ned till tillgångsnivå, när det stöds av både MVPD och Programmer. Resursen och dess metadata är ogenomskinliga för Adobe. Avsikten är att skapa ett standardformat för att ange resurs-ID och metadata på ett normaliserat sätt och skicka resurs-ID:n till olika MVPD-filer.
+Adobe Pass Authentication har faktiskt stöd för mer detaljerad auktorisering, ända ned till tillgångsnivå, när det stöds av både MVPD och Programmer. Resursen och dess metadata är ogenomskinliga för Adobe. Avsikten är att skapa ett standardformat för att ange resurs-ID och metadata på ett normaliserat sätt, för att skicka resurs-ID:n till olika MVPD-filer.
 
 >[!NOTE]
 >
->Om användaren väljer ett kanalspecifikt kompatibelt MVPD extraherar Adobe Pass Authentication ENDAST kanaltiteln (&quot;TNT&quot; i exemplet ovan) och skickar endast titeln till MVPD.
+>Om användaren väljer en MVPD som bara kan hantera kanaler extraheras ENDAST kanaltiteln (&quot;TNT&quot; i exemplet ovan) och endast titeln skickas till MVPD.
 
-### MVPD till programmerarens metadatautbytesflöde {#mvpd-progr-exchange-flow}
+### MVPD to Programmer Metadata Exchange Flow {#mvpd-progr-exchange-flow}
 
 Adobe Pass Authentication gör följande antaganden:
 
-* MVPD skickar den maximala graderingen som en del av SAML-svaret
+* MVPD skickar den högsta klassificeringen som en del av SAML-svaret
 * Den här informationen sparas som en del av autentiseringstoken
 * Adobe Pass Authentication tillhandahåller ett API som gör det möjligt för programmerare att hämta denna information
 * Programmerare implementerar den här funktionen på sin webbplats eller i sin app (t.ex. för att dölja videoklipp som är högre än användarens maxklassificering)
@@ -111,45 +111,45 @@ Adobe Pass Authentication gör följande antaganden:
 
 Adobe Pass Authentication kan även hantera genomskinlig konvertering från den äldre kanalsträngen till motsvarande RSS-resurs för MVPD-filer som kräver RSS. I den andra riktningen har Adobe Pass Authentication stöd för konvertering från RSS+MRSS till vanlig kanaltitel, för kanalspecifika MVPD-program.
 
-**Adobe Pass-autentisering garanterar fullständig bakåtkompatibilitet med befintliga integreringar.** För programmerare som använder autentisering på kanalnivå, tar Adobe Pass Authentication hand om att paketera channel ID:t i det format som krävs innan det skickas till en MVPD som förstår det formatet. Det motsatta gäller också: om en programmerare anger alla resurser i ett nytt format, översätter Adobe Pass Authentication det nya formatet till en enkel kanalsträng om auktorisering görs mot en MVPD som bara gör kanalnivåauktorisering.
+**Adobe Pass-autentisering garanterar fullständig bakåtkompatibilitet med befintliga integreringar.** För programmerare som använder autentisering på kanalnivå är det viktigt att Adobe Pass Authentication paketerar channel ID:t i det format som krävs innan den skickas till en MVPD som förstår det formatet. Det motsatta gäller också: om en programmerare anger alla resurser i ett nytt format, översätts det nya formatet till en enkel kanalsträng om det autentiseras mot en MVPD som bara auktoriserar kanalnivå.
 
 ## Användningsexempel för användarmetadata {#user-metadata-use-cases}
 
 Användningsexemplen förändras hela tiden och blir allt fler när fler PDF-filer skapar juridiska arrangemang och lägger till funktionalitet. Nedan följer exempel på vilka användarmetadata kan användas.
 
-* [MVPD-användar-ID](#mvpd-user-id)
+* [MVPD användar-ID](#mvpd-user-id)
 * [Hushållets-ID](#household-user-id)
 * [Postnummer](#zip-code)
 * [Maximal klassificering (Föräldrakontroll)](#max-rating-parental-control)
 * [Kanallinje](#channel-line-up)
 
-### MVPD-användar-ID {#mvpd-user-id}
+### MVPD användar-ID {#mvpd-user-id}
 
 * Enligt MVPD
 * Inte användarens inloggningsinformation, eftersom den hashas av MVPD
 * Kan användas för att indikera problem med eller för specifika användare
 * Krypterad
-* Stöd för MVPD: Alla MVPD
+* MVPD Support: Alla MVPD
 
 ### Hushållets användar-ID {#household-user-id}
 
 * Tillåter god måttinformation
 * Krypterad
-* Stöd för MVPD: Vissa MVPD
+* Stöd för MVPD: vissa MVPD-program
 
 ### Postnummer {#zip-code}
 
 * Användarens postnummer för fakturering
 * Används främst för att framtvinga regler för frysningsperiod för sportevenemang
 * Kan anges med AuthZ-svaret för snabba uppdateringar
-* Stöd för MVPD: Vissa MVPD
+* Stöd för MVPD: vissa MVPD-program
 
 ### Maximal klassificering (Föräldrakontroll) {#max-rating-parental-control}
 
 * AuthN initialt, plus AuthZ-uppdatering
 * Filtrera innehåll från användargränssnittet
 * MPAA- eller VChift-klassificeringar
-* Stöd för MVPD: Vissa MVPD
+* Stöd för MVPD: vissa MVPD-program
 
 ### Kanallinje {#channel-line-up}
 

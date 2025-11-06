@@ -34,7 +34,7 @@ Den är webbläsartillförlitlig, men i Firefox: &quot;Verktyg&quot; -\> &quot;R
 
 ## Rensar LSO-cache {#clearing-lsos-cache}
 
-Gå till [Flashens Player hjälp](http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager07.html).
+Gå till [Flash Player-hjälpen](http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager07.html).
 
 Markera ```entitlement.\*``` (beroende på vad som har testats) och klicka på Ta bort webbplats.
 

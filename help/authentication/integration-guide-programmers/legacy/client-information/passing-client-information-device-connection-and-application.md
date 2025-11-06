@@ -4,7 +4,7 @@ description: Skicka klientinformation (enhet, anslutning och program)
 exl-id: 0b21ef0e-c169-48ff-ac01-25411cfece1e
 source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
 workflow-type: tm+mt
-source-wordcount: '1666'
+source-wordcount: '1665'
 ht-degree: 0%
 
 ---
@@ -244,7 +244,7 @@ private JSONObject computeClientInformation() {
 >[!NOTE]
 >
 >**Resurser:**
->* den offentliga klassen [build](https://developer.android.com/reference/android/os/Build.html){target=_blank} i Java-utvecklarens dokumentation.
+>* public class [build](https://developer.android.com/reference/android/os/Build.html){target=_blank} in Java developers&#39; documentation.
 
 ### FireTV {#fire-tv}
 
@@ -281,8 +281,8 @@ Programinformationen kan utformas på följande sätt:
 >[!NOTE]
 >
 >**Resurser:**
->* den offentliga klassen [Build](https://developer.android.com/reference/android/os/Build.html){target=_blank} i dokumentationen för Android-utvecklare.
->* [Identifiera FireTV-enheter](https://developer.amazon.com/docs/fire-tv/identify-amazon-fire-tv-devices.html){target=_blank}
+>* public class [Build](https://developer.android.com/reference/android/os/Build.html){target=_blank} in Android developers&#39; documentation.
+>* [Identifierar FireTV-enheter](https://developer.amazon.com/docs/fire-tv/identify-amazon-fire-tv-devices.html){target=_blank}
 
 ### iOS/tvOS {#ios-tvos}
 

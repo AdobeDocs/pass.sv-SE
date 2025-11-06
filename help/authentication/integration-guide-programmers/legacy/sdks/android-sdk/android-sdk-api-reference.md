@@ -69,7 +69,7 @@ Besök [https://tve.zendesk.com/hc/en-us/articles/204963219-Android-Native-Acces
 **Parametrar:**
 
 - *appContext*: Android-programkontext.
-- env\_url: för testning med Adobe staging environment kan env\_url anges till sp.auth-staging.adobe.com
+- env\_url: för testning med Adobe staging environment kan env\_url anges till &quot;sp.auth-staging.adobe.com&quot;
 
 **Inaktuell:**
 
@@ -82,7 +82,7 @@ Besök [https://tve.zendesk.com/hc/en-us/articles/204963219-Android-Native-Acces
 
 ### setRequestor {#setRequestor}
 
-**Beskrivning:** Anger programmerarens identitet. Varje programmerare tilldelas ett unikt ID när den registreras hos Adobe för Adobe Pass autentiseringssystem. När det gäller enkel inloggning och fjärrtoken kan autentiseringstillståndet ändras när programmet är i bakgrunden. Det går att anropa setRequestor igen när programmet försätts i förgrunden för att synkronisera med systemtillståndet (hämta en fjärrtoken om enkel inloggning är aktiverad eller ta bort den lokala token om en utloggning inträffar under tiden).
+**Beskrivning:** Anger programmerarens identitet. Varje programmerare tilldelas ett unikt ID när de registrerar sig hos Adobe för Adobe Pass autentiseringssystem. När det gäller enkel inloggning och fjärrtoken kan autentiseringstillståndet ändras när programmet är i bakgrunden. Det går att anropa setRequestor igen när programmet försätts i förgrunden för att synkronisera med systemtillståndet (hämta en fjärrtoken om enkel inloggning är aktiverad eller ta bort den lokala token om en utloggning inträffar under tiden).
 
 Serversvaret innehåller en lista över MVPD:er tillsammans med viss konfigurationsinformation som är kopplad till programmerarens identitet. Serversvaret används internt av åtkomstaktiveringskoden. Endast åtgärdens status (d.v.s. SUCCESS/FAIL) visas för programmet via callback-funktionen setRequestorComplete().
 
@@ -105,7 +105,7 @@ Om ett värde anges för parametern *urls*, anger det resulterande nätverksanro
 
 **Parametrar:**
 
-- *requestedID*: Det unika ID som är associerat med programmeraren. Skicka det unika ID som tilldelats av Adobe till din webbplats när du först registrerade dig hos Adobe Pass autentiseringstjänst.
+- *requestedID*: Det unika ID som är associerat med programmeraren. Skicka det unika ID som tilldelats av Adobe till din webbplats när du först registrerade dig för Adobe Pass autentiseringstjänst.
 
 - *signedRequestorID*: En kopia av begärande-ID:t som har signerats digitalt med din privata nyckel. <!--For more details. see [Registering Native Clients](http://tve.helpdocsonline.com/registering-native-clients)-->.
 
@@ -161,7 +161,7 @@ Värdena skickas till servern oberoende av det aktuella flödet (autentisering/a
 
 - *alternativ*: En karta&lt;String, String> som innehåller globala SDK-alternativ. Följande alternativ är tillgängliga:
    - **applicationProfile** - Den kan användas för att skapa serverkonfigurationer baserat på det här värdet.
-   - **ap_vi** - Experience Cloud-ID (visitorID). Det här värdet kan användas senare för avancerade analysrapporter.
+   - **ap_vi** - Experience Cloud-id (visitorID). Det här värdet kan användas senare för avancerade analysrapporter.
    - **ap_ai** - Advertising-id
    - **device_info** - Klientinformation som beskrivs här: [Överför klientinformationsenhetsanslutning och program](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md).
 
@@ -596,7 +596,7 @@ Programmerarna har två typer av metadata:
       - `userID` - användaridentifieraren. Om en MVPD stöder underkonton och användaren inte är huvudkontot, kommer `userID` att vara annorlunda än `householdID`.
 
       - `channelID` - En lista över kanaler som användaren har rätt att visa
-   - Om nyckeln är `METADATA_KEY_DEVICE_ID` ställs frågan för att hämta aktuellt enhets-ID. Observera att den här funktionen är inaktiverad som standard och programmerare bör kontakta Adobe för att få information om aktivering och avgifter.
+   - Om nyckeln är `METADATA_KEY_DEVICE_ID` ställs frågan för att hämta aktuellt enhets-ID. Observera att den här funktionen är inaktiverad som standard och programmerare bör kontakta Adobe för information om aktivering och avgifter.
    - Om nyckeln är `METADATA_KEY_TTL_AUTHZ` och args innehåller ett SerializableNameValuePair-objekt med namnet = `METADATA_ARG_RESOURCE_ID` och värdet = `[resource_id]`, görs frågan för att hämta förfallotiden för den auktoriseringstoken som är associerad med den angivna resursen.
    - Om nyckeln är `METADATA_KEY_TTL_AUTHN` görs frågan för att hämta förfallotiden för autentiseringstoken.
 
@@ -706,7 +706,7 @@ Det här värdet är null när begäran gjordes för enkla metadata (Authenticat
 
 >[!WARNING]
 >
-> Enhetstypen och operativsystemet härleds genom användning av ett offentligt Java-bibliotek ([http://java.net/projects/user-agent-utils](http://java.net/projects/user-agent-utils)) och användaragentsträngen. Observera att denna information endast tillhandahålls som ett grovt sätt att dela upp mätvärden för drift i enhetskategorier, men att Adobe inte kan ta något ansvar för felaktiga resultat. Använd den nya funktionen i enlighet med detta.
+> Enhetstypen och operativsystemet härleds genom användning av ett offentligt Java-bibliotek ([http://java.net/projects/user-agent-utils](http://java.net/projects/user-agent-utils)) och användaragentsträngen. Observera att denna information endast tillhandahålls som ett grovt sätt att dela upp driftsstatistik i enhetskategorier, men att Adobe inte kan ta något ansvar för felaktiga resultat. Använd den nya funktionen i enlighet med detta.
 
 
 - Möjliga värden för enhetstypen:

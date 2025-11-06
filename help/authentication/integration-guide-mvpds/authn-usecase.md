@@ -4,7 +4,7 @@ description: MVPD-autentisering
 exl-id: 9ff4a46e-a37b-414c-a163-9e586252a9c3
 source-git-commit: d982beb16ea0db29f41d0257d8332fd4a07a84d8
 workflow-type: tm+mt
-source-wordcount: '1882'
+source-wordcount: '1851'
 ht-degree: 0%
 
 ---
@@ -19,21 +19,21 @@ ht-degree: 0%
 
 Den faktiska rollen som tjänsteleverantör (SP) innehas av en programmerare, men Adobe Pass Authentication fungerar som SP-proxy för den programmeraren. Genom att använda Adobe Pass Authentication som mellanhand slipper både programmerare och distributörer anpassa sina tillståndsprocesser från fall till fall.
 
-Stegen nedan visar händelseföljden, med hjälp av Adobe Pass-autentisering, när en programmerare begär autentisering från ett MVPD som stöder SAML. Observera att komponenten Adobe Pass Authentication Access Enabler är aktiv på användarens/prenumerantens klient. Därifrån underlättas alla steg i autentiseringsflödet av Access Enabler.
+Stegen nedan visar händelseföljden, med hjälp av Adobe Pass-autentisering, när en programmerare begär autentisering från en MVPD som stöder SAML. Observera att komponenten Adobe Pass Authentication Access Enabler är aktiv på användarens/prenumerantens klient. Därifrån underlättas alla steg i autentiseringsflödet av Access Enabler.
 
 1. När användaren begär åtkomst till skyddat innehåll initierar Access Enabler autentisering (AuthN) för programmeraren (SP).
-1. SP:s app presenterar en&quot;MVPD Picker&quot; för användaren för att erhålla en Pay TV-leverantör (MVPD). SP:n dirigerar sedan om användarens webbläsare till den valda IdP-tjänsten (MVPD).  Detta är **Programmerarinitierad inloggning**.  MVPD skickar svaret från IdP till Adobe SAML-bekräftelsens konsumenttjänst, där den behandlas.
+1. SP:s app presenterar en&quot;MVPD Picker&quot; för användaren för att få sin Pay TV-leverantör (MVPD). SP:n dirigerar sedan om användarens webbläsare till den valda tjänsten för MVPD-identitetsleverantör (IdP).  Detta är **Programmerarinitierad inloggning**.  MVPD skickar svaret från IdP till Adobe konsumenttjänst för SAML-försäkran, där den behandlas.
 1. Slutligen dirigerar Access Enabler om webbläsaren till SP-webbplatsen och informerar SP-leverantören om status (lyckad/misslyckad) för AuthN-begäran.
 
 ## Autentiseringsbegäran {#authn-req}
 
-Som framgår av stegen ovan måste ett MVPD under AuthN-flödet både acceptera en SAML-baserad AuthN-begäran och skicka ett SAML AuthN-svar.
+Som framgår av stegen ovan måste en MVPD under AuthN-flödet både acceptera en SAML-baserad AuthN-begäran och skicka ett SAML AuthN-svar.
 
-[OLCA-autentisering (Online Content Access) och gränssnittsspecifikationen &#x200B;](https://www.cablelabs.com/specifications/search?query=&category=&subcat=&doctype=&content=false&archives=false){target=_blanck} visar en standard-AuthN-begäran och -svar. Även om Adobe Pass Authentication inte kräver att PDF-dokument baserar sina tillståndsmeddelanden på den här standarden, kan en titt på specifikationen ge insikt i de nyckelattribut som krävs för en AuthN-transaktion.
+[OLCA-autentisering (Online Content Access) och gränssnittsspecifikationen ](https://www.cablelabs.com/specifications/search?query=&category=&subcat=&doctype=&content=false&archives=false){target=_blanck} visar en standard-AuthN-begäran och -svar. Även om Adobe Pass Authentication inte kräver att PDF-dokument baserar sina tillståndsmeddelanden på den här standarden, kan en titt på specifikationen ge insikt i de nyckelattribut som krävs för en AuthN-transaktion.
 
 >[!NOTE]
 >
->AuthN-begäran som ett MVPD tar emot med Adobe Pass Authentication innehåller inte en digital signatur. I exemplet nedan visas dock ingen signatur av utrymmesskäl. Ett exempel som visar en digital signatur finns i exemplet i [autentiseringssvaret](#authn-response) i följande avsnitt.
+>AuthN-begäran som en MVPD tar emot med Adobe Pass Authentication innehåller ingen digital signatur. I exemplet nedan visas dock ingen signatur av utrymmesskäl. Ett exempel som visar en digital signatur finns i exemplet i [autentiseringssvaret](#authn-response) i följande avsnitt.
 
 Exempel på SAML-autentiseringsbegäran:
 
@@ -65,21 +65,21 @@ Tabellen nedan förklarar de attribut och taggar som måste finnas i en autentis
 
 **Information om SAML-autentiseringsbegäran**
 
-| sample:AuthnRequest | &lt;AuthnRequest> utfärdad av tjänsteleverantören till identitetsleverantören. |
+| samlingspunkt:AuthnRequest | &lt;AuthnRequest> utfärdad av tjänsteleverantören till identitetsleverantören. |
 |-----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| AssertionConsumerServiceURL | Det här är slutpunkten för Adobe som ska användas i efterföljande svar. Standardvärde: **http://sp.auth.adobe.com/sp/saml/SAMLAssertionConsumer** |
+| AssertionConsumerServiceURL | Detta är den Adobe-slutpunkt som ska användas i efterföljande svar. Standardvärde: **http://sp.auth.adobe.com/sp/saml/SAMLAssertionConsumer** |
 | Mål | En URI-referens som anger den adress som denna begäran har skickats till. Detta är användbart för att förhindra obehörig vidarebefordran av begäranden till oönskade mottagare, ett skydd som krävs av vissa protokollbindningar. Om den finns måste den faktiska mottagaren kontrollera att URI-referensen identifierar platsen där meddelandet togs emot. Om så inte är fallet MÅSTE begäran förkastas. Vissa protokollbindningar kan kräva att det här attributet används. |
 | ForceAuthn | Om ForceAuthn-attributet finns med värdet true, tvingar det identitetsleverantören att etablera identiteten på nytt, i stället för att förlita sig på en befintlig session som det kan ha med huvudkontot. |
 | ID | En identifierare för begäran. Mer information finns i [SAML Core 2.0-os](http://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.pdf){target=_blank}, avsnitt 1.3.4. |
 | IsPassive | Ett booleskt värde. Om värdet är&quot;true&quot; FÅR identitetsleverantören och själva användaragenten INTE synligt ta kontroll över användargränssnittet från den som gjorde begäran och interagera med presentatören på ett märkbart sätt. Om inget värde anges är standardvärdet &quot;false&quot;. |
-| IssueInstant | Tidpunkten då svaret ska utfärdas. Tidsvärdet kodas i UTC enligt beskrivningen i [SAML core 2.0-os](http://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.pdf){target=_blank} Section 1.3.3. |
+| IssueInstant | Tidpunkten då svaret ska utfärdas. Tidsvärdet kodas i UTC enligt beskrivningen i avsnitt 1.3.3 i [SAML Core 2.0-os](http://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.pdf){target=_blank} . |
 | Protokollbindning | En URI-referens som identifierar en SAML-protokollbindning som ska användas när &lt;Response>-meddelandet returneras. Mer information om protokollbindningar och URI-referenser som definierats för dem finns i [SAMLBind]. Standardvärde: urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST |
 | Version | Versionen av den här begäran. |
 | saml:Issuer | Identifierar entiteten som genererade svarsmeddelandet. (Mer information om detta element finns i SAML core 2.0-os Section 2.2.5) |
 | ds:Signature | En XML-signatur som skyddar intygets integritet och autentiserar utfärdaren, vilket beskrivs i avsnitt 5 i SAML Core 2.0-os |
-| sample:NameIDPolicy | Anger begränsningar för den namnidentifierare som ska användas för att representera det begärda ämnet. |
+| samlingspunkt:NameIDPolicy | Anger begränsningar för den namnidentifierare som ska användas för att representera det begärda ämnet. |
 | TillåtSkapa | Ett booleskt värde som används för att ange om identitetsleverantören tillåts skapa en ny identifierare som representerar säkerhetsobjektet när begäran slutförs. Standard: true |
-| Format | Anger den URI-referens som motsvarar ett namnidentifierarformat Standard: urn:oasis:names:tc:SAML:2.0:nameid-format:transient Adobe rekommenderar: urn:oasis:names:tc:SAML:2.0:nameid-format:persistent |
+| Format | Anger den URI-referens som motsvarar ett namnidentifierarformat Standard: urn:oasis:names:tc:SAML:2.0:nameid-format:transient Adobe Recommended: urn:oasis:names:tc:SAML:2.0:nameid-format:persistent |
 | SPNameQualifier | Alternativt kan du ange att ämnesidentifieraren för kontrollämnet ska returneras (eller skapas) i namnutrymmet för en annan tjänsteleverantör än den som gjorde begäran. Standard: http://saml.sp.adobe.adobe.com |
 
 ## Autentiseringssvaret {#authn-response}
@@ -182,16 +182,16 @@ I exemplet ovan förväntar sig Adobe SP att hämta användar-ID:t från Subject
 
 **SAML-autentiseringssvarsinformation**
 
-| sampling:svar | Svar mottaget av Adobe Pass-autentisering. |
+| samlingspunkt:Response | Svar mottaget av Adobe Pass-autentisering. |
 |------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Mål | En URI-referens som anger den adress som denna begäran har skickats till. Detta är användbart för att förhindra obehörig vidarebefordran av begäranden till oönskade mottagare, ett skydd som krävs av vissa protokollbindningar. Om den finns måste den faktiska mottagaren kontrollera att URI-referensen identifierar platsen där meddelandet togs emot. Om så inte är fallet MÅSTE begäran förkastas. Vissa protokollbindningar kan kräva att det här attributet används. |
-| ID | En identifierare för begäran. Den är av typen xs:ID och MÅSTE uppfylla de krav som anges i avsnitt 1.3.4 i [SAML core 2.0-os](http://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.pdf){target=_blank} för unika identifierare. Värdena för ID-attributet i en begäran och InResponseTo-attributet i motsvarande svar MÅSTE matcha. |
+| ID | En identifierare för begäran. Den är av typen xs:ID och MÅSTE uppfylla de krav som anges i avsnitt 1.3.4 i [SAML core 2.0-os](http://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.pdf){target=_blank} för att ge en unik identifierare. Värdena för ID-attributet i en begäran och InResponseTo-attributet i motsvarande svar MÅSTE matcha. |
 | InResponseTo | ID:t för ett SAML-protokollmeddelande som en attesterande enhet kan skicka försäkran till. Värdet måste vara lika med det ID-attribut som skickas i autentiseringsbegäran. Se SAML core 2.0-os |
 | IssueInstant | Tidpunkten då begäran utfärdades. |
 | Version | Versionen av begäran. |
 | saml:Issuer | Identifierar entiteten som genererade begärandemeddelandet. (Mer information om detta element finns i avsnitt 2.2.5. SAML Core 2.0-os) |
-| sample:status | En kod som representerar status för motsvarande begäran. |
-| sample:StatusCode | En kod som representerar statusen för den aktivitet som utfördes som svar på motsvarande begäran. |
+| samlingspunkt:Status | En kod som representerar status för motsvarande begäran. |
+| samlingspunkt:StatusCode | En kod som representerar statusen för den aktivitet som utfördes som svar på motsvarande begäran. |
 | saml:Assertion | Den här typen anger den grundläggande information som är gemensam för alla försäkringar. |
 | ID | Identifieraren för den här försäkran. |
 | Version | Versionen av det här påståendet. |
@@ -216,7 +216,7 @@ I exemplet ovan förväntar sig Adobe SP att hämta användar-ID:t från Subject
 | saml:SubjectConfirmationData | Ytterligare bekräftelseinformation som ska användas av en specifik bekräftelsemetod. Det typiska innehållet i det här elementet kan till exempel vara ett <!--<ds:KeyInfo>-->-element enligt definitionen i XML-signatursyntax och bearbetningsspecifikation |
 | NotOnOrAfter | En tidpunkt då motivet inte längre kan bekräftas. |
 | Mottagare | En URI som anger entiteten eller platsen som en testentitet kan presentera försäkran på. Det här attributet kan till exempel indikera att försäkran måste levereras till en viss nätverksslutpunkt för att förhindra att en mellanhand dirigerar om den någon annanstans. |
-| saml:Villkor | &lt;Condition>-elementet fungerar som en tilläggspunkt för nya villkor. |
+| saml:Conditions | &lt;Condition>-elementet fungerar som en tilläggspunkt för nya villkor. |
 | NotBefore | NotBefore-attributet anger den tidpunkt då giltighetsintervallet börjar. |
 | saml:AudienceRestriction | &lt;AudienceRestriction>-elementet anger att försäkran är adresserad till en eller flera specifika målgrupper som identifieras av &lt;Audience>-element. |
 | saml:Audience | En URI-referens som identifierar en avsedd målgrupp. |

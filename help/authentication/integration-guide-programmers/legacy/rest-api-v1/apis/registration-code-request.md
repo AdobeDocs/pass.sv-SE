@@ -4,7 +4,7 @@ description: Registreringssida
 exl-id: 581b8e2e-7420-4511-88b9-f2cd43a41e10
 source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
 workflow-type: tm+mt
-source-wordcount: '516'
+source-wordcount: '509'
 ht-degree: 0%
 
 ---
@@ -43,7 +43,7 @@ Returnerar slumpmässigt genererad registreringskod och inloggningssidans URI.
 
 | Slutpunkt | Anropat <br>av | Indata   <br>Parameter | HTTP <br>Metod | Svar | HTTP <br>Response |
 | --- | --- | --- | --- | --- | --- |
-| &lt;REGGIE_FQDN>/reggie/v1/{requestor}/regcode<br>Till exempel:<br>REGGIE_FQDN/reggie/v1/sampleRequestorId/regcode | Direktuppspelande app<br>eller<br>Programmeringtjänst | 1. beställare <br>    (Bankomponent)<br>2.  deviceId (Hashed)   <br>    (Obligatoriskt)<br>3.  device_info/X-Device-Info (obligatoriskt)<br>4.  mvpd (valfritt)<br>5.  ttl (valfritt)<br> | POST | XML eller JSON som innehåller en registreringskod och information eller felinformation om felet misslyckas. Se exemplen nedan. | 201 |
+| &lt;REGGIE_FQDN>/reggie/v1/{requestor}/regcode<br>Till exempel:<br>REGGIE_FQDN/reggie/v1/sampleRequestorId/regcode | Direktuppspelande app<br>eller<br>Programmeringtjänst | &#x200B;1. beställare <br>    (Bankomponent)<br>2.  deviceId (Hashed)   <br>    (Obligatoriskt)<br>3.  device_info/X-Device-Info (obligatoriskt)<br>4.  mvpd (valfritt)<br>5.  ttl (valfritt)<br> | POST | XML eller JSON som innehåller en registreringskod och information eller felinformation om felet misslyckas. Se exemplen nedan. | 201 |
 
 {style="table-layout:auto"}
 
@@ -53,7 +53,7 @@ Returnerar slumpmässigt genererad registreringskod och inloggningssidans URI.
 | Acceptera | Header <br> Värde: application/json | ange vilken innehållstyp klienten ska förstå |
 | begärande | Frågeparameter | Programmerarens requestId som den här åtgärden är giltig för. |
 | deviceId | Frågeparameter | Byte för enhets-ID. |
-| device_info/<br>X-Device-Info | device_info: Body <br> X-Device-Info: Header | Information om direktuppspelningsenhet.<br>**Obs!**: Detta kan skickas som device_info som URL-parameter, men på grund av parameterns potentiella storlek och begränsningar i längden på en GET-URL, bör det skickas som X-Device-Info i http-huvudet. <br>Mer information finns i [Skicka information om enheter och anslutningar](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md). |
+| device_info/<br>X-Device-Info | device_info: Body <br> X-Device-Info: Header | Information om direktuppspelningsenhet.<br>**Obs!**: Detta kan skickas device_info som en URL-parameter, men på grund av parameterns potentiella storlek och begränsningar i längden på en GET-URL bör det skickas som X-Device-Info i http-huvudet. <br>Mer information finns i [Skicka information om enheter och anslutningar](/help/authentication/integration-guide-programmers/legacy/client-information/passing-client-information-device-connection-and-application.md). |
 | mvpd | Frågeparameter | Det MVPD-ID som den här åtgärden gäller för. |
 | ttl | Frågeparameter | Hur länge den här regkoden ska vara i sekunder.<br>**Obs!**: Det högsta tillåtna värdet för ttl är 36000 sekunder (10 timmar). Högre värden resulterar i ett 400 HTTP-svar (felaktig begäran). Om `ttl` lämnas tomt anges standardvärdet 30 minuter av Adobe Pass Authentication. |
 | _deviceType_ | Frågeparameter | Föråldrat, ska inte användas. |
@@ -81,7 +81,7 @@ Returnerar slumpmässigt genererad registreringskod och inloggningssidans URI.
 >POST /reggie/v1/{req_id}/regcode HTTP/1.1<br>X-Forwarded-For:203.45.101.20
 >```
 >
-><br>
+<br>
 
 ### SVAR-JSON
 
@@ -126,7 +126,7 @@ Returnerar slumpmässigt genererad registreringskod och inloggningssidans URI.
 | info:deviceInfo | Base64 Normaliserad enhetsinformation bygger på information som mottagits från User-Agent, X-Device-Info eller device_info |
 | info:userAgent | Användaragent som skickas av programmet |
 | info:originalUserAgent | Användaragent som skickas av programmet |
-| info:authenticationType | OAUTH2 för anrop med DCR |
+| info:authorizationType | OAUTH2 för anrop med DCR |
 | info:sourceApplicationInformation | Programinformation som konfigurerats i DCR |
 
 {style="table-layout:auto"}

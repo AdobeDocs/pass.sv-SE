@@ -45,9 +45,9 @@ Förbättrade felkoder kan representeras i `JSON`- eller `XML`-format beroende p
 
 | Adobe Pass-autentiserings-API | JSON | XML |
 |-------------------------------|---------|---------|
-| REST API v2 | &check; |         |
-| REST API v1 | &check; | &check; |
-| SDK Förauktorisera API | &check; |         |
+| REST API v2 | &amp;check; |         |
+| REST API v1 | &amp;check; | &amp;check; |
+| SDK Förauktorisera API | &amp;check; |         |
 
 >[!IMPORTANT]
 >
@@ -101,7 +101,7 @@ Content-Type: application/json
         "code": "authorization_denied_by_mvpd",
         "message": "The MVPD has returned a \"Deny\" decision when requesting authorization for the specified resource",
         "details": "Your subscription package does not include the \"Live\" channel",
-        "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=sv-SE",
+        "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
         "trace": "12f6fef9-d2e0-422b-a9d7-60d799abe353"
       }
     }
@@ -120,7 +120,7 @@ Content-Type: application/json
   "status": 400,
   "code": "invalid_parameter_service_provider",
   "message": "The service provider parameter value is missing or invalid.",
-  "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=sv-SE",
+  "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
   "trace": "12f6fef9-d2e0-422b-a9d7-60d799abe353"
 }
 ```
@@ -154,7 +154,7 @@ Content-Type: application/json
         "code": "authorization_denied_by_mvpd",
         "message": "The MVPD has returned a \"Deny\" decision when requesting authorization for the specified resource",
         "details": "Your subscription package does not include the \"Live\" channel",
-        "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=sv-SE",
+        "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
         "trace": "12f6fef9-d2e0-422b-a9d7-60d799abe353"
       }
     }
@@ -173,7 +173,7 @@ Content-Type: application/json
   "status": 400,
   "code": "invalid_requestor",
   "message": "The requestor parameter is missing or invalid.",
-  "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=sv-SE",
+  "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
   "trace": "8bcb17f9-b172-47d2-86d9-3eb146eba85e"
 }
 ```
@@ -189,7 +189,7 @@ Content-Type: application/xml
   <status>400</status>
   <code>invalid_requestor</code>
   <message>The requestor parameter is missing or invalid.</message>
-  <helpUrl>https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=sv-SE</helpUrl>
+  <helpUrl>https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html</helpUrl>
   <trace>8bcb17f9-b172-47d2-86d9-3eb146eba85e</trace>
 </error>
 ```
@@ -202,12 +202,12 @@ Förbättrade felkoder innehåller följande `JSON`-fält eller `XML`-attribut m
 
 | Namn | Typ | Exempel | Begränsad | Beskrivning |
 |-----------|-----------|---------------------------------------------------------------------------------------------------------------------|:----------:|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| *åtgärd* | *sträng* | *ingen* | &check; | Adobe Pass-autentiseringen rekommenderade en åtgärd som kan åtgärda situationen enligt definitionen i det här dokumentet. <br/><br/> Mer information finns i avsnittet [Åtgärd](#enhanced-error-codes-action). |
-| *status* | *heltal* | *403* | &check; | Statuskoden för HTTP-svar enligt definitionen i [RFC 7231](https://tools.ietf.org/html/rfc7231#section-6) -dokumentet. <br/><br/> Mer information finns i avsnittet [Status](#enhanced-error-codes-status). |
-| *kod* | *sträng* | *authentication_deny_by_mvpd* | &check; | Den unika identifierarkod för Adobe Pass-autentisering som är associerad med felet enligt definitionen i det här dokumentet. <br/><br/> Mer information finns i avsnittet [Kod](#enhanced-error-codes-code). |
+| *åtgärd* | *sträng* | *ingen* | &amp;check; | Adobe Pass-autentiseringen rekommenderade en åtgärd som kan åtgärda situationen enligt definitionen i det här dokumentet. <br/><br/> Mer information finns i avsnittet [Åtgärd](#enhanced-error-codes-action). |
+| *status* | *heltal* | *403* | &amp;check; | Statuskoden för HTTP-svar enligt definitionen i [RFC 7231](https://tools.ietf.org/html/rfc7231#section-6) -dokumentet. <br/><br/> Mer information finns i avsnittet [Status](#enhanced-error-codes-status). |
+| *kod* | *sträng* | *authentication_deny_by_mvpd* | &amp;check; | Den unika identifierarkod för Adobe Pass-autentisering som är associerad med felet enligt definitionen i det här dokumentet. <br/><br/> Mer information finns i avsnittet [Kod](#enhanced-error-codes-code). |
 | *meddelande* | *sträng* | *MVPD har returnerat ett beslut om att neka vid begäran om auktorisering för den angivna resursen* |            | Det läsbara meddelandet som kan visas för slutanvändaren i vissa fall. <br/><br/> Mer information finns i avsnittet [Svarshantering](#enhanced-error-codes-response-handling). |
 | *information* | *sträng* | *Prenumerationspaketet innehåller inte &quot;Live&quot;-kanalen* |            | Det detaljerade meddelandet som kan tillhandahållas av en tjänstpartner i vissa fall, <br/><br/> Det här fältet kanske inte finns om tjänstpartnern inte tillhandahåller något anpassat meddelande. |
-| *helpUrl* | *url* | *https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=sv-SE* |            | Den offentliga dokumentations-URL:en för Adobe Pass-autentisering som länkar till mer information om varför felet uppstod och möjliga lösningar. <br/><br/> Det här fältet innehåller en absolut URL-adress och bör inte härledas från felkoden, beroende på felkontexten kan en annan URL anges. |
+| *helpUrl* | *url* | *https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html* |            | Den offentliga dokumentations-URL:en för Adobe Pass-autentisering som länkar till mer information om varför felet uppstod och möjliga lösningar. <br/><br/> Det här fältet innehåller en absolut URL-adress och bör inte härledas från felkoden, beroende på felkontexten kan en annan URL anges. |
 | *trace* | *sträng* | *12f6fef9-d2e0-422b-a9d7-60d799abe353* |            | Den unika identifieraren för det svar som kan användas när du kontaktar Adobe Pass Authentication support för att felsöka specifika problem. |
 
 >[!IMPORTANT]

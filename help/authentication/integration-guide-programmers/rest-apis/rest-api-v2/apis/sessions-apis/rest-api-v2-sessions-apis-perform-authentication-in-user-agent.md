@@ -142,7 +142,7 @@ Svaret är en serie med en eller flera omdirigeringar tills MVPD inloggningssida
 
 ## Exempel {#samples}
 
-### 1. Utför autentisering i användaragenten
+### &#x200B;1. Utför autentisering i användaragenten
 
 >[!BEGINTABS]
 

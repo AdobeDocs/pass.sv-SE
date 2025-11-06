@@ -49,7 +49,7 @@ Returnerar registreringskodposten som innehåller registreringskoden UUID, regis
 
 | Slutpunkt | Anropat </br>av | Indata   </br>Parametrar | HTTP </br>Metod | Svar | HTTP </br>Response |
 | --- | --- | --- | --- | --- | --- |
-| `<REGGIE_FQDN>`;/reggie/v1/`{requestorId}`/regcode/`{registrationCode}`<p>Exempel:<p>`<REGGIE_FQDN>`/reggie/v1/sampleRequestId/regcode/TJJCFK?format=xml | Direktuppspelande app</br></br>eller</br></br>Programmeringtjänst | 1. beställare </br>    (Bankomponent)</br>2.  registreringskod </br>    (Bankomponent) | GET | XML eller JSON som innehåller en registreringskod och information. Se schema och exempel nedan. | 200 |
+| `<REGGIE_FQDN>`;/reggie/v1/`{requestorId}`/regcode/`{registrationCode}`<p>Exempel:<p>`<REGGIE_FQDN>`/reggie/v1/sampleRequestId/regcode/TJJCFK?format=xml | Direktuppspelande app</br></br>eller</br></br>Programmeringtjänst | &#x200B;1. beställare </br>    (Bankomponent)</br>2.  registreringskod </br>    (Bankomponent) | GET | XML eller JSON som innehåller en registreringskod och information. Se schema och exempel nedan. | 200 |
 
 {style="table-layout:auto"}
 

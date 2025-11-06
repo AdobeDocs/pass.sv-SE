@@ -27,7 +27,7 @@ Single Sign-On (SSO) mellan program som använder Adobe Pass Authentication fung
 
 Det här dokumentet behandlar **enkel inloggning på iOS** när Adobe Pass-autentisering **Åtkomstaktivering** används.
 
-**Åtkomstaktivering** **.1.10** är den senaste versionen av iOS SDK för autentisering. Adobe rekommenderar att du går över till den här versionen i stället för att stanna kvar med en äldre version. Om du använder en äldre version av Access Enabler kan du hämta den senaste versionen [här](https://tve.zendesk.com/hc/en-us/articles/204963209-iOS-Native-AccessEnabler-Library).
+**Åtkomstaktivering** **.1.10** är den senaste versionen av iOS SDK för autentisering. Adobe rekommenderar att du går över till den här versionen i stället för att använda en äldre version. Om du använder en äldre version av Access Enabler kan du hämta den senaste versionen [här](https://tve.zendesk.com/hc/en-us/articles/204963209-iOS-Native-AccessEnabler-Library).
 
 SSO på iOS regleras av följande villkor:
 

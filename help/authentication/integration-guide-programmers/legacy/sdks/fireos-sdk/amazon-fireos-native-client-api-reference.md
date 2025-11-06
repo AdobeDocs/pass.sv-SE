@@ -79,7 +79,7 @@ Se <https://tve.zendesk.com/hc/en-us/articles/115005561623-fire-TV-Native-Access
 - *appContext*: Programkontext för Amazon Fire OS.
 - softwareStatement
 - redirectUrl : för FireOS ignoreras parametervärdet och ställs in på standard: adobepass://android.app
-- env_url: för testning med Adobe staging environment kan env\_url anges till sp.auth-staging.adobe.com
+- env_url: för testning med Adobe staging environment kan env\_url anges till &quot;sp.auth-staging.adobe.com&quot;
 
 **Inaktuell:**
 
@@ -91,7 +91,7 @@ Se <https://tve.zendesk.com/hc/en-us/articles/115005561623-fire-TV-Native-Access
 
 ### setRequestor {#setRequestor}
 
-**Beskrivning:** Anger programmerarens identitet. Varje programmerare tilldelas ett unikt ID när den registreras hos Adobe för Adobe Pass autentiseringssystem. Den här inställningen ska endast utföras en gång under programmets livscykel.
+**Beskrivning:** Anger programmerarens identitet. Varje programmerare tilldelas ett unikt ID när de registrerar sig hos Adobe för Adobe Pass autentiseringssystem. Den här inställningen ska endast utföras en gång under programmets livscykel.
 
 Serversvaret innehåller en lista över MVPD:er tillsammans med viss konfigurationsinformation som är kopplad till programmerarens identitet. Serversvaret används internt av åtkomstaktiveringskoden. Endast åtgärdens status (d.v.s. SUCCESS/FAIL) visas för programmet via callback-funktionen setRequestorComplete().
 
@@ -116,7 +116,7 @@ Om ett värde anges för parametern *urls*, anger det resulterande nätverksanro
 
 **Parametrar:**
 
-- *requestedID*: Det unika ID som är associerat med programmeraren. Skicka det unika ID som tilldelats av Adobe till din webbplats när du först registrerade dig hos Adobe Pass autentiseringstjänst.
+- *requestedID*: Det unika ID som är associerat med programmeraren. Skicka det unika ID som tilldelats av Adobe till din webbplats när du först registrerade dig för Adobe Pass autentiseringstjänst.
 - *urls*: Valfri parameter. Som standard används Adobes tjänstleverantör (http://sp.auth.adobe.com/). Med den här arrayen kan du ange slutpunkter för autentisering och auktoriseringstjänster som tillhandahålls av Adobe (olika instanser kan användas i felsökningssyfte). Du kan använda detta för att ange flera instanser av Adobe Pass Authentication-tjänstprovidern. Då består MVPD-listan av slutpunkterna från alla tjänsteleverantörer. Varje MVPD är kopplat till den snabbaste tjänsteleverantören, dvs. den leverantör som svarade först och som stöder MVPD.
 
 **Återanrop har utlösts:** `setRequestorComplete()`
@@ -260,7 +260,7 @@ När användaren har valt önskad MVPD måste programmet i det övre lagret åte
 | ```public void setSelectedProvider(String mvpdId)``` |
 
 
-**Tillgänglighet:**&#x200B;v 1.0+
+**Tillgänglighet:**v 1.0+
 
 **Parametrar:** Inga
 
@@ -355,7 +355,7 @@ Det här återanropet signalerar också när utloggningsflödet är klart.
 | --- |
 | ```public void checkPreauthorizedResources(ArrayList<String> resources)``` |
 
-**Tillgänglighet:**&#x200B;v 1.0+
+**Tillgänglighet:**v 1.0+
 
 **Parametrar:** Parametern `resources` är en array med resurser som användaren redan har behörighet att visa.
 
@@ -427,7 +427,7 @@ Det här återanropet signalerar också när utloggningsflödet är klart.
 | --- |
 | ```public void setToken(String token, String resourceId)``` |
 
-**Tillgänglighet:**&#x200B;v 1.0+
+**Tillgänglighet:**v 1.0+
 
 **Parametrar:**
 
@@ -529,7 +529,7 @@ Programmerarna har två typer av metadata:
 - *metadataKey*: En datastruktur som kapslar in en nyckel- och args-variabel, med följande innebörd:
    - Om nyckeln är `METADATA_KEY_TTL_AUTHN` görs frågan för att hämta förfallotiden för autentiseringstoken.
    - Om nyckeln är `METADATA_KEY_TTL_AUTHZ` och args innehåller ett SerializableNameValuePair-objekt med namnet = `METADATA_ARG_RESOURCE_ID` och värdet = `[resource_id]`, görs frågan för att hämta förfallotiden för den auktoriseringstoken som är associerad med den angivna resursen.
-   - Om nyckeln är `METADATA_KEY_DEVICE_ID` ställs frågan för att hämta aktuellt enhets-ID. Observera att den här funktionen är inaktiverad som standard och programmerare bör kontakta Adobe för att få information om aktivering och avgifter.
+   - Om nyckeln är `METADATA_KEY_DEVICE_ID` ställs frågan för att hämta aktuellt enhets-ID. Observera att den här funktionen är inaktiverad som standard och programmerare bör kontakta Adobe för information om aktivering och avgifter.
    - Om nyckeln är `METADATA_KEY_USER_META` och args innehåller ett SerializableNameValuePair-objekt med namnet = `METADATA_KEY_USER_META` och värdet = `[metadata_name]` ställs frågan efter användarens metadata. Aktuell lista över tillgängliga metadatatyper för användare:
       - `zip` - Postnummer
       - `householdID` - Hushållsidentifierare. Om en MVPD inte stöder underkonton är detta identiskt med `userID`.
@@ -625,7 +625,7 @@ Det här värdet är null när begäran gjordes för enkla metadata (Authenticat
 
 >[!WARNING]
 >
-> Enhetstypen och operativsystemet härleds genom användning av ett offentligt Java-bibliotek (http://java.net/projects/user-agent-utils) och användaragentsträngen. Observera att denna information endast tillhandahålls som ett grovt sätt att dela upp mätvärden för drift i enhetskategorier, men att Adobe inte kan ta något ansvar för felaktiga resultat. Använd den nya funktionen i enlighet med detta.
+> Enhetstypen och operativsystemet härleds genom användning av ett offentligt Java-bibliotek (http://java.net/projects/user-agent-utils) och användaragentsträngen. Observera att denna information endast tillhandahålls som ett grovt sätt att dela upp driftsstatistik i enhetskategorier, men att Adobe inte kan ta något ansvar för felaktiga resultat. Använd den nya funktionen i enlighet med detta.
 
 - Möjliga värden för enhetstypen:
    - `computer`

@@ -15,7 +15,7 @@ ht-degree: 0%
 
 Den här sidan är avsedd att fungera som referens för olika användningar och implementeringar av policyer. Vi rekommenderar att du också läser delen [Ordlista](/help/concurrency-monitoring/cm-glossary.md) i dokumentationen för att få information om termdefinitioner.
 
-En **klientorganisation** äger **program** som den vill tillämpa **profiler** för. **Klientprogram** måste konfigureras med program-ID:t **&#x200B;**&#x200B;(tillhandahålls av Adobe).
+En **klientorganisation** äger **program** som den vill tillämpa **profiler** för. **Klientprogram** måste konfigureras med program-ID:t **** (tillhandahålls av Adobe).
 
 Klienten associerar sedan varje program med en eller flera profiler, antingen skapade av honom eller skapade och delade av andra. Profiler kan länkas mellan flera innehavare.
 
@@ -33,7 +33,7 @@ För var och en av de tillämpliga profilerna måste vi sedan samla in alla **re
 
 Genomgången nedan avser att validera modellen mot vissa användningsfall. Vi gör det gradvis genom att börja med en grundläggande konfiguration och lägga till komplexitet på olika sätt.
 
-### 1. En klient. Ett program. En policy. En ström {#onetenant-oneapp-onepolicy-onestream}
+### &#x200B;1. En klient. Ett program. En policy. En ström {#onetenant-oneapp-onepolicy-onestream}
 
 Vi börjar med en enda klient, med ett enda program och en enda policy. Låt oss anta att principen anger att det kan finnas högst en aktiv ström för alla användare (den senaste strömmen får spelas upp).
 
@@ -42,7 +42,7 @@ När en direktuppspelning har startats består aktiviteten endast av den strömm
 ![En klientorganisation. Ett program. En policy. En ström](assets/onetenant-app-policy-stream.png)
 
 
-### 2. En klient. Ett program. En policy. Två strömmar. {#onetenant-oneapp-onepolicy-twostreams}
+### &#x200B;2. En klient. Ett program. En policy. Två strömmar. {#onetenant-oneapp-onepolicy-twostreams}
 
 När en andra ström har startats (av samma ämne med samma program) kommer aktiviteten som används för valideringen att bestå av både **s1** och **s2**.
 
@@ -54,7 +54,7 @@ Gränsen har överskridits eftersom principen anger att endast en ström får sp
 >
 >Diagrammen representerar systemvyn för användaraktiviteten. Vid försök till initiering av strömmar inkluderas åtkomstbeslutet i svaret. För aktiva strömmar kommer beslutet att returneras vid pulsslagssvar.
 
-### 3. Två hyresgäster. Två program. En policy. Två strömmar. {#twotenant-twoapp-onepolicy-twostreams}
+### &#x200B;3. Två hyresgäster. Två program. En policy. Två strömmar. {#twotenant-twoapp-onepolicy-twostreams}
 
 Låt oss nu anta att en ny hyresgäst vill tillämpa samma policy i sina program:
 
@@ -62,7 +62,7 @@ Låt oss nu anta att en ny hyresgäst vill tillämpa samma policy i sina program
 
 På grund av att de två klienterna är kopplade enligt samma princip gäller den situation som beskrivs i avsnitt 2 här och **s3** kan spelas upp som den senaste strömmen.
 
-### 4. Två hyresgäster. Tre program. Två policyer. Två strömmar. {#twotenants-threeapps-twopolicies-twostreams}
+### &#x200B;4. Två hyresgäster. Tre program. Två policyer. Två strömmar. {#twotenants-threeapps-twopolicies-twostreams}
 
 Låt oss nu anta att den andra klienten distribuerar ett nytt program och vill definiera en ny princip som ska delas mellan **app2** och **app3**.
 
@@ -72,7 +72,7 @@ För tillfället är både de aktiva strömmarna **s3** och **s4** tillåtna. N�
 
 Principen **P2** tillämpas på båda strömmarna och inkluderar både **s3** och **s4** som relevant aktivitet. Eftersom den här aktiviteten ligger inom gränserna för två strömmar tillåts båda strömmarna.
 
-### 5. Två hyresgäster. Tre program. Två policyer. Tre strömmar. {#twotenants-threeapps-twopolicies-threestreams}
+### &#x200B;5. Två hyresgäster. Tre program. Två policyer. Tre strömmar. {#twotenants-threeapps-twopolicies-threestreams}
 
 Anta nu att ett nytt försök att initiera strömmen utförs med **app2**:
 

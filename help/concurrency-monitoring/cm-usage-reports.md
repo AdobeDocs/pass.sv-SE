@@ -53,7 +53,7 @@ För att få åtkomst till produkten Concurrency Monitoring Usage Reports måste
 
 ### Användningsrapporter kan filtrera mätvärdena ovan med följande mått: {#dimensions-2-filter-metrics}
 
-| Dimensionens namn | Beskrivning |
+| Dimension Name | Beskrivning |
 |:---------------|:------------------------------------------------------------------------------------------------------------------|
 | år | Det fyrsiffriga året |
 | månad | Månad på året (1-12) |
@@ -63,7 +63,7 @@ För att få åtkomst till produkten Concurrency Monitoring Usage Reports måste
 | program | Programnamnet som är registrerat i Concurrency Monitoring och som används för att hantera sessioner |
 | application-id | Program-ID som är registrerat i samtidighetsövervakning som används för att hantera sessioner |
 | kanal | Kanalmetadata som skickas när sessionen initieras (markeras som Okänd om inga metadata skickas) |
-| mvpd | MVPD-filen som tillhandahålls vid sessionshantering |
+| mvpd | MVPD tillhandahöll sessionshantering |
 | plattform | Plattformsmetadata som tillhandahålls vid sessionsinitiering eller fördefinierade för ett program på konfigurationsnivå |
 
 ## Mätvärden och uppdelningar för samtidighetsrapport {#concurrency-reports-metrics-breakdown}
@@ -74,20 +74,20 @@ Huvudsyftet med den här rapporten är att hjälpa er att förstå effekten av a
 
 ### Användningsrapporter kan övervaka följande mått: {#metrics-usage-rep-users}
 
-| Dimensionens namn | Beskrivning |
+| Dimension Name | Beskrivning |
 |:---|:---|
 | användare | antal användare som har nått varje samtidighets-/aktivitetsnivå |
 
 ### Användningsrapporter kan filtrera mätvärdena ovan med följande mått: {#dimensions-to-filter-metrics}
 
-| Dimensionens namn | Beskrivning |
+| Dimension Name | Beskrivning |
 |:---|:---|
 | år | Det fyrsiffriga året |
 | månad | Månad på året (1-12) |
 | dag | Dag i månaden (1-31) |
 | samtidighetsnivå | Representerar en distinkt **dataströmaktivitet som godkändes vid sessionsinitieringsfasen** för en användare för att kunna se hur många samtidiga strömmar **som öppnades** av en användare och förstå effekten av att tillämpa en viss samtidighetsgräns |
 | aktivitetsnivå | Representerar en distinkt **dataströmaktivitet (oavsett tillstånd: startad, aktiv, stoppad, avvisad)** för en användare för att kunna se hur många samtidiga strömmar som öppnats av en användare och förstå effekten av att tillämpa en viss samtidighetsgräns |
-| mvpd | MVPD-filen som tillhandahålls vid sessionshantering |
+| mvpd | MVPD tillhandahöll sessionshantering |
 
 ### Exempel på rapporter
 

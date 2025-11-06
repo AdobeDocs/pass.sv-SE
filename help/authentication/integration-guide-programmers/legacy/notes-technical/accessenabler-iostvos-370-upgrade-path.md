@@ -30,7 +30,7 @@ Uppgraderingssökvägen för ett program som använder den nya AccessEnabler-ver
 Vissa begränsningar, som beskrivs nedan, kan förekomma av implementerare.
 
 
-1. Vanlig enkel inloggning (Adobe) fungerar inte mellan ett program som använder AccessEnabler version 3.7.0 och ett program som använder AccessEnabler version/er som är lägre än 3.7.0, inte ens för program som utvecklats av samma leverantör.
+1. Vanlig (Adobe) enkel inloggning fungerar inte mellan ett program som använder AccessEnabler version 3.7.0 och ett program som använder AccessEnabler version/er under 3.7.0, inte ens för program som utvecklats av samma leverantör.
 
    >[!IMPORTANT]
    >

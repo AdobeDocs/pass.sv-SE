@@ -4,7 +4,7 @@ description: Hämta lista över förauktoriserade resurser per webbapp för seku
 exl-id: 78eeaf24-4cc1-4523-8298-999c9effdb7a
 source-git-commit: 1c357b918fa4f6d4b92a9055de018c55ee5861e0
 workflow-type: tm+mt
-source-wordcount: '275'
+source-wordcount: '273'
 ht-degree: 0%
 
 ---
@@ -46,7 +46,7 @@ Det finns två uppsättningar API:er: en uppsättning för Streaming App eller P
 
 | Slutpunkt | Anropat </br>av | Indata   </br>Parametrar | HTTP </br>Metod | Svar | HTTP </br>Response |
 | --- | --- | --- | --- | --- | --- |
-| &lt;SP_FQDN>/api/v1/preauthorized/{registration code} | AuthN-modul | 1. Registreringskod </br>    (Bankomponent)</br>2.  begärande (obligatoriskt)</br>3.  resurs (obligatoriskt) | GET | XML eller JSON som innehåller individuella beslut före auktorisering eller felinformation. Se exemplen nedan. | 200 - Lyckades</br></br>400 - Felaktig begäran</br></br>401 - Obehörig</br></br>405 - Metoden tillåts inte </br></br> 412 - Förhandsvillkoret misslyckades</br></br>500 - Internt serverfel |
+| &lt;SP_FQDN>/api/v1/preauthorized/{registration code} | AuthN-modul | &#x200B;1. Registreringskod </br>    (Bankomponent)</br>2.  begärande (obligatoriskt)</br>3.  resurs (obligatoriskt) | GET | XML eller JSON som innehåller individuella beslut före auktorisering eller felinformation. Se exemplen nedan. | 200 - Lyckades</br></br>400 - Felaktig begäran</br></br>401 - Obehörig</br></br>405 - Metoden tillåts inte </br></br> 412 - Förhandsvillkoret misslyckades</br></br>500 - Internt serverfel |
 
 
 

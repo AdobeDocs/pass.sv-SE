@@ -26,7 +26,7 @@ ht-degree: 0%
 
    1. Begärande-ID: t.ex. netgeo, CNN osv.
 
-1. Adobe skapar X509-certifikat och konfigurerar den privata nyckeln och lösenordet i slutet.
+1. Adobe skapar X509-certifikat och konfigurerar den privata nyckeln och lösenordet när det är slut.
 
 1. Adobe tillhandahåller det offentliga certifikatet (av X509-certifikat) till Programer på biljetten eller via e-post.
 
@@ -49,4 +49,4 @@ ht-degree: 0%
 
 >[!NOTE]
 >
->På grund av den stora längden på XSTS-token har XBox-konsolen en teknisk begränsning: den kan inte skicka token som HTTP-GET-parameter till Adobe Pass API:er för betal-TV-autentisering. För att hantera detta tillåter Adobe Pass betal-TV-autentisering att XSTS-token skickas som en del av HTTP-huvudet &quot;Authorization&quot; när API:erna anropas. XSTS-token måste krypteras med den offentliga nyckeln från X.509-certifikatet som utfärdas till programmeraren från Adobe Pass betal-TV-autentisering. Adobe Pass betal-TV-autentisering lagrar den associerade privata nyckeln och använder den för att dekryptera XSTS-token och extrahera deviceId från den.
+>På grund av den stora längden på XSTS-token har XBox-konsolen en teknisk begränsning: den kan inte skicka token som en HTTP GET-parameter till Adobe Pass API:er för betal-TV-autentisering. För att hantera detta tillåter Adobe Pass betal-TV-autentisering att XSTS-token skickas som en del av HTTP-huvudet &quot;Authorization&quot; när API:erna anropas. XSTS-token måste krypteras med den offentliga nyckeln från X.509-certifikatet som utfärdas till programmeraren från Adobe Pass betal-TV-autentisering. Adobe Pass betal-TV-autentisering lagrar den associerade privata nyckeln och använder den för att dekryptera XSTS-token och extrahera deviceId från den.

@@ -83,7 +83,7 @@ AP-Device-Identifier: fingerprint YmEyM2QxNDEtZDcxNS01NjFjLTk0ZjQtZTllNGM5NjZiMW
 >
 > Dokumentationsresurserna är inte fullständiga och kan kräva ytterligare ändringar för att arbeta i ditt projekt.
 > 
-> Oavsett vilken implementering du har måste rubriken `AP-Device-Identifier` innehålla ett värde som är formaterat enligt beskrivningen i avsnittet [&#x200B; Direktiv &#x200B;](#directives) .
+> Oavsett vilken implementering du har måste rubriken `AP-Device-Identifier` innehålla ett värde som är formaterat enligt beskrivningen i avsnittet [ Direktiv ](#directives) .
 
 ### Webbläsare {#browsers}
 

@@ -1,6 +1,6 @@
 ---
-title: Testa autentiserings- och auktoriseringsflöden med Adobe API test site
-description: Testa autentiserings- och auktoriseringsflöden med Adobe API test site
+title: Testa autentiserings- och auktoriseringsflöden med Adobe API-testwebbplats
+description: Testa autentiserings- och auktoriseringsflöden med Adobe API-testwebbplats
 exl-id: 04af4aed-35e4-44cb-98ce-7643165a8869
 source-git-commit: 65475d6da7a1b25cb2d8ebd6229a7cb360c7ab4a
 workflow-type: tm+mt

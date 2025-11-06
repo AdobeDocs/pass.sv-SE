@@ -17,9 +17,9 @@ ht-degree: 0%
 
 ## Ökning {#overview}
 
-Standardimplementeringen av en Adobe Pass-autentiseringsintegrering med ett MVPD baseras på **OLCA-specifikationen**. I avsnittet Autentiseringskrav i OLCA-specifikationen (6.5, Ämnesidentifierare) anges att det är möjligt att ange omfattningen för tjänstleverantörens SP (Service Provider) för Ämnesidentifieraren. (Ämnesidentifieraren är det obefuffserade användar-ID som MVPD returnerar till SP:n.)  I en integrering med Adobe Pass Authentication krävs att MVPD-program aktiverar omfång för SP Authentication-begäranden.
+Standardimplementeringen av en Adobe Pass-autentiseringsintegrering med en MVPD baseras på **OLCA-specifikationen**. I avsnittet Autentiseringskrav i OLCA-specifikationen (6.5, Ämnesidentifierare) anges att det är möjligt att ange omfattningen för tjänstleverantörens SP (Service Provider) för Ämnesidentifieraren. (Ämnesidentifieraren är det obefuffserade användar-ID som MVPD returnerar till SP.)  I en integrering med Adobe Pass Authentication krävs att MVPD-program aktiverar omfång för SP Authentication-begäranden.
 
-Med Adobe Pass Authentication i rollen som SP för programmeraren är det nödvändigt att implementera en anpassning som möjliggör SP-omfång för autentiseringsbegäran.  Detta måste göras så att distributören kan identifiera det nätverksmärke som skickades in i SAML-försäkran till identitetsleverantören (IdP).  Omfång kan implementeras på ett av de två sätt som beskrivs i nästa avsnitt.
+Med Adobe Pass Authentication i rollen som SP för programmeraren är det nödvändigt att implementera en anpassning som möjliggör SP-omfång för autentiseringsbegäran.  Detta måste göras för att MVPD ska kunna identifiera det nätverksmärke som skickas in SAML-försäkran till MVPD IdP (Identity Provider).  Omfång kan implementeras på ett av de två sätt som beskrivs i nästa avsnitt.
 
 ## Tjänstleverantörsomfång {#service-provider-scoping}
 

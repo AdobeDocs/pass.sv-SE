@@ -4,7 +4,7 @@ description: Välkommen till Adobe&reg; autentisering av pass
 exl-id: a8b01469-3d5f-4a44-9ae8-06a68c29d56d
 source-git-commit: fab5964aeb832d419702b41a6d3bc5676cb3354f
 workflow-type: tm+mt
-source-wordcount: '419'
+source-wordcount: '414'
 ht-degree: 0%
 
 ---
@@ -23,12 +23,12 @@ För programmerare säkerställer Adobe Pass Authentication säker åtkomst till
 
 Adobe Pass Authentication är en SaaS-lösning (Software as a Service) som snabbar upp time-to-market, minskar risken för bedrägerier och möjliggör smidig åtkomst till material för olika plattformar, vilket säkerställer att rätt tittare får rätt innehåll utan problem.
 
-## ? Community och uppdateringar
+## 📢 Community och uppdateringar
 
 * [Produktmeddelanden](/help/authentication/product-announcements.md)\
   Håll dig informerad om de senaste produktmeddelandena för Adobe Pass Authentication och tidsplanerna för avveckling.
 
-## ❓ och felsökning
+## ❓ Support och felsökning
 
 * [Zendesk kundsupportportal](https://tve.zendesk.com/home)\
   Logga in för att få tillgång till biljetter, skicka frågor eller visa kunskapsbasen.
@@ -42,7 +42,7 @@ Vanliga frågor om supportprocedurer för Adobe Pass-autentisering.
 * [REST API V2 - frågor och svar](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-faqs.md)\
   Vanliga frågor om Adobe Pass Authentication REST API V2.
 
-## ? Dokumentation
+## Dokumentation för 📄
 
 **För programmerare:**
 
@@ -62,7 +62,7 @@ Vanliga frågor om supportprocedurer för Adobe Pass-autentisering.
 
 *Sök efter specifika ämnen med sökfältet längst upp på sidan eller navigera i den vänstra menyn.*
 
-## ? ?️ verktyg och bibliotek
+## 🛠️ Verktyg och bibliotek
 
 * [Adobe Developer webbplats](https://developer.adobe.com/adobe-pass/)\
   Gå till Adobe Developer webbplats och prova Adobe Pass Authentication REST API:er.
@@ -70,7 +70,7 @@ Vanliga frågor om supportprocedurer för Adobe Pass-autentisering.
 * [Verifierare för medietoken](https://tve.zendesk.com/hc/en-us/articles/204963159-Media-Token-Verifier-library)\
   Integrera det bibliotek som validerar medietoken som genereras av Adobe Pass Authentication.
 
-## ? Kontakt
+## 📧 kontakt
 
 * [Kontakta Adobe support](mailto:tve-support@adobe.com)\
   Om du vill ha mer hjälp eller få affärsfrågor kan du skicka ett e-postmeddelande till Adobe supportteam.

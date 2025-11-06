@@ -18,11 +18,11 @@ ht-degree: 0%
 
 ## Introduktion {#introduction}
 
-Adobe måste i sin roll som personuppgiftsbiträde vidta lämpliga åtgärder för att hjälpa sina kunder med att uppfylla kraven på åtkomst, borttagning och andra förfrågningar från enskilda personer. Att tillämpa lämpliga, säkra och vältajmade principer för borttagning är en viktig del av att uppfylla denna skyldighet.
+Adobe måste i sin roll som personuppgiftsbiträde vidta lämpliga åtgärder för att hjälpa sina kunder med att uppfylla åtkomst, borttagning och andra förfrågningar från enskilda personer. Att tillämpa lämpliga, säkra och vältajmade principer för borttagning är en viktig del av att uppfylla denna skyldighet.
 
 ## Definitioner {#definitions}
 
-En datalagringspolicy avgör hur länge Adobe lagrar kundens data. Standarddatalagringsprincipen för övervakning av samtidig användning är **25 månader**.
+En datalagringspolicy avgör hur länge Adobe lagrar kunddata. Standarddatalagringsprincipen för övervakning av samtidig användning är **25 månader**.
 
 | Datalagringsperiod | Datalagringsperioden är standardperioden för datalagring (25 månader). |
 |---|---|
@@ -48,4 +48,4 @@ En avbruten kund är en kund som har avslutat relationen med Adobe och inte län
 
 ## Borttagning av data {#data-deletion}
 
-Adobe behåller rätten att ta bort data för datum som ligger efter den period då data bevaras utan möjlighet till återställning. Data för nuvarande kunder bör raderas rullande månadsvis.
+Adobe behåller rätten att radera data för datum som ligger efter den period då data finns kvar utan möjlighet till återställning. Data för nuvarande kunder bör raderas rullande månadsvis.

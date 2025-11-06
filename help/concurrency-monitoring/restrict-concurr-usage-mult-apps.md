@@ -38,12 +38,12 @@ När biljetten har skapats kommer följande information att släppas för använ
 
 | type | description | exempelvärde | standardvärde |
 | --- | --- | --- | --- |
-| slutpunkt | slutpunkten för övervakning av samtidighet i Adobe | http://streams.adobeprimetime.com/v1/ | http://streams.adobeprimetime.com/v1/ |
+| slutpunkt | slutpunkten för Adobe Concurrency Monitoring | http://streams.adobeprimetime.com/v1/ | http://streams.adobeprimetime.com/v1/ |
 | applicationId | Program-ID för iPhone | iphone54-75b4-431b-adb2-eb6b9e546013 | - |
 | applicationId | Program-ID för iPad | ipad5d54-75b4-431b-adb2-eb6b9e546013 | - |
 | applicationId | app-ID för webbplats | website4-75b4-431b-adb2-eb6b9e546013 | - |
-| intervall för hjärtslag | Intervall i sekunder för att skicka pulsslagsanrop till övervakning av samtidighet i Adobe | 60 | 60 |
-| intervall för flödesefterlevnad | Intervall i sekunder för att kontrollera dataströmmens kompatibilitet till övervakning av samtidig Adobe | 180 | 180 |
+| intervall för hjärtslag | Intervall i sekunder för att skicka pulsslagsanrop till Adobe Concurrency Monitoring | 60 | 60 |
+| intervall för flödesefterlevnad | Intervall i sekunder för att kontrollera dataströmmens kompatibilitet med Adobe Concurrency Monitoring | 180 | 180 |
 
 
 ## Genomförande av riktlinjer

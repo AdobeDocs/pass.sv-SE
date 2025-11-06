@@ -63,4 +63,4 @@ Ett av följande alternativ bör lösa problemet:
 
 1. Normalisera `&reg_code` som om `&amp;reg_code` används.
 
-1. Adobe kan introducera en ny funktion för att skicka tillbaka en felkod till den andra skärmen som svar på ett autentiseringsanrop, om det inte gick att skapa AuthN-token.
+1. Adobe kan införa en ny funktion för att skicka tillbaka en felkod till den andra skärmen som svar på ett autentiseringsanrop, om det inte gick att skapa AuthN-token.
