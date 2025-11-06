@@ -59,7 +59,7 @@ Mer information finns i dokumentationen [Översikt över registrering av dynamis
 
 Den här åtgärden kan utföras via Adobe Pass [TVE Dashboard](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#tve-dashboard) av en av dina företagsadministratörer eller av en Adobe Pass-autentiseringsrepresentant som agerar för din räkning.
 
-Mer information finns i användarhandboken för [TVE Dashboard Channels](/help/authentication/user-guide-tve-dashboard/tve-dashboard-channels.md#registered-applications) eller [TVE Dashboard Programmers ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-programmers.md#registered-applications) .
+Mer information finns i användarhandboken för [TVE Dashboard Channels](/help/authentication/user-guide-tve-dashboard/tve-dashboard-channels.md#registered-applications) eller [TVE Dashboard Programmers &#x200B;](/help/authentication/user-guide-tve-dashboard/tve-dashboard-programmers.md#registered-applications) .
 
 #### &#x200B;5. Vad händer om en programsats återkallas? {#rest-api-v2-access-faq5}
 
@@ -141,7 +141,7 @@ Klientprogrammet kan inte återanvända de befintliga registrerade programmen (p
 
 Den här åtgärden kan utföras via Adobe Pass [TVE Dashboard](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#tve-dashboard) av en av dina företagsadministratörer eller av en Adobe Pass-autentiseringsrepresentant som agerar för din räkning.
 
-Mer information finns i användarhandboken för [TVE Dashboard Channels](/help/authentication/user-guide-tve-dashboard/tve-dashboard-channels.md#registered-applications) eller [TVE Dashboard Programmers ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-programmers.md#registered-applications) .
+Mer information finns i användarhandboken för [TVE Dashboard Channels](/help/authentication/user-guide-tve-dashboard/tve-dashboard-channels.md#registered-applications) eller [TVE Dashboard Programmers &#x200B;](/help/authentication/user-guide-tve-dashboard/tve-dashboard-programmers.md#registered-applications) .
 
 För tillfället måste du be en Adobe Pass-autentiseringsrepresentant om att aktivera användningen av REST API V2 för dina nya registrerade program (programsatser) tills Adobe Pass [TVE Dashboard](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#tve-dashboard) uppdateras för att tillåta självhantering för den här åtgärden.
 
@@ -151,6 +151,6 @@ För att kunna skilja på registrerade program (programsatser) som används i kl
 
 Klientprogrammet kan återanvända befintliga anpassade scheman som genererats via Adobe Pass [TVE Dashboard](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#tve-dashboard).
 
-Mer information finns i användarhandboken för [TVE Dashboard Channels](/help/authentication/user-guide-tve-dashboard/tve-dashboard-channels.md#custom-schemes) eller [TVE Dashboard Programmers ](/help/authentication/user-guide-tve-dashboard/tve-dashboard-programmers.md#custom-schemes) .
+Mer information finns i användarhandboken för [TVE Dashboard Channels](/help/authentication/user-guide-tve-dashboard/tve-dashboard-channels.md#custom-schemes) eller [TVE Dashboard Programmers &#x200B;](/help/authentication/user-guide-tve-dashboard/tve-dashboard-programmers.md#custom-schemes) .
 
 +++

@@ -260,7 +260,7 @@ När användaren har valt önskad MVPD måste programmet i det övre lagret åte
 | ```public void setSelectedProvider(String mvpdId)``` |
 
 
-**Tillgänglighet:**v 1.0+
+**Tillgänglighet:**&#x200B;v 1.0+
 
 **Parametrar:** Inga
 
@@ -355,7 +355,7 @@ Det här återanropet signalerar också när utloggningsflödet är klart.
 | --- |
 | ```public void checkPreauthorizedResources(ArrayList<String> resources)``` |
 
-**Tillgänglighet:**v 1.0+
+**Tillgänglighet:**&#x200B;v 1.0+
 
 **Parametrar:** Parametern `resources` är en array med resurser som användaren redan har behörighet att visa.
 
@@ -427,7 +427,7 @@ Det här återanropet signalerar också när utloggningsflödet är klart.
 | --- |
 | ```public void setToken(String token, String resourceId)``` |
 
-**Tillgänglighet:**v 1.0+
+**Tillgänglighet:**&#x200B;v 1.0+
 
 **Parametrar:**
 
