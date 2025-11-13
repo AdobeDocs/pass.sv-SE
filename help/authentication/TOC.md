@@ -4,9 +4,9 @@ audience: end-user
 feature: Authentication
 user-guide-title: Adobe Pass-autentisering
 user-guide-description: Adobe Pass-autentisering är en berättigandelösning för TV Everywhere, som tillhandahåller ett modulärt ramverk för att avgöra om någon som begär åtkomst till en resurs är berättigad till den.
-source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
+source-git-commit: 151c64276377be5ef21bca4c0d3eaa04ac3da495
 workflow-type: tm+mt
-source-wordcount: '1279'
+source-wordcount: '1285'
 ht-degree: 3%
 
 ---
@@ -161,6 +161,8 @@ ht-degree: 3%
          - [Tillståndsövervakning - översikt](integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview.md)
          - [API för kontroll av berättigandetjänster](integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-api.md)
          - [Mätvärden på serversidan](integration-guide-programmers/features-premium/esm/understanding-serverside-metrics.md)
+      - SSO-tjänst {#sso-service}
+         - [Adobe tjänst för enkel inloggning](integration-guide-programmers/features-premium/sso-service/sso-service.md)
       - Analyser {#analytics}
          - [Integrera data på serversidan för Adobe Pass Authentication i Adobe Analytics](integration-guide-programmers/features-premium/analytics/integrate-authn-servr-data-analytics.md)
          - [Använda Experience Cloud ID i Adobe Pass-autentisering](integration-guide-programmers/features-premium/analytics/exp-cloud-id-authn.md)
