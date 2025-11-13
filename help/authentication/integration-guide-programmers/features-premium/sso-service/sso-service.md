@@ -121,7 +121,7 @@ Tjänsttoken har &quot;iat&quot; - utfärdad vid och &quot;exp&quot; - förfallo
 
 ### Steg 3 - Autentisera med Adobe Pass REST API V2 med en TVE MVPD {#step-3}
 
-Autentiseringen med Adobe Pass ska implementeras med tjänsttoken: [REST API V2 - tokenflöden för enkel inloggning](https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-flows/rest-api-v2-single-sign-on-access-flows/rest-api-v2-single-sign-on-service-token-flows)
+Autentiseringen med Adobe Pass ska implementeras med tjänsttoken: [REST API V2 - tokenflöden för enkel inloggning](https://experienceleague.adobe.com/sv/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-flows/rest-api-v2-single-sign-on-access-flows/rest-api-v2-single-sign-on-service-token-flows)
 
 ### Steg 4 - Länka en annan enhet {#step-4}
 
@@ -211,13 +211,13 @@ Om Service Token API-begäran inte kunde hanteras på grund av ett fel i Adobe P
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">Behörighet</td>
-      <td>Genereringen av mottagarens tokennyttolast beskrivs i rubrikdokumentationen för <a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-authorization">autentisering</a>.</td>
+      <td>Genereringen av mottagarens tokennyttolast beskrivs i rubrikdokumentationen för <a href="https://experienceleague.adobe.com/sv/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-authorization">autentisering</a>.</td>
       <td><i>obligatoriskt</i></td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">AP-Device-Identifier</td>
       <td>
-         Genereringen av nyttolasten för enhetsidentifieraren beskrivs i rubrikdokumentationen för <a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-ap-device-identifier">AP-Device-Identifier</a>.
+         Genereringen av nyttolasten för enhetsidentifieraren beskrivs i rubrikdokumentationen för <a href="https://experienceleague.adobe.com/sv/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-ap-device-identifier">AP-Device-Identifier</a>.
          <br/><br/>
          Den här identifieraren används som standard-SSO-identifierare när X-SSO-ID inte anges.
       </td>
@@ -226,7 +226,7 @@ Om Service Token API-begäran inte kunde hanteras på grund av ett fel i Adobe P
    <tr>
       <td style="background-color: #DEEBFF;">X-Device-Info</td>
       <td>
-         Enhetsinformationen som angetts i rubrikdokumentationen för <a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-x-device-info">X-Device-Info</a>.
+         Enhetsinformationen som angetts i rubrikdokumentationen för <a href="https://experienceleague.adobe.com/sv/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-x-device-info">X-Device-Info</a>.
          <br/><br/>
          <b> </b> Rekommenderas starkt när programmets enhetsplattform tillåter att giltiga värden anges explicit.
          <br/><br/>
@@ -287,21 +287,21 @@ Om Service Token API-begäran inte kunde hanteras på grund av ett fel i Adobe P
       <td>400</td>
       <td>Felaktig begäran</td>
       <td>
-        Begäran är ogiltig. Klienten måste åtgärda begäran och försöka igen. Svarstexten kan innehålla felinformation som följer dokumentationen för <a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes">Förbättrade felkoder</a>.
+        Begäran är ogiltig. Klienten måste åtgärda begäran och försöka igen. Svarstexten kan innehålla felinformation som följer dokumentationen för <a href="https://experienceleague.adobe.com/sv/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes">Förbättrade felkoder</a>.
       </td>
    </tr>
    <tr>
       <td>401</td>
       <td>Obehörig</td>
       <td>
-        Åtkomsttoken är ogiltig. Klienten måste hämta en ny åtkomsttoken och försöka igen. Mer information finns i dokumentationen <a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview">Översikt över registrering av dynamisk klient</a>.
+        Åtkomsttoken är ogiltig. Klienten måste hämta en ny åtkomsttoken och försöka igen. Mer information finns i dokumentationen <a href="https://experienceleague.adobe.com/sv/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview">Översikt över registrering av dynamisk klient</a>.
       </td>
    </tr>
    <tr>
       <td>500</td>
       <td>Internt serverfel</td>
       <td>
-        Ett fel uppstod på serversidan. Svarstexten kan innehålla felinformation som följer dokumentationen för <a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes">Förbättrade felkoder</a>.
+        Ett fel uppstod på serversidan. Svarstexten kan innehålla felinformation som följer dokumentationen för <a href="https://experienceleague.adobe.com/sv/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes">Förbättrade felkoder</a>.
       </td>
    </tr>
 </table>
@@ -376,7 +376,7 @@ Om Service Token API-begäran inte kunde hanteras på grund av ett fel i Adobe P
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;"></td>
-      <td>Svarstexten kan innehålla ytterligare felinformation som följer dokumentationen för <a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes">Förbättrade felkoder</a>.</td>
+      <td>Svarstexten kan innehålla ytterligare felinformation som följer dokumentationen för <a href="https://experienceleague.adobe.com/sv/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes">Förbättrade felkoder</a>.</td>
       <td><i>obligatoriskt</i></td>
    </tr>
 </table>
@@ -487,7 +487,7 @@ Content-Type: application/json
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">Behörighet</td>
-      <td>Genereringen av mottagarens tokennyttolast beskrivs i rubrikdokumentationen för <a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-authorization">autentisering</a>.</td>
+      <td>Genereringen av mottagarens tokennyttolast beskrivs i rubrikdokumentationen för <a href="https://experienceleague.adobe.com/sv/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-authorization">autentisering</a>.</td>
       <td><i>obligatoriskt</i></td>
    </tr>
    <tr>
@@ -534,21 +534,21 @@ Content-Type: application/json
       <td>400</td>
       <td>Felaktig begäran</td>
       <td>
-        Begäran är ogiltig. Klienten måste åtgärda begäran och försöka igen. Svarstexten kan innehålla felinformation som följer dokumentationen för <a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes">Förbättrade felkoder</a>.
+        Begäran är ogiltig. Klienten måste åtgärda begäran och försöka igen. Svarstexten kan innehålla felinformation som följer dokumentationen för <a href="https://experienceleague.adobe.com/sv/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes">Förbättrade felkoder</a>.
       </td>
    </tr>
    <tr>
       <td>401</td>
       <td>Obehörig</td>
       <td>
-        Åtkomsttoken eller tjänsttoken är ogiltig. Klienten måste hämta en ny åtkomsttoken eller tjänsttoken och försöka igen. Mer information finns i dokumentationen <a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview">Översikt över registrering av dynamisk klient</a>.
+        Åtkomsttoken eller tjänsttoken är ogiltig. Klienten måste hämta en ny åtkomsttoken eller tjänsttoken och försöka igen. Mer information finns i dokumentationen <a href="https://experienceleague.adobe.com/sv/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview">Översikt över registrering av dynamisk klient</a>.
       </td>
    </tr>
    <tr>
       <td>500</td>
       <td>Internt serverfel</td>
       <td>
-        Ett fel uppstod på serversidan. Svarstexten kan innehålla felinformation som följer dokumentationen för <a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes">Förbättrade felkoder</a>.
+        Ett fel uppstod på serversidan. Svarstexten kan innehålla felinformation som följer dokumentationen för <a href="https://experienceleague.adobe.com/sv/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes">Förbättrade felkoder</a>.
       </td>
    </tr>
 </table>
@@ -623,7 +623,7 @@ Content-Type: application/json
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;"></td>
-      <td>Svarstexten kan innehålla ytterligare felinformation som följer dokumentationen för <a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes">Förbättrade felkoder</a>.</td>
+      <td>Svarstexten kan innehålla ytterligare felinformation som följer dokumentationen för <a href="https://experienceleague.adobe.com/sv/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes">Förbättrade felkoder</a>.</td>
       <td><i>obligatoriskt</i></td>
    </tr>
 </table>
@@ -711,12 +711,12 @@ Om Link API-begäran inte kunde hanteras på grund av ett fel i Adobe Pass Authe
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">Behörighet</td>
-      <td>Genereringen av mottagarens tokennyttolast beskrivs i rubrikdokumentationen för <a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-authorization">autentisering</a>.</td>
+      <td>Genereringen av mottagarens tokennyttolast beskrivs i rubrikdokumentationen för <a href="https://experienceleague.adobe.com/sv/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-authorization">autentisering</a>.</td>
       <td><i>obligatoriskt</i></td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">AP-Device-Identifier</td>
-      <td>Genereringen av nyttolasten för enhetsidentifieraren beskrivs i rubrikdokumentationen för <a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-ap-device-identifier">AP-Device-Identifier</a>.</td>
+      <td>Genereringen av nyttolasten för enhetsidentifieraren beskrivs i rubrikdokumentationen för <a href="https://experienceleague.adobe.com/sv/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-ap-device-identifier">AP-Device-Identifier</a>.</td>
       <td><i>obligatoriskt</i></td>
    </tr>
    <tr>
@@ -763,21 +763,21 @@ Om Link API-begäran inte kunde hanteras på grund av ett fel i Adobe Pass Authe
       <td>400</td>
       <td>Felaktig begäran</td>
       <td>
-        Begäran är ogiltig. Klienten måste åtgärda begäran och försöka igen. Svarstexten kan innehålla felinformation som följer dokumentationen för <a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes">Förbättrade felkoder</a>.
+        Begäran är ogiltig. Klienten måste åtgärda begäran och försöka igen. Svarstexten kan innehålla felinformation som följer dokumentationen för <a href="https://experienceleague.adobe.com/sv/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes">Förbättrade felkoder</a>.
       </td>
    </tr>
    <tr>
       <td>401</td>
       <td>Obehörig</td>
       <td>
-        Åtkomsttoken är ogiltig. Klienten måste hämta en ny åtkomsttoken och försöka igen. Mer information finns i dokumentationen <a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview">Översikt över registrering av dynamisk klient</a>.
+        Åtkomsttoken är ogiltig. Klienten måste hämta en ny åtkomsttoken och försöka igen. Mer information finns i dokumentationen <a href="https://experienceleague.adobe.com/sv/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview">Översikt över registrering av dynamisk klient</a>.
       </td>
    </tr>
    <tr>
       <td>500</td>
       <td>Internt serverfel</td>
       <td>
-        Ett fel uppstod på serversidan. Svarstexten kan innehålla felinformation som följer dokumentationen för <a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes">Förbättrade felkoder</a>.
+        Ett fel uppstod på serversidan. Svarstexten kan innehålla felinformation som följer dokumentationen för <a href="https://experienceleague.adobe.com/sv/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes">Förbättrade felkoder</a>.
       </td>
    </tr>
 </table>
@@ -852,7 +852,7 @@ Om Link API-begäran inte kunde hanteras på grund av ett fel i Adobe Pass Authe
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;"></td>
-      <td>Svarstexten kan innehålla ytterligare felinformation som följer dokumentationen för <a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes">Förbättrade felkoder</a>.</td>
+      <td>Svarstexten kan innehålla ytterligare felinformation som följer dokumentationen för <a href="https://experienceleague.adobe.com/sv/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes">Förbättrade felkoder</a>.</td>
       <td><i>obligatoriskt</i></td>
    </tr>
 </table>
@@ -955,7 +955,7 @@ Om det inte gick att utföra avlänkning av API-begäran på grund av ett fel i 
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">Behörighet</td>
-      <td>Genereringen av mottagarens tokennyttolast beskrivs i rubrikdokumentationen för <a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-authorization">autentisering</a>.</td>
+      <td>Genereringen av mottagarens tokennyttolast beskrivs i rubrikdokumentationen för <a href="https://experienceleague.adobe.com/sv/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-authorization">autentisering</a>.</td>
       <td><i>obligatoriskt</i></td>
    </tr>
    <tr>
@@ -969,7 +969,7 @@ Om det inte gick att utföra avlänkning av API-begäran på grund av ett fel i 
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">AP-Device-Identifier</td>
-      <td>Genereringen av nyttolasten för enhetsidentifieraren beskrivs i rubrikdokumentationen för <a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-ap-device-identifier">AP-Device-Identifier</a>.</td>
+      <td>Genereringen av nyttolasten för enhetsidentifieraren beskrivs i rubrikdokumentationen för <a href="https://experienceleague.adobe.com/sv/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-ap-device-identifier">AP-Device-Identifier</a>.</td>
       <td><i>obligatoriskt</i></td>
    </tr>
    <tr>
@@ -1016,14 +1016,14 @@ Om det inte gick att utföra avlänkning av API-begäran på grund av ett fel i 
       <td>400</td>
       <td>Felaktig begäran</td>
       <td>
-        Begäran är ogiltig. Klienten måste åtgärda begäran och försöka igen. Svarstexten kan innehålla felinformation som följer dokumentationen för <a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes">Förbättrade felkoder</a>.
+        Begäran är ogiltig. Klienten måste åtgärda begäran och försöka igen. Svarstexten kan innehålla felinformation som följer dokumentationen för <a href="https://experienceleague.adobe.com/sv/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes">Förbättrade felkoder</a>.
       </td>
    </tr>
    <tr>
       <td>401</td>
       <td>Obehörig</td>
       <td>
-        Åtkomsttoken är ogiltig. Klienten måste hämta en ny åtkomsttoken och försöka igen. Mer information finns i dokumentationen <a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview">Översikt över registrering av dynamisk klient</a>.
+        Åtkomsttoken är ogiltig. Klienten måste hämta en ny åtkomsttoken och försöka igen. Mer information finns i dokumentationen <a href="https://experienceleague.adobe.com/sv/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview">Översikt över registrering av dynamisk klient</a>.
       </td>
    </tr>
    <tr>
@@ -1037,7 +1037,7 @@ Om det inte gick att utföra avlänkning av API-begäran på grund av ett fel i 
       <td>500</td>
       <td>Internt serverfel</td>
       <td>
-        Ett fel uppstod på serversidan. Svarstexten kan innehålla felinformation som följer dokumentationen för <a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes">Förbättrade felkoder</a>.
+        Ett fel uppstod på serversidan. Svarstexten kan innehålla felinformation som följer dokumentationen för <a href="https://experienceleague.adobe.com/sv/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes">Förbättrade felkoder</a>.
       </td>
    </tr>
 </table>
@@ -1106,7 +1106,7 @@ Om det inte gick att utföra avlänkning av API-begäran på grund av ett fel i 
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;"></td>
-      <td>Svarstexten kan innehålla ytterligare felinformation som följer dokumentationen för <a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes">Förbättrade felkoder</a>.</td>
+      <td>Svarstexten kan innehålla ytterligare felinformation som följer dokumentationen för <a href="https://experienceleague.adobe.com/sv/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes">Förbättrade felkoder</a>.</td>
       <td><i>obligatoriskt</i></td>
    </tr>
 </table>
@@ -1251,12 +1251,12 @@ Om List API-begäran inte kunde hanteras på grund av ett fel i Adobe Pass Authe
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">Behörighet</td>
-      <td>Genereringen av mottagarens tokennyttolast beskrivs i rubrikdokumentationen för <a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-authorization">autentisering</a>.</td>
+      <td>Genereringen av mottagarens tokennyttolast beskrivs i rubrikdokumentationen för <a href="https://experienceleague.adobe.com/sv/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-authorization">autentisering</a>.</td>
       <td><i>obligatoriskt</i></td>
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;">AP-Device-Identifier</td>
-      <td>Genereringen av nyttolasten för enhetsidentifieraren beskrivs i rubrikdokumentationen för <a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-ap-device-identifier">AP-Device-Identifier</a>.</td>
+      <td>Genereringen av nyttolasten för enhetsidentifieraren beskrivs i rubrikdokumentationen för <a href="https://experienceleague.adobe.com/sv/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-ap-device-identifier">AP-Device-Identifier</a>.</td>
       <td><i>obligatoriskt</i></td>
    </tr>
    <tr>
@@ -1303,14 +1303,14 @@ Om List API-begäran inte kunde hanteras på grund av ett fel i Adobe Pass Authe
       <td>400</td>
       <td>Felaktig begäran</td>
       <td>
-        Begäran är ogiltig. Klienten måste åtgärda begäran och försöka igen. Svarstexten kan innehålla felinformation som följer dokumentationen för <a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes">Förbättrade felkoder</a>.
+        Begäran är ogiltig. Klienten måste åtgärda begäran och försöka igen. Svarstexten kan innehålla felinformation som följer dokumentationen för <a href="https://experienceleague.adobe.com/sv/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes">Förbättrade felkoder</a>.
       </td>
    </tr>
    <tr>
       <td>401</td>
       <td>Obehörig</td>
       <td>
-        Åtkomsttoken är ogiltig. Klienten måste hämta en ny åtkomsttoken och försöka igen. Mer information finns i dokumentationen <a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview">Översikt över registrering av dynamisk klient</a>.
+        Åtkomsttoken är ogiltig. Klienten måste hämta en ny åtkomsttoken och försöka igen. Mer information finns i dokumentationen <a href="https://experienceleague.adobe.com/sv/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-overview">Översikt över registrering av dynamisk klient</a>.
       </td>
    </tr>
    <tr>
@@ -1324,7 +1324,7 @@ Om List API-begäran inte kunde hanteras på grund av ett fel i Adobe Pass Authe
       <td>500</td>
       <td>Internt serverfel</td>
       <td>
-        Ett fel uppstod på serversidan. Svarstexten kan innehålla felinformation som följer dokumentationen för <a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes">Förbättrade felkoder</a>.
+        Ett fel uppstod på serversidan. Svarstexten kan innehålla felinformation som följer dokumentationen för <a href="https://experienceleague.adobe.com/sv/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes">Förbättrade felkoder</a>.
       </td>
    </tr>
 </table>
@@ -1357,7 +1357,7 @@ Om List API-begäran inte kunde hanteras på grund av ett fel i Adobe Pass Authe
       <td>
          JSON innehåller en karta över nyckel- och värdepar.
          <br/><br/>
-         <b> Key: </b> deviceId - Nyttolasten för enhetsidentifieraren enligt beskrivningen i rubrikdokumentationen för <a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-ap-device-identifier"> AP-Device-Identifier </a>
+         <b> Key: </b> deviceId - Nyttolasten för enhetsidentifieraren enligt beskrivningen i rubrikdokumentationen för <a href="https://experienceleague.adobe.com/sv/docs/pass/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-appendix/rest-api-v2-appendix-headers/rest-api-v2-appendix-headers-ap-device-identifier"> AP-Device-Identifier </a>
          <br/><br/>
          <b>Värde:</b> attribut - JSON innehåller en karta över attribut för enhetsmetadata inklusive:
          <ul>
@@ -1397,7 +1397,7 @@ Om List API-begäran inte kunde hanteras på grund av ett fel i Adobe Pass Authe
    </tr>
    <tr>
       <td style="background-color: #DEEBFF;"></td>
-      <td>Svarstexten kan innehålla ytterligare felinformation som följer dokumentationen för <a href="https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes">Förbättrade felkoder</a>.</td>
+      <td>Svarstexten kan innehålla ytterligare felinformation som följer dokumentationen för <a href="https://experienceleague.adobe.com/sv/docs/pass/authentication/integration-guide-programmers/standard-features/error-reporting/enhanced-error-codes">Förbättrade felkoder</a>.</td>
       <td><i>obligatoriskt</i></td>
    </tr>
 </table>
@@ -1514,7 +1514,7 @@ Alla felsvar innehåller följande fält:
     "code": "header_missing",
     "message": "Required header is missing",
     "action": "check_headers",
-    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html",
+    "helpUrl": "https://experienceleague.adobe.com/docs/pass/authentication/auth-features/error-reportn/enhanced-error-codes.html?lang=sv-SE",
     "trace": "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
   }
 }
