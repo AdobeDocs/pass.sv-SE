@@ -25,7 +25,7 @@ ESM Dashboard ger en enhetlig vy över berättiganden och händelsedata som hjä
 - Jämför MVPD prestanda
 - Förstå kundanvändning per program
 
-Mer information om ESM-data och händelser finns i [Entitlement Service Monitoring Overview](https://experienceleague.adobe.com/en/docs/pass/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview).
+Mer information om ESM-data och händelser finns i [Entitlement Service Monitoring Overview](https://experienceleague.adobe.com/sv/docs/pass/authentication/integration-guide-programmers/features-premium/esm/entitlement-service-monitoring-overview).
 
 ## Rapporter {#reports}
 
