@@ -2,7 +2,7 @@
 title: Ordlista
 description: Ordlista för termer i övervakning av samtidig användning
 exl-id: 3b3b36fe-9f04-4de9-bd84-9f8d766bbc71
-source-git-commit: f30b6814b8a77424c13337d44d7b247105e0bfe2
+source-git-commit: ed340643e807d786638d59f9bf07d73b7f909a72
 workflow-type: tm+mt
 source-wordcount: '762'
 ht-degree: 0%
@@ -28,7 +28,7 @@ ht-degree: 0%
 ## Program {#application-defn}
 
 * Utvecklad av klienten för åtkomst till videoinnehåll
-* Fungerar och verkställer beslut om innehållsåtkomst baserat på information som tillhandahålls av Concurrency Monitoring Service (detta gäller i fallet [Policy Information Point](/help/concurrency-monitoring/policy-info-pt-versionone.md))
+* Fungerar och verkställer beslut om innehållsåtkomst baserat på information som tillhandahålls av Concurrency Monitoring Service (detta gäller i fallet [Policy Information Point](/help/concurrency-monitoring/technical/policy-info-pt-versionone.md))
 * Kommer att ha ett unikt **program-ID** från Adobe.
 
 ## Övervakningstjänst för samtidig valuta {#cm-service-defn}
@@ -94,7 +94,7 @@ ht-degree: 0%
 
 ## Ämne {#subj-defn}
 
-* Konsumenten av (video)-innehållet via internet. Vi undviker avsiktligt termen _&#x200B;**användare**&#x200B;_, eftersom övervakning av samtidig användning vanligtvis handlar om MVPD konto-ID:n (som omfattar flera faktiska användare som delar samma kontrakt, till exempel familjemedlemmar för ett hushåll).
+* Konsumenten av (video)-innehållet via internet. Vi undviker avsiktligt termen _**användare**_, eftersom övervakning av samtidig användning vanligtvis handlar om MVPD konto-ID:n (som omfattar flera faktiska användare som delar samma kontrakt, till exempel familjemedlemmar för ett hushåll).
 
 * För varje ström kan motivet förbättras med attribut som är kopplade till den person som använder tjänsten, den nätverksanslutna enheten och så vidare.
 
