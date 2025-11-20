@@ -59,7 +59,7 @@ curl -i -X POST -u ${user}:%{pass} http://streams-stage.adobeprimetime.com/v2/se
 
 Ingen avslutningskod behöver anges för det första samtalet eftersom vi inte har några andra aktiva strömmar. Och inget metadataattribut eftersom inget returnerades från anropet Hämta metadata.
 
-Parametrarna **subject** och **idp** är obligatoriska. De anges som URI-sökvägsvariabler. Du kan hämta parametrarna **subject** och **idp** genom att anropa metadatafälten **mvpd** och **upstreamUserID** från Adobe Pass Authentication. Se även [översikten över metadata-API:er](https://experienceleague.adobe.com/docs/primetime/authentication/auth-features/user-metadat/user-metadata-feature.html?lang=en#). I det här exemplet anger vi värdet&quot;12345&quot; som ämne och&quot;adobe&quot; som idp.
+Parametrarna **subject** och **idp** är obligatoriska. De anges som URI-sökvägsvariabler. Du kan hämta parametrarna **subject** och **idp** genom att anropa metadatafälten **mvpd** och **upstreamUserID** från Adobe Pass Authentication. Se även [översikten över metadata-API:er](https://experienceleague.adobe.com/docs/primetime/authentication/auth-features/user-metadat/user-metadata-feature.html?lang=sv-SE#). I det här exemplet anger vi värdet&quot;12345&quot; som ämne och&quot;adobe&quot; som idp.
 
 ```
 # Response Code
