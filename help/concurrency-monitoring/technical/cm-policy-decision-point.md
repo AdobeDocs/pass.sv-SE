@@ -15,7 +15,7 @@ ht-degree: 0%
 
 Den här sidan är avsedd att fungera som referens för olika användningar och implementeringar av policyer. Vi rekommenderar att du också läser delen [Ordlista](/help/concurrency-monitoring/cm-glossary.md) i dokumentationen för att få information om termdefinitioner.
 
-En **klientorganisation** äger **program** som den vill tillämpa **profiler** för. **Klientprogram** måste konfigureras med program-ID:t **** (tillhandahålls av Adobe).
+En **klientorganisation** äger **program** som den vill tillämpa **profiler** för. **Klientprogram** måste konfigureras med program-ID:t **&#x200B;**&#x200B;(tillhandahålls av Adobe).
 
 Klienten associerar sedan varje program med en eller flera profiler, antingen skapade av honom eller skapade och delade av andra. Profiler kan länkas mellan flera innehavare.
 
