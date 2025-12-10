@@ -2,9 +2,9 @@
 title: Kanaler
 description: Lär dig mer om kanaler och deras olika konfigurationer i TVE Dashboard.
 exl-id: bbddeccb-6b6f-4a8f-87ab-d4af538eee1d
-source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
+source-git-commit: b4276ee12d57bc061d26afc0a192b799fe1681ae
 workflow-type: tm+mt
-source-wordcount: '1556'
+source-wordcount: '1637'
 ht-degree: 0%
 
 ---
@@ -268,7 +268,8 @@ Följ de här stegen för att hämta en programsats.
 
 ### Anpassade scheman {#custom-schemes}
 
-På den här fliken visas en lista med anpassade scheman. Mer information om användning av anpassade scheman finns i [iOS/tvOS-programregistreringen](/help/authentication/integration-guide-programmers/legacy/sdks/ios-tvos-sdk/iostvos-application-registration.md).
+På den här fliken visas en lista med anpassade scheman.
+De anpassade schemana kan användas för Android- och iOS-enheter.
 
 Du kan göra följande ändringar i anpassade scheman:
 
@@ -286,7 +287,38 @@ Följ de här stegen för att skapa ett nytt anpassat schema.
 
 En ny konfigurationsändring har skapats och är klar för serveruppdatering. Om du vill använda det nya anpassade schemat som listas i avsnittet **Anpassade scheman** fortsätter du med flödet [granska och skicka ändringar](/help/authentication/user-guide-tve-dashboard/tve-dashboard-review-push-changes.md).
 
-#### Ärvda anpassade scheman {#inherited-custom-schemes}
+#### Om du inte har tillgång till Adobe TVE Dashboard:
+
+Skicka en biljett till <tve-support@adobe.com>. Ange kanal-ID så skapar någon från vårt supportteam ett anpassat schema åt dig.
+
+#### ANDROID {#Android}
+
+1. Anpassat schema - Det anpassade schema som skapas i TVE Dashboard kan användas för Android-enhetsprogram.
+
+1. Lägg till följande kod i programmets resursfil `strings.xml`:
+
+```XML
+       <string name="software_statement">softwarestatement value</string>
+       <string name="redirect_uri">adbe.TTIFAaWuR-CmxXv1Di8PlQ://</string>
+```
+
+#### iOS {#iOS}
+
+Anpassat schema kan användas i programmets `info.plist`-fil. I följande exempel hittar du den URL som genererats i TVE Dashboard:
+
+```plist
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>adbe.u-XFXJeTSDuJiIQs0HVRAg</string> // replace this with your custom scheme
+            </array>
+        </dict>
+    </array>
+```
+
+### Ärvda anpassade scheman {#inherited-custom-schemes}
 
 Medieföretag definierar dessa anpassade scheman på sin egen nivå. Alla kanaler som är associerade med samma medieföretag kan använda dessa anpassade scheman.
 
