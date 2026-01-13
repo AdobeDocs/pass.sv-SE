@@ -2,9 +2,9 @@
 title: Header - AP-Partner-Framework-Status
 description: REST API V2 - Header - AP-Partner-Framework-Status
 exl-id: f589d948-e23e-43d4-81c2-8db0e7a40e93
-source-git-commit: 5c912bbbe97fff65d38dbade32cd4554ad8c2fac
+source-git-commit: 22529618db679f7dbfb493906e1aeb4a0443a40c
 workflow-type: tm+mt
-source-wordcount: '404'
+source-wordcount: '415'
 ht-degree: 0%
 
 ---
@@ -70,8 +70,8 @@ Värdet `Base64-encoded` för JSON-elementet som innehåller följande attribut:
                   <ul>
                      <li><b>beviljad</b><br/>Användaren tillät programmet att komma åt prenumerationsinformation.</li>
                      <li><b>nekades</b><br/>Användaren nekade programmet åtkomst till prenumerationsinformation.</li>
-                     <li><b>Väntande</b><br/>Användaren har ännu inte valt att ge programmet åtkomst till prenumerationsinformation.</li>
-                     <li><b>notDetermined</b><br/>Programmet har inte åtkomst till prenumerationsinformation.</li>
+                     <li><b>begränsad</b><br/>Programmet har inte åtkomst till prenumerationsinformation.</li>
+                     <li><b>notDetermined</b><br/>Användaren har inte valt att tillåta programmet att få åtkomst till prenumerationsinformation.</li>
                   </ul>
                </td>
             </tr>
