@@ -2,9 +2,9 @@
 title: Apple SSO Cookbook (REST API V2)
 description: Apple SSO Cookbook (REST API V2)
 exl-id: 81476312-9ba4-47a0-a4f7-9a557608cfd6
-source-git-commit: 63ffde4a32f003d7232d2c79ed6878ca59748f74
+source-git-commit: 0be4216ba816ddace095e557f9f61a8a42e1a1ff
 workflow-type: tm+mt
-source-wordcount: '3857'
+source-wordcount: '3908'
 ht-degree: 0%
 
 ---
@@ -31,7 +31,7 @@ Innan du fortsätter med Apple enkel inloggning med partnerflöden måste du kon
 
   Vi rekommenderar att du uppmuntrar användare som vägrar ge åtkomst till prenumerationsinformation genom att förklara fördelarna med Apple användarupplevelse med enkel inloggning, men tänk på att användaren kan ändra sitt beslut genom att gå till programinställningarna (behörighet för TV-leverantör) eller till *`Settings -> TV Provider`* på iOS och iPadOS eller *`Settings -> Accounts -> TV Provider`* på tvOS.
 
-  Strömningsprogrammet kan begära användarens tillstånd när programmet försätts i förgrundstillstånd, eftersom programmet när som helst kan kontrollera [behörighet att komma åt &#x200B;](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanager/1949763-checkaccessstatus) användarens prenumerationsinformation innan användarautentisering krävs.
+  Strömningsprogrammet kan begära användarens tillstånd när programmet försätts i förgrundstillstånd, eftersom programmet när som helst kan kontrollera [behörighet att komma åt ](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanager/1949763-checkaccessstatus) användarens prenumerationsinformation innan användarautentisering krävs.
 
 >[!IMPORTANT]
 >
@@ -196,10 +196,22 @@ Utför de angivna stegen för att implementera enkel inloggning från Apple med 
 1. **Hämta profiler:** Direktuppspelningsprogrammet samlar in alla nödvändiga data för att hämta all profilinformation genom att skicka en begäran till profilslutpunkten.
 
    >[!IMPORTANT]
+   > 
+   > REST API v2-slutpunkten som du **måste** använda i det här steget är antingen:
    >
-   > Mer information om följande finns i [Hämta profiler](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md#Request) API-dokumentationen:
+   > * [Hämta profiler](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md#Request) API
+   > 
+   > eller
+   > 
+   > * [Hämta profiler för specifikt mvpd](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md#Request)-API
    >
-   > * Alla _obligatoriska_-parametrar, som `serviceProvider`
+   > Se till att du **inte** använder [Skapa och hämta profil med partnerautentiseringsrespons](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-profile-using-partner-authentication-response.md#Request) API i det här steget.
+
+   >[!IMPORTANT]
+   >
+   > Mer information om följande finns i [Hämta profiler](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md#Request) API- och [Hämta profiler för specifik mvpd](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md#Request) API-dokumentation:
+   >
+   > * Alla _obligatoriska_-parametrar, som `serviceProvider` (eller `mvpd`)
    > * Alla _obligatoriska_ rubriker, som `Authorization`, `AP-Device-Identifier` och `AP-Partner-Framework-Status`
    > * Alla _valfria_ parametrar och rubriker
    >
@@ -736,7 +748,7 @@ Utför de angivna stegen för att implementera enkel inloggning från Apple med 
 
    >[!IMPORTANT]
    >
-   > Mer information om hur du använder API-dokumentationen för mvpd[&#128279;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md#request) finns i Initiera utloggning:
+   > Mer information om hur du använder API-dokumentationen för mvpd](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/logout-apis/rest-api-v2-logout-apis-initiate-logout-for-specific-mvpd.md#request) finns i [Initiera utloggning:
    >
    > * Alla _obligatoriska_-parametrar, som `serviceProvider`, `mvpd` och `redirectUrl`
    > * Alla _obligatoriska_ rubriker, som `Authorization`, `AP-Device-Identifier`
