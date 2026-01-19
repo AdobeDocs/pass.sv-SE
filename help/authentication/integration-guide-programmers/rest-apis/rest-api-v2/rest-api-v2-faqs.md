@@ -2,9 +2,9 @@
 title: REST API V2 - frågor och svar
 description: REST API V2 - frågor och svar
 exl-id: 2dd74b47-126e-487b-b467-c16fa8cc14c1
-source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
+source-git-commit: 44fa75eb7b19ff44a41809d44c171baff6853b52
 workflow-type: tm+mt
-source-wordcount: '9682'
+source-wordcount: '11089'
 ht-degree: 0%
 
 ---
@@ -29,7 +29,7 @@ Mer information om migreringsinformation och -steg finns även i nästa avsnitt.
 
 +++Vanliga frågor om registreringsfasen
 
-Se [DCR-dokumentationen &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-faqs.md#rest-api-v2-access-faqs) med vanliga frågor om registrering av dynamiska klienter.
+Se [DCR-dokumentationen ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-faqs.md#rest-api-v2-access-faqs) med vanliga frågor om registrering av dynamiska klienter.
 
 +++
 
@@ -39,7 +39,7 @@ Se [DCR-dokumentationen &#x200B;](/help/authentication/integration-guide-program
 
 #### &#x200B;1. Vad är syftet med konfigurationsfasen? {#configuration-phase-faq1}
 
-Syftet med konfigurationsfasen är att ge klientprogrammet en lista över de MVPD-filer som det är aktivt integrerat med konfigurationsinformation (t.ex. `id`, `displayName`, `logoUrl` osv.) som sparats av Adobe Pass Authentication för varje MVPD.
+Syftet med konfigurationsfasen är att ge klientprogrammet en lista över de MVPD-program som det är aktivt integrerat med konfigurationsinformation (t.ex. `id`, `displayName`, `logoUrl` osv.) sparas med Adobe Pass Authentication för varje MVPD.
 
 Konfigurationsfasen fungerar som ett nödvändigt steg för autentiseringsfasen när klientprogrammet måste be användaren att välja sin TV-leverantör.
 
@@ -97,7 +97,7 @@ Klientprogrammet kan hantera sin egen lista över MVPD-program, men det skulle k
 
 Klientprogrammet skulle få ett [error](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md#enhanced-error-codes-lists-rest-api-v2) från Adobe Pass Authentication REST API V2 om den angivna MVPD-identifieraren är ogiltig eller om den inte har en aktiv integrering med den angivna [tjänstprovidern](rest-api-v2-glossary.md#service-provider).
 
-#### &#x200B;7. Kan klientprogrammet filtrera listan över MVPD? {#configuration-phase-faq7}
+#### &#x200B;7. Kan klientprogrammet filtrera listan över MVPD-filer? {#configuration-phase-faq7}
 
 Klientprogrammet kan filtrera listan över MVPD-program som anges i konfigurationssvaret genom att implementera en anpassad mekanism som bygger på dess egen affärslogik och krav som användarplats eller användarhistorik för det tidigare urvalet.
 
@@ -119,7 +119,7 @@ När integreringen med en MVPD är aktiverad och markerad som aktiv, tas MVPD me
 * De oautentiserade användarna av denna MVPD kan slutföra autentiseringsfasen igen med denna MVPD.
 * De autentiserade användarna av denna MVPD kommer att kunna slutföra förauktoriserings-, auktoriserings- eller utloggningsfaserna med denna MVPD.
 
-#### &#x200B;10. Hur aktiverar eller inaktiverar jag integreringen med en MVPD? {#configuration-phase-faq10}
+#### &#x200B;10. Hur aktiverar eller inaktiverar man integreringen med MVPD? {#configuration-phase-faq10}
 
 Den här åtgärden kan utföras via Adobe Pass [TVE Dashboard](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#tve-dashboard) av en av dina företagsadministratörer eller av en Adobe Pass-autentiseringsrepresentant som agerar för din räkning.
 
@@ -165,7 +165,7 @@ Mer information finns i följande dokument:
 * [Grundläggande autentiseringsflöde som utförs i det primära programmet](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-primary-application-flow.md)
 * [Grundläggande autentiseringsflöde som utförs i sekundärt program](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-authentication-secondary-application-flow.md)
 
-#### &#x200B;4. Vad är en autentiseringskod och hur länge gäller den? {#authentication-phase-faq4}
+#### &#x200B;4. Vad är en autentiseringskod och hur länge är den giltig? {#authentication-phase-faq4}
 
 Autentiseringskoden är en term som definieras i dokumentationen för [ordlistan](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/rest-api-v2-glossary.md#code).
 
@@ -233,11 +233,11 @@ Klientprogrammet bör cachelagra delar av användarens profilinformation i en be
 
 | Attribut | Användarupplevelse |
 |--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `mvpd` | Klientprogrammet kan använda detta för att hålla reda på användarens valda TV-leverantör och fortsätta att använda det under förauktoriserings- eller auktoriseringsfaserna.<br/><br/>När den aktuella användarprofilen förfaller kan klientprogrammet använda det sparade MVPD-valet och be användaren bekräfta. |
-| `attributes` | Klientprogrammet kan använda detta för att anpassa användarupplevelsen baserat på olika [användarmetadata](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md)-nycklar (t.ex. `zip`, `maxRating` osv.).<br/><br/>Användarmetadata blir tillgängliga när autentiseringsflödet har slutförts. Klientprogrammet behöver därför inte fråga en separat slutpunkt för att hämta informationen för [användarens metadata](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md) eftersom den redan ingår i profilinformationen.<br/><br/>Vissa metadataattribut kan uppdateras under auktoriseringsflödet, beroende på MVPD och det specifika metadataattributet. Därför kan klientprogrammet behöva fråga Profiles-API:erna igen för att hämta de senaste användarens metadata. |
-| `notAfter` | Klientprogrammet kan använda detta för att hålla reda på utgångsdatumet för användarprofilen.<br/><br/>Felhanteringen i klientprogrammet kräver att [&#x200B; error](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md#enhanced-error-codes-lists-rest-api-v2) -koderna (t.ex. `authenticated_profile_missing`, `authenticated_profile_expired`, `authenticated_profile_invalidated` osv.) hanteras, vilket anger att klientprogrammet kräver att användaren autentiserar. |
+| `mvpd` | Klientprogrammet kan använda detta för att hålla reda på användarens valda TV-leverantör och fortsätta att använda det under förauktoriserings- eller auktoriseringsfaserna.<br/><br/>När den aktuella användarprofilen upphör att gälla kan klientprogrammet använda det sparade MVPD-valet och be användaren bekräfta detta. |
+| `attributes` | Klientprogrammet kan använda det här för att anpassa användarupplevelsen baserat på olika [användarmetadata](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md)-nycklar (t.ex. `zip`, `maxRating` osv.).<br/><br/>Användarmetadata blir tillgängliga när autentiseringsflödet har slutförts. Klientprogrammet behöver därför inte fråga en separat slutpunkt för att hämta [användarmetadata](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md) -informationen, eftersom den redan ingår i profilinformationen.<br/><br/>Vissa metadataattribut kan vara. uppdateras under auktoriseringsflödet, beroende på MVPD och det specifika metadataattributet. Därför kan klientprogrammet behöva fråga Profiles-API:erna igen för att hämta de senaste användarens metadata. |
+| `notAfter` | Klientprogrammet kan använda detta för att hålla reda på utgångsdatumet för användarprofilen.<br/><br/>Felhanteringen i klientprogrammet kräver att [error](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md#enhanced-error-codes-lists-rest-api-v2) -koderna (t.ex. `authenticated_profile_missing`, `authenticated_profile_expired`, `authenticated_profile_invalidated` osv.) hanteras, vilket anger att klientprogrammet kräver att användaren autentiserar. |
 
-#### &#x200B;9. Kan klientprogrammet utöka användarens profil utan att omautentisering krävs? {#authentication-phase-faq9}
+#### &#x200B;9. Kan klientprogrammet utöka användarens profil utan att kräva omautentisering? {#authentication-phase-faq9}
 
 Nej.
 
@@ -247,7 +247,7 @@ Klientprogrammet måste därför uppmana användaren att autentisera igen och in
 
 För MVPD-program som stöder [hembaserad autentisering](/help/authentication/integration-guide-programmers/features-standard/hba-access/home-based-authentication.md) (HBA) behöver användaren inte ange några autentiseringsuppgifter.
 
-#### &#x200B;10. Vilka är användningsexemplen för de tillgängliga profilslutpunkterna? {#authentication-phase-faq10}
+#### &#x200B;10. Vilka är användningsexemplen för varje tillgänglig profilslutpunkt? {#authentication-phase-faq10}
 
 De grundläggande profilslutpunkterna är utformade för att ge klientprogrammet möjlighet att känna till användarens autentiseringsstatus, få åtkomst till användarens metadatainformation, hitta den metod som används för att autentisera eller den enhet som används för att ange identitet.
 
@@ -255,9 +255,9 @@ Varje slutpunkt passar ett specifikt användningsfall, enligt följande:
 
 | API | Beskrivning | Använd skiftläge |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Profilslutpunkts-API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md) | Hämta alla användarprofiler. | **Användaren öppnar klientprogrammet för första gången**<br/><br/> I det här scenariot har klientprogrammet inte användarens valda MVPD-identifierare cachelagrad i beständig lagring.<br/><br/>Det innebär att programmet skickar en begäran om att hämta alla tillgängliga användarprofiler. |
-| [Profilslutpunkt för specifikt MVPD API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md) | Hämta användarprofilen som är kopplad till en viss MVPD. | **Användaren återgår till klientprogrammet efter att ha autentiserats vid ett tidigare besök**<br/><br/> I det här fallet måste användarens tidigare valda MVPD-identifierare cachelagras i det beständiga lagringsutrymmet.<br/><br/>Det innebär att programmet skickar en enda begäran om att hämta användarens profil för den specifika MVPD:n. |
-| [Profilslutpunkt för specifikt (autentisering) kods-API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md) | Hämta användarprofilen som är associerad med en viss autentiseringskod. | **Användaren initierar autentiseringsprocessen**<br/><br/> I det här scenariot måste klientprogrammet avgöra om användaren har slutfört autentiseringen och hämta profilinformationen.<br/><br/>Detta resulterar i att en avsökningsmekanism startas för att hämta användarens profil som är associerad med autentiseringskoden. |
+| [Profilslutpunkts-API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md) | Hämta alla användarprofiler. | **Användaren öppnar klientprogrammet för första gången**<br/><br/> I det här scenariot har klientprogrammet inte användarens valda MVPD-identifierare cachelagrad i beständigt lagringsutrymme.<br/><br/>Detta innebär att den skickar en enda begäran om att hämta alla tillgängliga användarprofiler. |
+| [Profilslutpunkt för specifikt MVPD API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md) | Hämta användarprofilen som är kopplad till en viss MVPD. | **Användaren återgår till klientprogrammet efter att ha autentiserats vid ett tidigare besök**<br/><br/> I det här fallet måste användarens tidigare valda MVPD-identifierare vara cachelagrad i det beständiga lagringsutrymmet.<br/><br/>På grund av detta skickas en enda begäran om att hämta användarens profil för just den aktuella MVPD. |
+| [Profilslutpunkt för specifikt (autentisering) kods-API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md) | Hämta användarprofilen som är associerad med en viss autentiseringskod. | **Användaren initierar autentiseringsprocessen**<br/><br/> I det här scenariot måste klientprogrammet avgöra om användaren har slutfört autentiseringen och hämtat profilinformationen.<br/><br/>Detta resulterar i att en avsökningsmekanism startas för att hämta användarens profil som är associerad med autentiseringskoden. |
 
 Mer information finns i det [grundläggande profilflödet som utförs i det primära programmet](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-primary-application-flow.md) och i det [grundläggande profilflödet som utförs i det sekundära programmet](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-secondary-application-flow.md).
 
@@ -309,7 +309,7 @@ För att säkerställa effektivitet och undvika onödiga förfrågningar måste 
 
 **Autentisering utförd i det primära (skärm) programmet**
 
-Det primära (direktuppspelande) programmet ska starta avsökningen när användaren kommer till den sista målsidan, efter att webbläsarkomponenten har läst in den URL som angetts för parametern `redirectUrl` i [&#x200B; Sessions](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) -slutpunktsbegäran.
+Det primära (direktuppspelande) programmet ska starta avsökningen när användaren kommer till den sista målsidan, efter att webbläsarkomponenten har läst in den URL som angetts för parametern `redirectUrl` i [ Sessions](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) -slutpunktsbegäran.
 
 **Autentisering utförd i ett sekundärt (skärm) program**
 
@@ -388,7 +388,7 @@ Med REST API v2 kan klientprogrammet smidigt växla mellan en vanlig MVPD och en
 
 Mer information finns i dokumentationen för [Tillfälliga åtkomstflöden](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/temporary-access-flows/rest-api-v2-access-temporary-flows.md).
 
-#### &#x200B;21. Hur ska klientprogrammet hantera åtkomst för enkel inloggning mellan olika enheter? {#authentication-phase-faq21}
+#### &#x200B;21. Hur ska klientprogrammet hantera åtkomst för enkel inloggning på olika enheter? {#authentication-phase-faq21}
 
 REST API v2 kan aktivera enkel inloggning på olika enheter om klientprogrammet ger en konsekvent unik användaridentifierare på olika enheter.
 
@@ -408,7 +408,7 @@ Syftet med förauktoriseringsfasen är att ge klientprogrammet möjlighet att pr
 
 Fas för förhandsauktorisering kan förbättra användarupplevelsen när användaren öppnar klientprogrammet för första gången eller navigerar till ett nytt avsnitt.
 
-#### &#x200B;2. Är förhandsauktoriseringsfasen obligatorisk? {#preauthorization-phase-faq2}
+#### &#x200B;2. Är fasen för förhandsauktorisering obligatorisk? {#preauthorization-phase-faq2}
 
 Förhandsauktoriseringsfasen är inte obligatorisk. Klientprogrammet kan hoppa över den här fasen om det vill visa en katalog med resurser utan att först filtrera dem baserat på användarens tillstånd.
 
@@ -425,7 +425,7 @@ Mer information finns i följande dokument:
 * [Hämta API för förauktoriseringsbeslut](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md)
 * [Grundläggande förauktoriseringsflöde som utförs i det primära programmet](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-preauthorization-primary-application-flow.md)
 
-#### &#x200B;4. Ska klientprogrammet cachelagra förauktoriseringsbesluten i en beständig lagring? {#preauthorization-phase-faq4}
+#### &#x200B;4. Ska klientprogrammet cachelagra besluten om förauktorisering i en beständig lagring? {#preauthorization-phase-faq4}
 
 Klientprogrammet behövs inte för att lagra förauktoriseringsbeslut i beständig lagring. Vi rekommenderar dock att du cachelagrar tillståndsbeslut i minnet för att förbättra användarupplevelsen. Detta bidrar till att undvika onödiga anrop till slutpunkten för beslut Förauktorisera för resurser som redan har förauktoriserats, vilket minskar latensen och förbättrar prestandan.
 
@@ -507,7 +507,7 @@ Klientprogrammet behövs inte för att lagra auktoriseringsbeslut i beständig l
 
 #### &#x200B;5. Hur kan klientprogrammet avgöra varför ett auktoriseringsbeslut nekades? {#authorization-phase-faq5}
 
-Klientprogrammet kan fastställa orsaken till ett beslut om nekad auktorisering genom att granska [felkoden och meddelandet &#x200B;](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) som ingår i svaret från slutpunkten för auktorisering av beslut. Dessa uppgifter ger insikt i varför auktoriseringsbegäran nekades, vilket kan bidra till att informera användaren eller utlösa nödvändig hantering i programmet.
+Klientprogrammet kan fastställa orsaken till ett beslut om nekad auktorisering genom att granska [felkoden och meddelandet ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) som ingår i svaret från slutpunkten för auktorisering av beslut. Dessa uppgifter ger insikt i varför auktoriseringsbegäran nekades, vilket kan bidra till att informera användaren eller utlösa nödvändig hantering i programmet.
 
 Se till att alla återförsöksmetoder som implementeras för att hämta auktoriseringsbeslut inte resulterar i en oändlig slinga om auktoriseringsbeslutet nekas.
 
@@ -536,7 +536,7 @@ Ja.
 
 Klientprogrammet måste validera medietoken innan uppspelningen av resursströmmen startar. Verifieringen bör utföras med [Media Token Verifier](/help/authentication/integration-guide-programmers/features-standard/entitlements/media-tokens.md#media-token-verifier). Genom att verifiera `serializedToken` från `token` som returnerats hjälper klientprogrammet till att förhindra obehörig åtkomst, som strömrippning, och ser till att endast korrekt auktoriserade användare kan spela upp innehållet.
 
-#### &#x200B;8. Ska klientprogrammet uppdatera en medietoken som har gått ut under uppspelningen? {#authorization-phase-faq8}
+#### &#x200B;8. Ska klientprogrammet uppdatera en medietoken som gått ut under uppspelningen? {#authorization-phase-faq8}
 
 Nej.
 
@@ -628,7 +628,7 @@ Huvudet för begäran [AP-Device-Identifier](/help/authentication/integration-gu
 
 Huvuddokumentationen för [AP-Device-Identifier](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-device-identifier.md) innehåller exempel på större plattformar för hur värdet beräknas, men klientprogrammet kan välja att använda en annan metod baserat på sin egen affärslogik och sina egna krav.
 
-#### &#x200B;3. Hur beräknar man värdet för X-Device-Info-huvudet? {#headers-faq3}
+#### &#x200B;3. Hur beräknas värdet för X-Device-Info-huvudet? {#headers-faq3}
 
 >[!IMPORTANT]
 >
@@ -691,6 +691,201 @@ Om du vill använda [DCR API](https://developer.adobe.com/adobe-pass/api/dcr_api
 
 +++
 
+### Vanliga frågor om Apple SSO {#apple-sso-general}
+
++++Vanliga frågor om Apple SSO
+
+#### &#x200B;1. Vad är Apple SSO och hur fungerar det med REST API V2? {#apple-sso-faq1}
+
+Med Apple SSO (Single Sign-On) kan användare logga in på sitt TV-leverantörskonto på enhetssystemnivå med hjälp av Apple [Video Subscriber Account Framework](https://developer.apple.com/documentation/videosubscriberaccount), vilket eliminerar behovet av att autentisera app för app.
+
+REST API V2 har stöd för enkel inloggning (SSO) för slutanvändare av klientprogram som körs på iOS, iPadOS eller tvOS via partnerflödena.
+
+Mer information finns i följande dokument:
+
+* [Apple SSO - översikt](/help/authentication/integration-guide-programmers/features-standard/sso-access/partner-sso/apple-sso/apple-sso-overview.md)
+* [Apple SSO Cookbook (REST API V2)](/help/authentication/integration-guide-programmers/features-standard/sso-access/partner-sso/apple-sso/apple-sso-cookbook-rest-api-v2.md)
+* [Samlad inloggning med partnerflöden](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-partner-flows.md)
+
+#### &#x200B;2. Vilka är förutsättningarna för att implementera Apple SSO? {#apple-sso-faq2}
+
+Innan du implementerar Apple SSO måste du kontrollera att följande krav uppfylls:
+
+**Krav för direktuppspelningsprogram:**
+
+* Kontakta Apple för att aktivera [Video Subscriber Account Framework](https://developer.apple.com/documentation/videosubscriberaccount) som en del av ditt Apple Team ID.
+* Konfigurera videoprenumerantens Single Sign-On-berättigande som en del av ditt Apple Developer-konto.
+* Använd Xcode version 8 eller senare och iOS/tvOS version 10 eller senare.
+* Begär användarbehörighet att komma åt prenumerationsinformation på enhetsnivå.
+* Inkludera rubrikerna `X-Device-Info` och/eller `User-Agent` så att Adobe Pass Authentication-backend kan identifiera enhetsplattformen.
+* Inkludera rubriken `AP-Partner-Framework-Status` med giltig status för partnerramverket i alla relevanta API-begäranden.
+
+**Adobe Pass-konfiguration:**
+
+* Aktivera enkel inloggning (SSO) för varje önskad integrering och plattform (iOS/tvOS) via Adobe Pass TVE Dashboard genom att ange egenskapen `Enable Single Sign On` till `Yes`.
+
+**MVPD-krav:**
+
+* MVPD måste integreras med Apple för Apple SSO-support.
+* MVPD måste vara integrerat med Adobe Pass Authentication för att partnerkonfigurationen för enkel inloggning ska kunna konfigureras.
+
+Mer information finns i dokumentationen för [Apple SSO Overview - PrRequirements](/help/authentication/integration-guide-programmers/features-standard/sso-access/partner-sso/apple-sso/apple-sso-overview.md#apple-sso-prerequisites).
+
+#### &#x200B;3. Vad är rubriken AP-Partner-Framework-Status och varför krävs det? {#apple-sso-faq3}
+
+Rubriken `AP-Partner-Framework-Status` innehåller statusinformation om partnerramverket som hämtats från Apple Video Subscriber Account Framework.
+
+**Krävs alltid:**
+
+* [Hämta partnerautentiseringsbegäran](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-partner-authentication-request.md)
+* [Skapa och hämta profil med partnerautentiseringssvar](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-profile-using-partner-authentication-response.md)
+
+**Villkorligt obligatoriskt:**
+
+* [Hämta profiler](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md)
+* [Hämta profil för specifik mvpd](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md)
+* [Hämta auktoriseringsbeslut med hjälp av specifik mvpd](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-authorization-decisions-using-specific-mvpd.md)
+* [Hämta förauktoriseringsbeslut med hjälp av en specifik mvpd](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/decisions-apis/rest-api-v2-decisions-apis-retrieve-preauthorization-decisions-using-specific-mvpd.md)
+
+Strömningsprogrammet måste hämta informationen genom att anropa Video Subscriber Account Framework och inkludera den som en base64-kodad JSON-nyttolast i huvudet.
+
+**Bästa praxis:**
+
+* Direktuppspelningsprogrammet bör hämta partnerramverkets status när programmet försätts.
+* Cachelagra statusinformationen för partnerramverket och uppdatera när programmet växlar från bakgrund till förgrund.
+* Kontrollera att partnerramverkets status innehåller giltiga värden (användarbehörighet, giltig provideridentifierare, giltigt utgångsdatum).
+
+Mer information finns i dokumentationen för [AP-Partner-Framework-Status](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/appendix/headers/rest-api-v2-appendix-headers-ap-partner-framework-status.md).
+
+#### &#x200B;4. Hur felsöker jag Apple SSO-problem? {#apple-sso-faq4}
+
+När du felsöker Apple SSO-problem ska du följa detta allmänna tillvägagångssätt:
+
+**Steg 1: Verifiera generering av SAML-begäran**
+
+* Kontrollera att slutpunkten [Hämta partnerautentiseringsbegäran](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-partner-authentication-request.md) returnerar en giltig partnerautentiseringsbegäran (SAML-begäran).
+* Kontrollera att attributet `authenticationRequest - request` innehåller en korrekt formaterad SAML-begäran efter base64-avkodning.
+* Kontrollera att rubriken `AP-Partner-Framework-Status` innehåller giltig statusinformation för partnerramverket.
+
+**Steg 2: Identifiera VSA-fel**
+
+* Granska felsvar från Video Subscriber Account Framework.
+* I dokumentationen för [Video Subscriber Account Framework](https://developer.apple.com/documentation/videosubscriberaccount/vserror#Error-codes) finns felkoder och beskrivningar.
+* Observera att VSA-feldokumentationen är ganska generisk och kanske inte innehåller detaljerad information om rotorsak.
+
+**Steg 3: Kontrollera vanliga problem**
+
+* Åtkomststatus för användarbehörighet måste beviljas (kontrollera `VSAccountAccessStatus.granted`).
+* Mappnings-ID för användarprovider måste finnas och vara giltigt (`accountProviderIdentifier`).
+* Utgångsdatumet för användarproviderprofilen måste vara giltigt (`authenticationExpirationDate`).
+* MVPD måste vara integrerat med Apple (markera `boardingStatus` i slutpunktssvaret för konfigurationen).
+* MVPD-integreringen måste ha Apple SSO aktiverat i TVE Dashboard.
+
+**Steg 4: Involvera MVPD för undersökning**
+
+* Om Video Subscriber Account Framework tar emot en giltig SAML-begäran men inte returnerar ett SAML-svar efter MVPD-interaktion måste du kontakta Apple SSO-aktiverade MVPD för att felsöka.
+* Problemet kan också gälla MVPD-specifik konfiguration eller implementering på Apple sida.
+
+#### &#x200B;5. Vad är vanliga VSA-fel och hur ska jag hantera dem? {#apple-sso-faq5}
+
+Vanliga scenarier och deras hantering:
+
+**Användaren nekar behörighet:**
+
+* `VSAccountAccessStatus` blir inte `.granted`.
+* Fall back to basic authentication flow and present the application&#39;s own MVPD picker.
+
+**MVPD ej integrerat med Apple (felkod 1):**
+
+* VSA Framework returnerar ett fel med `error.code == 1`.
+* `error.userInfo["VSErrorInfoKeyUnsupportedProviderIdentifier"]` innehåller Apple MSO ID.
+* Fall back to basic authentication flow, but you can skip prompting the user with your MVPD picker if you can map the Apple MSO ID to an MVPD in your configuration.
+
+**Inga metadata returnerades:**
+
+* `vsaMetadata` är `nil` eller obligatoriska fält saknas.
+* Fall tillbaka till grundläggande autentiseringsflöde.
+
+**SAML-svar returnerades inte:**
+
+* `samlAttributeQueryResponse` är `nil` efter MVPD-autentisering.
+* Detta kan tyda på ett problem med MVPD Apple SSO-implementering.
+* Överväg att kontakta Adobe, MVPD och Apple för en utredning.
+
+Detaljerad felinformation finns i dokumentationen för [Video Subscriber Account Framework](https://developer.apple.com/documentation/videosubscriberaccount).
+
+#### &#x200B;6. Vad anger profiltypen &quot;appleSSO&quot;? {#apple-sso-faq6}
+
+En profil med `type` inställd på AppleSSO anger att användaren autentiserade via Apple Partner Single Sign-On-flöde med Video Subscriber Account Framework.
+
+Den här profiltypen har specifika krav:
+
+* När du fattar beslut (förauktorisering/auktorisering) med en AppleSSO-profil, ska direktuppspelningsprogrammet innehålla en giltig `AP-Partner-Framework-Status`-rubrik med aktuell status för partnerramverket.
+* Under utloggningen kommer svaret att innehålla `actionName` inställd på &quot;partner_logOut&quot; och `actionType` inställd på &quot;partner_interactive&quot;, vilket anger att användaren måste slutföra utloggningen på partnernivå (systemnivå).
+
+Regelbundna profiler (icke-Apple SSO) har inte dessa krav och följer de grundläggande autentiseringsflödena.
+
+#### &#x200B;7. Hur hanterar jag utloggning för Apple SSO-profiler? {#apple-sso-faq7}
+
+När du startar utloggning för en användare med en AppleSSO-typprofil:
+
+* Slutpunktssvaret för Adobe Pass-utloggning omfattar:
+   * `actionName` har angetts till &quot;partner_logOut&quot;
+   * `actionType` har angetts till &quot;partner_interactive&quot;
+   * Attributet `url` saknas
+
+* Strömningsprogrammet måste uppmana användaren att slutföra utloggningsprocessen på partnernivå (systemnivå) genom att gå till:
+   * `Settings -> TV Provider` på iOS/iPadOS
+   * `Settings -> Accounts -> TV Provider` på tvOS
+
+* Användaren måste logga ut manuellt från sin TV-leverantör på systemnivå för att slutföra utloggningsprocessen.
+
+Mer information finns i dokumentationen för [Apple SSO Cookbook (REST API V2) - utloggningsfas](/help/authentication/integration-guide-programmers/features-standard/sso-access/partner-sso/apple-sso/apple-sso-cookbook-rest-api-v2.md#cookbook).
+
+#### &#x200B;8. Kan jag återgå till grundläggande autentisering om Apple SSO misslyckas? {#apple-sso-faq8}
+
+Ja, Adobe Pass Authentication REST API V2 återgår automatiskt till grundläggande autentiseringsflöde i följande scenarier:
+
+**Automatisk återställning:**
+
+* Samlad inloggningsvalidering för partner misslyckas vid Adobe Pass backend
+* Användaren nekar åtkomst till prenumerationsinformation
+* MVPD ingår inte i Apple
+* VSA Framework returnerar inte giltiga metadata
+
+**Svarsindikation:**
+
+Vid återgång till grundläggande autentisering kommer slutpunktssvaret för [Hämta partnerautentiseringsbegäran](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-partner-authentication-request.md) att innehålla:
+
+* `actionName` har angetts till antingen &quot;authenticate&quot; eller &quot;resume&quot;
+* `actionType` har angetts som antingen interaktiv eller direkt
+
+Direktuppspelningsprogrammet bör hantera dessa svar genom att initiera det grundläggande autentiseringsflödet.
+
+**Manuell återställning:**
+
+Så här inaktiverar du Apple SSO för en viss integrering och använder alltid grundläggande autentisering:
+
+* Ställ in egenskapen `Enable Single Sign On` på `No` i Adobe Pass TVE Dashboard för den önskade integrationen och plattformen (iOS/tvOS).
+
+Mer information finns i dokumentationen för [enkel inloggning med partnerflöden](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/single-sign-on-access-flows/rest-api-v2-single-sign-on-partner-flows.md).
+
+#### &#x200B;9. Var finns mer information om Video Subscriber Account Framework? {#apple-sso-faq9}
+
+Mer information om Apple Video Subscriber Account Framework, inklusive API-referens, felkoder och integreringsriktlinjer, finns i Apple officiella dokumentation:
+
+* [Dokumentation för Video Subscriber Account Framework](https://developer.apple.com/documentation/videosubscriberaccount)
+
+Viktiga klasser och protokoll att granska:
+
+* [VSAccountManager](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanager) - Huvudhanterare för prenumerantkontoåtgärder
+* [VSAccountMetadataRequest](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadatarequest) - Begäran om prenumerationskontoinformation
+* [VSAccountMetadata](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmetadata) - Svar som innehåller information om prenumerationskonton
+* [VSAccountManagerDelegate](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountmanagerdelegate) - Delegeringsprotokoll för kontohanterarhändelser
+* [VSAccountAccessStatus](https://developer.apple.com/documentation/videosubscriberaccount/vsaccountaccessstatus) - uppräkning av status för användarbehörighet
+
++++
+
 ## Vanliga frågor om migrering {#migration-faqs}
 
 Fortsätt med det här avsnittet om du arbetar med ett program som behöver migrera ett befintligt program till REST API V2.
@@ -711,7 +906,7 @@ Klientprogrammet behöver inte ha en ny version som integrerar REST API V2 för 
 
 Adobe Pass Authentication kommer att ha fortsatt stöd för äldre klientprogramversioner som integrerar REST API V1 eller SDK fram till slutet av 2025.
 
-#### &#x200B;2. Måste jag köra ett nytt klientprogram som migrerats till REST API V2 för alla API:er och flöden samtidigt? {#migration-faq2}
+#### &#x200B;2. Måste jag köra ett nytt klientprogram som migrerats till REST API V2 över alla API:er och flöden samtidigt? {#migration-faq2}
 
 Ja.
 
@@ -721,7 +916,7 @@ Om autentiseringsflödet för den andra skärmen ska fungera måste klientprogra
 
 Adobe Pass Authentication stöder inte hybridimplementeringar som integrerar både REST API V2 och REST API V1/SDK mellan API:er och flöden.
 
-#### &#x200B;3. Bevaras användarautentiseringen vid uppdatering till ett nytt klientprogram som migrerats till REST API V2? {#migration-faq3}
+#### &#x200B;3. Kommer användarautentiseringen att bevaras vid uppdatering till ett nytt klientprogram som migrerats till REST API V2? {#migration-faq3}
 
 Nej.
 
@@ -774,7 +969,7 @@ Mer information finns i följande dokument:
 
 +++Vanliga frågor om konfigurationsfasen
 
-##### &#x200B;1. Vilka är de högnivå-API-migreringar som krävs för konfigurationsfasen? {#configuration-phase-v1-to-v2-faq1}
+##### &#x200B;1. Vilka är de högnivåmigreringar av API:er som krävs för konfigurationsfasen? {#configuration-phase-v1-to-v2-faq1}
 
 I migreringen från REST API V1 till REST API V2 finns det stora förändringar som kan övervägas i följande tabell:
 
@@ -788,7 +983,7 @@ I migreringen från REST API V1 till REST API V2 finns det stora förändringar 
 
 +++Vanliga frågor om autentiseringsfasen
 
-##### &#x200B;1. Vilka är de högnivåmigreringar av API som krävs för autentiseringsfasen? {#authentication-phase-v1-to-v2-faq1}
+##### &#x200B;1. Vilka högnivåmigreringar av API krävs för autentiseringsfasen? {#authentication-phase-v1-to-v2-faq1}
 
 I migreringen från REST API V1 till REST API V2 finns det stora förändringar som kan övervägas i följande tabell:
 
@@ -808,7 +1003,7 @@ I migreringen från REST API V1 till REST API V2 finns det stora förändringar 
 
 +++Vanliga frågor om förauktoriseringsfasen
 
-##### &#x200B;1. Vilka är de högnivåmigreringar av API:er som krävs för fasen för förhandsauktorisering? {#preauthorization-phase-v1-to-v2-faq1}
+##### &#x200B;1. Vilka är de högnivåmigreringar av API som krävs för förauktoriseringsfasen? {#preauthorization-phase-v1-to-v2-faq1}
 
 I migreringen från REST API V1 till REST API V2 finns det stora förändringar som kan övervägas i följande tabell:
 
@@ -822,7 +1017,7 @@ I migreringen från REST API V1 till REST API V2 finns det stora förändringar 
 
 +++Vanliga frågor om auktoriseringsfasen
 
-##### &#x200B;1. Vilka är de högnivåmigreringar av API som krävs för auktoriseringsfasen? {#authorization-phase-v1-to-v2-faq1}
+##### &#x200B;1. Vilka är de högnivåmigreringar av API:er som krävs för auktoriseringsfasen? {#authorization-phase-v1-to-v2-faq1}
 
 I migreringen från REST API V1 till REST API V2 finns det stora förändringar som kan övervägas i följande tabell:
 
@@ -890,7 +1085,7 @@ I migreringen från SDK:er till REST API V2 finns det stora förändringar som k
 
 +++Vanliga frågor om konfigurationsfasen
 
-##### &#x200B;1. Vilka är de högnivå-API-migreringar som krävs för konfigurationsfasen? {#configuration-phase-sdk-to-v2-faq1}
+##### &#x200B;1. Vilka är de högnivåmigreringar av API:er som krävs för konfigurationsfasen? {#configuration-phase-sdk-to-v2-faq1}
 
 I migreringen från SDK:er till REST API V2 finns det stora förändringar som kan övervägas i följande tabeller:
 
@@ -924,7 +1119,7 @@ I migreringen från SDK:er till REST API V2 finns det stora förändringar som k
 
 +++Vanliga frågor om autentiseringsfasen
 
-##### &#x200B;1. Vilka är de högnivåmigreringar av API som krävs för autentiseringsfasen? {#authentication-phase-sdk-to-v2-faq1}
+##### &#x200B;1. Vilka högnivåmigreringar av API krävs för autentiseringsfasen? {#authentication-phase-sdk-to-v2-faq1}
 
 I migreringen från SDK:er till REST API V2 finns det stora förändringar som kan övervägas i följande tabeller:
 
@@ -980,7 +1175,7 @@ I migreringen från SDK:er till REST API V2 finns det stora förändringar som k
 
 +++Vanliga frågor om förauktoriseringsfasen
 
-##### &#x200B;1. Vilka är de högnivåmigreringar av API:er som krävs för fasen för förhandsauktorisering? {#preauthorization-phase-sdk-to-v2-faq1}
+##### &#x200B;1. Vilka är de högnivåmigreringar av API som krävs för förauktoriseringsfasen? {#preauthorization-phase-sdk-to-v2-faq1}
 
 I migreringen från SDK:er till REST API V2 finns det stora förändringar som kan övervägas i följande tabeller:
 
@@ -1012,7 +1207,7 @@ I migreringen från SDK:er till REST API V2 finns det stora förändringar som k
 
 +++Vanliga frågor om auktoriseringsfasen
 
-##### &#x200B;1. Vilka är de högnivåmigreringar av API som krävs för auktoriseringsfasen? {#authorization-phase-sdk-to-v2-faq1}
+##### &#x200B;1. Vilka är de högnivåmigreringar av API:er som krävs för auktoriseringsfasen? {#authorization-phase-sdk-to-v2-faq1}
 
 I migreringen från SDK:er till REST API V2 finns det stora förändringar som kan övervägas i följande tabeller:
 
