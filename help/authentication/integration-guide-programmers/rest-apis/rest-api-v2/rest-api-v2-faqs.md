@@ -2,7 +2,7 @@
 title: REST API V2 - frågor och svar
 description: REST API V2 - frågor och svar
 exl-id: 2dd74b47-126e-487b-b467-c16fa8cc14c1
-source-git-commit: 44fa75eb7b19ff44a41809d44c171baff6853b52
+source-git-commit: eaadf0aa7ddc58250e23715b7068d3497a30d258
 workflow-type: tm+mt
 source-wordcount: '11089'
 ht-degree: 0%
@@ -29,7 +29,7 @@ Mer information om migreringsinformation och -steg finns även i nästa avsnitt.
 
 +++Vanliga frågor om registreringsfasen
 
-Se [DCR-dokumentationen &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-faqs.md#rest-api-v2-access-faqs) med vanliga frågor om registrering av dynamiska klienter.
+Se [DCR-dokumentationen ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-faqs.md#rest-api-v2-access-faqs) med vanliga frågor om registrering av dynamiska klienter.
 
 +++
 
@@ -254,7 +254,7 @@ De grundläggande profilslutpunkterna är utformade för att ge klientprogrammet
 Varje slutpunkt passar ett specifikt användningsfall, enligt följande:
 
 | API | Beskrivning | Använd skiftläge |
-|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|--- |--- |--- |
 | [Profilslutpunkts-API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md) | Hämta alla användarprofiler. | **Användaren öppnar klientprogrammet för första gången**<br/><br/> I det här scenariot har klientprogrammet inte användarens valda MVPD-identifierare cachelagrad i beständigt lagringsutrymme.<br/><br/>Detta innebär att den skickar en enda begäran om att hämta alla tillgängliga användarprofiler. |
 | [Profilslutpunkt för specifikt MVPD API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md) | Hämta användarprofilen som är kopplad till en viss MVPD. | **Användaren återgår till klientprogrammet efter att ha autentiserats vid ett tidigare besök**<br/><br/> I det här fallet måste användarens tidigare valda MVPD-identifierare vara cachelagrad i det beständiga lagringsutrymmet.<br/><br/>På grund av detta skickas en enda begäran om att hämta användarens profil för just den aktuella MVPD. |
 | [Profilslutpunkt för specifikt (autentisering) kods-API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md) | Hämta användarprofilen som är associerad med en viss autentiseringskod. | **Användaren initierar autentiseringsprocessen**<br/><br/> I det här scenariot måste klientprogrammet avgöra om användaren har slutfört autentiseringen och hämtat profilinformationen.<br/><br/>Detta resulterar i att en avsökningsmekanism startas för att hämta användarens profil som är associerad med autentiseringskoden. |
@@ -264,7 +264,7 @@ Mer information finns i det [grundläggande profilflödet som utförs i det prim
 Profilens SSO-slutpunkt har ett annat syfte och ger klientprogrammet möjlighet att skapa en användarprofil med partnerautentiseringssvaret och hämta den i en enda engångsåtgärd.
 
 | API | Beskrivning | Använd skiftläge |
-|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --- | --- | --- |
 | [Profiler för SSO-slutpunkts-API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/partner-single-sign-on-apis/rest-api-v2-partner-single-sign-on-apis-retrieve-profile-using-partner-authentication-response.md) | Skapa och hämta användarprofil med partnerautentiseringssvar. | **Användaren tillåter programmet att använda enkel inloggning från partner för att autentisera**<br/><br/> I det här scenariot måste klientprogrammet skapa en användarprofil efter att ha tagit emot partnerautentiseringssvaret och hämta den i en enda engångsåtgärd. |
 
 För efterföljande frågor måste de grundläggande profilslutpunkterna användas för att fastställa användarens autentiseringsstatus, få åtkomst till användarens metadatainformation, hitta den metod som används för att autentisera eller den enhet som används för att ange identitet.
@@ -273,7 +273,7 @@ Mer information finns i dokumenten [Single sign-on med partnerflöden](/help/aut
 
 #### &#x200B;11. Vad ska klientprogrammet göra om användaren har flera MVPD-profiler? {#authentication-phase-faq11}
 
-Beslutet att ge stöd för flera profiler beror på klientprogrammets affärskrav.
+Beslutet att stödja flera profiler beror på klientprogrammets affärskrav.
 
 De flesta användare har bara en profil. I de fall där det finns flera profiler (som beskrivs nedan) ansvarar klientprogrammet för att fastställa den bästa användarupplevelsen för val av profil.
 
@@ -309,7 +309,7 @@ För att säkerställa effektivitet och undvika onödiga förfrågningar måste 
 
 **Autentisering utförd i det primära (skärm) programmet**
 
-Det primära (direktuppspelande) programmet ska starta avsökningen när användaren kommer till den sista målsidan, efter att webbläsarkomponenten har läst in den URL som angetts för parametern `redirectUrl` i [&#x200B; Sessions](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) -slutpunktsbegäran.
+Det primära (direktuppspelande) programmet ska starta avsökningen när användaren kommer till den sista målsidan, efter att webbläsarkomponenten har läst in den URL som angetts för parametern `redirectUrl` i [ Sessions](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) -slutpunktsbegäran.
 
 **Autentisering utförd i ett sekundärt (skärm) program**
 
@@ -507,7 +507,7 @@ Klientprogrammet behövs inte för att lagra auktoriseringsbeslut i beständig l
 
 #### &#x200B;5. Hur kan klientprogrammet avgöra varför ett auktoriseringsbeslut nekades? {#authorization-phase-faq5}
 
-Klientprogrammet kan fastställa orsaken till ett beslut om nekad auktorisering genom att granska [felkoden och meddelandet &#x200B;](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) som ingår i svaret från slutpunkten för auktorisering av beslut. Dessa uppgifter ger insikt i varför auktoriseringsbegäran nekades, vilket kan bidra till att informera användaren eller utlösa nödvändig hantering i programmet.
+Klientprogrammet kan fastställa orsaken till ett beslut om nekad auktorisering genom att granska [felkoden och meddelandet ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) som ingår i svaret från slutpunkten för auktorisering av beslut. Dessa uppgifter ger insikt i varför auktoriseringsbegäran nekades, vilket kan bidra till att informera användaren eller utlösa nödvändig hantering i programmet.
 
 Se till att alla återförsöksmetoder som implementeras för att hämta auktoriseringsbeslut inte resulterar i en oändlig slinga om auktoriseringsbeslutet nekas.
 
@@ -551,7 +551,7 @@ Auktoriseringsbeslutet innehåller flera tidsstämpelattribut som ger ett viktig
 Dessa tidsstämplar beskriver giltighetsperioden för det övergripande beslutet om godkännande:
 
 | Attribut | Beskrivning | Anteckningar |
-|-------------|----------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-------------|-------------|---------|
 | `notBefore` | Tiden i millisekunder då auktoriseringsbeslutet utfärdades. | Detta är början på giltighetsfönstret för auktoriseringen. |
 | `notAfter` | Tiden i millisekunder när auktoriseringsbeslutet upphör att gälla. | [TTL (Time-to-Live)](/help/authentication/integration-guide-programmers/features-standard/entitlements/decisions.md#authorization-ttl-management) för auktorisering avgör hur länge auktoriseringen ska vara giltig innan omauktorisering krävs. Denna TTL förhandlas fram med MVPD representanter. |
 
