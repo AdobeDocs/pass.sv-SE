@@ -18,7 +18,7 @@ Senaste uppdatering: Tue Dec 09 2025 00:00:00 GMT+000 (universaltid)
 
 >[!IMPORTANT]
 >
-> Se till att du håller dig informerad om de senaste produktmeddelandena för Adobe Pass-autentisering och tidslinjer för avveckling som sammanställts på sidan [Produktmeddelanden](https://experienceleague.adobe.com/en/docs/pass/authentication/product-announcements).
+> Se till att du håller dig informerad om de senaste produktmeddelandena för Adobe Pass-autentisering och tidslinjer för avveckling som sammanställts på sidan [Produktmeddelanden](https://experienceleague.adobe.com/sv/docs/pass/authentication/product-announcements).
 
 Den här sidan beskriver nya funktioner, ändringar och kända fel i den här versionen:
 
