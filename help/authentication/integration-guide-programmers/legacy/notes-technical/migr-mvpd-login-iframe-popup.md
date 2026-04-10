@@ -2,9 +2,9 @@
 title: Migrera inloggningssidan för MVPD från iFrame till Popup
 description: Migrera inloggningssidan för MVPD från iFrame till Popup
 exl-id: 389ea0ea-4e18-4c2e-a527-c84bffd808b4
-source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
+source-git-commit: b51ac004765a8617347ac2ddadbfe60adff8ea3a
 workflow-type: tm+mt
-source-wordcount: '708'
+source-wordcount: '712'
 ht-degree: 0%
 
 ---
@@ -22,10 +22,12 @@ ht-degree: 0%
 ## Popup kontra iFrame {#popup-vs-iframe}
 
 Vissa användare har stött på cookie-problem från tredje part med iFrame-implementeringen av en MVPD-inloggningssida.
-<!--These issues are described in the tech notes linked below:
+<!--
+These issues are described in the tech notes linked below:
 
 * [Adobe Pass Authentication and Safari login issues](https://tve.helpdocsonline.com/adobe-pass)
-* [MVPD iFrame login and 3rd party cookies](https://tve.helpdocsonline.com/mvpd)-->
+* [MVPD iFrame login and 3rd party cookies](https://tve.helpdocsonline.com/mvpd)
+-->
 
 Adobe Pass-autentiseringsteamet **rekommenderar att du implementerar inloggningssidan för popup-fönster** i stället för iFrame-versionen i Firefox och Safari.  Om du implementerar en inloggningssida för Internet Explorer kan du stöta på problem med popup-implementeringen. IE-problemen orsakas av att Adobe Pass Authentication tvingar en överordnad sida att omdirigeras efter att användaren har autentiserat med sin MVPD i popup-fönstret, vilket ses som en popup-blockerare i Internet Explorer. Adobe Pass-autentiseringsteamet **rekommenderar att iFrame-inloggningen för Internet Explorer** implementeras.
 

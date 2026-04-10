@@ -2,9 +2,9 @@
 title: Implementera CM för en enskild klient/princip och flera program
 description: Implementera CM för en enskild klient/princip och flera program
 exl-id: 5c579c7d-f235-4dba-95c2-8485021d9065
-source-git-commit: ed340643e807d786638d59f9bf07d73b7f909a72
+source-git-commit: b51ac004765a8617347ac2ddadbfe60adff8ea3a
 workflow-type: tm+mt
-source-wordcount: '241'
+source-wordcount: '242'
 ht-degree: 0%
 
 ---
@@ -13,7 +13,7 @@ ht-degree: 0%
 
 
 
-## Användningsexempel
+## Användningsfall
 
 Programmer P har ett iPhone-program, ett iPad-program och en webbplats. Den måste integreras med Adobe Concurrent Monitoring (CM) för att begränsa antalet samtidiga strömmar mellan dessa appar. Programmeraren skapar profiler som begränsar samtidig användning. Vi ska titta på två exempel:
 
@@ -35,7 +35,7 @@ Två appar + en webbplats används för att starta strömmar:
 
 
 
-<!---
+<!--
 
 Figure 1: Policy with one rule
 
@@ -471,4 +471,4 @@ Related Information
 Introduction - Adobe Concurrency Monitoring
 API Console - Adobe Concurrency Monitoring
 User Metadata - Adobe Pass Authentication
---->
+-->

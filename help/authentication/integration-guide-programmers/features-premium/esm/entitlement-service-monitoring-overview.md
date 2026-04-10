@@ -2,9 +2,9 @@
 title: Tillståndsövervakningens översikt
 description: Tillståndsövervakningens översikt
 exl-id: ebd5d650-0a32-4583-9045-5156356494e2
-source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
+source-git-commit: b51ac004765a8617347ac2ddadbfe60adff8ea3a
 workflow-type: tm+mt
-source-wordcount: '1303'
+source-wordcount: '1349'
 ht-degree: 0%
 
 ---
@@ -44,8 +44,8 @@ ESM API är inte allmänt tillgängligt.  Kontakta Adobe om du har frågor om ti
 | authz-jected | Antal försök till auktorisering som anses vara skadliga av Adobe Service Provider och som avvisats som ett resultat av DoS-attacker |
 | authz-latency | Totalt antal millisekunder som har ägnats åt MVPD-slutpunkten |
 | media-tokens | Antal genererade korta medietoken (som motsvarar antalet uppspelningsbegäranden) |
-| unika konton | Antal unika användare som har utfört berättigandeåtgärder (AuthN/AuthZ) i det valda tidsintervallet. (Det här måttet visas bara om dagliga värden har begärts.) </br> Detta beräknas för varje enskilt datacenter. När dc-dimensionen inte begärs visas inte det här måttet. |
-| unika sessioner | Antal unika sessioner som har utfört autentiseringsflödesanrop till tjänsten Adobe Pass Authentication inom det valda tidsintervallet. (Det här måttet visas bara om dagliga värden har begärts.) </br> Detta beräknas för varje enskilt datacenter. När dc-dimensionen inte begärs visas inte det här måttet. |
+| unika konton | Antal unika användare som har utfört berättigandeåtgärder (AuthN/AuthZ) i det valda tidsintervallet. (Det här måttet visas bara om dagliga värden begärs.) </br> Detta beräknas för varje enskilt datacenter. När dc-dimensionen inte begärs visas inte det här måttet. |
+| unika sessioner | Antal unika sessioner som har utfört autentiseringsflödesanrop till tjänsten Adobe Pass Authentication inom det valda tidsintervallet. (Det här måttet visas bara om dagliga värden begärs.) </br> Detta beräknas för varje enskilt datacenter. När dc-dimensionen inte begärs visas inte det här måttet. |
 | antal | En enkel räknare som används i händelseorienterade rapporter |
 
 </br>
@@ -71,7 +71,7 @@ ESM API är inte allmänt tillgängligt.  Kontakta Adobe om du har frågor om ti
 | EAP | Den externa autentiseringsprovidern när autentiseringsflödet utförs via ett externt system. </br> Värdena kan vara: </br> - Ej tillämpligt - Autentiseringen tillhandahölls av Adobe Pass Authentication </br> - Apple - det externa system som tillhandahöll autentiseringen är Apple |
 | os-family | Operativsystem som körs på enheten |
 | webbläsarfamiljen | Användaragent som används för åtkomst till Adobe Pass-autentisering |
-| cdt | Enhetsplattformen (alternativ) som för närvarande används för klientlösa. </br> Värdena kan vara: </br> - Ej tillämpbart - händelsen kom inte från en klientlös SDK </br> - Okänd - Eftersom parametern deviceType från en klientlös API är valfri finns det anrop som inte innehåller något värde. </br> - alla andra värden som skickades via det klientlösa API:t, t.ex. xbox, appletv, roku osv. </br> |
+| cdt | Enhetsplattformen (alternativ) som för närvarande används för klientlösa. </br>  Värdena kan vara: </br> - Ej tillämpligt - händelsen kom inte från en klientlös SDK </br> - okänd - Eftersom parametern deviceType från en klientlös API är valfri finns det anrop som inte innehåller något värde. </br> - alla andra värden som skickades via det klientlösa API:t, t.ex. xbox, appletv, roku osv. </br> |
 | platform-version | Den version av SDK utan klient som |
 | os-type | Operativsystem som körs på enheten, alternativ (används inte för närvarande) |
 | webbläsarversion | Version av användaragent |
@@ -114,7 +114,7 @@ ESM API är inte allmänt tillgängligt.  Kontakta Adobe om du har frågor om ti
 | mvpd | Det mvpd-ID som används för att utföra berättigandebegäran |
 | beställar-id | ID för begärande som används för att utföra berättigandebegäran |
 | EAP | Den externa autentiseringsprovidern när autentiseringsflödet utförs via ett externt system. </br> Värdena kan vara: </br> - Ej tillämpligt - Autentiseringen tillhandahölls av Adobe Pass Authentication </br> - Apple - det externa system som tillhandahöll autentiseringen är Apple |
-| cdt | Enhetsplattformen (alternativ) som för närvarande används för klientlösa. </br> Värdena kan vara: </br> - Ej tillämpbart - händelsen kom inte från en klientlös SDK </br> - Okänd - Eftersom parametern deviceType från en klientlös API är valfri finns det anrop som inte innehåller något värde. </br> - alla andra värden som skickades via det klientlösa API:t, t.ex. xbox, appletv, roku osv. </br> |
+| cdt | Enhetsplattformen (alternativ) som för närvarande används för klientlösa. </br>  Värdena kan vara: </br> - Ej tillämpligt - händelsen kom inte från en klientlös SDK </br> - okänd - Eftersom parametern deviceType från en klientlös API är valfri finns det anrop som inte innehåller något värde. </br> - alla andra värden som skickades via det klientlösa API:t, t.ex. xbox, appletv, roku osv. </br> |
 | sdk-typ | Klienten SDK använde (Flash, HTML5, Android native, iOS, Clientless etc.) |
 | plattform | Enheten identifierade plattformen. Möjliga värden: </br> - Android </br> - FireTV </br> - Roku </br> - iOS </br> - tvOS </br> - osv. |
 | nsdk | Klienten SDK använde (android, fireTV, js, iOS, tvOS, non-sdk) |

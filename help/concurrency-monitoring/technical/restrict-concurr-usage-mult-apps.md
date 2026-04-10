@@ -2,9 +2,9 @@
 title: Begränsa samtidig användning med flera program som tillhör olika ägare
 description: Begränsa samtidig användning med flera program som tillhör olika ägare
 exl-id: c358befc-36d6-4f55-92cc-4d02064c65fb
-source-git-commit: ed340643e807d786638d59f9bf07d73b7f909a72
+source-git-commit: b51ac004765a8617347ac2ddadbfe60adff8ea3a
 workflow-type: tm+mt
-source-wordcount: '275'
+source-wordcount: '286'
 ht-degree: 1%
 
 ---
@@ -55,7 +55,7 @@ Följande objekt MÅSTE paketeras i programmet/programmen:
 1. intervall för hjärtslag
 1. intervall för kontroll av överensstämmelse
 
-<!---
+<!--
 ## Workflows
  
 
@@ -427,4 +427,4 @@ Related Information
 Introduction - Adobe Concurrency Monitoring
 API Console - Adobe Concurrency Monitoring
 User Metadata - Adobe Pass Authentication
---->
+-->

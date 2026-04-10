@@ -2,9 +2,9 @@
 title: API-referens för inbyggda Amazon FireOS-klienter
 description: API-referens för inbyggda Amazon FireOS-klienter
 exl-id: 8ac9f976-fd6b-4b19-a80d-49bfe57134b5
-source-git-commit: 3818dce9847ae1a0da19dd7decc6b7a6a74a46cc
+source-git-commit: b51ac004765a8617347ac2ddadbfe60adff8ea3a
 workflow-type: tm+mt
-source-wordcount: '3451'
+source-wordcount: '3498'
 ht-degree: 0%
 
 ---
@@ -68,8 +68,7 @@ Se <https://tve.zendesk.com/hc/en-us/articles/115005561623-fire-TV-Native-Access
 
 | API-anrop: konstruktor |
 | --- |
-| ```public static AccessEnabler getInstance(Context appContext, String softwareStatement, String redirectUrl)<br>        throws AccessEnablerException```<br><br> |
-| ```public static AccessEnabler getInstance(Context appContext, String env_url, String softwareStatement, String redirectUrl) throws AccessEnablerException``` |
+| ```public static AccessEnabler getInstance(Context appContext, String softwareStatement, String redirectUrl)<br>        throws AccessEnablerException```<br><br>  <code> public static AccessEnabler getInstance(Context appContext, String env_url, String softwareStatement, String redirectUrl) ger AccessEnablerException </code> |
 
 **Tillgänglighet:** v3.0+
 
@@ -159,7 +158,7 @@ fas misslyckades
 
 ### setOptions {#fire_setOption}
 
-**Beskrivning:** Konfigurerar globala SDK-alternativ. Det accepterar en **karta\&lt;String, String\>** som ett argument. Värdena från kartan skickas till servern tillsammans med alla nätverksanrop som SDK gör.
+**Beskrivning:** Konfigurerar globala SDK-alternativ. Det accepterar en **karta\&lt;String, String\>** som argument. Värdena från kartan skickas till servern tillsammans med alla nätverksanrop som SDK gör.
 
 Värdena skickas till servern oberoende av det aktuella flödet (autentisering/auktorisering). Om du vill ändra värdena kan du anropa den här metoden när som helst.
 
@@ -260,7 +259,7 @@ När användaren har valt önskad MVPD måste programmet i det övre lagret åte
 | ```public void setSelectedProvider(String mvpdId)``` |
 
 
-**Tillgänglighet:**&#x200B;v 1.0+
+**Tillgänglighet:**v 1.0+
 
 **Parametrar:** Inga
 
@@ -341,7 +340,7 @@ Det här återanropet signalerar också när utloggningsflödet är klart.
 
 **Tillgänglighet:** v1.0+
 
-**&lt;Parametrar:** Parametern `resources` är en array med resurser för vilka auktorisering ska kontrolleras. Varje element i listan ska vara en sträng som representerar resurs-ID:t. Resurs-ID har samma begränsningar som resurs-ID:t i `getAuthorization()`-anropet, d.v.s. det ska vara ett avtalat värde mellan Programmer och MVPD eller ett mediets RSS-fragment.
+**&lt;Parametrar:** Parametern `resources` är en array med resurser som auktoriseringen ska kontrolleras för. Varje element i listan ska vara en sträng som representerar resurs-ID:t. Resurs-ID har samma begränsningar som resurs-ID:t i `getAuthorization()`-anropet, d.v.s. det ska vara ett avtalat värde mellan Programmer och MVPD eller ett mediets RSS-fragment.
 
 **Återanropet har utlösts:** `preauthorizedResources()`
 
@@ -355,7 +354,7 @@ Det här återanropet signalerar också när utloggningsflödet är klart.
 | --- |
 | ```public void checkPreauthorizedResources(ArrayList<String> resources)``` |
 
-**Tillgänglighet:**&#x200B;v 1.0+
+**Tillgänglighet:**v 1.0+
 
 **Parametrar:** Parametern `resources` är en array med resurser som användaren redan har behörighet att visa.
 
@@ -427,7 +426,7 @@ Det här återanropet signalerar också när utloggningsflödet är klart.
 | --- |
 | ```public void setToken(String token, String resourceId)``` |
 
-**Tillgänglighet:**&#x200B;v 1.0+
+**Tillgänglighet:**v 1.0+
 
 **Parametrar:**
 
@@ -561,7 +560,7 @@ Vilka användarmetadata som är tillgängliga för en programmerare beror på va
 - *result*: Ett sammansatt objekt som innehåller begärda metadata. Objektet har följande fält:
    - *simpleResult*: En sträng som representerar metadatavärdet när begäran gjordes för autentiserings-TTL, auktoriserings-TTL eller enhets-ID. Det här värdet är null om begäran gjordes för användarmetadata.
 
-   - *userMetadataResult*: Ett objekt som innehåller Java-representationen av en nyttolast för JSON-användarmetadata. Exempel:
+   - *userMetadataResult*: Ett objekt som innehåller Java-representationen av en nyttolast för JSON-användarmetadata. Till exempel:
 
      ```json
      {

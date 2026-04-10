@@ -2,19 +2,19 @@
 product: adobe primetime
 feature: Concurrency Monitoring
 audience: end-user
-user-guide-title: Övervakning av samtidig användning i Adobe Pass
+user-guide-title: Adobe Pass Concurrency Monitoring
 user-guide-description: Lär dig att definiera och tillämpa begränsningar för samtidig användning i flera program.
-source-git-commit: ed340643e807d786638d59f9bf07d73b7f909a72
+source-git-commit: b51ac004765a8617347ac2ddadbfe60adff8ea3a
 workflow-type: tm+mt
-source-wordcount: '276'
-ht-degree: 5%
+source-wordcount: '252'
+ht-degree: 0%
 
 ---
 
 
 # Adobe Pass Concurrency Monitoring - hjälp {#cm}
 
-- [CM-introduktion](cm-home.md) {#cm-intro}
+- [CM - introduktion](cm-home.md)
 - Komma igång {#getting-started}
    - [Komma igång med övervakning av samtidig användning](getting-started/getting-started-overview.md)
    - [Viktiga begrepp](getting-started/key-concepts.md)
@@ -34,7 +34,7 @@ ht-degree: 5%
    - [Implementeringsmodeller](technical/implementation-models.md)
    - [En klientprincip för flera appar](technical/single-tenant-policy-mult-app.md)
    - [Begränsa samtidig användning av flera appar](technical/restrict-concurr-usage-mult-apps.md)
-- [CM-användningsrapporter](reports/cm-usage-reports.md) {#cm-usage-reports}
+- [CM-användningsrapporter](reports/cm-usage-reports.md)
 - Tekniska anteckningar {#tech-notes}
    - [Standardmetadataattribut](technical/standard-metadata-attributes.md)
    - [Anpassade metadata](technical/custom-metadata.md)
@@ -72,4 +72,4 @@ ht-degree: 5%
    - [Övervakning av samtidig användning - Versionsinformation 2.5.0](releases/rn-cm-250.md)
    - [Övervakning av samtidig användning - Versionsinformation 2.3.2](releases/rn-cm-232.md)
    - [Övervakning av samtidig användning - Versionsinformation 2.2.2](releases/rn-cm-222.md)
-- [Supportprocedurer](support/cm-escalation-procedures.md) {#support-procedures}
+- [Stödförfaranden](support/cm-escalation-procedures.md)

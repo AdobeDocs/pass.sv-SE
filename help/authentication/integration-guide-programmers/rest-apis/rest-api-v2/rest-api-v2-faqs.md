@@ -2,10 +2,10 @@
 title: REST API V2 - frågor och svar
 description: REST API V2 - frågor och svar
 exl-id: 2dd74b47-126e-487b-b467-c16fa8cc14c1
-source-git-commit: eaadf0aa7ddc58250e23715b7068d3497a30d258
+source-git-commit: b51ac004765a8617347ac2ddadbfe60adff8ea3a
 workflow-type: tm+mt
-source-wordcount: '11089'
-ht-degree: 0%
+source-wordcount: '11094'
+ht-degree: 1%
 
 ---
 
@@ -29,7 +29,7 @@ Mer information om migreringsinformation och -steg finns även i nästa avsnitt.
 
 +++Vanliga frågor om registreringsfasen
 
-Se [DCR-dokumentationen &#x200B;](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-faqs.md#rest-api-v2-access-faqs) med vanliga frågor om registrering av dynamiska klienter.
+Se [DCR-dokumentationen ](/help/authentication/integration-guide-programmers/rest-apis/rest-api-dcr/dynamic-client-registration-faqs.md#rest-api-v2-access-faqs) med vanliga frågor om registrering av dynamiska klienter.
 
 +++
 
@@ -234,8 +234,8 @@ Klientprogrammet bör cachelagra delar av användarens profilinformation i en be
 | Attribut | Användarupplevelse |
 |--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `mvpd` | Klientprogrammet kan använda detta för att hålla reda på användarens valda TV-leverantör och fortsätta att använda det under förauktoriserings- eller auktoriseringsfaserna.<br/><br/>När den aktuella användarprofilen upphör att gälla kan klientprogrammet använda det sparade MVPD-valet och be användaren bekräfta detta. |
-| `attributes` | Klientprogrammet kan använda det här för att anpassa användarupplevelsen baserat på olika [användarmetadata](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md)-nycklar (t.ex. `zip`, `maxRating` osv.).<br/><br/>Användarmetadata blir tillgängliga när autentiseringsflödet har slutförts. Klientprogrammet behöver därför inte fråga en separat slutpunkt för att hämta [användarmetadata](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md) -informationen, eftersom den redan ingår i profilinformationen.<br/><br/>Vissa metadataattribut kan vara. uppdateras under auktoriseringsflödet, beroende på MVPD och det specifika metadataattributet. Därför kan klientprogrammet behöva fråga Profiles-API:erna igen för att hämta de senaste användarens metadata. |
-| `notAfter` | Klientprogrammet kan använda detta för att hålla reda på utgångsdatumet för användarprofilen.<br/><br/>Felhanteringen i klientprogrammet kräver att [error](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md#enhanced-error-codes-lists-rest-api-v2) -koderna (t.ex. `authenticated_profile_missing`, `authenticated_profile_expired`, `authenticated_profile_invalidated` osv.) hanteras, vilket anger att klientprogrammet kräver att användaren autentiserar. |
+| `attributes` | Klientprogrammet kan använda detta för att anpassa användarupplevelsen baserat på olika [användarmetadata](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md)-nycklar (t.ex. `zip`, `maxRating` osv.).<br/><br/>Användarmetadata blir tillgängliga när autentiseringsflödet har slutförts. Klientprogrammet behöver därför inte fråga en separat slutpunkt för att hämta [användarmetadata](/help/authentication/integration-guide-programmers/features-standard/entitlements/user-metadata.md) -informationen, eftersom den redan ingår i profilinformationen.<br/><br/>Vissa metadataattribut kan uppdateras under auktoriseringsflödet, beroende på MVPD och det specifika metadataattributet. Därför kan klientprogrammet behöva fråga Profiles-API:erna igen för att hämta de senaste användarens metadata. |
+| `notAfter` | Klientprogrammet kan använda detta för att hålla reda på utgångsdatumet för användarprofilen.<br/><br/>Felhanteringen i klientprogrammet kräver att [ error](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md#enhanced-error-codes-lists-rest-api-v2) -koderna (t.ex. `authenticated_profile_missing`, `authenticated_profile_expired`, `authenticated_profile_invalidated` osv.) hanteras, vilket anger att klientprogrammet kräver att användaren autentiserar. |
 
 #### &#x200B;9. Kan klientprogrammet utöka användarens profil utan att kräva omautentisering? {#authentication-phase-faq9}
 
@@ -255,9 +255,9 @@ Varje slutpunkt passar ett specifikt användningsfall, enligt följande:
 
 | API | Beskrivning | Använd skiftläge |
 |--- |--- |--- |
-| [Profilslutpunkts-API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md) | Hämta alla användarprofiler. | **Användaren öppnar klientprogrammet för första gången**<br/><br/> I det här scenariot har klientprogrammet inte användarens valda MVPD-identifierare cachelagrad i beständigt lagringsutrymme.<br/><br/>Detta innebär att den skickar en enda begäran om att hämta alla tillgängliga användarprofiler. |
-| [Profilslutpunkt för specifikt MVPD API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md) | Hämta användarprofilen som är kopplad till en viss MVPD. | **Användaren återgår till klientprogrammet efter att ha autentiserats vid ett tidigare besök**<br/><br/> I det här fallet måste användarens tidigare valda MVPD-identifierare vara cachelagrad i det beständiga lagringsutrymmet.<br/><br/>På grund av detta skickas en enda begäran om att hämta användarens profil för just den aktuella MVPD. |
-| [Profilslutpunkt för specifikt (autentisering) kods-API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md) | Hämta användarprofilen som är associerad med en viss autentiseringskod. | **Användaren initierar autentiseringsprocessen**<br/><br/> I det här scenariot måste klientprogrammet avgöra om användaren har slutfört autentiseringen och hämtat profilinformationen.<br/><br/>Detta resulterar i att en avsökningsmekanism startas för att hämta användarens profil som är associerad med autentiseringskoden. |
+| [Profilslutpunkts-API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profiles.md) | Hämta alla användarprofiler. | **Användaren öppnar klientprogrammet för första gången**<br/><br/> I det här scenariot har klientprogrammet inte användarens valda MVPD-identifierare cachelagrad i beständig lagring.<br/><br/>Det innebär att programmet skickar en begäran om att hämta alla tillgängliga användarprofiler. |
+| [Profilslutpunkt för specifikt MVPD API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-mvpd.md) | Hämta användarprofilen som är kopplad till en viss MVPD. | **Användaren återgår till klientprogrammet efter att ha autentiserats vid ett tidigare besök**<br/><br/> I det här fallet måste användarens tidigare valda MVPD-identifierare cachelagras i det beständiga lagringsutrymmet.<br/><br/>Det innebär att programmet skickar en enda begäran om att hämta användarens profil för den specifika MVPD:n. |
+| [Profilslutpunkt för specifikt (autentisering) kods-API](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/profiles-apis/rest-api-v2-profiles-apis-retrieve-profile-for-specific-code.md) | Hämta användarprofilen som är associerad med en viss autentiseringskod. | **Användaren initierar autentiseringsprocessen**<br/><br/> I det här scenariot måste klientprogrammet avgöra om användaren har slutfört autentiseringen och hämta profilinformationen.<br/><br/>Detta resulterar i att en avsökningsmekanism startas för att hämta användarens profil som är associerad med autentiseringskoden. |
 
 Mer information finns i det [grundläggande profilflödet som utförs i det primära programmet](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-primary-application-flow.md) och i det [grundläggande profilflödet som utförs i det sekundära programmet](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/flows/basic-access-flows/rest-api-v2-basic-profiles-secondary-application-flow.md).
 
@@ -309,7 +309,7 @@ För att säkerställa effektivitet och undvika onödiga förfrågningar måste 
 
 **Autentisering utförd i det primära (skärm) programmet**
 
-Det primära (direktuppspelande) programmet ska starta avsökningen när användaren kommer till den sista målsidan, efter att webbläsarkomponenten har läst in den URL som angetts för parametern `redirectUrl` i [&#x200B; Sessions](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) -slutpunktsbegäran.
+Det primära (direktuppspelande) programmet ska starta avsökningen när användaren kommer till den sista målsidan, efter att webbläsarkomponenten har läst in den URL som angetts för parametern `redirectUrl` i [ Sessions](/help/authentication/integration-guide-programmers/rest-apis/rest-api-v2/apis/sessions-apis/rest-api-v2-sessions-apis-create-authentication-session.md) -slutpunktsbegäran.
 
 **Autentisering utförd i ett sekundärt (skärm) program**
 
@@ -507,7 +507,7 @@ Klientprogrammet behövs inte för att lagra auktoriseringsbeslut i beständig l
 
 #### &#x200B;5. Hur kan klientprogrammet avgöra varför ett auktoriseringsbeslut nekades? {#authorization-phase-faq5}
 
-Klientprogrammet kan fastställa orsaken till ett beslut om nekad auktorisering genom att granska [felkoden och meddelandet &#x200B;](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) som ingår i svaret från slutpunkten för auktorisering av beslut. Dessa uppgifter ger insikt i varför auktoriseringsbegäran nekades, vilket kan bidra till att informera användaren eller utlösa nödvändig hantering i programmet.
+Klientprogrammet kan fastställa orsaken till ett beslut om nekad auktorisering genom att granska [felkoden och meddelandet ](/help/authentication/integration-guide-programmers/features-standard/error-reporting/enhanced-error-codes.md) som ingår i svaret från slutpunkten för auktorisering av beslut. Dessa uppgifter ger insikt i varför auktoriseringsbegäran nekades, vilket kan bidra till att informera användaren eller utlösa nödvändig hantering i programmet.
 
 Se till att alla återförsöksmetoder som implementeras för att hämta auktoriseringsbeslut inte resulterar i en oändlig slinga om auktoriseringsbeslutet nekas.
 

@@ -2,9 +2,9 @@
 title: Android SDK Cookbook
 description: Android SDK Cookbook
 exl-id: 7f66ab92-f52c-4dae-8016-c93464dd5254
-source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
+source-git-commit: b51ac004765a8617347ac2ddadbfe60adff8ea3a
 workflow-type: tm+mt
-source-wordcount: '1703'
+source-wordcount: '1690'
 ht-degree: 0%
 
 ---
@@ -71,7 +71,7 @@ Nätverksaktiviteten för AccessEnabler sker i en annan tråd så att gränssnit
      Utlöses endast av `getAuthentication()` om användaren inte har valt någon leverantör (MVPD) och ännu inte är autentiserad.\
      Parametern `mvpds` är en matris med providers som är tillgängliga för användaren.
 
-   - [`setAuthenticationStatus(status, felkod)`](#$setAuthNStatus)
+   - [`setAuthenticationStatus(status, errorcode)`](#$setAuthNStatus)
 
      Utlöses av `checkAuthentication()` varje gång.\
      Utlöses endast av `getAuthentication()` om användaren redan är autentiserad och har valt en leverantör.
@@ -102,12 +102,12 @@ Nätverksaktiviteten för AccessEnabler sker i en annan tråd så att gränssnit
      Utlöses av `getSelectedProvider()`.\
      Parametern `mvpd` ger information om providern som valts av användaren.
 
-   - [`setMetadataStatus(metadata, nyckel, argument)`](#$setMetadataStatus)
+   - [`setMetadataStatus(metadata, key, arguments)`](#$setMetadataStatus)
 
      Utlöses av `getMetadata().`\
      Parametern `metadata` innehåller de specifika data som du har begärt, parametern `key` är nyckeln som används i begäran `getMetadata()` och parametern `arguments` är samma ordlista som skickades till `getMetadata()`.
 
-   - [&quot;preauthorizedResources(resources)&grave;](#$preauthResources)
+   - [`preauthorizedResources(resources)`](#$preauthResources)
 
      Utlöses av `checkPreauthorizedResources()`.\
      Parametern `authorizedResources` visar de resurser som användaren har behörighet att visa.
@@ -121,12 +121,12 @@ Nätverksaktiviteten för AccessEnabler sker i en annan tråd så att gränssnit
 1. Starta programmet på den översta nivån.
 1. Initiera Adobe Pass-autentisering
 
-   a. Anropa [`getInstance`](#$getInstance) för att skapa en enda instans av Adobe Pass Authentication AccessEnabler.
+   a.  Anropa [`getInstance`](#$getInstance) för att skapa en enda instans av Adobe Pass Authentication AccessEnabler.
 
    - **Beroende:** Inbyggt Adobe Pass-autentisering
 Android Library (AccessEnabler)
 
-   b. Anropa ` setRequestor()` för att upprätta identifieringen av programmeraren; skicka en matris med Adobe Pass Authentication-slutpunkter i programmerarens `requestorID` och (eventuellt).
+   b.  Anropa ` setRequestor()` för att upprätta identifieringen av programmeraren; skicka en matris med Adobe Pass Authentication-slutpunkter till programmeraren `requestorID` och (valfritt).
 
    - **Beroende:** Giltigt begärande-ID för Adobe Pass-autentisering\
      (Samarbeta med kontohanteraren för Adobe Pass-autentisering för att ordna detta.)
@@ -134,7 +134,7 @@ Android Library (AccessEnabler)
    - **Utlösare:** setRequestorComplete()-återanrop
 
    | ANMÄRKNING |     |
-   | --- | --- |  
+   | --- | --- |
    |  | Inga berättigandebegäranden kan slutföras förrän identiteten för den som gjorde begäran har etablerats fullständigt. Detta innebär att när setRequestor() fortfarande körs blockeras alla efterföljande berättigandebegäranden (till exempel `checkAuthentication()`).<br><br>Du har två implementeringsalternativ: När begärarens identifieringsinformation har skickats till backend-servern kan gränssnittets programlager välja en av följande två metoder:<br><br>1.  Vänta på att återanropet `setRequestorComplete()` aktiveras (ingår i AccessEnabler-delegaten).  Det här alternativet ger den största säkerheten för att `setRequestor()` har slutförts, så det rekommenderas för de flesta implementeringar.<br>2.  Fortsätt utan att vänta på att återanropet `setRequestorComplete()` ska utlösas och börja utfärda tillståndsbegäranden. Dessa anrop (checkAuthentication, checkAuthorization, getAuthentication, getAuthorization, checkPreauthorizedResource, getMetadata, logout) köas av AccessEnabler-biblioteket, vilket gör att de faktiska nätverksanropen efter `setRequestor(). `Det här alternativet kan avbrytas ibland om nätverksanslutningen till exempel är instabil. |
 
    <!--Removed bad image link from first note cell above. ![](https://dzf8vqv24eqhg.cloudfront.net/userfiles/258/326/ckfinder/images/icons/1313859077_lightbulb.png) -->
@@ -187,7 +187,7 @@ flöde.
    - Om `getAuthorization()` misslyckas: Undersök undantaget som utlösts för att fastställa dess typ (AuthN, AuthZ eller något annat):
       - Om det var ett autentiseringsfel (AuthN) startar du om autentiseringsflödet.
       - Om det var ett auktoriseringsfel (AuthZ) har användaren inte behörighet att titta på det begärda mediet och någon typ av felmeddelande ska visas för användaren.
-      - Om det finns någon annan typ av fel (anslutningsfel, nätverksfel osv.) visar du ett felmeddelande för användaren.
+      - Om det finns någon annan typ av fel (anslutningsfel, nätverksfel osv.) visar sedan ett felmeddelande för användaren.
 
 1. Validera den korta medietoken.\
    Använd Adobe Pass Authentication Media Token Verifier-biblioteket för att verifiera den kortlivade medietoken som returnerats från `getAuthorization()`-anropet ovan:
@@ -211,9 +211,9 @@ flöde.
 1. Ring [`logout()`](#$logout) för att logga ut användaren.\
    AccessEnabler rensar bort alla cachelagrade värden och token för den aktuella MVPD-begäran och även för beställare med enkel inloggning. När cacheminnet har rensats gör AccessEnabler ett serveranrop för att rensa sessionerna på serversidan.  Observera, att eftersom serveranropet kan resultera i en SAML-omdirigering till IdP (detta tillåter sessionsrensning på IdP-sidan), måste det här anropet följa alla omdirigeringar. Därför måste anropet hanteras i en WebView-kontroll.
 
-   a. I samma mönster som autentiseringsarbetsflödet gör AccessEnabler-domänen en en begäran till gränssnittets programlager (via `navigateToUrl()`-återanropet) om att skapa en WebView-kontroll och instruera den kontrollen att läsa in URL:en för utloggningsslutpunkten på serverdelen.
+   a.  I samma mönster som autentiseringsarbetsflödet gör AccessEnabler-domänen en en begäran till gränssnittets programlager (via `navigateToUrl()`-återanropet) om att skapa en WebView-kontroll och instruera den kontrollen att läsa in URL:en för utloggningsslutpunkten på serverdelen.
 
-   b. Återigen måste gränssnittet övervaka WebView-kontrollens aktivitet och upptäcka när kontrollen, när den går igenom flera omdirigeringar, läser in programmets anpassade URL (d.v.s.: `http://adobepass.android.app/`). När den här händelsen inträffar stänger gränssnittets programlager WebView och utloggningsprocessen är klar.
+   b.  Återigen måste gränssnittet övervaka WebView-kontrollens aktivitet och upptäcka när kontrollen, när den går igenom flera omdirigeringar, läser in programmets anpassade URL (dvs.: `http://adobepass.android.app/`). När den här händelsen inträffar stänger gränssnittets programlager WebView och utloggningsprocessen är klar.
 
    **Obs!** Loggoutflödet skiljer sig från autentiseringsflödet på så sätt att användaren inte behöver interagera med WebView på något sätt. Gränssnittets programlager använder en WebView för att se till att alla omdirigeringar följs. Det är därför möjligt (och rekommenderas) att göra WebView-kontrollen osynlig (dvs. dold) under utloggningsprocessen.
 

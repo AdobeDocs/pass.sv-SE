@@ -2,9 +2,9 @@
 title: API för tillståndsövervaknings-API
 description: API för tillståndsövervaknings-API
 exl-id: a9572372-14a6-4caa-9ab6-4a6baababaa1
-source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
+source-git-commit: b51ac004765a8617347ac2ddadbfe60adff8ea3a
 workflow-type: tm+mt
-source-wordcount: '2027'
+source-wordcount: '2098'
 ht-degree: 0%
 
 ---
@@ -94,9 +94,9 @@ Följande filtreringsalternativ är tillgängliga:
 
 * **IN**-filter kan anges genom att lägga till samma dimension-name-parameter flera gånger med olika värden: dimension=värde1\&amp;dimension=värde2
 
-* **Inte lika med**-filter måste använda \! symbolen efter dimensionsnamnet som resulterar i tecknet &#39;\!=&#39; &quot;operator&quot;: dimension\!=värde
+* **Inte lika med**-filter måste använda symbolen \! efter dimensionsnamnet som resulterar i operatorn \!=: dimension\!=värde
 
-* **INTE IN**-filter kräver \!=&#39; operatorn ska användas flera gånger, en gång för varje värde i uppsättningen: dimension\!=värde1\&amp;dimension\!=värde2&amp;...
+* **NOT IN** -filter kräver att operatorn &#39;\!=&#39; används flera gånger, en gång för varje värde i uppsättningen: dimension\!=value1\&amp;dimension\!=value2&amp;...
 
 Det finns också en särskild användning för dimensionsnamnen i frågesträngen: Om dimensionsnamnet används som en frågesträngsparameter utan värde instruerar detta API att returnera en projektion som innehåller den dimensionen i rapporten.
 
@@ -106,8 +106,8 @@ Det finns också en särskild användning för dimensionsnamnen i frågestränge
 |---|---|
 | /dimension1/dimension2/dimension3?dimension1=värde1 | SELECT * from projection WHERE dimension1 = &#39;value1&#39; </br> GROUP BY dimension1, dimension2, dimension3 |
 | /dimension1/dimension2/dimension3?dimension1=värde1&amp;dimension1=värde2 | SELECT * från projektion DÄR dimension1 IN (&#39;värde1&#39;, &#39;värde2&#39;) </br> GRUPP BY dimension1, dimension2, dimension3 |
-| /dimension1/dimension2/dimension3?dimension1!=värde1 | SELECT * from projection WHERE dimension1 &lt;> &#39;value1&#39; | </br> GRUPP BY dimension1, dimension2, dimension3 |
-| /dimension1/dimension2/dimension3?dimension1!=värde1&amp;dimension2!=värde2 | SELECT * from projection WHERE dimension1 NOT IN (&#39;value1&#39;, &#39;value2&#39;) | </br> GRUPP BY dimension1, dimension2, dimension3 |
+| /dimension1/dimension2/dimension3?dimension1!=värde1 | SELECT * from projection WHERE dimension1 &lt;> &#39;value1&#39; \| </br> GROUP BY dimension1, dimension2, dimension3 |
+| /dimension1/dimension2/dimension3?dimension1!=värde1&amp;dimension2!=värde2 | SELECT * from projection WHERE dimension1 NOT IN (&#39;value1&#39;, &#39;value2&#39;) \| </br> GROUP BY dimension1, dimension2, dimension3 |
 | Anta att det inte finns någon direkt sökväg: /dimension1/dimension3 </br> men det finns en sökväg: /dimension1/dimension2/dimension3 </br> </br> /dimension1?dimension3 | SELECT * from projection GROUP BY dimension1, dimension3 |
 
 >[!NOTE]

@@ -2,9 +2,9 @@
 title: JavaScript SDK API Reference
 description: JavaScript SDK API Reference
 exl-id: 48d48327-14e6-46f3-9e80-557f161acd8a
-source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
+source-git-commit: b51ac004765a8617347ac2ddadbfe60adff8ea3a
 workflow-type: tm+mt
-source-wordcount: '2883'
+source-wordcount: '2902'
 ht-degree: 0%
 
 ---
@@ -190,7 +190,7 @@ När det är klart skapar och sparar en autentiseringstoken för användaren. Om
 
 
 **Återanrop har utlösts:**
-[&#x200B; setToken()](#settokeninrequestedresourceid-intoken-settokeninrequestedresourceidintoken), [&#x200B; tokenRequestFailed()](#tokenrequestfailedinrequestedresourceid-inrequesterrorcode-inrequestdetailederrormessage-tokenrequestfailedinrequestedresourceidinrequesterrorcodeinrequestdetailederrormessage), [sendTrackingData()](#sendtrackingdatatrackingeventtype-trackingdata-sendtrackingdatatrackingeventtypetrackingdata), [setAuthenticationStatus()](#setauthenticationstatusisauthenticated-errorcode)
+[ setToken()](#settokeninrequestedresourceid-intoken-settokeninrequestedresourceidintoken), [ tokenRequestFailed()](#tokenrequestfailedinrequestedresourceid-inrequesterrorcode-inrequestdetailederrormessage-tokenrequestfailedinrequestedresourceidinrequesterrorcodeinrequestdetailederrormessage), [ sendTrackingData()](#sendtrackingdatatrackingeventtype-trackingdata-sendtrackingdatatrackingeventtypetrackingdata), [ setAuthenticationStatus()](#setauthenticationstatusisauthenticated-errorcode)
 
 </br>
 
@@ -220,7 +220,7 @@ Denna API-variant är tillgänglig från och med JS SDK version 4.0
 
 </br>
 
-[Till början](#top)
+[Tillbaka till början](#top)
 </br>
 
 ## getMetadata(Key) {#getMetadata}
@@ -274,7 +274,7 @@ Det finns två typer av metadata:
   **Obs!** De faktiska användarmetadata som är tillgängliga för en programmerare beror på vad en MVPD gör tillgänglig.  I [Användarmetadata](#UserMetadata) finns en aktuell lista över tillgängliga användarmetadata.
 
 
-Exempel:
+Till exempel:
 
 ```JSON
     // Assume that a reference to the AccessEnabler has been previously 
@@ -309,7 +309,7 @@ Exempel:
 **Beskrivning:** Anropa den här funktionen när användaren har valt en MVPD i användargränssnittet för val av leverantör för att skicka providervalet till åtkomstaktiveringen eller anropa den här funktionen med en null-parameter om användaren har avvisat användargränssnittet för val av leverantör utan att välja någon leverantör.
 
 **Återanrop
-utlöses:**[&#x200B; setAuthationStatus()](#setauthenticationstatusisauthenticated-errorcode), [sendTrackingData()](#sendtrackingdatatrackingeventtype-trackingdata-sendtrackingdatatrackingeventtypetrackingdata)
+utlöstes:**[ setAuthenticationStatus()](#setauthenticationstatusisauthenticated-errorcode), [sendTrackingData()](#sendtrackingdatatrackingeventtype-trackingdata-sendtrackingdatatrackingeventtypetrackingdata)
 
 </br>
 
@@ -415,7 +415,7 @@ Du måste implementera dessa återanrop för att kunna hantera svaren på dina a
 
 **Beskrivning:** Implementera det här återanropet om användaren har valt en MVPD som kräver en iFrame där användargränssnittet för inloggningssidan för autentisering ska visas.
 
-**Utlöses av:**&#x200B;[&#x200B; setSelectedProvider()](#setselectedproviderproviderid-setselectedprovider)
+**Utlöses av:**[ setSelectedProvider()](#setselectedproviderproviderid-setselectedprovider)
 
 </br> [Till början](#top)
 
@@ -568,7 +568,7 @@ Data är specifika för varje händelsetyp:
 
 - *key (String)*: Nyckeln till de metadata som förfrågan gjordes för.
 - *encrypted (Boolean)*: En flagga som anger om värdet är krypterat eller inte. Om värdet är &quot;true&quot; är &quot;value&quot; en JSON Web Encrypted-representation av det faktiska värdet.
-- *data (JSON-objekt)*: Ett JSON-objekt med representation av metadata. För enkla begäranden (`TTL_AUTHN`, `TTL_AUTHZ`, `DEVICEID`) är resultatet en sträng (som representerar autentiserings-TTL, auktoriserings-TTL eller enhets-ID). Om det gäller en begäran om användarmetadata kan resultatet vara ett primitivt eller JSON-objekt som representerar metadatanyttolasten. Den faktiska strukturen för JSON-användarmetadataobjekt liknar följande:
+- *data (JSON-objekt)*: Ett JSON-objekt med representationen av metadata.För enkla begäranden (`TTL_AUTHN`, `TTL_AUTHZ`, `DEVICEID`) är resultatet en sträng (som representerar autentiserings-TTL, auktoriserings-TTL eller enhets-ID). Om det gäller en begäran om användarmetadata kan resultatet vara ett primitivt eller JSON-objekt som representerar metadatanyttolasten. Den faktiska strukturen för JSON-användarmetadataobjekt liknar följande:
 
 ```JSON
     {
@@ -588,7 +588,7 @@ Data är specifika för varje händelsetyp:
 ```
 
 
-Exempel:
+Till exempel:
 
 ```JSON
     // Implement the setMetadataStatus() callback
@@ -605,7 +605,7 @@ Exempel:
 
 **Utlöses av:** [`getMetadata()`](#getmetadatakey-getmetadata)
 </br>
-[Till början](#top)
+[ Tillbaka till början ](#top)
 
 </br>
 
@@ -627,20 +627,20 @@ Exempel:
 ### Felkoder för återanrop {#callback-error-codes}
 
 | Allmänna fel | |
-|:--- | :--- | 
+|:--- | :--- |
 | Internt fel | Ett systemfel uppstod vid försök att bearbeta begäran. |
 | Fel: Providern är inte vald | Inträffar när kunden avbryter i dialogrutan för val av leverantör |
 | Providern är inte tillgänglig | Inträffar när inga providers är tillgängliga. |
 
 | Autentiseringsfel | |
-|:--- | :--- | 
+|:--- | :--- |
 | Allmänt autentiseringsfel | Returneras när orsaken inte är känd eller inte kan publiceras. |
 | Internt autentiseringsfel | Ett systemfel uppstod vid försök att autentisera. |
 | Användaren är inte autentiserad | Användaren är inte autentiserad. |
 | Fel: Flera autentiseringsbegäranden | Ytterligare autentiseringsbegäranden togs emot innan det första slutfördes. |
 
 | Auktoriseringsfel | |
-|:--- | :--- | 
+|:--- | :--- |
 | Allmänt auktoriseringsfel | Returneras när orsaken inte är känd eller inte kan publiceras. |
 | Internt auktoriseringsfel | Ett systemfel uppstod vid försök att auktorisera. |
 | Användaren är inte auktoriserad | Kunden har inte behörighet att visa det begärda innehållet. |

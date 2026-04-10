@@ -2,9 +2,9 @@
 title: REST API Cookbook (klient-till-server)
 description: Återställ API-cookbook-klienten till servern.
 exl-id: f54a1eda-47d5-4f02-b343-8cdbc99a73c0
-source-git-commit: 9e085ed0b2918eee30dc5c332b6b63b0e6bcc156
+source-git-commit: b51ac004765a8617347ac2ddadbfe60adff8ea3a
 workflow-type: tm+mt
-source-wordcount: '886'
+source-wordcount: '906'
 ht-degree: 0%
 
 ---
@@ -19,9 +19,9 @@ ht-degree: 0%
 >
 > Se till att du håller dig informerad om de senaste produktmeddelandena för Adobe Pass-autentisering och tidslinjer för avveckling som sammanställts på sidan [Produktmeddelanden](/help/authentication/product-announcements.md).
 
-## Ökning {#overview}
+## Översikt {#overview}
 
-Det här dokumentet innehåller stegvisa instruktioner för programmerarens tekniker att integrera en&quot;smart enhet&quot; (spelkonsol, smart TV-app, digitalbox osv.) med Adobe Pass Authentication med REST API-tjänster. Denna klient-till-server-metod, som använder REST-API:er i stället för en klient-SDK, ger bredare stöd för olika plattformar där det inte skulle vara möjligt att utveckla ett stort antal unika SDK:er. En utförlig teknisk översikt över hur den klientlösa lösningen fungerar finns i [Översikt över klientlös teknik](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/rest-api-overview.md).
+Det här dokumentet innehåller stegvisa instruktioner för programmerarens tekniker att integrera en&quot;smart enhet&quot; (spelkonsol, smart TV-app, digitalbox osv.) med Adobe Pass Authentication med REST API services. Denna klient-till-server-metod, som använder REST-API:er i stället för en klient-SDK, ger bredare stöd för olika plattformar där det inte skulle vara möjligt att utveckla ett stort antal unika SDK:er. En utförlig teknisk översikt över hur den klientlösa lösningen fungerar finns i [Översikt över klientlös teknik](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/rest-api-overview.md).
 
 
 Strategin kräver två komponenter (direktuppspelningsapp och AuthN-app) för att slutföra de nödvändiga flödena: start-, registrerings-, auktoriserings- och vymedieflöden i direktuppspelningsappen och autentiseringsflödet i din AuthN-app.
@@ -72,11 +72,11 @@ Adobe Pass använder DCR för att säkra klientkommunikationen mellan ett progra
 
 1. Skaffa en registreringskod och URL som användaren kan använda för att få åtkomst till inloggningsappen för den andra skärmen och visa dessa för användaren:
 
-   a. Skicka en POST-begäran till Adobe Registration Code Service och skicka ett hash-kodat enhets-ID och en &quot;Registration URL&quot;.  Till exempel: [`<REGGIE_FQDN>/reggie/v1/[requestorId]/regcode [device ID]`](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/registration-code-request.md)
+   a.  Skicka en POST-begäran till Adobe Registration Code Service och skicka ett hash-kodat enhets-ID och en &quot;Registration URL&quot;.  Till exempel: [`<REGGIE_FQDN>/reggie/v1/[requestorId]/regcode [device ID]`](/help/authentication/integration-guide-programmers/legacy/rest-api-v1/apis/registration-code-request.md)
 
-   b. Ange den returnerade registreringskoden och URL-adressen till användaren.
+   b.  Ange den returnerade registreringskoden och URL-adressen till användaren.
 
-   c. Instruera användaren att växla till en webbkompatibel enhet, navigera till URL:en och ange sedan registreringskoden.
+   c.  Instruera användaren att växla till en webbkompatibel enhet, navigera till URL:en och ange sedan registreringskoden.
 
 
 
@@ -96,7 +96,7 @@ Adobe Pass använder DCR för att säkra klientkommunikationen mellan ett progra
 
    * Om det var ett AuthZ-fel har användaren inte behörighet att titta på det begärda mediet och någon typ av felmeddelande ska visas för användaren.
 
-   * Om något annat fel uppstod (anslutningsfel, nätverksfel osv.) visas ett felmeddelande för användaren.
+   * Om det finns något annat fel (anslutningsfel, nätverksfel osv.) visar sedan ett felmeddelande för användaren.
 
 
 
@@ -106,12 +106,12 @@ Adobe Pass använder DCR för att säkra klientkommunikationen mellan ett progra
 
 2. Är mediet skyddat?
 
-   a. Din app kontrollerar om mediet är skyddat.
+   a.  Din app kontrollerar om mediet är skyddat.
 
-   b. Om mediet är skyddat startar din app auktoriseringen
+   b.  Om mediet är skyddat startar din app auktoriseringen
 (AuthZ) Flöde ovanför.
 
-   c. Om mediet inte är skyddat kan du spela upp mediet för
+   c.  Om mediet inte är skyddat kan du spela upp mediet för
 användare.
 
 3. Spela upp mediet.
