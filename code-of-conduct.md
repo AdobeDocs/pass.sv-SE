@@ -1,7 +1,7 @@
 ---
 source-git-commit: e1fcfc03f1084e9159a73ad4e18b864d796bff3c
 workflow-type: tm+mt
-source-wordcount: '427'
+source-wordcount: '443'
 ht-degree: 0%
 
 ---
@@ -72,7 +72,7 @@ Projektledare som inte följer eller tillämpar uppförandekoden i gott skick
 tro kan få tillfälliga eller permanenta återverkningar som bestäms av andra
 projektledare.
 
-## Attribut
+## Tillskrivning
 
 Den här uppförandekoden har anpassats från [Contributor-konventionen](https://contributor-covenant.org), version 1.4,
 finns på [https://contributor-covenant.org/version/1/4](https://contributor-covenant.org/version/1/4/)

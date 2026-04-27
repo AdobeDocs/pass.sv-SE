@@ -1,8 +1,8 @@
 ---
 source-git-commit: e1fcfc03f1084e9159a73ad4e18b864d796bff3c
 workflow-type: tm+mt
-source-wordcount: '483'
-ht-degree: 5%
+source-wordcount: '521'
+ht-degree: 0%
 
 ---
 # Contribute-artikel
@@ -11,7 +11,7 @@ Vi välkomnar bidrag från både vår community och från Adobe-anställda utanf
 
 ## Adobe Open Source - uppförandekod
 
-Detta projekt har antagit [Adobe Open Source Code of Conduct](code-of-conduct.md) eller [.NET Foundation Code of Conduct](https://dotnetfoundation.org/code-of-conduct). Mer information finns i artikeln [Contributing](contributing.md).
+Det här projektet har antagit [Adobe Open Source uppförandekod](code-of-conduct.md) eller [.NET Foundation uppförandekod](https://dotnetfoundation.org/code-of-conduct). Mer information finns i artikeln [Contributing](contributing.md).
 
 ## Så här bidrar du till Adobe-innehåll
 
@@ -29,7 +29,7 @@ Om du bidrar med en mindre uppdatering:
 1. I&quot;Var det här innehållet till hjälp?&quot; bannern som visas längst ned i webbläsarfönstret klickar på **Detaljerade alternativ för feedback**.
 1. Klicka på **Föreslå en redigering** och skicka en pull-begäran (PR) med ändringarna i GitHub-gränssnittet.
 
-   Mer information finns i den allmänna [Adobe Docs Contributor-guiden](https://experienceleague.adobe.com/docs/contributor/contributor-guide/introduction.html?lang=sv-SE).
+   Mer information finns i den allmänna [Adobe Docs Contributor-guiden](https://experienceleague.adobe.com/docs/contributor/contributor-guide/introduction.html).
 
 Mindre korrigeringar och förtydliganden som du lämnar in för dokumentation och kodexempel i den här rapporten omfattas av Adobe användarvillkor.
 
@@ -43,7 +43,7 @@ Om du är en del av Adobe-communityn och vill skapa ett nytt ämne eller skicka 
 
 Deltagare i communityn kan använda GitHub-gränssnittet för grundläggande redigering eller förgrena rapporten för att göra större insatser.
 
-Mer information finns i [Adobe Docs Contributor Guide](https://experienceleague.adobe.com/docs/contributor/contributor-guide/introduction.html?lang=sv-SE).
+Mer information finns i [Adobe Docs Contributor Guide](https://experienceleague.adobe.com/docs/contributor/contributor-guide/introduction.html).
 
 ## Interna medarbetare
 
@@ -53,8 +53,8 @@ Om du är teknikskribent, programchef eller utvecklare för en Adobe Experience 
 
 Alla artiklar i den här databasen använder GitHub-smaksatt Markdown. Om du inte känner till Markdown kan du läsa:
 
-* [Grunderna för markeringar](https://help.github.com/articles/getting-started-with-writing-and-formatting-on-github/)
-* [Utskrivbart kalkylblad för markering](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf)
+* [Grunderna i markeringar](https://help.github.com/articles/getting-started-with-writing-and-formatting-on-github/)
+* [Utskrivbart markeringsblad](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf)
 
 ## Etiketter
 
